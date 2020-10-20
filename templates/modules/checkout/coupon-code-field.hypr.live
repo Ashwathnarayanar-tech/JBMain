@@ -1,0 +1,33 @@
+﻿<div class="mz-l-formfieldgroup-cell"  style="display: block;" tabindex="0" >
+    <label for="coupon-code" style="text-align: left;font-weight: bold;font-size: 16px;padding-left: 9px;">
+        To redeem a <em>Coupon Code</em> enter it here:
+    </label>  
+</div>
+<div class="mz-l-formfieldgroup-cell">
+<!-- ADA OK -->
+    <input type="text" id="coupon-code" name="coupon-code"  
+    style="border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;width: 180px;margin-top: 10px;"
+        {% for discount in model.orderDiscounts %}
+            {% if not discount.excluded %}
+                value="{{ discount.couponCode}}" 
+            {% else %}
+                value="" 
+            {% endif %}
+        {% endfor %}  
+    data-mz-value="couponCode" autocomplete="new-coupon"
+    aria-describedby="error-msg">
+
+    <button class="mz-button" data-mz-action="addCoupon" 
+    {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+    {% if model.seterror == 'coupon' %}
+        <span id="error-msg" class="error-msg" tabindex="-1" >{{ model.errormessagecoupon }}</span> 
+    {% else %}
+        <span id="error-msg" class="error-msg" tabindex="-1" ></span> 
+    {% endif %}
+    <div class="coupon-error" tabindex="-1" >Error: You cannot apply more than one coupon code. </div>        
+        {% for coupon in model.orderDiscounts  %}
+            {% if coupon.couponCode %}
+                <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove Coupon</div>  
+            {% endif %}
+        {% endfor %}
+    </div>

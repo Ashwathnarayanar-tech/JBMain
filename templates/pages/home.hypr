@@ -1,0 +1,15 @@
+{% extends "page" %}   
+ 
+{% block body-tag-classes %}mz-homepage{% endblock body-tag-classes %}
+{% block body-content %} 
+    {% require_script "pages/homepage" %}  
+
+    {% if pagecontext.isEditMode %}
+      <h2>DESKTOP/MOBILE/TAB</h2>  
+    {% endif %}
+    
+    {% include "modules/homenew" %}
+    
+    
+{% endblock body-content %}
+ 

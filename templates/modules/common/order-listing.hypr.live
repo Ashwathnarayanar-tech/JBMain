@@ -1,0 +1,112 @@
+<div class="mz-orderlisting" data-mz-id="{{ model.id }}" >
+
+    <div class="mz-orderlisting-detail">
+        
+        {% block order-details %}
+        <ul class="order-list-heading" tabindex="0" role="button" aria-expanded="false" orderidhead="{{model.orderNumber}}">
+            <li>
+                <label>{{ labels.orderNumber }}:</label>
+                <span>{{ model.orderNumber }}</span>
+            </li>
+            {% comment %}
+            <li>
+                <label>Order Status:</label>
+                <span>{{model.status}}</span> 
+            </li>
+            {% endcomment %} 
+            <li>
+                <label>Order Total:</label>
+                <span>{{ model.total|currency }}</span>
+            </li>
+            <li class="plus-minus">
+                <label><a orderIDhead="{{model.orderNumber}}">+</a></label>
+                <span></span>
+            </li>
+        </ul>
+        
+        <div class="order-list-main" orderID="{{model.orderNumber}}" style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};">
+            <div class="order-list-address-details">
+        
+        {% for package in model.packages %}
+            {% if forloop.counter0 == 0 %}
+                {% if package.trackingNumber %}
+                    <p style="line-height:21px;color:black;font-weight: 300; font-style: normal;color:black;" >
+                        Your order tracking number is: 
+                        <b>
+                        <!-- <a style="color:#1381b5;" href="https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums={{package.trackingNumber}}&loc=en_us">{{package.trackingNumber}}</a> -->
+						<a style="color:#1381b5;" href="https://jellybelly.narvar.com/jellybelly/tracking/UPS?tracking_numbers={{package.trackingNumber}}&ozip=53158&dzip={{ model.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode }}{% if package.shippingMethodCode == 'ups_UPS_GROUND' %}&service=UG{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SUREPOST_LESS_THAN_1LB' %}&service=SP{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SUREPOST_1LB_OR_GREATER' %}&service=SP{% endif %}{% if package.shippingMethodCode == 'ups_UPS_THREE_DAY_SELECT' %}&service=E3{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SECOND_DAY_AIR' %}&service=E2{% endif %}{% if package.shippingMethodCode == 'ups_UPS_NEXT_DAY_AIR_SAVER' %}&service=E1{% endif %}">{{package.trackingNumber}}</a>
+                        </b> 
+                    </p>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% comment %}
+        {% if model.status == "Accepted" %}
+                    <p style="line-height:21px;color:black;font-weight: 300; font-style: normal;color:black;" >
+                        {{themeSettings.acceptedMessage }}
+                    </p>
+        {%else%}
+            {% if model.status == "Processing"%}
+                        <p style="line-height:21px;color:black;font-weight: 300; font-style: normal;color:black;" >
+                            {{themeSettings.processingMessage }}
+                        </p>
+        {%else%}
+                {% if model.status == "Completed" %}
+                    <p style="line-height:21px;color:black;font-weight: 300; font-style: normal;color:black;" >
+                            {{themeSettings.shippedMessage }} 
+                        </p>
+                {% endif %}
+            {%endif%} 
+        {% endif %}
+        
+        {% endcomment %}
+        {% if model.payments %}
+            <div class="order-billing-address">
+                
+                {% for payment in model.payments %}
+                    {% if payment.status != "Voided" and payment.status != "Declined" %}
+                    <div class="clearfix"></div>
+                    <div class="billinginfo-container" tabindex="0" >
+                    <h4 class="mz-l-stack-sectiontitle"  aria-label="{{ labels.billingInformation }}">{{ labels.billingInformation }}</h4>
+                        {% include "modules/checkout/checkout-payment" with model=payment %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}    
+        
+        {% if model.fulfillmentInfo.fulfillmentContact%}
+            <div class="order-shipping-address" tabindex="0" >
+                <h4 class="mz-l-stack-sectiontitle"  aria-label="{{ labels.shippingInformation }}">{{ labels.shippingInformation }}</h4>
+                <span class="ship-to-label">{{ labels.shipTo }}</span>
+                <div class="ship-to-content">{% include "modules/common/address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}</div>
+                <span class="ship-to-label">{{ labels.shippingMethod }}</span>
+                <div class="ship-to-content">{{ model.fulfillmentInfo.shippingMethodName }}</div>
+            </div>
+        {% endif %}
+            <div class="clearfix"></div>
+        
+        <h3  orderID="{{model.orderNumber}}" class="mz-orderlisting-heading" 
+                    style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};" >YOUR ORDER</h3>
+        <h3 tabindex="0"  orderID="{{model.orderNumber}}" class="mz-orderlisting-date right" 
+                    style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};" > <span>Order Placed: </span>{{ model.auditInfo.createDate|date("F j, Y") }} </h3> 
+        <div orderID="{{model.orderNumber}}" class="clearfix"></div>
+            <a href="javascript:;" data-mz-action="addAllToCart" role="button" aria-label="add all items to cart" title="ADD ALL TO CART" class="add-all-to-cart" ordertoadd="{{model.orderNumber}}">Add All to Cart </a>
+           </div >
+    </div>        
+        {% endblock order-details %}
+            
+     
+    <ul  orderID="{{model.orderNumber}}" class="item-list-heading"  style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};"> 
+        <li class="item-name">Item</li>
+        <li class="item-qty">Quantity</li>
+        <li class="item-total">Total</li>
+    </ul>
+    <div  orderID="{{model.orderNumber}}" class="mz-orderlisting-items" style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};">
+    {% block order-items %}
+        {% for item in model.items %}
+        {% include "modules/common/item-listing" with model=item %}
+        {% endfor %}
+    {% endblock order-items %}
+    </div>
+</div>

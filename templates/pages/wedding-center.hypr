@@ -1,0 +1,110 @@
+{% extends "page" %}
+{% block body-tag-classes %}mz-footer-static mz-wedding mz-wed-favor mz-wed-center{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "modules/common" %} 
+<section>
+<style>
+.featured-candy-img {
+width:150px;
+height:150px;
+}
+</style>
+    <article class="wedding-title" tabindex="0" > 
+        <h1 class="sectionTitle" style="margin: 0;">Jelly Belly Wedding Center</h1>
+        <h2 class="sectionTitle" style="font-size: 34px; margin: 0; height: 34px; line-height: 0;">Where to Start</h2>
+    </article>
+    <div class="welcome-center">
+        <div class="welcome-center-details">
+            <p tabindex="0" >Welcome to Jelly Belly's Wedding Center. Here you'll find lots of great ideas for wedding favors, bridal shower favors, wedding decorations, gifts and more, all infused with the flavor and color Jelly Belly is known for!</p>
+            <div class="weddingNav">
+                <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom"/> 
+                <ul>
+                    {% comment %}<li><a href="/wedding-center">Wedding Center Home</a> <span aria-hidden="true">&#9658;</span></li>{% endcomment %}
+                    <li><a href="/wedding-ideas">Wedding Themes <span aria-hidden="true">&#9658;</span></a></li>
+                    <li><a href="/wedding-color-palettes">Color Palettes <span aria-hidden="true">&#9658;</span></a></li>
+                    <li><a href="/wedding-featured-candy">Featured Candy <span aria-hidden="true">&#9658;</span></a></li>
+                    <li><a href="#" class="candyCalculatorModal" title="Candy Calculator - Opens a dialog">Candy Calculator &#9658;</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="welcome-center-image">
+            <img alt="" border="0" src="/resources/images/wedding/Wedding Center/glamShot3.jpg">
+        </div>
+        <div class="clearfix"></div>
+        <div class="color-palette candy-calculator">
+            <hr />
+            <div class="home-palette">
+                <h2 class="sectionTitle" style="font-size: 34px; margin: 20px 0px;" tabindex="0">Color Palettes</h2>
+                <div class="home-features">
+                <div>
+                    <img src="/resources/images/wedding/Wedding Center/colorSwatches.jpg" alt="Wedding Center Color Palettes" class="img-border">     
+                </div>
+            </div>
+            <a  class="candy-link" href="/wedding-color-palettes">View our wedding candy color palettes ►</a>
+            
+            </div>
+          
+            <div class="clearfix"></div>
+        </div>
+        <div class="candy-calculator">
+            <hr />
+            <h2 class="sectionTitle" style="font-size: 34px; margin: 20px 0px;" tabindex="0">Candy Calculator</h2>
+            <div class="home-features">
+                <div>
+                    <p tabindex="0">
+                        Wondering how much wedding candy you need for your Special Day? The Jelly Belly <a class="candyCalculatorModal" href="#" title="Candy Calculator - Opens a dialog">
+                            Candy Calculator
+                        </a>allows you to easily choose
+                        your candy and wedding favor container shape, then enter the container dimensions to obtain the approximate amount of wedding candy necessary.
+                    </p>
+                    <figure>
+                        <img class="img-border" src="/resources/images/wedding/Wedding Center/candy_calculator_wedding.png" alt="" />
+                    </figure>
+                   
+                </div>
+            </div> 
+            <!-- /beach -->
+        </div>
+        <!-- <a href="#" class="candy-link" class="W_links candyCalcLink candyCalculatorModal" title="Candy Calculator - Opens a dialog">Use our Wedding Favor Candy Calculator ►</a> -->
+        <div class="wedding-banner">
+            <hr />
+            <h2 class="sectionTitle" style="font-size: 34px; margin: 20px 0px;" tabindex="0">Featured Candy</h2>
+            <div class="home-features">
+                <div>
+                    <figure>
+                      <img class="featured-candy-img" src="//cdn-tp1.mozu.com/9046-m1/cms/files/e6b2289f-2347-43f7-a339-750389528693" alt="Champagne Bubbles Candy">
+                        <figcaption>
+                            <a href="/search?query=champagne">Champagne Bubbles</a><br>
+                            <br>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="featured-candy-img" src="//cdn-tp1.mozu.com/9046-m1/cms/files/654e567a-197f-4d93-909c-cebedbba10a7" alt="Raspberries and Blackberries Candy">
+                        <figcaption>
+                            <a href="/search?query=raspberries">Raspberries and Blackberries</a>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="featured-candy-img" src="//cdn-tp1.mozu.com/9046-m1/cms/files/ad407d36-f963-4589-9935-5d0ce34e8f04" alt="Assorted Chocolate Dutch Mints">
+                        <figcaption>
+                            <a href="/search?query=chocolate%20dutch">Assorted Chocolate<br>Dutch Mints</a>
+                        </figcaption>
+                    </figure>
+                    <p tabindex="0">Classic, fun and sophisticated, Jelly Belly jelly beans and candies are popular choices for weddings. <a href="/wedding-featured-candy">Click here</a> and take a look at our wide selection. The possibilities are endless!</p>
+                </div>
+            </div>
+            <!-- /beach -->
+        </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+
+{{ "stylesheets/pages/wedding-center.less"|stylesheet_tag:"default" }}
+
+{% require_script "pages/jb-wedding-center" %}
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %} 

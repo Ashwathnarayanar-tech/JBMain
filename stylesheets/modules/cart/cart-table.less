@@ -1,0 +1,152 @@
+.mz-table-cart {
+
+    .mz-carttable-item-image {
+        float: left;
+        margin: 0 20px 0 0;
+    }
+
+    .mz-carttable-header-price, .mz-carttable-header-total,
+    .mz-carttable-item-price, .mz-carttable-item-total,
+    .mz-carttable-shipping-row td, .mz-carttable-total-row td,
+    .mz-carttable-checkout-row td, .mz-carttable-freeshipping-row td {
+        text-align: right;
+    }
+
+    .mz-carttable-header-qty, .mz-carttable-item-qty, .mz-carttable-noitems {
+        text-align: center;
+    }
+
+    .mz-carttable-item-info-wrap {
+        overflow: hidden;
+
+        .mz-propertylist {
+            float: right;
+            margin: 0;
+            width: 40%;
+        } 
+    }
+
+    .mz-carttable-item-title {
+        display: block;
+        font-size: @fontSizeLarger;
+        &:focus{ border: 1px dotted blue; }
+    }
+    
+    .mz-carttable-item-code {
+        float: left;
+        clear: both;
+        font-size: @fontSizeSmall;
+    }
+
+    .mz-carttable-item-pickuplocation {
+        float: left;
+        clear: both;
+        margin: @gutter/4 0;
+        font-size: @fontSizeLarger;
+    }
+
+    .mz-carttable-qty-field {
+        width: 50px;
+        margin: 0 0 3px 10px;
+    }
+
+    .mz-carttable-item-remove {
+        width: 40px;
+        text-align: center;
+        a{
+            span{
+                display:inline-block;
+                width: 10px; 
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        font{
+            i{
+                vertical-align: -1px;
+            }
+        }
+    }
+
+    .mz-carttable-total-row {
+        font-size: @fontSizeLarge;
+    }
+
+    .mz-carttable-total {
+        display: inline-block;
+        margin-right: @gutter/2;  
+    }
+
+        .mz-item-discount {
+        font-weight: bold;
+
+        .mz-item-discountamt {
+            color: #900;
+        }
+    }
+    .discount{
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        &:hover{
+            border-left: 1px solid rgb(212, 212, 212); 
+            border-right: 1px solid rgb(212, 212, 212);    
+        }
+        td{
+            &:first-child{
+                padding: 0 !important;
+                padding-left: 3% !important;
+                div{
+                    border: 1px dashed #ccc;
+                    margin-bottom: 4%;
+                    background: rgb(248, 248, 248);
+                    width: 96%;    
+                    .discountname{
+                        color: #004e99;
+                        font-weight: bold;
+                        font-size: 16px;
+                        display: inline-block;
+                        width: 66%;
+                        padding-top: 2%;
+                        padding-bottom: 2%;
+                        padding-left: 2%;
+                    }
+                    .discountimpact{
+                        font-size: 16px;
+                        color: rgb(59, 59, 62);
+                        font-weight: bold;
+                        padding-top: 2%;
+                        padding-bottom: 2%;
+                    }
+                    .removecoupon{
+                        font-size: 16px;
+                        cursor: pointer;
+                        color: rgb(153, 0, 0);
+                        text-decoration: underline;
+                        display: inline-block;
+                        width: 27%;
+                        padding-top: 2%;
+                        padding-bottom: 2%;
+                        text-align: right;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.active-button{
+    background: #177c23;
+    
+    &:hover{
+        background: green;
+    }
+}
+
+.coupon-error, .coupon-error-onetime-use {
+    display:none;
+    font-size: 13px;
+    color: #b94a48;
+    text-align:left;
+}

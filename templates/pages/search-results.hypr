@@ -1,0 +1,35 @@
+{% extends "page" %}
+{% block head-tag %}
+    {% parent %}
+    <head> 
+	    <title>
+    	{% block title-tag-content %}  
+		    Search Result
+		{% endblock title-tag-content %}
+		</title> 
+	</head>	
+{% endblock head-tag %}	
+
+
+{% block body-tag-classes %}mz-category mz-searchresults {% endblock body-tag-classes %}
+
+{% block body-content %} 
+
+
+<div {% if pageContext.categoryId %}data-mz-category="{{ pageContext.categoryId }}" {% endif %}data-mz-search="{{ pageContext.search.query }}" class="mz-l-container">
+  
+    {% include "modules/product/faceted-products" %}
+    {% dropzone "search-results" scope="template" %}
+</div> 
+{% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
+<div class="recommended-prod-head">Jelly Belly Also Recommends</div>  
+{% dropzone "searchresult-below-mbz" scope="template" %}             
+{% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                   
+
+{% require_script "pages/search" %}
+{% include "modules/addtowishlist-popup" %}
+<script type="text/javascript">
+	var bn_SearchTerm = "{{ pageContext.search.query }}";
+</script>
+{% require_script "modules/header-myaccount" %} 
+{% endblock body-content %} 

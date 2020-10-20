@@ -1,0 +1,34 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+{% require_script "pages/poll-form" %}
+
+	<div>
+        {% dropzone "poll-form" scope="page" %}
+    </div>
+	
+	<!--
+	<div id="poll-form" style="width: 980px; height: 220px; background-color: #E1EEEE; text-align: left; padding:10px 10px 10px 10px">
+		<p><strong>Do you like web polls?</strong></p>
+		<div id="poll-choices" style="display: block;">
+			<ul>
+				<p class="vote" poll="POLL1" choice="CHOICE1">Yes</p>
+				<p class="vote" poll="POLL1" choice="CHOICE2">No</p>
+				<p class="vote" poll="POLL1" choice="CHOICE3">Maybe</p>
+				<p class="vote" poll="POLL1" choice="CHOICE4">So</p>
+			</ul>
+		</div>
+		<div id="poll-results" style="display: none;">
+			<ul>
+				<p id="answer-result0"> Choice 1 results</p>
+				<p id="answer-result1"> Choice 2 results</p>
+				<p id="answer-result2"> Choice 3 results</p>
+				<p id="answer-result3"> Choice 4 results</p>
+			</ul>
+		</div>
+	</div>
+	-->
+	
+{% endblock body-content %}

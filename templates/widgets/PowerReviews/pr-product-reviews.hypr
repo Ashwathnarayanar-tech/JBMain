@@ -1,0 +1,31 @@
+<div data-mz-pr-config="{%json_attribute model.config%}"></div>
+
+<input type="hidden" id="prProductDetail" value="1">
+
+
+{% if model.config.widgetType == "reviewDisplay" %}
+    <input type="hidden" id="reviewDisplayType" value="{{model.config.displayType}}" >
+    {% if pageContext.isEditMode == 'true' %}
+      Power Reviews Display widget
+    {% endif %}
+     <div id="pr-reviewdisplay"></div>
+{% endif %}
+
+{% if model.config.widgetType == "socialAnswerDisplay" %}
+      <input type="hidden" id="qaDisplayType" value="{{model.config.displayType}}" >
+  {% if pageContext.isEditMode == 'true' %}
+    Power Reviews Q&A widget
+  {% endif %}
+  <div id="pr-qadisplay" ></div>
+{% endif %}
+
+{% if model.config.widgetType == "whydYouBuyDisplay" %}
+    <input type="hidden" id="wybDisplayType" value="{{model.config.displayType}}" >
+  {% if pageContext.isEditMode == 'true' %}
+    Power Reviews Why did you buy widget
+  {% endif %}
+  <div id="pr-wyb" ></div>
+{% endif %}
+
+<script type="text/javascript" src="//ui.powerreviews.com/stable/4.0/ui.js"></script>
+{% require_script "widgets/powerreviews" %}

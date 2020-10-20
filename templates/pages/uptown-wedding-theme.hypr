@@ -1,0 +1,114 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="uptown-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">Uptown Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                    
+                        
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/1.jpg" alt="thank you gift tins wrapped in blue with white beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/2.jpg" alt="overhead view of thank you gift tins wrapped in blue with white beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/3.jpg" alt="thank you gift tines wrapped in blue filled with white and brown beans on silver platter"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/4.jpg" alt="large graphic of thank you gift tins wrapped in blue filled with brown beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/5.jpg" alt="thank you gift tins wrapped in blue on dining plate"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/6.jpg" alt="thank you gift tins wrapped in blue and filled with whtie and brown beans on silver platter and dining plate"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/7.jpg" alt="thank you gift tins wrapped in blue on side with brown beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/8.jpg" alt="large graphic of thank you gift tins on side with brown beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Uptown Wedding/9.jpg" alt="thank you gift tins wrapped in blue and filled with brown and white beans stacked on platter "/>
+                        </div>
+                        
+                    </div>
+                    <p>
+                        Sophisticated yet simple, vibrant yet slightly subdued, this motif may be “Uptown,” but it can be achieved on any budget. It’s all about color choices and placement. Sky blue hues reflect off lustrous silver platters and utensils to make them shine even brighter. Use white/ivory
+                        flowers as elegant neutrals, and dark brown napkins and candies to add the perfect touch of warmth. 
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/cappuccino-jelly-beans/c/70">Cappuccino Jelly Belly jelly beans</a></li>
+                                <li><a href="/chocolate-pudding-jelly-beans/c/74">Chocolate Pudding Jelly Belly jelly beans</a></li>
+                                <li><a href="/french-vanilla-jelly-beans/c/16">French Vanilla Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/brown-candy-and-jelly-beans/c/323">Dark Brown</a></li>
+                                <li><a href="/brown-candy-and-jelly-beans/c/323">Brown</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                                <li><a href="/blue-candy-and-jelly-beans/c/334">Light Blue</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+					
+					<p style="font-size: 20px; color: &#9658"><b> Uptown Accoutrements for Your Elegant, Urban Wedding </b></p> 
+					<p> 
+					    Make your guests feel like they’re in a chic yet sophisticated uptown environment with these creative favors and candy displays from the Jelly Belly Wedding Center. The uptown wedding theme is marked by a sense of modern elegance, with a luxurious color palette that’s anything but 
+						flashy or over-the-top. Classics finishing touches like big, white centerpieces, pretty lace linens and soft blue finishing touches will help tie together this royal wedding theme. You can integrate décor and accents in this style regardless of your venue or budget. 
+					</p>
+					<p> 
+					    In order to capture the feel of the elegant, uptown wedding, we’ve combined candies in a stylish color palette of dark brown, brown, white and light blue. The soft sky blue coloring makes the perfect backdrop against darker tones and is reminiscent of everyone’s favorite high-end 
+						jeweler. It’s also the perfect nod to the tradition of something blue. Paired with touches of metallic silver, this classy color palette effortlessly honors an uptown theme that showcases your upscale tastes. 
+					</p>
+					    <p style="font-size: 20px; color: &#9658"><b> Bulk Jelly Beans for Extravagant Wedding Displays</b></p> 
+					<p>
+					    At Jelly Belly, we are here to help inspire you to incorporate everyone’s favorite candy bean into your wedding. Explore all of our inspiration photos to find different ways to style brown, blue and white jelly beans, such as in classy candy favor tins or piled high in pretty vases 
+						or candy jars. Because Jelly Belly jelly beans are safe for most diets — they’re kosher, dairy-free, gluten-free and vegetarian-friendly — and because you can buy any quantity in bulk, they make the perfect wedding candies for favors, buffets and decorations. In other words, just 
+						because this motif is a bit fancy doesn’t mean it won’t suit your budget or needs!
+					</p>
+                </div>
+            </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}
+    

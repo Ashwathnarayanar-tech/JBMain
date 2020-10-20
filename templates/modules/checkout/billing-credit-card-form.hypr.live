@@ -1,0 +1,25 @@
+﻿{% extends "modules/common/credit-card-form" %}
+{% block credit-card-form %}
+    {% set cardcontext="card." %} 
+        {% parent %}
+        <div class="mz-l-formfieldgroup-row save-credit-card-info {% if not user.isAuthenticated %}guest-account-pop{% endif %}">
+            <div class="mz-l-formfieldgroup-cell">
+              {% if user.isAuthenticated %} 
+              <label for="saved-card-info" class="checkbox-outer-label">
+                <input class="checkbox-primary" id="saved-card-info" type="checkbox" name="save-card-info" data-mz-value="{{ cardcontext }}isCardInfoSaved" value="true" {% if model.isCardInfoSaved %}checked="checked"{% endif %}>
+                {{ labels.saveCard }}
+                <span style="margin-top:-3px" class="checkmark-style"></span>
+              </label> 
+              {% else %}
+                <label style="display: inline-block;margin-top:-10px;" for="saved-card-info" class="mz-inline" id="labellinkto-popup">{{ labels.saveCard2 }} create an <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup">Account</a> or <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup">Login</a>.</label>
+                {% comment %}
+                {% if user.isAnonymous %}
+                    <div class="popupmodal">
+                        <div id="guestcheckoutmodal" style="display:none" >{% extends "modules/checkout/chekout-email-capture" %}</div>
+                    </div>
+                {%  endif %}
+                {% endcomment %}
+              {% endif %}
+              </div>
+        </div>
+{% endblock credit-card-form %}

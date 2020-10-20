@@ -1,0 +1,10 @@
+﻿<h1 class="mz-pagetitle">{{ labels.searchResults }}: <span class="mz-searchresults-query">{{ pageContext.search.query }}</span></h1>
+{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination pageContext.query.sortBy pageContext.search.query %}
+{% include "modules/product/faceted-products" %} 
+{% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
+<div class="recommended-prod-head">Jelly Belly Also Recommends</div>              
+{% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                
+                 
+{% endpartial_cache %} 
+{% dropzone "search-results" scope="template" %}
+

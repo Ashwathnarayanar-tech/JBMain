@@ -1,0 +1,51 @@
+  <div class="jb-result-details" data-total-results="{{ model.totalCount }}">
+        <span class="heading-jb-result" tabindex="0"> 
+            {% if  pageContext.search.query %}
+                        {% if model.totalCount %}
+                            {{ labels.pageStateSearchPlural|string_format(1,model.lastIndex,model.totalCount,pageContext.search.query) }}
+                        {% comment %}
+                            {{ labels.pageStateSearchPlural|string_format(model.firstIndex,model.lastIndex,model.totalCount,pageContext.search.query) }}
+                        {% endcomment %}
+                        {% else %}
+                            {{ labels.pageStateSearchSingular|string_format(pageContext.search.query) }}
+                        {% endif %}
+                    {% else %}
+                        {% if model.totalCount != 1 %}
+                        {{ labels.pageStatePlural|string_format(1,model.lastIndex,model.totalCount) }}
+                        {% comment %}
+                            {{ labels.pageStatePlural|string_format(model.firstIndex,model.lastIndex,model.totalCount) }}
+                        {% endcomment %}
+                        {% else %}
+                            {{ labels.pageStateSingular|string_format(pageContext.title) }} 
+                        {% endif %}
+            {% endif %}
+        </span> 
+    </div>
+    {% comment %}
+    <div class="mz-pagingcontrols-filters">
+        <div class="mz-pagingcontrols-group">
+            <p>{{ labels.show }}</p>
+            <select title="Number of results on page" data-mz-value="pageSize" class="mz-pagingcontrols-pagesize-dropdown" autocomplete="off">
+            	{% block page-sizes %}
+            		{% for pageSize in themeSettings.pageSizeOptions %}
+            			<option   data-mz-url="{% make_url "paging" model with pageSize=pageSize page=1 %}" 
+            			{% if model.pageSize == pageSize %}selected="selected"{% endif %}
+            			value="{{ pageSize }}">{% if pageSize == 300 %}Max {% else %}{{ pageSize }}{% endif %}</option>
+            		{% endfor %}
+            	{% endblock page-sizes %}
+            </select>
+            <p>{{ labels.view }}</p>
+            <select title="Page to view" data-mz-value="pageView" class="mz-pagingcontrols-pagesize-dropdown">
+           
+                {% for view in themeSettings.ProductView %}
+                    {% if model.currentProductView %}
+                    <option {% if model.currentProductView == view %}selected="selected"{% endif %} value="{{ view }}">{{ view }}</option>
+                    {% else %}
+                    <option {% if themeSettings.defaultProductView == view %}selected="selected"{% endif %} value="{{ view }}">{{ view }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    {% endcomment %} 
+    

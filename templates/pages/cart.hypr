@@ -1,0 +1,41 @@
+{% extends "page" %}
+
+{% block head-tag %}
+    {% parent %}
+    <head> 
+	    <title>
+    	{% block title-tag-content %}  
+		    Cart
+		{% endblock title-tag-content %}
+		</title>
+	</head>	
+{% endblock head-tag %}	
+
+{% block body-tag-classes %} mz-cart {% endblock body-tag-classes %}
+
+{% block body-content %}  
+
+{% require_script "pages/cart" %}
+
+{% preload_json model "cart" %}
+
+<div class="mz-l-container"> 
+	<form method="post" action="{{ siteContext.secureHost }}/checkout" id="cartform">
+		<input type="hidden" name="id" value="{{model.Id}}" />
+        {% include "modules/common/message-bar" with model=model.messages %} 
+        <div id="cart">
+             {% include "modules/cart/cart-table" %}
+        </div>
+	</form>
+</div>
+<div class="wishlist-section"></div>
+<h2 class="recommended-prod-head" tabindex="0">Jelly Belly Also Recommends</h2> 
+{% dropzone zoneId="rti-cart" scope="template" %}
+{% endblock body-content %}
+
+
+
+
+
+
+

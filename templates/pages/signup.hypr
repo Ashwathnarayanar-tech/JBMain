@@ -1,0 +1,114 @@
+{% extends "page" %}
+
+{% block title-tag-content %} Sign up - Jelly Belly Candy Company  {% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-signuppage {% endblock body-tag-classes %}
+
+{% block body-content %}
+<div>
+	{% dropzone "signup-top" scope="template" %}
+</div>
+	
+    <div class="mz-l-container" align="center" style="margin-top: -20px">
+        {% if user.isAuthenticated %}
+    		<div style="padding-top: 50px; padding-bottom: 50px;">
+    			<p>You're already signed in.</p>
+    			<p>You may <a href="/shop">continue shopping</a> or <a href="/myaccount">access your account.</a></p>
+    		</div>
+    	{% else %}
+            <div class="login-signup-section">
+        		<p class="mz-pagetitle">{{ labels.signUp }}</p>
+        		<ul>
+                    <li>Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
+                    <li>View your Order History</li>
+                    <li>Save Addresses and Credit Cards</li> 
+                    <li>Add to your Wishlist</li>
+                </ul>
+                <div class="signup-form" >
+                    <div class="jb-signup" id="jb-signup">
+        			 
+                        <div class="mz-l-formfieldgroup">
+													<div class="mz-l-formfieldgroup-row">
+															<div class="mz-l-formfieldgroup-cell">
+																<p>* indicates a required field</p>
+															</div>
+													</div>
+						
+								
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="firstname">*First Name</label>
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <input required type="text" class="mz-signup-firstname" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
+                                </div>
+                            </div>
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="lastname">*Last Name</label>
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <input required type="text" class="mz-signup-lastname" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
+                                </div>
+                            </div>
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="email">*Email Address</label>
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell"> 
+                                    <input required id="email" type="email" class="mz-signup-email" data-mz-signup-emailaddress />
+                                </div>
+                            </div>
+                            <div class="mz-l-formfieldgroup-row password-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="password">*Password</label>
+                                    <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <input aria-describedby="password-requirements" id="password" required type="password" class="mz-signup-password" data-mz-signup-password />
+                                </div>
+                                <div class="pwd-message-desktop">
+                                    <div class="arrow-left"></div>
+                                    <p id="password-requirements">{{ labels.minPasswordReqs}}</p>
+                                </div>
+                            </div>
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="confirm-password">*Confirm Password</label>
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell zero-cellspace">    
+                                    <input required type="password" id="confirm-password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
+                                </div>
+                            </div>
+                            {% comment %}
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell required-fild-msg">
+                                    <span class="required">*Required Fields</span>
+                                </div>
+                            </div>
+                            {% endcomment %}
+                            <div class="mz-l-formfieldgroup-row checkbox">
+                                <label class="checkbox-outer-label"> 
+                                <input id="signup-cpp-checkbox" type="checkbox" aria-label="By clicking Register, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Register, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                <span class="checkmark-style"></span></label> 
+                            </div>
+                            <div class="mz-l-formfieldgroup-row">
+                               
+                                <div class="mz-l-formfieldgroup-cell">  
+                                    <button class="mz-button mz-signup-register" id="signup-submit" style="margin-bottom: 1em" disabled="disabled">{{ labels.register }}</button>
+                                </div>
+                            </div>
+                            <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+    	{% endif %}
+    </div>
+		
+<div style="margin-bottom: 1em">
+		{% dropzone "signup-bottom" scope="template" %}
+</div>		
+ {% require_script "modules/header-myaccount" %}
+{% endblock body-content %}
+

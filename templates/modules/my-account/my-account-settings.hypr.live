@@ -1,0 +1,78 @@
+
+<div class="mz-accountsettings-details">
+    <div class="mz-accountsettings-user">
+        <h3 class="mz-l-stack-sectiontitle">{{ labels.accountSettings }}</h3>
+        <div>
+            <ul>
+                <li>
+                    <label>Email Address:</label>
+                    <span >{{ model.emailAddress|default(model.userName) }}</span>
+                </li>
+                <li>
+                    <label></label>
+                    <span>
+                        <a title="Email preference center" aria-label="Email Preference Center - opens in new tab" href="/jelly-belly-email-preference-center?ve_action=unsub&Email={{model.emailAddress}}&FirstName={{ model.firstName}}&LastName={{ model.lastName}}" target="_blank" style="display: none;">
+                            Email Preference Center
+                        </a>
+                    </span>
+                </li>
+                <li class="grouping">
+                    <label>Your Account:</label>
+                    <span>{{model.id}}</span>
+                </li>
+                {% if editing %}
+                <li>
+                    <div class="mz-accountsettings-section mz-accountsettings-email-edit">
+                          <p class="mz-accountsettings-label mz-account-settings-label-email">*{{ labels.emailAddress }}</p>
+                          {% if editing %}
+                              <input class="mz-accountsettings-email" type="email" placeholder="{{ labels.emailAddress }}" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
+                              <span class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
+                          {% else %}
+                              <div class="mz-accountsettings-displayemail">{{ model.emailAddress|default(model.userName) }}</div>
+                          {% endif %}
+                        
+                    </div>
+                </li> 
+                <li>
+                    <div class="edit-user-settings">
+                            <p><label for="accountSettingsFirstName"><span aria-label="mandatory field">*</span>First Name</label></p>
+                            <input class="mz-accountsettings-firstname" type="text" placeholder="{{ labels.firstName }}" data-mz-value="firstName" value="{{ model.firstName }}" required id="accountSettingsFirstName"/>    
+                            <span class="mz-validationmessage" data-mz-validationmessage-for="firstName"></span>
+                            <p><label for="accountSettingsLastName"><span aria-label="mandatory field">*</span>Last Name</label></p>
+                            <input class="mz-accountsettings-lastname" type="text" placeholder="{{ labels.lastName }}" data-mz-value="lastName" value="{{ model.lastName }}" required id="accountSettingsLastName"/>
+                            <span class="mz-validationmessage" data-mz-validationmessage-for="lastName"></span>
+                            <p class="required-label">*Required field</p>
+
+                            <button class="mz-button mz-button-small mz-accountsettings-namedone" data-mz-action="finishEdit">{{ labels.save }}</button>
+                            <button class="mz-button mz-button-small mz-accountsettings-namecancel" data-mz-action="cancelEdit">{{ labels.cancel }}</button>
+                    </div>
+                </li>
+                {% else %}
+                    <li>
+                        <label>Name:</label>
+                        <span>{{ model.firstName }}  {{ model.lastName }}</span>
+                        <div class="clearfix"></div>
+                    </li>
+                    {% if not editing %}
+                        <li>
+                            <label></label>
+                            <span>
+                                <a href role="button" class="mz-link-edit-accountsettings" data-mz-action="startEdit">{{ labels.edit }}</a>
+                            </span>
+                        </li>
+                    {% endif %}
+                {% endif %}
+                {% if themeSettings.newsLetterMarkettingInMyAccount%}
+                <li>
+                    <label>{{ labels.accountOptIn }}:</label>
+                    <span><input type="checkbox" id="account-acceptsmarketing" data-mz-value="acceptsMarketing" {% if model.acceptsMarketing %}checked="checked"{% endif %} /></span>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+

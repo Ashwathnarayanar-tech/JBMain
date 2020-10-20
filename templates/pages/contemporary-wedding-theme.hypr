@@ -1,0 +1,87 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="contemporary-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">Contemporary Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                    
+                    
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Contemporary Wedding/1.jpg" alt="plate and beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Contemporary Wedding/2.jpg" alt="wedding table with plates and beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Contemporary Wedding/3.jpg" alt="vase with white beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Contemporary Wedding/4.jpg" alt="vases with green and white beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Contemporary Wedding/5.jpg" alt="vases filled with green beans"/>
+                        </div>
+                        
+                    </div>
+                    <p>
+                        The Contemporary Wedding aims to be hip and stylish without looking too extravagant or worse, outdated a year or two in the future. Well-defined shapes like squares and circles are always simultaneously modern,
+                        yet classic. And the green, white and black color pattern is equally enduring. Finally, adding cream-colored flowers will soften the shapes and keep your party from feeling like geometry class.
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/coconut-jelly-beans/c/14">Coconut Jelly Belly jelly beans</a></li>
+                                <li><a href="/sour-apple-jelly-beans/c/474">Sour Apple Jelly Belly jelly beans</a></li>
+                                <li><a href="/licorice-jelly-beans/c/86">Licorice Jelly Belly jelly beans</a></li>
+                                <li><a href="/wild-blackberry-jelly-beans/c/108">Wild Blackberry Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Green</a></li>
+                                <li><a href="/black-candy-and-jelly-beans/c/333">Black</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                                <li><a href="/beige-candy-and-jelly-beans/c/332">Off White</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}

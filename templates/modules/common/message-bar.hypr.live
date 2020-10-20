@@ -1,0 +1,50 @@
+<div class="mz-messagebar" data-mz-message-bar>
+    {% if model.length > 0 %}
+    <ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list">
+        {% for msg in model %}
+            {%if msg.message == "You should receive an email with instructions to reset your password shortly."%}
+            <li style="color:rgb(185, 74, 72);">
+                {{ msg.message|safe }}</li>
+            {%else%}
+                {% if msg.message == "Missing or invalid parameter: password Password must be different from the previous 4 utilized passwords."%}
+                    <li>{{ themeSettings.differentFromPreviousPasswords }}</li>
+                {%else%}
+                    {% if msg.message == "Missing or invalid parameter: password Invalid password format."%}
+                        <li>{{ themeSettings.resetPasswordEntered}}</li>
+                    {%else%}
+                        {% if msg.message == "Card type missing." %}
+                            <li>{{ themeSettings.cardType }}</li> 
+                        {% else %}
+                            {% if msg.message == "Card number missing." %}
+                                    <li>{{ themeSettings.cardNumber }}</li>
+                                      {% else %}
+                            {% if msg.message == "Adding customer failed for the following reason: Missing or invalid parameter: EmailAddress EmailAddress already associated with a login" %}
+                                    <li>{{ themeSettings.alreadyassociated }}</li>
+                                      {% else %}
+                            {% if msg.message == "Invalid email address." %}
+                                    <li>{{ themeSettings.validEmialSignUp }}</li>
+                                      {% else %}
+                            {% if msg.message == "Provide both password." %}
+                                    <li>{{ themeSettings.validPassword }}</li>
+                                      {% else %}
+                            {% if msg.message == "Password dosn't match." %}
+                                    <li>{{ themeSettings.passwordNotMatch }}</li>
+                            {% else %}
+                            {% if msg.message == "Card number is in an unrecognized format." %}
+                                    <li>{{ themeSettings.cardFormat }}</li>
+                            {% else %}
+                                <li aria-describedby="error-inventory" tabindex="0" style="text-align: left !important;"><p id="error-inventory" tabindex="0">{{ msg.message|safe }}</p></li>
+                                    {% endif %}    
+                                    {% endif %}    
+                                        {% endif %}    
+                                          {% endif %}    
+                                    {% endif %}
+                            {% endif %}    
+                        {%endif%} 
+                    {%endif%}
+                {%endif%}
+            {%endif%}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>

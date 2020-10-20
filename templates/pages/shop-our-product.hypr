@@ -1,0 +1,58 @@
+{% extends "page" %}
+
+ 
+
+{% block body-tag-classes %}mz-ourproduct{% endblock body-tag-classes %}
+
+{% block body-content %}
+
+    {% require_script "pages/shop-our-product" %}  
+    <div class="jb-slide-show">
+        {% dropzone "shop-our-products-slideshow" scope="page" %}
+        {% comment %}
+            {% include "modules/shop-our-product-slideshow" %}   
+        {% endcomment %}
+    </div>
+  
+    <div class="jb-search">
+        <div class="jb-search-ourproduct">
+            <p>Search our Huge Selection:</p>
+            {% include "modules/page-header/search-box" %}   
+        </div>
+        <img alt="Jelly Belly Candy Made in the USA" class="jb-made-in-usa" src="../resources/images/madeInUSA.png"/>
+    </div>
+    
+    <div id="shop-our-product-brands-listing">
+        <div class="jb-ourproducts-brands-listing">
+            <h1 tabindex="0">Shop by Category:</h1>
+            {% block featured-brands-category %}
+                {% dropzone "shop-pageour-products-featuredbrands" scope="page" %}
+    	    {% endblock featured-brands-category %}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    
+    <div class="jb-e-commerce-details">
+        <hr/>
+        <div class="jb-links">
+            <a href="/shipping-information">Free Shipping on $55+&nbsp;<span>▶</span></a>
+            <a href="/ordering-information">No Sales Tax&nbsp;<span>▶</span></a>
+            <a href="/StoreLocator">Retail Locations&nbsp;<span>▶</span></a>
+        </div>
+        <hr/>
+    </div>
+    {% dropzone "rti-shop-our-product" %}
+    
+
+    
+{% endblock body-content %}
+
+
+
+
+
+
+
+
+
+

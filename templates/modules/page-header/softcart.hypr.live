@@ -1,0 +1,134 @@
+{% if model.count > 0 %}
+    <div class="head-mincart">
+        <h1 class="items-in-cart-msg">You have <strong>{{model.count}} {% if model.count == 1 %} item {% else %} items{% endif %}</strong> in your Cart</h1>
+        <span class="item-total-label" aria-hidden="true">Item Total</span>
+    </div>
+    <div class="jb-minicart-items-container">
+        <ul> 
+            {% for item in model.items %}
+                <li>
+                    {% if item.product.imageUrl and themeSettings.showCartItemImage %}
+                        <div class="item-image">
+                            <img src="{{ item.product.imageUrl }}?max=80" alt="Item thumbnail"/>
+                        </div>
+                    {% else %}    
+                        <div class="item-image">
+                            <img src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}} /files/{{themeSettings.no_product_image}}?max=80" alt="No image item thumbnail"/>
+                        </div>
+                    {% endif %}
+                    <div class="item-shop-details">
+                        <h2> {{item.product.name|safe}}</h2>
+                        <p>Price: {% if item.unitPrice.saleAmount %}{{item.product.price.salePrice|currency}} {% else %} {{ item.unitPrice.extendedAmount|currency }} {% endif %}</p>
+                        <p>Quantity: {{item.quantity}}</p>
+                        {% if item.isNoShipping %}
+                            <p class="no-free-shiping-msg">This product does not count toward the Free Shipping threshold</p>
+                        {% endif %}
+                    </div>
+                    <div class="item-sub-total">  
+                        {% if item.discountTotal > 0 %}<span class="discounted-total"><span class="sr-only">Item total: </span>{{ item.discountedTotal|currency }}</span> {% else %}<span class="total-sub"><span class="sr-only">Item total: </span>{{item.subtotal|currency}}</span>{% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+         
+<style>
+      
+.minicart-details      dl {
+  width: 100%;
+  overflow: hidden;
+  background: #ff0;
+  padding: 0;
+  margin: 0;
+}
+.minicart-details dt {
+  text-align: right;
+  float: left;
+  width: 75%;
+  padding: 0;
+  margin: 0;
+}
+.minicart-details dd {
+  text-align: right;
+  float: left;
+  width: 25%;
+  padding: 0;
+  margin: 0;
+}
+
+.minicart-details dd > span { 
+  padding-right: 20px; 
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.minicart-details dt > span { 
+  padding-right: 20px; 
+  font-size: 14px;
+  font-weight: 600;
+}
+
+      </style>
+    <div class="jb-minicart-total-container">
+      
+        <dl class="minicart-details">
+          <dt><span>SubTotal:</span></dt>
+          <dd><span>{{model.subtotal|currency}}</span></dd>
+
+          <dt><span>Tax:</span></dt>
+          <dd><span style="color: #a00d12;">TBD</span></dd>
+          
+          <dt><span>Shipping:</span></dt>
+          <dd><span style="color: #a00d12;">TBD</span></dd>
+        
+        {% if model.remainingfreeshippinng > 0  && !model.hasHeatSensitive  %}
+            <dt  style="width: 95% !important;">
+                {% if model.isNoShipping %}
+                <span class="hide-when-heat-sensitive">
+                      You are only ${{model.remainingfreeshippinng}} away from 
+                      <a href="/shipping-information">
+                      Discounted Shipping</a>!
+                </span>
+                {% else %}
+                <span class="hide-when-heat-sensitive">
+                      You are only ${{model.remainingfreeshippinng}} away from 
+                      <a href="/shipping-information">
+                      FREE Ground Shipping</a>! 
+                </span>
+                {% endif %}
+            </dt>    
+            <dd style="width: 1% !important;">&nbsp</dd>
+        {% endif %}
+        {% if model.remainingfreeshippinng == 0  && !model.hasHeatSensitive %}
+            <dt  style="width: 95% !important;">
+                {% if model.isNoShipping %}
+                <span class="hide-when-heat-sensitive">
+                        Congratulations, you qualify for 
+                        <a href="/shipping-information" >Discounted Shipping</a>!
+                </span>
+                {% else %}
+                <span class="hide-when-heat-sensitive">
+                        Congratulations, you qualify for 
+                        <a href="/shipping-information" >FREE Ground Shipping</a>!
+                </span>
+                {% endif %}
+            </dt>    
+            <dd style="width: 1% !important;">&nbsp</dd>
+        {% endif %} 
+        <dt><span class="estimated-total">Estimated Total:</span></dt>
+        <dd><span style="color: #a00d12;">{{model.total|currency}}</span></dd>
+        </dl>
+    </div>
+    <div class="jb-minicart-checkout-container">
+        <div class="cart-checkout-buttons">
+            <a href="/cart" class="view-cart-btn">view cart</a>
+            <form method="post" action="{{ pageContext.secureHost }}/checkout" id="minicartform">
+                <input type="submit" class="submitButton proceed-to-checkout-btn" value="Proceed to Checkout" role="button" aria-label="proceed to checkout" />
+            </form>            
+        </div>
+    </div>    
+{% else %}
+    <p class="no-items-found-message">
+        No products are added to cart.
+    </p>
+{% endif %}

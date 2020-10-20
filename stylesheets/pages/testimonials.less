@@ -1,0 +1,142 @@
+.customer-testimonial {
+   article {
+       section {
+           p {
+               width: 75%;
+               padding-left:45px;
+           }
+           .comment-image {
+                img {
+                    height: 100px !important;
+                }
+            }
+       }
+   }
+}
+
+
+.customer-testimonial {
+  article {
+    section {
+      width: 80%;
+      margin: 15px auto 78px;
+      border: 3px solid #877e7e;
+      border-radius: 16px;
+      padding: 10px 20px 20px;
+      color: #777070;
+      position: relative;
+      &:nth-child(odd) {
+          .left-arrow {
+              background: url('../resources/images/footer-static/bubbles-arrow.png') no-repeat scroll 0 0;
+              position: absolute;
+              width: 80px;
+              height: 89px;
+              display: inline-block;
+              bottom: -86px;
+              left: 70px;
+          }
+          
+          .comment-details {
+              float: left;
+              width: 75%;
+          }
+          .comment-image {
+              float: right;
+              width: 25%;
+              text-align: right;
+              img {
+                  max-width: 100%;
+                  height: 158px;
+              }
+          }
+      }
+      header h2 {
+          margin-bottom: 3px;
+          //font-family: @fontFamily;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 22px;
+          color: #777070;
+           a {
+               text-decoration: none;
+               color: #0077a2;
+               cursor: pointer;
+               &:hover {
+                   text-decoration: underline;
+               }
+           }
+      }
+      .jb-star-rating {
+          margin: 0;
+      }
+      .comment {
+          position: relative;
+          margin-bottom: 5px;
+          font-style: italic;
+          span:last-of-type {
+              background: url('../resources/images/footer-static/quotes.png') no-repeat -34px 0;
+              position: absolute;
+              height: 23px;
+              width: 32px;
+              margin-left: 5px;
+              display: inline-block;
+          }
+          
+          span:first-of-type {
+              background: url('../resources/images/footer-static/quotes.png') no-repeat 0px 0;
+              position: absolute;
+              height: 23px;
+              width: 32px;
+              margin-left: 5px;
+              top: -12px;
+              left: 5px;
+              display: inline-block;
+          }
+      }
+      .author {
+          display: inline-block;
+          margin-left: 90px;
+          font-style: italic;
+          font-size: 16px;
+      }
+    }
+  }
+  section:nth-child(even) {
+      .left-arrow {
+          background: url('../resources/images/footer-static/bubbles-arrow.png') no-repeat scroll 0 -87px;
+          position: absolute;
+          width: 85px;
+          height: 89px;
+          display: inline-block;
+          bottom: -86px;
+          right: 84px;
+      }
+      .comment-details {
+          float: left;
+          width: 75%;
+      }
+      .comment-image {
+          float: right;
+          width: 25%;
+          img {
+              max-width: 100%;
+              height: 158px;
+          }
+      }
+     
+  }
+  section:nth-child(odd) {
+      .comment-details {
+          float: right;
+          width: 75%;
+      }
+      .comment-image {
+          float: right;
+          width: 25%;
+          img {
+              max-width: 100%;
+              height: 158px;
+          }
+      }
+  }
+}

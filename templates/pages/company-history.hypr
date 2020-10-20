@@ -1,0 +1,259 @@
+{% extends "page" %}
+{% block meta-tags %}
+{% parent %}
+    <meta name="robots" id="robotsMeta" content="{{themeSettings.robots_value}}" />
+    <meta name="googlebot" id="googleBotMeta" content="{{themeSettings.googlebot_value}}" />
+    <meta name="google-site-verification" content="{{themeSettings.google-site-verification_value}}" />
+    <meta charset="utf-8" />
+    <meta name="verify-v1" content="GyEpGH2+ELQEr5SNfmuM4t4YK8HYpuY49UbvQgcxFUM=" />
+    <meta name="description" content="Jelly Belly Candy Company - Official Site.  Features Factory fresh candy, jelly beans, chocolate, gummy, licorice and more" />
+    <meta name="keywords" content="Candy, jelly jeans, candy,  chocolate,  gummy, licorice, Bean Boozled, beanboozled, belly flops " />
+    <meta name="owner" content="Jelly Belly Candy Company" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+{% endblock meta-tags %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-company-history {% endblock body-tag-classes %} 
+{% block body-content %}
+<section>
+    <h1 class="mz-pagetitle">Company History</h1>
+    <div class="slider-history" id="company-slider-history" role="region" aria-label="Company History">
+        <div class="company-sliders-history">
+            <div class="view-port"> 
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/cf1b49b4-e792-4b80-a281-b0bdfc5c42a2" alt="Gustav Goelitz in front of his store in Belleville, Illinois, in 1869.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/03ed889d-8762-4d57-8a56-4bc3dfb99d2e" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1869</h2>
+                        <p class="view-port-description">Gustav Goelitz, 24, opens a candy business in Belleville, Illinois, and sets the family on its sweet destiny. That's him in front with his foot on the barrel.</p>
+                    </div>
+                </div>
+            </div>           
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6cecea1c-f2d5-4c8a-beeb-4af4c206dd0b" alt="Gustav Goelitz's son with horse drawn cart of candy confections.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/67a06313-ef1e-4646-881c-4b140eadc8ed" alt="" >
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1894</h2>
+                        <p class="view-port-description">Gustav's sons continue the family candy making tradition.</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6b56953b-1213-421a-a78d-68cc5743cc0e" alt="Package of Gustav Goelitz Butter Sweet Candy Corn.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/20b4f25e-2b55-40af-95b7-603340ffbe68" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1898</h2>
+                        <p class="view-port-description">The second generation of the Goelitz candy-making family specializes in Candy Corn and "royal buttercreams."</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/4fc10f05-8154-4376-a170-064d3363f146" alt="Mint Wafers introduced in the 1940's.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/67f4119a-2e5c-44f6-92d7-9e7150557bd8" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1940s</h2>
+                        <p class="view-port-description">Although sugar rationing during World War II limits candy production, the company introduces Mint Wafers.</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/05d89878-d4cc-4b60-ac47-31c773bec1b0" alt="Multi-candy package of 1960's jelly beans including tangerine slices and spice drops.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/aea8fb74-7108-4ccf-8428-f507064f7f70" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1960s</h2>
+                        <p class="view-port-description">The third and fourth generation descendants of Gustav Goelitz, cook candies such as tangerine slices, spice drops and jelly beans.</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/5d49e058-a788-4dfb-ad85-3f4596d8ec20" alt="Package of Mini jelly Beans which were infused for the first time with flavor in the center.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/5bbffb66-e46e-4d47-8407-26d3e5d128d6" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1965</h2>
+                        <p class="view-port-description">A flavor breakthrough is made when the Mini Jelly Beans are infused with flavor in the center.</p>
+                    </div>
+                </div>
+            </div>           
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/dbd0ea9a-0fba-4709-87c9-cbd7934ab89d" alt="California Governor Ronald Reagan in his office.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/d5b9b2c4-041d-4c11-a55f-db8accdab9de" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1966</h2>
+                        <p class="view-port-description">Goelitz Mini Jelly Beans are discovered by California Governor Ronald Reagan. "We can hardly start a meeting or make a decision without passing the jar of jelly beans," he wrote in a letter to the company in 1973.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/df877bec-bad8-4351-9ae4-3facd28106f2" alt="Arrangement of Chocolate Dutch Mints.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/05d4cc80-991e-4da0-9db4-b0c0ef1de4cf" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1973</h2>
+                        <p class="view-port-description">Chocolate Dutch Mints®: are introduced. A creamy mint center is drenched in dark chocolate and finished with a crisp, candy shell. A classic confection.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/be11bd25-ee5c-4f03-af6f-3245526fb6b1" alt="Arrangement of the first eight flavors of Jelly Belly jelly beans: Root Beer, Green Apple, Licorice, Cream Soda, Lemon, Tangerine, Very Cherry, and Grape.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7f899156-bc82-4bbe-840a-6dcad84e1f6b" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1976</h2>
+                        <p class="view-port-description">The breakthrough recipe of the Mini Jelly Bean inspired the first eight flavors of Jelly Belly beans: Root Beer, Green Apple, Licorice, Cream Soda, Lemon, Tangerine, Very Cherry, and Grape.</p>
+                    </div>
+                </div>
+            </div>           
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/0b07d018-063f-4529-8b01-04512de42f7b" alt="Display of Forty Official Flavors and Colors">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/144cfdf0-abfb-4829-8004-b297c6de1a80" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1980s</h2>
+                        <p class="view-port-description">More Jelly Belly jelly bean flavors are developed, pushing the flavor horizons with an ever growing range.</p>
+                    </div>
+                </div>
+            </div>     
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/e53e391c-4650-4d65-92d5-254339a1f7e2" alt="Jelly Belly bean art of President Ronald Reagan and wife Nancy.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/553029ea-1b19-4a07-8970-bce2dbd78d4b" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1980</h2>
+                        <p class="view-port-description">The world discovers President Ronald Reagan eats Jelly Belly beans. About 3.5 tons were shipped to Washington, D.C., for his 1981 inauguration celebrations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/922fa8b1-9630-4c22-9840-efe45812a61f" alt="President Ronald Reagan's personal jar of Jelly Belly beans.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/ac35667d-bbf1-413f-aa73-35b44fa21287" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1981-1988</h2>
+                        <p class="view-port-description">"You can tell a lot about a fella’s character by whether he picks out all of one color or just grabs a handful." - President Reagan on Jelly Belly beans.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/a879c34a-70f6-4dff-84b8-9914d42ef30e" alt="Figure of Mr. Jelly Belly costume character.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/fbfddf6f-93a4-4a67-ace5-4d1c02b77ae4" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1983</h2>
+                        <p class="view-port-description">"Mr. Jelly Belly, a lovable candy character, makes his first public appearance - and it is love at first sight."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/41284bd0-29cc-4d1c-809d-72fa1a0bf79f" alt="Groundbreaking event for new headquarters in Fairfield, California including Mr. Jelly Belly, employees and citizens. Sign states: Solano Business Park, 10 Acre Site, Future Home of Herman Goelitz Candy Company, Makers of Jelly Belly.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/e8cf12d0-f054-441a-bc0f-25961fa37c54" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1986</h2>
+                        <p class="view-port-description">New company headquarters are built in Fairfield, Calif., and free public tours begin soon after.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6eefd077-8938-4b10-9770-1fb5336061d9" alt="Butter Popcorn jelly beans display.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/b3b57cc6-1e9a-4d36-a022-8686c90a5c0a" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1989</h2>
+                        <p class="view-port-description">Buttered Popcorn flavor of Jelly Belly bean is introduced, the world’s first "savory" jelly bean flavor. (It is now among the most popular flavors.)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/9118b799-96b3-4d82-93a0-ae44d6e73173" alt="Jelly Belly Sours display.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/4a81f6db-8c3d-4951-a999-9a34d91d0d89" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1993</h2>
+                        <p class="view-port-description">Jelly Belly Sours are introduced, a novelty at the time that has since become an enduring favorite.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/8ec6681b-7d1d-43f5-a285-8a2050885d9b" alt="Close up of bean stamped with official Jelly Belly Logo">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/3026d23b-ceb1-430b-a9da-eb6b956c384d" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">1996</h2>
+                        <p class="view-port-description">The ultimate sign of good taste – The Jelly Belly name is stamped on every jelly bean.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/30fb728e-3f80-4715-8a70-7308e8a3c5bf" alt="Package of Harry Potter Bertie Bott's Every Flavour Beans® Candy">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/9e4da84a-b256-4540-8467-f0006db91723" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">2000</h2>
+                        <p class="view-port-description">Bertie Bott's Every Flavour Beans®: inspired by the Harry Potter series are brought to life by the company's candy makers in wild flavors like Dirt, Bacon and Spinach.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/b38ec3d3-24fd-48a7-be2f-2fc8fca319f4" alt="Jelly Belly factory tour train and warehouse in Pleasant Prairie, Wisconsin">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7cfcb6c6-7caf-479a-8e57-2a1c296e881e" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">2001</h2>
+                        <p class="view-port-description">A second public tour opens in Pleasant Prairie, Wisconsin. The Jelly Belly Express takes fans on an indoor train ride to discover fun candy facts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/1a39884d-0621-4c7d-ac7e-543125a25655" alt="Front of Jelly Belly Candy Company Visitor Center in Fairfield, California.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7cfcb6c6-7caf-479a-8e57-2a1c296e881e" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">2001</h2>
+                        <p class="view-port-description">The Company, known for four generations by the family name Goelitz, is renamed Jelly Belly Candy Company and continues to make more than 100 fine confections.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/14099a34-abc0-4786-85a2-cce495bb8ebc" alt="Packages of Jelly Belly Sport Beans with water bottle, gym bag and towel.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/d175db8f-ddb1-4ee9-bb56-07e8ebd83c2b" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">2005</h2>
+                        <p class="view-port-description">Sport Beans® debut. A sports performance jelly bean that provides carb replenishment for athletes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/531e4277-885c-467a-b5c2-ab624a876618" alt="Packages of BeanBoozled jelly beans.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/fa02c803-c16d-4e75-86d7-404f81521107" alt="">
+                    <div class="description" tabindex="-1" > 
+                        <h2 class="view-port-date" style="padding-top:10px">2007</h2>
+                        <p class="view-port-description">Offering a flavor experience with wild and wacky flavors, Jelly Belly debuted BeanBoozled jelly beans in 2007 with ten lookalike pairs. Will it be Juicy Pear or Booger? Buttered Popcorn or Rotten Egg? There’s only one way to find out!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-port">
+                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/85842f5c-dbed-486c-8528-fe249595adeb" alt="Arrangement of Jelly Belly Jelly Bean Chocolate Dips with fruit decorations.">
+                <div class="view-port-logo" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/f6b442aa-51be-48d6-b5bf-636417e42e3d" alt="">
+                    <div class="description" tabindex="-1">
+                        <h2 class="view-port-date">2010</h2>
+                        <p class="view-port-description">Jelly Belly Jelly Bean Chocolate Dips® the world's first chocolate-covered jelly bean, is introduced in six flavors: Very Cherry, Orange, Strawberry, Coconut, Raspberry and Mint.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% require_script "pages/jb-company-history" %}
+{% endblock body-content %}

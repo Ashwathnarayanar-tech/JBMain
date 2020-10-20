@@ -1,0 +1,161 @@
+{% block address-form %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-companyname"> 
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}">{{ labels.companyName }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="companyname" id="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}" data-mz-value="{{ addresscontext }}companyOrOrganization" value="{{ model.companyOrOrganization }}" autofocus><!-- ADA OK -->
+            <span class="mz-validationmessage" tabindex="-1"  data-mz-validationmessage-for="{{ addresscontext }}companyName"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-firstname">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bfirstname{% else %}firstname{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.firstName }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="firstname" id="{% if addresscontext == "billingContact." %}bfirstname{% else %}firstname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_1{% else %}err_firstname1{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}firstName" value="{{ model.firstName }}"><!-- ADA OK -->
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_1{% else %}err_err_firstname1{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}firstName"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-lastname">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}blastname{% else %}lastname{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.lastName }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="lastname" id="{% if addresscontext == "billingContact." %}blastname{% else %}lastname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_2{% else %}err_lastname2{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}lastNameOrSurname" value="{{ model.lastNameOrSurname }}"><!-- ADA OK -->
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_err_lastname2{% endif %}" tabindex="-1"  data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-address1">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.address1 }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
+            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_err_address3{% endif %}"  data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-address2">
+         <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2 {% endif %}">{{ labels.address2 }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="address-line-2" id="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2{% endif %}" data-mz-value="{{ addresscontext }}address.address2" value="{{ model.address.address2 }}"><!-- ADA OK -->
+            <span class="mz-validationmessage"></span>
+        </div>
+    </div>
+    {% comment %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-country">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="country"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.country }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <select data-mz-value="{{ addresscontext }}address.countryCode" aria-describedBy="sel_err1">
+                <option></option>
+                {% if countries && countries.length > 0 %}
+                {% for country in countries %}
+                    <option {% if model.address.countryCode == country.value %}selected="selected" {% endif %}value="{{ country.value }}">{{ country.key }}</option>
+                {% endfor %}
+                {% else %}
+                {% for country in pageContext.billingCountries %}
+                    <option {% if model.address.countryCode == country.value %}selected="selected" {% endif %}value="{{ country.value }}">{{ country.key }}</option>
+                {% endfor %}
+                {% endif %}
+            </select>
+            <span class="mz-validationmessage" tabindex="-1"  id="sel_err1" data-mz-validationmessage-for="{{ addresscontext }}address.countryCode"></span>
+        </div>
+    </div>
+    {% endcomment %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-city">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bcity{% else %}city{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.city }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="city" id= "{% if addresscontext == "billingContact." %}bcity{% else %}city{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_4{% else %}err_city4{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.cityOrTown" value="{{ model.address.cityOrTown }}" maxlength="30"><!-- ADA OK -->
+            
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_4{% else %}err_city4{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.cityOrTown"></span>
+        </div>
+                        <div class="mz-addressform-autocompletefields">
+                        {% comment %}
+                <label for="autocomplete-state">{{ labels.state }}</label><input type="text" name="state" data-mz-value="{{ addresscontext }}address.stateOrProvince" value="{{ model.address.stateOrProvince }}" />
+                <label for="autocomplete-zip">{{ labels.zip }}</label><input id="autocomplete-zip" type="text" name="zip" data-mz-value="{{ addresscontext }}address.postalOrZipCode" value="{{ model.address.postalOrZipCode }}" />
+                {% endcomment %}
+            </div>
+    </div>
+    {% comment %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-state" {% if model.address.countryCode == "US" %} style="display: none"{% endif %}>
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="stateOrProvince"><span class="is-required"> *</span>{{ labels.stateOrProvince }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="stateOrProvince" id="stateOrProvince" aria-describedBy="err_2" data-mz-value="{{ addresscontext }}address.stateOrProvince" value="{{ model.address.stateOrProvince }}"><!-- ADA OK -->
+            <span class="mz-validationmessage" id=""err_2" data-mz-validationmessage-for="{{ addresscontext }}address.stateOrProvince"></span>
+        </div>
+    </div>
+    {% if model.address.countryCode != "US" %}style="display: none"{% endif %}
+    {% endcomment %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-state" >
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bstateprov{% else %}stateprov{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.state }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <select class="myacc-add-form-sel" name="state-or-province" id="{% if addresscontext == "billingContact." %}bstateprov{% else %}stateprov{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_5{% else %}err_state5{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.stateOrProvince" aria-label="mandatory field - State">
+                <option></option>
+                
+                {% for state in themeSettings.usStates %}
+                    <option {% if model.address.stateOrProvince == state.abbreviation %}selected="selected"{% endif %} value="{{ state.abbreviation }}">{{ state.name }}</option>
+                {% endfor %}
+            </select>
+            <img width="13" class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" />
+            <img width="13" class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" />
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_5{% else %}err_state5{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.stateOrProvince"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-zip">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bpostal-code{% else %}postal-code{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.postalCode }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="tel" name="postal-code" id="{% if addresscontext == "billingContact." %}bpostal-code{% else %}postal-code{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_6{% else %}err_6{% endif %}" aria-invalid="false" value="{{ model.address.postalOrZipCode }}" data-mz-value="{{ addresscontext }}address.postalOrZipCode" ><!-- ADA OK --> 
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_6{% else %}err_6{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.postalOrZipCode"></span>
+        </div>
+    </div>
+    <div {% if model.address.CountryCode != "UK" %}style="display: none"{% endif %} class="mz-l-formfieldgroup-row mz-addressform-postaltown">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bpostal-town{% else %}postal-town{% endif %}">{{ labels.postalTown }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <input type="text" name="postal-town" id="{% if addresscontext == "billingContact." %}bpostal-town{% else %}postal-town{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_7{% else %}err_7{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.postalOrZipCode" value="{{ model.address.postalOrZipCode }}" pattern="\d*" ><!-- ADA OK -->
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_7{% else %}err_7{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.postalOrZipCode"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-phone">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}bshippingphone{% else %}shippingphone{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.phone }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+             <input type="tel" name="shippingphone" id="{% if addresscontext == "billingContact." %}bshippingphone{% else %}shippingphone{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_8{% else %}err_8{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}phoneNumbers.home" value="{{ model.phoneNumbers.home }}"
+               maxlength="14" title="Don't worry about a format, we will do that for you. Please provide 10-digit phone number." > 
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_8{% else %}err_8{% endif %}" validation-for="phoneNumbers" data-mz-validationmessage-for="{{ addresscontext }}phoneNumbers.home"></span>
+        </div>
+    </div>
+    {% if themeSettings.showAddressTypeDropdown %}
+    <div class="mz-l-formfieldgroup-row mz-addressform-addresstype">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.addressType }}</label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+            <select class="myacc-add-form-sel" name="address-type" id="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.addressType" aria-label="mandatory field - Address type">
+                <option value="Nan">Select a type</option>
+                 <option value="Residential" {% if model.address.postalOrZipCode && model.address.addressType == "Residential" %}selected="selected"{% endif %} >{{ labels.residential }}</option>
+                <option value="Commercial"   {% if model.address.postalOrZipCode && model.address.addressType == "Commercial" %}selected="selected"{% endif %} >{{ labels.commercial }}</option>
+                <option value="POBox"  {% if model.address.postalOrZipCode && model.address.addressType == "POBox" %}selected="selected"{% endif %}>Post Office Box</option> 
+               
+            </select>
+            <img width="13" class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" />
+            <img width="13" class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" />
+             <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.addressType"></span>
+        </div>
+    </div>
+    {% endif %}
+{% endblock address-form %}

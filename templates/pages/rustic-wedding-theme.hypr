@@ -1,0 +1,127 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="rustic-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">Rustic Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/1.jpg" alt="trays filled with white Jordan Almonds, Champagne Bubbles, and Dutch Mints"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/2.jpg" alt="vases filled with green and brown beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/3.jpg" alt="vase filled with blue and white beans, tray filled with white beans, and bowl filled with green beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/4.jpg" alt="large graphic of blue, white, and brown beans in small buckets"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/5.jpg" alt="green, brown, white, and blue beans in various containers on a table"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/6.jpg" alt="brown candies in vase and other assorted white and blue beans in other containers on table"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/7.jpg" alt="brown candies in vase and white candies in trays on table"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/8.jpg" alt="white and green beans in small buckets"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/9.jpg" alt="white Jordan Almonds, Dutch Mints, and Champagne bubbles in trays as well as white and green beans in small buckets"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/10.jpg" alt="blue beans in vase"/>
+                        </div>
+                        <!--<div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/8.jpg" alt=""/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/9.jpg" alt=""/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Rustic Wedding/10.jpg" alt=""/>
+                        </div>-->
+                    
+                    </div>
+                    <p>
+                        You can search yard sales and thrift stores to find what you need for this country-style candy bar. An old wooden dresser or cabinet, vintage glass jars and tarnished, galvanized aluminum tins and cups become new again when arranged just right and filled with Jelly Belly treats. Muted
+                        wallpapers and posters that may have lost some color retain all their charm as backdrops in this fun theme. 
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/cappuccino-jelly-beans/c/70">Cappuccino Jelly Belly jelly beans</a></li>
+                                <li><a href="/champagne-jelly-beans/c/357">Champagne Bubbles</a></li>
+                                <li><a href="/c/340">Chocolate-Covered Cherry Pectin Drops</a></li>
+                                <!--<li><a href="/search?query=raisins">Chocolate Raisins</a></li>-->
+                                <li><a href="/chocolate-pudding-jelly-beans/c/74">Chocolate Pudding Jelly Belly jelly beans</a></li>
+                                <li><a href="/coconut-jelly-beans/c/14">Coconut Jelly Belly jelly beans</a></li>
+                                <li><a href="/chocolate-dutch-mints/c/556">White Chocolate Dutch Mints</a></li>
+                                <li><a href="/french-vanilla-jelly-beans/c/16">French Vanilla Jelly Belly jelly beans</a></li>
+                                <li><a href="/jordan-almonds/c/555">White Jordan Almonds</a></li>
+                                <li><a href="/juicy-pear-jelly-beans/c/81">Juicy Pear Jelly Belly jelly beans</a></li>
+                                <!--<li><a href="/chocolate-malt-balls-10-lbs-bulk/p/6030">Chocolate Malt Balls</a></li>-->
+                                <li><a href="/cold-stone-jelly-beans/c/157">Mint Mint Chocolate Chocolate Chip<sup>&reg;</sup><br>Cold Stone Jelly Belly jelly beans</a></li>
+                                <!--<li><a href="/search?query=sour%20grape">Sour Grape Jelly Belly jelly beans</a></li>-->
+                                <li><a href="/blueberry-jelly-beans/c/67">Blueberry Jelly Belly jelly beans</a></li>
+                                <li><a href="/toasted-marshmallow-jelly-beans/c/103">Toasted Marshmallow Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                                <li><a href="/brown-candy-and-jelly-beans/c/323">Brown</a></li>
+                                <li><a href="/brown-candy-and-jelly-beans/c/323">Dark Brown</a></li>
+                                <li><a href="/brown-candy-and-jelly-beans/c/323">Light Brown</a></li>
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Green</a></li>
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Light Green</a></li>
+                                <li><a href="/blue-candy-and-jelly-beans/c/334">Blue</a></li>
+                                <li><a href="/blue-candy-and-jelly-beans/c/334">Light Blue</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}
+
+    

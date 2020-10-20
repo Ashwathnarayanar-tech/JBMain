@@ -1,0 +1,36 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+<style>
+    .mz-cms-content {
+        width: 100% !important;
+    }
+    
+    [class*='mz-cms-col-'] .mz-cms-content {
+        box-sizing: border-box;
+    }
+</style>
+<div class="mz-mobile">
+    <ul class="tz-mobrefine-slot">
+        <li>
+            <a href="javascript:void(0)" class="tz-mobRefine" role="button">
+                Filter By
+            </a>
+        </li>
+        <li jb-mobsort data-jb-current-sort>
+            <a href="javascript:void(0)">
+                <label>
+                    <span role="button">
+                        Sort By
+                    </span>
+                </label>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="unbxd-main-container mz-l-paginatedlist mz-l-container" id="shop-all">
+</div>
+
+{% endblock body-content %}

@@ -1,0 +1,115 @@
+{% extends "page" %}
+
+{% block body-tag-classes %} mz-product {% endblock body-tag-classes %}
+
+{% block stylesheets %}  
+{% parent %}
+<link rel="stylesheet" href="//pr.jellybelly.com/pwr/engine/pr_styles_review.css" type="text/css" id="prBaseStylesheet">
+{% endblock stylesheets %}
+
+ 
+ 
+{% block body-content %}
+
+{% require_script "pages/product" %}
+ 
+{% preload_json model "product" %}
+
+<div class="mz-l-container">
+    <div data-mz-productimages class="mz-productimages mz-l-sidebar" role="region" aria-label="Image Gallery">
+      {% include "modules/product/product-images" %}
+    </div>
+    <div class="mz-productdetail-wrap">
+        {% include "modules/common/message-bar" %}
+        <div id="product-detail" class="mz-productdetail mz-l-stack">  
+            {% include "modules/product/product-detail" %}
+        </div>
+        <h2 class="share-this">Share this!</h2>
+        <div class="addthis_sharing_toolbox social-icons" style="margin-top: 10px;"></div> 
+    </div> 
+    <div class="related-section">
+        {% include "modules/product/details-acc-sec" %}
+    </div>
+    <div class="description-section">  
+        {% include "modules/product/details-tab-sec" %}
+    </div>
+     
+  </div>
+
+<span id="_GUARANTEE_Kicker" class="norton-holder" name="_GUARANTEE_Kicker" type="Kicker Custom 2"></span>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product", 
+  "name": "{{ model.content.productName }}",
+  "description": "{{ model.content.productShortDescription }}",
+  "sku" : "{{ model.productCode }}",
+  "brand" : "Jelly Belly",
+  "image" : "{{ model.mainImage.imageUrl }}?max=350",
+  "url" : "https://www.jellybelly.com{{ model.url }}",
+  {% if model.productCode == "gift-card-merrychristmas" or model.productCode == "gift-card-birthday" or model.productCode == "gift-card-generic" or model.productCode == "gift-card-thankyou" or model.productCode == "gift-card-congratulations" or model.productCode == "gift-card-happyholidays" %}
+  "offers" : {
+    "@type": "AggregateOffer",
+    "url" : "https://www.jellybelly.com{{ model.url }}",
+    "availability" : "InStock",
+    "priceCurrency": "USD",
+    "highPrice": "100.00",
+    "lowPrice": "10.00",
+    "priceValidUntil" : "2020-12-31",
+    "priceSpecification" : {
+      "@type": "PriceSpecification",
+      "priceCurrency" : "USD"
+    }
+  }
+  {% else %}
+  "offers" : {
+    "@type": "Offer",
+    "url" : "https://www.jellybelly.com{{ model.url }}",
+    "availability" : "{% if model.inventoryInfo.onlineStockAvailable < 10 %}LimitedAvailability{% else %}InStock{% endif %}",
+    "priceCurrency": "USD",
+    "price" : {{ model.price.price|floatformat(2) }},
+    "priceValidUntil" : "2020-12-31",
+    "priceSpecification" : {
+      "@type": "PriceSpecification",
+      "priceCurrency" : "USD",
+      "price" : {{ model.price.price|floatformat(2) }}
+    }
+  },
+  "gtin12" : "{{ model.upc }}"
+  {% endif %}
+  {% for item in model.properties %}
+    {% if item.attributeFQN == "tenant~Reviews" %}
+      {% for value in item.values %}
+        {% if value.value != "0" %}
+        ,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{% for item in model.properties %}{%if item.attributeFQN == "tenant~rating"%}{%for inlineVal in item.values%}{{ inlineVal.value }}{%endfor%}{%endif%}{%endfor%}",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "{% for item in model.properties %}{%if item.attributeFQN == "tenant~review"%}{%for inlineVal in item.values%}{{ inlineVal.value }}{%endfor%}{%endif%}{%endfor%}"
+          }
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+}
+</script>
+
+    
+
+{% include "modules/addtowishlist-popup" %}
+
+  {% comment %}
+<script type="text/javascript" src="//pr.jellybelly.com/pwr/engine/js/full.js"></script>
+  {% endcomment %}
+  <h2 class="recommended-prod-head">Jelly Belly Also Recommends</h2>
+  {% dropzone zoneId="rti-product" scope="template" %}
+
+{%dropzone zoneId="seo-product" scope="page"%}
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=jellybelly" async="async"></script> 
+  
+{% require_script "modules/header-myaccount" %} 
+{% endblock body-content %} 

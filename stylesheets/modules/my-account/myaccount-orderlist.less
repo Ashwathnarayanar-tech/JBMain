@@ -1,0 +1,889 @@
+.mz-myaccount-panels {     
+    .mz-accountorderhistory {
+        .mz-pagingcontrols {
+            display: none;
+        }
+        .mz-orderlist {
+            margin-top: 15px;
+            li {
+                margin-bottom: 15px;
+            }
+        }
+        .mz-more-order {
+            background: #004e99;
+            border-radius: 4px !important;
+            -moz-border-radius: 4px !important;
+            -webkit-border-radius: 4px !important;
+            color: #FFF;
+            text-transform: capitalize;
+            padding: 7px 10px;
+            font-size: 18px;
+            margin-left: 34%;
+            width: 28%;
+            border: 1px solid #004e99;
+            &:hover {
+                background: #003A72;
+                border-color: #003A72;
+            }
+        }
+        .mz-l-stack-sectiontitle{
+            border-top: 1px solid #ccc;
+            padding: 11px 0px 11px 22px;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 0;
+            .add-new {
+                color: #1878a5;
+                display: inline-block; 
+                font-size: 12px;
+                text-decoration: none;
+                position: relative;
+                top: -11px;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .mz-orderlisting {
+            border: none;
+            min-height: 100%;
+            .item-list-heading {
+                margin: 20px;
+                padding: 0;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                li {
+                    display: inline-block;
+                    list-style-type: none;
+                    color: #c64606;
+                    margin: 10px 0px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    &.item-name {
+                        width: 42.5%;
+                    }
+                    &.item-qty {
+                        width: 167px;
+                    }
+                    &.item-total {
+                        width: 2%;
+                    }
+                }
+            }
+            .mz-orderlisting-items {
+                margin: 0px;
+                padding: 0px  !important;
+                .mz-itemlisting {
+                    min-height: 100px;
+                    border-bottom: 1px solid #ccc;
+                    margin-top: 28px;
+                    .mz-itemlisting-prompt {
+                        max-width: 100%;
+                        font-size: 12px;
+                        padding: 10px;
+                    }
+                    .quick-order-quantity{
+                        display: inline-block;
+                        float: left;
+                        margin-top: 15px;
+                        .quick-order-history-qty{
+                            position: relative;
+                        }
+                        .changer{
+                            cursor: pointer;
+                            text-decoration: none;
+                            padding: 0px 10px 0px;
+                            margin: 0;
+                            background: #686868;
+                            display: inline-block;
+                            color: white;
+                            float: left;
+                            position: absolute;
+                            height: 15px;
+                        }
+                        .minus-quick-order-qty {
+                            border-bottom-right-radius: 4px;
+                            top: 18px;
+                            left: 60px;
+                            height: 18px;
+                            color: rgba(61, 61, 61, 0.3);
+                            background-color: #f5f5f5;
+                            border-top: 0.6px solid #cfcfcf;
+                            font-weight: bold;
+                            position: absolute;
+                            width: 20px;
+                            padding-left: 10px;
+                            cursor: pointer;
+                            background-image: url('../../resources/images/icons/minus_qty.png');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 30%;
+                            &:hover {
+                                background-image: url('../../resources/images/icons/minus_qty_blue.png');
+                              }
+                        }
+                        .plus-quick-order-qty {
+                            left: 60px;
+                            height: 13px;
+                            width: 20px;
+                            border-top-right-radius: 4px;
+                            border-bottom: 0.6px solid #cfcfcf;
+                            padding-bottom: 4px;
+                            font-size: 15px;
+                            font-weight: bold;
+                            color: rgba(61, 61, 61, 0.3);
+                            background-color: #f5f5f5;
+                            top: 1px;
+                            position: absolute;
+                            padding-left: 10px;
+                            cursor: pointer;
+                            background-image: url('../../resources/images/icons/plus-qty.png');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 30%;
+                            &:hover {
+                                background-image: url('../../resources/images/icons/plus-qty_blue.png');
+                            }
+                        }
+                        .quantity-field{
+                            text-align: center;
+                            display: inline-block;
+                            width: 60px;
+                            padding: 6px 8px 6px 0;
+                            float: left;
+                            border-radius: 4px;
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border: 1px solid #cfcfcf;
+                            height: 24px
+                        }
+                        input[type=number]::-webkit-inner-spin-button, 
+                        input[type=number]::-webkit-outer-spin-button { 
+                          -webkit-appearance: none; 
+                          margin: 0; 
+                        }
+                        
+                    } 
+                    .inline-add-to-cart{
+                        width: 110px;
+                        background-color: #e7131a;
+                        color: #fff;
+                        display: inline-block;
+                        text-decoration: none;
+                        font-size: 18px;
+                        border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border: 1px solid #e7131a;
+                        margin: 0 auto;
+                        padding: 5.5px 0;
+                        margin-top: 14px;
+                        text-align: center;
+
+                        &:hover {
+                            background-color: #CC0108;
+                            border-color: #CC0108;
+                        }
+                    }
+                    .inline {
+                        text-align: center;
+                        cursor: pointer;
+                        display: inline-block;
+                        margin: 20px 4%;
+                        float: left;
+                        width: 150px;
+                    }
+                    
+                    .mz-itemlisting-thumb {
+                        /*width: 12%;
+                        height: auto;
+                        margin-left: 35px;*/
+                        width: 12%;
+                        height: auto;
+                        float: left;
+                        margin: 7px;
+                        cursor: pointer
+                    }
+                    .mz-itemlisting-details {
+                        margin: 0 4px;
+                        height: auto;
+                        //width: 35%;
+                        display: inline-block;
+                        width: 30%;
+                        /* padding: 0px 10px; */
+                        margin-top: 15px;
+                        cursor: pointer;
+                        float: left;
+                        a{
+                            font-size: 16px;
+                            font-weight: normal;
+                            text-decoration: none;
+                        }
+                    }
+                    .mz-itemlisting-actions {
+                        float: none;
+                        text-align: justify;
+                        margin-left: 35px;
+                        .mz-returnform {
+                            margin-left: 96px;
+                            margin-top: 15px;
+                            .mz-l-formfieldgroup {
+                                .mz-l-formfieldgroup-row {
+                                    display: inline-block;
+                                    width: 50%;
+                                    vertical-align: top;
+                                }
+                                .mz-returnform-policy {
+                                    padding-top: 6px;
+                                    .mz-itemlisting-prompt {
+                                        background: #f1f1f1;
+                                        border: none;
+                                        a {
+                                            display: inline-block;
+                                            margin-left: 0;
+                                        }
+                                    }
+                                }
+                                .mz-returnform-actions {
+                                    display: block;
+                                    width: 100%;
+                                }
+                                .mz-returnform-returntype {
+                                    display: block;
+                                    width: 100%;
+                                    .mz-l-formfieldgroup-cell {
+                                        padding-bottom: 20px;
+                                    }
+                                }
+                                .mz-returnform-quantity {
+                                    a {
+                                        text-decoration: none;
+                                        padding: 6px 10px 7px;
+                                        margin: 0;
+                                        background: #686868;
+                                    }
+                                    .mz-returnform-quantityfield {
+                                        height: 12px !important;
+                                        margin: -5px;
+                                    }
+                                }
+                                .mz-l-formfieldgroup-cell {
+                                    display: block;
+                                    text-align: left; 
+                                    padding-bottom: 5px;
+                                    font-size: 12px;
+                                    label {
+                                        text-align: left;
+                                        width: 132px;
+                                    }
+                                    select {
+                                        width: 93%;
+                                        padding: 10px;
+                                        border: 1px solid #cfcfcf;
+                                        height: auto;
+                                    }
+                                    .mz-returnform-quantityfield {
+                                        width: 78%;
+                                        padding: 10px;
+                                        border: 1px solid #C2C2C2;
+                                        height: auto;
+                                    }
+                                    .mz-returnform-optionalcommentsfield {
+                                        width: 85%;
+                                        padding: 10px;
+                                        border: 1px solid #C2C2C2;
+                                        height: 86px;
+                                    }
+                                    .mz-button-submit, .mz-button-cancel {
+                                        background: #1878a5;
+                                        border: 0;
+                                        color: #FFF;
+                                        text-transform: uppercase;
+                                        border-radius: 0;
+                                        -moz-border-radius: 0;
+                                        -webkit-border-radius: 0;
+                                        padding: 9px 10px;
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        margin: 20px 7px 10px 0;
+                                        width: 22%;
+                                    }
+                                    .mz-button-cancel {
+                                        background: #949494;
+                                    }
+                                }
+                            }
+                        }
+                        a {
+                            text-decoration: none;
+                            color: #1878a5;
+                            font-size: 12px;
+                            margin-left: 96px;
+                            &:hover {
+                                text-decoration: underline;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            .mz-orderlisting-detail {
+                position: relative; 
+                box-sizing: border-box;
+                height: auto;
+                width: 100%;
+                padding: 0;
+                background-color: #fff;  
+                .mz-orderlisting-heading {
+                    float: left;
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin: 0 20px;
+                }
+                .mz-orderlisting-date {
+                    float: right;
+                    font-size: 12px;
+                    font-weight: normal;
+                    margin: 0 20px;
+                    span {
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                }
+                .order-list-heading {
+                    border: 1px solid #1381b5;
+                    color: #000;
+                    margin: 0;
+                    padding: 0;
+                    &.active {
+                        border: none;
+                        background: #1381b5;
+                        li {
+                            color: #fff;
+                        }
+                        a {
+                            color: #fff;
+                        }
+                    }
+                    li {
+                        display: inline-block;
+                        color: #000;
+                        margin: 0px 20px 10px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        width: 40%;
+                        &.plus-minus {
+                            width: 10px;
+                            a {
+                                font-size: 25px !important;
+                                position: relative;
+                                top: 4px;
+                            }
+                        }
+                        &:nth-child(2){
+                            text-align: right;      
+                        }
+                    }
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                }
+                .order-list-address-details {
+                    width: 100%;
+                    padding: 0 20px 20px;
+                    box-sizing: border-box;
+                    .mz-l-stack-sectiontitle {
+                        border-top: none;
+                        padding: 20px 20px 20px 0;
+                        text-transform: uppercase;
+                        border-bottom: 1px solid #ccc;
+                    }
+                    .order-billing-address {
+                        float: left;
+                        width: 46%;
+                        margin-right: 8%;
+                        .mz-propertylist {
+                            dt {
+                                font-size: 14px;
+                                font-weight: bold;
+                            }
+                            dd {
+                                font-size: 12px;
+                                font-weight: normal;
+                                position: relative;
+                                top: 2px;
+                                left: 5px;
+                            }
+                        }
+                    }
+                    .order-shipping-address {
+                        float: left;
+                        width: 46%;
+                        .ship-to-content {
+                            display: inline-block;
+                            width: 47%;
+                            vertical-align: top;
+                            margin: 10px 0;
+                            font-weight: normal;
+                            font-size: 12px;
+                            position: relative;
+                            top: 2px;
+                            left: 5px;
+                            span{
+                                display: block;
+                            }
+                        }
+                        .ship-to-label {
+                            display: inline-block;
+                            width: 43%;
+                            font-weight: bold;
+                            font-size: 14px;
+                            margin: 10px 0;
+                        }
+                    }
+                    .mz-checkout-paymenttitle {
+                        display: none;
+                    }
+                    .mz-propertylist {
+                        margin: 0;
+                        dt, dd {
+                            margin: 10px 0;
+                        }
+                        // dt:nth-of-type(2),dd:nth-of-type(2),dt:nth-of-type(4),dd:nth-of-type(4),dt:nth-of-type(5),dd:nth-of-type(5) {
+                        //     display: none;
+                        // }
+                    }
+                }
+                .add-all-to-cart{
+                    width: 142px;
+                    background-color: #e7131a;
+                    color: #fff;
+                    display: inline-block;
+                    text-decoration: none;
+                    font-size: 18px;
+                    border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    border: 1px solid #e7131a;
+                    margin: 0 auto;
+                    padding: 5.5px 0;
+                    margin-top: 14px;
+                    text-align: center;
+                    &:hover {
+                        background-color: #CC0108;
+                        border-color: #CC0108;
+                    }
+                }
+            }
+            .mz-orderlisting-items {
+                margin-left: 0;
+                padding: 12.5px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 1016px){
+    .mz-myaccount-panels {
+        .mz-accountorderhistory {
+            .mz-more-order {
+               width: 100%;
+               margin: 0;
+            }
+            .mz-orderlisting {
+                border: none;
+                min-height: 100%;
+                .item-list-heading {
+                    display: none !important;
+                }
+                .mz-orderlisting-items {
+                    border-top : 1px solid #ccc;
+                    padding: 0 !important;
+                    margin: 3% 0;
+                    .mz-itemlisting {
+                        min-height: 100px;
+                        border-bottom: 1px solid #ccc;
+                        margin-top: 4%;
+                        .mz-itemlisting-prompt {
+                            max-width: 100%;
+                            font-size: 12px;
+                            padding: 10px;
+                        }
+                        .inline {
+                            display: inline-block;
+                            text-align: center;
+                            /* margin-left: 123px; */
+                            /* font-weight: bold; */
+                            width: 40%;
+                            float: none;
+                            &::before {
+                                content: 'Price: '; 
+                            }
+                        }
+                        .inline-add-to-cart{
+                            display: inline-block;
+                            width: 40%;
+                            float: none;
+                            font-size: 18px;
+                            text-align: center;
+                        }
+                        .mz-itemlisting-thumb {
+                            /*width: 104px;
+                            margin-left: 0px;*/
+                            margin: 0;
+                            width: 30%;
+                            float: none;
+                            display: inline-block;
+                        }
+                        .mz-itemlisting-details {
+                            /*margin-left: 10px;
+                            height: auto;
+                            width: 35%;*/
+                            margin: 0;
+                            width: 68%;
+                            display: inline-block;
+                            float: none;
+                            vertical-align: middle;
+                            a{
+                                font-size: 15px;
+                            }
+                        }
+                        .quick-order-quantity{
+                            float: none;
+                            width: 100%;
+                            text-align: center;
+                            display: table;
+                            .quick-order-history-qty{
+                                width: 46%;
+                                display: inline-block;
+                                .clear{
+                                    clear: both;
+                                }
+                            }
+                        }
+                        .mz-itemlisting-actions {
+                            float: none;
+                            margin-left: 0px;
+                            a {
+                                margin: 0;
+                            }
+                            .mz-returnform {
+                                margin-left: 0px;
+                                margin-top: 15px;
+                                .mz-l-formfieldgroup {
+                                    .mz-l-formfieldgroup-row {
+                                        display: inline-block;
+                                        width: 50%;
+                                        vertical-align: top;
+                                    }
+                                    .mz-returnform-policy {
+                                        padding-top: 6px;
+                                        .mz-itemlisting-prompt {
+                                            background: #f1f1f1;
+                                            border: none;
+                                            a {
+                                                display: inline-block;
+                                                margin-left: 0;
+                                            }
+                                        }
+                                    }
+                                    .mz-returnform-actions {
+                                        display: block;
+                                        width: 100%;
+                                    }
+                                    .mz-returnform-returntype {
+                                        display: block;
+                                        width: 100%;
+                                        .mz-l-formfieldgroup-cell {
+                                            padding-bottom: 20px;
+                                            label {
+                                                display: inline-block;
+                                                width: 43%;
+                                            }
+                                        }
+                                    }
+                                    .mz-returnform-quantity {
+                                        .mz-returnform-quantityfield {
+                                            height: 12px !important;
+                                            margin: -5px;
+                                        }
+                                    }
+                                    .mz-l-formfieldgroup-cell {
+                                        display: block;
+                                        text-align: left; 
+                                        padding-bottom: 5px;
+                                        font-size: 12px;
+                                        label {
+                                            text-align: left;
+                                            width: 132px;
+                                        }
+                                        select {
+                                            width: 93%;
+                                            padding: 10px;
+                                            border: 1px solid #cfcfcf;
+                                            height: auto;
+                                        }
+                                        .mz-returnform-quantityfield {
+                                            width: 78%;
+                                            padding: 10px;
+                                            border: 1px solid #C2C2C2;
+                                            height: auto;
+                                        }
+                                        .mz-returnform-optionalcommentsfield {
+                                            width: 85%;
+                                            padding: 10px;
+                                            border: 1px solid #C2C2C2;
+                                            height: 86px;
+                                        }
+                                        .mz-button-submit, .mz-button-cancel {
+                                            display: block;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                .mz-orderlisting-detail {
+                    .orderlisting-heading {
+                        margin: 0 !important;  
+                    }    
+                    .mz-orderlisting-date {
+                        float: right;
+                        font-size: 12px;
+                        font-weight: normal;
+                        margin: 0 0 0 16px;
+                        span {
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
+                    .clearfix{
+                        clear:both;
+                    }
+                    .order-list-heading {
+                        position: relative;
+                        li {
+                            display: inline-block;
+                            width: 100%;
+                            margin: 10px;
+                            &.plus-minus {
+                                width: 10px;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                margin: 0 15px;
+                                    a {
+                                        top: 0px;
+                                    }
+                            }
+                            
+                        }
+                    }
+                    .order-list-address-details {
+                        .order-billing-address {
+                            float: none;
+                            width: 100%;
+                            margin-right: 0%;
+                            .mz-checkout-payment {
+                                float: none;
+                            }
+                        }
+                        .order-shipping-address {
+                            float: none;
+                            width: 100%;
+                            .ship-to-content {
+                                display: block;
+                                width: 100%;
+                                span {
+                                    display: block;
+                                }
+                            }
+                            .ship-to-label {
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                        .mz-propertylist {
+                            margin: 0;
+                            dt, dd {
+                                float: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px)and (orientation: portrait){
+    .mz-myaccount-panels {
+        .mz-accountorderhistory {
+            .mz-orderlisting {
+                .mz-orderlisting-detail{
+                    .order-list-heading {
+                        li {
+                            width: 40%;
+                            margin: 10px 6px;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1px) and (max-width: 767px){
+    .mz-myaccount-panels {
+        .mz-accountorderhistory {
+            .mz-l-stack-sectiontitle{
+                padding-left: 0;
+            }
+            .mz-orderlisting{
+                .mz-orderlisting-detail{
+                    .order-list-heading {
+                        margin: 0;
+                        width: 88%;
+                        li:nth-child(2){
+                            text-align: left;
+                            
+                        }
+                    }
+                }
+                .mz-orderlisting-items {
+                    .mz-itemlisting {
+                        .quick-order-quantity {
+                            .quick-order-history-qty {
+                                width: 36%;
+                            }
+                            .quantity-field {
+                                text-align: center;
+                                display: inline-block;
+                                width: 54px;
+                                padding: 6px 32px;
+                                float: left;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border: 1px solid #cfcfcf;
+                                height: 20px;
+                            }
+                            .minus-quick-order-qty {
+                                border-bottom-left-radius: 4px;
+                                border-top-left-radius: 4px;
+                                top: 0px;
+                                left: 1px;
+                                height: 24px;
+                                width: 16px !important;
+                                color: rgba(61, 61, 61, 0.3);
+                                background-color: #f5f5f5;
+                                border-top: 0.6px solid #cfcfcf;
+                                font-weight: bold;
+                                position: absolute;
+                                width: 20px;
+                                padding-left: 10px;
+                                cursor: pointer;
+                                float: left;
+                                padding-top: 8px;
+                                padding-right: 10px;
+                                background-image: url('../../resources/images/icons/minus_qty_mob.png');
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: 46%;
+                            }
+                            .plus-quick-order-qty {
+                                left: 83px;
+                                height: 22px;
+                                width: 16px;
+                                border-top-right-radius: 4px;
+                                border-bottom-right-radius: 4px;
+                                /* border-bottom: 1px solid #cfcfcf; */
+                                padding-bottom: 4px;
+                                font-size: 15px;
+                                font-weight: bold;
+                                color: rgba(61, 61, 61, 0.3);
+                                background-color: #f5f5f5;
+                                top: 1px;
+                                position: absolute;
+                                padding-left: 10px;
+                                cursor: pointer;
+                                padding-top: 6px;
+                                padding-right: 10px;
+                                background-image: url('../../resources/images/icons/plus-qty_mob.png');
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: 46%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 
+@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape){
+    .mz-myaccount-panels {
+        .mz-accountorderhistory {
+            .mz-orderlisting {
+                .mz-orderlisting-detail{
+                    .order-list-heading {
+                        li {
+                            width: 40%;
+                            margin: 10px 6px;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .mz-myaccount-panels {
+        .mz-accountorderhistory {
+            .mz-orderlisting{
+                .mz-orderlisting-items {
+                    .mz-itemlisting {
+                        .quick-order-quantity {
+                            .quick-order-history-qty {
+                                width: 36%;
+                                margin-left: 36px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.order-history-overlay{
+    
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    opacity: 0.1;
+    position: absolute;
+    display: none;
+}
+
+
+
+
+
+

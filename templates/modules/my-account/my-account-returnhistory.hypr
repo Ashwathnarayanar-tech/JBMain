@@ -1,0 +1,26 @@
+<h3 class="mz-l-stack-sectiontitle">{{ labels.returns }}</h3>
+<div class="mz-orderhistory-section mz-l-paginatedlist">
+  {% if model.items %}
+    
+    <div data-mz-orderlist class="mz-l-paginatedlist-list">
+      {% include "modules/my-account/return-history-list" %}
+    </div>
+  {% else %}
+     <div class="no-cards">
+            <p class="mz-accountaddressbook-empty" style="text-align: left;">
+                <!-- {{ labels.accountNoReturns }} -->
+				You may cancel your order for any item sold by JellyBelly.com, provided that the order has not yet entered the shipping process. 
+				If the order has not been shipped and you wish to cancel it, please call 1-800-522-3267 between 7 AM and 5 PM Pacific Time, 
+				Monday through Friday excluding major holidays, and we may be able to cancel the order.
+				<br><br>
+				Due to the perishable nature of food items, please contact us within three (3) business days after receiving your order to notify us that 
+				you will be returning some or all of the items and to receive instructions for returning your unopened item(s). The delivery date will be 
+				determined by the shipper's records. Food items returned more than five (5) business days after the order has been delivered will not be 
+				replaceable or refundable. Beanware items will not be replaceable or refundable after ten (10) business days.
+				<br><br>
+				Please <a href="/return-policy">click here</a> for more information
+            </p>
+        </div>
+  {% endif %}
+</div>
+

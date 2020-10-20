@@ -1,0 +1,115 @@
+{% extends "page" %}
+{% block meta-tags %}
+{% parent %}
+    <meta name="robots" id="robotsMeta" content="{{themeSettings.robots_value}}" />
+    <meta name="googlebot" id="googleBotMeta" content="{{themeSettings.googlebot_value}}" />
+    <meta name="google-site-verification" content="{{themeSettings.google-site-verification_value}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="verify-v1" content="GyEpGH2+ELQEr5SNfmuM4t4YK8HYpuY49UbvQgcxFUM=" />
+    <meta name="description" content="Jelly Belly Candy Company - Official Site.  Features Factory fresh candy, jelly beans, chocolate, gummy, licorice and more" />
+    <meta name="keywords" content="Candy, jelly jeans, candy,  chocolate,  gummy, licorice, Bean Boozled, beanboozled, belly flops " />
+    <meta name="owner" content="Jelly Belly Candy Company" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+{% endblock meta-tags %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %}
+{% block body-content %}
+<section>
+    <div class="vending">
+    
+    <div class="mar-left10">
+    <img alt="Sport Beans® Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/ba505b75-a893-4323-bf77-28214291bed6" title="Sport Beans® Jelly Beans"/>
+
+    <h1 class="mz-pagetitle mar-top0" tabindex="0">Sport Beans® Jelly Beans</h1> 
+   </div>
+   
+    <article>
+   <div class="headline-beans">
+       <h3  tabindex="0" >Quick Energy for Sports Performance</h3>
+       </div>
+        <p class="mar-top0"  tabindex="0" >
+     Sport Beans jelly beans are a first-of-its-kind carbohydrate replenishment for sports performance from the makers of Jelly Belly<sup>®</sup>.
+    </p>
+    
+    <div class="headline-beans">
+	<h2  tabindex="0">What are Sport Beans jelly beans?</h2>
+	</div>
+        <p class="mar-top0"  tabindex="0" >
+    Sport Beans<sup>®</sup> Energizing Jelly Beans are formulated to help fuel the body during intense exercise. Clinically proven to maximize sports performance, each bean is loaded with carbs for fuel, electrolytes to help maintain fluid balance and vitamins to optimize energy release and protect cells against oxidative damage.
+    </p>
+ <p tabindex="0" >
+ For more information visit <a target="_blank" href="http://www.sportbeans.com/" class="brown-clr" title="www.SportBeans.com">www.SportBeans.com</a>
+ </p>
+ 
+<div class="block-container">
+<h3 tabindex="0">Sport Beans<sup>®</sup> Jelly Beans</h3>
+
+<figure>
+<a href="/search?query=sport+beans" title="Sport Beans®">
+<img alt="Sport Beans® Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/59a1ddb1-c4d6-45a9-84c2-1c7fa6d0353f"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0">Scientifically formulated to maximize sports performance. Made with natural flavors and real fruit juices.</h5>
+<p class="padd-left0">
+<a href="/search?query=sport+beans" class="marbtm60" title="Sport Beans®" >Sport Beans® ►
+</a>
+</p>
+</div>
+
+
+</div>
+
+
+    <div id="fundraisingForm">
+     
+    </div>
+
+    </article>
+   </div>
+   <figure class="vendingImage">
+      <img alt="Sport Beans® Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/cee33ab6-0ec1-4bc0-9942-97d1e4a7ece8">  
+    </figure>
+    
+   
+   
+<div class="block-container">
+<h3 tabindex="0">Extreme Sport Beans<sup>®</sup> Jelly Beans</h3>
+
+<figure>
+<a href="/search?query=extreme+sport+beans" title="Shop Extreme Sport Beans®">
+<img alt="Extreme Sport Beans Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/ad639699-2bf7-472d-8a9b-7158de5fae45"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0">When your workout needs a little more kick, there's Extreme Sport Beans<sup>®</sup>.</h5>
+<p class="padd-left0">
+<a href="/search?query=extreme+sport+beans" class="marbtm60" title="Shop Extreme Sport Beans®">Shop Extreme Sport Beans® ►</a>
+</p>
+</div>
+</div>
+
+<div class="block-container">
+<h3 tabindex="0">NEW Sport Beans<sup>®</sup> Protein Recovery Crisps™</h3>
+
+<figure>
+<a href="/search?query=sport+beans+recovery" title="Shop Protein Recovery Crisps™">
+<img alt="Protein Recovery Crisps™" src="//cdn-tp1.mozu.com/9046-m1/cms/files/aa8482c7-9a74-4719-b061-df22d09595d1"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0">Each bite size crisp combines a crispy pea protein center wrapped with a whey protein layer and then sealed by a thin shell.</h5>
+<p class="padd-left0">
+<a href="/search?query=sport+beans+recovery"  class="marbtm60" title="Shop Protein Recovery Crisps™">Shop Protein Recovery Crisps™ ►</a>
+</p>
+</div>
+
+</div>
+<div class="clearfix"></div>
+</section>
+{% endblock body-content %}

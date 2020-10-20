@@ -1,0 +1,975 @@
+{% if pagecontext.isMobile or pagecontext.isTablet %}
+<div class="jb-custom-overlay overlay-slidedown"> 
+    <nav class="mz-sitenav-mobile mz-mobile">
+        {% comment %}
+            <a href="javascript:;" class="menu-btn dl-black">Menu</a>
+        {% endcomment %}
+        <a href="javascript:;" class="menu-close-btn">
+            Close
+            <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newCloseicon.png" alt="Close icon">
+        </a> 
+        <div class="clearfix"></div>
+        <div class="jb-nav-mobile" > 
+            <ul class="mz-sitenav-list-mobile" 
+                data-mz-contextify='.mz-sitenav-link[href="{{ navigation.currentNode.url }}"]' data-mz-contextify-attr='class'
+                data-mz-contextify-val='is-current'>
+                {% partial_cache %}
+                    <li class="mz-sitenav-item-mobile"   data-mz-megamenu-id="exploreourproduct-mob">
+                        <div class="mz-sitenav-item-inner-mobile">
+                            <a class="mz-sitenav-link-mobile" href="/ourcandy" aria-label="Explore and Learn">Explore & Learn</a>   
+                        </div>
+                        <div class="nav-menu-details-mobile" >
+                            <div class="nav-menu-details-container-mobile">
+                                <ul class="nav-main-ul-mobile">
+                                    <li class="jb-megamenu-mobile megamenu_1" id="exploreourproduct-mob">
+                                        <ul class="menu-mobile">
+                                            <li class="sunmenu-container-mobile" id="Our-Products-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Our Products">Our Products</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div> 
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile">
+                                                        <a href="/jelly-belly-jelly-beans-brand" aria-label="Jelly Belly Jelly Beans brand">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Jelly Beans</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/beanboozled" aria-label="BeanBoozled">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">BeanBoozled</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/organic-collection" aria-label="Jelly Belly Organic">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Organic</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/confections-from-the-makers-of-jelly-belly" aria-label="Confections by Jelly Belly">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Confections by Jelly Belly</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/sport-beans" aria-label="Sport Beans">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sport Beans</span></div> 
+                                                        </a> 
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/mixed-emotions" aria-label="Mixed Emotions">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Mixed Emotions</span></div> 
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                            </li>  
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Candy-Collaborations-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Candy Collaborations">Candy Collaborations</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> 
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile">
+                                                        <a href="/disney" aria-label="Disney">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Disney</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile"> 
+                                                        <a href="/harry-potter" aria-label="Harry Potter">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Harry Potter</span></div>
+                                                        </a> 
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/krispy-kreme-jelly-beans" aria-label="Krispy Kreme">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Krispy Kreme</span></div> 
+                                                        </a>
+                                                    </div> 
+                                                    <div class="subitem-mobile">
+                                                        <a href="/beanboozled-minion-edition" aria-label="BeanBoozled Minions"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">BeanBoozled Minions</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/star-wars" aria-label="Star Wars"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Star Wars</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/sunkist-candies" aria-label="Sunkist"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sunkist</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <!-- <div class="subitem-mobile">
+                                                        <a href="/trolls" aria-label="Trolls">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Trolls</span></div>
+                                                        </a> 
+                                                    </div> -->
+                                                    <div class="subitem-mobile">
+                                                        <a href="/Cold-Stone-Creamery-Jelly-Beans" aria-label="Cold Stone">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cold Stone</span></div>  
+                                                        </a>      
+                                                    </div>
+                                                    <!--<div class="subitem-mobile">
+                                                        <a href="/jurassic-world-collection" aria-label="Jurassic World">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jurassic World</span></div>  
+                                                        </a>      
+                                                    </div>  -->
+                                                </div>
+                                            </li>  
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Flavor-Guides-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Flavor Guides">Flavor Guides</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=original50" aria-label="Jelly Belly Official Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Official Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=beanboozled-4" aria-label="BeanBoozled® 4th Edition">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">BeanBoozled® 4th Edition </span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=beanboozled-minion" aria-label="BeanBoozled® Minion Edition">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">BeanBoozled® Minion Edition </span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=mixed-emotions" aria-label="Mixed Emotions™">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Mixed Emotions™ </span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=krispyKreme" aria-label="Krispy Kreme Doughnuts®">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Krispy Kreme Doughnuts®</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=organic" aria-label="Organic Jelly Beans">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Organic Jelly Beans</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=jewelBeans" aria-label="Jewel Jelly Beans">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jewel Jelly Beans</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=kids" aria-label="Jelly Belly Kids Mix">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Kids Mix</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=citrus" aria-label="Sunkist® Citrus Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sunkist® Citrus Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=sodaPop" aria-label="Soda Pop Shoppe® Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Soda Pop Shoppe® Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=snapple" aria-label="Snapple™ Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Snapple™ Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=coldStone" aria-label="Cold Stone®">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cold Stone®</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=superfruit" aria-label="Superfruit">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Superfruit</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=sportBeans" aria-label="Sport Beans® Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sport Beans® Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=cocktail" aria-label="Cocktail Classics®">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cocktail Classics®</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=sours" aria-label="Sour Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sour Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=sugarFree" aria-label="Jelly Belly Sugar-Free Flavors">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Sugar-Free Flavors</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=bertieBotts" aria-label="Harry Potter™ Bertie Bott's">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Harry Potter™ Bertie Bott's</span></div>
+                                                        </a>
+                                                    </div> 
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/flavor-guides?guide=tropical" aria-label="Tropical Mix">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Tropical Mix</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li> 
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Fun-with-Jelly-Belly-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Fun with Jelly Belly">Fun with Jelly Belly</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/birthday-party-ideas" aria-label="Birthday Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Birthday Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/halloween-recipes-and-party-ideas" aria-label="Halloween Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Halloween Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/christmas-and-holiday-ideas" aria-label="Christmas & Holiday Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Christmas & Holiday Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/valentines-day-recipes-and-party-ideas" aria-label="Valentine's Day Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Valentine's Day Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/spring-and-easter-ideas" aria-label="Easter & Spring Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Easter & Spring Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wedding-center" aria-label="Wedding Center">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Wedding Center</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/recipes-and-diy" aria-label="Recipes & DIY Ideas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Recipes & DIY Ideas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/ArtGallery" aria-label="Bean Art Gallery">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Bean Art Gallery</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/coloring-pages" aria-label="Coloring Pages">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Coloring Pages</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/fun-facts" aria-label="Jelly Belly Fun Facts">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Fun Facts</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/downloads" aria-label="Apps & Screensavers">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Apps & Screensavers</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/jelly-belly-bean-recipes" aria-label="Jelly Bean Recipes">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Bean Recipes</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Sponsorships-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Sponsorships">Sponsorships</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/pro-cycling-team" aria-label="Cycling Team">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cycling Team</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full"> 
+                                                        <a href="/rivercats" aria-label="Sacramento River Cats">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sacramento River Cats</span></div>
+                                                        </a>
+                                                    </div> 
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/sportsSponsorships" aria-label="Drivers & Pilots">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Drivers & Pilots</span></div>
+                                                        </a>
+                                                    </div> 
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/event-calendar" aria-label="Event Calendars">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Event Calendars</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/jelly-belly-fleet" aria-label="Jelly Belly Fleet">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Fleet</span></div>
+                                                        </a>
+                                                    </div> 
+                                                </div>
+                                            </li>
+                                        </ul>    
+                                    </li>  
+                                </ul>
+                            </div> 
+                        </div>
+                    </li>    
+                    <li class="mz-sitenav-item-mobile"   data-mz-megamenu-id="shopourproduct-mob">
+                        <div class="mz-sitenav-item-inner-mobile">
+                            <a class="mz-sitenav-link-mobile" href="/online-candy-store" aria-label="Shop and Buy">Shop & Buy</a>  
+                        </div>
+                        <div class="nav-menu-details-mobile" >
+                            <div class="nav-menu-details-container-mobile">
+                                <ul class="nav-main-ul-mobile">
+                                    <li class="jb-megamenu-mobile megamenu_2" id="shopourproduct-mob">
+                                        <ul class="menu-mobile">
+                                            <li class="sunmenu-container-mobile" id="Brand-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Brand">Brand</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile">
+                                                        <a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Jelly Beans</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">BeanBoozled</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/belly-flops-/c/343" aria-label="Belly Flops® ">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Belly Flops® </span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile"> 
+                                                        <a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter">
+                                                           <div class="namespan-container-mobile"><span class="name-span-mobile">Harry Potter</span></div>
+                                                        </a> 
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/confections-by-jelly-belly/c/339" aria-label="Confections by Jelly Belly">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Confections by Jelly Belly</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/sugar-free-candy/c/338" aria-label="Sugar-Free"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sugar-Free</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/sport-beans-jelly-beans/c/336" aria-label="Sport Beans">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sport Beans</span></div> 
+                                                        </a> 
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/sunkist-candies/c/342" aria-label="Sunkist"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sunkist</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/disney-candy-and-gifts/c/337" aria-label="Disney">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Disney</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Krispy Kreme</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/star-wars-gifts-and-candy/c/47" aria-label="Star Wars"> 
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Star Wars</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/cold-stone-jelly-beans/c/157" aria-label="Cold Stone">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cold Stone</span></div>  
+                                                        </a>     
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/jelly-belly-organic/c/559" aria-label="Jelly Belly Organic">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Organic</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/dc-comics-super-hero-candy-collection/c/638" aria-label="Justice League Heroes">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Justice League Heroes</span></div>  
+                                                        </a>     
+                                                    </div> 
+                                                    <div class="subitem-mobile">
+                                                        <a href="/mixed-emotions/c/711" aria-label="Mixed Emotions">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Mixed Emotions</span></div>  
+                                                        </a>     
+                                                    </div> 
+                                                    <div class="subitem-mobile">
+                                                    <a href="/toy-story-4/c/855" aria-label="Toy Story 4">
+                                                        <div class="namespan-container-mobile"><span class="name-span-mobile">Toy Story 4</span></div>  
+                                                    </a>     
+                                                  </div>
+                                                </div> 
+                                            </li>     
+                                            <div class="vertical-line-mobile"></div>
+											<li class="sunmenu-container-mobile" id="Weight">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Weight">Weight</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> 
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile">
+                                                        <a href="/by-the-pound/c/60" aria-label="one pound bags">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">1 lb. Resealable Bags</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/bulk-a-bunch/c/305" aria-label="five and ten pound boxes">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Bulk (5 lb. or 10 lb. Boxes)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/gift-boxes/c/61" aria-label="assorted gift boxes">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Gift Boxes (Assorted)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/gift-basket/c/302" aria-label="assorted gift baskets">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Gift Baskets (Assorted)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/1-oz-bags/c/709" aria-label="small bags up to one ounce">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Small Bags (up to 1 oz.)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/bag-little-more-/c/304" aria-label="small bags over one ounce">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Small Bags (over 1 oz.)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/box-little-/c/303" aria-label="small boxes under one pound">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Small Boxes (under 1 lb.)</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/gift-bag/c/300" aria-label="gift bags under one pound">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Gift Bags (under 1 lb.)</span></div> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li> 
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Color-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Color">Color</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> 
+                                                <div class="submenu-list-mobile">
+												    <div class="subitem-mobile">
+                                                        <a href="/blue-candy-and-jelly-beans/c/334" aria-label="Blue">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Blue</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/black-candy-and-jelly-beans/c/333" aria-label="Black">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Black</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/pink-candy-and-jelly-beans/c/327" aria-label="Pink">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Pink</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/white-candy-and-jelly-beans/c/330" aria-label="White">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">White</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/green-candy-and-jelly-beans/c/324" aria-label="Green">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Green</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/red-candy-and-jelly-beans/c/329" aria-label="Red">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Red</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/purple-candy-and-jelly-beans/c/328" aria-label="Purple">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Purple</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/orange-jelly-beans-and-candy/c/326" aria-label="Orange">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Orange</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/yellow-candy-and-gifts/c/331" aria-label="Yellow">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Yellow</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/multi-colored-candy-and-jelly-beans/c/325" aria-label="Multi Colored/mix">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Multi Colored/Mix</span></div> 
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile">
+                                                        <a href="/brown-candy-and-jelly-beans/c/323" aria-label="Brown">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Brown</span></div> 
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile">
+                                                        <a href="/beige-candy-and-jelly-beans/c/332" aria-label="Beige">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Beige</span></div> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li> 
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Flavor-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Flavor">Flavor</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+												    <div class="subitem-mobile full">
+                                                        <a href="/weird-wild-and-gross-jelly-beans/c/289" aria-label="Weird Wild & Gross">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Weird Wild & Gross</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/fruit-flavored-candy-and-jelly-beans/c/347" aria-label="Fruity">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Fruity</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/ice-cream-flavored-jelly-beans/c/292" aria-label="Ice Cream">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Ice Cream</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/soda-flavored-candy-and-jelly-beans/c/290" aria-label="Soda Pop">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Soda Pop</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/sour-candy-and-jelly-beans/c/293" aria-label="Sour">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sour</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/hot-and-spicy-candy-and-jelly-beans/c/294" aria-label="Hot & Spicy">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Hot & Spicy</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/licorice-candy-and-jelly-beans/c/291" aria-label="Licorice">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Licorice</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/tropical-flavored-candy-and-jelly-beans/c/297" aria-label="Tropical">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Tropical</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/chocolate/c/295" aria-label="Chocolate">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Chocolate</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/mint-flavored-candy-and-jelly-beans/c/298" aria-label="Minty">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Minty</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/candy-covered-nuts/c/296" aria-label="Nutty">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Nutty</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/vanilla-flavored-candy-and-jelly-beans/c/288" aria-label="Vanilla">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Vanilla</span></div>
+                                                        </a>
+                                                    </div>
+                                                    {% comment %}
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/cherry/c/366" aria-label="Cherry">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cherry</span></div>
+                                                        </a>
+                                                    </div>
+                                                    {% endcomment %}
+                                                </div>
+                                            </li> 
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Holiday">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Holiday">Holiday</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    
+                                                    
+                                                    <!--<div class="subitem-mobile full">
+                                                        <a href="/fourth-of-july-candy/c/313" aria-label="4th of July">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">4th of July</span></div>
+                                                        </a>
+                                                    </div>-->
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/halloween-candy-and-treats/c/314" aria-label="Halloween">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Halloween</span></div>
+                                                        </a>
+                                                    </div>
+													<!--<div class="subitem-mobile full">
+                                                        <a href="/thanksgiving-candy-gifts-candy-corn-autumn-mix/c/315" aria-label="Thanksgiving">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Thanksgiving</span></div>
+                                                        </a>
+                                                    </div>-->
+													<div class="subitem-mobile full">
+                                                        <a href="/christmas-and-holiday-candy/c/24" aria-label="Christmas">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Christmas</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--<div class="subitem-mobile full">
+                                                        <a href="/hanukkah-candy-and-gifts/c/247" aria-label="Hannukah">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Hannukah</span></div>
+                                                        </a>
+                                                    </div>-->
+                                                    <!--<div class="subitem-mobile full">
+                                                        <a href="/festive-candy-for-new-years-eve/c/362" aria-label="New Year's Eve">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">New Year's Eve</span></div>
+                                                        </a>
+                                                    </div>-->
+													<div class="subitem-mobile full">
+                                                        <a href="/valentines-day-candy-and-gifts/c/57" aria-label="Valentine's Day">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Valentine's Day</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--<div class="subitem-mobile full">
+                                                        <a href="/st-patricks-day-candy/c/186" aria-label="St. Patrick's Day">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">St. Patrick's Day</span></div>
+                                                        </a>
+                                                    </div>-->
+													<div class="subitem-mobile full">
+                                                        <a href="/easter-candy-and-gifts/c/248" aria-label="Easter & Spring">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Easter & Spring</span></div>
+                                                        </a>
+                                                    </div>
+													<!--<div class="subitem-mobile full">
+                                                        <a href="/cinco-de-mayo/c/213" aria-label="Cinco de Mayo">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Cinco de Mayo</span></div>
+                                                        </a>
+                                                    </div>-->
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/mothers-day-candy-and-gifts/c/211" aria-label="Mother's Day">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Mother's Day</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/gifts-for-dad/c/188" aria-label="Father's Day">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Father's Day</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/holidays/c/860" aria-label="More Holidays">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">More Holidays</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                            <li class="sunmenu-container-mobile" id="more">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="More">More</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div> 
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/jelly-belly-bargain-outlet/c/5" aria-label="Bargain Outlet">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Bargain Outlet</span></div>
+                                                        </a>
+                                                    </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/gift-cards/c/352" aria-label="Buy Gift Cards">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Buy Gift Cards</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">  
+                                                        <a href="/jelly-belly-sweet-rewards" aria-label="Sweet Rewards Loyalty Program">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sweet Rewards Loyalty Program</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">  
+                                                        <a href="/merchandise/c/867" aria-label="Merchandise & Accessories">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Merchandise & Accessories</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/store-locator" aria-label="Find a Local Store">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Find a Local Store</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/why-buy-direct" aria-label="Why Buy Direct?">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Why Buy Direct?</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/myjellybelly" aria-label="Personalized Containers">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Personalized Containers</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                        </ul> 
+                                    </li>
+                                </ul>
+                            </div> 
+                        </div>
+                    </li>    
+                    <li class="mz-sitenav-item-mobile"  data-mz-megamenu-id="visitus-mob">
+                        <div class="mz-sitenav-item-inner-mobile"> 
+                            <a class="mz-sitenav-link-mobile" href="/visitjellybelly" aria-label="Visit Us">Visit Us</a> 
+                        </div>
+                        <div class="nav-menu-details-mobile" >
+                            <div class="nav-menu-details-container-mobile">
+                                <ul class="nav-main-ul-mobile"> 
+                                    <li class="jb-megamenu-mobile megamenu_3" id="visitus-mob">
+                                        <ul class="menu-mobile">
+                                            <li class="sunmenu-container-mobile" id="California-Visitors-Center-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="California Visitors Center">California Visitors Center</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/california-factory-tours" aria-label="Free Self Guided Factory Tours">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Free Self-Guided Factory Tours</span></div>
+                                                        </a>
+                                                    </div> 
+													  <div class="subitem-mobile full">
+                                                        <a href="/personal-california-factory-tours" aria-label="Personal Guided Factory Tours">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Personal-Guided Factory Tours</span></div>
+                                                        </a>
+                                                    </div> 
+													 <div class="subitem-mobile full">
+                                                        <a href="/jelly-belly-university" aria-label="Jelly Belly University">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly University</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wine-experience" aria-label="Chocolate & Wine Experience">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Chocolate & Wine Experience</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/california-factory-store" aria-label="Jelly Belly Candy Store">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Candy Store</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/California-Factory-Cafe" aria-label="Jelly Belly Cafe">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Cafe</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/California-Factory-Chocolate-Shoppe" aria-label="Chocolate Shoppe">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Chocolate Shoppe</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/tour-school-youth-camps" aria-label="Tour/School/Youth Camp">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Tour/School/Youth Camp</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/California-Factory-Conference-Space" aria-label="Conference Space">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Conference Space</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/California-Factory-Events" aria-label="Event/Operating Calendar">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Event/Operating Calendar</span></div>
+                                                        </a>
+                                                    </div>
+                                                   
+                                                    <div class="subitem-mobile full">
+                                                        <a href="http://goo.gl/maps/I3P2N" target="_blank" aria-label="Directions">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Directions</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li> 
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Wisconsin-Visitors-Center-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Wisconsin Visitors Center">Wisconsin Visitors Center</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-warehouse" aria-label="Free Warehouse Tours">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Free Warehouse Tours</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-candy-store" aria-label="Jelly Belly Candy Store">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Candy Store</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-snack-bar" aria-label="Jelly Belly Snack Bar">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Jelly Belly Snack Bar</span></div>
+                                                        </a>
+                                                    </div>
+													<div class="subitem-mobile full">
+                                                        <a href="/wisconsin-pop-up-event" aria-label="Sweet Scene Pop Up Event">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Sweet Scene Pop Up Event</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-factory-event-calendar" aria-label="Event Calendar">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Event Calendar</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-tour-school-youth-camps" aria-label="Tour/School/Youth Camps">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Tour/School/Youth Camps</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-directions" aria-label="Directions">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Directions</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <div class="vertical-line-mobile"></div>
+                                            <li class="sunmenu-container-mobile" id="Company-Retail-Stores-mob">
+                                                <div class="header-submenu-mobile">
+                                                    <p role="button" aria-expanded="false" role="heading" class="subheade-mobile" tabindex="0" aria-label="Company Retail Stores">Company Retail Stores</p>
+                                                    <div class="accordian-sign">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newPluesicon.png" alt="pluse icon" class="pluse">
+                                                        <img src="{{ siteContext.cdnPrefix }}/resources/HeaderImages/newMinusicon.png" alt="minus icon" class="minus">   
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="submenu-list-mobile">
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/retail-store#nuttree" aria-label="Nut Tree Market Pavilion (CA)">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Nut Tree Market Pavilion (CA)</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/retail-store" aria-label="Vacaville Company Store (CA)">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Vacaville Company Store (CA)</span></div>
+                                                        </a>
+                                                    </div> 
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/retail-store#gilroy" aria-label="Gilroy Company Store (CA)">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Gilroy Company Store (CA)</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/california-factory-store" aria-label="California Visitors Center Store">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">California Visitors Center Store</span></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="subitem-mobile full">
+                                                        <a href="/wisconsin-candy-store" aria-label="Wisconsin Visitors Center Store">
+                                                            <div class="namespan-container-mobile"><span class="name-span-mobile">Wisconsin Visitors Center Store</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                        </ul>   
+                                    </li>
+                                </ul> 
+                            </div> 
+                        </div>
+                    </li>  
+                {% endpartial_cache %}   
+            </ul>
+            <div class="jb-store-locator-mobile">
+                <a class="jb-store-locator-link-mobile" href="/store-locator" aria-label="Store locator">
+                    Store locator
+                    {% comment %}
+                    <span class="jb-usmap">
+                    </span>
+                    {% endcomment %}   
+                </a> 
+            </div>  
+        </div> 
+    </nav> 
+</div>
+{% endif %}

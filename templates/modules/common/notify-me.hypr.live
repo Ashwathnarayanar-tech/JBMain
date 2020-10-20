@@ -1,0 +1,30 @@
+<style>
+	.screen-reader-only-text {
+		position: absolute;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		margin: -1px;
+	}
+</style>
+
+<div class="notify-me-modal">
+	<div class="notify-me-body" tabindex="-1" role="dialog" aria-modal="true" aria-label="Notify me Modal">
+		<span class="close" tabindex="0" role="button"><img src="../../resources/images/icons/close_popup.png" alt="close"/></span>
+		<h1 class="screen-reader-only-text">
+			Notify Me
+		</h1>
+			<div class="notify-me-section">
+				<span tabindex="0">Enter your email address to be notified  when this item is back in stock.</span>
+				<div class="email-section">
+					<input type="text" class="notify-me-email" value="" tabindex="0" aria-label="Enter email address" aria-describedby="notify-error" placeholder="Enter your Email Address"/>
+					<button class="notify-me-button">Notify Me</button>
+				</div>
+				<span id="notify-error" class="error" tabindex="0"></span>
+			</div>
+		<div class="success-msg" tabindex="0">Thank you! We'll let you know when we have more.</div>
+	</div>
+</div>

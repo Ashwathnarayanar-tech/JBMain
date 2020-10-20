@@ -1,0 +1,13 @@
+<div class="mz-storebranding" id="store-branding">
+	<a href="/" title="" tabindex="0">
+		<img src="/../resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage" nopin="nopin" />  
+	</a>
+		
+       {% comment %}
+        The below require_script tag does not render anything in the place it's actually inserted; it instead adds the script to a list of scripts  which are then included at the end of the page by RequireJS.
+       Use require_script to load AMD modules that are wrapped in define() or require() function calls.
+        {% endcomment %}	
+    {% comment %}    
+      {% require_script "modules/login-links" %}
+    {% endcomment %}
+</div>

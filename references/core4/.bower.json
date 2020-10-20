@@ -1,0 +1,20 @@
+{
+  "name": "mozu-core-theme",
+  "version": "4.5.2",
+  "ignore": [
+    "/.*",
+    "tasks"
+  ],
+  "main": "*",
+  "homepage": "https://github.com/mozu/core-theme",
+  "_release": "4.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.5.2",
+    "commit": "20370fe1f029ae03d3d6d4cd319e38b4dd6073b0"
+  },
+  "_source": "git://github.com/mozu/core-theme.git",
+  "_target": "4",
+  "_originalSource": "mozu/core-theme",
+  "_direct": true
+}

@@ -1,0 +1,150 @@
+{% extends "page" %}
+{% block title-tag-content %}
+    My Account
+{% endblock title-tag-content %}
+{% block body-tag-classes %} mz-myaccount {% endblock body-tag-classes %}
+
+{% block body-content %}
+{% require_script "pages/myaccount" %}
+
+{% preload_json model "customer" %}
+
+<div class="mz-l-container">
+
+        <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
+        <a class="selected-menu-mobile mz-mobile"></a> 
+        <p class="mz-description">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
+        <div class="clearfix"></div>
+
+    <div class="mz-l-sidebar mz-myaccount-nav">
+        {% include "modules/my-account/my-account-nav" with navtarget="body" %}
+    </div>
+    
+    <div id="account-panels" class="mz-myaccount-panels mz-l-stack mz-l-stack-large">
+        <div class="order-history-error-popup">
+            <ul class="data-item">
+
+            </ul>
+        </div>
+        <div id="account-messages">
+            {% include "modules/common/message-bar" with model=model.messages %}
+        </div>
+        
+        <div class="mz-l-stack-section mz-accountsettings" id="x-account-settings" role="tabpanel" arialabelledby="account-settings-panel" style="display:none;">
+            <div class="x-account-settings">
+                {% include "modules/my-account/my-account-settings" %}
+            </div>
+            <div class="mz-accountsettings-password">
+                {% include "modules/my-account/my-account-password" %}
+            </div> 
+            <div class="clearfix"></div>
+        </div>
+
+        {% comment %}
+        {% if themeSettings.allowQuickOrder %}
+            <div class="mz-l-stack-section mz-accountquickorder" id="x-quick-order" style="display:none;">
+                {% include "modules/my-account/my-account-quick-order" with model=model.orderHistory %}
+            </div>
+        {% endif %} 
+        {% endcomment %}
+        
+        <div class="mz-l-stack-section mz-accountorderhistory" id="x-account-orderhistory" role="tabpanel" arialabelledby="orderhistory-panel" style="display:none;">
+            {% include "modules/my-account/my-account-orderhistory" with model=model.orderHistory %}
+        </div>
+        
+        <div class="mz-l-stack-section mz-accountreturnhistory" id="x-account-returnhistory" role="tabpanel" arialabelledby="returnhistory-panel" style="display:none;">
+            {% include "modules/my-account/my-account-returnhistory" with model=model.returnHistory %}
+        </div>
+
+        {% if themeSettings.allowWishlist %}
+            <div class="mz-l-stack-section mz-accountwishlist" id="x-account-wishlist" role="tabpanel" arialabelledby="wishlist-panel" style="display:none;">
+                {% include "modules/my-account/my-account-wishlist" with model=model.wishlist %}
+            </div>
+        {% endif %}
+        
+        <div class="mz-l-stack-section mz-accountaddressbook" id="x-account-addressbook" role="tabpanel" arialabelledby="addressbook-panel" style="display:none;">
+            {% include "modules/my-account/my-account-addressbook" %}
+        </div>        
+
+        <div class="mz-l-stack-section mz-accountpaymentmethods" id="x-account-paymentmethods" role="tabpanel" arialabelledby="paymentmethods-panel" style="display:none;">
+            {% include "modules/my-account/my-account-paymentmethods" %}
+        </div>
+
+        <div class="mz-l-stack-section mz-accountstorecredit" id="x-account-storecredit" role="tabpanel" arialabelledby="storecredit-panel" style="display:none;">
+            {% include "modules/my-account/my-account-storecredit" %}
+        </div>
+        
+        <div class="mz-l-stack-section mz-accounthelp" id="x-account-help" role="tabpanel" arialabelledby="help-panel" {% if themeSettings.editingHelp%}style="display:block;"{%else%}style="display:none;"{%endif%}>
+            {% include "pages/my-account-help" %}
+        </div>
+
+		<div class="mz-l-stack-section mz-loyalty-program" id="x-account-loyalty-program" role="tabpanel" arialabelledby="sweetrewards-panel" style="display:none;">
+            {% include "modules/my-account/my-account-loyalty-program" %}
+        </div>
+
+    </div>
+    <a class="shipping-link" href="/shipping-information">Shipping Info and Return Details</a>
+    <div class="clearfix"></div>
+    <div class="mobile-popupmenu-myaccount mz-mobile">
+    {% comment %}<div  style="height:60px; background-color:#fff"></div> {% endcomment %}
+    <div class="mobile-menu">
+    <a class="mz-scrollnav-link-mobile" forID="account-loyalty-program" href="#account-loyalty-program">
+        SWEET REWARDS
+    </a>
+                <a class="mz-scrollnav-link-mobile" forID="account-settings" href="#account-settings">
+                    {{ labels.accountSettings }}
+                </a>
+            {% comment %}
+            {% if themeSettings.allowQuickOrder %}
+                <a class="mz-scrollnav-link-mobile" forID="quick-order" href="#quick-order">
+                    {{ labels.accountQuickOrder }}
+                </a>
+            {% endif %}
+            {% endcomment %}
+            
+                <a class="mz-scrollnav-link-mobile" forID="account-orderhistory" id="tab2" aria-controls="panel2" aria-selected="false" role="tab" href="#account-orderhistory">
+                    {{ labels.orderHistory }}
+                </a>
+            
+                <a class="mz-scrollnav-link-mobile" forID="account-returnhistory" href="#account-returnhistory">
+                    {{ labels.returns }}
+                </a>
+            {% if themeSettings.allowWishlist %} 
+                <a class="mz-scrollnav-link-mobile" forID="account-wishlist" href="#account-wishlist">
+                    {{ labels.accountMyWishlist }}
+                </a>
+            {% endif %}
+            
+                <a class="mz-scrollnav-link-mobile" forID="account-addressbook" href="#account-addressbook">
+                    {{ labels.addressBook }}
+                </a>
+                <a class="mz-scrollnav-link-mobile" forID="account-paymentmethods" href="#account-paymentmethods">
+                    {{ labels.paymentMethods }}
+                </a>
+                <a class="mz-scrollnav-link-mobile" forID="account-storecredit" href="#account-storecredit">
+                    {{ labels.giftCards }}    
+                </a>
+                <a class="mz-scrollnav-link-mobile" forID="account-help" href="#account-help">
+                HELP   
+                </a>
+                <a class="mz-scrollnav-link-mobile" forID="logout" href="/logout">
+                    LOGOUT  
+                </a>
+        </div>
+
+    </div>
+</div>
+{% endblock body-content %}
+
+
+
+
+
+
+
+
+
+
+
+
+

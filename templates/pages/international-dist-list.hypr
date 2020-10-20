@@ -1,0 +1,12 @@
+{% extends "page" %}
+{% block body-content %}
+{% require_script "pages/international-dist-list" %}
+
+
+<h2 style="text-align: center;"> Jelly Belly International Distributors </h2>
+<div id="full-distributors-list">
+  
+</div>
+
+
+{% endblock body-content %}

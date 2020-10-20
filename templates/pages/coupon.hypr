@@ -1,0 +1,20 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+<style>
+.coupon {
+text-align:center;
+}
+</style>
+<div class="coupon">
+  <div id="coupon-image"></div>
+  <div id="coupon-message"></div>
+  <div id="error-coupon"></div>
+</div>
+
+
+{% require_script "pages/coupon" %}
+
+{% endblock body-content %}

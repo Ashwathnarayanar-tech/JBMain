@@ -1,0 +1,140 @@
+{% extends "page" %}
+
+ 
+
+{% block body-tag-classes %}mz-visit-us mz-retailstore{% endblock body-tag-classes %} 
+
+{% block body-content %}
+    
+    <h1 class="mz-pagetitle" tabindex="0">Jelly Belly Retail Stores</h1>
+    <ul class="jb-feature-brands">
+        <li class="jb-feature-brand-listing" id="">
+            <h2 tabindex="0">Vacaville Company Store</h2>
+            <div class="jb-feature-brand-item">
+                <div class="store-address">
+                    <ul class="contentList">
+                        <li tabindex="0">278 Nut Tree Road</li>
+                        <li tabindex="0">Vacaville, CA 95687</li>
+                        <li tabindex="0">☎&nbsp;<a href="tel:+17074474821">(707) 447-4821</a></li>
+                    </ul> 
+                    <hr/>
+                    <ul class="contentList">
+                        <li tabindex="0">Hours of operation:</li>
+                        <li tabindex="0">Monday - Saturday: 10:00am - 9:00pm</li>
+                        <li tabindex="0">Sunday: 10:00am - 6:00pm </li>
+                    </ul>
+                </div>
+                <div class="store-map">
+                    <figure class="store-image">
+                        <img src="/resources/images/visit-us/vacavilleStore.jpg" alt="Front of Vacaville Company Store in Vacaville, California">
+                    </figure>
+                    <figure class="store-location" role="region" aria-label="map">
+                        <iframe title="Google Map of Jelly Belly retail store in Vacaville, California" width="260" height="300" frameborder="0" tabindex="0" src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.211809538059!2d-121.95822438437978!3d38.367221285624225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80853d2dbd6d7d13%3A0xf1cd447abe8eb3f!2sJelly+Belly+Candy+Co!5e0!3m2!1sen!2sus!4v1445635106672" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                        <br>
+                        <small><a href="//www.google.com/maps?ll=38.367214,-121.956042&z=20&t=m&hl=en-US&gl=US&mapclient=embed&cid=1088978614208752447">View Larger Map</a></small>
+                    </figure>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="store-details">
+                    <p tabindex="0" >
+                        Of course, we also carry our World Famous Belly Flops&reg;, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. 
+                        Belly Flops&reg; can be purchased online, at our Jelly Belly Visitor Centers or company stores.
+                    </p>
+                    <p tabindex="0" >
+                        For more information on the Vacaville Premium Outlets, <a href="http://www.premiumoutlets.com/outlets/outlet.asp?id=50" target="_blank" rel="nofollow" style="display: inline; background: none;">click here</a>.
+                    </p>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="jb-feature-brand-listing" id="gilroy">
+            <h2 tabindex="0" >Gilroy Company Store</h2>
+            <div class="jb-feature-brand-item">
+                <div class="store-address">
+                    <ul class="contentList">
+                        <li tabindex="0">681 Leavesley Rd. Suite C-090</li>
+                        <li tabindex="0">Gilroy, CA 95020</li>
+                        <li tabindex="0">☎&nbsp;<a href="tel:+14088488050">(408) 848-8050</a></li>
+                    </ul> 
+                    <hr/>
+                    <ul class="contentList">
+                        <li tabindex="0">Hours of operation:</li>
+                        <li tabindex="0">Monday - Saturday: 10:00am - 9:00pm</li>
+                        <li tabindex="0">Sunday: 10:00am - 6:00pm </li>
+                    </ul>
+                </div>
+                <div class="store-map">
+                    <figure class="store-image">
+                        <img src="/resources/images/visit-us/gilroyStore.jpg" alt="Front of Gilroy Company Store in Gilroy, California">
+                    </figure>
+                    <figure class="store-location" role="region" aria-label="map">
+                        <iframe title="Google Map of Jelly Belly retail store in Gilroy, California" width="260" height="300" frameborder="0" tabindex="0" src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1894.0319790958367!2d-121.56396075634298!3d37.02483761829581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xda2fb3b2109bd0af!2sJelly+Belly+Candy+Company!5e0!3m2!1sen!2sus!4v1445635307297" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                        <br>
+                        <small><a  href="//www.google.com/maps?ll=37.025247,-121.563952&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=15721982401537888431">View Larger Map</a></small>
+                    </figure>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="store-details">
+                    <p tabindex="0" >
+                         The Gilroy Jelly Belly store is located in the Gilroy Premium Outlets, located in Gilroy, California. You'll find it right behind the In-N-Out Burger on the northeast part of the Outlets.
+                    </p>
+                    <p tabindex="0" >
+                        This store was the second new store built, opening in September 2003. Store features include a sample bar, a 42" monitor showing the candy making process and a store design that features all of our Jelly Belly products. 
+                    </p>
+                    <p tabindex="0" >
+                        The store stocks all Jelly Belly produced bulk and packaged items, and a great selection of Beanware. Of course, we also carry our world famous Belly Flops®, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. Belly Flops® can be purchased <a href="/search?query=flops" style="display: inline; background: none;">online</a>, at our Jelly Belly Visitor Centers or company stores. 
+                    </p>
+                    <p class="bold" tabindex="0" >
+                        For more information on the Gilroy Premium Outlets, <a href="http://www.premiumoutlets.com/outlets/outlet.asp?id=23" target="_blank" rel="nofollow" style="display: inline; background: none;">click here</a>.
+                    </p>
+                </div>
+            </div>
+        </li>
+        
+        
+        <li class="jb-feature-brand-listing" id="nuttree">
+            <h2 tabindex="0">Jelly Belly Nut Tree Company Store</h2>
+            <div class="jb-feature-brand-item">
+                <div class="store-address"> 
+                    <ul class="contentList">
+                        <li tabindex="0">1663 E. Monte Vista </li>
+                        <li tabindex="0">Vacaville, CA 95688 </li>
+                        <li tabindex="0">☎&nbsp; <a href="tel:+17074567824">(707) 455-7824</a></li>
+                    </ul> 
+                    <hr/>
+                    <ul class="contentList">
+                        <li tabindex="0">Hours of operation:</li>
+                        <li tabindex="0">Monday - Saturday: 10:00am - 7:00pm</li>
+                        <li tabindex="0">Sunday: 11:00am - 7:00pm</li>
+                    </ul>
+                </div>
+                <div class="store-map">
+                    <figure class="store-image">
+                        <img src="/resources/images/visit-us/nuttreeStore.jpg" alt="Inside view of Nut Tree Company Store in Vacaville, California">
+                    </figure>
+                    <figure class="store-location" role="region" aria-label="map">
+                        <iframe title="Google Map of Jelly Belly company store in Nut Tree Plaza in Vacaville, California" width="260" height="300" frameborder="0" tabindex="0"  src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d379.87793100784967!2d-121.96173229515723!3d38.37041804118943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x78f9c86feb672b6c!2sJelly+Belly+Candy+Co!5e0!3m2!1sen!2sus!4v1445634675547" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                        <br>
+                        <small><a href="//www.google.com/maps?ll=38.370306,-121.96163&z=19&t=m&hl=en-US&gl=US&mapclient=embed&cid=8717218936768637804">View Larger Map</a></small>
+                    </figure>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="store-details">
+                    <p tabindex="0" >
+                        Located in the Nut Tree Plaza "California's Legendary Road Stop", the Nut Tree store opened August 11, 2007. The store is adjacent to the Nut Tree Plaza near the train and carousel next door to Fenton's Creamery. 
+                    </p>
+                    <p tabindex="0" >
+                        The store stocks all Jelly Belly produced bulk and packaged items, and a great selection of Beanware. Of course, we also carry our world famous Belly Flops®, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. Belly Flops® can be purchased <a href="/search?query=flops" style="display: inline; background: none;">online</a>, at our Jelly Belly Visitor Centers or company stores. 
+                    </p>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    
+    <div class="clearfix"></div>
+{% endblock body-content %}

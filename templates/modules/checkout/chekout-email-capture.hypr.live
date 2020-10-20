@@ -1,0 +1,127 @@
+<style>
+.email_account_text
+{
+color: #707070;
+font-size: 11px;
+font-weight: 600;
+line-height: 1.5;
+display: block;
+}
+</style>
+<div id="email-dialog" class="wrapper_email" tabindex="-1" role="dialog" aria-modal="true" aria-label="Account"> 
+    <div class="content">
+      {% block back-to-cart %}
+        <div class="close-icon">
+            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="Close modal and return to shopping cart"></a> 
+        </div>  
+      {% endblock back-to-cart %}
+        <div class="header">
+            <div class="logo"> 
+                <p><img src="../../resources/images/JB_logo2.png?max=900" alt="Jelly Belly Candy Company" ></p>
+            </div>
+        </div>  
+        <div class="main_content">
+            <div class="content-tab-sys">   
+              {% block content-heading %}
+                <div class="content-tab-head"><h1>{{ labels.loginmodeltabhead }}</h1></div>  
+              {% endblock content-heading %}
+              {% block content-tab-heading %}
+                <div class="content-tab-sys-labels"> 
+                    <a role="button" tabindex="0" aria-label="checkout as guest" attr-data="proceed_guest" href="javascript:void(0)" class="guest-login labelmodel active">{{ labels.loginmodelguesttab1 }}</a><a role="button" tabindex="0" "aria-label="login and checkout" attr-data="checkout_login" href="javascript:void(0)" class="user-login labelmodel">{{ labels.loginmodelguesttab2 }}</a>  
+                </div>  
+              {% endblock content-tab-heading %}
+            </div> 
+            {% block proceed-as-guest %}
+            <div class="proceed_guest form-content active">
+                {% comment %}
+                <h2>{{ labels.emailguest }}</h2> 
+                {% endcomment %}
+                <div class="mz-l-formfieldgroup-cell guest_text">
+                <label style="color:#707070;" class="required-fields email_account_text">You will have an opportunity to create an account during checkout</label>
+                </div>
+
+                <form class="guest_submit" method="post" novalidate="novalidate">
+                    <div class="mz-l-formfieldgroup" style="margin-top: 2px;">
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="guest_email"><span class="is-required" aria-label="mandatory field"> </span>{{ labels.emailAddress }} (required): </label>
+                            </div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <input aria-describedby="guestemailerror" name="email" id="guest_email" placeholder="Enter email"  type="email" class="guest-email"/>
+                                <span class="error-guest" id="guestemailerror"></span>
+                            </div> 
+                        </div> 
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell"></div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <!-- <a href ="#" class="mz-button mz-button-large" id="guest_addbutton" data-mz-action="guestCheckout" disabled>{{ labels.next }}</a> -->
+                                <div class="mz-l-formfieldgroup-row">
+                                    <div class="mz-l-formfieldgroup-cell"></div>
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label class="mz-inline checkbox-outer-label" style="color:#707070"> 
+                                            <input type="checkbox" id="accept" name="special-offers" {% if model.acceptsMarketing %}checked="checked" {% endif %}data-mz-value="acceptsMarketing" class="mz-checkout-optin" /> {{ labels.optIn|string_format(siteContext.generalSettings.websiteName) }}
+                                            <span class="checkmark-style"></span>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <label class="checkbox-outer-label">  
+                                    <input id="guestmail-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                    <span class="checkmark-style"></span></label> 
+                                </div>
+                                <input role="button" aria-label="next button" tabindex="0" class="mz-button mz-button-large active-button brontocart-guest-email cpp-guest" id="guest_addbutton" disabled="disabled"  type="submit" value="next">
+                            </div>
+                        </div>
+                    </div>
+                </form>    
+                <div class="clearfix"></div>
+            </div> 
+            {% endblock proceed-as-guest %}
+            {% block proceed-with-login %}
+            <div class="checkout_login form-content">
+                <form class="{% block form-class %}login_submit {% endblock form-class %}" method="post" novalidate="novalidate" >
+                    <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="email"><span class="is-required" aria-label="mandatory field"> *</span> {{ labels.emailAddress }} (required):</label>
+                            </div>  
+                            <div class="mz-l-formfieldgroup-cell">
+                                <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
+                                <span class="error-user" id="useremailerror"></span> 
+                            </div>
+                        </div>
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }} (required):</label>   
+                            </div>
+                            <div class="mz-l-formfieldgroup-cell zero-cellspace">
+                                <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                <span class="loginError" id="loginerror"></span> 
+                            </div>
+                        </div> 
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell"></div> 
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label style="color: #707070" class="required_fields">*Required</label>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <label class="checkbox-outer-label">  
+                                    <input id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                    <span class="checkmark-style"></span></label> 
+                                </div>
+                                <!-- <a href="#" class="mz-button mz-button-large" id="addbutton" data-mz-action="loginCheckout" disabled>{{ labels.next }}</a>--> 
+                                <input type="submit" role="button" disabled="disabled" tabindex="0" aria-label="next button" class="mz-button mz-button-large cpp-loginpopup active-button brontocart-login-email {% block addbutton-class %}{% endblock %}" id="addbutton" value="next">
+                            </div>   
+                            <div class="mz-l-formfieldgroup-cell">
+                                <a tabindex="0" style="color:#046cc2" href="/user/forgotpassword" title="Forgot password - links to a new page" aria-label="Click here to go to forgot password page" class="mz-forgot">{{ labels.forgotPasswordLink }}</a>
+                            </div>
+                        </div> 
+                    </div>
+                </form>    
+                <div class="clearfix"></div> 
+            </div>
+            {% endblock proceed-with-login %}
+        </div>
+    </div>  
+</div> 
+{% require_script "pages/checkout" %}

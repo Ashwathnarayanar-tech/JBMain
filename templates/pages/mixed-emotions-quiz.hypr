@@ -1,0 +1,14 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+
+{% block body-content %}
+
+{% require_script "pages/mixed-emotions-quiz" %} 
+
+
+<center><iframe id="mixed-emotions-quiz" frameBorder="0" style="height:740px;width:700px" src="http://t10569-s29103.sandbox.mozu.com/resources/mixed-emotions/index.html" scrolling="no"></iframe>
+</center>
+
+
+{% endblock body-content %}

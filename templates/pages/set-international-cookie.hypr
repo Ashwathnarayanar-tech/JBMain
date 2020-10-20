@@ -1,0 +1,14 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+{% require_script 'modules/regional-scheme/international-gateway' %}
+
+{% endblock body-content %}
+
+
+
+
+
+

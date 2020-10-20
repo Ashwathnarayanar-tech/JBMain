@@ -1,0 +1,154 @@
+.tt-dropdown-menu{
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.28) 0px 3px 7px 0px;
+    padding: 20px 0 0 0;
+    max-height: 450px;
+    overflow-y: auto;
+    text-align:left;
+    right: auto;
+    width: 100%;
+    left:28% !important;
+    &::-webkit-scrollbar-track { 
+        border-radius: 10px;
+        background-color: #ebf5f7;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #007db3; 
+    }
+    &::-webkit-scrollbar{ 
+        width: 8px;
+    }
+    .tt-dataset-terms{
+        padding: 0 20px;
+        .tt-suggestions{
+            border-bottom: 1px solid #d1d1d1;
+            .tt-suggestion{
+                p{
+                    margin: 0px;
+                    font-size: 14px;
+                    padding: 5px 0;
+                }
+            }
+        }
+    }
+    .tt-dataset-pages{
+        padding: 10px 0 0 0;
+        &:before{
+            content: "Products";
+            font-size: 14px;
+            font-weight: normal;
+            padding: 0 20px 10px 20px;
+            display: block;
+            color: #004e99;
+        }
+        .tt-suggestions{
+            .tt-suggestion{
+                &:hover{
+                    background-color: #D2E7FF;
+                }
+                .search-item{
+                    padding: 10px 20px 10px 20px;
+                    .mz-itemlisting{
+                        .mz-itemlisting-thumb{
+                            display: inline-block;
+                            width: 9%;
+                            text-align: center;
+                            margin: 0 auto;
+                            a{
+                                display: block;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        .mz-itemlisting-details{
+                            display: inline-block;
+                            width: 84%;
+                            padding: 0 0 0 4%;
+                            .details{
+                                .mz-itemlisting-title{
+                                    display: inline-block;
+                                    text-decoration: none;
+                                    width: 70%;
+                                    vertical-align: middle;
+                                    font-size: 14px;
+                                }
+                                .mz-itemlisting-description{
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    width: 29%;
+                                    text-align: right;
+                                    span{
+                                        padding-right: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        .inline{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .tt-dropdown-menu{
+        width: 440px;
+        right:auto !important;
+        left: 0px !important;
+        .tt-dataset-pages{ 
+            .tt-suggestions{ 
+                .tt-suggestion{ 
+                    .search-item{ 
+                        .mz-itemlisting{ 
+                            .mz-itemlisting-details{
+                                width: 75%;
+                                .details{ 
+                                    .mz-itemlisting-title{
+                                        width: 78%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1px) and (max-width: 767px){
+    .tt-dropdown-menu{
+        left: -12px !important;
+        width: 107%; 
+        padding-top: 8px;
+        .tt-dataset-pages{ 
+            .tt-suggestions{ 
+                .tt-suggestion{ 
+                    .search-item{
+                        .mz-itemlisting{ 
+                            .mz-itemlisting-details{
+                                width: 75%;
+                                padding: 0 0 0 15px;
+                                .details{ 
+                                    .mz-itemlisting-title{
+                                        width: 78%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape){
+    .tt-dropdown-menu{
+        left: -11px !important;
+        width: 103.5%;
+        max-height: 160px;
+    }
+}

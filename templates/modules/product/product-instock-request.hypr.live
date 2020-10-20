@@ -1,0 +1,39 @@
+<script> 
+  function stripspaces(input)
+  {
+  input.value = input.value.replace(/\s/gi,"");
+  return true; 
+  }  
+</script>  
+ 
+<div class="mz-instock-request" id="mz-instock-request">
+  {% if subscribed %}
+  <p tabindex="0"  id="notify-success">{{ labels.notifyWidgetSuccess }}</p>
+  {% else %}
+  <div class="notify-header"><label for="mz-instock-request-email">{{ labels.notifyWidgetHeader }}</label></div>
+  <div>
+    <input type="text" placeholder="Enter your Email Address" data-mz-role="email" value="{{ user.email }}" class="mz-instock-request-email" id="mz-instock-request-email" onkeypress="this.value=removeSpaces(this.value)" onblur="this.value=removeSpaces(this.value)"/>
+    <button data-mz-action="widgetNotifyUserAction" id="button" class="notify-me-pdp">{{ labels.notifyWidgetButton }}</button>
+    <span class="mz-validationmessage" tabindex="-1" data-mz-validationmessage-for="email"></span>
+  </div>
+  {% endif %}
+</div>
+
+<script language="javascript" type="text/javascript">
+  function removeSpaces(string) {
+  return string.split(' ').join('');
+  }
+</script>
+
+
+<script type="text/javascript">
+    if(document.getElementById("mz-instock-request-email")){
+        document.getElementById("mz-instock-request-email")
+        .addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode == 13) {
+                document.getElementById("button").click();
+            }
+        });
+    }
+</script>

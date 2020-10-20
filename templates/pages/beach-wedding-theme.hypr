@@ -1,0 +1,103 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="beach-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">Beach Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                        
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/1.jpg" alt="Seashells and beans 1"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/2.jpg" alt="Seashells and beans 2"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/3.jpg" alt="Seashells, beans, and thank you card"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/4.jpg" alt="Seashells and beans 3"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/5.jpg" alt="Large seashell and beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/6.jpg" alt="Large seashell and beans 2"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/7.jpg" alt="Thank you cards"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/8.jpg" alt="Large graphic of seashells and beans on beach 1"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/9.jpg" alt="Large graphic of seashells and beans on beach 2"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Beach Wedding/10.jpg" alt="Large graphic of seashells and beans on beach 3"/>
+                        </div>
+                        
+                    </div>
+                    <p>
+                        A Burlap tarp and gift bags keep the sandy appearance while keeping the sand out of your candy. And use pure white seashells and starfish to make the turquoise tint of the jelly beans pop brightly in the sunshine. 
+                        Clear glass or plastic bowls and jars can hold the remaining beans without clashing with the motif. 
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/7up-jelly-beans/c/72">7UP&reg; Jelly Belly jelly beans</a></li>
+                                <li><a href="/berry-blue-jelly-beans/c/66">Berry Blue Jelly Belly jelly beans</a></li>
+                                <li><a href="/aw-cream-soda-jelly-beans/c/13">A&amp;W&reg; Cream Soda Jelly Belly jelly beans</a></li>
+                                <li><a href="/juicy-pear-jelly-beans/c/81">Juicy Pear Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Green</a></li>
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Light Green</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                                <li><a href="/blue-candy-and-jelly-beans/c/334">Light Blue</a></li>
+                                <li><a href="/beige-candy-and-jelly-beans/c/332">Sand</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->   
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}      

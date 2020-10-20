@@ -1,0 +1,67 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-aboutus {% endblock body-tag-classes %}
+
+ {% block body-content %}
+  <style>
+    .email-pref-wrapper {
+      display: flex;
+      flex-direction:
+      column; align-items:
+      center; margin: 16px 0;
+      padding: 24px;
+    }
+
+    .email-pref-heading {
+      margin: 0;
+    }
+
+    .disclaim-txt {
+      font-size: 12px;
+      font-style: italic;
+      color: dimgrey;
+    }
+
+    .email-form-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .email-input-wrap {
+      display: flex; align-items: center; margin-top: 8px; width: 100%;
+    }
+
+    input.input-email-pref {
+      margin: 0 4px 0 0;
+      flex-grow: 2;
+    }
+
+    .btn-email-pref {
+      height: 29px;
+    }
+
+    .email-pref-msg {
+      height: 23px;
+    }
+  </style>
+
+  <div class="email-pref-wrapper">
+    <h3 class="email-pref-heading">Manage Email Preferences</h3>
+    <span class="disclaim-txt">(Clicking 'Submit' will open your email preferences in a new tab)</span>
+	  <div class="email-form-wrap">
+      <label for="email">Enter your email to access to your email preferences.</label>
+      <div class="email-input-wrap">
+        <input class="input-email-pref" type="email" placeholder="Email" name="email">
+        <button class="btn-email-pref">Submit</button>
+      </div>
+      <span class="email-pref-msg"></span>
+    </div>
+  </div>
+
+	{% dropzone "body" scope="page" %}
+{% endblock body-content %}

@@ -1,0 +1,835 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link href="css/app.css" rel="stylesheet" type="text/css">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="width=device-width" name="viewport">
+	<title>My JellyBelly.com account</title>
+</head>
+<body style="-moz-box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-box-sizing:border-box;-webkit-text-size-adjust:100%;Margin:0;box-sizing:border-box;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;min-width:100%;padding:0;text-align:left;width:100%!important">
+<style type="text/css">@media only screen{html{min-height:100%;background:#f3f3f3}}@media only screen and (max-width:596px){.small-float-center{margin:0 auto!important;float:none!important;text-align:center!important}.small-text-center{text-align:center!important}.small-text-left{text-align:left!important}.small-text-right{text-align:right!important}}@media only screen and (max-width:596px){.hide-for-large{display:block!important;width:auto!important;overflow:visible!important;max-height:none!important;font-size:inherit!important;line-height:inherit!important}}@media only screen and (max-width:596px){table.body table.container .hide-for-large,table.body table.container .row.hide-for-large{display:table!important;width:100%!important}}@media only screen and (max-width:596px){table.body table.container .callout-inner.hide-for-large{display:table-cell!important;width:100%!important}}@media only screen and (max-width:596px){table.body table.container .show-for-large{display:none!important;width:0;mso-hide:all;overflow:hidden}}@media only screen and (max-width:596px){table.body img{width:auto;height:auto}table.body center{min-width:0!important}table.body .container{width:95%!important}table.body .column,table.body .columns{height:auto!important;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left:16px!important;padding-right:16px!important}table.body .column .column,table.body .column .columns,table.body .columns .column,table.body .columns .columns{padding-left:0!important;padding-right:0!important}table.body .collapse .column,table.body .collapse .columns{padding-left:0!important;padding-right:0!important}td.small-1,th.small-1{display:inline-block!important;width:8.33333%!important}td.small-2,th.small-2{display:inline-block!important;width:16.66667%!important}td.small-3,th.small-3{display:inline-block!important;width:25%!important}td.small-4,th.small-4{display:inline-block!important;width:33.33333%!important}td.small-5,th.small-5{display:inline-block!important;width:41.66667%!important}td.small-6,th.small-6{display:inline-block!important;width:50%!important}td.small-7,th.small-7{display:inline-block!important;width:58.33333%!important}td.small-8,th.small-8{display:inline-block!important;width:66.66667%!important}td.small-9,th.small-9{display:inline-block!important;width:75%!important}td.small-10,th.small-10{display:inline-block!important;width:83.33333%!important}td.small-11,th.small-11{display:inline-block!important;width:91.66667%!important}td.small-12,th.small-12{display:inline-block!important;width:100%!important}.column td.small-12,.column th.small-12,.columns td.small-12,.columns th.small-12{display:block!important;width:100%!important}table.body td.small-offset-1,table.body th.small-offset-1{margin-left:8.33333%!important;Margin-left:8.33333%!important}table.body td.small-offset-2,table.body th.small-offset-2{margin-left:16.66667%!important;Margin-left:16.66667%!important}table.body td.small-offset-3,table.body th.small-offset-3{margin-left:25%!important;Margin-left:25%!important}table.body td.small-offset-4,table.body th.small-offset-4{margin-left:33.33333%!important;Margin-left:33.33333%!important}table.body td.small-offset-5,table.body th.small-offset-5{margin-left:41.66667%!important;Margin-left:41.66667%!important}table.body td.small-offset-6,table.body th.small-offset-6{margin-left:50%!important;Margin-left:50%!important}table.body td.small-offset-7,table.body th.small-offset-7{margin-left:58.33333%!important;Margin-left:58.33333%!important}table.body td.small-offset-8,table.body th.small-offset-8{margin-left:66.66667%!important;Margin-left:66.66667%!important}table.body td.small-offset-9,table.body th.small-offset-9{margin-left:75%!important;Margin-left:75%!important}table.body td.small-offset-10,table.body th.small-offset-10{margin-left:83.33333%!important;Margin-left:83.33333%!important}table.body td.small-offset-11,table.body th.small-offset-11{margin-left:91.66667%!important;Margin-left:91.66667%!important}table.body table.columns td.expander,table.body table.columns th.expander{display:none!important}table.body .right-text-pad,table.body .text-pad-right{padding-left:10px!important}table.body .left-text-pad,table.body .text-pad-left{padding-right:10px!important}table.menu{width:100%!important}table.menu td,table.menu th{width:auto!important;display:inline-block!important}table.menu.small-vertical td,table.menu.small-vertical th,table.menu.vertical td,table.menu.vertical th{display:block!important}table.menu[align=center]{width:auto!important}table.button.small-expand,table.button.small-expanded{width:100%!important}table.button.small-expand table,table.button.small-expanded table{width:100%}table.button.small-expand table a,table.button.small-expanded table a{text-align:center!important;width:100%!important;padding-left:0!important;padding-right:0!important}table.button.small-expand center,table.button.small-expanded center{min-width:0}}@media (max-width:596px){.text{position:absolute;top:125px;left:120px}.item{font-size:8px;white-space:nowrap}.menu-width{width:200px}.menu-hide{display:none}}@media (min-width:597px){.text{position:absolute;top:230px;left:230px}.item{font-size:14px}.border-bottom{border-bottom:2px solid #bed3ec}.border-right{border-right:2px solid #bed3ec}}@media yahoo{.product{width:150px;dispaly:inline}}
+</style>
+
+<!--[if gte mso 9]>
+    <style type="text/css">
+    /* Your Outlook-specific CSS goes here. */
+
+.border-left {
+border-left: 2px solid #bed3ec;
+
+}
+	
+
+.border-right {
+border-right: 2px solid #bed3ec;
+}
+
+.secondary-img {
+width: 266px;
+
+}
+
+.outlook-button {
+display: none;
+}
+
+
+}
+
+    </style>
+
+<![endif]-->
+
+<style>
+@media yahoo {
+
+menu-yahoo {
+width: 200px;
+
+}
+
+}
+</style>
+
+<p><span class="preheader" style="color:#f3f3f3;display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important;opacity:0;overflow:hidden;visibility:hidden"></span></p>
+
+<table class="body" style="Margin:0;background:#f3f3f3;border-collapse:collapse;border-spacing:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;height:100%;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;width:100%">
+	<tbody>
+		<tr style="padding:0;text-align:left;vertical-align:top">
+			<td align="center" class="center" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word" valign="top">
+			<center data-parsed="" style="min-width:580px;width:100%">
+			<table align="center" class="container float-center" style="Margin:0 auto;background:#fefefe;border-collapse:collapse;border-spacing:0;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:580px">
+				<tbody>
+					<tr style="padding:0;text-align:left;vertical-align:top">
+						<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="5px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:5px;font-weight:400;hyphens:auto;line-height:5px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:text-bottom">
+									<th class="show-for-large small-12 large-3 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:129px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:text-bottom">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+									<th class="small-12 large-6 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:8px;padding-right:8px;text-align:left;width:274px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:text-bottom;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:text-bottom">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+												<center data-parsed="" style="min-width:242px;width:100%"><a align="center" class="float-center" href="https://www.jellybelly.com" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img class="center-yahoo v-align" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d490333d-c6bb-4a00-ad9f-394c4a036492" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:inline-block;max-width:100%;outline:0;text-decoration:none;vertical-align:bottom;width:auto" alt="Jelly Belly Candy Co."></a></center>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+									<th class="show-for-large small-12 large-3 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:8px;padding-right:16px;text-align:left;width:129px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:bottom;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:bottom">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+												<p style="Margin:0;Margin-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;margin-bottom:px;padding-bottom:5px;text-align:right;vertical-align:text-bottom"><a href="##%web_copy_url##">View in browser</a></p>
+												<!--[if gte mso 9]>
+												<br />
+												<![endif]-->
+
+												
+
+												<table class="row " style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:right;vertical-align:top;width:100%">
+													<tbody>
+														<tr style="padding:0;text-align:right;vertical-align:top">
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right">
+																		<span style="height:25px; width:25px" height="25" width="25">
+																		&nbsp;
+																		</span>
+																		</th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right"><a href="https://www.pinterest.com/jellybelly/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Pinterest" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/25c16d44-1910-44e9-9355-13cc932e1def" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;outline:0;text-decoration:none;width:25px;height:25px;margin:0" align="right" border="0" width="25" height="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right"><a href="https://www.facebook.com/JellyBellyUSA/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Facebook" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/b9ebe8b7-46d3-4ff3-baf8-bd74f396b823" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;outline:0;text-decoration:none;width:25px;height:25px;margin:0" align="right" border="0" width="25" height="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right"><a href="https://www.youtube.com/c/jellybelly" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="YouTube" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/95290c76-1ce0-4aa6-ab47-f2f9a0a48cfa" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;outline:0;text-decoration:none;width:25px;height:25px;margin:0" align="right" border="0" width="25" height="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right"><a href="https://www.instagram.com/jellybellycandyco/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Instagram" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/ef94065a-2153-47c3-bf9d-e2fd7561c142" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;outline:0;text-decoration:none;width:25px;height:25px;margin:0" align="right" border="0" width="25" height="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25px; height:25px">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:right;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:right;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:right"><a href="https://www.linkedin.com/company/jelly-belly-candy-company" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Linkedin" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/9242a56a-e1a7-4be2-b0e4-0d1027fc4fef" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;outline:0;text-decoration:none;width:25px;height:25px;margin:0" align="right" border="0" width="25" height="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+
+												<p style="Margin:0;Margin-bottom:5px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:right">FREE Shipping<br>
+												on Orders $55+</p>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="0px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:0;font-weight:400;hyphens:auto;line-height:0;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="0px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:400;hyphens:auto;line-height:10px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;border-top-color:#bed3ec;border-top-style:solid;border-top-width:2px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<td height="0px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:400;hyphens:auto;line-height:10px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+												</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						
+
+						<center data-parsed="" style="width:100%">
+						<table align="center" class="row float-center menu-yahoo" style="Margin:0 auto;border-collapse:collapse;border-spacing:0;display:table;float:none;margin:0 auto;padding:0;position:relative;text-align:center;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+												<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+													<tbody>
+														<tr style="padding:0;text-align:left;vertical-align:top">
+															<th class="small-3 large-3 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a class="item" href="https://www.jellybelly.com/online-candy-store" style="Margin:0;color:#000;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><strong>SHOP</strong> <span>Products</span></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-3 large-4 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:33.33333%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a class="item" href="https://www.jellybelly.com/ourcandy" style="Margin:0;color:#000;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><strong>EXPLORE</strong> <span>Products</span></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-3 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+																		<p style="Margin:0;Margin-bottom:5px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:left"><a class="item" href="https://www.jellybelly.com/store-locator" style="Margin:0;color:#000;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><strong>FIND</strong> <span>a Store</span></a></p>
+																		</th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-3 large-3 columns last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:25%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+																		<p style="Margin:0;Margin-bottom:5px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:right"><a class="item" href="https://www.jellybelly.com/jelly-belly-bargain-outlet/c/5" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><strong><span style="color:red">BARGAIN</span></strong> Outlet</a></p>
+																		</th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+						</center>
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="5px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:5px;font-weight:400;hyphens:auto;line-height:5px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;border-top-color:#bed3ec;border-top-style:solid;border-top-width:2px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">&nbsp;</th>
+												<th class="expander" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						 						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 									<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 													<tbody>
+						 														<tr style="padding:0;text-align:left;vertical-align:top">
+						 															<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:100%">
+						 															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 																<tbody>
+						 																	<tr style="padding:0;text-align:left;vertical-align:top">
+						 																		<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 																		<center data-parsed="" style="min-width:none!important;width:100%">
+						 															
+						 																		
+						 																		<!--<p align="left" class="float-center" style="Margin:0;Margin-bottom:10px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">We appreciate that you've chosen to buy our high-quality products directly from the source. And did you know that we have much more than jelly beans? We also make chocolate items, gummi products, candy corn and other mellocremes, and much more!<p>
+						 																		
+						 																		-->
+						 																		 {% for package in model.packages %}
+																								{% if forloop.counter0 == 0 %}
+																									{% if package.trackingNumber %}
+						 																		<p align="left" class="float-center" style="Margin:0;Margin-bottom:10px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">{{ labels.orderWelcome }} {{ model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }}!</p>
+						 																		
+						 																		<p align="left" class="float-center" style="Margin:0;Margin-bottom:10px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">
+																								Your Jelly Belly order #<strong>{{ model.orderNumber }}</strong> has shipped and your tracking number is: <strong><a style="color: #0077a2;  text-decoration: underline;" href="https://jellybelly.narvar.com/jellybelly/tracking/UPS?tracking_numbers={{package.trackingNumber}}&ozip=53158&dzip={{ model.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode }}{% if package.shippingMethodCode == 'ups_UPS_GROUND' %}&service=UG{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SUREPOST_LESS_THAN_1LB' %}&service=SP{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SUREPOST_1LB_OR_GREATER' %}&service=SP{% endif %}{% if package.shippingMethodCode == 'ups_UPS_THREE_DAY_SELECT' %}&service=E3{% endif %}{% if package.shippingMethodCode == 'ups_UPS_SECOND_DAY_AIR' %}&service=E2{% endif %}{% if package.shippingMethodCode == 'ups_UPS_NEXT_DAY_AIR_SAVER' %}&service=E1{% endif %}&order_number={{ model.orderNumber }}">{{package.trackingNumber}}</a></strong></p>
+						 																		
+																								     {% endif %}
+																									{% endif %}
+																								{% endfor %}	
+						 																		
+						 																		</center>
+						 																		</th>
+						 																		<th class="expander" style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0">&nbsp;</th>
+						 																	</tr>
+						 																</tbody>
+						 															</table>
+						 															</th>
+						 														</tr>
+						 													</tbody>
+						 												</table>
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+						 					<br>
+						 					
+						 					<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-6 large-6 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:274px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												
+						 												<p style="Margin:0;Margin-bottom:5px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:bold;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:left">Ship To:</p>
+						 												
+						 												<p style="Margin:0;Margin-bottom:5px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:left">
+						 												{% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}
+						 												</p><br>
+						 												
+						 												
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+						 						
+						 						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-6 large-6 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:274px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												{% for package in model.packages %}
+						 												<p style="Margin:0;Margin-bottom:5px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:left">
+						 												{{ labels.orderShippedPkgHeader|string_format(package.fulfillmentDate, package.shippingMethodName) }} 
+						 												</p><br />
+
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+												
+						 						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-12 large-12 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:274px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="color:#fff;background:#0079b0;text-transform:uppercase;font-weight: bold; font-weight: 300; font-style: normal;">
+                <td width="25%" style="border:1px solid #cfcfcf;padding: 10px;color:#ffffff;text-align:center; font-family:Helvetica,Arial,sans-serif; font-weight: bold;">QTY</td>
+                <td style="border:1px solid #cfcfcf;padding: 10px;color:#ffffff;text-align:center; font-family:Helvetica,Arial,sans-serif; font-weight: bold;">{{ labels.product }}</td>
+            </tr>
+        </thead>
+        {% for packageItem in package.items %}
+            {% for item in model.items %}
+                {% if packageItem.productCode == item.product.productCode or packageItem.productCode == item.product.variationProductCode %}
+                <tbody class="mz-ordersummary-package">
+                    <tr class="mz-ordersummary-line mz-ordersummary-line-item">
+                        <td style="padding: 10px;color:black;border:1px solid #cfcfcf; text-align:center;font-weight: 300; font-style: normal;"><p style="margin:5px;">{{ packageItem.quantity }}</p></td>
+                        <td style="padding: 10px;border:1px solid #cfcfcf;text-align:center;font-weight: 300; font-style: normal;color:black;"class="mz-ordersummary-item-product">
+                                                        {{ item.product.name|safe }}
+                            {% if item.product.productUsage == 'Bundle' %}
+                            <dl class="mz-propertylist">
+                            {% for bundledProduct in item.product.bundledProducts %}
+                            <dt>{{ bundledProduct.productCode }}</dt>&nbsp;
+                            <dd>{{ bundledProduct.name }} ({{ bundledProduct.quantity }})</dd>
+                            {% endfor %}
+                            </dl>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+                {% endif %}
+            {% endfor %} 
+        {% endfor %}
+					{% endfor %}	 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+												
+												<br />
+												<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-6 large-6 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:274px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												
+						 																		<p align="left" class="float-center" style="Margin:0;Margin-bottom:10px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">
+																								{{ labels.orderShipmentBlob2|safe }}
+
+																								{{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}
+																								</p>
+						 																	
+						 												
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+
+												<br>
+						 							<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 									<th class="small-12 large-3 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:center;width:180px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:center">
+						 												<center data-parsed="" style="min-width:180px;width:100%">
+						 												<table class="row" style="Margin:0 0 16px 0;border-collapse:collapse;border-spacing:0;float:none;margin:0 0 0px 0;padding:0;text-align:center;vertical-align:top;width:100%!important">
+						 													<tbody>
+						 														<tr style="padding:0;text-align:left;vertical-align:top">
+						 															<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:center;vertical-align:top;word-wrap:break-word;width:180px">
+						 															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 																<tbody>
+						 																	<tr style="padding:0;text-align:left;vertical-align:top">
+						 																		<a href="https://www.jellybelly.com/jelly-belly-sweet-rewards"><img src="http://cdn-tp1.mozu.com/9046-m1/cms/files/3cbec94a-200b-4eb7-a54c-6eda30783072"></a><br>
+						 																		
+						 																	</tr>
+						 																</tbody>
+						 															</table>
+						 															</td>
+						 															</tr>
+						 													</tbody>
+						 												</table>
+						 												
+						 					
+						 												
+						 												</center>
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 									<th class="small-12 large-9 columns sweetrewards" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:8px;padding-right:0px;text-align:left;width:406px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												<center data-parsed="" style="min-width:400px;width:100%">
+						 												<table class="row" style="Margin:0 0 16px 0;border-collapse:collapse;border-spacing:0;float:none;margin:0 0 0px 0;padding:0;text-align:center;vertical-align:top;width:100%!important">
+						 													<tbody>
+						 														<tr style="padding:0;text-align:left;vertical-align:top">
+						 															<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word;width:406px">
+						 															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 																<tbody>
+						 																	<tr style="padding-right:10px;text-align:left;vertical-align:top">
+						 																	
+						 																		<span align="left" class="float-center" style="Margin:0;Margin-bottom:0px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">Don't forget to check your Sweet Rewards points!</span>
+						 																		
+						 																		<p align="left" class="float-center" style="Margin:0;Margin-bottom:0px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:normal;line-height:1.3;margin:0;margin-bottom:10px;padding-right:10px;text-align:left;word-wrap:normal">
+						 																		If you have a Jelly Belly Sweet Rewards account, <a href="https://www.jellybelly.com/login-sweet-rewards">login</a> here to view the points you've earned and your account details. If you checked out as a "Guest", you can activate your Sweet Rewards account (and points!) by <a href="https://www.jellybelly.com/sign-up-sweet-rewards">signing up</a> now using this email address: <strong>{{ model.billingInfo.billingContact.email }}</strong>.</p>
+						 																	</tr>
+						 																</tbody>
+						 															</table>
+						 															</td>
+						 															</tr>
+						 													</tbody>
+						 												</table>
+						 												
+						 												</center>
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+						 						<br>
+						 						
+											<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-12 large-12 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;">
+												
+												<br />
+												<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 	
+						 									<th class="small-6 large-6 columns" style="Margin:0 auto;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:8px;text-align:left;width:274px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												<center data-parsed="" style="min-width:none!important;width:100%">
+						 																		<p align="left" class="float-center" style="Margin:0;Margin-bottom:10px;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">Sweet treats for your next order:</p>
+						 																		</center>
+						 												
+						 												</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+			
+												<!-- RTI starts-->
+												<center data-parsed="" style="min-width:580px;width:100%">
+												<table align="center" class="menu small-vertical float-center" style="Margin:0 auto;border-collapse:collapse;border-spacing:0;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:auto!important">
+													<tbody>
+														<tr style="padding:0;text-align:left;vertical-align:top">
+															<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#333333;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top">
+																<tbody>
+																<div class="myrtiProduct">
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th class="menu-item float-center" style="Margin:0 auto;color:#333333;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
+<a href="http://jellybelly-www.baynote.net/link/1/jellybelly_www?index=1&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL"><img src="http://jellybelly-www.baynote.net/render/1/jellybelly_www?index=1&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL&renderskin=default"/></a>																		</th>
+																		<th class="menu-item float-center" style="Margin:0 auto;color:#333333;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
+<a href="http://jellybelly-www.baynote.net/link/1/jellybelly_www?index=2&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL"><img src="http://jellybelly-www.baynote.net/render/1/jellybelly_www?index=2&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL&renderskin=default"/></a>																		</th>
+																		<th class="menu-item float-center" style="Margin:0 auto;color:#333333;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
+<a href="http://jellybelly-www.baynote.net/link/1/jellybelly_www?index=3&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL"><img src="http://jellybelly-www.baynote.net/render/1/jellybelly_www?index=3&widget=ShippingConfirmationEmail&passThru=bnec%3DShippingConfirmation&productId={% for productItem in model.items %}{% if forloop.counter > 1 %}&productId={% endif %}{{ productItem.product.productCode }}{% endfor %}&linkSrc=sourceURL&renderskin=default"/></a></th>
+																	</tr>
+																</div>
+																</tbody>
+															</table>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</center>
+												<!-- RTI ends -->
+						 				
+						 						
+						 						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+						 							<tbody>
+						 								<tr style="padding:0;text-align:left;vertical-align:top">
+						 									<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+						 									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+						 										<tbody>
+						 											<tr style="padding:0;text-align:left;vertical-align:top">
+						 												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+						 												<center data-parsed="" style="min-width:532px;width:100%"><a align="center" class="float-center" href="https://www.jellybelly.com/shipping-info" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="FREE Shipping on Orders Over $55!" class="center-yahoo" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/30290cdc-bde7-4010-a1d6-c4ef8c169601" style="-ms-interpolation-mode:bicubic;border:none;border-width:0;clear:both;display:inline-block;max-width:100%;outline:0;text-decoration:none;width:auto"></a></center>
+						 												</th>
+						 												<th class="expander" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0">&nbsp;</th>
+						 											</tr>
+						 										</tbody>
+						 									</table>
+						 									</th>
+						 								</tr>
+						 							</tbody>
+						 						</table>
+						 						
+						 												
+						 
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="10px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:400;hyphens:auto;line-height:10px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word;">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;border-top-color:#bed3ec;border-top-style:solid;border-top-width:2px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						<center data-parsed="" style="min-width:580px;width:100%">
+						<table align="center" class="menu small-vertical float-center" style="Margin:0 auto;border-collapse:collapse;border-spacing:0;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:auto!important">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="https://www.jellybelly.com" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">View Website</a></th>
+												<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="https://www.jellybelly.com/contact-us" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">Contact Us</a></th>
+												<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="https://www.jellybelly.com/frequently-asked-questions" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">FAQ</a></th>
+												<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="https://www.jellybelly.com/online-order-info-index" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">Order/Shipping</a></th>
+												<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="https://www.jellybelly.com/privacy-policy" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">Privacy Policy</a></th>
+											<!--	<th class="menu-item float-center" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center"><a href="##%f2f_url##" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">Send to a Friend</a></th>
+											-->
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</center>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;border-top-color:#bed3ec;border-top-style:solid;border-top-width:2px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">&nbsp;</th>
+												<th class="expander" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-2 large-3 columns first last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:129px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+									<th align="center" class="float-center small-9 large-4 columns first last" style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:center;width:177.33px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+												<table class="row" style="border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:left;vertical-align:top;width:100%">
+													<tbody>
+														<tr style="padding:0;text-align:left;vertical-align:top">
+															<th class="small-2 large-2 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a href="https://www.pinterest.com/jellybelly/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Pinterest" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/25c16d44-1910-44e9-9355-13cc932e1def" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:35px" width="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a href="https://www.facebook.com/JellyBellyUSA/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Facebook" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/b9ebe8b7-46d3-4ff3-baf8-bd74f396b823" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:35px" width="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a href="https://www.youtube.com/c/jellybelly" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="YouTube" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/95290c76-1ce0-4aa6-ab47-f2f9a0a48cfa" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:35px" width="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a href="https://www.instagram.com/jellybellycandyco/" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Instagram" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/ef94065a-2153-47c3-bf9d-e2fd7561c142" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:35px" width="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+															<th class="small-2 large-2 columns last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:0!important;padding-right:0!important;text-align:left;width:16.66667%">
+															<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+																<tbody>
+																	<tr style="padding:0;text-align:left;vertical-align:top">
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left"><a href="https://www.linkedin.com/company/jelly-belly-candy-company" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img alt="Linkedin" class="social" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/9242a56a-e1a7-4be2-b0e4-0d1027fc4fef" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:35px" width="25"></a></th>
+																	</tr>
+																</tbody>
+															</table>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+									<th class="small-2 large-3 columns first last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:0;padding-left:16px;padding-right:16px;text-align:left;width:129px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="20px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;hyphens:auto;line-height:20px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<center data-parsed="" style="min-width:580px;width:100%"><a align="center" class="float-center" href="https://www.jellybelly.com/satisfaction-guarantee" style="Margin:0;color:#20396f;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none"><img class="center-yahoo" src="http://cdn-tp1.mozu.com/9046-m1/cms/files/bcd850dc-90ac-4d6d-a9b9-d0ddecee569a" alt="Your Satisfaction is our Guarantee (Click for Details)" style="-ms-interpolation-mode:bicubic;border:none;clear:both;display:inline-block;max-width:100%;outline:0;text-decoration:none;width:auto" alt="Satisfaction Gurantee"></a></center>
+
+						<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<td height="10px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:400;hyphens:auto;line-height:10px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<center data-parsed="" style="min-width:580px;width:100%">
+						<table align="center" class="row float-center" style="Margin:0 auto;border-collapse:collapse;border-spacing:0;display:table;float:none;margin:0 auto;padding:0;position:relative;text-align:center;vertical-align:top;width:100%">
+							<tbody>
+								<tr style="padding:0;text-align:left;vertical-align:top">
+									<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-bottom:10px;padding-left:16px;padding-right:16px;text-align:left;width:564px">
+									<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
+												<p style="Margin:0;Margin-bottom:5px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:1.3;margin:0;margin-bottom:5px;padding:0;text-align:center">Jelly Belly Candy Company<br>
+												One Jelly Belly Lane<br>
+												Fairfield, CA 94533<br>
+												<strong>1-800-323-9380</strong></p>
+												</th>
+												<th class="expander" style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0">&nbsp;</th>
+											</tr>
+										</tbody>
+									</table>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+						</center>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!-- prevent Gmail on iOS font size manipulation -->
+
+<div style="display:none;white-space:nowrap;font:15px courier;line-height:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+</body>
+</html>
+
+
+
+
+

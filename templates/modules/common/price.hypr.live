@@ -1,0 +1,11 @@
+ <span class="mz-price" tabindex="0">
+	{% if model.onSale %}
+		<span style="color: #e7131a !important;" aria-label="on sale">Sale:</span> {{model.salePrice|currency}}
+	{% else %}
+	    	<span class="product-price" style="display:none" aria-label="price">Price:</span> {{model.price|currency}}
+	{% endif %}  
+	  
+	 {% if model.priceType == "MAP" %}
+		<div tabindex="0">add to cart to see final price</div>
+     {% endif %}   
+ </span>        

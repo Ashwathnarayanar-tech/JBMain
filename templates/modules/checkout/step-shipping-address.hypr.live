@@ -1,0 +1,125 @@
+<div class="jb-inner-overlay"></div>
+    <div class="mz-messagebar" data-mz-message-bar>
+        <ul id="bypassNotification" tabindex="-1"  class="is-showing mz-errors" style="display: none; color:#000; font-weight:bold;padding: 3px 3px 3px 3px;">
+			<li>
+				<p style="text-align: center; color:#000; font-weight:bold">{{labels.bypass_headline1}}</p>
+				<p style="margin-left: 15px; text-align: left; color:#000; font-size:14px;">
+				    1. {{labels.bypass_warn1}}<br>
+					2. {{labels.bypass_warn2}}</p>
+			</li>
+		</ul>
+    </div>
+    
+    <h2 class="mz-formstep-header">
+        <span class="step-no"><label>01</label></span>
+        <span class="checkout-icons"></span>
+        <label>{{ labels.shippingInformation }}</label> 
+        <span class="step-completed"></span>
+        {% if model.requiresFulfillmentInfo || model.requiresDigitalFulfillmentContact %}
+        <button id="shippingaddress-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping information" data-mz-action="edit" >
+            {{ labels.edit }}
+        </button>
+        {% endif %}
+    </h2>
+    <div class="mz-formstep-body">
+    
+      {% if not model.address.candidateValidatedAddresses %}
+          <div class="mz-formstep-summary mz-addresssummary">
+                {% if model.requiresFulfillmentInfo %}
+                {% include "modules/common/address-summary" %}
+                {% else %}
+                {{ labels.noFulfillmentInfoRequired }}
+                {% endif %}
+            </div>
+            {% if model.requiresFulfillmentInfo %}
+                  <div class="mz-formstep-fields mz-l-formfieldgroup">
+                    <p class="address-info" tabindex="0" >
+                      Please enter your Shipping information. Each shipping address requires its own order.
+                      <br />
+
+                      If you need to ship to multiple addresses (four or more), please <a title="contact us" href="/contact-us">Contact Us.</a>
+                    </p>
+                    {% comment %}
+                        <p style="margin: 5px 0px;color: #FF4D00;font-style: italic;"> At this time, we are unable to ship to APO, FPO or P.O. Box addresses. </p>
+					{% endcomment %}
+					{% if model.contacts %}
+                    {% include "modules/checkout/checkout-shipping-contact-selector" with editingContact=model %}
+                    {% else %}
+                    {% include "modules/common/address-form" with countries=pageContext.shippingCountries %}
+                    {% endif %}
+                  </div>
+            {% endif %}
+            {% if model.requiresDigitalFulfillmentContact %}
+                  <div class="mz-formstep-fields mz-l-formfieldgroup">
+                    {% include "modules/checkout/checkout-digital-fulfillment" with editingContact=model %}
+                  </div>
+                  <div class="mz-formstep-summary mz-addresssummary">
+                    <span>Gift Card Email: {{ model.email }}</span>
+                  </div>
+            {% endif %}
+            
+          <div class="mz-formstep-next">
+            <button class="mz-button" style="display: none;" data-mz-action="confirmValidationBypass" id="bypassButton">
+                Use this Address
+            </button>
+    
+            <button id="continuetoshipping" class="brontocart-shipping-info gtm-to-shipping-method mz-button checkout-btn  {% if model.requiresDigitalFulfillmentContact %} mz-digital-gift-card-product {% endif %}" data-mz-action="next" invoke-choose>
+                {% if model.requiresFulfillmentInfo %}
+                    {{ labels.contToShipMethod }}
+                 {%else%} 
+                    {% if model.requiresDigitalFulfillmentContact %}  
+                        Continue to Payment Information
+                    {% endif %}
+                {%endif%}
+            </button>
+          </div>
+      {% else %}
+
+      <div class="mz-formstep-fields mz-l-formfieldgroup suggestion-address">
+        {% comment %} {{ labels.selectValidAddress }} {% endcomment %}
+
+        {% for addr in model.address.candidateValidatedAddresses %}
+        <label class="mz-l-formfieldgroup-row">
+            <div class="mz-l-formfieldgroup-cell">
+            {% if forloop.index == 1 %}
+                <span>We have updated your address to:</span>
+            {% else %}
+                <span>{{ labels.suggestionNum|string_format(forloop.index) }}</span>
+            {% endif %}
+          </div>
+          <div class="mz-l-formfieldgroup-cell"> 
+            <input data-mz-action="choose" id="candidateValidatedAddresses"  name="candidateValidatedAddresses" type="radio" 
+                value="{{forloop.index0}}"  style="display:{{themeSettings.showShippingAddressChoosingRadioButton}};"/>
+          </div>
+          <div class="mz-l-formfieldgroup-cell">
+            {{addr.address1}}<br />
+            {% if addr.address2 %}{{addr.address2}}<br />{% endif %}
+            {{addr.cityOrTown}}, {{addr.stateOrProvince}} {{addr.postalOrZipCode}} {{addr.countryCode}}
+          </div>
+        </label>
+        {% endfor %}
+        {% if siteContext.generalSettings.allowInvalidAddresses %}
+        <label class="mz-l-formfieldgroup-row">
+          <div class="mz-l-formfieldgroup-cell">
+              <span>Original</span> 
+          </div>
+          <div class="mz-l-formfieldgroup-cell">
+            <input data-mz-action="choose" name="candidateValidatedAddresses" type="radio" value="-1" style="display:{{themeSettings.showShippingAddressChoosingRadioButton}};"/>
+          </div>
+          <div class="mz-l-formfieldgroup-cell">
+            {{model.address.address1}}<br />
+            {% if model.address.address2 %}{{model.address.address2}}<br />{% endif %}
+            {{model.address.cityOrTown}}, {{model.address.stateOrProvince}} {{model.address.postalOrZipCode}} {{model.address.countryCode}}
+          </div>
+        </label>
+        {% endif %}
+        
+      </div>
+      <div class="mz-formstep-next">
+        <button class="mz-button" data-mz-action="next">
+            {{ labels.contToShipMethod }}
+        </button>
+      </div>
+      {% endif %}
+
+    </div>

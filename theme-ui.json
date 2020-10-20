@@ -1,0 +1,454 @@
+{
+  "items": [
+    {
+      "xtype": "panel",
+      "title": "Layout",
+      "collapsed": false,
+      "items": [ 
+          {
+              "xtype": "mz-input-dropdown",
+              "name": "gutterWidth",
+              "fieldLabel": "Base Margin Width",
+              "allowBlank": false,
+              "forceSelection": true,
+              "store": [
+                  "15px",
+                  "20px",
+                  "25px",
+                  "30px",
+                  "35px"
+              ]
+          }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Features",
+      "collapsed": false,
+      "items": [
+		{
+              "xtype": "textfield",
+              "name": "reviewsConnection",
+              "fieldLabel": "Power Reviews connection string",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+          "xtype": "checkbox",
+          "name": "allowWishlist",
+          "fieldLabel": "Allow Wishlist"
+        },
+        {
+                "xtype":"checkbox",
+                "name":"showHeatSensitiveText",
+                "fieldLabel":"Show heat-sensitive text"
+            },
+		{
+              "xtype": "textfield",
+              "name": "heatSensitiveCategoryId",
+              "fieldLabel": "Category ID (number) for heat sensitive",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+                  "xtype": "textfield",
+                  "name": "heatSensitiveYearRoundId",
+                  "fieldLabel": "Category ID (number) for heat sensitive year-round items",
+                  "allowBlank": false,
+                  "forceSelection": true,
+                  "queryMode": "local",
+                  "width": "300px",
+                  "grow": true,
+                  "growMin": 300
+            },
+            {
+              "xtype": "textfield",
+              "name": "noFreeShippingId",
+              "fieldLabel": "Category ID (number) for 'No Free Shipping' items",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+          "xtype": "textfield",
+          "name": "noFreeShippingSkuList",
+          "fieldLabel": "List of SKUs included in the 'No Free Shipping' category",
+          "allowBlank": true,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": true,
+          "growMin": 300
+    },
+		{
+              "xtype": "textfield",
+              "name": "heatSensitiveStatesPDP",
+              "fieldLabel": "Statement of heat-sensitive states (PDP)",
+              "allowBlank": true,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+              "xtype": "textfield",
+              "name": "zinreloPartnerID",
+              "fieldLabel": "Zinrelo Partner ID (prod: 540f33640c; test: 00dbc73b8e)",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "600px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+              "xtype": "textfield",
+              "name": "zinreloActivityCode",
+              "fieldLabel": "Zinrelo Activity Code (prod: c1eb9_custom_activity; test: 22a64_custom_activity)",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "600px",
+              "grow": true,
+              "growMin": 300
+        },
+		{
+              "xtype": "textfield",
+              "name": "heatSensitiveStatesCart",
+              "fieldLabel": "Statement of heat-sensitive states (Cart)",
+              "allowBlank": true,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+		{
+              "xtype": "textfield",
+              "name": "heatSensitiveStatesCheckout",
+              "fieldLabel": "Statement of heat-sensitive states (Checkout)",
+              "allowBlank": true,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+		{
+              "xtype": "textfield",
+              "name": "heatSensitiveStatesList",
+              "fieldLabel": "Heat-sensitive states (list)",
+              "allowBlank": true,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+            "xtype":"checkbox",
+            "name":"editingHelp",
+            "fieldLabel":"Check to show my account help drop zone in site builder"
+        },
+		{
+            "xtype":"checkbox",
+            "name":"isGeolocationActive",
+            "fieldLabel":"Activate geolocation"
+        },
+        {
+          "xtype": "checkbox",
+          "name": "useAnimatedProductLists",
+          "fieldLabel": "Use Animated Product Lists"
+        },
+        {
+          "xtype": "checkbox",
+          "name": "enablePartialCaching",
+          "fieldLabel": "Enable Partial Caching",
+          "value": true
+        },
+        {
+          "xtype": "checkbox",
+          "name": "useDebugScripts",
+          "fieldLabel": "Debug Mode (use unminified JavaScript)"
+        },
+		{
+          "xtype": "checkbox",
+          "name": "disableCheckoutModal",
+          "fieldLabel": "Disable Checkout Modal"
+        },
+        {
+          "xtype": "checkbox",
+          "name": "antiFlickerEnabled",
+          "fieldLabel": "Anti-flicker code for testing with Google Optimize"
+        },
+        {
+          "xtype": "checkbox",
+          "name": "requireCheckoutAgreeToTerms",
+          "fieldLabel": "Show 'Agree to Terms & Conditions' option while placing the order"
+        },
+		{
+          "xtype": "numberfield",
+          "name": "requirejsWaitSeconds",
+          "fieldLabel": "require.js waitSeconds (Timeout value)",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+        {
+          "xtype": "combobox",
+          "name": "showPronsAndCons",
+          "fieldLabel": "Show 'PRONS & CONS' in product review section",
+          "store": [
+            [
+              "block",
+              "Show Prons & Cons"
+            ],
+            [
+              "none",
+              "Hide Prons & Cons"
+            ]
+          ],
+          "width": 500
+        },{
+          "xtype": "combobox",
+          "name": "showShippingAddressChoosingRadioButton",
+          "fieldLabel": "Show radio button for shipping addres choosing while suggesting:",
+          "store": [
+            [
+              "block",
+              "Show"
+            ],
+            [
+              "none",
+              "Hide"
+            ]
+          ],
+          "width": 500
+        },
+        {
+          "xtype": "checkbox",
+          "name": "showAddressTypeDropdown",
+          "fieldLabel": "Show Address Type dropdown in Address Forms (Residential/Commercial)"
+        },
+		{
+          "xtype": "numberfield",
+          "name": "newLabelThreshold",
+          "fieldLabel": "Threshold (days) for 'New' label on products",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+        {
+          "xtype": "numberfield",
+          "name": "zinreloPointMultiplier",
+          "fieldLabel": "Zinrelo Points awarded per dollar spent",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+        {
+          "xtype": "numberfield",
+          "name": "freeshippingBoundingValue",
+          "fieldLabel": "Freeshipping Limit",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+		{
+          "xtype": "numberfield",
+          "name": "mobileAddToCartPopupTimer",
+          "fieldLabel": "Add to cart popup (only mobile) - Number of seconds",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+		{
+          "xtype": "numberfield",
+          "name": "shippingSwitchoverValue",
+          "fieldLabel": "SurePost-to-UPS switchover value",
+          "allowBlank": false,
+          "forceSelection": true,
+          "queryMode": "local",
+          "width": "300px",
+          "grow": false,
+          "growMin": 100
+        },
+        {
+              "xtype": "textfield",
+              "name": "signup-coupon",
+              "fieldLabel": "Sign up discount code for 10% Off",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+              "xtype": "textfield",
+              "name": "CustomFontName",
+              "fieldLabel": "Google Font Family",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "300px",
+              "grow": true,
+              "growMin": 300
+        },
+        {
+              "fieldLabel": "Default Items Per Page",
+              "xtype": "combo",
+              "name": "defaultPageSize",
+              "allowBlank": false,
+              "editable": false,
+              "forceSelection": true,
+              "store": [
+                20,
+                40,
+                80,
+                "All"
+              ],
+              "queryMode": "local" 
+        },
+        {
+              "xtype": "textareafield",
+              "name": "acceptedMessage",
+              "fieldLabel": "Accepted Message",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "500px",
+              "grow": true,
+              "growMin": 100
+        },
+        {
+              "xtype": "textareafield",
+              "name": "processingMessage",
+              "fieldLabel": "Processing Message",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "500px",
+              "grow": true,
+              "growMin": 100
+        }, 
+        {
+              "xtype": "textareafield",
+              "name": "shippedMessage",
+              "fieldLabel": "Shipped Message",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "500px",
+              "grow": true,
+              "growMin": 100
+        },
+        {
+              "xtype": "htmleditor",
+              "name": "giftcardMessage", 
+              "fieldLabel": "Gift Card Redeeming Message",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "700px",
+              "grow": true,
+              "growMin": 100
+        },
+        {
+              "xtype": "textfield",
+              "name": "GiftcardHeadline",
+              "fieldLabel": "Gift card Message Headline",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "500px",
+              "grow": true,
+              "growMin": 300 
+        },
+        {
+              "xtype": "htmleditor",
+              "name": "giftcardbalMessage",
+              "fieldLabel": "Gift card Balance Message",
+              "allowBlank": false,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "700px",
+              "grow": true,
+              "growMin": 100
+        }, 
+        {
+              "xtype": "textareafield",
+              "name": "shippingMethods",
+              "fieldLabel": "Shipping methods",
+              "allowBlank": true,
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "700px",
+              "grow": true,
+              "growMin": 100
+        },
+        {
+              "xtype": "textfield",
+              "name": "BlockOutDates",
+              "fieldLabel": "Block Out Dates",   
+              "allowBlank": true, 
+              "forceSelection": true,
+              "queryMode": "local",
+              "width": "500px",
+              "grow": true,
+              "growMin": 100
+        }
+      ]
+    },
+	{
+             "xtype": "panel",
+            "title": "Anonymous Account Verification Options",
+           "collapsed":false,
+            "items": [
+                {
+                    "xtype": "mz-input-checkbox",
+                    "name": "zipCodeEnabled",
+                    "fieldLabel": "Billing Zip Code"
+               },
+                {
+                    "xtype": "mz-input-checkbox",
+                    "name": "phoneNumberEnabled",
+                    "fieldLabel": "Billing Phone Number"
+                },
+                {
+                    "xtype": "mz-input-checkbox",
+                    "name": "billingEmailEnabled",
+                    "fieldLabel": "Billing Email"
+                }
+            ]
+        }
+  ]
+}
+

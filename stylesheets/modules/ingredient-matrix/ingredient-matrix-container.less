@@ -1,0 +1,77 @@
+//ingredient matrix styles
+
+.ingredient-matrix-container {
+	padding: 5px 5px;
+}
+
+
+.ingredient-matrix-container {
+	max-width: 700px;
+	text-align: center;
+	margin: 10% auto;
+    margin-top: 0px;
+}
+
+.ingredient-matrix-container{
+
+	.result-item-section-heading {
+		display: none;	
+	}
+
+	.result-item {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 30px 0px;
+	}
+
+	.result-item-image-thumb {
+		width: 40%;
+		padding: 5px 5px;
+	}
+	
+	.result-item-name-link {
+		width: 60%;
+		padding: 10px 5px;
+	}
+	
+	.result-item-allergen-info-fields {
+		width: 100%;
+		display: flex;
+		padding: 5px 20px;
+	}
+	
+	.result-item-allergen-info {
+		flex-grow: 1;
+	}
+	
+	
+	
+	@media only screen and (min-width: 576px) {
+		.result-item-section-heading{
+			display: flex; 
+			width: 100%;
+		}
+		.result-item {
+			display: flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			margin: 20px 0px;
+		}
+		.result-item-image-thumb {
+			width: 20%;
+
+		}		
+		.result-item-name-link {
+			width: 30%
+		}		
+		.result-item-allergen-info-fields {
+			width: 50%;
+			display: flex;
+			padding: 5px 0px;
+		}		
+		.result-item-allergen-info {
+			flex-grow: 1;
+		}	
+	}
+}

@@ -1,0 +1,134 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="california-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">California Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                    
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/1.jpg" alt="Bowl with love graphic"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/2.jpg" alt="Thank you containers"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/3.jpg" alt="Close-up of gummies and candy corn in Jelly Belly jar"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/4.jpg" alt="Tins embossed with love"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/5.jpg" alt="close-up of gummies, candy corn, and orange beans in jars"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/6.jpg" alt="Dual-graphic of candy in containers and thank you containers"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/7.jpg" alt="Large assortment of candy and containers"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/8.jpg" alt="Large containers holding beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/9.jpg" alt="Dual-graphic of candy in containers, and close-up of candy corn"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/California Wedding/10.jpg" alt="Close-up of beans in jars"/>
+                        </div>
+                        
+                    
+                    </div>
+                    <p>
+                        Infuse your ceremony with Golden State charm, no matter where it’s held. Use bright orange and yellow confections and accessories against
+                        a baby blue foundation to make your candy bar resemble a dazzling meadow against a brilliant sky.  
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/sunkist-orange-jelly-beans/c/90">Sunkist&reg; Orange Jelly Belly jelly beans</a></li>
+                                <li><a href="/orange-sherbet-jelly-beans/c/91">Orange Sherbet Jelly Belly jelly beans</a></li>
+                                <!--<li><a href="/search?query=sour%20orange">Sour Orange Jelly Belly jelly beans</a></li>-->
+                                <li><a href="/caramel-corn-jelly-beans/c/71">Caramel Corn Jelly Belly jelly beans</a></li>
+                                <li><a href="/peach-jelly-beans/c/92">Peach Jelly Belly jelly beans</a></li>
+                                <!--<li><a href="/search?query=peach%20bellini">Peach Bellini Jelly Belly jelly beans</a></li>-->
+                                <li><a href="/berry-blue-jelly-beans/c/66">Berry Blue Jelly Belly jelly beans</a></li>
+                                <li><a href="/aw-cream-soda-jelly-beans/c/13">A&amp;W&reg; Cream Soda Jelly Belly jelly beans</a></li>
+                                <li><a href="/coconut-jelly-beans/c/14">Coconut Jelly Belly jelly beans</a></li>
+                                <!--<li><a href="/search?query=orange%20slices">Sunkist&reg; Orange Slices</a></li>-->
+                                <li><a href="/sunkist-candies/c/342">Sunkist&reg; Fruit Gems in Orange &amp; Grapefruit flavors</a></li>
+                                <li><a href="/candy-corn/c/214">Candy Corn by Jelly Belly</a></li>
+                                <li><a href="/champagne-jelly-beans/c/357">Champagne Bubbles by Jelly Belly</a></li>
+                                <!--<li><a href="/search?query=peach%20rings">Peach Rings by Jelly Belly</a></li>-->
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/orange-jelly-beans-and-candy/c/326">Orange</a></li>
+                                <li><a href="/blue-candy-and-jelly-beans/c/334">Light Blue</a></li>
+                                <li><a href="/yellow-candy-and-gifts/c/331">Yellow</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+					
+					<p style="font-size: 20px; color: &#9658"><b> Saying ‘I Do’ the California Way </b></p> 
+					<p> 
+					    When you think of a California wedding, your mind probably goes to mod color tones — say hello to all sorts of shades of orange and 
+						blue — and all things surfer-cool. We’re here to help you capture your California wedding vibes with bright confections and accessories 
+						that take your guests to the Golden State no matter where your wedding is held. The California wedding theme can incorporate touches of earthy 
+						greens and yellows for a Northern California vibe or adhere to a bright, sunshiny palette if you’re aiming for a SoCal feel. 
+					</p>
+					<p> 
+					    Jelly Belly is your resource for creative, California-themed wedding favors and candies. Our wedding experts have put together various dazzling 
+						California favors and candy displays in laid-back colors to capture this fresh, unique theme. Combine bright tons of orange, light blue and yellow 
+						for a palette reminiscent of a soft West Coast sunset and choose foods and flavors that come from the state. Coupled with a sunny backdrop and 
+						bouquets filled with California wildflowers (and perhaps a decorative artichoke or two), these themes create a convincing Cali concept. 
+					</p>
+					    <p style="font-size: 20px; color: &#9658"><b> Sunny, Citrusy and Sweet</b></p> 
+					<p>
+					    Due to the fact that California is a place big on citrusy, fruit flavors, we’ve chosen candies that celebrate some of the fruits that come from 
+						California farms and orchards. You’ll enjoy a big burst of sweet, tart flavor with jelly bean flavors like Sunkist<sup>&reg;</sup> Orange, Sour Orange, Orange 
+						Sherbet, Peach, Berry Blue and Coconut and can bring a punchy, tropical vibe with classic confections like Sunkist<sup>&reg;</sup> Orange Slices, Sunkist<sup>&reg;</sup> Fruit 
+						Gems and Peach Rings. As with any wedding candy combo, you’re going to want to top it all off with some Champagne Bubbles!
+					</p>
+                </div>
+                <hr/>
+            </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}
+    

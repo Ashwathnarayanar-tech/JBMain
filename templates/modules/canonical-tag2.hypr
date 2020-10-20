@@ -1,0 +1,39 @@
+{% if pageContext.pageType == "web_page" %}
+	{% if pageContext.title == "Main" || pageContext.title == "Home" || pageContext.title == "Home2" %}
+		<!-- homepage -->
+		<link rel="canonical" href="{{ pageContext.secureHost }}">
+	{% else %}
+		<!-- other page -->
+		<link rel="canonical" href="{{ pageContext.secureHost }}/{{ pageContext.cmsContext.page.path }}">
+	{% endif %}
+{% endif %}
+
+{% if pageContext.pageType == "category" %}
+	<!-- category -->
+	{% with pageContext.url|split("?") as curl %}
+		<link rel="canonical" href="{{ curl.0 }}">
+	{% endwith %}
+{% endif %}
+
+{% if pageContext.pageType == "product" %}
+	<!-- product -->
+	{% with pageContext.url|split("?") as curl %}
+		<link rel="canonical" href="{{ curl.0 }}">
+	{% endwith %}
+{% endif %}
+
+{% if pageContext.pageType == "cart" %}
+	<!-- no canonical link for cart -->
+{% endif %}
+
+{% if pageContext.pageType == "checkout" %}
+	<!-- no canonical link for checkout -->
+{% endif %}
+
+{% if pageContext.pageType == "confirmation" %}
+	<!-- no canonical link for confirmation -->
+{% endif %}
+
+{% if pageContext.pageType == "search" %}
+	<!-- no canonical link for search -->
+{% endif %}

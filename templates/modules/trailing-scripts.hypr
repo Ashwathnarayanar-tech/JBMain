@@ -1,0 +1,116 @@
+{% with themeSettings.useDebugScripts|default:pageContext.isDebugMode as debugMode %}
+
+<script src="{{siteContext.cdnPrefix}}/js/require-{% if debugMode %}debug{% else %}min{% endif %}.js"></script>
+<script type="text/javascript">
+    require.config({ 
+      cdnPrefix: "{{ siteContext.cdnPrefix }}",
+      cacheKey: "{{ siteContext.hashString }}",
+      urlArgs: "theme={{siteContext.themeId}}&cacheKey={{ siteContext.hashString }}",
+      baseUrl: "{{ siteContext.cdnPrefix }}{% if not debugMode %}/compiled{% endif %}/scripts",
+	  waitSeconds: {{ themeSettings.requirejsWaitSeconds }},
+      paths: {
+        jquery: "vendor/jquery/1.11.1/jquery{% if not debugMode %}.min{% endif %}",
+    underscore: "vendor/underscore/underscore",
+    backbone: "vendor/backbone/backbone",
+    handlebars: "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min"
+  },
+  callback: loadUnbxd
+    });
+    
+    /* * * CONFIGURATION * * */
+    var UnbxdSiteName = location.href.indexOf("jellybelly.com") > -1 ? "prod-jellybelly-com809021566503370" : "dev-jellybelly-com809021566503339"; // Replace the value with the Site Key.
+    var UnbxdApiKey = location.href.indexOf("jellybelly.com") > -1 ? "e3ef87bb2597294327bc753a65ab0514" : "b6bf096c91deae42d7897adcfbef52e1";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    
+    (function() {
+      var ubx = document.createElement('script'); 
+      ubx.type = 'text/javascript'; 
+      ubx.async = false;
+      ubx.src = '//d21gpk1vhmjuf5.cloudfront.net/unbxdAnalytics.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+    })();
+        
+    var Handlebars;
+    function loadUnbxd() { 
+      require(['jquery', 'handlebars'], function (jQueryMain, HandlebarsMain) {
+        Handlebars=HandlebarsMain;
+        if (window.location.href.indexOf('10569') > -1) {
+          if (window.location.href.indexOf('search-results') > -1) {
+            (function() {
+             var ubx = document.createElement('script'); 
+             ubx.type = 'text/javascript'; 
+             ubx.async = false;
+             ubx.src = 'https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+        	  })();
+          }
+          (function() {
+            var ubx = document.createElement('script');
+            ubx.type = 'text/javascript'; 
+            ubx.async = false;
+            ubx.src = 'https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+          })();
+        } else {
+          if (window.location.href.indexOf('search-results') > -1) {
+            (function() {
+              var ubx = document.createElement('script'); 
+              ubx.type = 'text/javascript'; 
+              ubx.async = false;
+              ubx.src = 'https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_search.js';
+        		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+            })();
+          }
+          
+          (function() {
+            var ubx = document.createElement('script'); 
+            ubx.type = 'text/javascript'; 
+            ubx.async = false;
+        	  ubx.src = 'https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_autosuggest.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+          })();
+        }
+      });
+    }
+    if(typeof Object.assign != 'function'){
+        Object.defineProperty(Object, "assign", {
+            value: function assign(target, varArgs) {
+                'use strict';
+                if (target == null) {
+                    throw new TypeError('Cannot convert undefined or null to object');
+                }
+                var to = Object(target);
+                for (var index = 1; index < arguments.length; index++) {
+                    var nextSource = arguments[index];
+                    if (nextSource != null) {
+                        for (var nextKey in nextSource) {
+                            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                                to[nextKey] = nextSource[nextKey];
+                            }
+                        }
+                    }
+                }
+                return to;
+            },
+            writable: true, 
+            configurable: true
+        });
+    }
+  {% if debugMode %} 
+    require([{% all_scripts %}]);
+	require(['widgets/rti-observation','vendor/baynote']);
+  {% else %} 
+    require(['jquery'], function() {
+        require(['modules/common'], function() {
+            require([{% all_scripts %}]);
+			require(['widgets/rti-observation','vendor/baynote']);
+        }); 
+    });
+  {% endif %}
+</script>
+
+{% if siteContext.generalSettings.isGoogleAnalyticsEnabled %}
+  {% include "modules/analytics/google-analytics-tracking-code" %}
+{% endif %}
+
+{%endwith%}

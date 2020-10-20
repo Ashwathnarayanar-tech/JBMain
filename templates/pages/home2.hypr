@@ -1,0 +1,501 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-homepage{% endblock body-tag-classes %}
+{% block body-content %}
+
+<style>
+		@media (max-width: 768px) {
+			#card-4-mobile {
+				border-radius: 5px;
+				border: 1px solid #9CC6D1;
+				margin: 3px 3px 3px 3px;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			
+			#card-4-desktop {
+				display: none;
+			}
+		
+		    .card-slot {
+		        max-width: 50%;
+                display: inline-block;
+			    float: left;
+		    }
+		    
+			.card-container {
+				border-radius: 5px;
+				border: 1px solid #9CC6D1;
+				margin: 3px 3px 3px 3px;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			
+			.card-contents {
+				font-size: 22px;
+				line-height: 18px;
+				color: #000;
+				overflow: hidden;
+				padding: 0px;
+				text-align: center;
+				background-color: #fff;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			
+			.card-title {
+				padding: 0px 0px 0px 0px;
+				font-size: 22px;
+				line-height: 1.4;
+				margin: 5px 2px 3px 2px;
+			}
+			
+			.card-text {
+			    display: none;
+			}
+			
+			.card-image {
+				text-align: center;
+				max-width:100%;
+				margin: 0 auto;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+			
+			.brand-button-container {
+				border-top: 1px solid #9CC6D1;
+				background-color: #fff;
+				width:100%;
+			}
+			
+			.left-button {
+				width: 50%;
+				display: inline;
+				float: left;
+				line-height: 1.2;
+			}
+			
+			.right-button {
+				width: 50%;
+				display: inline;
+				float: right;
+				line-height: 1.2;
+			}
+			
+			.left-button-inner {
+				padding: 10px 10px;
+			}
+			
+			.right-button-inner {
+				padding: 10px 10px;
+				border-left: 1px solid #9cc6d1;
+			}
+			#header-image-mobile {
+				margin-top: 15px;
+				display: inline-block;
+				width: 100%;
+			}
+			
+			#header-image-desktop {
+				display: none;
+			}
+			
+			#hero-title {
+				margin: 2px 1px;
+				line-height:1.2;
+			}
+			
+			#hero-caption {
+				line-height: 1.2;
+				margin-top: 2px;
+				margin-bottom: 5px;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+		    .homepage-promo {
+		        max-width:100%;
+		        border-radius: 10px;
+		        overflow: hidden;
+		        margin: 0px 0px 0px 0px;
+		        text-align:center;
+		        cursor: pointer;
+		    }
+		    
+		    .homepage-promo-image {
+		        border-radius: 10px;
+		        overflow: hidden;
+		        width:100%;
+		        cursor: pointer;
+		    }
+		    
+		    .homepage-promo-caption {
+		        font-size: 18px;
+		        font-weight: normal;
+		        line-height: 1.2;
+		        margin: 5px 2px 5px 2px;
+		    }
+		}
+
+		@media (min-width: 769px) {
+			#card-4-mobile {
+				display: none;
+			}
+			
+			#card-4-desktop {
+				border-radius: 10px;
+				border-style: 2px solid;
+				border-color: #9CC6D1;
+				margin: 0px 7px; 
+				padding: 2px 2px 2px 2px; 
+				background-color: #9CC6D1;
+				overflow: hidden;
+			}
+		
+            .card-slot {
+		        max-width: 33.33%;
+			    display: inline-block;
+			    float: left;
+				margin-top: 7px;
+				margin-bottom: 7px;
+		    }
+		    
+			.card-container {
+				border-radius: 10px;
+				border-style: 2px solid;
+				border-color: #9CC6D1;
+				margin: 0px 7px; 
+				padding: 2px 2px 2px 2px; 
+				background-color: #9CC6D1;
+				overflow: hidden;
+			}
+			
+			.card-contents {
+				font-size: 22px;
+				color: #000;
+				overflow: hidden;
+				margin: 0px 0px 0px 0px;
+				width: 100%;
+				padding: 0px;
+				text-align: center;
+				background-color: #fff;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
+			
+			.card-image {
+				text-align: center;
+				max-width:100%;
+				margin: 0 auto;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+			}
+			
+			.card-title {
+				margin: 0px;
+				padding: 0px 0px 0px 0px;
+				font-size: 22px;
+				color:#000;
+			}
+			
+			.card-text {
+				font-size: 16px;
+				text-align: left;
+				color: #000;
+				padding: 0px 10px 5px 10px;
+				margin: 0px 0px 0px 0px;
+			}
+			
+			.brand-button-container {
+				border-top: 2px solid #9CC6D1;
+				width:100%;
+			}
+			
+			.left-button {
+				width: 50%;
+				display: inline;
+				float: left;
+				line-height: 1.2;
+			}
+			
+			.right-button {
+				width: 50%;
+				display: inline;
+				float: right;
+				line-height: 1.2;
+			}
+			
+			.left-button-inner {
+				padding: 10px 10px;
+			}
+			
+			.right-button-inner {
+				padding: 10px 10px;
+				border-left: 2px solid #9cc6d1;
+			}
+			#header-image-mobile {
+				display: none;
+			}
+		
+			#header-image-desktop {
+				display: inline-block;
+			}
+			
+			#hero-title {
+				line-height:.2;
+			}
+			
+			#hero-caption {
+				line-height: 1;
+				margin-bottom: 5px;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+		    .homepage-promo {
+		        text-align: center;
+		        margin: 7px 7px 0px 7px;
+		    }
+		    
+		    .homepage-promo-image {
+		        border-radius: 10px;
+		        overflow: hidden;
+		        width:100%;
+		        cursor: pointer;
+		    }
+		        
+		    .homepage-promo-caption {
+		        font-size: 18px;
+		        font-weight: normal;
+		        line-height: 1.2;
+		        cursor: pointer;
+		        margin-top: 5px;
+		        margin-bottom: 5px;
+		    }
+		}
+</style>
+
+
+
+<div>
+	{% dropzone "home-header" scope="page" %}
+</div>
+
+<div>
+<div class="card-slot">
+	<div class="card-container" id="card-1">
+		<a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-mobile-optimized.jpg" alt="Jelly Belly jelly beans product listings">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg?max=350" alt="Jelly Belly jelly beans product listings">
+			{% endif %}		
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans" style="color: #000;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
+			<p class="card-text">Discover the world’s #1 gourmet jelly bean, made in over 50 amazing flavors. </p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/jelly-belly-jelly-beans/c/335" aria-label="shop Jelly Belly jelly beans">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly Store Locator">Find a Store</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<div class="card-slot">
+	<div class="card-container" id="card-2">
+		<a href="/confections-by-jelly-belly/c/339" aria-label="Jelly Belly Confections" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized-mobile.jpg" alt="Jelly Belly Confections product listings">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized.jpg?max=350" alt="Jelly Belly Confections product listings">
+			{% endif %}	
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/confections-by-jelly-belly/c/339" aria-label="Jelly Belly Confections" style="color: #000;text-decoration: none"><strong>Jelly Belly Confections</strong></a></h2>
+			<p class="card-text" style="max-height: 175px">Did you know Jelly Belly makes over 50 other candies?</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/confections-by-jelly-belly/c/339" aria-label="shop Jelly Belly Confections">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<div class="card-slot">
+	<div class="card-container" id="card-3">
+		<a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category page" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled-banner-version-2-mobile-optimized.jpg" alt="BeanBoozled Jelly Belly product listings">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled-banner-version-2-optimized.jpg?max=350" alt="BeanBoozled Jelly Belly product listings">
+			{% endif %}	
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category page" style="color: #000;text-decoration: none"><strong>BeanBoozled Jelly Beans</strong></a></h2>
+			<p class="card-text">Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/beanboozled-jelly-beans/c/341" aria-label="shop BeanBoozled Jelly Beans category page">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+
+<div class="card-slot">
+	<div class="card-container" id="card-4-mobile">
+		<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-mobile-optimized.jpg" alt="Krispy Kreme jelly beans product listings">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
+			{% endif %}	
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #000;text-decoration: none"><strong>Krispy Kreme® Jelly Beans</strong></a></h2>
+			<p class="card-text">Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="shop Krispy Kreme jelly beans">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+<div style="clear: both"></div>
+</div>
+
+
+<div>
+	{% dropzone "home-promos" scope="page" %}
+</div>
+
+<div class="card-slot">
+	<div class="card-container" id="card-4-desktop">
+		<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-mobile-optimized.jpg" alt="Krispy Kreme jelly beans product listings">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
+			{% endif %}
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #000;text-decoration: none"><strong>Krispy Kreme® Jelly Beans</strong></a></h2>
+			<p class="card-text">Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="shop Krispy Kreme jelly beans">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+<div class="card-slot">
+	<div class="card-container" id="card-5">
+		<a href="/mixed-emotions/c/711" aria-label="Jelly Belly Mixed Emotions product listing page" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-mobile-optimized.jpg" alt="Mixed Emotions product listings page">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-optimized.jpg?max=350" alt="Mixed Emotions product listings page">
+			{% endif %}
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/mixed-emotions/c/711" aria-label="Mixed Emotions" style="color: #000;text-decoration: none"><strong>Mixed Emotions</strong></a></h2>
+			<p class="card-text">Feel the Flavor with the Jelly Belly Mixed Emotions.</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/mixed-emotions/c/711" aria-label="shop Mixed Emotions jelly beans">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>				
+		</div>
+	</div>
+</div>
+
+
+<div class="card-slot">
+	<div class="card-container" id="card-6">
+		<a href="/new-products/c/730" aria-label="new Jelly Belly products" tabindex="-1">
+			{% if pageContext.isMobile %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-mobile-optimized.jpg" alt="new Jelly Belly products listing page">
+			{% endif %}
+			{% if pageContext.isDesktop %}
+				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-optimized.jpg?max=350" alt="new Jelly Belly products listing page">
+			{% endif %}
+		</a>
+		<div class="card-contents">
+			<h2 class="card-title"><a href="/new-products/c/730" aria-label="new Jelly Belly products" style="color: #000;text-decoration: none"><strong>New Products</strong></a></h2>
+			<p class="card-text">Explore the new products Mr. Jelly Belly has been cooking up.</p>
+			<div class="brand-button-container">
+				<div class="left-button">
+					<div class="left-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #bc0000" href="/new-products/c/730" aria-label="shop new Jelly Belly products">Shop Now</a>
+					</div>
+				</div>
+				<div class="right-button">
+					<div class="right-button-inner">
+						<a style="text-decoration: none; font: 19px Arial; color: #1664c2" href="/store-locator" aria-label="Jelly Belly store locator">Find a Store</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clearfix"></div>
+
+{% endblock body-content %}
+
+
+

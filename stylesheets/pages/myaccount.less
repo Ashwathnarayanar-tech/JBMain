@@ -1,0 +1,303 @@
+body{
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ebf5f7; 
+  } 
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;  
+    background-color: #007db3; 
+  }
+  ::-webkit-scrollbar{
+    width: 8px;
+  }
+}
+
+
+.mz-messagebar .mz-errors li {
+    text-align: center !important;
+
+}
+    .mz-myaccount {
+    .mz-pageheader-desktop .jb-serach-box-with-label p {
+        font-size: 14px;
+    }
+   /* a[href="/myaccount"] {
+        color: #0077a2;
+    }*/
+    .mz-l-paginatedlist {
+        overflow: hidden;
+        position: relative;
+    }
+    .none-myaccount{
+        display: none !important;
+    }
+    .mz-pagetitle {
+        color: #004e99;
+        font-size: 26px;
+        font-weight: bold;
+        margin: 10px 0 10px;
+        font-family: @fontFamily;
+        float: left;
+        
+    }
+    .mz-description {
+        display: inline-block;
+        float: right;
+        color: #231f20;
+        font-size: 12px;
+        float: left;
+        margin: 25px 115px;
+    }
+    .mz-l-pagecontent {
+        padding: 10px 20px 0px 20px;
+    }
+    .mz-myaccount-panels {
+        margin-left: 248px;
+    }
+    .order-history-error-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        left: 0;
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .data-item {
+        width: 35%;
+        max-height: 30%;
+        background: #fff;
+        text-align: center;
+        list-style: none;
+        padding: 2%;
+        overflow-y: auto;
+    }
+
+    .shipping-link {
+        display: block;
+        float: right;
+        margin-bottom: 20px;
+        font-size: 12px;
+        text-decoration: none;
+        color: #004e99;
+        clear: both;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    .mz-myaccount-nav {
+        width: 224px;
+        box-sizing: border-box;
+        border-right: 1px solid #e4e4e4;
+        margin: 0px 10px 0 0;
+        padding-right: 25px;
+        float: left;
+        .mz-scrollnav-item {
+            margin-top: 10px;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        a.mz-scrollnav-link {
+            padding: 8px 30px 0 0;
+            outline: none;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: @fontFamily;
+            font-weight: bold;
+            color: #231f20;
+            &.mz-nav-head {
+                color: #c64606;
+                font-size: 16px;
+                font-family: @fontFamily;
+                padding: 10px 0;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        a.mz-scrollnav-link.active{
+            background: #ebf6fc;
+            border-radius: 0;
+        }
+    }
+
+    .mz-contacttype-isprimary {
+        font-size: @fontSizeSmall;
+        font-style: italic;
+        display: block;
+        margin-top: 3px;
+        text-indent: @gutter;
+    }
+    @media (max-width: 600px) {
+        .mz-myaccount-panels {
+            margin-left: 0;
+        }
+        .mz-myaccount-nav { 
+            float: none;
+            width: auto;
+            margin-bottom: @gutter;
+            .clearfix();
+            .mz-scrollnav-item {
+                float: left;
+                margin: @gutter/4;
+            }
+        }
+    }
+    #x-account-returnhistory {
+        [data-mz-orderlist] {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 767px){
+    .mz-myaccount {
+        .notify-me-field {
+            width: 60%;
+        }
+	.data-item {
+            width: 70%;
+        }
+        .mz-myaccount-panels{
+            margin-left: 0px;
+        }
+        .mz-pagetitle {
+            color: #c64606;
+            font-size: 26px;
+            font-weight: bold;
+            margin: 20px 0 20px;
+            font-family: @fontFamily;
+            float: none;
+            text-transform: uppercase;
+            
+        }
+        .mz-desktop{
+            display: none;
+        }
+        .mz-l-container{
+            margin-top: 10px !important;
+        }
+        
+        .selected-menu-mobile{
+              cursor : pointer;
+              display: block;
+              width: 100%;
+              text-align: left;
+              font-size: 14px;
+              padding: 9px 11px;
+              border: 1px solid #C4C4C4;
+              margin-top: 0px !important;
+              box-sizing: border-box;
+              border-radius: 3px;
+              -moz-border-radius: 3px;
+              -webkit-border-radius: 3px;
+              font-weight: bold;
+              color: #000;
+              background: url('../resources/images/icons/menu-dropdown.png') no-repeat scroll 95% 50%;
+        }
+        .mz-description{
+            padding: 6px 3px;
+            margin: 10px 0px;
+            line-height: 20px;
+        }
+        .mz-l-sidebar, .mz-myaccount-nav{
+            display: none;
+        }
+        .mobile-popupmenu-myaccount{
+              position: fixed;
+              width: 100%;
+              height: 100%;
+              background: #FFF;
+              top: 81px;
+              left: 0;
+              z-index: 999;
+              &.zerotag-mobile{
+                top: 120px;
+              }              
+            .mz-scrollnav-link-mobile{
+                  display: block;
+                  padding: 5px;
+                  text-decoration: none;
+                  font-size: 14px;
+                  font-weight: 600;    
+                  margin-top: 5px;
+                  &:first-child{
+                    margin-top: 56px;
+                  }
+            }
+            .mz-scrollnav-link-mobile.active{
+                background: #ebf6fc;
+            }
+        }
+    }
+} 
+@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape){
+    .mz-myaccount{ 
+        .mobile-popupmenu-myaccount{
+         position: fixed;
+        width: 100%;
+        height: 286px;
+        background: white;
+        top: 66px;
+        left: 0;
+        z-index: 999;
+        overflow-x: auto;
+            .mobile-menu{
+                position: relative;
+                overflow: scroll;
+                height: 450px;
+            }
+        }
+    } 
+}
+.mz-payment-credit-card-defaultflag-row{
+    margin-bottom:10px;
+}
+.mz-myaccount {
+    .myaccountorder-status{
+        display:none;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .mz-myaccount {
+        .notify-me-field {
+            width: 40%;
+        }
+    }
+}
+
+
+
+//Disbaling Credit card fields
+.readonlytext{
+    background: #f1f1f1;
+}
+
+
+@media only screen and (min-width: 1025px){
+    .mz-myaccount {
+        .mz-l-container {
+            width: 93%;
+            margin: 0 auto; 
+        }
+        .mz-myaccount-nav {
+            width: 20%;
+            float: left;
+        }
+        .mz-myaccount-panels {
+            width: 78%;
+            float: right;
+            margin: 0;
+        }
+    }
+}
+

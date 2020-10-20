@@ -1,0 +1,16 @@
+<div class="ip-container"><div class="jb-inner-overlay"></div></div> 
+<div class="mz-productlist {% block module-classes %}{% endblock module-classes %}">
+ {% if model.items %} 
+        <ul class="gridder mz-productlist-grid" id="mz-productlist-list">{% for prod in model.items %}<li createDate="{{ prod.createDate }}" price="{{ prod.price.price }}" salePrice="{{ prod.price.salePrice }}"  productType="{{ prod.productType }}" data-griddercontent="" class="gridder-list mz-productlist-item" data-mz-product="{{ prod.productCode }}" onlineStockAvailable="{{ prod.inventoryInfo.onlineStockAvailable }}">{% include "modules/product/product-listing" with model=prod %}</li>{% if forloop.counter == 15 %}<div class="drop-zone-banner">{% dropzone "drop-zone-mid-sec" scope="page" %}</div>{% endif %}{% endfor %}</ul>
+    {% endif %}     
+    {% comment %}
+    {% if model.items %}
+    <!-- Appending Div Contents -->
+        {% for prod in model.items %}
+            <div id="" class="gridder-content quickview"> 
+                {% include "modules/product/product-listing" with model=prod %}
+            </div>
+        {% endfor %}
+    {% endif %} 
+    {% endcomment %}
+</div>

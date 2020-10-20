@@ -1,0 +1,21 @@
+<label for="sort-by">{{ labels.sortby }}</label>
+<select id="sort-by" class="page-sort-sel" title="Sort type" data-mz-value="sortBy" class="mz-pagingcontrols-pagesort-dropdown" autocomplete="off">
+    {% block sort-types %}
+        {% for sort in model.sorts %} 
+            {% with sort.value as sortValue %}
+                <option data-mz-url="{% make_url "sorting" model with sortBy=sortValue %}" value="{{ sortValue }}"{% if model.currentSort == sortValue %}
+                selected="selected"{% endif %}>
+	                {% if sort.text == "Default" %}Most Popular{% endif %}
+	                {% if sort.text == "Price: Low to High" %} Price Low to High {% endif %}
+	                {% if sort.text == "Price: High to Low" %} Price High to Low {% endif %}
+	                {% if sort.text == "Alphabetical: A-Z" %} Name A-Z  {% endif %}
+	                {% if sort.text == "Alphabetical: Z-A" %} Name Z-A {% endif %}
+	                {% if sort.text == "Date Added: Most Recent First" %} Newest  {% endif %}
+	                {% if sort.text == "Date Added: Most Recent Last" %} Oldest {% endif %}
+                </option>
+            {% endwith %}
+        {% endfor %}
+    {% endblock sort-types %}
+</select>
+<img width="13" alt="" class="down-caret-quantity-sort" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABlmWCKAAADKUlEQVR4Ae1aPWgUQRROYkQEQUhhYWGTxsZGG7tgESvBwlKwSSlYWSppYivYaBlsLFKkS5fKSi2sbGxS2AQsAkJARFG/j2Rgb+7Nu32zezu7m/dg2Jv3+31fLnebnSwsuLkCroAr4Aq4Aq6AK+AKuAKugCvgCrgCkgL34bwrBQbgI27iz7ZHqPyNdYx1O7tLmULiJW7iJw+zPUHFX6x/p+sI1xtYQzDiJN6AnTzIp7ZtIjMUV6+H8K/W7lImkfiIs4o7vN6cBWkRCa8SxaHJAeJXZzUqFCcu4gtYpSv5keeULcPzFksqin1fkLcy1aGsg3iIK8Yq7cmTfCdsBzspOeX7iPxLEx3KbYiDeFJYJT/5TtgD7P5gSckp3z7yL0x06X7D+cSRwij5yZN8p2wDHqlA8+2i5txUp24cnMv5Gj4pRp5Je4qIVKT5tlEjfrAkpzQPcB7narikGPnNtBfIkIo138uZXdtN4DwNjxTbskB4nTHguWVAg1zOkQhqPvIx2RKy32FpTaXYY9MUezL7S3M1H3mQj9nOo2IPS2sex3jb+dA8qV4B+7J/PFPbEz95ZNtFVL7H0obEMf4Bci97olzIfuwbz9L2xE38je0yOnzG0obFsZ/IX2s8+aQB+7BfPEPbEy9xt2ZX0OkrljY0jv1A/s2GCG6hnn3i3tqeOIm3dbuGjt+wtOFx7Dvyr2ciYR3r457anviIc27WFaiuxTYJxrf1PN+WpX7dTCKsIXseH0ylP3BNIrT91dSXr1yTCG3dnPTtpsskQtPb0yVM6+Ntt0mEZ8jWvp6k2JvTCbxKcc3Heb2znD9RP4GFRlSKcU4vLfchhUQy5dsG864fvpjEzn1MlSJc9e8CSanHbyYRch5UVolKr/ngs/QDWJMIOY+qJeL0fcBiv8GZ5bAiRb6PhzCmH0Sd46oU+QNM6usxnEmEVWQfYqWISn7ms240Fh9ZS6SD7wish3IUb/oBhX9aCESl6zE6Du2fMUwirCP7F5ZEnn7GR2/SQWzywHKsamyAWPVdwP2Zs3AQW+vAcqzq3BkrMeflCrgCroAr4Aq4Aq6AK9BnBf4DnOXz0rDvyp0AAAAASUVORK5CYII=" />
+<img width="13" alt="" class="up-caret-quantity-sort" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABlmWCKAAACyklEQVR4Ae2aL0hkURTG/cuysLBgMBgsFovFLbbBoEnYYBQsxoVNRoUtVsWicdhiMNhspk1rMW2xGCyCQVgQFllRvx/4YJx5b949T+e9+8bzweHNu/fcc77vY3wz3jsDAw53wB1wB9wBd8AdcAfcAXegKgfmq2ocQ991kXhUcH13WJNixCfB/bvBspTeKxLxXLlnvO+xKIV3ilbxyWvGme9bzEnZrSIRnHZlnry+w4wU3SjSRLePkUd+32BKSq4U7UK73ZPPutpjQgouFN3EZs2xjvW1xZiY/1FkCQwZZz11aodPYnyqCBGZl0Md6tUGH8T0RJEnzDJPPepGj2ExPFJYxIXmUpf60WJQzJqKUEFF8qhPnyixI1ZWUUWeE9sxqt8sIH7vWQhXq3H0iwbfxMQq4EBrhp4VcOXeWoO+lWNFDB4UFvLHyh9tY84945Y69KV/ZVhS5/8KC+lfyv+YwZhx5i316A+P0tFQx38KC9kz5X/OYco8eZa68IBPafiiTn8VFpLnyh8PZEge+Zb68JkNrP+qtGmtvlZYyF0qf9LYlXzWWfrAC349Q9mkyjI7yLCq3pa8rXv55xYkvuoHU0Mse/HADRIfy0fTW3/kBomP7cvJW33pChI/pKwYv56+9mt3kHiS9hWWjyByN1hYAuhj5YaeYGwp09qg7H9R6WfliK5crCvDWripNWVvUhTdfEFfJtY0YxV/pDVVbVMV3X5DZwfSDizzzIhho7LIBuy91HccxB5qME9w6/xv5ceyVQ0P69Yael9gRHc/Fa0is17HeFhhOYRBJ3o7wINlV5ElnPELRazHVSHHcOhDZ1f80GyaCXU4sJwSd3im8UdXML4r80GRFLrR67ocWbcfxaMDPWasagV7breKuv1oIfkxBvzRURhftXKh8OpqF8Ib/g53wB1wB9wBd8AdcAfcAXfAHXAH3AF3oMWBJ5+P89WsB+CaAAAAAElFTkSuQmCC" />

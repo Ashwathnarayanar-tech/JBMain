@@ -1,0 +1,414 @@
+{% if pageContext.isDesktop or pageContext.isTablet %}
+    <div class="accordian-prod"> 
+        {% if themeSettings.showHeatSensitiveText %}
+            {% with model.categories|findwhere("categoryId", themeSettings.heatSensitiveCategoryId) as category %}
+                {% if category.categoryId == themeSettings.heatSensitiveCategoryId %}
+                    <strong><p><span style="color: #bc0000">IMPORTANT:</span></strong>  During warm-weather months (April through October), we strongly recommend choosing Express shipping (UPS Second Day Air or UPS Next Day Air Saver). Whatever shipping method you choose, we’ll include a cold pack (free of charge) and will ship the order during a specific time frame to give it the best chance to reach you in good condition.</p>                     
+                    <p>Please <a style="color: #0077a2; text-decoration:none" href="/shipping_info">click here</a> for more information or <a style="color: #0077a2; text-decoration:none" href="/contact-us">contact us</a>.</p>
+                {% endif %}
+            {% endwith %}
+        {% endif %}  
+        <div class="tabStructe" style="">
+            <div class="tab-header-sec">
+                <span class="header-item ProductInfo active" aria-exapanded="true" tabindex="0" attr-data="ProductInfo">Product Info </span>
+                <span class="header-item NutritionIngredients" aria-exapanded="false" tabindex="0" attr-data="NutritionIngredients">Nutrition &amp; Ingredients </span>
+                {% for item in model.properties %}  
+                    {% if item.attributeFQN == "tenant~isamix"%}
+                        {% for value in item.values%}
+                            {% if value.value == true %}
+                                <span aria-label="Flavors in this Mix" aria-exapanded="false" tabindex="0" class="header-item NutritionIngredients" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %} 
+                {% endfor %}
+                <span class="header-item ProductReviews" aria-exapanded="false" tabindex="0" attr-data="ProductReviews">Product Reviews </span>
+            </div>
+            <div class="tab-content-sec"> 
+                <div class="item-content ProductInfo active">
+                    
+                            <div class="product-info" tabindex="0">
+                                {{ model.content.productFullDescription|safe }}
+                            </div>
+                            <div class="clearfix"></div>
+                    
+                </div>
+                <div class="item-content NutritionIngredients">
+                    
+                            <span id ="nutrition-image"  aria-hidden="true"></span>
+                            <span id="nut_panel_title"></span>
+                            <span id ="nutrition-text" tabindex="0">
+                                Sorry, but the nutrition panel for this product is currently 
+                                unavailable. To get nutrition information for this product, 
+                                you can contact Consumer Affairs at 1-800-522-3267 
+                                <span style="background-color:yellow;">
+                                (Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> 
+                                or send us an <a href="https://www.jellybelly.com/contact-us">email.
+                                </a></span> 
+                    
+                    <!-- nutrition panel end-->
+                        {% if model.mixvar %}
+                            <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>
+                            <ul>
+                                <li aria-expanded="false">
+                                    <div class="mix-varieties">
+                                        <a href="javascript:void(0)">A&amp;W Cream Soda </a>
+                                        <a href="javascript:void(0)">A&amp;W Root Beer </a>
+                                        <a href="javascript:void(0)">Berry Blue  </a>
+                                        <a href="javascript:void(0)">Blueberry  </a>
+                                        <a href="javascript:void(0)">Bubble Gum  </a>
+                                        <a href="javascript:void(0)">Buttered Popcorn  </a>
+                                        <a href="javascript:void(0)">Cantaloupe  </a>
+                                        <a href="javascript:void(0)">Cappuccino  </a>
+                                        <a href="javascript:void(0)">Caramel Corn  </a>
+                                        <a href="javascript:void(0)">Chili Mango  </a>
+                                        <a href="javascript:void(0)">Chocolate Pudding  </a>
+                                        <a href="javascript:void(0)">Cinnamon  </a>
+                                        <a href="javascript:void(0)">Coconut  </a>
+                                        <a href="javascript:void(0)">Cotton Candy  </a>
+                                        <a href="javascript:void(0)">Crushed Pineapple  </a>
+                                        <a href="javascript:void(0)">Dr Pepper  </a>
+                                        <a href="javascript:void(0)">French Vanilla  </a>
+                                        <a href="javascript:void(0)">Green Apple  </a>
+                                        <a href="javascript:void(0)">Island Punch  </a>
+                                        <a href="javascript:void(0)">Juicy Pear  </a>
+                                        <a href="javascript:void(0)">Kiwi  </a>
+                                        <a href="javascript:void(0)">Lemon Drop  </a>
+                                        <a href="javascript:void(0)">Lemon Lime  </a>
+                                        <a href="javascript:void(0)">Licorice  </a>
+                                        <a href="javascript:void(0)">Mango </a>
+                                        <a href="javascript:void(0)">Margarita  </a>
+                                        <a href="javascript:void(0)">Mixed Berry Smoothie  </a>
+                                        <a href="javascript:void(0)">Orange Sherbet </a>
+                                        <a href="javascript:void(0)">Peach </a>
+                                        <a href="javascript:void(0)">Pina Colada  </a>
+                                        <a href="javascript:void(0)">Plum  </a>
+                                        <a href="javascript:void(0)">Pomegranate  </a>
+                                        <a href="javascript:void(0)">Raspberry  </a>
+                                        <a href="javascript:void(0)">Red Apple  </a>
+                                        <a href="javascript:void(0)">Sizzling Cinnamon  </a>
+                                        <a href="javascript:void(0)">Sour Cherry  </a>
+                                        <a href="javascript:void(0)">Strawberry Cheesecake </a>
+                                        <a href="javascript:void(0)">Strawberry Daiquiri  </a>
+                                        <a href="javascript:void(0)">Strawberry Jam  </a>
+                                        <a href="javascript:void(0)">Sunkist Lemon  </a>
+                                        <a href="javascript:void(0)">Sunkist Lime  </a>
+                                        <a href="javascript:void(0)">Sunkist Orange  </a>
+                                        <a href="javascript:void(0)">Sunkist Pink Grapefruit  </a>
+                                        <a href="javascript:void(0)">Sunkist Tangerine  </a>
+                                        <a href="javascript:void(0)">Toasted Marshmallow  </a>
+                                        <a href="javascript:void(0)">Top Banana </a>
+                                        <a href="javascript:void(0)">Tutti-Fruitti  </a>
+                                        <a href="javascript:void(0)">Very Cherry  </a>
+                                        <a href="javascript:void(0)">Watermelon  </a>
+                                        <a href="javascript:void(0)">Wild Blackberry </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </li>
+                </div>
+                {% for item in model.properties %}
+                    {% if item.attributeFQN == "tenant~isamix"%}
+                        {% for value in item.values%}
+                            {% if value.value == true %}
+                                <div class="item-content FlavorsinthisMix">
+                                    <ul id="flavors" tabindex="0">
+                                        {% for item in model.properties %}
+                                            {% if item.attributeFQN == "tenant~flavors"%}
+                                                {% for values in item.values%}
+                                                    <li tabindex="0">{{ values.value }}</li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                <div class="item-content ProductReviews">
+                 {% dropzone "power-reviews-mobile" scope="template" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-section scroll-header">
+        <div class="top-section">
+            <div class="product-details-section"> 
+                <figure class="mz-productimage">  
+                    <img tabindex="0" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" src="{{ model.mainImage.imageUrl }}?max=100" /> 
+                </figure> 
+                <div class="product-name">
+                    <h5 tabindex="0"><span itemprop="name">{{ model.content.productName|safe }}</span></h5>
+                    <span tabindex="0" aria-label="product SKU" class="mz-sku">SKU: {{ model.productCode|safe }}</span>
+                </div>
+            </div> 
+            <div class="action-section">
+                <div class="price-qty-container">
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+                        {% if model.options and model.options.length > 0 %}
+                            {% include "modules/product/product-options" %}
+                        {% else %}
+                            {% if model.price.onSale and model.savePrice %}  
+                                <span class="sale-price" tabindex="0">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
+                            {% else %}
+                                <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                            {% endif %} 
+                        {% endif %} 
+                    </div>  
+                    <section class="mz-l-stack-section mz-productdetail-conversion">
+                        <div class="mz-productdetail-conversion-controls">
+                            <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
+                                <input class="quantity" value="1" tabindex="-1" id="quantity-scroll" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
+                                <span class="increment spinner" tabindex="0" role="button" aria-label = " quantity" data-mz-action="qtyPlus"></span>
+                                <span class="decrement spinner" tabindex="0" role="button" aria-label = "decrease quantity" data-mz-action="qtyMinus"></span>
+                                <div class="clear"></div>
+                            </div>
+                            <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+                        </div>
+                        {% if model.purchasableState %}
+                            {% if not model.purchasableState.isPurchasable %} 
+                            {% else %} 
+                                <span class="outofstock in" tabindex="0"> IN STOCK </span> 
+                            {% endif %} 
+                        {% endif %}
+                    </section>
+                </div>
+                <section class="buttons-container">
+                    <div class="mz-productdetail-conversion-buttons">
+                        {% if  model.purchasableState.isPurchasable %}
+                            <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" 
+                            data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}"
+                            class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn-pdp {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %}" 
+                            {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %}>
+                                Add to Cart
+                            </button>
+                        {% else %}
+                            {% if model.options and model.options.length > 0 %}
+                                <button style="padding: 4px 0px;width: 135px;" id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
+                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} >
+                                    SHOP GIFT CARD
+                                </button>
+                            {% else %}
+                                <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
+                                    Out of Stock
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="product-info-scroll">
+            <span class="header-item ProductInfo active" aria-exapanded="true" tabindex="0" attr-data="ProductInfo">Product Info </span>
+            <span class="header-item NutritionIngredients" aria-exapanded="true" tabindex="0" attr-data="NutritionIngredients">Nutrition &amp; Ingredients </span>
+            {% for item in model.properties %}  
+                {% if item.attributeFQN == "tenant~isamix"%}
+                    {% for value in item.values%}
+                        {% if value.value == true %}
+                            <span aria-label="Flavors in this Mix" aria-exapanded="true" tabindex="0" class="header-item NutritionIngredients" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %} 
+            {% endfor %}
+            <span class="header-item ProductReviews" aria-exapanded="true" tabindex="0" attr-data="ProductReviews">Product Reviews </span>
+        </div>
+    </div>
+{% else %}
+    <div class="accordian-prod-mobile"> 
+        <p id="heat-sensitive-message"></p>
+        <ul class="accordian-list tab-header-sec">
+            <!-- we will keep this LI open by default -->
+            <li  tabindex="0" aria-expanded="false">
+                <h2 role="button" aria-label="product info">
+                    Product Info 
+                    <!-- <span role="button" class="icon-minus"></span> -->
+                    <span class="new-icon-images" style="float: right;" role="button">
+                        <img class="new-icon-plus" src="/resources/images/plus-icon.png" alt="Expand">
+                        <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
+                    </span>
+                </h2>
+                <ul>
+                    <li>
+                        <div class="product-info" tabindex="0">
+                            {{ model.content.productFullDescription|safe }}
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </li> 
+            {% for item in model.properties %}
+                {% if item.attributeFQN == "tenant~isamix"%}
+                    {% for value in item.values%}
+                        {% if value.value == true %}
+                            <li tabindex="0" aria-expanded="false">
+                                <h2 role="button" aria-label="Flavors in this Mix">
+                                    Flavors in this Mix
+                                    <span class="new-icon-images" style="float: right;" role="button">
+                                        <img class="new-icon-plus" src="/resources/images/plus-icon.png" alt="Expand">
+                                        <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
+                                    </span>
+                                </h2>
+                                <ul id="flavors" tabindex="0">
+                                    {% for item in model.properties %}
+                                        {% if item.attributeFQN == "tenant~flavors"%}
+                                            {% for values in item.values%}
+                                                <li>{{ values.value }}</li>
+                                            {%endfor%}
+                                        {%endif%}
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </ul>
+                            </li>
+                        {% endif%}
+                    {%endfor%}
+                {%endif%}
+            {% endfor %}
+
+            <!-- nutrition panel start-->
+            <li tabindex="0" aria-expanded="false">
+                <h2 role="button" aria-label="Nutrition & Ingredients">
+                    Nutrition & Ingredients
+                    <span class="new-icon-images" style="float: right;" role="button">
+                        <img class="new-icon-plus" src="/resources/images/plus-icon.png" alt="Expand">
+                        <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
+                    </span>
+                </h2>
+                <ul>     
+                    <li>
+                        <span id ="nutrition-image"  aria-hidden="true"></span>
+                        <span id="nut_panel_title"></span>
+                        <span id ="nutrition-text" tabindex="0">Sorry, but the nutrition panel for this product is currently unavailable. To get nutrition information for this product, you can contact Consumer Affairs at 1-800-522-3267 <span style="background-color:yellow;">(Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> or send us an <a href="https://www.jellybelly.com/contact-us">email.</a></span>
+                    </li>
+                </ul> 
+            </li> <!-- nutrition panel end-->
+                {% if model.mixvar %}
+                    <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>
+                    <ul>
+                        <li aria-expanded="false">
+                            <div class="mix-varieties">
+                                <a href="javascript:void(0)">A&amp;W Cream Soda </a>
+                                <a href="javascript:void(0)">A&amp;W Root Beer </a>
+                                <a href="javascript:void(0)">Berry Blue  </a>
+                                <a href="javascript:void(0)">Blueberry  </a>
+                                <a href="javascript:void(0)">Bubble Gum  </a>
+                                <a href="javascript:void(0)">Buttered Popcorn  </a>
+                                <a href="javascript:void(0)">Cantaloupe  </a>
+                                <a href="javascript:void(0)">Cappuccino  </a>
+                                <a href="javascript:void(0)">Caramel Corn  </a>
+                                <a href="javascript:void(0)">Chili Mango  </a>
+                                <a href="javascript:void(0)">Chocolate Pudding  </a>
+                                <a href="javascript:void(0)">Cinnamon  </a>
+                                <a href="javascript:void(0)">Coconut  </a>
+                                <a href="javascript:void(0)">Cotton Candy  </a>
+                                <a href="javascript:void(0)">Crushed Pineapple  </a>
+                                <a href="javascript:void(0)">Dr Pepper  </a>
+                                <a href="javascript:void(0)">French Vanilla  </a>
+                                <a href="javascript:void(0)">Green Apple  </a>
+                                <a href="javascript:void(0)">Island Punch  </a>
+                                <a href="javascript:void(0)">Juicy Pear  </a>
+                                <a href="javascript:void(0)">Kiwi  </a>
+                                <a href="javascript:void(0)">Lemon Drop  </a>
+                                <a href="javascript:void(0)">Lemon Lime  </a>
+                                <a href="javascript:void(0)">Licorice  </a>
+                                <a href="javascript:void(0)">Mango </a>
+                                <a href="javascript:void(0)">Margarita  </a>
+                                <a href="javascript:void(0)">Mixed Berry Smoothie  </a>
+                                <a href="javascript:void(0)">Orange Sherbet </a>
+                                <a href="javascript:void(0)">Peach </a>
+                                <a href="javascript:void(0)">Pina Colada  </a>
+                                <a href="javascript:void(0)">Plum  </a>
+                                <a href="javascript:void(0)">Pomegranate  </a>
+                                <a href="javascript:void(0)">Raspberry  </a>
+                                <a href="javascript:void(0)">Red Apple  </a>
+                                <a href="javascript:void(0)">Sizzling Cinnamon  </a>
+                                <a href="javascript:void(0)">Sour Cherry  </a>
+                                <a href="javascript:void(0)">Strawberry Cheesecake </a>
+                                <a href="javascript:void(0)">Strawberry Daiquiri  </a>
+                                <a href="javascript:void(0)">Strawberry Jam  </a>
+                                <a href="javascript:void(0)">Sunkist Lemon  </a>
+                                <a href="javascript:void(0)">Sunkist Lime  </a>
+                                <a href="javascript:void(0)">Sunkist Orange  </a>
+                                <a href="javascript:void(0)">Sunkist Pink Grapefruit  </a>
+                                <a href="javascript:void(0)">Sunkist Tangerine  </a>
+                                <a href="javascript:void(0)">Toasted Marshmallow  </a>
+                                <a href="javascript:void(0)">Top Banana </a>
+                                <a href="javascript:void(0)">Tutti-Fruitti  </a>
+                                <a href="javascript:void(0)">Very Cherry  </a>
+                                <a href="javascript:void(0)">Watermelon  </a>
+                                <a href="javascript:void(0)">Wild Blackberry </a>
+                            </div>
+                        </li>
+                    </ul>
+                {% endif %}
+            <li tabindex="0" style="border-top: none;">
+                <h2 role="button" id="Reviews">Product Reviews<!--<span class="icon-minus"></span>-->
+                  <span class="new-icon-images" style="float: right;">
+                    <img class="new-icon-plus" src="/resources/images/plus-icon.png" alt="Expand">
+                    <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
+                  </span>
+                </h2>    
+                <ul class="comment-section " {% if pageContext.isEditMode %} style="display:block;" {% endif %} >
+                    <li>
+                        {% dropzone "power-reviews-mobile" scope="template" %}
+                    </li> 
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="mobile-scroll-section scroll-header">
+        <div class="top-section">
+            <div class="action-section">
+                <div class="price-qty-container">
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+                        {% if model.options and model.options.length > 0 %}
+                            {% include "modules/product/product-options" %}
+                        {% else %}
+                            {% if model.price.onSale and model.savePrice %} 
+                                <span tabindex="0" class="sale-price">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
+                            {% else %}
+                                <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                            {% endif %} 
+                        {% endif %} 
+                        {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
+                    </div>  
+                    <section class="mz-l-stack-section mz-productdetail-conversion">
+                        <div class="mz-productdetail-conversion-controls">
+                            <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
+                                <input class="quantity" value="1" tabindex="-1" id="quantity-scroll" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
+                                <span class="increment spinner" tabindex="0" role="button" aria-label = "increase quantity" data-mz-action="qtyPlus"></span>
+                                <span class="decrement spinner" tabindex="0" role="button" aria-label = "decrease quantity"  data-mz-action="qtyMinus"></span>
+                                <div class="clear"></div>
+                            </div>
+                            <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+                        </div>
+                    </section>
+                    <div class="mobile-buttons-pdp">
+                        {% if  model.purchasableState.isPurchasable %}
+                            <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" 
+                            data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                            class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn-pdp {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %}" 
+                            {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
+                                Add to Cart
+                            </button>
+                        {% else %}
+                            {% if model.options and model.options.length > 0 %}
+                                <button style="padding: 4px 0px;width: 135px;" id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
+                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
+                                    SHOP GIFT CARD
+                                </button>
+                            {% else %}
+                                <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
+                                    Out of Stock
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+{% endif %}

@@ -1,0 +1,12 @@
+{% extends "page" %}
+
+
+{% block body-tag-classes %} mz-homepage staticpage {% endblock body-tag-classes %}
+
+{% block body-content %}
+
+{% parent %}
+
+{% require_script "pages/jb-university" %}
+
+{% endblock body-content %}

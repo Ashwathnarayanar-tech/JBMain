@@ -1,0 +1,263 @@
+{% extends "page" %}
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+{% block body-content %}
+
+<style>
+    img {
+        vertical-align: middle;
+    }
+
+    .img-responsive,
+    .thumbnail > img,
+    .thumbnail a > img,
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .img-rounded {
+        border-radius: 6px;
+    }
+
+    .img-thumbnail {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        -webkit-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+
+    .img-circle {
+        border-radius: 50%;
+    }
+
+    .class:hover {
+        text-decoration: underline;
+    }
+
+   
+</style>
+
+<body class="Day302">
+    <div class="holdervideo" style="display:none;">
+        <div class="holderpop"><a href="javascript:void(0);" id="closevideo">Close</a><iframe title="Video result" id="popvideo" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+    <audio id="soundeff">
+        <source src="/resources/bc/beanboozled/images/wheel.ogg" type="audio/ogg">
+        <source src="/resources/bc/beanboozled/images/wheel.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <div class="content">
+
+<div class="mz-cms-row">
+                <div class="mz-cms-col-12-12" style="text-align: center;">
+                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/aa202ddb-3365-4b6d-a1f6-f9ebab21ee19" class="img-responsive" alt="Download the Free Beanboozled App">
+                </div>
+</div>
+
+<div class="mz-cms-row">
+                <div class="mz-cms-col-6-12"  style="text-align: center;">
+                                <center><a target="_blank" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled&hl=en"><img src="//cdn-tp1.mozu.com/9046-m1/cms/files/199930cb-baa2-4c10-a3c5-bd6e2ed57329" alt="Get It On Google Play"></a></center>
+                </div><div class="mz-cms-col-6-12"  style="text-align: center;">
+                                <center><a target="_blank" href="https://itunes.apple.com/us/app/beanboozled/id1174483761?mt=8"><img src="//cdn-tp1.mozu.com/9046-m1/cms/files/6e34549a-08e7-4f88-a2c3-6d0b49e37e7b" alt="Download on the App Store" class="img-responsive"></a></center>
+                </div>
+
+</div>
+
+
+        <input id="alive" name="alive" value="P4x2mIV3UuVCpc4cB30j" type="hidden">
+        <div id="slideMainContainer">
+            <!-- <img src="/cms/files/4c91082b-e811-47c5-96d3-912ededa2f80" class="img-responsive" alt="banner" width=""> -->
+        </div>
+        <br>
+        <div id="slideMainContainer">
+            <img src="/resources/bc/beanboozled/images/take_the_challenge.png" class="img-responsive" alt="banner" width="">
+        </div>
+        <div class="wrap">
+
+            <div class="andfiremeg"> Your browser is not currently supported, please try using your phones default browser</div>
+            <div class="values_sec">
+                <div id="preloaderoverlay">
+                    <div id="preloader"><img src="/resources/bc/beanboozled/images/fbload.gif" alt="Loading" /></div>
+                </div>
+
+
+                <img src="/resources/bc/beanboozled/images/arrow2.png" class="rot" alt=""/>
+                <img class="values" src="/resources/bc/beanboozled/images/beanboozled4thspinner.png" alt="Bean Boozled 4th Edition Spinner">
+                <input id="spinbutton" type="button" role="button" value="Spin" style="background:#F00;" />
+            </div>
+            <div class="video_sec">
+                <p><img src="/resources/bc/beanboozled/images/title-top.jpg" width="489" height="71" alt="" /></p>
+                <div class="videoholder">
+                    <img style="position:absolute; left:0; top:0;" src="/resources/bc/beanboozled/images/blankscreen.jpg" width="512" height="326" id="placeholder" alt="" />
+                    <div id="video_frame"></div><div id="captionshow" style="display:none;"><div><a href="javascript:void(0);" id="spagain" role="button"><img src="/resources/bc/beanboozled/images/spinagain.png" width="242" height="53" alt="Spin again"/></a><br /><img src="/resources/bc/beanboozled/images/or-video.png" width="222" height="30" alt="" /><a id="fullvideo" href="javascript:void(0)" onclick="" role="button"><img src="/resources/bc/beanboozled/images/fullvideo.png" width="386" height="95" alt="View full video" /></a></div></div>
+                </div>
+                <!--        <iframe id="video_frame" src="https://www.youtube.com/embed/7M-jsjLB20Y?enablejsapi=1&html5=1"></iframe>
+                -->
+                <h3><img src="" alt=""><br><p></p></h3>
+            </div>
+            <div class="clear"></div>
+
+         <!--   <div class="jelly_selectors">
+
+                <center><span style="font-size: 40px; font-weight: bold;">BeanBoozled&nbsp;<img src="//cdn-tp1.mozu.com/9046-m1/cms/files/de4c493b-fb82-496e-a72b-8dc158e04574" style="width: 90px">&nbsp;While Supplies Last!</span></center>
+                <ul>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall9.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall9.png" alt="">
+                        <div class="clear"></div>
+                        <span>Stinky Socks</span><span>Tutti-Fruitti</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall5.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall5.png" alt="">
+                        <div class="clear"></div>
+                        <span>Lime</span><span>Lawn Clippings</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall6.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall6.png" alt="">
+                        <div class="clear"></div>
+                        <span>Toothpaste</span><span>Berry Blue</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall3.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall3.png" alt="">
+                        <div class="clear"></div>
+                        <span>Buttered Popcorn</span><span>Rotten Egg</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall4.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall4.png" alt="">
+                        <div class="clear"></div>
+                        <span>Chocolate<br> Pudding</span><span>Canned<br> Dog Food</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall1.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall1.png" alt="">
+                        <div class="clear"></div>
+                        <span>Barf</span><span>Peach</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall7.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall7.png" alt="">
+                        <div class="clear"></div>
+                        <span>Moldy Cheese</span><span>Caramel Corn</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall10.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall10.png" alt="">
+                        <div class="clear"></div>
+                        <span>Booger</span><span>Juicy Pear</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall8.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall8.png" alt="">
+                        <div class="clear"></div>
+                        <span>Baby Wipes</span><span>Coconut</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall2.png" alt=""><img src="/resources/bc/beanboozled/images/jellysmall2.png" alt="">
+                        <div class="clear"></div>
+                        <span>Skunk Spray</span><span>Licorice</span>
+                    </li>
+                </ul>
+            </div> -->
+
+            <div class="jelly_selectors">
+                <center><span id="4th_edition" style="font-size: 40px; font-weight: bold;">BeanBoozled&nbsp;<img src="//cdn-tp1.mozu.com/9046-m1/cms/files/8eb488e7-65b5-4d28-b581-d46ea5c4bb35">&nbsp;Available Now!</span></center>
+                <center>
+                <ul>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall13.png" alt="Spoiled Milk"><img src="/resources/bc/beanboozled/images/jellysmall8.png" alt="Coconut">
+                        <div class="clear"></div>
+                        <span>Spoiled Milk</span><span>Coconut</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall14.png" alt="Dead Fish"><img src="/resources/bc/beanboozled/images/jellysmall12.png" alt="Strawberry Banana Smoothie">
+                        <div class="clear"></div>
+                        <span>Dead Fish</span><span>Strawberry Banana Smoothie</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall9.png" alt="Stinky Socks"><img src="/resources/bc/beanboozled/images/jellysmall9.png" alt="Tutti-Fruitti">
+                        <div class="clear"></div>
+                        <span>Stinky Socks</span><span>Tutti-Fruitti</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall5.png" alt="Lawn Clippings"><img src="/resources/bc/beanboozled/images/jellysmall5.png" alt="Lime">
+                        <div class="clear"></div>
+                        <span>Lawn Clippings</span><span>Lime</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall6.png" alt="Toothpaste"><img src="/resources/bc/beanboozled/images/jellysmall6.png" alt="Berry Blue">
+                        <div class="clear"></div>
+                        <span>Toothpaste</span><span>Berry Blue</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall3.png" alt="Rotten Egg"><img src="/resources/bc/beanboozled/images/jellysmall3.png" alt="Buttered Popcorn">
+                        <div class="clear"></div>
+                        <span>Rotten Egg</span><span>Buttered Popcorn</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall4.png" alt="Canned Dog Food"><img src="/resources/bc/beanboozled/images/jellysmall4.png" alt="Chocolate Pudding">
+                        <div class="clear"></div>
+                        <span>Canned<br> Dog Food</span><span>Chocolate<br> Pudding</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall1.png" alt="Barf"><img src="/resources/bc/beanboozled/images/jellysmall1.png" alt="Peach">
+                        <div class="clear"></div>
+                        <span>Barf</span><span>Peach</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall7.png" alt="Moldy Cheese"><img src="/resources/bc/beanboozled/images/jellysmall7.png" alt="Caramel Corn">
+                        <div class="clear"></div>
+                        <span>Moldy Cheese</span><span>Caramel Corn</span>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/jellysmall10.png" alt="Booger"><img src="/resources/bc/beanboozled/images/jellysmall10.png" alt="Juicy Pear">
+                        <div class="clear"></div>
+                        <span>Booger</span><span>Juicy Pear</span>
+                    </li>
+
+                </ul>
+                </center>
+            </div>
+        </div>
+
+    </div>
+    <div class="jb-footer-dpzone">
+        <div class="bottom_links">
+            <center>
+                <ul>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/bottom_link_img1.jpg" alt="">
+                        <a href="http://www.jellybelly.com/beanboozled-/c/341" aria-label="BeanBoozled Jelly Beans category page">BUY ONLINE</a>
+                    </li>
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/bottom_link_img2.jpg" alt="">
+                        <a href="http://jellybelly.com/Info/StoreLocator/Locator?country=us-en">FIND A STORE</a>
+                    </li>
+                    <!--<li>
+                        <img src="images/bottom_link_img3.jpg" alt="">
+                        <a href="#">MORE WAYS TO PLAY</a>
+                    </li>-->
+                    <li>
+                        <img src="/resources/bc/beanboozled/images/bottom_link_img4.jpg" alt="">
+                        <a onclick="window.open('https://www.youtube.com/playlist?list=PLzD03nf9DCMd9wb6Pu3FBmpKsbYOopiAh', 'MsgWindow', 'toolbar=no, scrollbars=yes, resizable=yes, top=100, left=300, width=700, height=500');  return false;" href="javascript:void(0)">SEE MORE VIDEOS</a>
+                    </li>
+                </ul>
+            </center>
+       </div>
+    </div>
+<div style="margin: 10px">    
+ <!--<p style="font-size: 12px;">
+All of the statements above are compliant with <a href="https://developer.apple.com/app-store/marketing/guidelines/#">Apple</a> and <a href="https://play.google.com/intl/en_us/badges/">Google’s</a> rules.</p>-->
+<ul style="font-size: 12px;">
+<li>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</li>
+<li>Google Play and the Google Play logo are trademarks of Google Inc.</li>
+</ul>
+</div>
+</body>
+
+
+{% endblock body-content %}

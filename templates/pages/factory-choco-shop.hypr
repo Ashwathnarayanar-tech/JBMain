@@ -1,0 +1,49 @@
+{% extends "page" %}
+{% block meta-tags %}
+{% parent %}
+    <meta name="robots" id="robotsMeta" content="{{themeSettings.robots_value}}" />
+    <meta name="googlebot" id="googleBotMeta" content="{{themeSettings.googlebot_value}}" />
+    <meta name="google-site-verification" content="{{themeSettings.google-site-verification_value}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="verify-v1" content="GyEpGH2+ELQEr5SNfmuM4t4YK8HYpuY49UbvQgcxFUM=" />
+    <meta name="description" content="Jelly Belly Candy Company - Official Site.  Features Factory fresh candy, jelly beans, chocolate, gummy, licorice and more" />
+    <meta name="keywords" content="Candy, jelly jeans, candy,  chocolate,  gummy, licorice, Bean Boozled, beanboozled, belly flops " />
+    <meta name="owner" content="Jelly Belly Candy Company" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+{% endblock meta-tags %}
+ 
+{% block body-tag-classes %}mz-visit-us mz-w-snackbar{% endblock body-tag-classes %} 
+{% block body-content %}
+<section>
+	<center>
+		<div class="carnival-details" style="margin:10px; background-color: #007aaf;width:90%">
+			<a title="Mr. Jelly Belly Halloween Breakfast Event Flyer information" target="_blank" href="http://content.jellybelly.com/CacheFly/downloads/vc/Halloween_Breakfast_2016.html"><font size="6" style="color: #ffffff;"><strong>Halloween Events at the Fairfield Visitor Center</a></strong></font>
+		</div>
+	</center>
+    <article>
+        <h1 class="mz-pagetitle" tabindex="0">Chocolate Shoppe and Fudge Counter</h1>
+        <figure class="vertImage">
+            <img src="/resources/images/visit-us/CA_chocolate_shop.jpg" alt="Photo of Chocolate Shoppe and Fudge Center">
+        </figure>
+        <p tabindex="0" >
+            Located in the Visitor Center, our Chocolate Shoppe is a chocolate lover's dream! Watch candy chefs create gourmet hand-made confections like dark and milk chocolate candy clusters, 
+            decadent truffles and fudge in a variety of standard and seasonal flavors. And that's not all!
+        </p>
+        <p tabindex="0" >
+            Specialties of the Chocolate Shoppe include freshly-made marshmallow treats, gourmet caramel apples, caramel corn and seasonal chocolate molds such as chocolate bunnies at Easter or a 
+            chocolate Santa Claus during Christmas!
+        </p>
+        <p tabindex="0" >
+            Stop at our fudge counter to try free samples of our delicious fudge. Our specialties include Cookies &amp; Cream and Red Velvet fudge.
+        </p>
+        <p tabindex="0" >
+            <a href="https://cdn-tp1.mozu.com/9046-m1/cms/files/Chocolate%20Shoppe%20Items%20-%20Nov%202017.pdf" target="_blank">Click here</a> to see all the items that the Chocolate Shoppe offers.
+        </p>
+        <p class="finePrint" tabindex="0" >
+            ALLERGEN NOTICE: Our Retail Store, Café, and Chocolate Shoppe confections and foods contain certain allergy triggers. Please check out our <a href="/frequently-asked-questions">FAQ</a> (Frequently Asked Questions) to learn more about allergens and to submit a question. 
+        </p>
+    </article>
+</section>
+{% endblock body-content %}

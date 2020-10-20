@@ -1,0 +1,80 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-category mz-noresults {% endblock body-tag-classes %}
+{% block body-content %}
+{% require_script "modules/no-search-results" %}
+
+<style>
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+
+<div class="jb-no-result-container mz-l-container">
+    <div class="jb-no-result-box">
+        <div class="jb-no-search-result">
+            <div class="sorry-message"  tabindex="0">
+                <div class="img-container"><img aria-hidden="true" src="/resources/images/no-search-text-icon.png" alt = "sorry"/></div>Sorry, but <strong>"{{ pageContext.search.query }}"</strong> wasn’t found. 
+            </div>    
+            <div class="jb-no-search-result-text">
+                <h5 tabindex="0">Ways to get better results:</h5>
+                <ul>
+                    <li tabindex="0">Check your Spelling; or</li>
+                    <li tabindex="0">Search for something a little less specific; or</li>
+                    <li tabindex="0">Check out the popular search links.</li>
+                </ul> 
+            </div>
+            <div class="category-list">{% dropzone "content" scope="template" %}</div>
+    		<div class="404-no-search-result-item" style="display: none;">
+    			<center><img alt="Mr. Jelly Belly Logo" src="/resources/images/footer-static/mrJB_verticalImage.jpg"></center>
+            </div>
+    	   
+    	    <div class="404-no-search-result-item" style="display: none;">
+                <div><p style="font-size: 20px;color:#000;" tabindex="0">And for inspiration, here’s a short video while you rethink your search!</p></div>
+    			<div class="videowrapper"><iframe title="Introducing Organic Jelly Beans from Jelly Belly Video" src="https://www.youtube.com/embed/RrYdOKHCj-Q" allowfullscreen="" frameborder="0" height="315" width="560"></iframe></div>
+    		</div> 
+    	   
+            <div class="404-no-search-result-item" style="display: none;">
+                <div><p style="font-size: 20px;color:#000;" tabindex="0">And for inspiration, here’s a short video while you rethink your search!</p></div>
+    			<div class="videowrapper"><iframe title="Jelly Belly Buttered Popcorn Ad" src="https://www.youtube.com/embed/JVBKTIywANQ" allowfullscreen="" frameborder="0" height="315" width="560"></iframe></div>
+    		</div> 
+            <div style="width:200px; height: 0;background-color:white;" id="popularSearch"> 
+                <p class="jb-search-phrases" tabindex="0">{{ labels.jbSearchPhrasesSuggetions}}</p>
+            </div>
+
+    		{% dropzone "SLI" scope="template"%}
+    		<div id="mz-drop-zone-cateoryplpdropzone-above-mbz" class="mz-drop-zone"></div>
+            <div id="mz-drop-zone-cateoryplpdropzone-below-mbz" class="mz-drop-zone"></div>                
+        </div>
+    </div>
+    <!-- <div class="jb-no-search-result-sidebar">
+        <div class="jb-no-search-result-facetHeaderdiv">  
+            
+        </div> 
+        <a class="jb-shopCustomLink" href="/online-candy-store" title="Jelly Belly online candy store page" aria-label="Go to Jelly Belly online candy store page">SHOP HOME</a>
+        <a href="/shipping-information" target="_blank" aria-label="Go to shipping information page" title="shipping snformation page">
+            <img alt="Shipping Information logo" src="../resources/images/directimages/free_Shipping_50.png" border="0" style="margin:16px 0px 20px 5px;"/>
+        </a>
+    </div> -->
+</div>
+<div class="RTI-recommended-product">
+    <h3>Jelly Belly Also Recommends</h3>
+    {% dropzone "no-searchresult-below-mbz" scope="template" %}
+</div>
+{% endblock body-content %} 

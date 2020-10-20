@@ -1,0 +1,1044 @@
+ .mz-loginpage, .mz-signuppage, .mz-password-recovery-page{ 
+    .mz-l-pagecontent {  
+        padding: 10px 20px 0px 20px; 
+    }
+    .mz-breadcrumbs {
+        display: none;
+    }
+    .login-signup-section{
+        width: 30%;
+        margin: 0 auto;
+        .mz-pagetitle {
+            color: #003a72;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px 0 10px;
+            text-align: left;
+            padding-top: 20px;
+            width: 100%;
+        } 
+        p { 
+            text-align: left;
+        }
+        ul{
+            li{
+                text-align:left;
+                a{
+                    text-decoration:none;
+                    color: #004e99;
+                    &:hover{
+                        color: #003a72;
+                    }
+                }
+            }
+        }
+        .mz-loginform {
+            .mz-l-formfieldgroup {
+                float: left;
+                width: 100%;
+              //  margin: 40px 15px 40px 30px !important;
+              //  border-right: 1px solid #ccc; 
+                padding-right: 35px;
+                margin-bottom: 40px;
+                .mz-l-formfieldgroup-row {
+                    .mz-l-formfieldgroup-cell {
+                        input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select {
+                            width: 100%;
+                            font-size: 16px;
+                            font-family: merel, sans-serif;
+                            border-radius: 4px;
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border: 1px solid #dddddd;
+                            background-color: #f3f3f3;
+                            &:focus {
+                                background-color: #fafafa;                 
+                            }
+                        }
+                        .login-sub{
+                            margin-top: 13px;
+                            &:disabled{
+                                background: #dddddd;
+                                border: 1px solid #dddddd;
+                                color: #fff;
+                                cursor: not-allowed;
+                            }
+                        }
+                    }
+                }
+            }
+            .login-message {
+                float: left;
+                width: 100%;
+                margin: 57px 0px 57px 15px;
+                position: relative;
+                .arrow-left {
+                	width: 0; 
+                	height: 0; 
+                	border-top: 10px solid transparent;
+                	border-bottom: 10px solid transparent; 
+                	border-right: 10px solid #f1f1f1; 
+                	position: absolute;
+                	top: 43%;
+                	left: -10px;
+                }
+                
+                p {
+                    font-size: 11px;
+                    padding: 15px;
+                    background: #f1f1f1;
+                    color: #6b6b6b;
+                    line-height: 20px;
+                    a {
+                        text-decoration: none;
+                        color: #007fad; 
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .signup-form {
+            .password-row {
+                position: relative;
+                .mob-pwd-row {
+                    display: none;
+                }  
+                .pwd-message,.pwd-message-desktop {
+                    width: 42%;
+                    position: absolute;
+                    top: -32%;
+                    display: none;
+                    right: -47%;
+                    .arrow-left {
+                    	width: 0; 
+                    	height: 0; 
+                    	border-top: 10px solid transparent;
+                    	border-bottom: 10px solid transparent; 
+                    	border-right: 10px solid #f1f1f1; 
+                    	position: absolute;
+                    	top: 34%;
+                    	left: -10px;
+                    }
+                    
+                    p {
+                        font-size: 11px;
+                        padding: 13px;
+                        background: #f1f1f1;
+                        color: #6b6b6b;
+                        line-height: 20px;
+                        
+                    }
+                }
+            }
+            .required-fild-msg{
+                text-align: left;
+                width: 40%; 
+            }
+        }
+        .new-update{
+            margin: 30px auto;
+        }
+        .signup-form{
+            .checkbox-outer-label{
+                text-align: left; 
+                padding-bottom: 15px;
+            }
+        }
+        .mz-loginform, .signup-form , .forgot-pwd-form {
+            width: 100%;
+           
+            .login-header {
+                font-size: 14px;
+                border-top: 1px solid #CCC;
+                border-bottom: 1px solid #ccc;
+                padding: 15px 30px;
+            }
+            .mz-l-formfieldgroup {
+                display: block;
+              //  margin: 40px 30px 40px 30px;
+                .mz-l-formfieldgroup-row {
+                    display: block;
+                    padding: 5px 0 0 0;
+                    &.checkbox{
+                        padding:15px 0 0;
+                    }
+                }
+                .order-status-link{
+                    display: none;
+                }
+                .mz-l-formfieldgroup-cell {
+                    display: block;
+                    padding: 0 0px 5px 0;
+                    &.zero-cellspace {
+                        padding-bottom: 0;
+                        input {
+                            margin-bottom: 0;
+                        }
+                    }
+                    input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select {
+                        width: 100%;
+                        box-sizing: border-box;
+                        height: 35px;
+                        border: 1px solid #c2c2c2;
+                        color: #444 !important;
+                    }
+                    input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"] {
+                        font-size: 16px;
+                        font-family: merel, sans-serif;
+                        border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border: 1px solid #dddddd;
+                        background-color: #f3f3f3;
+                        height: 38px;
+                        &:focus {
+                            background-color: #fafafa;            
+                        }
+                    }
+                    .mz-signup-register, .mz-button {
+                        margin-bottom: 1em;
+                        font-size: 18px;
+                        padding: 7px 4px;
+                        border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border: 1px solid #004e99;
+                        background-color: #004e99;
+                        color: #fff;
+                        width: 100%;
+                        &:hover {
+                            border: solid 1px #003a72;
+                            background-color: #003a72;
+                        }
+                    }
+                    #submitforgotpassword {
+                        width: 100%;
+                    }
+                    .mz-signup-register {
+                        width: 100%;
+                        &:disabled{
+                            background: #dddddd;
+                            border: 1px solid #dddddd;
+                            color: #fff;
+                            cursor: not-allowed;
+                        }
+                    }
+                    .mz-forgot { 
+                        display: block;
+                        color: #003a72;
+                        font-size: 14px;
+                        font-weight: 600;
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    label {
+                        text-align: left;
+                        font-size: 16px;
+                        color: #212120;
+                        width: 100%;
+                    }
+                }
+                .required-fild-msg {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+ .mz-loginpage { 
+    .mz-l-pagecontent {
+        .mz-l-container {
+            .login-already-signed {
+                width: 350px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+input::-webkit-input-placeholder {
+   color: #707070;
+   font-size: 16px;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: #707070;  
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #707070;  
+}
+
+input:-ms-input-placeholder {  
+   color: #707070;  
+}
+.mz-signuppage {
+    .signup-form {
+        .mz-l-formfieldgroup {
+            .mz-l-formfieldgroup-row {
+                &.half-width-block, &.half-width-second-block {
+                    display: inline-block;
+                    input {
+                        width: 250px !important;
+                        font-size: 16px;
+                        font-family: merel, sans-serif;
+                        border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border: 1px solid #dddddd;
+                        background-color: #f3f3f3;
+                        &:focus {
+                            background-color: #fafafa;            
+                        }
+
+                    }
+                }
+                &.half-width-second-block {
+                    margin-left: 5px;
+                }
+            }
+            .mz-l-formfieldgroup-cell {
+                .required {
+                    display: inline-block;
+                    color: #767676;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+.mz-password-recovery-page {
+    .forgot-pwd-form {
+        .mz-l-formfieldgroup {
+            .mz-l-formfieldgroup-cell {
+                .required {
+                    display: inline-block;
+                    color: #231f20;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+.mz-reset-password-page{
+    .mz-1-pagecontent{
+        .login-signup-section{
+            width: 30%;
+            margin: 0 auto;
+            .mz-pagetitle{
+                color: #004e99;
+                font-size: 20px;
+                font-weight: 700;
+                margin: 10px 0 10px;
+                text-align: left;
+                padding-top: 20px;
+                width: 100%;
+            }
+            .mz-loginform {
+                .password-row {
+                    position: relative;
+                    .mob-pwd-row {
+                        display: none;
+                    }
+                    .pwd-message,.pwd-message-desktop {
+                        width: 73%;
+                        margin: 0px 0px 0px 15px;
+                        position: absolute;
+                        right: -80%;
+                        top: 0;
+                        .arrow-left {
+                        	width: 0; 
+                        	height: 0; 
+                        	border-top: 10px solid transparent;
+                        	border-bottom: 10px solid transparent; 
+                        	border-right: 10px solid #f1f1f1; 
+                        	position: absolute;
+                        	top: 34%;
+                        	left: -10px;
+                        }
+                        
+                        p {
+                            font-size: 11px;
+                            padding: 13px;
+                            background: #f1f1f1;
+                            color: #6b6b6b;
+                            line-height: 20px;
+                            
+                        }
+                    }
+                }
+                .mz-l-formfieldgroup {
+                    width: 100%;
+                    padding-right: 35px;
+                    margin-bottom: 40px;
+                    display: block;
+                    .mz-l-formfieldgroup-row{
+                        display: block;
+                        padding: 5px 0 0 0;
+                        .mz-l-formfieldgroup-cell {
+                            display: block;
+                            padding: 0 0px 5px 0;
+                            label{
+                                display:block;
+                                text-align: left;
+                                font-size: 16px;
+                                color: #212120;
+                                width: 100%;
+                            }
+                            input{
+                                width: 100%;
+                                font-size: 16px;
+                                font-family: merel, sans-serif;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border: 1px solid #dddddd;
+                                background-color: #f3f3f3;
+                                height: 38px;
+                            }
+                            button{
+                                margin-bottom: 1em;
+                                font-size: 18px;
+                                padding: 7px 4px;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border: 1px solid #004e99;
+                                background-color: #004e99;
+                                color: white;
+                                width: 100%;
+                                display: none; 
+                                &:hover{
+                                    border: solid 1px #003a72;
+                                    background-color: #003a72;
+                                }
+                            }
+                            .submit-similarbutton{
+                                margin-bottom: 1em;
+                                font-size: 18px;
+                                padding: 7px 0;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border: 1px solid #004e99;
+                                background-color: #004e99;
+                                color: white;
+                                width: 100%;
+                                display: block;
+                                text-align: center;
+                                cursor: pointer;
+                                &:hover{
+                                    border: solid 1px #003a72;
+                                    background-color: #003a72;
+                                }    
+                            }
+                            .required {
+                                display: inline-block;
+                                color: #767676;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+    }    
+}
+.popover {
+    max-width: 300px;
+    padding: 1px;
+    text-align: left;
+    background-color: #FFF;
+    background-clip: padding-box;
+    border: 1px solid #1878a5;
+    border-radius: 0px; 
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    top: 30px !important;
+    .popover-content {
+        padding: 10px;
+         input[placeholder],  input[placeholder],  input[placeholder] {
+            color: #707070;
+            font-size: 12px;
+        }
+        .mz-popover-login {
+            width: 240px;
+            min-height: 110px;
+             input[type="text"],  input[type="email"],  input[type="password"] {
+                width: 238px;
+                border: 1px solid #C2C2C2;
+                height: 32px;
+                box-sizing: border-box;
+                margin-bottom: 5px;
+                color: #444 !important;
+                background: #fff !important;
+            }
+            .mz-forgot-password {
+                display: none; 
+                &.active{
+                    display: table-cell;
+                }
+                input {
+                    margin-top: 10px;
+                }
+            }
+            .msg-reset-pwd {
+                border-top: 1px solid #ccc;
+                font-size: 11px;
+                line-height: 20px;
+                margin: 20px 0 0;
+                padding: 10px 0 0;
+                text-align: left;
+                a {
+                    text-decoration: none;
+                    color: #007fad;
+                    text-align: left;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .mz-popover-action {
+                text-align: left;
+                margin-top: 10px;
+                .mz-button {
+                    background: #1878a5;
+                    border: 0;
+                    color: #FFF;
+                    text-transform: uppercase;
+                    border-radius: 0;
+                    -moz-border-radius: 0;
+                    -webkit-border-radius: 0;
+                    padding: 10px 18px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    margin: 0px 0 0 0;
+                    &:hover {
+                        background: #077bb2;
+                    }
+                }
+                a[data-mz-action="loginform"] {
+                    background: #949494;
+                    border: 0;
+                    color: #FFF;
+                    text-transform: uppercase;
+                    border-radius: 0;
+                    -moz-border-radius: 0;
+                    -webkit-border-radius: 0;
+                    padding: 10px 37px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    margin: 0px 0 0 0;
+                    text-decoration: none;
+                    &:hover {
+                        background: #656565;
+                    }
+                }
+            }
+            .mz-validationmessage {
+                display: inline-block;
+                margin: 10px 0;
+                color: #e9000f;
+                font-size: 11px;
+            }
+        }
+        .mz-popover-signup {
+            width: 225px;
+            min-height: 191px;
+            
+                position: relative;
+                .pwd-message,.pwd-message-desktop {
+                    width: 100%;
+                    margin: 0px 0px 0px 15px;
+                    position: absolute;
+                    left: -251px;
+                    display: none;  
+                    top: 58px; 
+                    .arrow-right {
+                    	width: 0; 
+                    	height: 0; 
+                    	border-top: 10px solid transparent;
+                    	border-bottom: 10px solid transparent; 
+                    	border-left: 10px solid #f1f1f1; 
+                    	position: absolute;
+                    	top: 28%; 
+                    	right: -10px;
+                    }
+                    
+                    p {
+                        font-size: 11px;
+                        padding: 13px;
+                        background: #f1f1f1;
+                        color: #6b6b6b;
+                        line-height: 20px;
+                        margin: 0;
+                    }
+                }
+            
+            .mz-button {
+                background: #1878a5;
+                border: 0;
+                color: #FFF;
+                text-transform: uppercase;
+                border-radius: 0;
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                padding: 10px 20px;
+                font-size: 12px;
+                font-weight: bold;
+                margin: 0px 0 0 0;
+                &:hover {
+                    background: #077bb2;
+                }
+            }
+            .mz-popover-signup-register {
+                margin-top: 10px !important;
+                float: none !important;
+            }
+            .mz-popover-signup-firstname, .mz-popover-signup-lastname {
+                width: 109px !important;
+            }
+             input[type="text"],  input[type="email"],  input[type="password"] {
+                width: 225px;
+                border: 1px solid #C2C2C2;
+                height: 32px;
+                box-sizing: border-box;
+                margin-bottom: 5px;
+                color: #444 !important;
+                background: #fff !important;
+            }
+        }
+    }
+    
+    
+} 
+.popover.bottom .arrow {
+    border-bottom-color: #1878a5;
+}
+
+
+//order status
+.mz-order-status{
+    .mz-l-pagewrapper{
+        .mz-l-pagecontent{
+            .mz-l-container{
+                .order-status-section{
+                    width: 30%;
+                    margin: 0 auto;
+                    .mz-pagetitle{
+                        color: #004e99;
+                        font-size: 20px;
+                        font-weight: 700;
+                        margin: 10px 0;
+                        text-align: left;
+                        padding-top: 20px;
+                        width: 100%
+                    }
+                    .order-placed-text{
+                        text-align: left;
+                    }
+                    .mz-order-status-page{
+                        width: 100%;
+                        .mz-l-formfieldgroup{
+                            display: block;
+                            float: left;
+                            width: 100%;
+                            padding-right: 35px;
+                            margin-bottom: 40px;
+                            .mz-l-formfieldgroup-row{
+                                display: block;
+                                padding: 5px 0 0 0;
+                                .mz-l-formfieldgroup-cell{
+                                    display: block;
+                                    padding: 0 0px 5px 0;
+                                    position: relative;
+                                    overflow: auto;
+                                    label{
+                                        text-align: left;
+                                        font-size: 16px;
+                                        color: #212120;
+                                        width: 300px;
+                                    }
+                                    input[type="text"],select{
+                                        width: 100%;
+                                        font-size: 16px;
+                                        border-radius: 4px;
+                                        -moz-border-radius: 4px;
+                                        -webkit-border-radius: 4px;
+                                        border: 1px solid #dddddd;
+                                        background-color: #f3f3f3;
+                                        height: 38px;
+                                        box-sizing: border-box;
+                                    }
+                                    .down-caret-order-status {
+                                        position: absolute;
+                                        top: 15px;
+                                        right: 4%;
+                                    }
+                                    .up-caret-order-status {
+                                        display: none;
+                                        position: absolute;
+                                        top: 14px;
+                                        right: 4%;
+                                    } 
+                                    .checkbox-outer-label{
+                                        padding-bottom:20px;
+                                    }
+                                    .orderstatus-btn{
+                                        &:disabled{
+                                            background: #dddddd;
+                                            border: 1px solid #dddddd;
+                                            color: #fff;
+                                            cursor: not-allowed;
+                                        }
+                                    }
+                                    button{
+                                        margin-bottom: 1em;
+                                        font-size: 18px;
+                                        padding: 7px 4px;
+                                        border-radius: 4px;
+                                        -moz-border-radius: 4px;
+                                        -webkit-border-radius: 4px;
+                                        border: 1px solid #004e99;
+                                        background-color: #004e99;
+                                        color: white;
+                                        width: 100%;
+                                        &:hover{
+                                            border: solid 1px #003a72;
+                                            background-color: #003a72;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    .mz-signuppage {
+        .signup-form {
+            .mz-l-formfieldgroup {
+                .mz-l-formfieldgroup-row {
+                    &.half-width-block, &.half-width-second-block {
+                        display: table-row;
+                        input {
+                            width: 280px !important;
+                        }
+                    }
+                    &.half-width-second-block {
+                        margin-left: 5px;
+                    }
+                }
+                .password-row {
+                    position: relative;
+                    .pwd-message,.pwd-message-desktop {
+                        width: 42%;
+                        position: absolute;
+                        top: -36%;
+                        right: -46%;
+                        .arrow-left {
+                        	width: 0; 
+                        	height: 0; 
+                        	border-top: 10px solid transparent;
+                        	border-bottom: 10px solid transparent; 
+                        	border-right: 10px solid #f1f1f1; 
+                        	position: absolute;
+                        	top: 34%;
+                        	left: -10px;
+                        }
+                        
+                        p {
+                            font-size: 11px;
+                            padding: 13px;
+                            background: #f1f1f1;
+                            color: #6b6b6b;
+                            line-height: 20px;
+                            a {
+                                text-decoration: none;
+                                color: #007fad;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .mz-order-status{
+        .mz-l-pagewrapper{
+            .mz-l-pagecontent{
+                .mz-l-container{
+                    .order-status-section{
+                        width: 50%;
+                        margin: 0 auto;
+                    }
+                }
+            }     
+        } 
+    }   
+    .mz-loginpage,.mz-signuppage, .mz-password-recovery-page{
+        .login-signup-section{
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+    .mz-reset-password-page{
+        .mz-1-pagecontent{
+            .login-signup-section{
+                width: 50%;
+                margin: 0 auto;
+                .mz-loginform{
+                    .password-row{
+                        .pwd-message{
+                            display: none
+                        }
+                    }
+                }
+            }   
+        }
+    }  
+}  
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
+    .mz-order-status{
+        .mz-l-pagewrapper{
+            .mz-l-pagecontent{
+                .mz-l-container{
+                    .order-status-section{
+                        width: 40%;
+                        margin: 0 auto;
+                    }
+                }
+            }     
+        } 
+    }   
+    .mz-loginpage,.mz-signuppage, .mz-password-recovery-page{
+        .login-signup-section{
+            width: 40%;
+            margin: 0 auto;
+        }
+    }
+    .mz-reset-password-page{
+        .mz-1-pagecontent{
+            .login-signup-section{
+                width: 40%;
+                margin: 0 auto;
+            }   
+        }
+    }  
+}   
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+    .mz-loginpage,.mz-signuppage, .mz-password-recovery-page{
+        .mz-l-pagecontent {
+            padding: 94px 10px 0px 10px;
+        }
+        .login-signup-section{
+            width: 90%;
+            margin: 0 auto;
+            .mz-loginform {
+                  .password-row {
+                    .mob-pwd-row {
+                        display: block !important;
+                        font-size: 10px;
+                    }
+                    .pwd-message,.pwd-message-desktop {
+                        display: none !important;
+                    }
+                    
+                    }
+                .mz-l-formfieldgroup { 
+                    float: none;
+                    width: 100%;
+                    margin: 0 !important;
+                    border-right: none;
+                    padding-right: 0;
+                    .mz-l-formfieldgroup-row {
+                    .mz-l-formfieldgroup-cell {
+                        input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select {
+                            width: 100%;
+                            font-size: 16px;
+                            font-family: merel, sans-serif;
+                            border-radius: 4px;
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border: 1px solid #dddddd;
+                            background-color: #f3f3f3;
+                            height: 38px;
+                            &:focus {
+                                background-color: #fafafa;                 
+                            }
+                        }
+                        .mz-button {
+                            width: 100%;
+                        }
+                    }
+                    }
+                }
+                .login-message {
+                    float: none;
+                    width: 100%;
+                    margin: 30px 0 0 0;
+                    position: relative;
+                    border-top: 1px solid #ccc;
+                    .arrow-left {
+                        width: 0; 
+                        height: 0; 
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        border-bottom: 10px solid #f1f1f1;
+                        position: absolute;
+                        top: 11px;
+                        left: 50%;
+                    }
+                    
+                    p {
+                        font-size: 11px;
+                        margin-top: 30px;
+                        padding: 15px;
+                        background: #f1f1f1;
+                        color: #6b6b6b;
+                        line-height: 20px;
+                        a {
+                            text-decoration: none;
+                            color: #007fad;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .signup-form {
+            .pwd-message,.pwd-message-desktop {
+                display: none;
+            }
+            .mob-pwd-row {
+                position: absolute;
+                display: none;
+                top: -86px;
+                background-color: #fff;
+                border: 0.5px solid;
+                padding: 7px;
+                font-size: 13px;
+            }
+            .mz-signup-password:focus ~ .mz-l-formfieldgroup-cell .mob-pwd-row{  
+                display: block;
+            }
+        }
+        .login-signup-section{  
+            width: 90%;
+            margin: 0 auto;
+            .mz-loginform, .signup-form, .forgot-pwd-form {
+                max-width: 100%;
+                margin: 15px auto;
+                width: 100%;
+                .login-header {  
+                    padding: 15px 0px;
+                    margin: 2px;
+                    width: 100%;
+                }
+                .mz-l-formfieldgroup {
+                    margin: 0;
+                    .mz-l-formfieldgroup-row {
+                        &.half-width-block, &.half-width-second-block {
+                            display: block;
+                            input {
+                                width: 100% !important;
+                                font-size: 14px;
+                            }
+                        }
+                        &.half-width-second-block {
+                            margin-left: 0px;
+                        }
+                        &.forgot-links{
+                            display: inline-block;
+                            width: 48%;
+                        }
+                        &.signup-links{
+                            display: inline-block;
+                            width: 48%;
+                            text-align: right;
+                        }
+                        &.order-status-link{
+                            display:block;
+                            text-align: center;
+                                .mz-order-status{
+                                display: block;
+                                color: #003a72;
+                                font-size: 14px;
+                                font-weight: 600;
+                                text-decoration: none;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                    .mz-l-formfieldgroup-cell {
+                        .mz-button {
+                            width: 100%;
+                        }
+                        input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select {
+                            width: 100%;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mz-signuppage{
+        .signup-form{
+            .mz-l-formfieldgroup{
+                .mz-l-formfieldgroup-cell{
+                    label{
+                        width: auto !important;
+                    }
+                }
+            }
+             .required-fild-msg{
+                width: 100%;
+            }
+        } 
+    }
+    .mz-order-status{
+        .mz-l-pagewrapper{
+            .mz-l-pagecontent{
+                .mz-l-container{
+                    .order-status-section{
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+                }
+            }     
+        } 
+    }   
+    .mz-reset-password-page{
+        .mz-1-pagecontent{
+            .login-signup-section{
+                width: 90%;
+                margin: 0 auto;
+            }   
+        }
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+

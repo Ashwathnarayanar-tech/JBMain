@@ -1,0 +1,204 @@
+{% extends "page" %}
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+{% block body-content %}
+    {% require_script "pages/ingredient-matrix" %}
+    
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    #result-item-section {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+      background-color: #fcfdff
+    }
+
+    #result-item-section .result-item {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      margin: 20px;
+    }
+  
+    /* .img-container {
+      width: 25%;
+      border: 2px solid #a2cce5;
+      box-sizing: border-box;
+      border-radius: 4px;
+    } */
+    
+    /* .ing-matrix-thumb {
+      padding: 5px;
+      width: 85%;
+      position: relative;
+      left: 0;
+    } */
+    
+    /* .img-container:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    } */
+    
+    .item-link {
+      font-weight: bold;
+      position: relative;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .filters-box {
+      text-align: left;
+    }
+    
+    /* .attrsLong {
+      padding: 1em;
+    } */
+    
+    /* Pagination links */
+    .pagination {
+      margin-bottom: 20px;
+    }
+
+    .page-button {
+        color: #444;
+        background-color: white;
+        border: 1px solid #a2cce5;
+        border-radius: 5px;
+        font-family: Trebuchet MS,Verdana,sans-serif;
+    }
+
+    /* iPhone and similar mobile devices smaller than an iPad  */
+    @media (max-width: 560px) {
+      .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      /* .img-container {
+        width: 40%;
+        border: 2px solid #a2cce5;
+        box-sizing: border-box;
+        border-radius: 4px;
+      } */
+    }
+    
+    </style>  
+    
+	<div class="ingredient-matrix-container" style="margin-top: 2em">
+  
+		<h1 class="jb-category-title" style="font-size: 20px; color: #bc0000; text-align: center">Jelly Belly Product Information Matrix</h1>
+
+		<h2 style="font-size: 1.1em">Select filters below to explore products which meet your criteria.</h2>
+
+		<div class="grid-container">
+			<span class="grid-item"> 
+				<fieldset class="matrix-filter">
+					<input class="matrix-checkbox largerCheckbox" id="KOSHER" name="KOSHER" type="checkbox" ></input>
+					<label for="is-kosher">Kosher</label>
+				</fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="ORGANIC" name="ORG" type="checkbox"  ></input>
+          <label for="is-organic">Organic</label>
+        </fieldset>
+				<fieldset class="matrix-filter">
+					<input class="matrix-checkbox largerCheckbox" id="GLUTENFREE" name="GLU" type="checkbox"  ></input>
+					<label for="is-gluten-free">Gluten-free</label>
+				</fieldset>
+				<fieldset class="matrix-filter">
+					<input class="matrix-checkbox largerCheckbox" id="GELATINFREE" name="GEL" type="checkbox"  ></input>
+					<label for="is-gelatin-free">Gelatin-free</label>
+				</fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="DYEFREE" name="DYE" type="checkbox"  ></input>
+          <label for="is-dye-free">Dye-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="FATFREE" name="FAT" type="checkbox"  ></input>
+          <label for="is-fat-free">Fat-free</label>
+        </fieldset>
+			</span>
+			<span class="grid-item"> 
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="PEANUTFREE" name="PF" type="checkbox"  ></input>
+					<label for="is-peanut-free">Peanut-free</label>
+				</fieldset>
+				<fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="TREENUTFREE" name="TN" type="checkbox"  ></input>
+					<label for="is-tree-nut-free">Tree-nut-free</label>
+				</fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="DAIRYFREE" name="DAIRY" type="checkbox"  ></input>
+          <label for="is-dairy-free">Dairy-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="EGGFREE" name="EGG" type="checkbox"  ></input>
+          <label for="is-egg-free">Egg-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="SOYFREE" name="SOY" type="checkbox"  ></input>
+          <label for="is-soy-free">Soy-free</label>
+        </fieldset>
+			</span> 
+      <span class="grid-item"> 
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="COCONUTFREE" name="COCONUT" type="checkbox"  ></input>
+          <label for="is-coconut-free">Coconut-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="PEACHFREE" name="PEACH" type="checkbox"  ></input>
+          <label for="is-peach-free">Peach-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="PINEAPPLEFREE" name="PINEAPPLE" type="checkbox"  ></input>
+          <label for="is-pineapple-free">Pineapple-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="STRAWBERRYFREE" name="STRAWBERRY" type="checkbox"  ></input>
+          <label for="is-strawberry-free">Strawberry-free</label>
+        </fieldset>
+        <fieldset class="matrix-filter">
+          <input class="matrix-checkbox largerCheckbox" id="SHELLFISHFREE" name="SHELLFISH" type="checkbox"  ></input>
+          <label for="is-shellfish-free">Shellfish-free</label>
+        </fieldset>
+			</span> 
+		</div>
+  
+
+
+		<div id="matrix-message" style="padding: 5px">
+			<h3><span aria-live="polite" id="results-items"></span></h3>
+		</div>
+    
+
+    <div class="hidden pagination">
+      <button class="page-button btn_prev">Previous Page</button>
+      <button class="page-button btn_next">Next Page</button><br>
+      <span class="pages"></span>
+    </div>
+    
+    
+		<div id="matrix-results" style="max-width: 900px; margin:auto; padding: 10px 0px 10px 0px">
+      <div id="result-item-section">
+      </div>
+    </div>
+      
+      
+    <div class="hidden pagination_bottom">
+      <button class="page-button btn_prev_bottom">Previous Page</button>
+      <button class="page-button btn_next_bottom">Next Page</button><br>
+      <span class="pages_bottom"></span>
+    </div>
+      
+
+		<style id="css-toggle"></style>
+		<br><br>
+	
+	</div>	
+	
+{% endblock body-content %}

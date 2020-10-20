@@ -1,0 +1,25 @@
+{% extends "page" %}
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+{% block body-content %}
+ {% preload_json model "Category" %}
+
+{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+    <div data-mz-category="{{model.categoryId}}" class="mz-l-container">
+    <div class="ip-container"><div class="jb-inner-overlay"></div></div> 
+        {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
+    </div>
+    {% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
+    <div class="recommended-prod-head"><h2>Jelly Belly Also Recommends</h2></div>           
+    {% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                
+                     
+{% endpartial_cache %} 
+
+{% include "modules/addtowishlist-popup" %}
+
+{% dropzone zoneId="rti-category" scope="template" %}
+{% dropzone zoneId="seo-content" scope="page" %}  
+ 
+{% require_script "pages/category" %}
+{% require_script "pages/flavor-guides" %}
+{% require_script "modules/header-myaccount" %} 
+{% endblock body-content %} 

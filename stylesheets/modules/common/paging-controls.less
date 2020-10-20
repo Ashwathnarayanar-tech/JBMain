@@ -1,0 +1,118 @@
+.jb-pagecontrols {   
+    .mz-pagingcontrols {
+        border-radius: 5px;
+        clear: both;
+        float: none !important; 
+        margin: 0px auto !important;
+        display: inline-block;
+        width: 65%;
+        .mz-pagingcontrols-filters {
+            display: inline-block;
+            width: 40%;  
+            float: right;
+            text-align: right;
+            p{
+                margin: 0px;
+                font-size: 11px;
+                color: rgb(95, 95, 95);
+                display: inline-block;
+            }
+            select{
+                width:32.3%;
+                margin-right: 0px;
+                padding: 2px;
+                font-size: 11px;
+                color: rgb(95, 95, 95);
+                height: 23px;
+                border: 1px solid rgb(216, 216, 216);
+                border-image-source: initial;
+                border-image-slice: initial;
+                border-image-width: initial;
+                border-image-outset: initial;
+                border-image-repeat: initial;
+            }
+        }
+    }
+}
+.selected-facets{
+    width: 93%;
+    margin: 0 auto;
+    .facets-container-selected{
+        .filter-list-selected{
+            .mz-facetingform-selected{
+                line-height: 0;
+                text-align: right;
+                padding-bottom: 15px;
+                .facet-name-list{
+                    display: inline-block;
+                    .mz-l-sidebaritem{
+                        width: 100%;
+                        .mz-facetingform-facet{
+                            padding: 0;
+                            list-style-type: none;
+                            margin: 5px 0;
+                            .item-name{
+                                background-color: #fff;
+                                border: 1px solid #004e99;
+                                border-radius: 4px;
+                                color: #000;
+                                font-size: 16px;
+                                display: inline-block;
+                                line-height: 18px;
+                                margin: 0px 10px 5px 0px;
+                                padding: 6px 10px;
+                                label{
+                                    cursor: auto;
+                                }
+                                .cross-btn-facets{
+                                    cursor: pointer;
+                                    font-weight: normal;
+                                    background-image: url(../../resources/images/icons/close-search.png);
+                                    font-size: 0;
+                                    width: 12px;
+                                    height: 12px;
+                                    display: inline-block;
+                                    background-size: 100%;
+                                    background-repeat: no-repeat;
+                                    vertical-align: top;
+                                    margin-top: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mz-l-sidebaritem{
+                    width: 10%;
+                    display: inline-block;
+                    margin: 0; 
+                    .mz-facetingform-clearall{
+                        color: #004e99;
+                        font-weight: 700;
+                        margin-right: 12px;
+                        cursor: pointer;
+                        display: none;
+                        &.active{
+                            display: block;
+                        }
+                    }
+                    .hidden-element-to-apply{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .selected-facets{ 
+        .facets-container-selected{ 
+            .filter-list-selected{ 
+                .mz-facetingform-selected{ 
+                    .mz-l-sidebaritem{
+                        width: 15%;
+                    }
+                }
+            }
+        }
+    }
+}

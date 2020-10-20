@@ -1,0 +1,13 @@
+<!--
+  <div id="sweet-rewards-worksheet" style="background: #f3d5cc;">
+  <h4>Redeem Sweet Rewards points</h4>
+  You currently have <span id="sweet-rewards-points"></span> points.
+  <div id="sweet-rewards-statement"></div>
+  <div id="sweet-rewards-previous-redemptions"></div>
+  <div id="pay-with-rewards-buttons">
+    <button class="mz-button redeem" deduction="500" dollar-amount="5">$5 (500 points)</button>
+    <button class="mz-button redeem" deduction="1000" dollar-amount="10">$10 (1000 points)</button>
+    <button class="mz-button redeem" deduction="1900" dollar-amount="20">$20 (1900 points)</button>
+  </div>
+</div>
+-->

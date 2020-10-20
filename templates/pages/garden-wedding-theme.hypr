@@ -1,0 +1,113 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="garden-wedding">
+                <p class="sectionTitle" style="font-size: 50px;">Garden Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                    
+                    
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/1.jpg" alt="wedding table with beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/2.jpg" alt="thank you bag with red, white, and pink beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/3.jpg" alt="guest table with red, white, and pink bean in thank you bag"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/4.jpg" alt="guest table with flowers and thank you bag filled with red, white, and pink beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/5.jpg" alt="bowl filled with red, white, and pink beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/6.jpg" alt="outdoor table with plates and cups in pink, red, and white along with beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Garden Wedding/7.jpg" alt="table decorated with pink, red, and white flowers, plates, napkins, and beans"/>
+                        </div>
+                    
+                    </div>
+                    <p>
+                       Light pinks, creams and whites and the smell of freshly-cut roses seem made for each other. Floral patterns abound, even on the cups. But the soft colors are subtle enough to give your party the feel of a pristinely-manicured garden. Place jelly beans in
+                       small vases or circular candy dishes, and place cupcakes on tiers to resemble a scrumptious little topiary. 
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/bubble-gum-jelly-beans/c/18">Bubble Gum Jelly Belly jelly beans</a></li>
+                                <li><a href="/cotton-candy-jelly-beans/c/15">Cotton Candy Jelly Belly jelly beans</a></li>
+                                <li><a href="/french-vanilla-jelly-beans/c/16">French Vanilla Jelly Belly jelly beans</a></li>
+                                <li><a href="/raspberry-jelly-beans/c/97">Raspberry Jelly Belly jelly beans</a></li>
+                                <li><a href="/strawberry-cheesecake-jelly-beans/c/17">Strawberry Cheesecake Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/pink-candy-and-jelly-beans/c/327">Pink</a></li>
+                                <li><a href="/pink-candy-and-jelly-beans/c/327">Light Pink</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                                <li><a href="/red-candy-and-jelly-beans/c/329">Red</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+					 
+					    <p style="font-size: 20px; color: &#9658"><b> Romantic and Dreamy: Garden Party Wedding Favors and Candy </b></p> 
+					<p> 
+					    If you’ve chosen the garden wedding theme for your big day, you’re probably envisioning a soft, dreamy palette of pinks, reds and creams set in an outdoor space amidst big, colorful blossoms.
+					    Naturally, you’re going to want to complete your garden party wedding with some over-the-top florals in the form of fresh, abundant bouquets and centerpieces plus some sweet menu items that honor the sumptuous spirit of the season. Jelly Belly is here to 
+						help you pull together your complete motif, with delightful garden wedding favors and candy that ties it all together! 
+					</p>
+					    <p style="font-size: 20px; color: &#9658"><b> Candy for Garden Wedding Candy Buffets and Décor</b></p> 
+					<p>
+					    Our garden wedding candy displays incorporate delicious jelly beans in pink, light pink, white and red for a sweet tribute to some of the prettiest spring and summer flowers. Not only are these beans 
+					    pretty to look at, they’re also yummy thanks to crowd-pleasing flavors like Bubble Gum, Cotton Candy, French Vanilla, Raspberry and Strawberry Cheesecake. Jelly Belly wedding favors are always a real hit for weddings and other special events because 
+						they’re kosher, gluten-free, peanut-free, dairy-free, fat-free and vegetarian-friendly.
+					</p>
+					<p> 
+					    Many creative couples use Jelly Belly jelly beans as a way to dress up centerpieces and décor. Consider filling up vases in different heights and shapes to decorate tables, bars and buffets or make delicious, edible favors that your guests will absolutely 
+					    adore. Jelly beans are also the perfect way to complement your candy buffet or dessert display, especially when they’re used to fill up a wide variety of candy bows, jars and vases. Our garden wedding candies are absolutely perfect for bridal showers and 
+						rehearsal dinners, too!
+					</p>
+					
+                </div>
+            </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}
+    

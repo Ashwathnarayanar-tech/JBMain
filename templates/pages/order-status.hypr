@@ -1,0 +1,67 @@
+{% extends "page" %}
+
+{% block title-tag-content %} Order Status  {% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-order-status {% endblock body-tag-classes %}
+
+{% block body-content %}
+{% require_script "modules/login-links" %}
+    <div class="mz-l-container">
+        {% include "modules/common/message-bar" with model=model.messages %} 
+        <div> 
+            <div class="order-status-section">
+                <h1 class="mz-pagetitle" tabindex="0">{{ labels.orderStatus }}</h1>
+                <p class="order-placed-text" tabindex="0" >Orders placed as a guest or single order lookup</p>
+                <form method="post" class="mz-order-status-page" name="mz-anonymousorder">
+                    <input type="hidden" name="order-returnUrl" value="{{ model.returnUrl }}"/>
+                    <div class="mz-l-formfieldgroup">
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="ordernum">{{ labels.orderNumber }}</label>
+                            </div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <input name="ordernum" value="" type="text" data-mz-order-number /> 
+                            </div>
+                        </div>
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="verifywith">{{ labels.verifyWith }}</label>
+                            </div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <select data-mz-verify-with data-mz-action="phoneformat">
+                                    {% if themeSettings.zipCodeEnabled %}<option value="zipCode">{{ labels.billingPostalCode }}</option>{% endif %}
+                                    {% if themeSettings.phoneNumberEnabled %}<option value="phoneNumber">{{ labels.billingPhoneNumber }}</option>{% endif %}
+                                    {% if themeSettings.billingEmailEnabled %}<option value="email">{{ labels.billingEmail }}</option>{% endif %}
+                                </select>
+                                <img width="13" class="down-caret-order-status" src="/resources/images/icons/down_caret.png">
+                                <img width="13" class="up-caret-order-status" src="/resources/images/icons/up_caret.png">
+                            </div>
+                        </div>
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell">
+                                <label for="verification">{{ labels.verification }}</label>
+                            </div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <input name="verification" value="" class="onlyverification" type="text" data-mz-verification />
+                            </div>
+                        </div>
+                        <div class="mz-l-formfieldgroup-row">
+                                <label class="checkbox-outer-label"> 
+                                <input id="orderstatus-cpp-checkbox" type="checkbox" aria-label="By clicking Submit, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Submit, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                <span class="checkmark-style"></span></label> 
+                            </div>  
+                        <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-cell"></div>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <button class="mz-button mz-button-large mz-login-button login-btn-signup orderstatus-btn" disabled="disabled" data-mz-action="anonymousorder-submit">{{ labels.submit }}</button>
+                            </div>    
+                            <div class="mz-l-formfieldgroup-cell">
+                                <section data-mz-role="popover-message" class="mz-popover-message-order-status"></section>
+                            </div>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+        </div> 
+    </div>        
+{% endblock body-content %}

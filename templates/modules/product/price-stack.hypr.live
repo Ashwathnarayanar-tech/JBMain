@@ -1,0 +1,18 @@
+﻿<div class="mz-pricestack{% if model.priceRange %} mz-pricestack-range{% endif %}">
+    {% if model.hasPriceRange %}
+    <span class="mz-pricestack-price-lower">
+        {% include "modules/common/price" with model=model.priceRange.lower %}
+    </span>
+    <span class="mz-pricestack-price-upper">
+        {% include "modules/common/price" with model=model.priceRange.upper %}
+    </span>
+    {% else %}
+    {% include "modules/common/price" with model=model.price %}
+    {% endif %}
+	<span content="USD" style="display: none;" >$</span>
+	<span content="{{ model.price.price|floatformat(2) }}" style="display: none;">{{ model.price.price|floatformat(2) }}</span>
+</div>
+<span content="USD" style="display: none;" >$</span>
+<span style="display: none;">
+     {{ model.price.price|floatformat(2) }} 
+</span>

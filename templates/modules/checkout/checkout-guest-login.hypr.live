@@ -1,0 +1,88 @@
+
+{% extends "modules/checkout/chekout-email-capture" %}
+{% block back-to-cart %}
+  <div class="close-icon">
+      <a tabindex="0" aria-label="close modal" href="javascript:void(0);" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a>
+  </div>
+{% endblock back-to-cart %}
+{% block content-heading %} {% endblock content-heading %}
+{% block content-tab-heading %}
+  <div class="content-tab-sys-labels">
+      <a role="button" tabindex="0" aria-label="create an account" attr-data="proceed_guest" href="javascript:void(0)" class="guest-login labelmodel active">Create an Account</a><a role="button" tabindex="0" "aria-label="login and checkout" attr-data="checkout_login" href="javascript:void(0)" class="user-login labelmodel">{{ labels.loginmodelguesttab2 }}</a>
+  </div>
+{% endblock content-tab-heading %}
+
+{% block proceed-as-guest %}
+  <div class="proceed_guest form-content active">
+    <div class="signup-form" >
+        <div class="jb-signup" id="jb-signup">
+
+            <div class="mz-l-formfieldgroup">
+
+                <div class="mz-l-formfieldgroup-row half-width-block">
+
+                    <div class="mz-l-formfieldgroup-cell">
+                        <label for="signup-firstname">*First Name:</label>
+                    </div>
+                    <div class="mz-l-formfieldgroup-cell">
+                        <input type="text" class="mz-signup-firstname" placeholder="{{ labels.firstName }}" data-mz-signup-firstname id="signup-firstname"/> <!-- ADA -->
+                    </div>
+                </div>
+                <div class="mz-l-formfieldgroup-row half-width-second-block">
+                    <div class="mz-l-formfieldgroup-cell">
+                        <label for="signup-lastname">*Last Name:</label>
+                    </div>
+                    <div class="mz-l-formfieldgroup-cell">
+                        <input type="text" class="mz-signup-lastname" placeholder="{{ labels.lastName }}" data-mz-signup-lastname id="signup-lastname"/> <!-- ADA -->
+                    </div>
+                </div>
+
+                <div class="mz-l-formfieldgroup-row">
+                    <div class="mz-l-formfieldgroup-cell">
+                        <label for="signup-email" style="width: 280px">*Email Address:</label>
+                    </div>
+                    <div class="mz-l-formfieldgroup-cell">
+                        <input type="email" class="mz-signup-email" id="signup-email" placeholder="{{ labels.emailAddress }}" data-mz-signup-emailaddress />
+                    </div>
+                </div>
+                <div class="mz-l-formfieldgroup-row password-row">
+                    <div class="mz-l-formfieldgroup-cell">
+                        <label for="pswd" style="width: 280px">*Password:</label>
+                    </div>
+                    <div class="mz-l-formfieldgroup-cell">
+                        <input type="password" class="mz-signup-password" id="pswd" placeholder="{{ labels.password }}" aria-describedby="pswd-msg" data-mz-signup-password />
+                    </div>
+                    <div class="pwd-message-desktop" style="display: none;">
+                        <div class="arrow-left"></div>
+                        <p id="pswd-msg">
+                        Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character. </p>
+                    </div>
+                </div>
+                <div class="mz-l-formfieldgroup-row">
+                    <div class="mz-l-formfieldgroup-cell">
+                        <label for="cnf-pswd" style="width: 280px">*Confirm Password:</label>
+                    </div>
+                    <div class="mz-l-formfieldgroup-cell zero-cellspace">
+                        <input type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
+                    </div>
+                </div>
+                <div class="mz-l-formfieldgroup-row">
+                    <div class="mz-l-formfieldgroup-cell required-fild-msg">
+                        <span class="required">*Required Fields</span>
+                    </div>
+                </div>
+                <div class="mz-l-formfieldgroup-row">
+
+                    <div class="mz-l-formfieldgroup-cell">
+                        <button class="mz-button mz-signup-register active-button" id="signup-submit">{{ labels.register }}</button>
+                    </div>
+                </div>
+                <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock proceed-as-guest %}
+
+  {% block form-class %}login_submit-l{% endblock form-class %}
+  {% block addbutton-class %}addbutton-alt-class{% endblock %}

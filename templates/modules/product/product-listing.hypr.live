@@ -1,0 +1,300 @@
+<style>
+  .visually-hidden {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  .prod-title-heading {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  .prod-title-heading:hover {
+    font-weight: 700;
+  }
+</style>
+
+<div class="mz-productlisting" data-mz-product="{{ model.productCode }}">    
+  <!-- Sets the variable to determine whether or not a product is licensed -->
+  {% with model.properties|findwhere('attributeFQN','tenant~gift-picture') as data %}
+    {% set_var licensedStatus=data %} 
+  {% endwith %}
+  {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
+    {% if licensedStatus === "LICENSED_REDUCED" %}
+      <p class="product-sale-new-label mz-reduced" aria-hidden="true">Reduced</p>
+      <p class="sr-only">The following licensed product has a reduced price.</p>
+    {% else %}
+      <p class="product-sale-new-label" attr-value="" aria-hidden="true">Sale</p>
+      <p class="sr-only">The following product is on sale.</p>
+    {% endif %} 
+  {% else %} 
+    {% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
+      {% if prodState %}
+        {% for state in prodState.values %}
+          {% if state.value == "COMINGSOON" or state.value == "NEW" %}
+            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" aria-hidden="true">{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
+            {% if state.value == "COMINGSOON" %}
+              <span class="sr-only">The following product is coming soon.</span>
+            {% endif %}
+            {% if state.value == "NEW" %}
+              <span class="sr-only">The following product is new.</span>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  {% endif %}    
+  <div class="mz-productlisting-image">
+    <!-- The code below lazy-loads images that do not appear above the fold for each device type   -->
+    {% if model.mainImage.imageUrl %}
+        <a href="{{model.url}}">
+          <img class="img-quick" alt="{{model.content.productName|safe}}" src="{% make_url "image" model.mainImage.imageUrl with max=200 %}" data-src="{% make_url "image" model.mainImage.imageUrl with max=200 %}"/>
+        </a>
+    {% else %}
+      <a href="{{model.url}}"> 
+        <img alt="{{model.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=200" />
+      </a>
+    {% endif %}
+  </div>  
+  <a href="javascript:void(0);" aria-label="quick view for {{model.content.productName|safe}}" role="button"  class="img-overlay">
+    <img src='{% make_url "image" "/resources/images/quick_view.png" with max=100 as_parameter %}' alt="quickview" title="quckview" />
+  </a>
+  <div class="jb-product-min-details">  
+    <div class="mz-productlisting-info">
+      <a  class="mz-productlisting-title" title="{{model.content.productName|safe}}" href="{{model.url}}">
+        <h2 class="prod-title-heading">
+          {{model.content.productName|truncatewords(10)|safe}}
+        </h2>
+      </a>
+    </div>
+    <div class="jb-sli_reviews_quick">
+      <div tabindex="0" aria-label="rating 
+        {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
+          {% for rating in rate.values %}
+            {% if rating.value == 0 %} zero {% else%} 
+            {% if rating.value < 0.9 %} half {% else%}
+            {% if rating.value < 1.5 %} one {% else%}
+            {% if rating.value < 2.0 %} one and half {% else%}  
+            {% if rating.value < 2.5 %} two {% else%}
+            {% if rating.value < 3.0 %} two and half {% else%}
+            {% if rating.value < 3.5 %} three {% else%}
+            {% if rating.value < 4.0 %} three and half {% else%}
+            {% if rating.value < 4.5 %} four {% else%}  
+            {% if rating.value < 5.0 %} four and half {% else %}
+            {% if rating.value == 5.0 %} five {% else %}zero{% endif %} 
+            {% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+          {% endfor %}
+        {% endwith %} star" class="jb-stars-rating-quickview" >  
+          {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
+          {% for rating in rate.values %}
+            {% if rating.value == 0 %} <img src='{% make_url "image" "/resources/images/stars_small_0.gif" with max=100 as_parameter %}' alt="zero stars" title="zero stars" /> {% else%} 
+            {% if rating.value < 0.9 %} <img src='{% make_url "image" "/resources/images/stars_small_0half.gif" with max=100 as_parameter %}' alt="half stars" title="half stars" /> {% else%}
+            {% if rating.value < 1.5 %} <img src='{% make_url "image" "/resources/images/stars_small_1.gif" with max=100 as_parameter %}' alt="one stars" title="one stars" /> {% else%} 
+            {% if rating.value < 2.0 %} <img src='{% make_url "image" "/resources/images/stars_small_1half.gif" with max=100 as_parameter %}' alt="one and half stars" title="one and half stars" /> {% else%}  
+            {% if rating.value < 2.5 %} <img src='{% make_url "image" "/resources/images/stars_small_2.gif" with max=100 as_parameter %}' alt="two stars" title="two stars" /> {% else%}
+            {% if rating.value < 3.0 %} <img src='{% make_url "image" "/resources/images/stars_small_2half.gif" with max=100 as_parameter %}' alt="two and half stars" title="two and  half stars" /> {% else%}
+            {% if rating.value < 3.5 %} <img src='{% make_url "image" "/resources/images/stars_small_3.gif" with max=100 as_parameter %}' alt="three stars" title="three stars" /> {% else%}
+            {% if rating.value < 4.0 %} <img src='{% make_url "image" "/resources/images/stars_small_3half.gif" with max=100 as_parameter %}' alt="three and  half stars" title="three and  half stars" /> {% else%}
+            {% if rating.value < 4.5 %} <img src='{% make_url "image" "/resources/images/stars_small_4.gif" with max=100 as_parameter %}' alt="four stars" title="four stars" /> {% else%}
+            {% if rating.value < 5.0 %} <img src='{% make_url "image" "/resources/images/stars_small_4half.gif" with max=100 as_parameter %}' alt="four and half stars" title="four and half stars" /> {% else %}
+            {% if rating.value == 5.0 %}  <img src='{% make_url "image" "/resources/images/stars_small_5.gif" with max=100 as_parameter %}' alt="five stars" title="five stars" />  {% else %} <img src='{% make_url "image" "/resources/images/stars_small_0.gif" with max=100 as_parameter %}' alt="zero stars" title="zero stars" /> {% endif %} 
+            {% endif %}{% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}    
+          {% endfor %}
+        {% endwith %}
+      </div>
+      <p tabindex="0" class="jb-review">   
+        {% with model.properties|findwhere('attributeFQN','tenant~review') as review %}
+          {% if review %}
+            {% if review.values.length > 0 %}
+              {% for rev in review.values %}{{rev.value}} {% if rev.value == 1 %}Review{% else %}Reviews{% endif %} {% endfor %}
+            {% endif %}  
+          {% else %}
+            0 Reviews 
+          {% endif %}  
+        {% endwith %}      
+      </p>
+    </div>
+    <div class="mz-see-more" > 
+      <p class="jb-product-description multiline">{{ model.content.productShortDescription|safe }}  </p> 
+      <a class="mz-quick-see-more" href="{{model.url}}">See more...</a>
+    </div>
+    <div class="clear"></div>         
+    <div class="jb-quickviewdetails">
+      <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
+        {% if model.options and model.options.length > 0 %}
+          {% for option in model.options %}
+            {% if option.attributeDetail.inputType == "List" %}
+              <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices" {% if option.isMultiValue %}multiple{% endif %} class="" data-mz-product-option="{{ option.attributeFQN }}">
+                {% if not option.isMultiValue %}
+                  <option>Select gift amount</option>
+                {% endif %}
+                {% for value in option.values %}
+                  <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %} value="{{value.value}}">
+                    $ {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}
+                  </option>
+                {% endfor %}
+              </select>
+            {% endif %}  
+          {% endfor %}
+        {% else %}
+        {% if model.price.price%}
+          {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
+            <span class="visually-hidden">Original price: </span>
+          {% else %}
+            <span class="visually-hidden">Current price: </span>
+          {% endif %}
+          <a href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
+        {%endif%}
+          {% if model.price.salePrice and model.price.price > model.price.salePrice %}
+            {% if licensedStatus === "LICENSED_REDUCED" %}
+              <a href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
+            {% else %}
+              <span class="visually-hidden">Current price: </span>
+              <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
+              <span class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="qty">
+        <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
+        <span class="increment spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
+        <span class="dicrement spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
+        <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+      </div>
+      <div class="jb-sli_reviews">
+        <style>
+          img[src*='star-'] { width: 15px; height: 15px; display: inline-block; vertical-align: top; margin-right: 1px; }
+        </style>
+        <div class="jb-stars-rating" tabindex="0">         
+          {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
+            {% for rating in rate.values %}
+            {% if rating.value == 0 %} 
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 0.5 and rating.value < 1.0 %} 
+              <img src="/resources/images/icons/star-half.png"  alt="Average product rating of one-half star out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 1.0 and rating.value < 1.5 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one star out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 1.5 and rating.value < 2.0 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one and a half stars out of five possible stars"
+              ><img src="/resources/images/icons/star-half.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 2.0 and  rating.value < 2.5 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 2.5 and rating.value < 3.0 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two and a half stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-half.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 3.0 and rating.value < 3.5 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 3.5 and rating.value < 4.0 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three and a half stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-half.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 4.0 and rating.value < 4.5 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
+            {% if rating.value >= 4.5 and rating.value < 5.0 %} 
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four and a half stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-half.png" alt="">
+            {% endif %}
+            {% if rating.value == 5.0 %} 
+              <img src="/resources/images/icons/star-full.png" alt="Average product rating of five stars out of five possible stars"
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt=""
+              ><img src="/resources/images/icons/star-full.png" alt="">
+            {% endif %}
+            {% endfor %}
+          {% endwith %}
+          
+        </div>
+        <span>
+          <p tabindex="0"> 
+            {% with model.properties|findwhere('attributeFQN','tenant~review') as review %}
+              {% if review %}
+                {% if review.values.length > 0 %}
+                  {% for rev in review.values %}{{rev.value}} {% if rev.value == 1 %}Review{% else %}Reviews{% endif %} {% endfor %}
+                {% endif %}
+              {% else %}
+                0 Reviews 
+              {% endif %}
+            {% endwith %}      
+          </p>
+        </span>
+      </div>
+      <div class="jb-buy-product quickview-jb">
+        {% if  model.purchasableState.isPurchasable %}
+          <button href="javascript:void(0);" role="button" data-mz-prcode="{{ model.productCode }}"  data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.productCode }}" class="jb-add-to-cart jb-tealium-trigger add-to-cart-btn-plp" type="submit" >Add to Cart </button>
+        {% else %}   
+          {% if model.options and model.options.length > 0 %}
+            <button role="button" href="javascript:void(0);" data-mz-prcode="{{ model.productCode }}" data-jb-price="
+            {% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" 
+            data-jb-pid="{{ model.productCode }}" 
+            class="jb-add-to-cart jb-tealium-trigger gift-prize-select add-to-cart-btn-plp" type="submit" >
+              Shop Gift Card 
+            </button> 
+          {% else %}
+            <button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code = "{{ model.inventoryInfo.onlineLocationCode }}" data-mz-product-code="{{ model.productCode }}" role="button" aria-label="Notify me"> Notify Me </button> 
+          {% endif %}
+        {% endif %}     
+        {% if themeSettings.allowWishlist %}
+          <div class="add-to-wishlist-c">
+            <button href="javascript:void(0)" data-mz-prdcode="{{ model.productCode }}" class="add-to-wishlist add-to-wishlist-qv">WISHLIST</button> 
+          </div>
+        {% endif %}
+      </div>
+      <div class="clear"></div>
+      <div class="jb-information">
+        <p class="jb-prodcutinfo"> Product Info</p>
+        <p class="jb-mode"> {{ model.content.productFullDescription }} </p>
+        <p class="jb-view"><a href="{{model.url}}">View Details</a></p>
+      </div>
+    </div>
+  </div>
+</div>

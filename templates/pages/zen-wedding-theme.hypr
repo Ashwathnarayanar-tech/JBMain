@@ -1,0 +1,108 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
+{% block body-content %}
+{% require_script "pages/jb-wedding-center" %}
+<section>
+    <article class="wedding-title">
+        <p class="sectionTitle">Jelly Belly Wedding Center</p>
+        <img class="ring" src="//content.jellybelly.com/cachefly/Jelly-Belly/WeddingCenter/rings.gif" alt=""/>
+        <div class="clearfix"></div>
+    </article>
+    <div class="wedding-center">
+        <div class="weddingNav">
+            <p class="sectionTitle whereToStartText">Wedding Guide</p>
+            <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom Silhouette"/> 
+            <ul>
+                <li><a href="/wedding-center">Wedding Center Home</a> &#9658;</li>
+                <li><a href="/wedding-ideas">Wedding Themes</a> &#9658;</li>
+                <li><a href="/wedding-color-palettes">Color Palettes</a> &#9658;</li>
+                <li><a href="/wedding-featured-candy">Featured Candy</a> &#9658;</li>
+                <li><a title="Candy Calculator - opens a modal" class="candyCalculatorModal" href="">Candy Calculator</a> &#9658;</li>
+            </ul>
+        </div>
+        <div class="weddingBody">
+            <div id="zen-wedding" >
+                <p class="sectionTitle" style="font-size: 50px;">Zen Wedding</p>
+                <hr />
+                <div class="theme-slider">
+                    <a class="more-theme" href="/wedding-ideas">View more wedding themes here</a>
+                    <div class="clearfix"></div>
+                    <div class="slider">
+                    
+                        
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/1.jpg" alt="dark green and light green beans in paper bowls"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/2.jpg" alt="table with green and white plates and paper bowls filled with dark green and light green beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/3.jpg" alt="dual graphic of paper bowl filled with dark green and light green beans on plates and of a paper bowl filled with beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/4.jpg" alt="dual graphic with reflection of paper bowl with beans in wine glass and image of paper bowl filled with beans on dining plate"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/5.jpg" alt="over-head view of paper bowl filled with dark green and light green beans"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/6.jpg" alt="paper bowl filled with dark green and light green beans on green plate next to empty wine glass"/>
+                        </div>
+                        <div class="viewport_gallery_slide">
+                            <img src="/resources/images/Wedding Theme/Zen Wedding/7.jpg" alt="dual graphic of paper bowl filled with dark green and light green beans and image of dining table with paper bowls filled with beans"/>
+                        </div>
+                    </div>
+                    <p>
+                        A hint of Asian allure goes a long way in the Zen Wedding party. Use white tablecloths and place settings with understated glassware, and offset it all with quirky, bright green origami fortune tellers. The jelly beans inside are a fun, unexpected twist. 
+                        Single stalks of lucky bamboo and elegant orchids are the ideal accents to create a calming yet jovial vibe. 
+                    </p>
+                    <div class="candy-color-used">
+                        <div class="candy-used">
+                            <span class="sectionTitle">Candy Used</span>
+                            <ul class="liImg">
+                                <li><a href="/green-apple-jelly-beans/c/79">Green Apple Jelly Belly jelly beans</a></li>
+                                <li><a href="/juicy-pear-jelly-beans/c/81">Juicy Pear Jelly Belly jelly beans</a></li>
+                                <li><a href="/margarita-jelly-beans/c/88">Margarita Jelly Belly jelly beans</a></li>
+                                <li><a href="/sunkist-lime-jelly-beans/c/185">Sunkist&reg; Lime Jelly Belly jelly beans</a></li>
+                            </ul>
+                        </div>
+                        <div class="color-used">
+                            <span class="sectionTitle">Colors:</span>
+                            <ul class="liImg">
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Green</a></li>
+                                <li><a href="/green-candy-and-jelly-beans/c/324">Light Green</a></li>
+                                <li><a href="/white-candy-and-jelly-beans/c/330">White</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+					
+					    <p style="font-size: 20px; color: &#9658"><b> Enlightened and Atmospheric: Zen Wedding Favors and Candy </b></p> 
+					<p> 
+					    When we think of wedding planning, we often picture stressed-out couples, strained budgets and complex logistics. But if you’re a bride or groom who’s opted for the zen wedding theme, then we’re willing to bet this isn’t your experience at all! What is 
+						the zen wedding? Taking cues from Asian, Buddhist and earthy motifs, the zen wedding is both an aesthetic and a state of being. It’s all about surrounding your guests with soft, inviting and relaxing components as well as taking an intuitive, mindful 
+						approach to the wedding planning process. Jelly Belly is here to help with our handpicked assortment of zen wedding candy. 
+					</p>
+					<p> 
+					    This elegant, minimalist wedding style is sure to put every guest at ease. Creating the perfect zen wedding comes down to honing your specific preferences and personal tastes, but we love to see couples focus on the earthy side of zen in their wedding 
+						colors and textures. Start with different shades of green to capture the feel of a neat zen garden and incorporate Asian florals like cherry blossoms and orchids for a pop of big color. With pretty hand fans, lucky bamboo stalks, origami and simplistic 
+						finishing touches, your guests will feel like they’re at a meditation retreat rather than a wedding! 
+					</p>
+					    <p style="font-size: 20px; color: &#9658"><b> Complementing Your Zen Wedding Theme</b></p> 
+					<p>
+					    We’ve put together some great zen wedding favor ideas so that you can easily and affordably capture the spirit of this special theme. Use tasty green and white jelly beans in flavors of Green Apple, Juicy Pear, Margarita and Sunkist<sup>&reg;</sup> Lime as décor 
+						elements or favors. We love to see couples integrate these colorful yet clean beans into their zen candy buffet for a unique twist to a typical favor display or dessert table. Browse all of our wedding inspiration and ideas at Jelly Belly for more 
+						excellent ways to use jelly beans at your wedding!
+					</p>
+                </div>
+            </div>
+        <div class="clearfix"></div>
+        <!-- /Zen Wedding -->
+    </div>
+</section>
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
+{% endblock body-content %}

@@ -1,0 +1,69 @@
+{% extends "modules/common/order-listing" %}
+{% block order-items %}
+
+<div orderID="{{model.orderNumber}}"  style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};">
+        {% for item in model.items %}
+            {% include "modules/my-account/order-history-item-listing" with model=item order=model %}  
+        {% endfor %}
+</div>
+    <table class="myaccountorder-status" align="left" cellpadding="1" width="100%" style="border-collapse:collapse;">
+  
+      
+        <tbody>
+            {% for discount in model.orderDiscounts %}
+            {% if not discount.excluded %}
+            <tr class="mz-ordersummary-discount">
+              <td align="right" colspan="4">
+                <span class="">{{ discount.discount.name }}:</span>
+                <span class="mz-ordersummary-discountamt">-{{ discount.impact|currency }}</span>
+              </td>
+            </tr> 
+            {% endif %}
+            {% endfor %}
+            {% if discount.discountedSubTotal %}
+            <tr class="mz-ordersummary-subtotal">
+              <td align="right" colspan="4">
+                <span class="">{{ labels.subtotal }}:</span>
+                <span class=">{{ discount.discountedSubTotal|currency }}</span>
+              </td>
+            </tr>
+            {% endif %}
+         
+            <tr class="mz-ordersummary-shippingtotal">
+              <td align="right" colspan="4">
+                <span class="">{{ labels.shippingHandling }}:</span>
+                <span class="">{{ model.shippingSubTotal|currency }}</span>
+              </td>
+            </tr> 
+            {% for shippingDiscount in model.shippingDiscounts %}
+            <tr class="mz-ordersummary-shippingdiscount">
+              <td align="right" colspan="4">
+                <span class="">{{ shippingDiscount.discount.discount.name }}:</span>
+                <span class="mz-ordersummary-totalvalue">-{{ shippingDiscount.discount.impact|currency }}</span>
+              </td>
+            </tr> 
+            {% endfor %}
+            {% if model.handlingAmount %}
+            <tr class="mz-ordersummary-additionalhandling">
+                <td align="right" colspan="4">
+                  <span class="">{{ labels.additionalHandling }}{% if model.handlingAmount > model.handlingTotal  %}<span class="is-crossedout" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}> ({{ model.handlingAmount|currency }})</span>{% endif %}</span>
+                  <span class="">{{ model.handlingTotal|currency }}</span>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="mz-ordersummary-grandtotal">
+                <td align="right" colspan="4">
+                    <span class="">{{ labels.total }}:</span>
+                    <span class="">{{ model.total|currency }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table> 
+
+{% endblock order-items %}
+ 
+  
+
+  
+
+

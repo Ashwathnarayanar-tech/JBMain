@@ -1,0 +1,108 @@
+{% extends "page" %}
+{% block meta-tags %}
+{% parent %}
+    <meta name="robots" id="robotsMeta" content="{{themeSettings.robots_value}}" />
+    <meta name="googlebot" id="googleBotMeta" content="{{themeSettings.googlebot_value}}" />
+    <meta name="google-site-verification" content="{{themeSettings.google-site-verification_value}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="verify-v1" content="GyEpGH2+ELQEr5SNfmuM4t4YK8HYpuY49UbvQgcxFUM=" />
+    <meta name="description" content="Jelly Belly Candy Company - Official Site.  Features Factory fresh candy, jelly beans, chocolate, gummy, licorice and more" />
+    <meta name="keywords" content="Candy, jelly jeans, candy,  chocolate,  gummy, licorice, Bean Boozled, beanboozled, belly flops " />
+    <meta name="owner" content="Jelly Belly Candy Company" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+{% endblock meta-tags %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+<section>
+    <div class="vending">
+    
+    <div class="mar-left10">
+    <img alt="Sugar-Free Jelly Belly Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/d7995066-9e25-46a8-b875-d6ca958535d0"/>
+
+    <h1 class="mz-pagetitle mar-top0" tabindex="0">Sugar Free Jelly Belly Jelly Beans</h1> 
+   </div>
+   
+    <article>
+    <div class="headline-beans">
+       <h3 class="padd-left0" tabindex="0">Completely sugar-free, fat-free, and cholesterol-free, but as sweet as ever.</h3>
+       </div>
+        <p class="mar-top0" tabindex="0" >
+      Our extensive sugar-free line cuts the calories (unlike most sugar-free products) while satisfying your cravings. Splenda and other sugar substitutes make sure the famous Jelly Belly flavor stays right where it belongs, and without promoting tooth decay. 
+    </p>
+    
+    <div class="headline-beans">
+	<h2 tabindex="0">Look for these great Sugar-Free products from Jelly Belly:</h2>
+	</div>
+
+
+<div class="block-container">
+<h3 tabindex="0">Sugar-Free jelly beans, Assorted Flavors</h3>
+
+<figure>
+<a href="/search?query=sugar-free+jelly+belly" title="Shop Sugar-Free Sours">
+<img alt="Jelly Belly Sugar-Free Sours jelly beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/ac7c2c3e-bdf6-4451-9b95-1693b0203400"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0" >Have Jelly Belly beans without the sugar. Our sugar-free formula has 28% fewer calories than regular beans. Included are ten of our most popular flavors: Very Cherry, Tangerine, Green Apple, Juicy Pear, Licorice and others.</h5>
+<p class="padd-left0">
+<a href="/search?query=sugar-free+jelly+belly" title="Shop Sugar-Free Sours" >Shop Sugar-Free Assorted ►
+</a>
+</p>
+</div>
+</div>
+
+
+
+<div class="block-container">
+<h3 tabindex="0">Sugar-Free Jelly Belly jelly beans, Sours</h3>
+
+<figure>
+<a href="/search?query=sugar-free+sour" title="Shop Sugar-Free Sours">
+<img alt="Jelly Belly Sugar-Free Sours jelly beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/926b7f74-8701-4320-b09e-6ca0ee7cff10"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0" >Have the fun of Jelly Belly Sours without the sugar! Our sugar-free formula has 28% fewer calories than regular beans. Included are our most popular sour flavors: sour cherry, sour grape, sour green apple, sour orange, and sour lemon.</h5>
+<p class="padd-left0">
+<a href="/search?query=sugar-free+sour" >Shop Sugar-Free Sours ►</a>
+</p>
+</div>
+</div>
+
+<div class="block-container">
+<h3 tabindex="0">Sugar-Free Gummi Bears</h3>
+
+<figure>
+<a href="/search?query=sugar-free+gummi" title="Shop Sugar-Free Gummi Bears">
+<img alt="Jelly Belly Sugar-Free Gummi Bears" src="//cdn-tp1.mozu.com/9046-m1/cms/files/0f82b00a-1fc8-483e-8070-ed99fb993458"/>
+</a>
+</figure>
+
+<div class="left-beans">
+<h5 tabindex="0" >Have Jelly Belly beans without the sugar. Our sugar-free formula has 45% fewer calories than regular beans. Included are ten of our most popular flavors: Cherry, Lemon, Pear, Raspberry and Tangerine.</h5>
+<p class="padd-left0">
+<a class="marbtm50" href="/search?query=sugar-free+gummi" >Shop Sugar-Free Gummi Bears ►</a>
+</p>
+</div>
+</div> 
+
+
+
+    <div id="fundraisingForm">
+     
+    </div>
+
+    </article>
+   </div>
+   <figure class="vendingImage">
+      <img alt="Pile of Sugar-Free Jelly Beans" src="//cdn-tp1.mozu.com/9046-m1/cms/files/54eff362-7ad5-4179-9eae-420d5f62d0c6">  
+    </figure>
+    <div class="clearfix"></div>
+</section>
+{% endblock body-content %}

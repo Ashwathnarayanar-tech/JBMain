@@ -1,0 +1,31 @@
+{% extends "page" %}
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+{% block body-content %}
+
+<h3>Device Check</h3>
+
+<p>
+isDesktop: {{ pageContext.isDesktop }}<br>
+isTablet: {{ pageContext.isTablet }}<br>
+isMobile: {{ pageContext.isMobile }}<br>
+</p>
+
+<p id="user-agent"></p>
+
+<form method="POST" action="https://content.jellybelly.com/devicecheck/submit.aspx">
+<input type="hidden" name="kibo_isDesktop" value="{{ pageContext.isDesktop }}">
+<input type="hidden" name="kibo_isTablet" value="{{ pageContext.isTablet}}">
+<input type="hidden" name="kibo_isMobile" value="{{ pageContext.isMobile }}">
+<input id="user-agent-field" type="hidden" name="js_user_agent" value="">
+
+Name: <input type="text" name="user_name"><br>
+Email: <input type="text" name="user_email"><br>
+<input type="submit" value="Send to Tech Support">
+</form>
+
+<script>
+	document.getElementById("user-agent").innerHTML = navigator.userAgent;
+  document.getElementById("user-agent-field").value = navigator.userAgent;
+</script>
+
+{% endblock body-content %} 

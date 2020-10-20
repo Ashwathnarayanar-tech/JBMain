@@ -1,0 +1,14 @@
+{% extends "page" %}
+
+{% block body-tag-classes %} mz-homepage {% endblock body-tag-classes %}
+
+{% block body-content %}
+{% require_script "pages/jb-recipes-diy" %}   
+<div>
+{% dropzone "recipe" scope="page"%}
+</div>
+<div id="mz-dropzone-rti-recipe-page" class="mz-drop-zone">
+  {% dropzone "rti-recipe-page" scope="template" %}
+</div>
+{% endblock body-content %}
+

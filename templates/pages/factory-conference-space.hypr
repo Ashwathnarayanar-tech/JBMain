@@ -1,0 +1,132 @@
+{% extends "page" %}
+{% block meta-tags %}
+{% parent %}
+    <meta name="robots" id="robotsMeta" content="{{themeSettings.robots_value}}" />
+    <meta name="googlebot" id="googleBotMeta" content="{{themeSettings.googlebot_value}}" />
+    <meta name="google-site-verification" content="{{themeSettings.google-site-verification_value}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+    <meta name="verify-v1" content="GyEpGH2+ELQEr5SNfmuM4t4YK8HYpuY49UbvQgcxFUM=" />
+    <meta name="description" content="Jelly Belly Candy Company - Official Site.  Features Factory fresh candy, jelly beans, chocolate, gummy, licorice and more" />
+    <meta name="keywords" content="Candy, jelly jeans, candy,  chocolate,  gummy, licorice, Bean Boozled, beanboozled, belly flops " />
+    <meta name="owner" content="Jelly Belly Candy Company" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+{% endblock meta-tags %}
+
+{% block body-tag-classes %}mz-visit-us mz-w-snackbar mz-conf-space{% endblock body-tag-classes %}
+{% block body-content %}
+<section>
+    <center>
+        <div class="carnival-details" style="margin:10px; background-color: #007aaf;width:90%">
+            <a target="_blank" href="http://content.jellybelly.com/CacheFly/downloads/vc/Halloween_Breakfast_2016.html"><font size="6" style="color: #ffffff;"><strong>Halloween Events at the Fairfield Visitor Center</a></strong></font>
+        </div>
+    </center>
+    <article>
+        <h1 class="mz-pagetitle" tabindex="0">Conference Rooms</h1>
+        <h2 tabindex="0">Jelly Belly has meeting and event space!</h2>
+        <p tabindex="0" >
+            <strong>It’s true!</strong> Whether you need meeting space for a dozen or two hundred, we have your venue needs covered here at the Jelly Belly Visitor Center in Fairfield, California.
+            We have hosted weddings and receptions, craft fairs, corporate conferences, training classes, fundraisers, award banquets, proms, holiday parties, reunions, anniversaries, baby showers and more!
+            <a target="_blank" href="https://content.jellybelly.com/cachefly/Jelly-Belly/OtherImages/vc/Conf_Rm_Photos_Set.pdf">Click here for photos.</a>
+        </p>
+        <ul class="contentList circle-list">
+            <li tabindex="0">Want specific colors incorporated into your luncheon?  Any of our colorful Jelly Belly jelly beans or confections may be purchased and incorporated
+                into your event and placed on your tables.
+            </li>
+            <li tabindex="0">Is your group larger than most?  We can explore the option of renting both floors of our building for a grand event.</li>
+            <li tabindex="0">Our California liquor license allows beer and wine to be served at most events in the Visitor Center.</li>
+            <li tabindex="0">Our Chocolate &amp; Wine Experience will make a nice addition to any event! <a href="/wine-experience">Click here</a> for more information.</li>
+            <li tabindex="0">Our three conference rooms can be rented separately or combined.</li>
+        </ul>
+        <p tabindex="0" >
+            Below you will find the basic information on our inviting and flexible meeting/event space. We will be happy to answer any further questions and can check the availability of your
+            preferred dates on our event calendar. Please send your inquiries to: <a href="mailto:jbevents@jellybelly.com">jbevents@jellybelly.com</a>
+        </p>
+    </article>
+    <article class="conferencePricing">
+        <div class="carnival-details">
+            <h3 tabindex="0" class="close">Berry Blue Room | 9am-5pm: $450, After 5pm: $550</h3>
+            <ul class="contentList" style="display: none;">
+                <li tabindex="0">- Room size: 47' X 35'</li>
+                <li tabindex="0">- Perfect for theater style seating for up to 150 guests or classroom style for 50 guests</li>
+                <li tabindex="0">- Can seat up to 90 at round tables of 10 each and still have room for a small buffet line and beverage service</li>
+            </ul>
+        </div>
+                <div class="carnival-details">
+            <h3 tabindex="0"  class="close">Tangerine Room | 9am-5pm: $450, After 5pm: $550</h3>
+            <ul class="contentList" style="display: none;">
+                <li tabindex="0">- Room size: 37' X 35'</li>
+                <li tabindex="0">- Perfect for conference style seating for 30-35</li>
+                <li tabindex="0">- Can seat up to 60 at round tables of 10 each and have smaller buffet line and beverage service</li>
+            </ul>
+        </div>
+        <div class="carnival-details">
+            <h3 tabindex="0" class="close">Very Cherry Room | After 5pm: $550</h3>
+            <ul class="contentList" style="display: none;">
+                <li tabindex="0">
+                    - Room size: 37' X 35'
+                </li>
+                <li tabindex="0">
+                    - Perfect for conference style seating for 12-15
+                </li>
+                <li tabindex="0">
+                    - Can seat up to 60 at round tables of 10 each and have smaller buffet line and beverage service
+                </li>
+                <li tabindex="0">
+                    - Includes a bar area that can be used for coffee/beverage set-up
+                </li>
+            </ul>
+        </div>
+        <div class="carnival-details">
+            <h3 tabindex="0" class="close">Grand Bean Room | After 5pm: $1500</h3> 
+            <ul class="contentList" style="display: none;">
+                <li tabindex="0">- All three rooms combined: 121' X 35'</li>
+                <li tabindex="0">- Perfect for a large group</li>
+                <li tabindex="0">- Can seat up to 200 at round tables of 10 each and still have room for buffet line</li>
+                <li tabindex="0">- Can seat up to 100 at round tables of 10 each and still have room for buffet line and optional dance floor<br>
+                    (see amenities section for info)
+                </li>
+            </ul>
+        </div>
+    </article>
+    <article>
+        <p class="listHeading bold" tabindex="0" >Amenities included with your room rental:</p>
+        <ul class="contentList">
+            <li tabindex="0">Chairs</li>
+            <li tabindex="0">Tables</li>
+            <li tabindex="0">White linens</li>
+            <li tabindex="0">Set-up of tables/chairs/linens</li>
+            <li tabindex="0">Background music</li>
+            <li tabindex="0">Wireless internet access</li>
+        </ul>
+        <p class="listHeading bold" tabindex="0" >Optional amenities available (requires additional fees):</p>
+        <ul class="contentList">
+            <li tabindex="0">Chocolate Fountain</li>
+            <li tabindex="0">Dance floor</li>
+            <li tabindex="0">Easels with paper</li>
+            <li tabindex="0">Audio visual equipment, including a projector for video or laptop computer with appropriate hook-ups</li>
+            <li tabindex="0">Security for evening events</li>
+            <li tabindex="0">Centerpieces</li>
+            <li tabindex="0">Customized color-coordinated candy for tables</li>
+            <li tabindex="0">Additional wireless microphone</li>
+            <li tabindex="0">*Approved Caterers</li>
+            <li tabindex="0">Beverage service</li>
+            <li tabindex="0">Bartending service (beer &amp; wine)</li>
+            <li tabindex="0">Chocolate &amp; Wine Experience</li>
+        </ul>
+    </article>
+    <article>
+        <p tabindex="0" >
+            *Let us assist you with your catering plans and choose from our fine list of approved local caterers.
+            <a href="https://content.jellybelly.com/cachefly/Jelly-Belly/OtherImages/vc/Approved_Caterers _March 11_2014.pdf" target="_blank">Click here to view a list of caterers.</a>
+            Smaller groups can have lunch served from our in-house Jelly Belly Café.
+            <a href="https://cdn-tp1.mozu.com/9046-m1/cms/files/ff_cafe_lunch_april.pdf" target="_blank">Click here to see Jelly Belly Café menu.</a>
+            We can give you many options to make your next event a memorable one! Not sure how much space you’ll need? Just send an email to Banquets &amp; Events department (
+            <a href="mailto:jbevents@jellybelly.com">jbevents@jellybelly.com</a>)
+            and we can help determine which room(s) you’ll need to make your event or meeting a fabulous one!
+        </p>
+    </article>
+</section>
+{% require_script "pages/jb-wedding-center" %}
+{% endblock body-content %}
