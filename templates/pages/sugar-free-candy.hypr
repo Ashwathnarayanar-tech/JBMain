@@ -29,7 +29,7 @@
     <div class="headline-beans">
        <h3 class="padd-left0" tabindex="0">Completely sugar-free, fat-free, and cholesterol-free, but as sweet as ever.</h3>
        </div>
-        <p class="mar-top0" tabindex="0" >
+        <p class="mar-top0" tabindex="0" role="contentinfo">
       Our extensive sugar-free line cuts the calories (unlike most sugar-free products) while satisfying your cravings. Splenda and other sugar substitutes make sure the famous Jelly Belly flavor stays right where it belongs, and without promoting tooth decay. 
     </p>
     
@@ -48,7 +48,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Have Jelly Belly beans without the sugar. Our sugar-free formula has 28% fewer calories than regular beans. Included are ten of our most popular flavors: Very Cherry, Tangerine, Green Apple, Juicy Pear, Licorice and others.</h5>
+<h5 tabindex="0" role="contentinfo">Have Jelly Belly beans without the sugar. Our sugar-free formula has 28% fewer calories than regular beans. Included are ten of our most popular flavors: Very Cherry, Tangerine, Green Apple, Juicy Pear, Licorice and others.</h5>
 <p class="padd-left0">
 <a href="/search?query=sugar-free+jelly+belly" title="Shop Sugar-Free Sours" >Shop Sugar-Free Assorted ►
 </a>
@@ -68,7 +68,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Have the fun of Jelly Belly Sours without the sugar! Our sugar-free formula has 28% fewer calories than regular beans. Included are our most popular sour flavors: sour cherry, sour grape, sour green apple, sour orange, and sour lemon.</h5>
+<h5 tabindex="0" role="contentinfo">Have the fun of Jelly Belly Sours without the sugar! Our sugar-free formula has 28% fewer calories than regular beans. Included are our most popular sour flavors: sour cherry, sour grape, sour green apple, sour orange, and sour lemon.</h5>
 <p class="padd-left0">
 <a href="/search?query=sugar-free+sour" >Shop Sugar-Free Sours ►</a>
 </p>
@@ -85,7 +85,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Have Jelly Belly beans without the sugar. Our sugar-free formula has 45% fewer calories than regular beans. Included are ten of our most popular flavors: Cherry, Lemon, Pear, Raspberry and Tangerine.</h5>
+<h5 tabindex="0" role="contentinfo">Have Jelly Belly beans without the sugar. Our sugar-free formula has 45% fewer calories than regular beans. Included are ten of our most popular flavors: Cherry, Lemon, Pear, Raspberry and Tangerine.</h5>
 <p class="padd-left0">
 <a class="marbtm50" href="/search?query=sugar-free+gummi" >Shop Sugar-Free Gummi Bears ►</a>
 </p>

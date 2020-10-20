@@ -14,14 +14,156 @@
         width:auto; height:auto;  
     }   
 </style> 
-  
+
 <div> 
+    {% if not user.isAuthenticated %} 
+        {% if model.subscriptionData.singnupopoup.isEnabled %} 
+            <div class="loginSignupPopupsub"> 
+                <div class="popupBody">
+                  <a class="closepopup" tabindex="0" href="javascript:void(0);"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a>
+                  <div class="logoicon">
+                    <img src="../../resources/images/JB_logo2.png?max=900" alt="Jelly Belly Candy Company">
+                    <div class="popuptext">
+                    Let’s get started! You must login or create an account to start a Subscription.
+                    </div>
+                  </div>
+                  <div class="tabSec-actio">
+                    <span class="tabitem {% if model.subscriptionData.singnupopoup.login %}active{% endif %}" data-mz-data="login">Login</span><span class="tabitem {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}" data-mz-data="signup">Create an Account</span>
+                  </div>
+                  <div class="tabs">
+                    <div class="tab-item signup-form {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}">
+                        <div class="jb-signup" id="jb-signup">
+                            <div class="mz-l-formfieldgroup">
+                                <div class="mz-l-formfieldgroup-row half-width-block">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label for="signup-firstname">*First Name:</label>
+                                    </div>
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <input type="text" class="mz-signup-firstname" placeholder="First Name" data-mz-signup-firstname="" id="signup-firstname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row half-width-second-block">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label for="signup-lastname">*Last Name:</label>
+                                    </div>
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <input type="text" class="mz-signup-lastname" placeholder="Last Name" data-mz-signup-lastname="" id="signup-lastname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label for="signup-email" style="width: 280px">*Email Address:</label>
+                                    </div>
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <input type="email" class="mz-signup-email" id="signup-email" placeholder="Email Address" data-mz-signup-emailaddress="" data-emailcapturepoint="Sign Up">
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row password-row">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label for="pswd" style="width: 280px">*Password:</label>
+                                    </div>
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <input type="password" class="mz-signup-password" id="pswd" placeholder="Password" aria-describedby="pswd-msg" data-mz-signup-password="">
+                                    </div>
+                                    <div class="pwd-message-desktop" style="display: none;">
+                                        <div class="arrow-left"></div>
+                                        <p id="pswd-msg">
+                                        Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character. </p>
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <label for="cnf-pswd" style="width: 280px">*Confirm Password:</label>
+                                    </div>
+                                    <div class="mz-l-formfieldgroup-cell zero-cellspace">
+                                        <input type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="Confirm Password" data-mz-signup-confirmpassword="">
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <div class="mz-l-formfieldgroup-cell required-fild-msg">
+                                        <span class="required">*Required Fields</span>
+                                    </div>
+                                </div>
+                                <div class="mz-l-formfieldgroup-row">
+                                    <div class="mz-l-formfieldgroup-cell">
+                                        <div class="mz-l-formfieldgroup-row">
+                                            <label class="checkbox-outer-label">  
+                                            <input id="guestsignup-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
+                                            <span class="checkmark-style"></span></label> 
+                                        </div>
+                                        <button class="mz-button mz-signup-register active-button" id="signup-submit" disabled>Register</button>
+                                    </div>
+                                </div>
+                                <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item login_submit-l {% if model.subscriptionData.singnupopoup.login %}active{% endif %}" novalidate="novalidate">
+                        <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="email"><span class="is-required" aria-label="mandatory field"> *</span> Email Address (required):</label>
+                                </div>  
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email" data-emailcapturepoint="Sign Up">
+                                    <span class="error-user" id="useremailerror"></span> 
+                                </div>
+                            </div>  
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>Password (required):</label>   
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell zero-cellspace">
+                                    <input for="password" name="password" id="password" placeholder="Enter password" type="password" class="user-password" aria-describedby="loginerror">
+                                    <span class="loginError" id="loginerror"></span> 
+                                </div>
+                            </div> 
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell"></div> 
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <label style="color: #707070" class="required_fields">*Required</label>
+                                    <div class="mz-l-formfieldgroup-row">
+                                        <label class="checkbox-outer-label">  
+                                        <input id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
+                                        <span class="checkmark-style"></span></label> 
+                                    </div>
+                                    <!-- <a href="#" class="mz-button mz-button-large" id="addbutton" data-mz-action="loginCheckout" disabled>Next</a>--> 
+                                    <input type="submit" role="button" disabled="disabled" tabindex="0" aria-label="next button" class="mz-button mz-button-large cpp-loginpopup active-button brontocart-login-email addbutton-alt-class" id="addbutton" value="Login">
+                                </div>   
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <a tabindex="0" style="color:#046cc2" href="/user/forgotpassword" title="Forgot password - links to a new page" aria-label="Click here to go to forgot password page" class="mz-forgot">Forgot password?</a>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endif %} 
+    {% endif %}
+    {% if model.subscriptionData.popupData.isEnabled %}
+        <div class="popup">
+            <div class="popup-body">
+                <span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
+                <div class="popup-content">
+                    <span class="message" tabindex="0" role="contentinfo">
+                        {{model.subscriptionData.popupData.message|safe}}
+                    </span>
+                    <div class="button-section">
+                        {% for item in model.subscriptionData.popupData.buttons %}
+                            <button class="button button-{{item.class}}" data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="ip-container"><div class="jb-inner-overlay"></div></div>
     <h1 class="mz-pagetitle" tabindex="0" itemprop="name">{{ model.content.productName|safe }}</h1>
-    <span class="mz-sku" tabindex="0" aria-label="product SKU">SKU: {{ model.productCode|safe }}</span>
+    <span class="mz-sku" tabindex="0" aria-label="product SKU">SKU-{{ model.productCode|safe }}</span>
     {% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
         <div class="mz-productdetail-shortdesc mz-l-stack-section">
-          <span tabindex="0" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info">More Info</a></span>
+          <span tabindex="0" role="contentinfo" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info">More Info</a></span>
         </div> 
     {% endif %} 
     <div class="product-detail-container">
@@ -80,7 +222,7 @@
                     </div>
                     <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
                 </div>
-                {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
+                {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" role="contentinfo" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
             </section>
         </div>
         {% if not model.purchasableState.isPurchasable %}
@@ -103,18 +245,18 @@
                     </button>
                 {% else %}
                     {% if model.options and model.options.length > 0 %}
-                        <button id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
+                        <button style="padding: 4px 0px;width: 135px;" id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
                         {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                            Shop Gift Card
+                            SHOP GIFT CARD
                         </button>
                     {% else %}
-                        <span tabindex="0" style="display:block; color:#fff">Out of Stock</span>
+                        <span role="contentinfo" tabindex="0" style="display:block; color:#fff">Out of Stock</span>
                         <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
                             Out of Stock
                         </button>
-                    {% endif %}
-                {% endif %}
+                    {% endif %} 
+                {% endif %} 
                 {% if themeSettings.allowWishlist %}
                     <button id="add-to-wishlist" data-mz-prdcode="{{model.productCode}}" data-mz-productPage {% if model.notDoneConfiguring %} disabled="disabled" {% endif %} class="mz-productdetail-addtowishlist mz-button add-to-wishlist" aria-label="add to wishlist">
                         {{ labels.addToWishlist }}
@@ -122,6 +264,91 @@
                 {% endif %}
             </div>
         </section>
+        {% if  model.purchasableState.isPurchasable %}
+            <section class="subscription">
+                <div class="section-head"> 
+                    <div class="subscribe-input checkbox-outer-label">
+                        <input type="checkbox" name="subscribe" id="subscribe" class="subscribe-input" {% if model.subscriptionData.showContent %}checked="checked"{% endif %} />
+                        <span class="checkmark-style"></span>
+                        <label for="subscribe" class="label-input">Subscribe</label>
+                    </div>
+                    <div class="text-content-sub">
+                        <p class="text-place" tabindex="0">You can subscribe to this item (and others) to get regular deliveries on your own schedule!</p>
+                    </div>
+                </div>
+                <div class="expanded-section {% if model.subscriptionData.showContent %}active{% endif %}">
+                    <div class="formGroup qty">
+                        <span class="mz-qty-label-sub">
+                            <label for="quantity-sub">Product QTY</label>
+                        </span>
+                        <div class="qty-input-box-sub" tabindex="0" aria-label="Quantity - 1">
+                            <input class="quantity-sub" value="{{ model.subscriptionData.Data.qty }}" tabindex="-1" id="quantity-sub" name="quantity-sub"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity-sub')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-sub')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-sub')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-sub')[0].value) : 1">
+                            <span class="increment spinner" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+                            <span class="decrement spinner" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+                            <div class="clear"></div>
+                        </div>  
+                        <span class="line"></span>                  
+                    </div>
+                    <div class="formGroup howofter">
+                        <span class="how-often-label-sub">
+                            <label for="howOften">How Often? Every</label>
+                        </span>
+                        <div class="how-often-input-sub">
+                            <select class="how-often-val" name="howOften">
+                                <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+                                <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+                                <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+                                <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+                                <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+                                <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+                            </select> 
+                            <div class="clear"></div>
+                        </div>
+                        <div class="weekormonth">
+                            <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs months {% if model.subscriptionData.Data.months %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+                        </div>                  
+                    </div>
+                    <div class="formGroup interval">
+                        <span class="when-sub">
+                            <label for="interval-startdate">When? Starting</label>
+                        </span>
+                        <div class="datepicker-cointainer">
+                            <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+                            </input>
+                            <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+                        </div>
+                    </div>
+                    <div class="formGroup howling">
+                        <span class="for-how-long-label-sub">
+                            <label for="howlong">For How Long?</label>
+                        </span>
+                        <div class="how-long-input-sub">
+                            <select class="how-long-val" name="howlong">
+                                <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+                                <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+                                <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+                                <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+                            </select>
+                            <div class="clear"></div>
+                        </div>              
+                    </div>
+                    <div class="formGroup btnsec">
+                        <button class="subscribe-now">Subscribe Now</button>  
+                        <span class="subscrib-multi">
+                            <span tabindex="1" role="content-info" class="text-info">Subscribing to Multiple items?</span>
+                            <a class="subscription-list" href="javascript:void(0)">Go to Subscription List</a>
+                        </span>       
+                    </div>
+                </div>
+            </section>
+        {% endif %}
         <div class="clearfix"></div>
     </div>
 
@@ -137,7 +364,7 @@
             <!-- Img tag has been moved to product.js file for conditional rendering -->
         </div>
         <div id="free-shipping-tip">
-            <div class="free-shipping-text" tabindex="0" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
+            <div class="free-shipping-text" tabinddx="0" role="contentinfo" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
                 <b>
                     <span class="free-text">
                     </span>
@@ -163,7 +390,7 @@
         </div> 
     </div> 
     <div id="testimonial-section" class="product-detail-container"  style="height: 100%; background: #EFEFEF; border: 1px solid #CBCBCB; line-height: 1.3; padding: 7px; border-radius: 7px; display: none; font-size: 16px; text-align: center; margin-top: 10px; margin-bottom: 10px;">
-        <div style="vertical-align: middle;" tabindex="0">
+        <div style="vertical-align: middle;" tabindex="0" role="contentinfo">
             "<em><span id="testimonial-quote"></span></em>"
             <br>
             <span id="testimonial-data"></span>

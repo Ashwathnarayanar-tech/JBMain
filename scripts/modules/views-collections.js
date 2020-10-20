@@ -2647,7 +2647,7 @@ define([
                 }else{
                     valuetodisplay =  ele.find('[value-to-display]').attr('value-to-display');    
                 }
-                var str = '<li  aria-label="'+ele.attr("aria-label")+'" tabindex="0" class="item-name '+ele.attr("attr-name-type")+' selected-facet-value  mz-facetform-selected " url-component="'+ele.attr("url-component")+'"><label class="mz-facetingform-valuelabel mz1-facetingform-value" data-mz-facet-value="'+ele.attr("url-component")+'" >'+valuetodisplay+'</label><span tabindex="0" role="button" aria-label="remove-facet '+ele.attr("aria-label")+'" class="cross-btn-facets">X</span></li>';
+                var str = '<li role="contentinfo" aria-label="'+ele.attr("aria-label")+'" tabindex="0" class="item-name '+ele.attr("attr-name-type")+' selected-facet-value  mz-facetform-selected " url-component="'+ele.attr("url-component")+'"><label class="mz-facetingform-valuelabel mz1-facetingform-value" data-mz-facet-value="'+ele.attr("url-component")+'" >'+valuetodisplay+'</label><span tabindex="0" role="button" aria-label="remove-facet '+ele.attr("aria-label")+'" class="cross-btn-facets">X</span></li>';
                 $(document).find('.mz-facetingform-selected').find('ul.mz-facetingform-facet').append(str); 
                 ele.addClass('mz-facetform-selected');
                 if($(document).find('.selected-facet-value').length >= 1){
@@ -2740,17 +2740,17 @@ define([
                 var stringtoappend = ''; 
                 if(facetname){
                     if(facetname.indexOf("Price") == -1 && facetname.indexOf("tenant~ratingforfacet") == -1){  
-                        stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+facetname+':'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                        stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+facetname+':'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         //$(document).find('.selected-facet-mobile .'+valuetoappend).length;
                     }else{  
                         if(facetname.indexOf("tenant~ratingforfacet") > -1){ 
-                            stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+ratingValue+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+ratingValue+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         //$(document).find('.selected-facet-mobile .'+valuetoappend).length;
                         }else if(facetname.indexOf("Price") > -1){
-                            stringtoappend = '<span  aria-label="'+valuetoshow+' $" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+' $" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         }
                         else{
-                            stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         }
                     }
                     ele.parents('li').addClass('mz-facetform-selected'); 

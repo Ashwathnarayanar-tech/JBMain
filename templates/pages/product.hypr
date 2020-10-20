@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="//pr.jellybelly.com/pwr/engine/pr_styles_review.css" type="text/css" id="prBaseStylesheet">
 {% endblock stylesheets %}
 
- 
+{% require_script "modules/header-myaccount" %}
  
 {% block body-content %}
 

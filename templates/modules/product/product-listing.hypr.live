@@ -13,36 +13,27 @@
     font-weight: normal;
   }
 
-  .prod-title-heading:hover {
-    font-weight: 700;
-  }
-</style>
-
+  .prod-title-heading:hover { 
+    font-weight: 700; 
+  }   
+</style> 
 <div class="mz-productlisting" data-mz-product="{{ model.productCode }}">    
   <!-- Sets the variable to determine whether or not a product is licensed -->
   {% with model.properties|findwhere('attributeFQN','tenant~gift-picture') as data %}
     {% set_var licensedStatus=data %} 
-  {% endwith %}
+  {% endwith %} 
   {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
     {% if licensedStatus === "LICENSED_REDUCED" %}
-      <p class="product-sale-new-label mz-reduced" aria-hidden="true">Reduced</p>
-      <p class="sr-only">The following licensed product has a reduced price.</p>
+      <p class="product-sale-new-label mz-reduced">Reduced</p>
     {% else %}
-      <p class="product-sale-new-label" attr-value="" aria-hidden="true">Sale</p>
-      <p class="sr-only">The following product is on sale.</p>
+      <p class="product-sale-new-label" attr-value="">Sale</p>
     {% endif %} 
   {% else %} 
     {% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
       {% if prodState %}
         {% for state in prodState.values %}
           {% if state.value == "COMINGSOON" or state.value == "NEW" %}
-            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" aria-hidden="true">{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
-            {% if state.value == "COMINGSOON" %}
-              <span class="sr-only">The following product is coming soon.</span>
-            {% endif %}
-            {% if state.value == "NEW" %}
-              <span class="sr-only">The following product is new.</span>
-            {% endif %}
+            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
           {% endif %}
         {% endfor %}
       {% endif %}
@@ -139,7 +130,7 @@
                 {% endfor %}
               </select>
             {% endif %}  
-          {% endfor %}
+          {% endfor %} 
         {% else %}
         {% if model.price.price%}
           {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
@@ -147,11 +138,11 @@
           {% else %}
             <span class="visually-hidden">Current price: </span>
           {% endif %}
-          <a href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
+          <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
         {%endif%}
           {% if model.price.salePrice and model.price.price > model.price.salePrice %}
             {% if licensedStatus === "LICENSED_REDUCED" %}
-              <a href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
+              <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
             {% else %}
               <span class="visually-hidden">Current price: </span>
               <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
@@ -170,7 +161,7 @@
         <style>
           img[src*='star-'] { width: 15px; height: 15px; display: inline-block; vertical-align: top; margin-right: 1px; }
         </style>
-        <div class="jb-stars-rating" tabindex="0">         
+        <div class="jb-stars-rating" tabindex="0" aria-label="star rating" >         
           {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
             {% for rating in rate.values %}
             {% if rating.value == 0 %} 
@@ -269,7 +260,7 @@
         </span>
       </div>
       <div class="jb-buy-product quickview-jb">
-        {% if  model.purchasableState.isPurchasable %}
+        {% if model.purchasableState.isPurchasable %}
           <button href="javascript:void(0);" role="button" data-mz-prcode="{{ model.productCode }}"  data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.productCode }}" class="jb-add-to-cart jb-tealium-trigger add-to-cart-btn-plp" type="submit" >Add to Cart </button>
         {% else %}   
           {% if model.options and model.options.length > 0 %}
@@ -282,7 +273,10 @@
           {% else %}
             <button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code = "{{ model.inventoryInfo.onlineLocationCode }}" data-mz-product-code="{{ model.productCode }}" role="button" aria-label="Notify me"> Notify Me </button> 
           {% endif %}
-        {% endif %}     
+        {% endif %}  
+        {% if model.purchasableState.isPurchasable %}
+          <a href="{{model.url}}?isSubscribe=true" titl="subscribe the product {{model.content.productName|safe}}" class="subscribe">SUBSCRIBE</a>
+        {% endif %}
         {% if themeSettings.allowWishlist %}
           <div class="add-to-wishlist-c">
             <button href="javascript:void(0)" data-mz-prdcode="{{ model.productCode }}" class="add-to-wishlist add-to-wishlist-qv">WISHLIST</button> 

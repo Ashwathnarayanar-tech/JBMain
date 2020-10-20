@@ -109,7 +109,9 @@ $('.recommended-product-container').each(function(){
         "touchstart a.wishlist-button": "addToWishlist",
         "click .jb-add-to-cart-cur" : "generateclick",   
         "click .jb-add-to-cart" : "generateclick"
+
       },
+     
       generateclick: function(e){     
         generateClickEvent($(e.target).attr('data-mz-prcode'),$(e.target).attr('attr-widget'),$(e.target).attr('attr-slot'),window.BNData); 
       },   
@@ -137,11 +139,10 @@ $('.recommended-product-container').each(function(){
             // owl2.trigger('destroy.owl.carousel');  
             // owl2.html(owl2.find('.owl-stage-outer').html()).removeClass('owl-loaded');
             var stagePadding = 0;
-            var loop = false,nav=true;
+            var loop = false;
             if($(window).width() <= 767){
               stagePadding = 30;
               loop = true; 
-              nav=false;
             }
             owl2.owlCarousel({  
               loop: loop, 
@@ -149,7 +150,7 @@ $('.recommended-product-container').each(function(){
               dots: false,
               autoPlay: false,  
               pagination: false,   
-              nav: nav,     
+              nav: true,     
               navText:false,
               slideBy: 1,
               items: 1,

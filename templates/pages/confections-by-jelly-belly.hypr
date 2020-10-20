@@ -27,13 +27,13 @@
    
     <article>
    
-        <p class="mar-top0"  tabindex="0" >
+        <p class="mar-top0"  tabindex="0" role="contentinfo">
     Did you know Jelly Belly Candy Company makes over 50 other candies? Yep, we're a veritable capital of candymaking in America.
     </p>
-   <p tabindex="0" > 
+   <p tabindex="0" role="contentinfo"> 
     If there's one thing we know, it's how to make yummy candy of the same caliber as Jelly Belly beans. We cook up all sorts of sweets worthy of gifts and elegant gatherings. There are gummi and sour candies for the young set, too. But there's more. We also make special Confections for Valentine's Day, Easter, Halloween and Christmas. 
     </p>
-    <p tabindex="0" >
+    <p tabindex="0" role="contentinfo">
      You'll find these candies in many of the same gourmet shops and specialty stores where you find Jelly Belly beans. 
      </p>
      <div class="headline-beans">
@@ -50,7 +50,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Rich, soft morsels that melt in your mouth. Our famous Candy Corn is just one of the smooth, full-flavored treats you'll find here.</h5>
+<h5 tabindex="0" role="contentinfo">Rich, soft morsels that melt in your mouth. Our famous Candy Corn is just one of the smooth, full-flavored treats you'll find here.</h5>
 <p class="padd-left0">
 <a href="/search?query=mellocremes" class="marbtm60" title="Shop Mellocremes" >Shop Mellocremes ►
 </a>
@@ -69,7 +69,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Your eyes will tear up, your lips will pucker, and you'll love every second of it when you dig into our deliciously sour creations.</h5>
+<h5 tabindex="0" role="contentinfo">Your eyes will tear up, your lips will pucker, and you'll love every second of it when you dig into our deliciously sour creations.</h5>
 <p class="padd-left0">
 <a href="/search?query=Sour+Confection" class="marbtm60" title="Shop Sour Confections">Shop Sour Confections ►</a>
 </p>
@@ -97,7 +97,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Jordan Almonds are a traditional wedding candy that adds elegance and a traditional touch to any special event.</h5>
+<h5 tabindex="0" role="contentinfo">Jordan Almonds are a traditional wedding candy that adds elegance and a traditional touch to any special event.</h5>
 <p class="padd-left0">
 <a href="/search?query=Nutty+Confections" class="marbtm60" title="Shop Nutty Confections">Shop Nutty Confections ►</a>
 </p>
@@ -115,7 +115,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Not too soft, not too tough, we blend the perfect chewy consistency with vibrant flavor to create the greatest Gummis around. You'll eat them by the handful.</h5>
+<h5 tabindex="0" role="contentinfo">Not too soft, not too tough, we blend the perfect chewy consistency with vibrant flavor to create the greatest Gummis around. You'll eat them by the handful.</h5>
 <p class="padd-left0">
 <a href="/search?query=Gummis+and+Jells" class="marbtm60" title="Shop Gummis and Jells">Shop Gummis and Jells ►</a>
 </p>
@@ -132,7 +132,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >There's nothing quite like the taste of this time-honored Confection. We take pride in creating the richest, most flavorful licorice you'll find anywhere.</h5>
+<h5 tabindex="0" role="contentinfo">There's nothing quite like the taste of this time-honored Confection. We take pride in creating the richest, most flavorful licorice you'll find anywhere.</h5>
 <p class="padd-left0">
 <a href="/search?query=Licorice" class="marbtm60" title="Shop Licorice">Shop Licorice ►</a>
 </p>
@@ -150,7 +150,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >From ridiculously hard jawbreakers to fruit-flavored tarantulas. The only thing these wild candies have in common is that they taste REALLY good.</h5>
+<h5 tabindex="0" role="contentinfo">From ridiculously hard jawbreakers to fruit-flavored tarantulas. The only thing these wild candies have in common is that they taste REALLY good.</h5>
 <p class="padd-left0">
 <a href="/search?query=novelty" class="marbtm60" title="Shop Novelty Candy" >Shop Novelty Candy ►</a>
 </p>
@@ -167,7 +167,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Only the most luscious, high-quality chocolate goes into these, and you'll know it as each piece lights up your taste buds and soothes your senses.</h5>
+<h5 tabindex="0" role="contentinfo">Only the most luscious, high-quality chocolate goes into these, and you'll know it as each piece lights up your taste buds and soothes your senses.</h5>
 <p class="padd-left0">
 <a href="/search?query=Chocolates" title="Shop Chocolates" class="marbtm60" >Shop Chocolates ►</a>
 </p>
@@ -185,7 +185,7 @@
 </figure>
 
 <div class="left-beans">
-<h5 tabindex="0" >Little candies that pack a very hot punch. Proof that the spiciest things come in the smallest packages.</h5>
+<h5 tabindex="0" role="contentinfo">Little candies that pack a very hot punch. Proof that the spiciest things come in the smallest packages.</h5>
 <p class="padd-left0">
 <a href="/search?query=Cinnamon+Confections" title="Shop Cinnamon Confections" class="marbtm60" >Shop Cinnamon Confections ►</a>
 </p>

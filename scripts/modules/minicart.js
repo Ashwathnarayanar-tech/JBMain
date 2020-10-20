@@ -16,6 +16,9 @@ define([
         });
         var MiniCartView = Backbone.MozuView.extend({
             templateName: "modules/page-header/softcart",
+            additionalEvents: {
+                "submit #minicartform": "redirectTosubCheckout"
+            },
             initialize: function () { 
                 var me = this;
                 me.messageView = new ThresholdMessageView({
@@ -23,9 +26,31 @@ define([
                   model: this.model
                 });
             },
+            redirectTosubCheckout: function(e){
+                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
+                    e.preventDefault();
+                    var cartModel = new CartModels.Cart(), self = this;
+                    try{
+                        cartModel.apiGet().then(function(cart) {
+                            console.log('cart',cart); 
+                            cartModel.apiCheckout().then(function(cartId) {
+                                console.log('cartId',cartId);
+                                window.location.href = "/checkout/" + cartId.data.id + "?chktSub=true";
+                            }, function(err) {
+                                console.warn(err);
+                            });
+                        }, function(err) {
+                            console.log("cart error" + err);
+                        });
+                    }catch (err) { 
+                        console.warn(err);
+                    }
+                }
+            },
             getRenderContext: function () {
                 var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
                 var noshippingTotal = 0;
+                console.log(noShippingProducts); 
                 if(require.mozuData("pagecontext").pageType != "cart") {                    
                     window.cartModel.checkBOGA();
                 }
@@ -62,7 +87,7 @@ define([
                     }else{
                         c.model.remainingfreeshippinng=0; 
                     }
-                  }
+    			}
 				c.model.hasHeatSensitive = false;
 				if(Hypr.getThemeSetting('showHeatSensitiveText')) {
 					_.each(c.model.items, function(item) {
@@ -381,7 +406,7 @@ define([
                             });
                         }
                     }
-                },500);
+                },500); 
             },   
             showMiniCart: function($target){
                 checkMy = true;
@@ -416,6 +441,10 @@ define([
                 this.model.apiGet();
               }
             },
+            clearCart: function(){
+                this.model.apiEmpty();
+                this.updateMiniCart();
+            },
             showCartval: function() {
             }
         });
@@ -429,6 +458,17 @@ define([
         if(require.mozuData("pagecontext").pageType != "checkout") {
           cartModel.apiGet();
         }
+
+        if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
+            $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
+            setTimeout(function(){$(document).find('a.view-cart-btn').attr('href', window.location.origin+"/subscription");},2000);
+        } 
+        // $(document).on('submit','#minicartform', function(e){
+        //     if(if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true')){
+        //         e.preventDefault();
+        //         return false;
+        //     }            
+        // }); 
         var myDomElement = null; 
         $(document).mousemove(function(e) {
             // console.log($(e.target));
@@ -531,3 +571,6 @@ define([
     
     return { MiniCart:miniCartView };
 });
+
+
+

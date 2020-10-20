@@ -1,200 +1,144 @@
-
-    <table class="mz-ordersummary">
-        <thead>
-            <tr>
-                <th scope="col" class="mz-ordersummary-header-product">{{ labels.description }}</th>
-                <th scope="col" class="mz-ordersummary-header-qty">{{ labels.orderQty }}</th>
-                <th scope="col" class="mz-ordersummary-header-each">{{ labels.each }}</th>
-                <th scope="col" class="mz-ordersummary-header-total">{{ labels.orderPrice}}</th> 
-            </tr>
-        </thead>
-        
+<div class="mz-ordersummary">
+    <div class="summary-table-head">
+        <span class="productDetails">PRODUCT DETAILS</span>
+        <span class="productqty">QTY</span>
+        <span class="producttotal">ITEM TOTAL</span>
+    </div>
+    <div class="item-list">
         {% for item in model.items %}
-            <tbody class="mz-ordersummary-lineitems">
-                <tr tabindex="0" class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
-                    <th scope="row" class="mz-ordersummary-item-product">
-                      {{ item.product.name|safe }}
-                      {% for code in themeSettings.noFreeShippingSkuList|split(",") %}  
-                          {% if item.product.productCode == code %}
-                              <span class="no-free-shiping-msg">This product does not count toward the Free Shipping threshold.</span>
-                          {% endif %}
-                      {% endfor %}
-                      {% if item.product.productUsage == 'Bundle' %}
-                      <dl class="mz-propertylist">
-                        {% for bundledProduct in item.product.bundledProducts %}
-                        <dt>{{ bundledProduct.productCode }}</dt>&nbsp;
-                        <dd>{{ bundledProduct.name }} ({{ bundledProduct.quantity }})</dd>  
-                        {% endfor %}
-                      </dl>
-                      {% endif %}
-                    </th>
-                    <td class="mz-ordersummary-item-qty"><span>{{ item.quantity }}</span></td>
-                    <td class="mz-ordersummary-item-price">
-                        {% include "modules/common/item-price" %}
-                    </td>
-                    <td class="mz-ordersummary-item-total">{% include "modules/common/item-total" %}
-                    </td>
-                </tr>
+            <div class="summary-item"  tabindex="0" role="contentinfo">
+                <span class="item-name">
+                    {{ item.product.name|safe }}
+                    {% if item.product.productUsage == 'Bundle' %}
+                        <span class="mz-propertylist">
+                            {% for bundledProduct in item.product.bundledProducts %}
+                                <span>{{ bundledProduct.productCode }}</span>&nbsp;
+                                <span>{{ bundledProduct.name }} ({{ bundledProduct.quantity }})</span>
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                </span>
+                <span class="item-qty" aria-label="Quantity {{ item.quantity }}">
+                    {{ item.quantity }}
+                </span>
+                <span class="item-total">
+                    {% include "modules/common/item-total" %}
+                </span>
                 {% for productDiscount in item.productDiscounts %}
-                    <tr tabindex="0">
-                        <td colspan="4" style="padding: 2px 5px; text-align: center;border-bottom: 1px solid rgb(228, 228, 228);">    
-                                <div style="border: 1px dashed #ccc; background: #fafafa;font-size: 14px;">
-                                    <span style="color: #189218;font-weight: 500;">{{ productDiscount.discount.name }}</span>
-                                    {% if productDiscount.discount.freeShipping %}
-                                        <span style="color: #189218;font-weight: 700;">{{ labels.freeShipping }}</span>
-                                    {% else %}
-                                        <span style="color: #189218;font-weight: 700;"> -{{ productDiscount.impact|currency }}</span>
-                                    {% endif %}
-                                </div>
-                                {% if productDiscount.couponCode %}<span class="remove-coupon" coupon="{{ productDiscount.couponCode }}">Remove</span>{% endif %} 
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
+                    <span tabindex="0" role="contentinfo" class="discount-cointainer">
+                        <span class="discount-data">    
+                            <div class="discount-tital">
+                                <span class="discount-name">{{ productDiscount.discount.name }}</span>
+                                {% if productDiscount.discount.freeShipping %}
+                                    <span class="discount-freeshipping">{{ labels.freeShipping }}</span>
+                                {% else %}
+                                    <span class="discount-productImpact"> -{{ productDiscount.impact|currency }}</span>
+                                {% endif %}
+                            </div>
+                            {% if productDiscount.couponCode %}<span class="remove-coupon" coupon="{{ productDiscount.couponCode }}">Remove</span>{% endif %} 
+                        </span>
+                    </span>  
+                {% endfor %} 
+                {% if item.product.isHasnoFreeshipping %}
+                    <span class="nofreeshipping-msg"> 
+                        This product does not count toward the Free Shipping threshold
+                    </span>
+                {% endif %}
+            </div>
         {% endfor %}
-      
-        <tbody>
-            
-            {% comment %}
-            <tr class="coupon-code-row">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;border-top: 2px solid #EDEDED;">
-                    <div class="mz-checkoutform-couponcode mz-l-formfieldgroup-row" id="coupon-code-field" >
-                        {% include "modules/checkout/coupon-code-field" %}
-                    </div>
-                </td>
-            </tr>
-        
-            <tr class="gift-message">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;border-top: 2px solid #EDEDED;">
-                    <div class="mz-l-formfieldgroup-row">
-                        <div class="mz-l-formfieldgroup-cell">
-                            <label for="Gift Message">Gift Message: </label>
-                        </div>
-                        <div class="mz-l-formfieldgroup-cell" id="comments-field">
-                             {% include "modules/checkout/comments-field" %}
-                        </div> 
-                    </div>
-                </td>
-            </tr>
-            {% endcomment %}
-            
-            <tr class="mz-ordersummary-subtotal" tabindex="0">
-              <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
-                <span class="mz-ordersummary-totalname">{{ labels.subtotal }}:</span>
-                <span class="mz-ordersummary-totalvalue">{{ model.discountedSubtotal|currency }}</span>
-                <span class="clearfix"></span>
-              </td>
-            </tr>
-            {% if model.taxTotal %}
-            <tr class="mz-ordersummary-tax" tabindex="0">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
-                    <span class="mz-ordersummary-totalname">{{ labels.tax }}:</span>
-                    <span class="mz-ordersummary-totalvalue">
-                        {% if model.taxTotal == 0 %}
-                            {% if PageContext.pageType == "confirmation" %} $0 {% else %} TBD {% endif %}
-                        {% else %}
-                            {{ model.taxTotal|currency }}
-                        {% endif %}</span>
-                    <span class="clearfix"></span>
-                </td>
-            </tr>
-            {% endif %}
-            <tr class="mz-ordersummary-shippingtotal" tabindex="0">
-              <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
-                <span class="mz-ordersummary-totalname">{{ labels.shippingHandling }}:</span>
-                <span class="mz-ordersummary-totalvalue">
-                    {% if model.shippingTotal == 0 && !model.fulfillmentInfo.shippingMethodCode %}  
-                        {% if PageContext.pageType == "confirmation" %} $0 {% else %} TBD {% endif %} 
+    </div>
+    <div class="summary-data-total">
+        <span tabindex="0" role="contentinfo" class="summary-subtotal">
+            <span class="subtotal-label label">{{ labels.subtotal }}</span> 
+            <span class="subtotal-value value">{{ model.subtotal|currency }}</span>
+        </span>
+        {% if model.taxTotal %}
+            <span tabindex="0" role="contentinfo" class="summary-tax" {% if model.taxTotal==0 %} style="display:none;" {% endif%}> 
+                <span class="mz-ordersummary-totalname label">{{ labels.tax }}</span>
+                <span class="mz-ordersummary-totalvalue value">
+                    {% if model.taxTotal == 0 %}
+                        {% if PageContext.pageType == "confirmation" %} $0 {% else %} TBD {% endif %}
+                    {% else %}
+                        {{ model.taxTotal|currency }}
+                    {% endif %}
+                </span>
+            </span>
+        {% endif %}
+        <span tabindex="0" role="contentinfo" class="summary-shipping">
+            <span class="mz-ordersummary-totalname label">{{ labels.shippingHandling }}</span>
+            <span class="mz-ordersummary-totalvalue value {% if model.shippingTotal == 0 && model.fulfillmentInfo.shippingMethodCode%}green-color {% endif%}" >
+                {% if model.shippingTotal == 0 && !model.fulfillmentInfo.shippingMethodCode %}  
+                    {% if PageContext.pageType == "confirmation" %} $0 {% else %} TBD {% endif %} 
+                {% else %}
+                    {% if model.shippingTotal == 0 %}
+                        FREE
                     {% else %}
                         {{ model.shippingTotal|currency }}
                     {% endif %}
-                </span>
-                <span class="clearfix"></span>
-              </td>
-            </tr>
-            {% comment %}
-            {% for shippingDiscount in model.shippingDiscounts %}
-            <tr class="mz-ordersummary-shippingdiscount" tabindex="0">
-              <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
-                <span class="mz-ordersummary-totalname">{{ shippingDiscount.discount.discount.name }}:</span>
-                <span class="mz-ordersummary-totalvalue">-{{ shippingDiscount.discount.impact|currency }}</span>
-                <span class="clearfix"></span>
-              </td>
-            </tr>
-            {% endfor %}
-            {% endcomment %}
-            {% if model.handlingAmount %}
-            <tr class="mz-ordersummary-additionalhandling" tabindex="0">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
-                    <span class="mz-ordersummary-totalname">{{ labels.additionalHandling }}</span>
-                    <span class="mz-ordersummary-totalvalue">{{ model.handlingAmount|currency }}</span>
-                    <span class="clearfix"></span>
-                </td>
-            </tr>
-            {% endif %} 
-                
-            
-            {% for discount in model.orderDiscounts %}
-                {% if not discount.excluded %}
-                    <tr tabindex="0" class="mz-ordersummary-discount">
-                    
-                      <td style="padding: 2px 5px;text-align: center;color: #189218;font-size: 14px;" colspan="4">
-                      <div style="border: 1px dashed #ccc; background: #fafafa;" class="remove-discount">
-                        <span class="mz-ordersummary-discountname">{{ discount.discount.name }}:</span>
-                        <span class="mz-ordersummary-discountamt">-{{ discount.impact|currency }}</span>
+                {% endif %}
+            </span>
+        </span>
+        {% if model.handlingAmount %}
+            <span class="mz-ordersummary-additionalhandling" tabindex="0" role="contentinfo">
+                <span class="mz-ordersummary-totalname label">{{ labels.additionalHandling }}</span>
+                <span class="mz-ordersummary-totalvalue value">{{ model.handlingAmount|currency }}</span>
+            </span>
+        {% endif %} 
+        {% for discount in model.orderDiscounts %}
+            {% if not discount.excluded %}
+                <span tabindex="0" role="contentinfo" class="mz-ordersummary-discount">
+                    <div class="remove-discount">
+                        <span class="mz-ordersummary-discountname lebel">{{ discount.discount.name }}</span>
+                        <span class="mz-ordersummary-discountamt value discount">-{{ discount.impact|currency }}</span>
                         {% if discount.couponCode %}<span tabindex="0" role="button" aria-label="remove coupon" class="remove-coupon" coupon="{{ discount.couponCode }}">Remove</span>{% endif %} 
-                        </div>
-                      </td>
-                    </tr>
-                {% endif %}   
-            {% endfor %}
-            {% for discount in model.shippingDiscounts %}
-                {% if not discount.excluded %}
-                    <tr tabindex="0" class="mz-ordersummary-discount">
-                    
-                      <td style="padding: 2px 5px;text-align: center;color: #189218;font-size: 14px;" colspan="4">
-                      <div style="border: 1px dashed #ccc; background: #fafafa;" class="remove-discount">
-                        <span class="mz-ordersummary-discountname">{{ discount.discount.discount.name }}:</span>
-                        <span class="mz-ordersummary-discountamt">-{{ discount.discount.impact|currency }}</span>
+                    </div>
+                </span>
+            {% endif %}
+        {% endfor %}
+        {% for discount in model.shippingDiscounts %}
+            {% if not discount.excluded %}
+                <span tabindex="0" role="contentinfo" class="mz-ordersummary-discount">
+                    <div class="remove-discount">
+                        <span class="mz-ordersummary-discountname label">{{ discount.discount.discount.name }}</span>
+                        <span class="mz-ordersummary-discountamt value discount">-{{ discount.discount.impact|currency }}</span>
                         {% if discount.discount.couponCode %}<span tabindex="0" role="button" aria-label="remove coupon" class="remove-coupon" coupon="{{ discount.discount.couponCode }}">Remove</span>{% endif %} 
-                        </div>
-                      </td>
-                    </tr>
-                {% endif %}   
-            {% endfor %}
-            
-            {% if model.pwrAmount > 0 %}
-            <tr tabindex="0" class="mz-ordersummary-rewards">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #000000;border-top: 2px solid #EDEDED; background: #f3d5cc;">
-                  <span class="mz-ordersummary-totalname" style="float: left; font-weight: bold; padding-left: 10px;">Rewards redeemed:</span>
-                  <span class="mz-ordersummary-totalvalue" style="padding-right: 10px;">-{{ model.pwrAmount|currency }}</span>
-                </td>
-            </tr>
-            {% endif %}
-            {% if model.adjustment %}
-            <tr tabindex="0" class="mz-ordersummary-rewards">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #000000;border-top: 2px solid #EDEDED;">
-                  <span class="mz-ordersummary-totalname" style="float: left; font-weight: bold; padding-left: 10px;">Rewards (confirmation)</span>
-                  <span class="mz-ordersummary-totalvalue" style="padding-right: 34px;">{{ model.adjustment.amount|currency }}</span>
-                </td>
-            </tr>
-            {% endif %}
-            
-            
-            
-            <tr tabindex="0" class="mz-ordersummary-grandtotal">
-                <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;border-top: 2px solid #EDEDED;">
-                    <span class="mz-ordersummary-totalname">{{ labels.total }}:</span>
-                    {% if pageContext.pageType == 'checkout' %}
-                      {% with model.pwrAmount as p %}
-                      <span class="mz-ordersummary-totalvalue">{{ model.total|subtract(p)|currency }}</span>
-                      {% endwith %}
-                    {% else %}
-                      {% with model.adjustment.model as p %}
-                      <span class="mz-ordersummary-totalvalue">{{ model.total|subtract(p)|currency }}</span>
-                      {% endwith %}
-                    {% endif %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    </div>
+                </span>
+            {% endif %}   
+        {% endfor %}
+        {% if model.pwrAmount > 0 %}
+            <span tabindex="0" role="contentinfo" class="mz-ordersummary-rewards">
+                <span class="mz-ordersummary-totalname label" >Rewards redeemed:</span>
+                <span class="mz-ordersummary-totalvalue value discount" >-{{ model.pwrAmount|currency }}</span>
+            </span>
+        {% endif %}
+        {% if model.adjustment %}
+            <span tabindex="0" role="contentinfo" class="mz-ordersummary-rewards">
+                <span class="mz-ordersummary-rewardsname label">Rewards (confirmation)</span>
+                <span class="mz-ordersummary-rewardsvalue value discount" style="padding-right: 34px;">{{ model.adjustment.amount|currency }}</span>
+            </span>
+        {% endif %}
+        {% if model.discountTotal %}
+            <span tabindex="0" role="contentinfo" class="cart-discount" {% if model.discountTotal==0%} style="display:none" {% endif %}>
+                <span class="mz-ordersummary-discountname label">Discount</span>
+                <span class="mz-ordersummary-discountvalue value discount">-{{ model.discountTotal|currency }}</span>
+            </span>
+        {% endif %}
+        <span tabindex="0" role="contentinfo" class="mz-ordersummary-grandtotal">
+            <span class="mz-ordersummary-totalname label">{{ labels.total }}</span>
+            {% if pageContext.pageType == 'checkout' %}
+                {% with model.pwrAmount as p %} 
+                    <span class="mz-ordersummary-totalvalue value">{{ model.total|subtract(p)|currency }}</span>
+                {% endwith %}
+            {% else %}
+                {% with model.adjustment.model as p %}
+                    <span class="mz-ordersummary-totalvalue value">{{ model.total|subtract(p)|currency }}</span>
+                {% endwith %}
+            {% endif %} 
+        </span>
+    </div>
+</div>
+
+
+
+

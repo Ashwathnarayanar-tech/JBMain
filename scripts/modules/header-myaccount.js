@@ -117,7 +117,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                 if (this.validate(data)) {
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {
-                        window.location.reload();
+                        window.location.href = window.location.pathname+"?cl=returningUser";
                       }
                       else{
                         window.location = '/myaccount';

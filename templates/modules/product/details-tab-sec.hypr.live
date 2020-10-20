@@ -39,7 +39,7 @@
                             <span id ="nutrition-text" tabindex="0">
                                 Sorry, but the nutrition panel for this product is currently 
                                 unavailable. To get nutrition information for this product, 
-                                you can contact Consumer Affairs at 1-800-522-3267 
+                                you can contact Consumer Affairs at <br>1-800-522-3267 
                                 <span style="background-color:yellow;">
                                 (Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> 
                                 or send us an <a href="https://www.jellybelly.com/contact-us">email.
@@ -140,8 +140,8 @@
                     <img tabindex="0" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" src="{{ model.mainImage.imageUrl }}?max=100" /> 
                 </figure> 
                 <div class="product-name">
-                    <h5 tabindex="0"><span itemprop="name">{{ model.content.productName|safe }}</span></h5>
-                    <span tabindex="0" aria-label="product SKU" class="mz-sku">SKU: {{ model.productCode|safe }}</span>
+                    <h5 tabindex="0" role="contentinfo"><span itemprop="name">{{ model.content.productName|safe }}</span></h1>
+                    <span tabindex="0" role="contentinfo" aria-label="product SKU" class="mz-sku">SKU-{{ model.productCode|safe }}</span>
                 </div>
             </div> 
             <div class="action-section">
@@ -151,9 +151,9 @@
                             {% include "modules/product/product-options" %}
                         {% else %}
                             {% if model.price.onSale and model.savePrice %}  
-                                <span class="sale-price" tabindex="0">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
+                                <span class="sale-price" tabindex="0" role="contentinfo">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
                             {% else %}
-                                <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                                <span class="price" tabindex="0" role="contentinfo">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
                             {% endif %} 
                         {% endif %} 
                     </div>  
@@ -170,7 +170,7 @@
                         {% if model.purchasableState %}
                             {% if not model.purchasableState.isPurchasable %} 
                             {% else %} 
-                                <span class="outofstock in" tabindex="0"> IN STOCK </span> 
+                                <span class="outofstock in" tabindex="0" role="contentinfo"> IN STOCK </span> 
                             {% endif %} 
                         {% endif %}
                     </section>
@@ -280,7 +280,7 @@
                     <li>
                         <span id ="nutrition-image"  aria-hidden="true"></span>
                         <span id="nut_panel_title"></span>
-                        <span id ="nutrition-text" tabindex="0">Sorry, but the nutrition panel for this product is currently unavailable. To get nutrition information for this product, you can contact Consumer Affairs at 1-800-522-3267 <span style="background-color:yellow;">(Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> or send us an <a href="https://www.jellybelly.com/contact-us">email.</a></span>
+                        <span id ="nutrition-text" tabindex="0">Sorry, but the nutrition panel for this product is currently unavailable. To get nutrition information for this product, you can contact Consumer Affairs at <br>1-800-522-3267 <span style="background-color:yellow;">(Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> or send us an <a href="https://www.jellybelly.com/contact-us">email.</a></span>
                     </li>
                 </ul> 
             </li> <!-- nutrition panel end-->
@@ -367,12 +367,12 @@
                             {% include "modules/product/product-options" %}
                         {% else %}
                             {% if model.price.onSale and model.savePrice %} 
-                                <span tabindex="0" class="sale-price">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
+                                <span tabindex="0" role="contentinfo" class="sale-price">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
                             {% else %}
-                                <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                                <span class="price" tabindex="0" role="contentinfo" >price: <span class="p-price">{{model.price.price|currency}}</span></span> 
                             {% endif %} 
                         {% endif %} 
-                        {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
+                        {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" role="contentinfo" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
                     </div>  
                     <section class="mz-l-stack-section mz-productdetail-conversion">
                         <div class="mz-productdetail-conversion-controls">

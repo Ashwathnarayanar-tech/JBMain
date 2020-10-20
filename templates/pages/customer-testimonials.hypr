@@ -28,10 +28,10 @@
                     </div>
                     <h2 tabindex="0">Amazing variety of flavors!</h2>
                 </header>
-                <p class="comment" tabindex="0" > 
+                <p class="comment" tabindex="0" role="contentinfo"> 
                     <span></span>Bought this as gifts and EVERYONE loved them! Great looking and an amazing variety of flavors!<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Lucy from New York, NY</span>
+                <span class="author" tabindex="0" role="contentinfo">-Lucy from New York, NY</span>
             </div>
             <a class="comment-image" href="/p/96777" aria-label="49 Assorted Jelly Bean Flavors Apothecary Jar">
                 <img class="odd-product-img" src="/resources/images/footer-static/96777.jpg" alt="49 Assorted Jelly Bean Flavors Apothecary Jar">
@@ -48,11 +48,11 @@
                     </div>
                     <h2 tabindex="0">Fun, disgusting time - did I say fun?!</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>These were disgusting but so much fun to try one and then figure out what the disgusting taste was - great fun!
                     My 12 and 7-year old LOVED them. Lots of spitting but lots of laughing, too.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Mary from Rockville, MD</span>
+                <span class="author" tabindex="0" role="contentinfo">-Mary from Rockville, MD</span>
             </div>
             <a class="comment-image" href="/p/98782" aria-label="BeanBoozled Jelly Beans">
                 <img class="even-product-img" src="/resources/images/footer-static/98782.jpg" alt="BeanBoozled Jelly Beans">
@@ -69,11 +69,11 @@
                     </div>
                     <h2 tabindex="0">This product is a never fail gift!</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>I bought the gift box for Mother's Day and she loved them! My mom loves the fact that they are fat free and
                     loves mixing the flavors and creating different tastes with the recipe book!<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Kels from Boston, MA</span>
+                <span class="author" tabindex="0" role="contentinfo">-Kels from Boston, MA</span>
             </div>
             <a class="comment-image" href="/p/95000" aria-label="50-Flavor Gift Box">
                 <img class="odd-product-img" src="/resources/images/footer-static/95000.jpg" alt="50-Flavor Gift Box">
@@ -90,11 +90,11 @@
                     </div>
                     <h2 tabindex="0">Love the Belly Flops!</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>My employees and vendors just love them! I keep them out on my desk and reception area.
                     They are a quick snack with great favors.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Beely from West Sacramento, CA</span>
+                <span class="author" tabindex="0" role="contentinfo">-Beely from West Sacramento, CA</span>
             </div>
             <a class="comment-image" href="/p/95698" aria-label="Belly Flops® Jelly Beans">
                 <img class="even-product-img" src="/resources/images/footer-static/95698.jpg" alt="Belly Flops® Jelly Beans">
@@ -111,10 +111,10 @@
                     </div>
                     <h2 tabindex="0">Like Being on Hogwart's Express</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>Used these along with the Every Flavour Beans for party favors for my 9 year old son. They loved the cards depicting the characters.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Muggle Mom from Middletown, NJ</span>
+                <span class="author" tabindex="0" role="contentinfo">-Muggle Mom from Middletown, NJ</span>
             </div>
             <a class="comment-image" href="/p/96267" aria-label="Harry Potter Chocolate Frog">
                 <img class="odd-product-img" src="/resources/images/footer-static/96267.jpg" alt="Harry Potter Chocolate Frog">
@@ -131,10 +131,10 @@
                     </div>
                     <h2 tabindex="0">A Fun Conversational item!</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>Great Gift for those who are hard to buy for. Unusual, fun and entertaining.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Happy Customer from Folsom, CA</span>
+                <span class="author" tabindex="0" role="contentinfo">-Happy Customer from Folsom, CA</span>
             </div>
             <a class="comment-image" href="/p/95121" aria-label="Mr. Jelly Belly Bean Machine">
                 <img class="even-product-img" src="/resources/images/footer-static/95121.jpg" alt="Mr. Jelly Belly Bean Machine">
@@ -151,11 +151,11 @@
                     </div>
                     <h2 tabindex="0">Always a favorite…</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>Very Cherry is always a favorite around our house. They are the first ones we buy when planning party's as a snack and treat.
                     They also make great gifts or gift toppers.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Cherry lover from Covina, CA</span>
+                <span class="author" tabindex="0" role="contentinfo">-Cherry lover from Covina, CA</span>
             </div>
             <a class="comment-image" href="/p/97825" aria-label="Very Cherry Jelly Beans">
                 <img class="odd-product-img" src="/resources/images/footer-static/97825.jpg" alt="Very Cherry Jelly Beans">
@@ -172,11 +172,11 @@
                     </div>
                     <h2 tabindex="0">Buttered Popcorn Jelly Belly Beans</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>These jelly beans taste like the fresh, buttered movie theater popcorn. These taste just like it, but better!
                     They taste so natural and are mouthwatering.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-Nicole the Jelly Belly Lover from Atlanta, GA</span>
+                <span class="author" tabindex="0" role="contentinfo">-Nicole the Jelly Belly Lover from Atlanta, GA</span>
             </div>
             <a class="comment-image" href="/p/9000_BUTERD_POP" aria-label="Buttered Popcorn Jelly Beans">
                 <img class="odd-product-img" src="/resources/images/footer-static/9000-BUTERD_POP.jpg" alt="Buttered Popcorn Jelly Beans">
@@ -193,10 +193,10 @@
                     </div>
                     <h2 tabindex="0">Tastes like root beer!</h2>
                 </header>
-                <p class="comment" tabindex="0" >
+                <p class="comment" tabindex="0" role="contentinfo">
                     <span></span>I love this flavor I used it to fill baby shower favors along with green apple flavor and cotton candy flavor.<span></span><br>
                 </p>
-                <span class="author" tabindex="0" >-By Sarah from Atwater CA</span>
+                <span class="author" tabindex="0" role="contentinfo">-By Sarah from Atwater CA</span>
             </div>
             <a class="comment-image" href="/p/9000_A_W_ROOT_B" aria-label="A&amp;W® Root Beer Jelly Beans">
                 <img class="even-product-img" src="/resources/images/footer-static/9000-AW_ROOT_B.jpg" alt="A&amp;W® Root Beer Jelly Beans">
@@ -205,7 +205,13 @@
             <span class="left-arrow"></span>
         </section>
     </article> 
-</section>
-
-{{ "stylesheets/pages/testimonials.less"|stylesheet_tag:"default" }}
+</section> 
 {% endblock body-content %}
+
+
+
+
+
+
+
+

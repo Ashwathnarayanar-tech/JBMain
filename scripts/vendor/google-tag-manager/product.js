@@ -9,10 +9,10 @@ require(["modules/jquery-mozu", "modules/api"],
         'detail': {
           'products': [{
             'name': product.content.productName,
-            'id': product.productCode,
+            'id': product.productCode, 
             'price': product.price.price,
             'brand': 'Jelly Belly',
-            'category': product.categories[0].content.name || "",
+            // 'category': product.categories[0].content.name || "",
             'variant': 'standard',
           }]
         }
@@ -25,14 +25,14 @@ require(["modules/jquery-mozu", "modules/api"],
       window.dataLayer.push({
         'event': 'addToCart',
         'ecommerce': {
-          'currencyCode': '',
+          'currencyCode': '', 
           'add': {
             'products': [{
               'name': product.content.productName,
               'id': product.productCode,
               'price': product.price.price,
               'brand': 'Jelly Belly',
-              'category': product.categories[0].content.name,
+              // 'category': product.categories[0].content.name,
               'variant': 'standard',
               'quantity': $("#quantity").children(":selected").attr("value")
             }]

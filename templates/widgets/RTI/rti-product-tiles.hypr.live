@@ -47,33 +47,19 @@
                     {% block product-image %}
                         <div class="row product-listing-row-content">
                             <div class="mz-subcategory-image-div">
-                                  <a aria-label="{{prod.content.productName}} product image" 
-                                    href="{{prod.url}}" 
-                                    data-baynote-slot="{{prod.slot}}" 
-                                    data-baynote-widget="{{prod.widgetId}}" 
-                                    data-baynote-pid="{{prod.productCode}}" 
-                                    data-baynote-href="{{prod.href}}">
+                                  <a aria-label="{{prod.content.productName}} product image" href="{{prod.url}}" data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}">
                                     {% if prod.mainImage.imageUrl %}
-                                        <img src="{{ prod.mainImage.imageUrl }}?max=300" style="max-height: 300px" alt="{{prod.content.productName}} product image"/>
+                                        <img src="{{ prod.mainImage.imageUrl }}?max=200" style="max-height: 200px" alt="{{prod.content.productName}} product image"/>
                                     {% else %}
                                         <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
                                     {% endif %}
                                     <span class="mainImageContainer2">
                                         <span class="spinner icon-spinner-2 imageload"></span>
                                     </span>
-                                    <div class="productTitle" style="text-align: center;">
-                                      <h3 style="font-size: 16px;">
-                                        {{prod.content.productName|truncatewords(10)|safe}}
-                                      </h3>
-                                    </div>
                                 </a>
                             </div>
                             <div class="mz-productlisting-info">
-                                <!-- <div class="productTitle">
-                                  <h3 style="font-size: 16px;">
-                                    <a class="mz-productlisting-title" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a>
-                                  </h3>
-                                </div> -->
+                                <div class="productTitle"><h3 style="font-size: 16px;"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a></h3></div>
                                 <div class="priceSection"> 
                                     <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
                                         {% if prod.options and prod.options.length > 0 %}
@@ -105,16 +91,10 @@
                                                 {% endif %}  
                                             {% endfor %}
                                         {% else %}  
-                                            {%if prod.price.price%}
-                                              {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
-                                                <span class="visually-hidden">Original price: </span>
-                                              {% else %}
-                                                <span class="visually-hidden">Current price: </span>
-                                              {% endif %}
-                                              <span class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %} strikeprice {% endif %}">{{prod.price.price|currency}}</span>
-                                            {%endif%}
+                                            {%if prod.price.price%}<a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
+                                            strikeprice {% endif %}">{{prod.price.price|currency}}</a>{%endif%}
                                             {% if prod.price.price !=  prod.price.salePrice %} 
-                                            {%if prod.price.salePrice%}<span class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</span>
+                                            {%if prod.price.salePrice%}<a href="javascript:void(0);" class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</a>
                                                 <span class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
                                             {%endif%}   
                                             {% endif %} 

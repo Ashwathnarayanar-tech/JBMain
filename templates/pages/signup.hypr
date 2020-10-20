@@ -80,14 +80,12 @@
                                     <input required type="password" id="confirm-password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
                                 </div>
                             </div>
-                            {% comment %}
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell required-fild-msg">
                                     <span class="required">*Required Fields</span>
                                 </div>
                             </div>
-                            {% endcomment %}
-                            <div class="mz-l-formfieldgroup-row checkbox">
+                            <div class="mz-l-formfieldgroup-row">
                                 <label class="checkbox-outer-label"> 
                                 <input id="signup-cpp-checkbox" type="checkbox" aria-label="By clicking Register, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Register, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
                                 <span class="checkmark-style"></span></label> 
@@ -111,4 +109,3 @@
 </div>		
  {% require_script "modules/header-myaccount" %}
 {% endblock body-content %}
-

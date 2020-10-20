@@ -1,4 +1,4 @@
-<div class="jb-childcategory" data-mz-category-url="{{model.guide}}" data-mz-category-guide="{{model.guide}}">
+<div class="jb-childcategory" data-mz-category-url="{{model.guide}}" data-mz-category-guide="{{model.guide}}" aria-expanded="false">
   <div class="jb-colapsing-title">
     <h2 role="button" class="jb-category-title" aria-expanded="false" tabindex="0">{{model.name|safe}}</h2>
     <p class="mz-desktop" title="open/close button" aria-expanded="false" tabindex="0">open/close</p>
@@ -9,20 +9,18 @@
     <div class="jb-childcategory-description" tabindex="0">{{model.description|safe}}</div>
     <div class="jb-childChildrenCategories-container">
 
-    <ul style="list-style: none;">
+
       {% for childChildrenCategories in model.childcategories%}
-      <li style="display: inline;">
       <a href="/c/{{childChildrenCategories.slug}}"> 
-        <div class="jb-childChildrenCategory" style="">
-		  <img class="load-on-scroll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src='{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{childChildrenCategories.image}}?max=60' alt=""/>
+        <div class="jb-childChildrenCategory" style="" alt="{{childChildrenCategories.name}}">
+		  <img class="load-on-scroll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src='{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{childChildrenCategories.image}}?max=60' />
           <p href="/c/{{childChildrenCategories.slug}}">
             {{childChildrenCategories.name|safe}}
           </p>
         </div>
       </a>
-      </li>
       {% endfor %}
-      </ul>
+
     </div>
     <div class="jb-child-category-button">
 	<br>

@@ -45,21 +45,19 @@
                                             $(document).find('input[aria-describedby="giftcard-messages"]').attr('aria-invalid','false');
                                         },6000);
                                             
-                                        // if(isAndroid){ 
+                                        // if(isAndroid){
                                         //     $('#accountStoreCreditInput').attr('aria-label', 'Error: '+this.model.models[0].get('message'));
                                         // }
                                         
                                         setTimeout(function(){
                                             $('#accountStoreCreditInput').focus();
                                         },1000);
-                                    } else if($('#digital-credit-code').length === 1){
-                                            
-                                            $('#digital-credit-code').attr('aria-describedby','storecredit-messages');
-                                            
+                                    } else if($('#digital-credit-code').length === 1 && this.model.models[0].get('code') && this.model.models[0].get('code') != "UNKNOWN"){
+                                            console.log("this.model.models",this.model.models);  
+                                            $('#digital-credit-code').attr('aria-describedby','storecredit-messages');                                            
                                             $(document).find('#storecredit-messages').html('Error: '+this.model.models[0].get('message'));
                                             $(document).find('#storecredit-messages').css('display','block');
-                                            $(document).find('#digital-credit-code').attr('aria-invalid','true');
-                                            
+                                            $(document).find('#digital-credit-code').attr('aria-invalid','true');                                            
                                             if(isAndroid)
                                                 $('#storecredit-messages').attr('aria-label', 'Error: '+this.model.models[0].get('message'));
                                             
@@ -71,10 +69,12 @@
                                                 $(document).find('#storecredit-messages').css('display','none');
                                                 $(document).find('#digital-credit-code').attr('aria-invalid','false');
                                             },6000);
-                                    } else {
-                                        Backbone.MozuView.prototype.render.apply(this, arguments);
-                                        self.$el.css('display','block');
-                                        // $('#giftcard-messages').css('display','block');
+                                    } else if(this.model.models[0].get('name')!==undefined){
+                                        if(this.model.models[0].get('name').indexOf("billingContact") == -1 || this.model.models[0].get('name').indexOf("billingContact") == -1 ){
+                                            Backbone.MozuView.prototype.render.apply(this, arguments);
+                                            self.$el.css('display','block');
+                                            // $('#giftcard-messages').css('display','block');
+                                                
                                             
                                         
                                         
@@ -97,6 +97,7 @@
                                                 },8000);
                                             } 
                                            
+                                            }
                                         }
                                     }
                                 }else{
@@ -119,7 +120,7 @@
                                         else if(self.$el.find('.mz-errors').find('p').length === 1)
                                             self.$el.find('.mz-errors').find('p').focus();
                                         else
-                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();                   
+                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true, 'role':'contentinfo'}).focus();                   
                                        
 
                                         if(window.location.pathname == "/cart"){
@@ -177,7 +178,8 @@
                                 // $('.digitalcrediterror-msg').attr('id','storecredit-messages-2');
                                 // $('#digital-credit-code').attr('aria-describedby','storecredit-messages-2');
                                 // $('#digital-credit-code').attr('aria-invalid','true');
-                                    $(document).find('#storecredit-messages-2').html('Error: '+Hypr.getLabel('promoCodeError', code));
+                                    //Commented by shruthi as coupon code error is getting disaplyed
+                                $(document).find('#storecredit-messages-2').html('Error: '+Hypr.getLabel('promoCodeError1', code));
                                     $(document).find('#storecredit-messages-2').css('display','block');
                                     $('#digital-credit-code').attr('aria-invalid','true');
                                     
@@ -188,22 +190,15 @@
                                         $(document).find('#storecredit-messages-2').html('');
                                         $(document).find('#storecredit-messages-2').css('display','none');
                                         $('#digital-credit-code').attr('aria-invalid','false');
-                                    },6000);
+                                    },10000); 
                                 
-                                this.model.models[0].set("message",Hypr.getLabel('promoCodeError', code)); 
+                                this.model.models[0].set("message",Hypr.getLabel('promoCodeError1', code));  
                             }
                             else{
                                 Backbone.MozuView.prototype.render.apply(this, arguments);
                                 $(document).find('#giftcard-messages').css('display','none');
                                 $(document).find('#storecredit-messages').css('display','none');
-                                if(this.model.models[0].get('message').indexOf('does not have enough stock to create this reservation and backorders are not enabled.')>-1){
-                                    var msg = this.model.models[0].get('message').split(':'),
-                                        product = msg[1].substring(0,msg[1].indexOf('does')).trim(),
-                                        sku = product.substring(product.indexOf(' '));
-                                    var finalMsg = Hypr.getLabel('checkoutOos', sku);
-                                    self.$el.find('#error-inventory').text(finalMsg);
-                                }
-                                self.$el.css('display','block'); 
+                                self.$el.css('display','block');
                                     
                                     if (this.model.length > 0) {
                                         this.$el.ScrollTo({
@@ -218,7 +213,7 @@
                                         else if(self.$el.find('.mz-errors').find('p').length === 1)
                                             self.$el.find('.mz-errors').find('p').focus();
                                         else
-                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();                   
+                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true, 'role':'contentinfo'}).focus();                   
                                        
 
                                         if(window.location.pathname == "/cart"){
@@ -251,3 +246,5 @@
     };
 
 });
+
+

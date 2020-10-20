@@ -9,13 +9,13 @@ width:150px;
 height:150px;
 }
 </style>
-    <article class="wedding-title" tabindex="0" > 
+    <article class="wedding-title" tabindex="0" role="contentinfo"> 
         <h1 class="sectionTitle" style="margin: 0;">Jelly Belly Wedding Center</h1>
         <h2 class="sectionTitle" style="font-size: 34px; margin: 0; height: 34px; line-height: 0;">Where to Start</h2>
     </article>
     <div class="welcome-center">
         <div class="welcome-center-details">
-            <p tabindex="0" >Welcome to Jelly Belly's Wedding Center. Here you'll find lots of great ideas for wedding favors, bridal shower favors, wedding decorations, gifts and more, all infused with the flavor and color Jelly Belly is known for!</p>
+            <p tabindex="0" role="contentinfo">Welcome to Jelly Belly's Wedding Center. Here you'll find lots of great ideas for wedding favors, bridal shower favors, wedding decorations, gifts and more, all infused with the flavor and color Jelly Belly is known for!</p>
             <div class="weddingNav">
                 <img src="/resources/images/wedding/brideGroom.png" alt="Bride and Groom"/> 
                 <ul>
@@ -99,12 +99,12 @@ height:150px;
         <!-- /Zen Wedding -->
     </div>
 </section>
-
-{{ "stylesheets/pages/wedding-center.less"|stylesheet_tag:"default" }}
-
 {% require_script "pages/jb-wedding-center" %}
 <script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
 <script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
 <script type="text/javascript">Cufon.replace('.sectionTitle');</script>
 <script type="text/javascript">Cufon.now();</script>
 {% endblock body-content %} 
+
+
+

@@ -8,54 +8,108 @@ require([
     $(document).ready(function(){    
         var trigger;
         
+        $(document).find('.popup').on('click', '.close-icon, .button-no', function(e){
+            $(e.target).parents('.popup').removeClass('active');
+        });
         $(document).on('click', '.jb-add-to-cart', function(e) {
             e.preventDefault();
             trigger = e.target;
-			$(document).find('[data-mz-productlist]').addClass('is-loading');
-			$(document).find('[data-mz-facets]').addClass('is-loading');
-            var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
-            $(document).find('[data-mz-message-bar]').hide();             
-            $target.addClass('is-loading');            
-            var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-            var count = parseInt($quantity);            
-            Api.get('product', productCode).then(function(sdkProduct) {
-                var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                var variantOpt = sdkProduct.data.options;                    
-                if(variantOpt !== undefined && variantOpt.length>0){  
-                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                    if(newValue != "Select gift amount" && newValue !== ''){
-                        if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
-                            ID = "Tenant~gift-card-prices";
+            if($.cookie("subscriptionCreated") !== "true"){
+    			$(document).find('[data-mz-productlist]').addClass('is-loading');
+    			$(document).find('[data-mz-facets]').addClass('is-loading');
+                var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
+                $(document).find('[data-mz-message-bar]').hide();             
+                $target.addClass('is-loading');            
+                var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
+                var count = parseInt($quantity);            
+                Api.get('product', productCode).then(function(sdkProduct) {
+                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                    var variantOpt = sdkProduct.data.options;                    
+                    if(variantOpt !== undefined && variantOpt.length>0){  
+                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                        if(newValue != "Select gift amount" && newValue !== ''){
+                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                                ID = "Tenant~gift-card-prices";
+                            }
+                            var option = PRODUCT.get('options').get(ID);
+                            var oldValue = option.get('value');
+                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                                option.set('value', newValue);
+                            }
+                            setTimeout(function(){
+                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                            },2000);
+                        }else{
+                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                            $target.removeClass('is-loading');
                         }
-                        var option = PRODUCT.get('options').get(ID);
-                        var oldValue = option.get('value');
-                        if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                            option.set('value', newValue);
-                        }
-                        setTimeout(function(){
-                                addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                        },2000);
                     }else{
-                        showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                        $target.removeClass('is-loading');
+                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                     }
-                }else{
-                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                }
-            });
-            setTimeout(function(){ 
-                 $target.focus(); 
-            },6200); 
+                });
+                setTimeout(function(){ 
+                     $target.focus(); 
+                },6200); 
+            }else{
+                $(document).find('.popup').addClass('active');
+                var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
+                var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
+                $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
+                $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
+            }
         }); 
+
+        $(document).find('.popup').on('click', '.button-yes', function(e){
+            MiniCart.MiniCart.clearCart();
+            setTimeout(function(){ 
+                $.cookie("subscriptionCreated", false);
+                $(document).find('[data-mz-productlist]').addClass('is-loading');
+                $(document).find('[data-mz-facets]').addClass('is-loading');
+                var $target = $(e.target), productCode = $target.attr("productCode");
+                $(document).find('[data-mz-message-bar]').hide();             
+                $target.addClass('is-loading');            
+                var $quantity = $(e.target).attr('quantity');
+                var count = parseInt($quantity);            
+                Api.get('product', productCode).then(function(sdkProduct) {
+                    $(e.target).parents('.popup').removeClass('active');
+                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                    var variantOpt = sdkProduct.data.options;                    
+                    if(variantOpt !== undefined && variantOpt.length>0){  
+                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                        if(newValue != "Select gift amount" && newValue !== ''){
+                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                                ID = "Tenant~gift-card-prices";
+                            }
+                            var option = PRODUCT.get('options').get(ID);
+                            var oldValue = option.get('value');
+                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                                option.set('value', newValue);
+                            }
+                            setTimeout(function(){
+                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                            },2000);
+                        }else{
+                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                            $target.removeClass('is-loading');
+                        }
+                    }else{
+                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                    }
+                });
+                setTimeout(function(){ 
+                     $target.focus(); 
+                },6200); 
+            },2000);  
+        });
         
         $(document).on('keypress', '.jb-add-to-cart', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {
                 e.preventDefault();
                 $(this).click();
             }
-        });
-        
+        });        
         
         //Gift card option change functionality - set variation product code whle changing the option for product, and set it as main product.
         $('[data-mz-productlist]').on('change','[plp-giftcart-prize-change-action]',function(e){
@@ -70,8 +124,7 @@ require([
                 ax.addClass('gift-prize-select');
             }
             
-        });
-        
+        });        
         
         function showErrorMessage(msg){
             $('[data-mz-message-bar]').empty();
@@ -81,15 +134,14 @@ require([
             $('[data-mz-message-bar]').append(emsg);
             $('[data-mz-message-bar]').fadeIn();
             $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0});
+            $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
             $('#mz-errors-list').find('li').focus();
             $('.jb-pagecontrols').animate({scrollTop:$('[data-mz-message-bar]').position().top}, 'slow');
             setTimeout(function(){
                 $('[data-mz-message-bar]').hide();
             },6000);
             $('.jb-inner-overlay').remove();
-        }
-        
+        }        
         
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
@@ -161,56 +213,51 @@ require([
             $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);
             $(document).find('.Add-to-cart-popup').addClass("active");
             $(document).find('body').addClass("noScroll");
-            if(require.mozuData('pagecontext').url.indexOf('search-results')<0){
-                var owl = $(document).find('.rec-prod-list-popup');    
-                owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
-                owl.find('.owl-stage-outer').children().unwrap();
-                $(document).find('#rec-prod-list-popup').html('');
-                $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
-                    $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
-                });
-                owl.owlCarousel({  
-                    loop: true, 
-                    margin: 14,
-                    dots: false,
-                    autoPlay: false,  
-                    pagination: false,   
-                    nav: true,     
-                    navText:false,
-                    slideBy: 1,
-                    items: 1,
-                    center: false,
-                    stagePadding : 50,
-                    responsive: {    
-                        0: {
-                            items: 1
-                        },
-                        400: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        800: {
-                            items: 3  
-                        }, 
-                        1025: {
-                            items: 3
-                        },
-                        1200:{
-                            items: 3
-                        },
-                        1440: {
-                            items: 3
-                        }
-                    } 
-                });
-                $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
-                loopInAddTocart(); 
-            }else{
-                $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
-                $(document).find('#addtocart-popup-rec-prod-sec .head-rec-prod-list').hide();
-            }
+            var owl = $(document).find('.rec-prod-list-popup');    
+            owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+            owl.find('.owl-stage-outer').children().unwrap();
+            $(document).find('#rec-prod-list-popup').html('');
+            $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
+                $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
+            });
+            owl.owlCarousel({  
+                loop: true, 
+                margin: 14,
+                dots: false,
+                autoPlay: false,  
+                pagination: false,   
+                nav: true,     
+                navText:false,
+                slideBy: 1,
+                items: 1,
+                center: false,
+                stagePadding : 50,
+                responsive: {    
+                    0: {
+                        items: 1
+                    },
+                    400: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    800: {
+                        items: 3  
+                    }, 
+                    1025: {
+                        items: 3
+                    },
+                    1200:{
+                        items: 3
+                    },
+                    1440: {
+                        items: 3
+                    }
+                } 
+            });
+            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            loopInAddTocart(); 
         } 
 
         $(document).on('click', '.cross-close-popup',function(){
@@ -231,3 +278,5 @@ require([
         });
     });
 });
+
+

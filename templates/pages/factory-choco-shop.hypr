@@ -27,23 +27,29 @@
         <figure class="vertImage">
             <img src="/resources/images/visit-us/CA_chocolate_shop.jpg" alt="Photo of Chocolate Shoppe and Fudge Center">
         </figure>
-        <p tabindex="0" >
+        <p tabindex="0" role="contentinfo">
             Located in the Visitor Center, our Chocolate Shoppe is a chocolate lover's dream! Watch candy chefs create gourmet hand-made confections like dark and milk chocolate candy clusters, 
             decadent truffles and fudge in a variety of standard and seasonal flavors. And that's not all!
         </p>
-        <p tabindex="0" >
+        <p tabindex="0" role="contentinfo">
             Specialties of the Chocolate Shoppe include freshly-made marshmallow treats, gourmet caramel apples, caramel corn and seasonal chocolate molds such as chocolate bunnies at Easter or a 
             chocolate Santa Claus during Christmas!
         </p>
-        <p tabindex="0" >
+        <p tabindex="0" role="contentinfo">
             Stop at our fudge counter to try free samples of our delicious fudge. Our specialties include Cookies &amp; Cream and Red Velvet fudge.
         </p>
-        <p tabindex="0" >
+        <p tabindex="0" role="contentinfo">
             <a href="https://cdn-tp1.mozu.com/9046-m1/cms/files/Chocolate%20Shoppe%20Items%20-%20Nov%202017.pdf" target="_blank">Click here</a> to see all the items that the Chocolate Shoppe offers.
         </p>
-        <p class="finePrint" tabindex="0" >
+        <p class="finePrint" tabindex="0" role="contentinfo">
             ALLERGEN NOTICE: Our Retail Store, Café, and Chocolate Shoppe confections and foods contain certain allergy triggers. Please check out our <a href="/frequently-asked-questions">FAQ</a> (Frequently Asked Questions) to learn more about allergens and to submit a question. 
         </p>
     </article>
 </section>
 {% endblock body-content %}
+
+
+
+
+
+

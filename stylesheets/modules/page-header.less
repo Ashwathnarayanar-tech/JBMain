@@ -128,14 +128,6 @@
         }
     }
 }  
-// aspot issue
-.a-spot-cointainer{
-    display: none;   
-}
-.a-spot-cointainer.opacity{
-    display: block;
-}
-
 
 /* Progress bar */
 
@@ -554,97 +546,88 @@ body{
         -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         .jb-serach-box-with-label{
-            width: 42%;
+            width: 30%;
             display: inline-block;
             vertical-align: top;
-            text-align: right;
             .mz-searchbox{
                 padding-top:2px;
                 padding-bottom:6px;
                 position: relative;
-                .twitter-typeahead{
-                    width: 100%;
-                }
                 .mz-searchbox-button{
                     background: transparent;
                     border: none;
                     border-radius: 0;
                     padding: 0;
                     position: absolute;
+                    right: 72px;
+                    top: 14px;
+                    left: 0;
+                    top: 0;
                     width: 20px;
                     height: 39px;
                     margin-left: 15px;
-                    right: 10px;
-                    top: 8px;
-                    left: auto;
                     img{
                         width: 100%;
                     }
                 }
                 /* Since type ahed Js fails to load some time i am adding the search fild css here as well to look good */
                 .mz-searchbox-field{ 
+                    width: 232px;
+                    height: 25px;
                     border-radius: 8px;
                     box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
                     -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
                     -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+                    padding: 5px 10px 5px 35px;
                     margin: 0;
                     border: none;
+                    font-size: 14px;
                     color: #004e99;
                     line-height: 1;
                     background-color: #fff; 
                     -webkit-appearance: none;
-                    width: 68%;
-                    height: 40px;
-                    padding: 5px 10px 5px 10px;
-                    font-size: 16px;
                     &:-ms-input-placeholder {
                         color: #004e99 !important;
-                        text-align:center;
-                        font-size: 16px;
+                        font-size: 14px;
                     }
                     &::-ms-input-placeholder {
                         color: #004e99 !important;
-                        text-align:center;
-                        font-size: 16px;
+                        font-size: 14px;
                     } 
                     &::placeholder {
                         color: #004e99 !important;
                         opacity: 1 !important;
-                        text-align:center;
-                        font-size: 16px;
+                        font-size: 14px;
                     }
                 }
                 .twitter-typeahead{ 
                     .mz-searchbox-field{ 
+                        width: 232px;
+                        height: 25px;
                         border-radius: 8px;
                         box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
                         -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
                         -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3); 
+                        padding: 5px 10px 5px 42px;
                         margin: 0;
                         border: none;
+                        font-size: 14px;
                         color: #000;
                         line-height: 1;
                         background-color: #fff; 
                         -webkit-appearance: none;
-                        width: 68%;
-                        height: 40px;
-                        padding: 5px 10px 5px 10px;
-                        font-size: 16px;
                         &:-ms-input-placeholder {
                             color: #004e99 !important;
-                            text-align:center;
-                            font-size: 16px;
+                            font-size: 14px;
                         }
                         &::-ms-input-placeholder {
                             color: #004e99 !important;
-                            text-align:center;
-                            font-size: 16px;
+                            font-size: 14px;
                         } 
                         &::placeholder {
                             color: #004e99 !important;
                             opacity: 1 !important;
-                            text-align:center;
-                            font-size: 16px;
+                            font-size: 14px;
                         }
                     }
                 }
@@ -1343,54 +1326,40 @@ body{
                 }
             }
             .jb-serach-box-with-label{ 
-                width:30%;
                 .mz-searchbox{ 
                     .mz-searchbox-field{
-                        width: 95%;
-                        padding: 5px;
-                        height: 35px;
-                        font-size: 16px;
+                        font-size: 12px;
+                        width: 190px;
                         &:-ms-input-placeholder {
                             color: #007aaf !important;
-                            font-size: 14px;
-                            text-align:left;
+                            font-size: 12px;
                         }
                         &::-ms-input-placeholder {
                             color: #007aaf !important;
-                            font-size: 14px;
-                            text-align:left;
+                            font-size: 12px;
                         } 
                         &::placeholder {
                             color: #007aaf !important;
                             opacity: 1 !important;
-                            font-size: 14px;
-                            text-align:left;
+                            font-size: 12px;
                         }
-                    }
-                    .mz-searchbox-button{
-                        right: 5px;   
                     }
                     .twitter-typeahead{ 
                         .mz-searchbox-field{
-                            font-size: 16px;
-                            width: 95%;
-                            padding: 5px;
-                            height: 35px;
+                            font-size: 12px;
+                            width: 190px;
                             &:-ms-input-placeholder {
                                 color: #007aaf !important;
-                                font-size: 14px;
-                                text-align:left;
+                                font-size: 12px;
                             }
                             &::-ms-input-placeholder {
                                 color: #007aaf !important;
-                                font-size: 14px;
-                                text-align:left;
+                                font-size: 12px;
                             } 
                             &::placeholder {
                                 color: #007aaf !important;
                                 opacity: 1 !important;
-                                font-size: 14px;
-                                text-align:left;
+                                font-size: 12px;
                             }
                         }
                     }
@@ -1901,72 +1870,6 @@ body{
                         margin-top: 135px;
                     }
                 }
-            }
-        }
-    }
-}	
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-    .mz-l-pagewrapper{ 
-        .page-header.desktop{
-            .jb-serach-box-with-label{
-                width: 38%;
-                .mz-searchbox{ 
-                    .mz-searchbox-field{
-                        width: 86%;
-                        height: 35px;
-                        padding: 5px 10px 5px 10px;
-                        font-size: 16px;
-                        &:-ms-input-placeholder {
-                            color: #007aaf !important;
-                            font-size: 16px;
-                            text-align:center;
-                        }
-                        &::-ms-input-placeholder {
-                            color: #007aaf !important;
-                            font-size: 16px;
-                            text-align:center;
-                        } 
-                        &::placeholder {
-                            color: #007aaf !important;
-                            opacity: 1 !important;
-                            font-size: 16px;
-                            text-align:center;
-                        }
-                    }
-                    .mz-searchbox-button{
-                        right: 8px;
-                        left: auto;
-                        top: 6px;
-                    }
-                    .twitter-typeahead{ 
-                        width: 100%;
-                        .mz-searchbox-field{
-                            font-size: 16px;
-                            width: 95%;
-                            padding: 5px 10px 5px 10px;
-                            height: 35px;
-                            &:-ms-input-placeholder {
-                                color: #007aaf !important;
-                                font-size: 16px;
-                                text-align:center;
-                            }
-                            &::-ms-input-placeholder {
-                                color: #007aaf !important;
-                                font-size: 16px;
-                                text-align:center;
-                            } 
-                            &::placeholder {
-                                color: #007aaf !important;
-                                opacity: 1 !important;
-                                font-size: 16px;
-                                text-align:center;
-                            }
-                        }
-                    }
-                }
-            }
-            .mz-utilitynav{
-                width: 54%;
             }
         }
     }

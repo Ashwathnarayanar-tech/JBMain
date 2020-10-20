@@ -11,7 +11,7 @@
   "orderStatus": "Order Status",
   "order": "Order",
   "verifyWith": "Verify With",
-  "verification": "Verification Data (phone or email)",
+  "verification": "Verification",
   "billingPostalCode": "Billing Zip Code",
   "billingPhoneNumber": "Billing Phone Number",
   "viewCart": "View Cart",
@@ -25,7 +25,7 @@
   "add": "Add",
   "allRightsReserved": "All rights reserved.",
   "poweredBy": "Powered by Mozu Shopping Cart",
-  "product": "Product Details",
+  "product": "Product",
   "item": "Item",
   "price": "Price",
   "qty": "Quantity",
@@ -174,9 +174,21 @@
   "agreeToTerms": "I agree to the terms &amp; conditions.",
   "createAccount": "Create an account for easy checkout on future orders",
   "placeOrder": "Place Order",
+  "subscriptionConfirmation":"Subscription Confirmation",
+  "subscriptionText":"Thank you for your subscription! Your order number is <strong>{0}</strong>.",
+  "emailConfirmation":"You will receive an email confirmation.",
+  "continueShopping":"Continue Shopping",
+  "takeSurvey":"Take a Survey!",
+  "subscriptionDetails":"Subscription Details",
+  "howOften":"How Often? Every",
+  "week":"Week",
+  "forHowLong":"For How Long?",
+  "whenStarting":"When? Starting",
+  "productDetails":"Product Details",
   "orderConfirmation": "Order Confirmation",
   "confirmationText": "Thank you for your order!  You will receive an email confirmation.",
   "yourOrderNumber": "Your order number is <strong>{0}</strong>.",
+  "shippingAddress": "Shipping Address",
   "payments": "Payments",
   "orderDetails": "Order Details",
   "orderNumber": "Order Number",
@@ -490,16 +502,25 @@
   "savedPyamentMethodtooltip":"Saved Cards can be updated in the “Saved Cards” section of the My Account page.  Please see the FAQ section of this page for more information.",
   "loginmodeltabhead":"Continue as Guest or Login",
   "loginmodelguesttab1": "Continue as Guest",
-  "loginmodelguesttab2": "Login & Continue", 
+  "loginmodelguesttab2": "Login & Continue",
   "reset" : "Reset",    
   "storecreditmessage":"Your Store Credit, Sweet Rewards redemption, or other credit of {0} doesn't cover the cost of your order.  Please provide Credit Card or PayPal information to make up the difference.",
   "signuperror": "Thanks for trying to register, but there is already an account with that email address. Please visit the <a href='/user/forgotpassword' title='forgot password'>Forgot Password</a> page to update your password or <a href='/contact-us' title='contact us'>Contact Us</a> for additional assistance.",
   "ooserror":"*** At least one of your items is now out-of-stock. Please scroll down to make changes. ***",
-  "shippingAKHI":"Shipping to AK, HI, or a Military address can take up to 6 weeks for delivery.", 
-  "checkoutOos":"Whoops! {0} doesn’t have enough inventory right now.  Please reduce the quantity or remove this from your order.  Don’t forget to sign up for an In-Stock Notification!",
-  "bypass_headline1": "Error: Click \"Use this Address\" (below) to proceed with the address as entered.",
-  "bypass_warn1": "Your order may not arrive on time (or ever!); and", 
-  "bypass_warn2": "Jelly Belly is not responsible for any costs associated with orders shipped to invalid addresses.",
-   "cartTax":"*Shipping or Tax will be calculated when you enter a shipping address in checkout."  
+  "shippingAKHI":"Shipping to AK, HI, or a Military address can take up to 6 weeks for delivery.",
+  "mysubscription":"MY SUBSCRIPTION",
+  "subscriptionorderSummary": "Subscription Order Summary",
+  "subscriptionSubTotal":"Sub Total",
+  "subscriptionCartDiscount":"Cart Discount",
+  "subscriptionTax":"Tax",
+  "subscriptionCouponDiscount":"Coupon Discount",
+  "subscriptionShipping":"Shipping"  
 }
+
+
+
+
+
+
+
 

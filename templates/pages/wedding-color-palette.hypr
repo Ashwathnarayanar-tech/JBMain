@@ -294,9 +294,6 @@
         <!-- /Zen Wedding -->
     </div>
 </section>
-
-{{ "stylesheets/pages/wedding-center.less"|stylesheet_tag:"default" }}
-
 <script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
 <script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
 <script type="text/javascript">Cufon.replace('.sectionTitle');</script>
@@ -306,3 +303,10 @@
 
 
 {% endblock body-content %}
+
+
+
+
+
+
+

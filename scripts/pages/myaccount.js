@@ -1,9 +1,21 @@
-﻿define(['modules/backbone-mozu', 'hyprlive', 'hyprlivecontext', 'modules/jquery-mozu', 'underscore', 'modules/models-customer', 'modules/views-paging', 'modules/editable-view','modules/api','modules/models-product',
-'modules/models-cart',
-'modules/cart-monitor',
-'modules/minicart',"vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart) {
+﻿define([
+    'modules/backbone-mozu', 
+    'hyprlive', 
+    'hyprlivecontext', 
+    'modules/jquery-mozu', 
+    'underscore', 
+    'modules/models-customer', 
+    'modules/views-paging', 
+    'modules/editable-view',
+    'modules/api',
+    'modules/models-product',
+    'modules/models-cart',
+    'modules/cart-monitor',
+    'modules/minicart',"vendor/jquery.mask"], 
+    function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView,
+    Api,ProductModels, CartModels, CartMonitor,MiniCart) {
 
-     var AccountSettingsView = EditableView.extend({
+    var AccountSettingsView = EditableView.extend({
         templateName: 'modules/my-account/my-account-settings',
         autoUpdate: [
             'firstName',
@@ -50,7 +62,6 @@
             this.render();
             var x = document.getElementsByClassName('mz-accountsettings-email')[0];
             x.focus();
-            
         },
         cancelEdit: function() {
             this.editing = false;
@@ -163,7 +174,49 @@
         //    this.render();
         //}
     });
-    
+      $(document).find('.popup').on('click', '.button-yes', function(e){
+            MiniCart.MiniCart.clearCart();
+            setTimeout(function(){ 
+                $.cookie("subscriptionCreated", false);
+                $(document).find('[data-mz-productlist]').addClass('is-loading');
+                $(document).find('[data-mz-facets]').addClass('is-loading');
+                var $target = $(e.target), productCode = $target.attr("productCode");
+                $(document).find('[data-mz-message-bar]').hide();             
+                $target.addClass('is-loading');            
+                var $quantity = $(e.target).attr('quantity');
+                var count = parseInt($quantity);            
+                Api.get('product', productCode).then(function(sdkProduct) {
+                    $(e.target).parents('.popup').removeClass('active');
+                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                    var variantOpt = sdkProduct.data.options;                    
+                    if(variantOpt !== undefined && variantOpt.length>0){  
+                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                        if(newValue != "Select gift amount" && newValue !== ''){
+                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                                ID = "Tenant~gift-card-prices";
+                            }
+                            var option = PRODUCT.get('options').get(ID);
+                            var oldValue = option.get('value');
+                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                                option.set('value', newValue);
+                            }
+                            setTimeout(function(){
+                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                            },2000);
+                        }else{
+                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                            $target.removeClass('is-loading');
+                        }
+                    }else{
+                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                    }
+                });
+                setTimeout(function(){ 
+                     $target.focus(); 
+                },6200); 
+            },2000);  
+        });
     var WishListView = EditableView.extend({
         templateName: 'modules/my-account/my-account-wishlist',
         addItemToCart: function (e) {
@@ -180,9 +233,9 @@
                 //         document.getElementById('x-account-wishlist').focus();
                 //     }, 6000);
                 // });
-                
-                var count = Item[0].quantity;
-                Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
+                if($.cookie("subscriptionCreated") !== "true"){
+                    var count = Item[0].quantity;
+                    Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;  
                     if(variantOpt !== undefined && variantOpt.length>0){
@@ -233,6 +286,13 @@
                         }
                     }
                 });
+                }else{
+                    $(document).find('.popup').addClass('active');
+                    var $target = $(e.currentTarget), productCode = Item[0].product.productCode;
+                    var $quantity = Item[0].quantity;
+                    $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
+                    $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
+                }
             }
         },
         notifymedilog : function(){
@@ -547,33 +607,66 @@
             var productId = e.currentTarget.getAttribute('quickOrderProductCodeQuantityChanger');
             var orderId = $(e.currentTarget).parents('[orderid]').attr('orderid');
             var variantCode;
-                if($(e.currentTarget).attr('variationcode')){
-                    variantCode = $(e.currentTarget).attr('variationcode');
-                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)> 24 ){
-                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
-                    }else{
-                        $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val())+1);
-                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                        if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)>1 ){
-                            $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                        }
-                    }
+            if($(e.currentTarget).attr('variationcode')){
+                variantCode = $(e.currentTarget).attr('variationcode');
+                if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)> 24 ){
+                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
                 }else{
-                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)> 24 ){
-                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
-                    }else{
-                        $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val())+1);
-                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                        if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)>1 ){
-                            $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                        }
+                    $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val())+1);
+                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)>1 ){
+                        $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
                     }
                 }
-               
-            },
+            }else{
+                if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)> 24 ){
+                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
+                }else{
+                    $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val())+1);
+                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)>1 ){
+                        $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                    }
+                }
+            }
+        },
         addInlineItemToCart: function(e){
-            var productId = e.currentTarget.getAttribute('quickOrderProductCode');
-            var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+            if($.cookie("subscriptionCreated") !== "true"){
+                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                var quantityElement;
+                //var variantCode = e.currentTarget.getAttribute('variationCode');
+                if(e.currentTarget.getAttribute('variationCode')){
+                    quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[variationCode="'+e.currentTarget.getAttribute('variationCode')+'"][OrderProductId="'+productId+'"]');
+                }else{
+                    quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]');
+                }
+                
+                var productCodes = [];
+                var product = {
+                    productCode:productId,
+                    qty:quantityElement[0].value
+                };
+                if(e.currentTarget.getAttribute('variationCode')){
+                    product.variantcode = e.currentTarget.getAttribute('variationCode');
+                }
+                productCodes.push(product);
+                this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
+                window.targetFocusEl = e.target;
+            }else{
+                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                $(document).find('.popup').addClass('active');
+                $(document).find('.popup').find('.button-yes').attr('isOrder', true);
+                $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
+                $(document).find('.popup').find('.button-yes').attr('addAll', false);
+                $(document).find('.popup').find('.button-yes').attr('orderId', orderNumber);
+                $(document).find('.popup').find('.button-yes').attr('productId', productId);
+            }
+        },
+        removerProductandAddtocart: function(orderNumber,productId){
+            var self = this;
+            MiniCart.MiniCart.clearCart();
             var quantityElement;
             //var variantCode = e.currentTarget.getAttribute('variationCode');
             if(e.currentTarget.getAttribute('variationCode')){
@@ -593,53 +686,107 @@
             productCodes.push(product);
             this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
             window.targetFocusEl = e.target;
-        }, 
+        },
         addAllToCart: function(e){
             var el = e;
             var orderId = e.currentTarget.getAttribute('orderToAdd');
-            $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
-            var products = [];
-            var locationCodes = [];
-            var locCode;
-            var productCodes = [];
-            var prodCode;
-            //var productQuantity = [];
-             
-            //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
-            var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
-            $(orderItems).each(function(key,val){
-                var product = {
-                  productcode:val.getAttribute('orderproductid'),
-                  quantity: parseInt(val.value)
-                };
-                if(val.getAttribute('variationcode')){
-                    product.variantcode = val.getAttribute('variationcode');
-                }
+            if($.cookie("subscriptionCreated") !== "true"){
+                $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
+                var products = [];
+                var locationCodes = [];
+                var locCode;
+                var productCodes = [];
+                var prodCode;
+                //var productQuantity = [];
+                 
+                //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
+                var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
+                $(orderItems).each(function(key,val){
+                    var product = {
+                      productcode:val.getAttribute('orderproductid'),
+                      quantity: parseInt(val.value)
+                    };
+                    if(val.getAttribute('variationcode')){
+                        product.variantcode = val.getAttribute('variationcode');
+                    }
 
-                products.push(product);
+                    products.push(product);
 
-                locCode = val.getAttribute('prodLocationCode');
-                prodCode = val.getAttribute('orderproductid');
+                    locCode = val.getAttribute('prodLocationCode');
+                    prodCode = val.getAttribute('orderproductid');
 
-                locationCodes.push(locCode);
-                productCodes.push(prodCode);
-            });
-
-            var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
-            var itemNames = [];
-
-            itemNamesElement.each(function(key, val){
-                itemNames.push({
-                    productCode: $(val).find('div').text().trim(),
-                    productName: $(val).find('a').text().trim()
+                    locationCodes.push(locCode);
+                    productCodes.push(prodCode);
                 });
-            });
-            /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
-            $(orderQuantity).each(function(key,val){
-                productQuantity.push(val.value);
-            });*/
-            this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
-            window.targetFocusEl = e.target;
+
+                var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
+                var itemNames = [];
+
+                itemNamesElement.each(function(key, val){
+                    itemNames.push({
+                        productCode: $(val).find('div').text().trim(),
+                        productName: $(val).find('a').text().trim()
+                    });
+                });
+                /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
+                $(orderQuantity).each(function(key,val){
+                    productQuantity.push(val.value);
+                });*/
+                this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
+                window.targetFocusEl = e.target;
+            }else{
+                $(document).find('.popup').addClass('active');
+                $(document).find('.popup').find('.button-yes').attr('isOrder', true);
+                $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
+                $(document).find('.popup').find('.button-yes').attr('addAll', true);
+                $(document).find('.popup').find('.button-yes').attr('orderId', orderId);
+                $(document).find('.popup').find('.button-yes').attr('productId', "");   
+            }
+        },
+        removerProductandAddalltoCart: function(orderId){
+                $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
+                var products = [];
+                var locationCodes = [];
+                var locCode;
+                var productCodes = [];
+                var prodCode;
+                //var productQuantity = [];
+                 
+                //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
+                var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
+                $(orderItems).each(function(key,val){
+                    var product = {
+                      productcode:val.getAttribute('orderproductid'),
+                      quantity: parseInt(val.value)
+                    };
+                    if(val.getAttribute('variationcode')){
+                        product.variantcode = val.getAttribute('variationcode');
+                    }
+
+                    products.push(product);
+
+                    locCode = val.getAttribute('prodLocationCode');
+                    prodCode = val.getAttribute('orderproductid');
+
+                    locationCodes.push(locCode);
+                    productCodes.push(prodCode);
+                });
+
+                var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
+                var itemNames = [];
+
+                itemNamesElement.each(function(key, val){
+                    itemNames.push({
+                        productCode: $(val).find('div').text().trim(),
+                        productName: $(val).find('a').text().trim()
+                    });
+                });
+                /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
+                $(orderQuantity).each(function(key,val){
+                    productQuantity.push(val.value);
+                });*/
+                this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
+                window.targetFocusEl = e.target;    
         },
         makeQuickBulkOrder: function(el, products,orderId,locationCodes,productCodes,itemNames){
 
@@ -745,7 +892,7 @@
                 MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
             });
         },
-          makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
+        makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
             var errorArray = [], self = this, productAdded = 0,time = 1500;
             $('.order-history-overlay').show();
 
@@ -779,6 +926,7 @@
                             if(productAdded  === products.length ){
                                 self.showMessages(errorArray, productAdded,orderId);
                             }
+                            $(document).find('.popup').removeClass('active');
                         });
                         PRODUCT.on('error',function(err){
                             productAdded++;
@@ -791,6 +939,7 @@
                             if(productAdded  === products.length ){
                                 self.showMessages(errorArray, productAdded,orderId);
                             }
+                            $(document).find('.popup').removeClass('active');
                             
                         }); 
                      },2000);
@@ -817,7 +966,6 @@
                 time+=1000;
             });
         },
-        
         showMessages: function(errorArray, productAdded,orderId){
             //show All error messges
             $('#account-messages').hide();
@@ -1246,7 +1394,594 @@
             }
         }
     });
-    
+
+     var MySubscriptionListView = Backbone.MozuView.extend({
+        templateName: 'modules/my-account/my-account-subscriptionList',
+        additionalEvents: {
+            "click .subscription-list-header": "toggleShow",
+            "click .mz-more-order":"loadMoreSubscriptions"
+        },
+        toggleShow:function(e){
+            var subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
+            
+            if(window.mySubscription !=undefined){
+                var id = window.mySubscription.model.attributes.subscriptionId;
+                $(".subscriptionViewDetails[data-subscription-id='"+subId+"']").removeClass('active');
+                $("#"+id).removeClass("active");
+            }
+
+            if($(e.currentTarget).hasClass('active')){
+                $(e.currentTarget).removeClass('active');
+                $(e.currentTarget).siblings('.subscription-list-body').slideUp();
+                window.mySubscription.model.set({'open':false});
+                window.mySubscription.render();
+                active=false;
+            }else{
+                try {
+                    var _this=this,existingEntityData=[],
+                    subscriptionModel = Backbone.MozuModel.extend({});
+
+                     Api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subId}).then(function(res) {
+                        if (!res.error &&  res.res.subscriptionId !== undefined) {
+                            if(res.res && res.res.order && res.res.order.billingInfo){
+                                var card = res.res.order.billingInfo.card;
+                                var lastFour = "";
+                                var cardType = card.paymentOrCardType;
+                                if(card.cardNumberPartOrMask){
+                                     lastFour = card.cardNumberPartOrMask.substr(card.cardNumberPartOrMask.length - 4);
+                                }
+                                res.res.order.billingInfo.card.lastFour = lastFour;
+                                if(res.res.order.billingInfo.paymentType === "PayPalExpress2"){
+                                    cardType = "PayPal Express";
+                                }
+                                res.res.order.billingInfo.card.cardType = cardType;
+                            }
+                             existingEntityData = res.res;
+                             existingEntityData.open = true;
+                            }
+                           
+                        var mySubscription = window.mySubscription =  new MySubscriptionView({
+                            el: $(".subscriptionViewDetails[data-subscription-id='"+subId+"']"),
+                            model: new subscriptionModel(existingEntityData)
+                        }); 
+                        mySubscription.render();
+
+                        $('.subscription-list-header').removeClass('active');
+                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
+                        $(e.currentTarget).addClass('active');
+                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
+
+                        setTimeout(function(){
+                            console.log("herer in deliveries ");
+                            window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
+                            window.mySubscription.render();
+                        },1000);
+                    }, function(er) {
+                        // fail condition
+                        console.log("Data error " + er);
+                    });
+                
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+            
+        },
+        changeStatus:function(subId,status){
+            console.log("this.model ",this.model);
+             for(var i=0;i<this.model.get('orderDetails').length;i++){
+                if(this.model.get('orderDetails')[i].subscriptionId === subId ){
+                    this.model.get('orderDetails')[i].subscribedStatus = status;
+                }
+            }
+            this.render();
+        },
+        loadMoreSubscriptions:function(){
+             console.log("this.model ",this.model);
+             var page = this.model.get("page")+1;
+             var pageSize = this.model.get("pageSize");
+             var me = this;
+             var existingOrders = this.model.get("orderDetails");
+             var totalOrders = this.model.get("totalOrders");
+             if((pageSize*page) <= totalOrders){
+                 Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:pageSize,page:page,sortDirection:"DESC"}).then(function(res) {
+                    console.log(res.res);
+                     if (!res.error) {
+                        var response = res.res;
+                        for (var i =0 ; i<response.kiboOrderTemplates.length;i++)
+                        {
+                            var localObj = response.kiboOrderTemplates[i];
+                            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId+"test",nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
+                            existingOrders.push(obj);
+                        }
+                        existingOrders.totalReceivedOrders = response.page*response.pageSize;
+                        window.mySubscriptionList.model.set("orderDetails",existingOrders);
+                        window.mySubscriptionList.render()
+
+                    }
+                 });
+             }
+        },
+         render:function() {
+            Backbone.MozuView.prototype.render.apply(this);
+        }
+    });
+
+    var MySubscriptionView = Backbone.MozuView.extend({
+        templateName: 'modules/my-account/my-account-subscription',
+        initialize: function() {
+            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+            var orderDetails = [], deliveries,totalDeliveries;
+            var k = this.model.attributes; 
+            if(k != "undefined") {
+                orderDetails = this.getNextShippmentDate(k);
+                if(k.schedule.endType!==null && k.schedule.endType.toLowerCase() !== "until i cancel"){
+                    deliveries = []; 
+                    totalDeliveries = parseInt(k.schedule.endType.split(' ')[0],10);
+                    if(isNaN(totalDeliveries)){
+                      totalDeliveries = 12;
+                       if(k.completedOrders.length >=totalDeliveries)
+                        totalDeliveries = k.completedOrders.length+1;
+                    }
+                   
+                    for(var i=0;i<totalDeliveries;i++){
+                       deliveries.push(i+1);
+                    }
+                    k.schedule.noOfDeliveries = deliveries;
+                }else{
+                    deliveries = [];
+                    totalDeliveries = 12;
+                    for(var j=0;j<totalDeliveries;j++){
+                       deliveries.push(j+1);
+                    }
+                    k.schedule.noOfDeliveries = deliveries;
+                }
+                k.schedule.delivered = k.completedOrders.length;
+               // k.schedule.delivered = 2;
+                var date = new Date(k.schedule.startDate.split('T')[0]),
+                    day = date.getDate()>9?date.getDate():"0"+date.getDate(),
+                    month = months[date.getMonth()],
+                    year = date.getFullYear();
+                k.schedule.startDate = month+" "+day+", "+year;
+            }    
+        },
+        additionalEvents: {
+            "keydown .popup":"closeModal"
+        },
+        getRenderContext:function(){
+            var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
+              this.getNextShippmentDate(c.model);
+            return c;
+        },   
+        getNextShippmentDate:function(subscriptionObj){
+            var self = this,k=subscriptionObj;
+                if(k.subscribedStatus==="Active"){
+                    var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
+                        frequency = k.schedule.frequency,
+                        frequencyType = k.schedule.frequencyType,
+                        startDate = new Date(k.schedule.startDate.split('T')[0]),
+                        modifiedDate = new Date(k.modifiedDate.split('T')[0]),
+                        days = frequencyType==="Weeks"?(frequency*7):(frequency*30),
+                        finaldate;
+
+                        if(modifiedDate>startDate){
+                            if (self.isHeatSensitive(k.order.items)) {
+                                k.schedule.nextShippment = self.heatSensitvieDatePicker(modifiedDate,days-1);
+                            } else {
+                                k.schedule.nextShippment = self.datePicker(modifiedDate,days-1);
+                            }
+                        }else{
+                            if (self.isHeatSensitive(k.order.items)) {
+                                k.schedule.nextShippment = self.heatSensitvieDatePicker(startDate,days-1);
+                            } else {
+                                k.schedule.nextShippment = self.datePicker(startDate,days-1);
+                            }
+                        }
+                }else{
+                    k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
+                }
+        },
+        isHeatSensitive: function(items) {
+            if (Hypr.getThemeSetting('heatsensitive')) {
+                var itemsLength = items.length;
+                var i = 0;
+                for (i; i < itemsLength; i++) {
+                    if (items[i].product.properties.length > 0) {
+                        var j = 0;
+                        var proLength = items[i].product.properties.length;
+                        for (j; j < proLength; j++) {
+                            if (items[i].product.properties[j].attributeFQN === "tenant~isheatsensitive" || items[i].product.properties[j].attributeFQN === "tenant~IsHeatSensitive") {
+                                if (items[i].product.properties[j].values[0].value) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+                return false;
+            } else {
+                return false;
+            }
+        },
+        heatSensitvieDatePicker:function(startDate,businessdays){ 
+            var date = new Date(startDate),self=this;
+            var restDates = Hypr.getThemeSetting('BlockOutDates');
+            var blackoutdates = restDates.length>0?restDates.split(','):[];
+            var day, month, year, currentDate, comparedate;
+            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+            if(blackoutdates.length > 0) {
+                blackoutdates = blackoutdates.map(function(d) {
+                   return self.formatDate(d);
+                });
+            }
+            while (businessdays) {
+                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
+                day = date.getDay();
+                month = date.getMonth();
+                year = date.getFullYear();
+                currentDate = date.getDate();
+               
+                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
+                if (day === 0 || day === 6 || day === 3 || day === 4 || day === 5 || blackoutdates.indexOf(comparedate) !== -1) {
+                    date.setFullYear(year, month, (currentDate));
+                    if(businessdays>1){
+                        businessdays--;
+                    }
+                } else {
+                    businessdays--;
+                }
+            }
+            date.setFullYear(year, month, (currentDate));
+            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
+            return finaldate;
+        },
+        datePicker: function(startDate,businessdays){
+            var date = new Date(startDate),self=this;
+            //var businessdays = 2;
+            var restDates = Hypr.getThemeSetting('BlockOutDates');
+            var blackoutdates = restDates.length>0?restDates.split(','):[];
+            var day, month, year, fulldate, currentDate, comparedate;
+            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+            if(blackoutdates.length > 0) {
+                blackoutdates = blackoutdates.map(function(d) {
+                   return self.formatDate(d);
+                });
+            }
+            while (businessdays) {
+                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
+                day = date.getDay();
+                month = date.getMonth();
+                year = date.getFullYear();
+                currentDate = date.getDate();
+                fulldate = ('0' + (month + 1)).slice(-2) + '-' + ('0' + currentDate).slice(-2) + '-' + year;
+                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
+
+
+                if(day === 0 || day === 6 || blackoutdates.indexOf(comparedate) !== -1 || new Date() > comparedate) {
+                    date.setFullYear(year, month, (currentDate + 1));
+                    if(businessdays>1){
+                        businessdays--;
+                    }
+                }else{
+                    businessdays--;
+                }
+            }
+            date.setFullYear(year, month, (date.getDate()));
+            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
+            return finaldate;
+        },
+        formatDate: function(date) {
+            var sdate = new Date(date);
+            return ('0'+(sdate.getMonth()+1)).slice(-2)+ '/' + ('0'+sdate.getDate()).slice(-2) + '/' + sdate.getFullYear();
+        },
+        toggleOrderSummary:function(e){
+            var subId = $(e.currentTarget).attr('data-subscription-id'),me=this,active=true;
+            if($(e.currentTarget).parents('.subscription-order-details').hasClass('showmore')){
+                $(e.currentTarget).parents('.subscription-order-details').removeClass('showmore');
+                active=false;
+            }else{
+                $(e.currentTarget).parents('.subscription-order-details').addClass('showmore');
+            }
+
+            if(this.model.attributes.subscriptionId===subId && active){
+                this.model.attributes.show = true;
+            }else{
+                this.model.attributes.show = false;
+            }
+            setTimeout(function(){
+                me.render();    
+            },300);
+        },
+        deliveries:function(currentSub,currentpage){
+            var subId = this.model.attributes.subscriptionId;
+            var width = $(document).width(),
+            pageWidth = width>767?49:41,
+            noOfDeliveries = currentSub.schedule.noOfDeliveries.length,
+            deliveriesWidth = $(document).find('.subscription-delivery-details[data-subscription-id="'+subId+'"] ul').outerWidth(),
+            page = Math.floor(deliveriesWidth/pageWidth);
+            currentSub.currentPage = currentpage;
+            currentSub.pages = Math.ceil(noOfDeliveries/page);
+            currentSub.startDelivery = currentpage>1?(currentpage-1)*page:0;
+            currentSub.endDeliivery = currentpage*page;
+           /* console.log(" deliveriesWidth ----",deliveriesWidth);
+            console.log("currentSub.startDelivery ----",currentSub.startDelivery,currentSub.endDeliivery);
+            console.log(" this.model.attributes ----",this.model.attributes);*/
+        },
+        nextDelivery:function(e){
+            var nextPage = parseInt($(e.currentTarget).attr('index'),10)+1,
+                subId = $(e.currentTarget).attr('data-subscription-id'),me=this;
+                if(this.model.attributes.subscriptionId===subId){
+                    me.deliveries(this.model.attributes,nextPage);
+                }
+            setTimeout(function(){
+                me.render();    
+            },200);
+        },
+        previousDelivery:function(e){
+            var prevPage = parseInt($(e.currentTarget).attr('index'),10)-1,
+                subId = $(e.currentTarget).attr('data-subscription-id'),me=this;
+                if(this.model.attributes.subscriptionId===subId){
+                    me.deliveries(this.model.attributes,prevPage);
+                }
+            setTimeout(function(){
+                me.render();    
+            },200);
+        },
+        popup:function(e){
+            var popupData,orderId = $(e.currentTarget).attr('data-order-id');
+            if($(e.currentTarget).attr('data-action')==="pause"){
+                popupData = {
+                    "isEnabled" : true,
+                    "aria-label":"Pause Subscription Modal",
+                    "message" : "If you <strong>Pause your Subscription,</strong> all pending deliveries will be cancelled until you Unpause it. Are you sure?",
+                    "buttons" : [
+                        {
+                            "buttonLabel" : "No",
+                            "action" : "closePopup",
+                            "class" : "no"   
+                        },
+                        {
+                            "buttonLabel" : "Yes, Pause",
+                            "action" : "pauseSubcription",
+                            "class" : "yes",
+                            "orderId": orderId
+                        }
+                    ]
+                };
+            }else if($(e.currentTarget).attr('data-action')==="cancel"){
+                popupData = {
+                    "isEnabled" : true,
+                    "aria-label":"Cancel Subscription Modal",
+                    "message" : "If you <strong>Cancel your Subscription</strong> and then change your mind, you will have to start over. Are you sure?",
+                    "buttons" : [
+                        {
+                            "buttonLabel" : "No",
+                            "action" : "closePopup",
+                            "class" : "no"   
+                        },
+                        {
+                            "buttonLabel" : "Yes, Cancel",
+                            "action" : "cancelSubcription",
+                            "class" : "yes",
+                            "orderId": orderId
+                        }
+                    ]
+                };
+            }else if($(e.currentTarget).attr('data-action')==="unpause"){
+                popupData = {
+                    "isEnabled" : true,
+                    "aria-label":"Unpause Subscription Modal",
+                    "message" : "Are you sure you want to <strong>Unpause your Subscription?</strong>",
+                    "buttons" : [
+                        {
+                            "buttonLabel" : "No",
+                            "action" : "closePopup",
+                            "class" : "no"   
+                        },
+                        {
+                            "buttonLabel" : "Yes, Unpause",
+                            "action" : "unPauseSubcription",
+                            "class" : "yes",
+                            "orderId": orderId
+                        }
+                    ]
+                };
+            }
+            else if($(e.currentTarget).attr('data-action')==="edit"){
+                var me = this;
+                var obj = me.model.attributes;
+               /*  var self = this;
+                this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
+                this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
+                this.model.get('subscriptionData').Data.weeks = $(document).find('.span-tabs.week').hasClass("active");
+                this.model.get('subscriptionData').Data.months = $(document).find('.span-tabs.months').hasClass("active");
+                this.model.get('subscriptionData').Data.when = $(document).find('#interval-startdate').val();
+                this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
+                // $.cookie("subscriptionCreated", true);
+                $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data));*/
+                window.location.href = window.location.origin+"/subscription?subscriptionId="+obj.subscriptionId;  
+            }
+            this.model.set('popupData',popupData);
+            this.render();
+            $(document).find('.popup-body .message').focus();
+            this.loopInPopups();
+        },
+        closePopup:function(e,type){
+            var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
+                subId =$(document).find('.popup-body .button-yes').attr('data-subscription');
+            this.model.get('popupData').isEnabled = false;
+            this.render();  
+            if(type){
+                if(type === "unpause"){
+                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
+                }else if(type === "pause"){
+                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
+                }else if(type === "cancel"){
+                    $(document).find('.subscription-list-header.active').focus();
+                }
+            }else{
+                if(button === "unPauseSubcription"){
+                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
+                }else if(button === "pauseSubcription"){
+                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
+                }else if(button === "cancelSubcription"){
+                    $(document).find('.subscription-actions [data-action="cancel"][data-order-id="'+subId+'"]').focus();
+                }
+            }
+        },
+        pauseSubcription: function(e) {
+            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
+            var me = this,paused = window.paused = true,
+            customerId = me.model.get("customerId");
+            if(window.paused) {
+               $(".overlay-for-complete-page").show();
+                var counter = 1,postData;
+                while(counter){
+                    if(me.model.attributes.subscriptionId == window.currentAction){
+                        me.model.attributes.subscribedStatus = "Paused";
+                        me.model.attributes.modifiedDate = new Date().toISOString();
+                        postData =  me.model.attributes;
+                        counter = 0;
+                        window.paused = false;
+                    }else{ 
+                        counter++;
+                    } 
+                }
+                try {
+                    Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
+                        $(".overlay-for-complete-page").hide();
+                        me.closePopup(e,"unpause");
+                       // me.render();
+                       window.mySubscriptionList.changeStatus(postData.subscriptionId,"Paused");
+                    }).then(function(er) {
+                        $(".overlay-for-complete-page").hide();
+                        me.closePopup(e,"pause");
+                    });
+                } catch(error) {
+                    console.error(error);
+                    $(".overlay-for-complete-page").hide();
+                    me.closePopup(e,"pause");
+                }
+            }else {
+                me.closePopup(e,"pause");
+            }
+        },
+        unPauseSubcription: function(e) {
+            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
+            var me = this,unpaused = window.unpaused = true,
+            customerId = me.model.get("customerId");
+            if(window.unpaused) {
+                $(".overlay-for-complete-page").show();
+                var counter = 1,postData;
+                while(counter && window.unpaused){
+                    if(me.model.attributes.subscriptionId == window.currentAction){
+                        me.model.attributes.subscribedStatus = "Active";
+                        me.model.attributes.modifiedDate = new Date().toISOString();
+                        postData =  me.model.attributes;
+                        counter = 0;
+                        window.unpaused = false;
+                    }else{
+                        counter++;
+                    } 
+                }
+                
+                try {
+                    Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
+                        $(".overlay-for-complete-page").hide();
+                        me.closePopup(e,"pause");
+                        //me.render();
+                        window.mySubscriptionList.changeStatus(postData.subscriptionId,"Active");
+                    }).then(function(er) {
+                        console.log(er);
+                        $(".overlay-for-complete-page").hide();
+                        me.closePopup(e,"unpause");
+                    });
+                } catch(error) {
+                    console.error(error);
+                    $(".overlay-for-complete-page").hide();
+                    me.closePopup(e,"unpause");
+                }
+            }
+            else {
+                me.closePopup(e,"unpause");
+            }
+        },
+        cancelSubcription: function(e) {
+            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
+            var me = this,cancel = window.cancel = true,
+                customerId = me.model.get("customerId"),postData;
+                if(window.cancel) {
+                   $(".overlay-for-complete-page").show();
+                    window.cancel = false; 
+                    var obj = me.model.attributes;
+                        if(obj.subscriptionId == window.currentAction) { 
+                            obj.subscribedStatus = "Cancelled";
+                            obj.modifiedDate = new Date().toISOString();
+                            postData = obj;
+                            postData.subscriptionId = obj.subscriptionId;
+                        }
+                    try {
+                        //need to test against multiple accounts
+                        Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
+                            $(".overlay-for-complete-page").hide();
+                            me.closePopup(e,"cancel");
+                            //me.render();
+                            window.mySubscriptionList.changeStatus(postData.subscriptionId,"Cancelled");
+                        }).then(function(er) {
+                            console.log(er);
+                            $(".overlay-for-complete-page").hide();
+                            me.closePopup(e,"cancel");
+                        });
+                    } catch(error) {
+                        console.error(error);
+                        $(".overlay-for-complete-page").hide();
+                        me.closePopup(e,"cancel");
+                    }
+                }
+                else {
+                    me.closePopup(e,"cancel");
+                }
+        },
+        closeModal:function(e){
+            var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
+                subId =$(document).find('.popup-body .button-yes').attr('data-subscription');
+            if (e.which === 27 ) {
+                this.model.get('popupData').isEnabled = false;
+                this.render(); 
+                if(button === "unPauseSubcription"){
+                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
+                }else if(button === "pauseSubcription"){
+                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
+                }else if(button === "cancelSubcription"){
+                    $(document).find('.subscription-actions [data-action="cancel"][data-order-id="'+subId+'"]').focus();
+                }
+           }
+        },
+        loopInPopups: function(){
+            var inputs = $(document).find('.popup-body').find('button,[tabindex="0"]');
+            var firstInput =  inputs.first();
+            var lastInput = inputs.last(); 
+            
+            // if current element is last, get focus to first element on tab press.
+            lastInput.on('keydown', function (e) {
+               if ((e.which === 9 && !e.shiftKey)) {
+                   e.preventDefault();
+                   firstInput.focus(); 
+               }
+            });
+            
+            // if current element is first, get focus to last element on tab+shift press.
+            firstInput.on('keydown', function (e) {
+                if ((e.which === 9 && e.shiftKey)) {
+                    e.preventDefault();
+                    lastInput.focus();  
+                }
+            }); 
+        },
+        render:function() {
+            Backbone.MozuView.prototype.render.apply(this);
+        }
+    });
     // switch to appropriate tabpanel
     var tabNavigator = function($el){
         $('.mz-scrollnav-link').attr('aria-selected',false);
@@ -1268,6 +2003,19 @@
         }
     };
 
+    var formatGetListData = function(response){
+        var result = {customerId:response.customerId,page:response.page,pageSize:response.pageSize,totalPages:response.totalPages, totalOrders:response.totalOrders };
+        var orderDetails = [];
+        for (var i =0 ; i<response.kiboOrderTemplates.length;i++)
+        {
+            var localObj = response.kiboOrderTemplates[i];
+            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId,nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
+            orderDetails.push(obj);
+        }
+        result.orderDetails = orderDetails;
+        result.totalReceivedOrders = result.page*result.pageSize;
+        return result;
+    };
     
   /*  
     var QuickOrderHistoryView = Backbone.MozuView.extend({
@@ -1404,6 +2152,28 @@
     
     */
     $(document).ready(function () {
+
+        // flexi function
+        $(document).find('.popup').on('click', '.close-icon, .button-no', function(){
+            $(document).find('.popup').removeClass('active');
+        });
+
+        $(document).find('.popup').on('click', '.button-yes', function(){
+            $(document).find('.popup').removeClass('active');
+
+            var isOrder = $(document).find('.popup').find('.button-yes').attr('isOrder');
+            var isWishlist = $(document).find('.popup').find('.button-yes').attr('isWishlist');
+            var addAll = $(document).find('.popup').find('.button-yes').attr('addAll');
+            var orderId = $(document).find('.popup').find('.button-yes').attr('orderId');
+            var productId = $(document).find('.popup').find('.button-yes').attr('productId');
+            if(isOrder == "true" && addAll == "false"){
+                window.accountViews.orderHistory.removerProductandAddtocart(orderId, productId);
+            }else if(isOrder == "true" && addAll == "true"){
+               window.accountViews.orderHistory.removerProductandAddalltoCart(orderId); 
+            }else if(isWishlist){
+
+            }   
+        });
         
         var targetFocusEl = window.targetFocusEl;
         
@@ -1501,6 +2271,29 @@
             });
         }else{
             _.invoke(window.accountViews, 'render');    
+        }
+        var customerId = require.mozuData("user").userId,existingEntityData = [],
+        subscriptionModel = Backbone.MozuModel.extend({}); 
+        try {
+            Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:5,page:1,sortDirection:"DESC"}).then(function(res) {
+                console.log(res.res);
+                 if (!res.error) {
+                    existingEntityData = formatGetListData(res.res);
+                }
+                
+                /*var mySubscription = new MySubscriptionView({
+                    el: $(".mz-accountsubscription"),
+                    model: new subscriptionModel(existingEntityData)
+                }); 
+                mySubscription.render();  */
+                   var mySubscriptionList = window.mySubscriptionList =  new MySubscriptionListView({
+                    el: $(".mz-accountsubscriptionlist"),
+                    model: new subscriptionModel(existingEntityData)
+                }); 
+                mySubscriptionList.render();
+             });
+        } catch (e) {
+            console.error(e);
         }
         
         // if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({

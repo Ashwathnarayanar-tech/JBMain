@@ -102,6 +102,41 @@ require([
 ], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
     $(document).ready(function () {
+        // Shruthi JEL-1433 Qty increase and Decrement
+        $(document).on('keydown','.jb-quickviewdetails .increment',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(!qty){
+                    qty = 0;
+                } 
+                if(qty < 25){
+                    $(this).parents('.qty').find('.quantity').val(qty + 1);
+                }
+            }
+        });
+        $(document).on('keydown','.jb-quickviewdetails .dicrement',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(qty > 1){
+                    $(this).parents('.qty').find('.quantity').val(qty - 1);
+                }
+            }
+        });
+
         // load on scroll
         $(window).scroll(function() {
             var lazyImages = $(document).find('.load-on-scroll');
@@ -500,7 +535,7 @@ require([
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
 
@@ -542,7 +577,7 @@ require([
             $('[data-mz-message-bar]').append(emsg);
             $('[data-mz-message-bar]').fadeIn();
             $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0});
+            $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
             $('#mz-errors-list').find('li').focus();
             $('html, body').animate({scrollTop:$('[data-mz-message-bar]').filter(':visible').offset().top-200}, 'slow');
             setTimeout(function(){
@@ -700,6 +735,13 @@ require([
             });
             $(document).keyup(function(e) {
                 if (e.keyCode === 27 && $(".notify-me-popup").is(":visible")) {
+                    $(document).find('.notify-me-popup').hide();
+                    modalReset();
+                    clicked.focus();
+                }
+            });
+            $(document).find('.close').on('keyup',function(e) {
+                if (e.keyCode === 13&& $(".notify-me-popup").is(":visible")) {
                     $(document).find('.notify-me-popup').hide();
                     modalReset();
                     clicked.focus();
@@ -1000,6 +1042,23 @@ require([
             } else {
                 event.preventDefault();
             }
+        });
+
+        // Footer Desktop Sitemap
+        $("#siteMapToggle").click(function() {
+            $(this).closest("div").parent().find(".datalink").toggle();
+            var tempHtml = $("#siteMapToggle").text();
+            if (tempHtml == "+") {
+                $("#siteMapToggle").html('-');
+                $(".mz-footer-row").css('background-position', '136% 107%');
+                $("html, body").animate({
+                    scrollTop: $(".mz-columnfull").offset().top + 30
+                }, 500);
+            } else {
+                $("#siteMapToggle").html('+');
+                $(".mz-footer-row").css('background-position', '136% 147%');
+            }
+
         });
 
         // FAQ in multiple pages

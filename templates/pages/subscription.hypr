@@ -1,0 +1,10 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}subscription-page{% endblock body-tag-classes %} 
+{% block body-content %}
+
+{% require_script "modules/subscription" %} 
+ 
+<div class="subscription-body" id="subscription-body">	  
+</div>
+{% endblock body-content %}  

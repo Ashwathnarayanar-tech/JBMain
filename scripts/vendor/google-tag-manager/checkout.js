@@ -19,7 +19,9 @@ require(["modules/jquery-mozu", "modules/api"],
         gtmProduct.id = items[i].product.productCode;
         gtmProduct.price = items[i].product.price.price; //does not take into account salePrice
         gtmProduct.brand = 'Jelly Belly';
-        gtmProduct.category = gtmProduct.category = items[i].product.categories[0].id; //returns first category code
+        if(items[i].product.categories.length) { 
+          gtmProduct.category = gtmProduct.category = items[i].product.categories[0].id; //returns first category code
+        } 
         gtmProduct.variant = 'standard';
         gtmProduct.quantity = items[i].quantity;
         gtmProductList.push(gtmProduct);

@@ -1,0 +1,10 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-subscription-confirmation{% endblock body-tag-classes %}
+{% block breadcrumbs %} {% endblock breadcrumbs %}
+{% block body-content %}
+	<div class="subscription-summary">
+		{% include 'modules/subscription-details' %}
+	</div>
+{% require_script "pages/subscription-confirmation" %}
+{% endblock body-content %}

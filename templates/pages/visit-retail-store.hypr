@@ -37,11 +37,11 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="store-details">
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         Of course, we also carry our World Famous Belly Flops&reg;, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. 
                         Belly Flops&reg; can be purchased online, at our Jelly Belly Visitor Centers or company stores.
                     </p>
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         For more information on the Vacaville Premium Outlets, <a href="http://www.premiumoutlets.com/outlets/outlet.asp?id=50" target="_blank" rel="nofollow" style="display: inline; background: none;">click here</a>.
                     </p>
                 </div>
@@ -78,16 +78,16 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="store-details">
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                          The Gilroy Jelly Belly store is located in the Gilroy Premium Outlets, located in Gilroy, California. You'll find it right behind the In-N-Out Burger on the northeast part of the Outlets.
                     </p>
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         This store was the second new store built, opening in September 2003. Store features include a sample bar, a 42" monitor showing the candy making process and a store design that features all of our Jelly Belly products. 
                     </p>
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         The store stocks all Jelly Belly produced bulk and packaged items, and a great selection of Beanware. Of course, we also carry our world famous Belly Flops®, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. Belly Flops® can be purchased <a href="/search?query=flops" style="display: inline; background: none;">online</a>, at our Jelly Belly Visitor Centers or company stores. 
                     </p>
-                    <p class="bold" tabindex="0" >
+                    <p class="bold" tabindex="0" role="contentinfo">
                         For more information on the Gilroy Premium Outlets, <a href="http://www.premiumoutlets.com/outlets/outlet.asp?id=23" target="_blank" rel="nofollow" style="display: inline; background: none;">click here</a>.
                     </p>
                 </div>
@@ -124,10 +124,10 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="store-details">
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         Located in the Nut Tree Plaza "California's Legendary Road Stop", the Nut Tree store opened August 11, 2007. The store is adjacent to the Nut Tree Plaza near the train and carousel next door to Fenton's Creamery. 
                     </p>
-                    <p tabindex="0" >
+                    <p tabindex="0" role="contentinfo">
                         The store stocks all Jelly Belly produced bulk and packaged items, and a great selection of Beanware. Of course, we also carry our world famous Belly Flops®, factory seconds that have all the flavor of our original gourmet Jelly Belly jelly beans. Belly Flops® can be purchased <a href="/search?query=flops" style="display: inline; background: none;">online</a>, at our Jelly Belly Visitor Centers or company stores. 
                     </p>
                 </div>
@@ -138,3 +138,14 @@
     
     <div class="clearfix"></div>
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+
+
+
