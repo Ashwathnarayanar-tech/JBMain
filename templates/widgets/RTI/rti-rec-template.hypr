@@ -1,7 +1,7 @@
 <div class="recommended-product-container {{ model.config.placeholder }}" data-mz-rti-recommended-products="{% json_attribute Model.config%}">
 	{% comment %}
 	<p class="rti-recommended-products-title {{ model.config.placeholder }} slider-title"></p>
-	<div tabindex="0"  class="rti-recommended-products-wrap" >Entering carousel</div>
+	<div tabindex="0" role="contentinfo" class="rti-recommended-products-wrap" >Entering carousel</div>
 	{% endcomment %}
 	<div class="rti-recommended-products {{ model.config.placeholder }} carousel-parent" >
 		<div class="rti-prod-list" data-rti-recommended-products={{model.config.placeholder }} >  
@@ -11,3 +11,4 @@
    
 {% preload_json siteContext "sitecontext" %}  
 {% require_script "widgets/rti/rti-rec-script" %} 
+

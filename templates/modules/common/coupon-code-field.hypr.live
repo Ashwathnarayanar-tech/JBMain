@@ -1,7 +1,7 @@
 ﻿{% if pageContext.pageType == "cart" %} 
-    <div class="coupon-code-section">    
+    <div class="coupon-code-section">     
         <div class="mz-l-formfieldgroup-cell">  
-            <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code<span><img src="../../../resources/images/couponarrow.png" alt=""></span></div>
+            <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code<span><img src="../../../resources/images/couponarrow.png"></span></div>
         </div>
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %}">
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
@@ -12,7 +12,7 @@
                     <button type="button" id="cart-coupon-code" class="mz-button" data-mz-action="addCoupon" role="button" aria-label="{{ labels.apply }}" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
                 {% endif %}    
             </div>  
-             <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" >
+             <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" role="contentinfo">
                 <span><b>Note:</b> Shipping-related coupons must be entered during checkout.</span>
             </div>
             <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
@@ -36,3 +36,5 @@
         <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
         <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
 {% endif %}
+
+

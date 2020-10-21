@@ -98,7 +98,7 @@ require([
     'modules/cart-monitor',
     "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
-    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator', "modules/views-collections"
+    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator'
 ], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
     $(document).ready(function () {
@@ -389,8 +389,6 @@ require([
                $('.mob-pwd-row').css('display', 'none');          
             });
         }
-
-        require(["modules/add-to-cart-plp", "modules/add-to-wishlist-modal"]);
         
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
@@ -542,7 +540,7 @@ require([
             $('[data-mz-message-bar]').append(emsg);
             $('[data-mz-message-bar]').fadeIn();
             $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0});
+            $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
             $('#mz-errors-list').find('li').focus();
             $('html, body').animate({scrollTop:$('[data-mz-message-bar]').filter(':visible').offset().top-200}, 'slow');
             setTimeout(function(){
@@ -770,11 +768,11 @@ require([
 
         $('.skipto').click(function(e) {
             e.preventDefault();
-            var aTag = $("#page-content");
+            var aTag = $("#maincontent");
             $('html,body').animate({
                 scrollTop: aTag.offset().top - 150
             }, 2000);
-            $(document).find("#page-content").focus();
+            $(document).find("#maincontent").focus();
         });
 
         $(document).on('keypress', '.skipto', function(e) {
@@ -1002,6 +1000,23 @@ require([
             }
         });
 
+        // Footer Desktop Sitemap
+        $("#siteMapToggle").click(function() {
+            $(this).closest("div").parent().find(".datalink").toggle();
+            var tempHtml = $("#siteMapToggle").text();
+            if (tempHtml == "+") {
+                $("#siteMapToggle").html('-');
+                $(".mz-footer-row").css('background-position', '136% 107%');
+                $("html, body").animate({
+                    scrollTop: $(".mz-columnfull").offset().top + 30
+                }, 500);
+            } else {
+                $("#siteMapToggle").html('+');
+                $(".mz-footer-row").css('background-position', '136% 147%');
+            }
+
+        });
+
         // FAQ in multiple pages
         function faqInteraction(e) {
             $('.faq-q').attr('aria-expanded', false);
@@ -1223,6 +1238,6 @@ require([
         //}
 
 		require(['modules/browser-info']);
-		//require(['modules/regional-scheme/geodetect2']);
+		require(['modules/regional-scheme/geodetect2']);
     });
 });

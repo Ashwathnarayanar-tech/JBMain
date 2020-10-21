@@ -1,10 +1,10 @@
 {% extends "modules/common/item-listing" %}
 {% block module-classes %} mz-itemlisting-rmaitem {% endblock module-classes %}
 {% block item-listing-prefix %}
-<h3 tabindex="0" aria-label="returning products list" >{{ labels.returning }}</h3>
+<h3 tabindex="0" aria-label="returning products list" role="contentinfo">{{ labels.returning }}</h3>
 {% endblock item-listing-prefix %}
 {% block item-listing-extras %}
-    <div class="mz-itemlisting-rmaitem-details" tabindex="0" >
+    <div class="mz-itemlisting-rmaitem-details" tabindex="0" role="contentinfo">
     <h3>{{ labels.returnDetails }}</h3>
     <dl class="mz-propertylist">
         {% for r in model.reasons %}
@@ -20,3 +20,4 @@
     </dl>
     </div>
 {% endblock item-listing-extras %}
+

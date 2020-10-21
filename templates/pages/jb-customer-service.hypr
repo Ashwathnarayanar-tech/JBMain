@@ -30,7 +30,7 @@
                     <img src="/resources/images/jb-customer-service/faq.png" width="133" border="0" alt="Frequently Asked Questions icon">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                  Many of the questions that you might have are already answered in our Frequently Asked Questions (FAQ) section. If you don't find what you need, submit your question to us! 
                   <a class="jb-feature-brand-moreinfo" href="/frequently-asked-questions">More Info ►</a>
                 </p>
@@ -47,7 +47,7 @@
                     <img src="/resources/images/jb-customer-service/onlineOrder.jpg" width="133" border="0" alt="Shopping Cart with Jelly Belly Jelly Beans">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Read more about the billing and ordering policies of our JellyBelly.com Shop, and other ways that you can place orders for your favorite Jelly Belly products. 
                   <a class="jb-feature-brand-moreinfo" href="/online-order-info-index">More Info ►</a>
                 </p>
@@ -64,7 +64,7 @@
                     <img src="/resources/images/jb-customer-service/contactus.png" width="133" border="0" alt="Link to Contact Us">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   There are a variety of ways that you can contact the Jelly Belly Candy Company.
                   <a class="jb-feature-brand-moreinfo" href="/contact-us">More Info ►</a>
                 </p>
@@ -81,7 +81,7 @@
                     <img src="/resources/images/jb-customer-service/email.png" width="133" border="0" alt="Manage Email Subscription Icon">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Click here if you wish to be removed from our email subscription.  
                   <a class="jb-feature-brand-moreinfo" href="https://snap.vidiemi.com/jb/optout.aspx">More Info ►</a>
                 </p>
@@ -98,7 +98,7 @@
                     <img src="/resources/images/jb-customer-service/students.jpg" width="133" border="0" alt="A group of students">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Are you a student or educator looking for information regarding the Jelly Belly Candy Company? Get the scoop on useful information about the company on our Educators &amp; Students page.  
                   <a class="jb-feature-brand-moreinfo" href="/information-for-students">More Info ►</a>
                 </p>
@@ -114,7 +114,7 @@
                     <img src="/resources/images/jb-customer-service/vol-discounts.jpg" width="133" border="0"  alt="Volume Discount information">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                  When you purchase in quantity, a discount will be applied to your order according to the total purchase amount (excluding shipping).  
                   <a class="jb-feature-brand-moreinfo" href="/volume-discounts">More Info ►</a>
                 </p>
@@ -130,7 +130,7 @@
                     <img src="/resources/images/jb-customer-service/satisfaction.png" width="133" border="0" alt="Satisfaction Guarantee Logo">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Read about Jelly Belly's dedication to delivering the best possible products and the best possible service right here.  
                   <a class="jb-feature-brand-moreinfo" href="/satisfaction-guarantee">More Info ►</a>
                 </p>
@@ -142,3 +142,14 @@
     
     <div class="clearfix"></div>  
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+
+
+

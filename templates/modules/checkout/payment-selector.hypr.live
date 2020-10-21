@@ -14,10 +14,10 @@
         {% if model.paymentType == "CreditCard" and not model.usingSavedCard %}
         {% include "modules/checkout/billing-credit-card-form" with model=model.card %}
         <div class="mz-l-stack-section">
-            <h3 class="mz-checkoutform-title">{{ labels.billingAddress }}</h3>
+            <h4 class="mz-checkoutform-title">{{ labels.billingAddress }}</h4>
             {% include "modules/checkout/billing-address-selector" %}
         </div>
-        {% endif %}
+        {% endif %} 
     </div>
     {% if model.savedPaymentMethods %}
         <div class="mz-l-formfieldgroup-row mz-paymentselector-option mz-paymentselector-savedcreditcard mz-checkoutform {% if model.paymentType == "CreditCard" and model.usingSavedCard %}mz-checkoutform-active{% endif %}">
@@ -45,7 +45,7 @@
                 </div>
                 {% if model.paymentType == "CreditCard" and model.usingSavedCard and model.savedPaymentMethodId %}
                 <div class="mz-l-stack-section">
-                    <h3 class="mz-checkoutform-title">{{ labels.billingAddress }}</h3>
+                    <h4 class="mz-checkoutform-title">{{ labels.billingAddress }}</h4>
                     {% include "modules/checkout/billing-address-selector" %}
                 </div>
                 {% endif %}
@@ -65,7 +65,7 @@
         {% if model.paymentType == "Check" %}
         {% include "modules/checkout/checking-account-form" %}
         <div class="mz-l-stack-section">
-            <h3 class="mz-checkoutform-title">{{ labels.billingAddress }}</h3>
+            <h4 class="mz-checkoutform-title">{{ labels.billingAddress }}</h4>
             {% include "modules/checkout/billing-address-selector" %}
         </div>
         {% endif %}
@@ -107,3 +107,4 @@
 </div>
 
 {% endwith %}
+

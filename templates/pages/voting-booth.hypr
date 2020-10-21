@@ -1,0 +1,15 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+{% require_script "pages/voting-booth" %}
+<div id="vote" style="text-align: center;">
+	{% comment %}
+	refer to the following file as the basic format for HTML in the HTML5 widget
+    {% include "modules/voting-booth/default" %}
+	{% endcomment %}
+	{% dropzone "flavorbattle" scope="page" %}
+</div>
+{% endblock body-content %}
+

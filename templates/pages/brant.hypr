@@ -24,14 +24,14 @@
             <br>
             <br> 
             <img src="/resources/images/sponsors/Brant Seghetti/seghetti_sparky.jpg" alt="seghetti_sparky">
-            <figcaption class="finePrint" tabindex="0" >There's no mistaking Brant and Sparky at any air show or competition. The silver plane is covered in Jelly Belly jelly beans, and Mr. Jelly Belly's hanging from the tail. 
+            <figcaption class="finePrint" tabindex="0" role="contentinfo">There's no mistaking Brant and Sparky at any air show or competition. The silver plane is covered in Jelly Belly jelly beans, and Mr. Jelly Belly's hanging from the tail. 
                 And Brant's the one pilot handing out Jelly Belly samples before and after his performances! 
             </figcaption>
         </figure>
-        <p tabindex="0" >To find out when and where Brant will be performing, look at our <a href="/sponsorships-event-calendar">Event Calendar</a>.</p>
-        <p tabindex="0" >Jelly Belly’s professional air racer, Brant grew up around planes. His father Steve was an avid pilot and instilled his love of flying into Brant.</p>
-        <p tabindex="0" >During races, Brant reaches speeds up to 350 mph while zooming around pylons with up to seven other planes on his tail.</p>
-        <p tabindex="0" >
+        <p tabindex="0" role="contentinfo">To find out when and where Brant will be performing, look at our <a href="/sponsorships-event-calendar">Event Calendar</a>.</p>
+        <p tabindex="0" role="contentinfo">Jelly Belly’s professional air racer, Brant grew up around planes. His father Steve was an avid pilot and instilled his love of flying into Brant.</p>
+        <p tabindex="0" role="contentinfo">During races, Brant reaches speeds up to 350 mph while zooming around pylons with up to seven other planes on his tail.</p>
+        <p tabindex="0" role="contentinfo">
             Brant flies every race in “Sparky,” a P-51D Mustang. Sparky was built in Los Angeles in 1944, and was flown in World War II by an ace pilot. 
             Steve Seghetti picked Sparky up in 1984. The plane got its name when Steve landed it after forgetting to deploy the landing gear. 
             Sparks shot up from the bottom of the plane and the name "Sparky" was born.
@@ -39,3 +39,9 @@
     </article>
 </section>
 {% endblock body-content %}
+
+
+
+
+
+

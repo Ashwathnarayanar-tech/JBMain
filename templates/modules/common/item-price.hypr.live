@@ -3,16 +3,19 @@
     {% if not productDiscount or productdiscount.appliesToSalePrice %} 
 
       {% if item.unitPrice.listAmount !=  item.unitPrice.extendedAmount %}   
-        <span class="sr-only" tabindex="0">Current price: </span><span class="mz-item-price is-saleprice"  tabindex="0">{{ item.unitPrice.extendedAmount|currency }}</span>                   
-        <span class="sr-only" tabindex="0">Original price: </span><span class="mz-item-price is-crossedout" tabindex="0" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}>{{ item.unitPrice.listAmount|currency }}</span>
+        <span class="mz-item-price is-saleprice"  tabindex="0" aria-label="price: {{ item.unitPrice.extendedAmount|currency }}">{{ item.unitPrice.extendedAmount|currency }}</span>                   
+        <span class="mz-item-price is-crossedout" tabindex="0" aria-label="sale price {{ item.unitPrice.listAmount|currency }}" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}>{{ item.unitPrice.listAmount|currency }}</span>
         {% else %}
-        <span class="mz-item-price is-saleprice" tabindex="0">{{ item.unitPrice.extendedAmount|currency }}</span>                   
+        <span class="mz-item-price is-saleprice" tabindex="0" aria-label="price: {{ item.unitPrice.extendedAmount|currency }}">{{ item.unitPrice.extendedAmount|currency }}</span>                   
       {% endif %} 
  
     {% else %}
-      <span  style="font-weight: bold;" class="mz-item-price" tabindex="0">{{ item.unitPrice.extendedAmount|currency }}</span>
+      <span  style="font-weight: bold;" class="mz-item-price" tabindex="0" aria-label="price: {{ item.unitPrice.extendedAmount|currency }}">{{ item.unitPrice.extendedAmount|currency }}</span>
     {% endif %}
   {% else %}
-    <span  style="font-weight: bold;" class="mz-item-price" tabindex="0">{{ item.unitPrice.extendedAmount|currency }}</span>
+    <span  style="font-weight: bold;" class="mz-item-price" tabindex="0"  aria-label="price: {{ item.unitPrice.extendedAmount|currency }}">{{ item.unitPrice.extendedAmount|currency }}</span>
   {% endif %} 
 {% endwith %}  
+
+
+

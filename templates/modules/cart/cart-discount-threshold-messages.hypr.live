@@ -3,9 +3,9 @@
 		{% for message in model.discountThresholdMessages %}
 			{% if message.showInCart %}
 				<ul class="is-showing mz-success">
-	            	<li class="mz-message-item"><span  tabindex="0">{{ message.message|safe }}</span></li>
+	            	<li class="mz-message-item"><span role="contentinfo" tabindex="0">{{ message.message|safe }}</span></li>
 	            </ul>
 			{% endif %}
 		{% endfor %}
-	</div>
+	</div> 
 {% endif %}
