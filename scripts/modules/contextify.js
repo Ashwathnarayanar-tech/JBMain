@@ -283,10 +283,7 @@ define(['modules/jquery-mozu',
             }
         });
         $(document).on('touchstart','.close-serch',function(e){
-            setTimeout(function(){
-                $(document).find('.page-header').removeClass('search-active');
-                $(document).find('.mz-searchbox-field').val('');
-            },200);            
+            setTimeout(function(){$(document).find('.page-header').removeClass('search-active');},200);            
         });
 
         // trigger sweet riwards

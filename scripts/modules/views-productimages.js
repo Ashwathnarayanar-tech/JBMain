@@ -75,9 +75,6 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
                 maxHeight: "90%" , 
                 fixed: true,
                 trapFocus: false,
-                onLoad: function (){
-                  $('#colorbox').attr("aria-modal",true).attr("aria-label","Product image");
-                },
                 onComplete: function(){
                     $('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
                     $('#cboxClose').fadeIn();
@@ -160,3 +157,6 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
         ProductPageImagesView: ProductPageImagesView
     };
 });
+
+
+

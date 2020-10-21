@@ -28,7 +28,8 @@
             //Click handler to change menu in mobile
             $(document).on('click','a.mz-scrollnav-link-mobile',function(e){
                 var text = $('a.mz-scrollnav-link[forID="'+e.target.getAttribute('forid')+'"]').text();
-                $('a.selected-menu-mobile').text(text);
+                var titleEle = text + '<span  style="float: right;"><img src="../../../resources/images/down-arrow.svg" alt="" style="height: 20px;width: 20px;"></span> ';
+                $('a.selected-menu-mobile').html(titleEle);
                 $('a.mz-scrollnav-link-mobile').removeClass('active');
                 $(e.target).addClass('active');
                 var nav = e.target.attributes.getNamedItem('forid').value;

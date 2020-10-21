@@ -1,4 +1,4 @@
-{% if pagecontext.pageType != "checkout" and pagecontext.pageType != "confirmation" %}
+{% if pagecontext.pageType != "checkout" %}
     {% if pageContext.isDesktop or pageContext.isTablet %}
         <header class="page-header mz-pageheader-desktop desktop"> 
             {% block search-box %}
@@ -10,35 +10,32 @@
                 {% include "modules/page-header/utility-nav" %}
             {% endblock utility-nav %}
             {% block site-nav %}  
-                <nav>
-                  <div class="nav-cointainer" id="megaMenu">
-                      <div class="nav-header">
-                          <ul class="nav-list-head-cointainer">
-                              {% partial_cache %}
-                              <li class="head-list-item-li" data-attr="view-products">
-                                  <span><a attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" href="#" aria-expanded="false" role="button">View Products</a>  </span>
-                              </li>
-                              <li class="head-list-item-li" data-attr="flavorsandmore">
-                                  <span><a attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" href="#" aria-expanded="false" role="button">Flavors & More</a> </span> 
-                              </li>
-                              <li class="head-list-item-li store-branding" attr-menuname="store-branding" data-attr="store-branding">
-                                  {% block store-branding %} 
-                                      {% include "modules/page-header/store-branding" %} 
-                                  {% endblock store-branding %} 
-                              </li>
-                              <li class="head-list-item-li" data-attr="visitus">
-                                  <span><a attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" href="#" aria-expanded="false" role="button">Visit Us</a>  </span>
-                              </li>  
-                              <li class="head-list-item-li" data-attr="store-locator">
-                                  <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator" href="/store-locator" aria-expanded="false" role="button">Store Locator</a>  </span>
-                              </li> 
-                              {% endpartial_cache %}     
-                          </ul> 
-                      </div>
-                      {% include "modules/site-nav" %}
-                  </div>
-                </nav>
-                
+                <div class="nav-cointainer" id="megaMenu">
+                    <div class="nav-header">
+                        <ul class="nav-list-head-cointainer">
+                            {% partial_cache %}
+                            <li class="head-list-item-li" data-attr="view-products">
+                                <span><a attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" href="#" aria-expanded="false" aria-label="View Products">View Products</a>  </span>
+                            </li>
+                            <li class="head-list-item-li" data-attr="flavorsandmore">
+                                <span><a attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" href="#" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a> </span> 
+                            </li>
+                            <li class="head-list-item-li store-branding" attr-menuname="store-branding" data-attr="store-branding">
+                                {% block store-branding %} 
+                                    {% include "modules/page-header/store-branding" %} 
+                                {% endblock store-branding %} 
+                            </li>
+                            <li class="head-list-item-li" data-attr="visitus">
+                                <span><a attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" href="#" aria-expanded="false" aria-label="Visit Us">Visit Us</a>  </span>
+                            </li>  
+                            <li class="head-list-item-li" data-attr="store-locator">
+                                <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>  </span>
+                            </li> 
+                            {% endpartial_cache %}     
+                        </ul> 
+                    </div>
+                    {% include "modules/site-nav" %}
+                </div>
             {% endblock site-nav %}  
         </header>  
     {% else %}
@@ -54,10 +51,9 @@
             {% block utility-nav %}
                 {% include "modules/page-header/utility-nav" %}
             {% endblock utility-nav %} 
-            <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Customer Service"> 1-800-522-3267 </a></p></div>
+            <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
         </header> 
         {% block site-nav %}
-        <nav>
             <div class="nav-cointainer" id="megaMenu">
                 {% if not user.isAnonymous %} 
                     <section class="zinrelo-container" tabindex="0">
@@ -76,32 +72,32 @@
                     <ul class="nav-list-head-cointainer">
                         {% partial_cache %}
                         <li class="head-list-item view-products" attr-menuname="megamenu_1" data-attr="view-products">
-                            <a href="#" >
-                                <img src="/../resources/images/rectangle_menu.png" alt="" class="user-icon view-products">   
+                            <a href="#" aria-expanded="false" aria-label="View Products">
+                                <img src="/../resources/images/rectangle_menu.png" alt="user icon" class="user-icon view-products">   
                                 <span class="mz-sitenav-link" >Products</span>  
                             </a>
                         </li>
                         <li class="head-list-item flavorsandmore" attr-menuname="megamenu_2" data-attr="flavorsandmore">
-                            <a  href="#" >
-                                <img src="/../resources/images/fandmicon.png" alt="" class="user-icon flavorsandmore">   
+                            <a  href="#" aria-expanded="false" aria-label="Flavors and More">
+                                <img src="/../resources/images/fandmicon.png" alt="user icon" class="user-icon flavorsandmore">   
                                 <span class="mz-sitenav-link">Flavors & More</span>
                             </a>  
                         </li>
                         <li class="head-list-item visitus" attr-menuname="megamenu_3" data-attr="visitus">
-                            <a href="#" >
-                                <img src="/../resources/images/location-icon.png" alt="" class="user-icon visitus">   
+                            <a href="#" aria-expanded="false" aria-label="Visit Us">
+                                <img src="/../resources/images/location-icon.png" alt="user icon" class="user-icon visitus">   
                                 <span class="mz-sitenav-link" >Visit Us</span>  
                             </a>
                         </li>  
                         <li class="head-list-item store-locator" attr-menuname="store-locator" data-attr="store-locator">
-                            <a href="/store-locator" > 
-                                <img src="/../resources/images/store-icon.png" alt="" class="user-icon store-locator">   
+                            <a href="/store-locator" aria-expanded="false" aria-label="Store Locator"> 
+                                <img src="/../resources/images/store-icon.png" alt="user icon" class="user-icon store-locator">   
                                 <span class="mz-sitenav-link" >Store Locator</span>  
                             </a>
                         </li>  
                         <li class="head-list-item myAccount" attr-menuname="myAccount" data-attr="myAccount">
-                            <a href="/myaccount" > 
-                                <img src="/../resources/images/Newusericon.png" alt="" class="user-icon user">   
+                            <a href="/myaccount" aria-expanded="false" aria-label="myAccount"> 
+                                <img src="/../resources/images/Newusericon.png" alt="user icon" class="user-icon user">   
                                 <span class="mz-sitenav-link">Account</span>  
                             </a>
                         </li> 
@@ -110,7 +106,6 @@
                 </div>  
                 {% include "modules/site-nav" %}
             </div>
-          </nav>
         {% endblock site-nav %}
         <center>
             <div class="jb-mobile-minicart-popup" style="background: #ffffff; margin-top: 140px; height: 200px; width: 200px; z-index: 501; display: none; position: relative;"> 
@@ -162,27 +157,15 @@
         </div>
     </div> 
 {% else %}
-    {% if pagecontext.pageType == "confirmation"  %}
-        <div class="confirmation-header">
-            <div class="confirmation-cointainer">
-                {% include "modules/page-header/store-branding" %}
-                <div class="links-sec">
-                    {% if user.isAuthenticated %}
-                        <div style="float: right; margin: 10px;"><a href="/logout">Logout</a></div>
-                    {% endif %}
-                    <div style="float: right; margin: 10px;"><a href="/">Continue shopping</a></div>
-                </div>
+   
+    {% if not pageContext.isDesktop %}
+        {% if not pageContext.isTablet %}
+            <div class="jb-mobile-logo">
+                <a href="/">
+                    <img src="../../resources/images/new-logo-images/jb_logo_web_header_mobile.png" alt="Jelly Belly logo" width="50%">
+                </a>
             </div> 
-        </div>
-    {% else %}
-        {% if not pageContext.isDesktop %}
-            {% if not pageContext.isTablet %}
-                <div class="jb-mobile-logo">
-                    <a href="/">
-                        <img src="../../resources/images/new-logo-images/jb_logo_web_header_mobile.png" alt="Jelly Belly logo" width="50%">
-                    </a>
-                </div> 
-            {% endif %}
         {% endif %}
     {% endif %}
+   
 {% endif %}

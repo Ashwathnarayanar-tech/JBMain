@@ -1,4 +1,4 @@
-define([
+ define([
     'modules/jquery-mozu',
     'underscore',
     'hyprlive',
@@ -198,7 +198,7 @@ define([
                     this.set('phoneNumbers.home', phone);
                     this.set('address.addressType', addType === "POBox" ? 'Residential' : addType);
     
-                if (this.validate()){
+                if (this.validate()){ 
                     if(this.bypassValidation){
                         $('#bypassNotification').hide();
                         $('#bypassButton').hide(); 
@@ -207,7 +207,7 @@ define([
                     }else{
                         return false;
                     }
-                } 
+                }
 
                 var parent = this.parent,
                     order = this.getOrder(),
@@ -278,6 +278,7 @@ define([
                                 $('#bypassNotification').show().focus();
                                 $('#bypassButton').show(); 
                                 $('#continuetoshipping').hide(); 
+                                $('.dummi-procudeto-shipping-method').hide(); 
                             }
                         });
                     } else {
@@ -312,6 +313,17 @@ define([
                     }
                 },
                 refreshShippingMethods: function(methods) {
+                    for (var i = 0; i < methods.length; i++) {
+                        if (methods[i].shippingMethodCode == 'ups_UPS_GROUND' || methods[i].shippingMethodCode == 'ups_UPS_SUREPOST_LESS_THAN_1LB' || methods[i].shippingMethodCode == 'ups_UPS_SUREPOST_1LB_OR_GREATER') {
+                            if (methods[i].price !== 0.00) {
+                                $.cookie("shipmethod_" + methods[i].shippingMethodCode, parseFloat(methods[i].price).toFixed(2), {
+                                    path: '/',
+                                    expires: 365
+                                });
+                            }
+                        }
+                    }
+
                     this.set({
                         availableShippingMethods: methods
                     });
@@ -319,8 +331,8 @@ define([
                     // always make them choose again
                     _.each(['shippingMethodCode', 'shippingMethodName'], this.unset, this);
                 // after unset we need to select the cheapest option
-                //this.updateShippingMethod();
-                },
+                //this.updateShippingMethod(); 
+                }, 
                 calculateStepStatus: function() {
                     if (!this.requiresFulfillmentInfo()) return this.stepStatus("complete");
                     //if (this.provisional) return this.stepStatus("incomplete");
@@ -365,8 +377,9 @@ define([
                             }
                         })
                         .ensure(function() {
-                        me.isLoading(false);
-                        me.calculateStepStatus();
+                                me.isLoading(false);
+                                me.calculateStepStatus();
+                            
                             me.parent.get('billingInfo').calculateStepStatus();
                             if(resetMessage) {
                                 me.parent.messages.reset(me.parent.get('messages'));
@@ -1460,7 +1473,7 @@ define([
                 });
                 if (!errorHandled) order.messages.reset(error.items);
                 order.isSubmitting = false;
-                throw error;
+               throw error;
             },
             addNewCustomer: function() {
                 var self = this,
@@ -1666,26 +1679,31 @@ define([
                 return (activePayments && (_.findWhere(activePayments, { paymentType: 'PayPalExpress2' })));
             },
             submit: function() {
-                var order = this,
-                    billingInfo = this.get('billingInfo'),
-                    billingContact = billingInfo.get('billingContact'),
-                    isSameBillingShippingAddress = billingInfo.get('isSameBillingShippingAddress'),
-                    isSavingCreditCard = false,
-                    isSavingNewCustomer = this.isSavingNewCustomer(),
-                    isAuthenticated = require.mozuData('user').isAuthenticated,
-                    nonStoreCreditTotal = billingInfo.nonStoreCreditTotal(),
-                    requiresFulfillmentInfo = this.get('requiresFulfillmentInfo'),
-                    requiresBillingInfo = nonStoreCreditTotal > 0,
-                    currentPayment = this.apiModel.getCurrentPayment(),
-                    process = [function() {
-                        return order.update({
-                            ipAddress: order.get('ipAddress'),
-                            shopperNotes: order.get('shopperNotes').toJSON()
-                        });
-                    }];
-                    if (this.isNonMozuCheckout()) {
-                        billingContact.set("address", null);
-                    }
+             
+                var order = this;
+                if((window.location.href).split('?')[1] == 'cl=returningUser'){
+                    var cust=this.get('customer');
+                    cust.apiModel.data.contacts=[];
+                } 
+                var billingInfo = this.get('billingInfo'),
+                billingContact = billingInfo.get('billingContact'),
+                isSameBillingShippingAddress = billingInfo.get('isSameBillingShippingAddress'),
+                isSavingCreditCard = false,
+                isSavingNewCustomer = this.isSavingNewCustomer(),
+                isAuthenticated = require.mozuData('user').isAuthenticated,
+                nonStoreCreditTotal = billingInfo.nonStoreCreditTotal(),
+                requiresFulfillmentInfo = this.get('requiresFulfillmentInfo'),
+                requiresBillingInfo = nonStoreCreditTotal > 0,
+                currentPayment = this.apiModel.getCurrentPayment(),
+                process = [function() {
+                    return order.update({
+                        ipAddress: order.get('ipAddress'),
+                        shopperNotes: order.get('shopperNotes').toJSON()
+                    });
+                }];
+                if (this.isNonMozuCheckout()) {
+                    billingContact.set("address", null);
+                }
 
                 if (this.isSubmitting) return;
 

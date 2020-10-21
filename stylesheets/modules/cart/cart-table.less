@@ -2,7 +2,8 @@
 
     .mz-carttable-item-image {
         float: left;
-        margin: 0 20px 0 0;
+        margin: 0 @gutter/4 @gutter/4 0;
+        padding: 0px 19px;
     }
 
     .mz-carttable-header-price, .mz-carttable-header-total,
@@ -29,9 +30,8 @@
     .mz-carttable-item-title {
         display: block;
         font-size: @fontSizeLarger;
-        &:focus{ border: 1px dotted blue; }
     }
-    
+
     .mz-carttable-item-code {
         float: left;
         clear: both;
@@ -53,13 +53,13 @@
     .mz-carttable-item-remove {
         width: 40px;
         text-align: center;
-        a{
-            span{
-                display:inline-block;
-                width: 10px; 
-                img{
-                    width: 100%;
-                }
+        .mz-icon-close {
+            width: 16px;
+            height: 16px;
+            background-image: url(../resources/images/icons/close-icon.png);
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
             }
         }
         font{
@@ -136,6 +136,28 @@
     }
 }
 
+.BongoSubmit{
+    float: none;
+     background: rgb(40, 124, 182);
+    border: none;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    width: 26%;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-left: 25px;
+    width: 26%;
+    margin-top:10px;
+    right:-13px;
+    position:relative;
+}
+
 .active-button{
     background: #177c23;
     
@@ -147,6 +169,9 @@
 .coupon-error, .coupon-error-onetime-use {
     display:none;
     font-size: 13px;
+	margin-left: 18px;
     color: #b94a48;
     text-align:left;
 }
+
+

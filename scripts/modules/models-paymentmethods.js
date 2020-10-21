@@ -126,7 +126,6 @@
                     if (!card.selected || skipValidationVisaCheckout || skipValidationSaved) {
                         return;
                     }
-
                     if (!value) {
                         return Hypr.getLabel('securityCodeMissing') || Hypr.getLabel('genericRequired');
                     }

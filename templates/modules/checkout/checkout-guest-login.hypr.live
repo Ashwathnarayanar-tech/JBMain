@@ -71,18 +71,22 @@
                         <span class="required">*Required Fields</span>
                     </div>
                 </div>
-                <div class="mz-l-formfieldgroup-row">
-
+                <div class="mz-l-formfieldgroup-row">   
                     <div class="mz-l-formfieldgroup-cell">
-                        <button class="mz-button mz-signup-register active-button" id="signup-submit">{{ labels.register }}</button>
+                        <div class="mz-l-formfieldgroup-row">
+                            <label class="checkbox-outer-label">   
+                            <input id="guestregester-cpp-checkbox" type="checkbox" aria-label="By clicking {{ labels.register }}, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span class="text">By clicking {{ labels.register }}, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                            <span class="checkmark-style"></span></label> 
+                        </div>  
+                        <button disabled="disabled" class="mz-button mz-signup-register active-button" id="signup-submit">{{ labels.register }}</button>
                     </div>
                 </div>
-                <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
+                <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section> 
             </div>
         </div>
     </div>
   </div>
 {% endblock proceed-as-guest %}
 
-  {% block form-class %}login_submit-l{% endblock form-class %}
-  {% block addbutton-class %}addbutton-alt-class{% endblock %}
+{% block form-class %}login_submit-l{% endblock form-class %}
+{% block addbutton-class %}addbutton-alt-class{% endblock %}

@@ -189,7 +189,17 @@
         <!-- /Zen Wedding -->
     </div>
 </section>
+<!--test comment-->
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
+<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
+<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
+<script type="text/javascript">Cufon.now();</script>
 
 {{ "stylesheets/pages/wedding-center.less"|stylesheet_tag:"default" }}
 
 {% endblock body-content %}
+
+
+
+
+

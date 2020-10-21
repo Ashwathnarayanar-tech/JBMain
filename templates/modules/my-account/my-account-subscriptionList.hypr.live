@@ -1,0 +1,95 @@
+{% if pageContext.isDesktop or pageContext.isTablet %}
+	<h3 tabindex="0">MY SUBSCRIPTIONS</h3>
+{% endif %}
+{% if pageContext.isDesktop or pageContext.isTablet %}
+	{% for order in model.orderDetails %}
+		<div class="subscription-lists-container">
+			<div class="subscription-list">
+				<div role="button" tabindex="0" aria-controls="{{order.subscriptionId}}" {% if order.open %}aria-expanded="true"{% else %}aria-expanded="false"{% endif %} class={% if order.open %} "subscription-list-header active" {% else %} "subscription-list-header" {% endif %} data-subscription-id="{{order.subscriptionId}}">
+					<div class="header-left">
+						<div class="subscription-number" role="alert">
+							Subscription number: <strong>{{order.subscriptionId}}</strong>
+						</div>
+						<div class={% if order.subscribedStatus =="Active" %}"subscription-status active"
+							{% else %} 
+								{% if order.subscribedStatus == "Paused"%}
+									"subscription-status paused"
+								{% else %}
+									{% if order.subscribedStatus == "Cancelled" %}
+										"subscription-status cancelled"	
+									{% else %}
+										"subscription-status completed"
+									{% endif %}
+								{% endif %}
+							{% endif %}	
+							role="alert">
+							{{order.subscribedStatus}}
+						</div>
+						</div>
+						<div class="header-right">
+						<div class="subscription-order-total" role="alert">
+							Order Total: <strong>{{order.order.total|currency}}</strong>
+						</div>
+						<div class="header-status" aria-hiddenn="true" role="alert">
+							{% if order.open %}
+								<img src="../../../resources/images/minus1.svg" alt=""/>
+							{% else %}
+								<img src="../../../resources/images/plus.svg" alt=""/>
+							{% endif %}	
+						</div>
+					</div>
+				</div>
+				<div class="subscriptionViewDetails" data-subscription-id="{{order.subscriptionId}}" ></div>
+			</div>
+		</div>	
+	{% endfor %}
+{% endif %}	
+{% if pageContext.isMobile %}
+	{% for order in model.orderDetails %}
+		<div class="subscription-lists-container">
+			<div class="subscription-list-mobile">
+				<div role="button" tabindex="0" aria-controls="{{order.subscriptionId}}" {% if order.open %}aria-expanded="true"{% else %}aria-expanded="false"{% endif %} class={% if order.open %} "subscription-list-header active" {% else %} "subscription-list-header" {% endif %} data-subscription-id="{{order.subscriptionId}}">
+					<div class="header-top" >
+						<div class="subscription-number">
+							Subscription number: <strong>{{order.subscriptionId}}</strong>
+						</div>
+						<div class="header-status">
+							{% if order.open %}
+								<img src="../../../resources/images/minus1.svg" alt=""/>
+							{% else %}
+								<img src="../../../resources/images/plus.svg" alt=""/>
+							{% endif %}	 
+						</div>
+					</div>
+					<div class="header-bottom">
+						<div class="subscription-order-total">
+							Order Total: <strong>{{order.order.total|currency}}</strong>
+						</div>
+						<div class="subscription-status">
+							<span  class={% if order.subscribedStatus =="Active" %}
+									"active"
+								{% else %}
+									{% if order.subscribedStatus == "Paused"%}
+										"paused"
+									{% else %}
+										{% if order.subscribedStatus == "Cancelled" %}
+											"cancelled"
+										{% else %}
+											"completed"
+										{% endif %}
+									{% endif %}
+								{% endif %}	
+							>{{order.subscribedStatus}}</span>
+						</div>
+					</div>
+				</div> 	
+				<div class="subscriptionViewDetails" data-subscription-id="{{order.subscriptionId}}" ></div>
+			</div>
+		</div>	
+		{% endfor %}
+{% endif %}	
+{% if (model.totalReceivedOrders <= model.totalOrders)  %}
+		<div>
+			<button class="mz-more-order" data-mz-action-load-more-items data-mz-action="loadMoreItems">view more Subscriptions</button>
+		</div>
+{% endif %}

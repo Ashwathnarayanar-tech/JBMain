@@ -7,7 +7,6 @@ require(["modules/jquery-mozu"],
     var items = document.getElementsByClassName('mz-productlisting');
     var impressions = [];
 
-    console.log("Search.js items: " + items);
     function getImpressionList() {
       for (var i = 0; i < items.length; i++) {
         var impressionObj = {};

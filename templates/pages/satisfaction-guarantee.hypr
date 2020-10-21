@@ -18,7 +18,7 @@
 {% block body-content %}
 <section>
     <h1 class="mz-pagetitle" tabindex="0">Satisfaction Guarantee</h1>
-    <article tabindex="0" >
+    <article tabindex="0" role="contentinfo">
         <p>
             At JellyBelly.com, your satisfaction is our greatest concern. Jelly Belly candies are made with the finest ingredients, using natural ingredients whenever possible. 
             Your candy should reach you with the highest level of freshness and flavor, in packaging that is in excellent condition. If this is not the case, please save any uneaten candy and its packaging,
@@ -28,3 +28,8 @@
     </article>
 </section>
 {% endblock body-content %}
+
+
+
+
+

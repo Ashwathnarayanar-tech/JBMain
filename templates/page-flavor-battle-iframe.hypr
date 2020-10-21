@@ -1,0 +1,55 @@
+{% autoescape on %}
+{% block doctype %}
+<!doctype html>
+
+{% endblock doctype %}
+{% block open-html-tag %}
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|(!IE) ]><!--> 
+<html class="no-js" lang="en">
+<!--<![endif]-->
+{%endblock open-html-tag %}
+    {% block head-tag %}
+<head>
+        <meta charset="utf-8">
+        {% include "modules/json-required-for-hyprlive" %}
+		<meta name="correlationId" content="{{ pageContext.correlationId }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		{% block stylesheets %}
+        {{ "/stylesheets/storefront.less"|stylesheet_tag:"default" }} 
+        {% endblock stylesheets %}
+		<style>
+			body { background: #ffffff; }
+		</style>
+        {% block head-tag-scripts %}
+        {% include "modules/web-fonts-loader" %}
+        {% endblock head-tag-scripts %}
+		{% cms_resources %}
+		{%header_content%}
+</head>
+    {% endblock head-tag %}
+    {% block body-tag %} 
+    {% block open-body-tag %}
+   <body class="{% block body-tag-classes %}{% endblock body-tag-classes %}">
+    {% endblock open-body-tag %}
+        <div id="page-wrapper" class="mz-l-pagewrapper">
+            <div role="main" id="page-content" class="mz-l-pagecontent">
+                {% block body-content %}
+                    {% dropzone "body" scope="page" %}
+				{% endblock body-content %}
+            </div>
+        </div>
+        <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.respond.js"></script>
+	 {% block trailing-scripts %}		
+        {% include "modules/trailing-scripts-flavor-battle-iframe" %}	
+        {% endblock trailing-scripts %}
+		<div class="hide">
+			{% visitor_tracking_pixel %}
+		</div>
+	</body>
+    {% endblock body-tag %}
+</html>
+{% endautoescape %}

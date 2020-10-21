@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Adds a login popover to all login links on a page.
  */
 define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modules/jquery-mozu=jQuery]>jQuery=jQuery]>jQuery', 'modules/api', 'hyprlive', 'underscore'], function ($, api, Hypr, _) {
@@ -566,7 +566,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                 }
             });
             if(flag){
-                $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li>'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
+                $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li tabindex="0">'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
             }else{
                 $(document).find('form.reset-password-form').find('.mz-button-large').click();   
             }
@@ -725,6 +725,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
     });
         
 });
+
 
 
 

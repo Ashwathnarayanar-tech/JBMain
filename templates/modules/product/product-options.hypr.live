@@ -3,14 +3,12 @@
     <div class="mz-productoptions-optioncontainer">
         <div class="mz-productoptions-valuecontainer">
             {% if option.attributeDetail.inputType == "List" %}
-                <select {% if option.isMultiValue %}multiple{% endif %} class="mz-productoptions-option myacc-add-form-sel" data-mz-product-option="{{ option.attributeFQN }}">
+                <select {% if option.isMultiValue %}multiple{% endif %} class="mz-productoptions-option" data-mz-product-option="{{ option.attributeFQN }}" style="width: 130px;">
                     {% if not option.isMultiValue %}<option>Gift amount</option>{% endif %}
                     {% for value in option.values %}
                     <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %} value="{{value.value}}">{{value.stringValue|default(value.value)|currency}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
                     {% endfor %}
                 </select>
-                <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;" width="13">
-                <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none;" width="13">
             {% else %}
                 {% if option.attributeDetail.inputType == "YesNo" %}
                     <input class="mz-productoptions-option" type="checkbox" {% if option.shopperEnteredValue %}checked="checked"{% endif %} data-mz-product-option="{{ option.attributeFQN }}" />
@@ -40,5 +38,4 @@
     </div>
     {% endfor %}
 </div>
-
 

@@ -29,7 +29,7 @@
     <div class="headline-beans">
        <h3 tabindex="0">The Birth of the World's Most Famous Jelly Bean</h3>
        </div>
-        <p class="mar-top0" tabindex="0" >
+        <p class="mar-top0" tabindex="0" role="contentinfo">
      The idea was born in Los Angeles, just next door to Hollywood. Yes, the home of countless famous movie stars is also the birthplace of The Original Gourmet Jelly Bean<sup>®</sup>.
     </p>
     
@@ -37,11 +37,11 @@
 	<h2 tabindex="0">The Journey</h2>
 	</div>
 	
-    <p class="mar-top0" tabindex="0" >
+    <p class="mar-top0" tabindex="0" role="contentinfo">
     Back in 1976, a Los Angeles candy distributor had an idea for a jelly bean made with natural flavorings. So he called up the candymakers at Jelly Belly (formerly known as Herman Goelitz Candy Co.) who had a reputation for making the very best candies.
     </p>
 	
-	<p tabindex="0" >
+	<p tabindex="0" role="contentinfo">
 Creating "true-to-life" flavors was, well, a natural evolution. The candymakers cooked up a recipe for a new kind of jelly bean -- intensely flavored throughout, with natural ingredients for flavoring whenever possible. In 1976 the first eight Jelly Belly flavors were born: Very Cherry, Lemon, Cream Soda, Tangerine, Green Apple, Root Beer, Grape and Licorice. Funny enough they are still some of the most popular flavors made.
 </p>
 <div class="headline-beans"> 
@@ -54,11 +54,11 @@ The rise to the top, or, what a long, tasty trip it's "bean."
       <img class="right-beans" alt="" src="//cdn-tp1.mozu.com/9046-m1/cms/files/3e5d1de2-26fd-4f22-aa35-0bd672afa2b3">
     </figure>
     
-<p tabindex="0" >
+<p tabindex="0" role="contentinfo">
 A furor arose when people tasted Jelly Belly beans for the first time. Wow, what flavor! Soon Jelly Belly became the favorite candy of Ronald Reagan, who eventually made the beans a staple in the Oval Office and on Air Force One after he was elected president. President Reagan's passion for jelly beans inspired Blueberry flavor, which was cooked up so he could serve red, white, and blue beans at his inaugural parties. Diplomats and world leaders clamored to have Jelly Belly beans. And guess what? Jelly Belly was also the first jelly bean in outer space. Free floating, weightless Jelly Belly beans were sent on the space shuttle Challenger in 1983 as a presidential surprise for the astronauts. Coincidentally, it was the same mission that boasted another bit of history -- the first American female astronaut, Sally Ride.
 </p>
 
-<p tabindex="0" >
+<p tabindex="0" role="contentinfo">
 Today, Jelly Belly is the world's #1 gourmet jelly bean, the bean of choice for all those with the most discerning taste, and made in 50 amazing and tasty flavors.
 </p>
 

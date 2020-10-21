@@ -29,7 +29,7 @@
                     <img alt="Company History link" src="/resources/images/about-jb/company-history.png" width="133" border="0"> 
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   The Jelly Belly Candy Co. makes more than 100 mouthwatering candies, including such delights as chocolates, gummies, sour candies, and confections for all the seasons.
                   <a class="jb-feature-brand-moreinfo" href="/company-history">View More ►</a>
                 </p>
@@ -46,7 +46,7 @@
                     <img alt="Principles and Practices link" src="/resources/images/about-jb/logo.png" width="98" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Jelly Belly Candy Company strives to ensure the highest standards of quality not only in our products, but our safety practices. Includes California Transparency in Supply Chain statement.
                   <a class="jb-feature-brand-moreinfo" href="/principles-and-practices">View More ►</a>
                 </p>
@@ -63,7 +63,7 @@
                     <img alt="Frequently Asked Questions link" src="/resources/images/about-jb/faq.png" width="98" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Many of the questions that you might have are already answered in our FAQ section. If you don't find what you need, you can submit your question to us!
                   <a class="jb-feature-brand-moreinfo" href="/frequently-asked-questions">View More ►</a>
                 </p>
@@ -80,7 +80,7 @@
                     <img alt="Terms of Use link" src="/resources/images/about-jb/tos.png" width="98" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Please read our Terms of Use for the terms and conditions surrounding the use of our website.
                   <a class="jb-feature-brand-moreinfo" href="/terms-of-use">View More ►</a>
                 </p>
@@ -97,7 +97,7 @@
                     <img alt="Vending & Fundraising Information"  src="/resources/images/about-jb/vending.png" width="98" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                    Learn more about our vending &amp; fundraising program. Jelly Belly candy makes for an extremely profitable alternative.
                   <a class="jb-feature-brand-moreinfo" href="/fundraising-and-vending">View More ►</a>
                 </p>
@@ -114,7 +114,7 @@
                     <img alt="Careers" src="/resources/images/about-jb/careers.png" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                    Jelly Belly Candy Company, makers of Jelly Belly gourmet jelly beans and other fine confections, is seeking talented and motivated individuals to join our team!
                   <a class="jb-feature-brand-moreinfo" href="/careers">View More ►</a>
                 </p>
@@ -130,7 +130,7 @@
                     <img alt="Information for students" src="/resources/images/about-jb/students.jpg" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                  Are you a student or educator looking for information regarding the Jelly Belly Candy Company? Get the scoop on useful information about the company on our Educators &amp; Students page.
                   <a class="jb-feature-brand-moreinfo" href="/information-for-students">View More ►</a>
                 </p>
@@ -146,7 +146,7 @@
                     <img alt="Wholesale Information link" src="/resources/images/about-jb/wholesale_thumb.png" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   A candy shop is complete when it has a full selection Jelly Belly candy. If you are a shop owner/operator, you'll want to download our many catalogs for an up-close view of the items we offer.
                   <a class="jb-feature-brand-moreinfo" href="/wholesale-customers">View More ►</a>
                 </p>
