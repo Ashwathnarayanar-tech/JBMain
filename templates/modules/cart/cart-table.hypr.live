@@ -376,7 +376,6 @@
               </tr>
           {% endfor %}
         {% endif %}
-    {% endfor %}
     {% else %}
       <tr class="mz-carttable-noitems" style="margin-top: 20px;">
         <td colspan="5" tabindex="0">
