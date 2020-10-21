@@ -80,7 +80,7 @@
                             text-align: center;
                             color: #e7131a;
                             padding: 7px 45px;
-                            margin-left: 12px; 
+                            margin-left: 12px;
                             text-decoration: none;
                             display: inline-block;
                             &:hover{
@@ -88,6 +88,12 @@
                                 border-color: #cc0108;
                                 color: white;
                             }   
+                            &[disabled]{
+                            background-color:#e0e0e0;
+                            border-color: #e0e0e0;
+                            color: #fff;
+                            cursor: not-allowed;
+                            }
                         }
                         .print-receipt{
                             position: absolute;
