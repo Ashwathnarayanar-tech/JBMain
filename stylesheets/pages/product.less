@@ -719,6 +719,7 @@
                                 box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
                                 background-color: #ffffff;
                                 position: relative;
+                               
                                 .close-icon{
                                     position: absolute;
                                     width: 20px;
@@ -821,7 +822,7 @@
                             width: 100%;
                             height: 100%;
                             background: rgba(0, 0, 0, 0.8);
-                            z-index: 999;
+                            z-index: 9999;
                             -webkit-transition: opacity 400ms ease-in;
                             -moz-transition: opacity 400ms ease-in;
                             transition: opacity 400ms ease-in;
@@ -833,6 +834,10 @@
                                 box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
                                 background-color: #ffffff;
                                 position: relative;
+                                &.signupheight{
+                                    height: 94%;
+                                    overflow-y: auto;
+                                }
                                 .closepopup{
                                     width: 20px;
                                     display: block;
@@ -895,6 +900,12 @@
                                             }
                                         }
                                     }
+                                    .mz-popover-message{
+                                        font-size: 14px;
+                                        color:  rgb(233, 0, 15);
+                                        margin: 0 auto;
+                                        width: 86%;
+                                    }
                                     .mz-l-formfieldgroup{
                                         margin: 0 auto;
                                         width: 86%;
@@ -942,10 +953,7 @@
                                                 }
                                             }
                                         }
-                                        .mz-popover-message{
-                                            font-size: 14px;
-                                            color:  rgb(233, 0, 15);
-                                        }
+                                       
                                     }
                                 }
                             }
@@ -2513,7 +2521,24 @@
                                             }
                                         }
                                         .formGroup.howofter{
-                                            width: 100%
+                                            width: 100%;
+                                            .weekormonth{
+                                                margin-left: 3%;
+                                                .span-tabs{
+                                                    padding:7px 0;
+                                                    width: 48.3%;
+                                                }
+                                            }
+                                        }
+                                        .formGroup.howling{
+                                            .how-long-input-sub{
+                                                .how-long-val{
+                                                    font-size: 14.9px;
+                                                }
+                                                &:after{
+                                                    right: 17px;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -2568,6 +2593,10 @@
                                     width: 90%;
                                    .logoicon .popuptext{
                                        font-size: 14px;
+                                   }
+                                   .tabSec-actio .tabitem{
+                                       padding:8px 2%;
+                                       width: 40%;
                                    }
                                 }
                             }
