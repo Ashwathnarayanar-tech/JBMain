@@ -198,7 +198,16 @@
                     this.set('phoneNumbers.home', phone);
                     this.set('address.addressType', addType === "POBox" ? 'Residential' : addType);
     
-                if (this.validate()) return false;
+                if (this.validate()){ 
+                    if(this.bypassValidation){
+                        $('#bypassNotification').hide();
+                        $('#bypassButton').hide(); 
+                        $('#continuetoshipping').show(); 
+                        return false;
+                    }else{
+                        return false;
+                    }
+                }
 
                 var parent = this.parent,
                     order = this.getOrder(),
@@ -355,18 +364,11 @@
             applyShipping: function(resetMessage) {
                     if (this.validate()) return false;
                     var me = this;
-                    if(resetMessage=="next"){
-                    this.isLoading(true); 
-                    }
+                    this.isLoading(true);
                 var order = this.getOrder();
                 if (order) {
                     order.apiModel.update({ fulfillmentInfo: me.toJSON() })
                         .then(function (o) {
-                            if(resetMessage=="next"){
-                                me.stepStatus("complete");
-                            }else{
-                                me.stepStatus("incomplete");
-                            }
                             var billingInfo = me.parent.get('billingInfo');
                             if (billingInfo) {
                                 // billingInfo.set('savedPaymentMethodId', billingInfo.get('card.paymentServiceCardId'), { silent: true });
@@ -375,11 +377,9 @@
                             }
                         })
                         .ensure(function() {
-                            if(resetMessage==="next"){
                                 me.isLoading(false);
                                 me.calculateStepStatus();
-                            }
-                        
+                            
                             me.parent.get('billingInfo').calculateStepStatus();
                             if(resetMessage) {
                                 me.parent.messages.reset(me.parent.get('messages'));
@@ -393,7 +393,7 @@
                 }
             },
             next: function () {
-                if(this.applyShipping("next")){
+                if(this.applyShipping()){
                     this.stepStatus('complete');
                     this.parent.get('billingInfo').calculateStepStatus();
                 }
@@ -1748,19 +1748,16 @@
                 }
 
                 //save contacts
-                //if((window.location.href).split('?')[1] !== 'cl=returningUser'){
-                    if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
-                        if (!isSameBillingShippingAddress && !isSavingCreditCard) {
-                            if (requiresFulfillmentInfo) process.push(this.addShippingContact);
-                            if (requiresBillingInfo) process.push(this.addBillingContact);
-                        } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
-                            process.push(this.addShippingAndBillingContact);
-                        } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
-                            process.push(this.addShippingContact);
-                        }
+                if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
+                    if (!isSameBillingShippingAddress && !isSavingCreditCard) {
+                        if (requiresFulfillmentInfo) process.push(this.addShippingContact);
+                        if (requiresBillingInfo) process.push(this.addBillingContact);
+                    } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
+                        process.push(this.addShippingAndBillingContact);
+                    } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
+                        process.push(this.addShippingContact);
                     }
-               // }
-                
+                }
 
                 process.push(/*this.finalPaymentReconcile, */this.apiCheckout);
 

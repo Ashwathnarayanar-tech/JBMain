@@ -3,12 +3,32 @@
     .mz-l-pagewrapper{
 		padding-bottom: 30px;
         .mz-l-pagecontent{
+            padding:0;
             #maincontent{
                 margin: 0;
             }
             .mz-l-container{
                 width: 100%;
                 margin: 0 auto;
+                #mz-drop-zone-checkout-notification-dropzone{
+                    .mz-cms-block{
+                        min-height: 100%;
+                        .mz-cms-content{
+                            padding: 0; 
+                        }
+                    }
+                }
+                .checkbox-outer-label{
+                    .checkmark-style{
+                        width: 25px;
+                        height: 25px;
+                        top:4px; 
+                        &:after{ 
+                            left: 8px;
+                            top: 4px;
+                        }
+                    }
+                }
                 .autoaddredirect{
                     position: fixed;
                     font-family: @fontFamily;
@@ -41,8 +61,9 @@
                 .checkout-header {
                     padding: 15px 0px;
                     .header-wraper{
-                        width: 94%;
-                        margin: 0 auto;
+                        // width: 94%;
+                        // margin: 0 auto;
+                        padding: 0 49px 0 45px;
                         .mz-pagetitle {
                             margin-top: 0;
                             font-family: @fontFamily;
@@ -50,30 +71,39 @@
                             margin-left:0;
                             width:62%;
                             display:inline-block;
-                            font-size: 34px;
                             color: #1c2e36; 
+                            vertical-align: middle;
                             a{
                                 &:after{
                                     content: "";
                                     display: inline-block;
-                                    width: 25px;
-                                    height: 25px;
+                                    width: 18px;
+                                    height: 23px;
                                     background-image: url(../../resources/images/lock.png);
                                     background-size: 100%;
                                     background-repeat: no-repeat;
+                                    vertical-align: text-bottom;
+                                    margin-left: 10px; 
                                 }  
                                 img{
-                                    width: 105px;
+                                    width: 112px;
                                 }   
+                            }
+                            span{
+                                vertical-align: -5px; 
+                                color:#1c2e36;
+                                font-size: 34px;
                             }
                         }
                         .links-sec{
                             display:inline-block;
                             width:37.5%;
                             vertical-align: middle;
+                            text-align:right;
                             div.continueshopping{
-                                float: right; 
+                                //float: right; 
                                 margin: 10px;
+                                display: inline-block;
                                 a{
                                     color: #004e99;
                                     position: relative;
@@ -86,7 +116,7 @@
                                         width: 14px;
                                         height: 14px;
                                         top: 1px;
-                                        left: -12px;
+                                        left: -17px;
                                         border-radius: 4px;
                                         cursor: pointer;
                                         background-size: 100%;
@@ -96,12 +126,14 @@
                                 }
                             }
                             .contact-num{
-                                float: right;
+                                //float: right;
+                                display: inline-block;
                                 color: #999999;
                                 font-size: 20px;
                                 .mz-tollfree-content{
                                     padding-left: 8px;
                                     border-left: 2px solid #999999;
+                                    line-height: 15px;
                                     .number{
                                         color: #004e99;
                                         font-weight: 700;
@@ -132,12 +164,31 @@
                 }
                 .div-cointainer{
                     box-shadow: inset 0 1px 0px 0 rgba(0, 0, 0, 0.2);
+                    .ind-req{
+                        width: 60%;
+                        display: inline-block;
+                        padding: 10px 0 0 51px;
+                        margin: 0; 
+
+                    }
                     .mz-checkoutform.mz-l-2column-right#checkout-form{
                         display: inline-block;
-                        width: 63%;
+                        width: 65%;
                         .mz-l-column{
                             width: 100%;
                             padding: 0 6%;
+                            .mz-formstep{
+                                &.mz-checkoutform-shippingaddress.hide-shippingAddress{ 
+                                    .mz-formstep-header{
+                                        padding: 60px 0 45px;
+                                    }
+                                }
+                            }
+                            .hide-shippingAddress{
+                                .mz-formstep-header{
+                                    padding: 60px 0 45px;
+                                }
+                            }
                             .mz-fromstep.popupmodal{
                                 background: red; 
                             }
@@ -150,12 +201,13 @@
                             			.content{
                             				.main_content{ 
                             					width: 80%;
-											    padding: 30px 0;
-											    border-bottom: solid 1px #cfcfcf;
+											    padding: 41px 0;
+											    border-bottom: solid 0.5px #4a4a4a;
                             					.checkout_login.form-content{
-                            						width: 46%;
+                            						width: 44%;
     												display: inline-block;
     												vertical-align: top;
+                                                    position:relative;
     												.content-tab-sys-labels{
     													.guest-login.labelmodel{
 														    font-size: 16px;
@@ -168,11 +220,14 @@
     												}
     												.error-user, .loginError{
     													font-size: 11px;
-														color: #e9000f;
+														color: #762f2d;
     												}
     												.mz-l-formfieldgroup{
 	    												.mz-l-formfieldgroup-row{
-	    													display: block;
+                                                            display: block;
+                                                            &.margin-btm{
+                                                                margin-bottom: 40px;
+                                                            }
 		    												.mz-l-formfieldgroup-cell{
 		    													width: 100%;
 															    display: block;
@@ -182,13 +237,14 @@
 			    													border-radius: 4px;
 																    border: solid 1px #dddddd;
 																    background-color: #f3f3f3;
-																    padding: 9px 14px;
+																    padding: 10px 19px;
 																    font-size: 18px;
 																    color: #4a4a4a;
 																    width: 100%;
+                                                                    margin-bottom: 20px;
 																}
 																&.forgotpass{
-																    font-size: 12px;
+																    font-size: 18px;
 																    font-weight: 500;
 																    color: #004e99;
 																    display: block;
@@ -201,7 +257,7 @@
 																    border-radius: 4px;
 																    border: solid 1.5px #004e99;
 																    background-color: #004e99;
-																    width: 45%;
+																    width: 55%;
 																    font-size: 18px;
 																    font-weight: bold;
 																    line-height: normal;
@@ -209,9 +265,13 @@
 																    color: #ffffff;
                                                                     &:hover{
                                                                         background-color: #003a72;
-                                                                        border: 1px solid #003a72;
+                                                                        border: 1.5px solid #003a72;
                                                                         color: #fff;
                                                                     } 
+                                                                    @media screen and (min-width:1100px){
+                                                                        position: absolute;
+                                                                        bottom: 0;
+                                                                    }
 																}
                                                                 .mz-button.mz-button-large.cpp-loginpopup[disabled]{
                                                                     border-color: rgba(0, 0, 0, 0.25);
@@ -222,27 +282,34 @@
 		    												.checkbox-outer-label{
 		    													text-align: left;
 	    													    margin: 14px 0px;
+                                                                padding-left: 40px;
 		    													span.text{
 																    font-size: 12px;
 																    color: #4a4a4a;
 																    text-align: left;
-																    line-height: 0.5;
+                                                                    //line-height: 0.5;
+                                                                    vertical-align: top;
+                                                                    a{ 
+                                                                       color: #004e99; 
+                                                                       vertical-align: top; 
+                                                                    }
 		    													}
 		    													.checkmark-style{
-		    														margin-top: 10px;
+		    														//margin-top: 10px;
 		    													}
 		    												}
 		    											}
 		    										}
                             					}
                             					.separetor{
-                        						    width: 5%;
+                        						   // width: 8%;
     												display: inline-block;
-    												vertical-align: top;
+                                                    vertical-align: top;
+                                                    padding:16px 15px; 
     												.line-v{
 													    display: block;
 													    border: 0.5px solid #c7c7c7;
-													    height: 8pc;
+													    height: 8.6pc;
 													    width: 0;
 													    margin: 0 auto;
     												}
@@ -257,12 +324,12 @@
     												}
                             					}
                             					.proceed_guest.form-content{
-                        						    width: 46%;
+                        						    width: 44%;
     												display: inline-block;
     												vertical-align: top;
     												.error-guest{
     													font-size: 11px;
-														color: #e9000f;
+														color: #762f2d; 
     												}
     												.content-tab-sys-labels{
     													.guest-login.labelmodel{
@@ -289,10 +356,11 @@
 				    													border-radius: 4px;
 																	    border: solid 1px #dddddd;
 																	    background-color: #f3f3f3;
-																	    padding: 9px 14px;
+																	    padding: 10px 14px;
 																	    font-size: 18px;
 																	    color: #4a4a4a;
 																	    width: 100%;
+                                                                        margin-bottom: 20px;
 																	}
 																	&.forgotpass{
 																	    font-size: 12px;
@@ -305,11 +373,15 @@
 																	    }
 																	}
 																	.mz-l-formfieldgroup-row{
+                                                                        &.margin-btm{
+                                                                            margin-bottom: 40px;
+                                                                        }
 																		.checkbox-outer-label{
 																			font-size: 12px;
 																		    margin: 16px 0;
+                                                                            padding-left: 40px;
 																			.checkmark-style{
-																				margin-top: 6px;
+																				//margin-top: 6px;
 																			}
 																		}
 																	}
@@ -321,10 +393,10 @@
 																	    font-weight: bold;
 																	    text-align: center;
 																	    color: #004e99;
-																	    width: 65%;
+																	    width: 69.5%;
                                                                         &:hover{
                                                                             background-color: #003a72;
-                                                                            border: 1px solid #003a72;
+                                                                            border: 1.5px solid #003a72;
                                                                             color: #fff;
                                                                         } 
                                                                     }    
@@ -337,21 +409,31 @@
 			    												.checkbox-outer-label{
 			    													text-align: left;
 		    													    margin: 14px 0px;
+                                                                    a{ 
+                                                                        color: #004e99;  
+                                                                     }
 			    													span.text{
 																	    font-size: 12px;
 																	    color: #4a4a4a;
 																	    text-align: left;
 																	    line-height: 0.5;
+                                                                        vertical-align: top;
+                                                                        a{ 
+                                                                            color: #004e99;  
+                                                                         }
 			    													}
 			    													.checkmark-style{
-			    														margin-top: 10px;
+			    														//margin-top: 10px;
 			    													}
 			    												}
 			    											}
 			    											.mz-l-formfieldgroup-cell.guest_text{
 			    												.required-fields.email_account_text{
 		    													    text-align: left;
-    																font-size: 12px;
+                                                                    font-size: 16px;
+                                                                    line-height: 20px;
+                                                                    font-weight: normal; 
+                                                                    color: #4a4a4a;
 			    												}
 			    											}
 			    										}
@@ -365,25 +447,26 @@
                             .mz-fromstep.login-signup{
                                 .logedinuserdata{
                                     width: 80%;
-                                    padding: 5% 0; 
+                                    padding: 3% 0; 
                                     border-bottom: solid 1px #cfcfcf;
                                     font-size: 18px;
                                     color: #4a4a4a;
-                                    font-weight: bold;
+                                    font-weight: 300;
                                     &.guestData{
                                     	display: none;
                                     }
                                     &.guestData.active{
                                     	display: block;
+                                        padding: 39px 0 19px;
                                     }
                                     span{
-                                        font-weight: 400;
-                                        color: #000000;
+                                        font-weight: 500;
+                                        color: #4a4a4a;
                                     }
                                 }
                             }
                             .mz-fromstep-direct-payment{
-                                padding: 15px 0;
+                                padding: 15px 0 0;
                                 width: 80%;
                                 &.no-direct-payment{
                                     display: none;
@@ -392,7 +475,7 @@
                                     font-size: 18px;
                                     font-weight: 500;
                                     color: #000000;
-                                    margin: 10px 0;
+                                    margin: 15px 0;
                                     display: block;      
                                 }
                                 .payment-options{
@@ -428,7 +511,7 @@
                                     }
                                 }
                                 .sapareter{
-                                    margin: 25px 0 10px 0;
+                                    margin: 39px 0 28px 0;
                                     .halfBar{
                                         padding-bottom: 6px;
                                         display: inline-block;
@@ -451,13 +534,20 @@
                                 &.is-new{
                                     .mz-formstep-header{ 
                                         border-bottom: solid 1px #cfcfcf;
+                                        padding: 60px 0 45px; 
+                                    }
+                                }
+                                &.is-complete{
+                                    .mz-formstep-header{ 
+                                        padding: 29px 0 5px; 
                                     }
                                 }
                                 .mz-formstep-header{
                                     font-size: 40px;
                                     font-weight: 300;
                                     color: #222222;
-                                    margin-top: 5px;
+                                    margin-top: 0px;
+                                    padding: 0;
                                     border: none;
                                     width: 80%;
                                     .mz-button.mz-button-small.mz-formstep-edit{
@@ -476,7 +566,7 @@
                                         font-size: 18px;
                                         line-height: normal;
                                         color: #000000;
-                                        padding: 15px 29px 30px;
+                                        padding: 15px 29px 44px;
                                         width: 100%;
                                     }
                                     .mz-formstep-fields.mz-l-formfieldgroup{
@@ -492,22 +582,26 @@
                                                 font-weight: bold;
                                                 color: #4a4a4a;
                                                 padding-left: 40px; 
-                                                margin: 0; 
+                                                margin: 0 0 -8px 0; 
                                                 display: block;
                                             }
                                             .data-contact{
                                                 display: inline-block;
                                                 width: 49%;
                                                 vertical-align: top;
+                                                float:left; 
                                                 .mz-contactselector-contact{
                                                     border-radius: 4px;
-                                                    border: solid 1px #004e99;
+                                                    border: solid 1px #cfcfcf;
                                                     background-color: #fff;
                                                     padding: 13px;
                                                     min-height: 175px;
                                                     vertical-align: top;
                                                     width: 86%;
-                                                    margin: 10px 0;
+                                                    margin:4% 0;
+                                                    &.default-addr{
+                                                        border: solid 1px #004e99;
+                                                    }
                                                     .mz-contactselector-inputwrapper{
                                                         padding: 0;
                                                         vertical-align: top;
@@ -534,8 +628,8 @@
                                                             position: absolute;
                                                             left: -2px;
                                                             top: 6px;
-                                                            width: 16px;
-                                                            height: 16px;
+                                                            width: 20px;
+                                                            height: 20px;
                                                             border: solid 0.8px #004e99;
                                                             border-radius: 100%;
                                                             background: #fff;
@@ -550,8 +644,8 @@
                                                             height: 10px;  
                                                             background: #004e99;
                                                             position: absolute;
-                                                            top: 10px; 
-                                                            left: 2px;
+                                                            top: 12px; 
+                                                            left: 4px;
                                                             border-radius: 100%;
                                                             -webkit-transition: all 0.2s ease;
                                                             transition: all 0.2s ease;
@@ -592,6 +686,9 @@
                                                         display: inline-block;
                                                         width: 49.5%;
                                                         vertical-align: top;
+                                                        &.mz-addressform-companyname{
+                                                            display:block;
+                                                         } 
                                                         .mz-l-formfieldgroup-cell{
                                                             padding: 0;
                                                             display: block;
@@ -610,7 +707,7 @@
                                                                 background-color: #f3f3f3;
                                                                 width: 98%;
                                                                 padding: 8px 0;
-                                                                height: 36px;
+                                                                height: 42px;
                                                                 padding: 8px 10px;
                                                             }
                                                             .up-caret-quantity-myacc-add{
@@ -663,10 +760,17 @@
                                             display: inline-block;
                                             width: 49.5%;
                                             vertical-align: top;
+                                            &.mz-addressform-companyname{
+                                                //width: 100%;
+                                                display:block;
+                                            } 
                                             .mz-l-formfieldgroup-cell{
                                                 padding: 0;     
                                                 display: block;
                                                 position: relative;
+                                                &:last-child{
+                                                    margin-bottom: 20px;
+                                                }
                                                 label{
                                                     font-size: 18px;
                                                     color: #000000;
@@ -681,8 +785,10 @@
                                                     background-color: #f3f3f3;
                                                     width: 98%;
                                                     padding: 8px 0;
-                                                    height: 36px;
+                                                    height: 42px;
                                                     padding: 8px 10px;
+                                                    font-size: 18px;
+                                                    margin-bottom: 5px;
                                                 }
                                                 .up-caret-quantity-myacc-add{
                                                     top: 12px;
@@ -697,7 +803,7 @@
                                     }
                                     .mz-formstep-next{
                                         margin-bottom: 20px;
-                                        margin-top: 20px;
+                                        margin-top: 60px;
                                         #continuetoshipping{
                                             height: 40px;
                                             border-radius: 4px;
@@ -707,7 +813,7 @@
                                             font-weight: bold; 
                                             text-align: center;
                                             color: #ffffff;
-                                            padding: 8px 30px; 
+                                            padding: 8px 36px;  
                                             &:hover{
                                                 background-color: #003a72;
                                                 border: 1px solid #003a72;
@@ -724,7 +830,8 @@
                                             font-weight: bold; 
                                             text-align: center;
                                             color: #ffffff;
-                                            padding: 8px 30px;    
+                                            padding: 8px 36px;  
+                                            width: 49%; 
                                         }
                                     }
                                 }
@@ -769,6 +876,7 @@
                                             display: block;
                                             font-size: 16px;
                                             color: #545454;
+                                            margin: 10px 0;
                                             a{
                                                 text-decoration: underline !important;
                                             }
@@ -779,13 +887,15 @@
                                             color: #4a4a4a;  
                                             display: inline-block;
                                             width: 40%;
+                                            margin:0 0 10px;
                                         }
                                         .estimated-date{
                                             display: inline-block;
-                                            width: 60%;
+                                            width: 59%;
                                             font-size: 16px;
                                             text-align: right;
                                             color: #4a4a4a;
+                                            margin:0 0 10px;
                                             .bold-text{
                                                 font-weight: 500;   
                                             }
@@ -797,7 +907,7 @@
                                                 border: solid 1px #dddddd;
                                                 background-color: #ffffff;
                                                 display: block;
-                                                padding: 10px;
+                                                padding: 12px 10px;
                                                 margin: 0 0 10px 0;
                                                 &.active{ 
                                                     border: solid 1px #004e99;
@@ -805,8 +915,9 @@
                                                 .label-first-sec{
                                                     .input-Cointainer{
                                                         display: inline-block;
-                                                        width: 3.2%;
+                                                        width: 25px;
                                                         position: relative;
+                                                        vertical-align: text-top;
                                                         [type="radio"]:checked,
                                                         [type="radio"]:not(:checked) {
                                                             position: absolute;
@@ -827,8 +938,8 @@
                                                             position: absolute;
                                                             left: -2px;
                                                             top: 0;
-                                                            width: 16px;
-                                                            height: 16px;
+                                                            width: 18px;
+                                                            height: 18px;
                                                             border: solid 0.8px #004e99;
                                                             border-radius: 100%;
                                                             background: #fff;
@@ -843,8 +954,8 @@
                                                             height: 10px;  
                                                             background: #004e99;
                                                             position: absolute;
-                                                            top: 4px;
-                                                            left: 2px;
+                                                            top: 5px;
+                                                            left: 3px;
                                                             border-radius: 100%;
                                                             -webkit-transition: all 0.2s ease;
                                                             transition: all 0.2s ease;
@@ -881,8 +992,9 @@
                                                         font-weight: bold;
                                                         color: #008000;
                                                         display: inline-block;
-                                                        width: 34%;
-                                                        padding-left: 20px;
+                                                        width: 33%;
+                                                        padding-left: 30px;
+                                                        vertical-align: text-top;
                                                     }
                                                     .estimated-arrival{
                                                         font-size: 14px;
@@ -890,6 +1002,7 @@
                                                         display: inline-block;
                                                         width: 61%;
                                                         text-align: right;
+                                                        vertical-align: text-top;
                                                     }
                                                 }
                                             }
@@ -905,7 +1018,7 @@
                                             font-weight: bold;  
                                             text-align: center;
                                             color: #ffffff;
-                                            margin-bottom: 25px;  
+                                            margin:50px 0 19px;  
                                             &:hover{
                                                 background-color: #003a72;
                                                 border: 1px solid #003a72;
@@ -960,7 +1073,7 @@
                                     .mz-formstep-fields{
                                         .mz-checkout-digitalcredit.mz-l-stack-section{
                                             .store-credit-input-sec{
-                                                padding: 0 0 0 30px;
+                                                padding:0;
                                                 margin-top: 15px;
                                                 margin-bottom: 25px;
                                                 .mz-l-stack-sectiontitle{
@@ -971,7 +1084,7 @@
                                                 }
                                                 .mz-l-formfieldgroup-cell{
                                                     .mz-checkout-digitalcredit-enter-code{
-                                                        width: 50%;
+                                                        width: 28%;
                                                         border-radius: 4px;
                                                         border: solid 1px #cfcfcf;
                                                         background-color: #ffffff;
@@ -1075,7 +1188,7 @@
                                                     border-radius: 4px;
                                                     border: solid 1px #dddddd;
                                                     background-color: #ffffff;
-                                                    padding: 6px 12px;
+                                                    padding: 15px 12px;
                                                     margin: 15px 0; 
                                                     &.active{
                                                         border: solid 1px #004e99; 
@@ -1120,8 +1233,8 @@
                                                             position: absolute;
                                                             left: -2px;
                                                             top: 3px;
-                                                            width: 16px;
-                                                            height: 16px;
+                                                            width: 20px;
+                                                            height: 20px;
                                                             border: solid 0.8px #004e99;
                                                             border-radius: 100%;
                                                             background: #fff;
@@ -1136,8 +1249,8 @@
                                                             height: 10px;  
                                                             background: #004e99;
                                                             position: absolute;
-                                                            top: 7px; 
-                                                            left: 2px;
+                                                            top: 9px; 
+                                                            left:4px;
                                                             border-radius: 100%;
                                                             -webkit-transition: all 0.2s ease;
                                                             transition: all 0.2s ease;
@@ -1388,6 +1501,7 @@
                                                 display: block;
                                                 .mz-l-formfieldgroup-row.paymenttypes-choosing{
                                                     display: block;
+                                                    padding-bottom:20px;
                                                     .payment-type-select{
                                                         .select-ul{
                                                             list-style: none;
@@ -1447,18 +1561,27 @@
                                                 .mz-l-formfieldgroup-row.billing-email{
                                                     .mz-l-formfieldgroup-cell{
                                                         display: block;
+                                                        @media only screen and (min-width : 1px) and (max-width : 767px) {
+                                                           padding:0; 
+                                                        }
                                                         label{
                                                             font-size: 18px;
                                                             color: #000000;
                                                             text-align: left; 
                                                             display: block;
+                                                            .is-required{
+                                                                color: #000;
+                                                            } 
                                                         } 
                                                         #billing-email{
                                                             border-radius: 4px;
                                                             border: solid 1px #dddddd;
                                                             background-color: #f3f3f3;
                                                             padding: 10px 10px;
-                                                            width: 60%;
+                                                            width: 65%;
+                                                            @media only screen and (min-width : 1px) and (max-width : 767px) {
+                                                                width: 99%; 
+                                                            }
                                                         }  
                                                     }    
                                                 }
@@ -1470,6 +1593,7 @@
                                                         }
                                                         .mz-inline.marketing.checkbox-outer-label{
                                                             text-align: left;
+                                                            padding-left: 40px; 
                                                             .checkout-offers-check{
                                                                 font-size: 16px;
                                                                 font-weight: 500;
@@ -1478,18 +1602,25 @@
                                                             .checkmark-style{
                                                                 border-radius: 0px;
                                                                 -webkit-border-radius: 0px;
+                                                                top:0px;
+                                                                @media only screen and (min-width:1px) and (max-width:767px){
+                                                                    top:6px;
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             }
                                             .mz-l-formfieldgroup.payment-form-section{
-                                                padding: 20px 0;
+                                                padding:0px 0 20px;
                                                 border-bottom: solid 1px #cfcfcf;
                                                 .mz-l-formfieldgroup-row{
                                                     display: inline-block;
                                                     width: 49.5%; 
                                                     vertical-align: top;
+                                                    &.mz-addressform-companyname{
+                                                       display:block;
+                                                    } 
                                                     &:first-child{
                                                         display: none;
                                                     }
@@ -1497,18 +1628,26 @@
                                                         display: block;
                                                         padding: 0;
                                                         position: relative;
+                                                        &:last-child{
+                                                            margin-bottom:20px;
+                                                        }
                                                         label{
                                                             text-align: left;
                                                             font-size: 18px;
                                                             color: #000000;
                                                             padding: 0;
+                                                            .is-required{ 
+                                                                color:#000;
+                                                            }
                                                         }
                                                         input,select{
-                                                            width: 95%;
-                                                            height: 38px;
+                                                            width: 98%;
+                                                            height: 42px;
                                                             border-radius: 4px;
                                                             border: solid 1px #dddddd;
                                                             background-color: #f3f3f3;
+                                                            margin-bottom: 5px;
+                                                            font-size: 18px; 
                                                         }
                                                         &.visa:after{
                                                             background-image: url(../../resources/images/visa.png);
@@ -1564,9 +1703,9 @@
                                                         }
                                                         &.checkout-card-expmonth{
                                                             select{
-                                                                width: 46%;
+                                                                width: 48%;
                                                                 display: inline-block;
-                                                                margin: 0;
+                                                                margin: 0 0 5px 0;
                                                                 &:first-child{
                                                                     margin-right: 1%;
                                                                 }
@@ -1579,7 +1718,7 @@
                                                             .down-caret-ma-year,.up-caret-ma-year{
                                                                 top: 15px;
                                                                 left: unset;
-                                                                right: 8%;
+                                                                right: 7%;
                                                             }
                                                         }
                                                         .down-caret-ma-cardType,.up-caret-ma-cardType{
@@ -1628,8 +1767,16 @@
                                                                 }
                                                             }
                                                         }
+                                                        .sweetrewards{
+                                                            padding: 10px 0;
+                                                            a{
+                                                                color: #004e99;
+                                                            }
+                                                        }
                                                         #labellinkto-popup{
-
+                                                            a{
+                                                                color: #004e99;
+                                                            }
                                                         }
                                                     }
                                                     &.save-credit-card-info{
@@ -1637,7 +1784,7 @@
                                                         width: 100%; 
                                                         .mz-l-formfieldgroup-cell{
                                                             .checkbox-outer-label{
-                                                                padding-left: 25px;
+                                                                padding-left: 36px;
                                                                 input{
                                                                     height: 26px;
                                                                     width: 40%;
@@ -1668,7 +1815,7 @@
                                                     color: #4a4a4a;
                                                     display: block;
                                                     width: 100%;
-                                                    padding: 10px 0 10px 25px;
+                                                    padding: 10px 0 10px 35px;
                                                     height: 25px;
                                                     margin: 0px 0;
                                                     position: relative;
@@ -1685,8 +1832,8 @@
                                                     }
                                                     #copyshipping{
                                                         position: absolute;
-                                                        width: 19px;
-                                                        height: 19px;
+                                                        width: 25px;
+                                                        height: 25px;
                                                         border: 1px solid #000;
                                                         left: 0;
                                                     }
@@ -1699,12 +1846,12 @@
                                                         display: block;
                                                     }
                                                     #copyshipping:after {
-                                                        left: 6px;
-                                                        top: 2px;
+                                                        left: 8px;
+                                                        top: 5px; 
                                                         width: 5px;
                                                         height: 10px;
                                                         border: solid white;
-                                                        border-width: 0 2px 2px 0;
+                                                        border-width: 0 3px 3px 0;
                                                         -webkit-transform: rotate(45deg);
                                                         -ms-transform: rotate(45deg);
                                                         transform: rotate(45deg);
@@ -1716,10 +1863,16 @@
                                                     display: inline-block;
                                                     width: 49%;
                                                     vertical-align: top;
+                                                    &.mz-addressform-companyname{
+                                                        display:block;
+                                                     } 
                                                     .mz-l-formfieldgroup-cell{
                                                         padding: 0;
                                                         display: block;
                                                         position: relative;
+                                                        &:last-child{
+                                                            margin-bottom:20px;
+                                                        }
                                                         label{
                                                             font-size: 18px;
                                                             color: #000000;
@@ -1734,7 +1887,7 @@
                                                             background-color: #f3f3f3;
                                                             width: 98%;
                                                             padding: 8px 0;
-                                                            height: 36px;
+                                                            height: 42px;
                                                             padding: 8px 10px;
                                                         }
                                                         .up-caret-quantity-myacc-add{
@@ -1828,11 +1981,12 @@
 										    font-size: 16px;
 										    font-weight: 500;
 										    color: #4a4a4a;
+                                            padding-left: 40px; 
 										    .checkmark-style{
 										    	border-radius: 0;
 										    	&:after{
-										    		left: 6px;
-												    top: 2px;
+										    		left: 8px;
+												    top: 4px; 
 												    width: 5px;
 												    height: 10px;
 												    border: solid white;
@@ -1909,6 +2063,7 @@
                                         }
                                     }
                             		.mz-formstep-next{
+                                        margin-top: 57px; 
                             			.place-order-btn, .place-subscrition-btn{
                             				border-radius: 4px;
 										    background-color: #e7131a;
@@ -1916,7 +2071,8 @@
 										    font-weight: bold;
 										    text-align: center;
 										    color: #ffffff;
-										    padding: 10px 60px;
+                                            padding: 10px 10px;
+					      width: 49%;
                                             display: none;
                                             &:hover{
                                                 background-color: #cc0108;
@@ -1942,25 +2098,28 @@
                     }
                     #checkout-rightcol.mz-l-column-2{
                         display: inline-block;
-                        width: 37%;
+                        width: 35%;
                         vertical-align: top; 
+                        float: right;
                         .gray-data-sec{
                             background-color: rgba(0, 0, 0, 0.03); 
-                            padding: 10px 35px;
+                            padding: 10px 49px;
                             .mz-formstep.mz-checkoutform-ordersummary{
+                                margin:0; 
                                 .mz-ordersummary-checkout{
                                     .mz-formstep-header{
                                         margin: 0;
                                         font-size: 21px;
                                         font-weight: bold;
                                         color: #000000; 
-                                        padding: 20px 0; 
+                                        padding: 26px 0 18px; 
                                         .mz-button.mz-button-small{
                                             float: right; 
                                             font-size: 16px;
                                             color: #004e99;
                                             background: none;
                                             border: none;
+                                            padding-right: 0px;
                                             box-shadow: none;
                                         }
                                     }
@@ -1968,10 +2127,10 @@
                                         .mz-ordersummary{
                                             background-color: transparent;
                                             .summary-table-head{
-                                                border-top: solid 1px #cfcfcf;
+                                                border-top: solid 2px rgba(0, 0, 0, 0.05);
                                                 padding: 10px 0;
-                                                border-bottom: solid 1px #cfcfcf;
-                                                margin-bottom: 10px;
+                                                border-bottom: solid 0.5px #cfcfcf;
+                                                margin-bottom: 0px;
                                                 span{
                                                     font-size: 14px;
                                                     font-weight: bold;
@@ -1994,10 +2153,10 @@
                                             .item-list{
                                                 .summary-item{
                                                     border-bottom: solid 0.5px #cfcfcf;
-                                                    padding: 10px 0;
+                                                    padding: 7px 0 15px;
                                                     .item-name{
                                                         display: inline-block;
-                                                        width: 55%;
+                                                        width: 54%; 
                                                         padding: 0 20px 0 0;
                                                         font-size: 12px;
                                                         font-weight: 500;
@@ -2017,16 +2176,21 @@
                                                         width: 28%;
                                                         text-align: right; 
                                                         vertical-align: top;
+                                                        @media only screen and (min-width: 1680px){
+                                                            width: 30%; 
+                                                        }
                                                         .mz-item-rowtotal.is-saleprice{
                                                             font-size: 12px;
                                                             font-weight: 500;
                                                             color: #000000;    
+                                                            float: right;  
                                                         }
                                                         .mz-item-rowtotal.is-crossedout{
                                                             font-size: 10px;
                                                             font-weight: 500;
                                                             color: #4a4a4a;
-                                                            margin-right: 6px;    
+                                                            margin:2px 6px 0 0;  
+                                                            float: right;   
                                                         }
                                                     }
                                                     .nofreeshipping-msg{
@@ -2069,6 +2233,9 @@
                                                             text-align: right;
                                                             color: #000000;
                                                         }
+                                                        &.green-color{
+                                                            color: #008000;
+                                                        }
                                                         &.discount{
                                                             color: #008000;
                                                         }
@@ -2080,18 +2247,20 @@
                                                     }
                                                     &.mz-ordersummary-grandtotal{
                                                         border-top: solid 1px #cfcfcf;
-                                                        margin-top: 8px;
+                                                        margin-top: 10px;
+                                                        padding-top: 5px;
                                                         .label{
                                                             font-size: 18px;
                                                             font-weight: bold;
                                                             color: #000000;
+                                                            width:47%; 
                                                         }
                                                         .value{
                                                             font-size: 18px;
                                                             font-weight: bold;
                                                             text-align: right;
                                                             color: #000000;
-                                                            width: 49%;
+                                                            width: 51%;
                                                         }
                                                     }
                                                 }
@@ -2102,23 +2271,23 @@
                             } 
                             .coupon-code-row.mz-l-formfieldgroup-row { 
                                 border-top: solid 1px #cfcfcf;
-                                padding: 10px 0;
+                                padding:0px 0 10px;
                                 .mz-l-formfieldgroup-cell{
                                     label{
                                         font-size: 16px; 
                                         color: #4a4a4a;
-                                        margin: 8px 0;
+                                        margin: 10px 0;
                                         display: block;
+                                    }
                                         .arrow{
                                             display: inline-block;
                                             width: 6px; 
                                             border-left: 2px solid #4a4a4a;
                                             border-top: 2px solid #4a4a4a;
                                             height: 6px;
-                                            transform: rotate(132deg);
-                                            margin-right: 8px;
-                                            margin-bottom: 0px;
-                                        }
+                                        transform: rotate(222deg);
+                                        margin-right: 8px;
+                                        margin-bottom: 1.1px;
                                     }
                                     #coupon-code{
                                         border-radius: 4px;
@@ -2167,12 +2336,12 @@
                                         &.field-sec{
                                             display: block; 
                                         }
-                                        label{
+                                        //label{
                                             .arrow{  
-                                                transform: rotate(221deg);
-                                                margin-bottom: 3px;
+                                                transform: rotate(132deg);
+                                                margin-bottom: 0px;
                                             }
-                                        }
+                                        //}
                                     }   
                                 }
                             }
@@ -2318,7 +2487,7 @@
                             }
                         }
                         .mz-l-formfieldgroup{
-                            padding: 0 30px;  
+                            padding: 0 49px;   
                             div{
                                 .label-text{
                                     font-size: 16px;
@@ -2341,12 +2510,21 @@
                                         color: #4a4a4a;
                                         display: block;
                                         text-align: right;
-                                        width: 96%;
+                                        width: 100%;
+                                    }
+                                    #comments-display{
+                                        p{  
+                                            text-align: center;
+                                            padding: 3px;
+                                            background: #dddddd;
+                                            word-break: break-all;
+                                        }
                                     }
                                 }
                             }
                         }
                         #mz-drop-zone-checkout-faq{
+                            padding: 0 49px;
                             .mz-cms-row{
                                 .mz-cms-col-12-12{
                                     .mz-cms-block{
@@ -2359,7 +2537,7 @@
                                                 color: #4a4a4a;
                                                 position: relative;
                                                 font-weight: normal;
-                                                padding-left: 30px;
+                                                padding-left: 25px; 
                                                 cursor: pointer;
                                                 padding-bottom: 15px;
                                                 border-bottom: solid 1px #cfcfcf;
@@ -2375,7 +2553,7 @@
                                                     content: "";
                                                     position: absolute;
                                                     position: absolute;
-                                                    left: 5px;
+                                                    left:0px;
                                                     top: 6px;
                                                 }
                                             }
@@ -2397,7 +2575,8 @@
                                                 h2{
                                                     &:after{
                                                         transform: rotate(221deg);
-                                                        top: 10px;
+                                                        top: 8px; 
+                                                        left:4px;
                                                     }
                                                 }
                                                 div[clas="faq-w"]{
@@ -2422,6 +2601,7 @@
 				.mz-l-container{ 
 					.checkout-header{ 
 						.header-wraper{ 
+                            padding:0 11px;
 							.mz-pagetitle{
 							    width: 50%;
 							    font-size: 23px;
@@ -2460,6 +2640,7 @@
 							    					width: 80%; 
 							    					.checkout_login.form-content{
 							    						width: 100%;
+                                                        height: 100% !important;
 							    						.mz-l-formfieldgroup{ 
 							    							.mz-l-formfieldgroup-row{ 
 							    								.mz-l-formfieldgroup-cell{ 
@@ -2692,8 +2873,8 @@
 							    					margin-bottom: 5px; 
 							    					span{
 							    						font-size: 12px;
-								    					.productDetails{
-							    						    width: 55%;
+								    					&.productDetails{
+							    						    width: 58%;
 								    					}
 								    				}
 							    				}
@@ -2720,7 +2901,7 @@
 							    	}
 							    }
 							}
-							.mz-l-formfieldgroup{
+							.mz-l-formfieldgroup,#mz-drop-zone-checkout-faq{
 								padding: 0 14px;
 							}
 						}
@@ -2735,13 +2916,17 @@
 		.mz-l-pagewrapper{ 
 			.mz-l-pagecontent{ 
 				.mz-l-container{ 
+                .div-cointainer .ind-req{
+                    padding-left: 8px;
+                }
 					.checkout-header{
 						margin: 0;
                         padding: 5px 0;
 						.header-wraper.mobile{
+                            padding: 0 10px;
 							.mz-pagetitle{
 								line-height: 0.5; 
-							    width: 32%;
+							    width: 36%;
 								.heading{
 									font-size: 12px;
                                     &:before{
@@ -2752,13 +2937,30 @@
                                         background-image: url(../../resources/images/lock.png);
                                         background-size: 100%;
                                         background-repeat: no-repeat;   
+                                        margin-right: 8px;
                                     }	
 								}
 								.continueshopping{
 									height: auto;
+                                    line-height: 18px;
+                                    position: relative;
+                                    padding-left: 10px;
 									a{
 									    font-size: 10px;
 									    color: #004e99;
+                                        &:before{ 
+                                            position: absolute;
+                                            content: '<';
+                                            width: 14px;
+                                            height: 14px;
+                                            top: 2px; 
+                                            left: -1px;
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            background-size: 100%;
+                                            background-repeat: no-repeat; 
+                                            font-size: 16px;
+                                        } 
 									}
 								}
                                 a{
@@ -2773,19 +2975,20 @@
                                 margin: 0 auto;
                                 text-align: center;
 								img{
-									width: 80%;
+									width: 70%;
                                     margin: 0 auto;
 								}
 							}
 							.links-sec{
-							    vertical-align: top;
+                                vertical-align: middle;
+                                width: 34%; 
 								.contact-num{
 									.mz-tollfree-content{ 
 									    font-size: 12px;
 									    font-weight: bold;
 									    text-align: right;
 									    border: 0px;
-									    line-height: 2;
+									    //line-height: 2;
 									    margin: 0;
 									    a{
 									    	display: block;
@@ -2799,12 +3002,16 @@
 						.mz-checkoutform.mz-l-2column-right#checkout-form{
 							width: 100%;
 							.mz-l-column{
-							    padding: 0 2%;
+							    padding: 0 4%;
 							    .mz-fromstep.login-signup{ 
 							    	.logedinuserdata{
 							    		width: 100%;
 							    		font-size: 14px;
-							    	}
+                                        &.guestData.active{ 
+                                            padding: 21px 0 15px;
+                                            border-bottom: 1px solid #4a4a4a;
+                                        }
+                                    }
 							    }
 							    .mz-fromstep.popupmodal{ 
 							    	#checkoutmodal{ 
@@ -2815,6 +3022,7 @@
                                                     padding-top: 10px;
 							    					.checkout_login.form-content{
 							    						width: 100%;
+                                                        height: 100% !important;
                                                         .login_submit{
                                                             .mz-l-formfieldgroup{
                                                                 .mz-l-formfieldgroup-row{
@@ -2822,7 +3030,7 @@
                                                                         .mz-l-formfieldgroup-row{
                                                                             .checkbox-outer-label{
                                                                                 .checkmark-style{
-                                                                                    margin-top: 7px;
+                                                                                    margin-top: 0px;
                                                                                 }
                                                                             }
                                                                         }
@@ -2842,15 +3050,16 @@
 							    					}
 							    					.separetor{
 							    						width: 100%;
+                                                        padding: 16px 0;
 							    						.line-v{
-							    							width: 44.5%;
+							    							width: 42.3%;
 														    height: 0;
 														    display: inline-block;
 														    margin-bottom: 4px;
 							    						}
 							    						.text-or{
 							    							display: inline-block;
-    														width: 10%;
+    														width: 14%;
 							    						}
 							    					}
 							    					.proceed_guest.form-content{
@@ -2861,7 +3070,7 @@
 							    									.mz-l-formfieldgroup-cell{ 
                                                                         .checkbox-outer-label{
                                                                             .checkmark-style{
-                                                                                margin-top: 3px;
+                                                                                margin-top: -px;
                                                                             }
                                                                         }
 							    										.mz-button.mz-button-large.cpp-guest{
@@ -2879,8 +3088,9 @@
 							    }
 							    .mz-fromstep-direct-payment{
 							    	width: 100%;
+                                    padding: 0; 
                                     .heading-text{
-                                        margin: 10px 0 20px 0;
+                                        margin: 12px 0 15px 0;
                                     }
 							    	.payment-options{
 							    		width: 100%; 
@@ -2899,33 +3109,46 @@
 							    		}
 							    	}
                                     .sapareter{
-                                        margin-bottom: 0px;
+                                        margin:25px 0 0;
                                     }
 							    }
 							    .mz-formstep.mz-checkoutform-shippingaddress{ 
+                                    padding-bottom: 0px;
+                                    &.is-complete{
+                                       // border-bottom: solid 1px #cfcfcf;
+                                    }
                                     &.is-new{
                                         border-top: solid 1px #cfcfcf;
                                     }
 							    	.mz-formstep-header{
 							    		font-size: 21px;
                                         width: 100%;
+                                        padding: 21px 0 0;
+                                        border: 0px;
 							    		.step-no{
 							    			label{
 							    				width : 3%;
 							    			}
 							    		}
 							    		label{
-							    			width: 82%;
+							    			width: 80%;
     										display: inline-block;
 							    		}
 							    	}
 							    	.mz-formstep-body{
 						    		    width: 100%;
-						    		    padding: 0;
+                                        padding: 0 0 49px 0;
+                                        //border: none;
 						    		    .mz-formstep-summary.mz-addresssummary{
 					    		    	    padding: 10px 7px;
 						    		    }
 						    		    .mz-formstep-fields.mz-l-formfieldgroup{ 
+                                            .address-info{
+                                                margin: 7px 0 18px;
+                                                &.enternew{
+                                                    margin-top: 40px;
+                                                }
+                                            }
 						    		    	.mz-contactselector{ 
 						    		    		.default-address-text{
 						    		    			padding: 0;
@@ -2939,7 +3162,7 @@
 						    		    		}
 						    		    		.mz-contactselector-contact.mz-contactselector-new.no-form{ 
 						    		    			right: 0;
-                                                    top: -118px;
+                                                    top: -133px;
 						    		    			.mz-contactselector-summarywrapper{
 					    		    				    text-align: left;
 														padding: 6px 0;
@@ -2987,7 +3210,7 @@
 			    		    							width: 100%;
 			    		    						}
 			    		    						.up-caret-quantity-myacc-add,.down-caret-quantity-myacc-add{
-			    		    							top : 12px;
+			    		    							top : 16px;
 			    		    							left: 93%;
 			    		    						}
 			    		    					}
@@ -2997,14 +3220,15 @@
 					    		    		position: fixed;
 										    bottom: 0;
 										    background-color: #fff;
-										    width: 100%;
+										    width: 92%;
 										    left: 0;
 										    text-align: center;
 										    margin: 0;
-										    padding: 4% 0;
+										    padding: 4%;
 										    z-index: 9;
 										    #continuetoshipping, #bypassButton{
-										    	width: 96%;
+                                                width: 100%;
+                                                padding: 8px 0;
 										    }
 						    		    }
                                         .mz-formstep-fields.mz-l-stack.payment-cc-section{
@@ -3032,38 +3256,65 @@
 							    	&.is-complete{
 							    		.mz-formstep-body{
 							    			padding-top: 0;
+                                            padding-bottom: 30px;
 							    		}
 							    	}
 							    }
 							    .mz-formstep.mz-checkoutform-shippingmethod{
+                                    //padding-bottom: 49px;
 							    	&.is-new{
-                                        border-top: solid 1px #cfcfcf;
+                                       // border-top: solid 1px #cfcfcf;
+                                      .mz-formstep-header{
+                                        border-bottom: 0px;
+                                      }
+                                      &.hide-shippingAddress{
+                                        .mz-formstep-header{
+                                         padding: 60px 0 45px;
+                                        }
+                                      }
+                                     
+                                    }
+                                    &.is-complete{
+                                      
+                                        border-bottom: solid 1px #cfcfcf;
+                                        padding-bottom: 30px;
+                                        .mz-formstep-header{
+                                        padding-bottom: 0;
+                                        }
                                     }
                                     .mz-formstep-header{
 							    		font-size: 21px;
                                         width: 100%;
+                                        padding: 11px 0 13px;
+                                        margin: 0;
 							    		.step-no{
 							    			label{
-							    				width : 3%;
+							    				width : 5%;
 							    			}
 							    		}
 							    		label{
-							    			width: 82%;
+							    			width: 78%;
     										display: inline-block;
 							    		}
 							    	}
 							    	.mz-formstep-body{
 							    		width: 100%;
     									padding: 0;
+                                        border: 0px;
     									.mz-formstep-summary{
     										padding: 0 0 0 6px;
-											margin: 15px 0 25px 0;
+											margin: 15px 0 0 0; 
     									}
     									.mz-formstep-fields.mz-l-formfieldgroup{
-										    padding: 0 0 25px 6px;
+										    padding: 0 0 49px 0px; 
     										width: 95%;
+                                            #hide-from-heat-sensitive{
+                                                margin: 0 0 26px;
+                                                font-size: 12px;
+                                            }
     										.method-info{
     											width: 100%;
+                                                margin: 0;
     										}
     										.estimated-date{
     											width: 100%;
@@ -3072,12 +3323,13 @@
     										}
     										.method-item{ 
     											.method-label{ 
+                                                    padding-top: 4px;
     												.label-first-sec{ 
     													.input-Cointainer{
-														    width: 5%;
+														    width: 7%;
     													}
     													.method-tital{
-    														width: 76%;
+    														width: 72%;
     													}
     													.price-data{
     														width: 16%;
@@ -3091,9 +3343,10 @@
     													}
     													.estimated-arrival{
     														display: block;
-														    width: 97%;
+														    width: 92%;
 														    text-align: left;
-    														padding: 0 0 0 18px;	
+                                                            padding: 0;
+                                                            margin: 0 0 0 auto;	
     													}
     												}
     											}
@@ -3103,15 +3356,16 @@
 					    		    		position: fixed;
 										    bottom: 0;
 										    background-color: #fff;
-										    width: 100%;
+										    width: 92%; 
 										    left: 0;
 										    text-align: center;
 										    margin: 0;
-										    padding: 4% 0;
+										    padding: 4%;
 										    z-index: 9;
 										    .mz-button.mz-shipmethod.checkout-btn{
-										    	width: 96%;
-                                                margin-bottom: 0px;
+										    	width: 100%;
+                                                margin: 0px;
+                                                padding-left:0;padding-right:0;
 										    }
 						    		    }
 							    	}	
@@ -3125,11 +3379,11 @@
                                         width: 100%;
 							    		.step-no{
 							    			label{
-							    				width : 3%;
+							    				width : 5%;
 							    			}
 							    		}
 							    		label{
-							    			width: 82%;
+							    			width: 78%;
     										display: inline-block;
 							    		}	
 							    	}
@@ -3139,10 +3393,11 @@
 							    		.mz-formstep-fields{ 
 							    			.mz-checkout-digitalcredit.mz-l-stack-section{ 
 							    				.store-credit-input-sec{
-						    					    padding: 0 0 0 5px;
+						    					    padding: 0; 
 						    					    .mz-l-formfieldgroup-cell{ 
 						    					    	.mz-checkout-digitalcredit-enter-code{
-						    					    		width: 64%;
+                                                            width: 57%; 
+                                                            margin-right:1%;
 						    					    	}
 						    					    }
 							    				}
@@ -3152,6 +3407,7 @@
     												.first-section{ 
     													.sweet-rewards-headder{
     														width: 100%;
+                                                            margin-top:0; 
     													}
     													.sweet-rewards-points{
     														width: 100%;
@@ -3161,6 +3417,9 @@
     														margin-bottom: 0;
     														.mz-button{
     															margin-bottom: 8px;
+                                                                width: 48%;
+                                                                padding: 12px 0;
+                                                                margin-right: 0.5%;
     														}
     													}
     												}
@@ -3175,7 +3434,11 @@
 							    				}
                                                 .card-list{
                                                     .card-item{
+                                                        .input-Cointainer{
+                                                            width:9.2%;
+                                                        }
                                                         .card-details{
+                                                            width: 87%; 
                                                             .detail-sect{
                                                                 position: relative;
                                                                 .card-type{
@@ -3193,10 +3456,12 @@
                                                                     right: 0;
                                                                     top: 0;
                                                                 }
-                                                                .card-cvv{
-                                                                    .cvvcodeinput{
-                                                                        width: 35%;
-                                                                    }
+                                                                .mz-l-formfieldgroup-row.my-account-cvv{
+                                                                    .mz-l-formfieldgroup-cell{
+                                                                        .cvvcodeinput{
+                                                                            width: 45%;
+                                                                        }
+                                                                    } 
                                                                 }
                                                             }
                                                         }
@@ -3208,6 +3473,7 @@
 							    					.mz-l-stack-sectiontitle{
 						    						    margin: 10px 0;
     													padding: 10px 0 0 3px;
+                                                        font-size: 18px;
     												}
 							    				}
 							    				.mz-l-formfieldgroup{ 
@@ -3215,23 +3481,35 @@
 							    						.payment-type-select{ 
 							    							.select-ul{ 
 							    								.select-li{
-							    									width: 28%;
-                                                                    padding: 13px 0;
-                                                                    padding-left: 18px;
+							    									width: 44%;
+                                                                    padding: 11px 0 5px 11px;
+                                                                    text-align: left;
+                                                                   &.paypal-trigger{
+                                                                       margin-right: 0;
+                                                                   }
                                                                     &[data-value="Credit Card"]:after{
                                                                         width: 40px;
                                                                         height: 29px;
-                                                                        top: 12px;
-                                                                        left: 10px;
+                                                                        top: 9px;
+                                                                        left: -2px;
                                                                     }
                                                                     &[data-value="PayPalExpress2"]:after{
-                                                                        width: 45px;
-                                                                        height: 29px;
-                                                                        left: 4px;
-                                                                        top: 10px;
+                                                                        width: 50px;
+                                                                        height: 57px;
+                                                                        left: 5px;
+                                                                        top: 0px; 
+                                                                        background-size:contain;
+                                                                        background-position:-6px -5px;
+                                                                    }
+                                                                    &[data-value="PayPalExpress2"]{
+                                                                        .mz-paymenttype-label{
+                                                                            margin-left: 16px;
+                                                                        }
                                                                     }
 							    									.mz-paymenttype-label{
-							    										font-size: 10.1px; 
+                                                                        font-size: 12px; 
+                                                                        vertical-align: top;
+                                                                        margin-left: 16px;
 							    									}
 							    								}
 							    							}
@@ -3245,7 +3523,8 @@
 							    									width: 100%;
 							    								}
 							    								.mz-l-formfieldgroup-halfsize{
-							    									width: 48% !important;
+                                                                    width: 48.9% !important;
+                                                                    margin-bottom: 10px;
 							    								}
                                                                 .cvv-info{
                                                                     right: 4%;
@@ -3275,7 +3554,7 @@
 							    	.mz-formstep-body{
 						    		    width: 100%;
     									padding: 0;
-							    	}
+							    	
 							    	.mz-formstep-next{
 										position: fixed;
 									    bottom: 0;
@@ -3286,8 +3565,10 @@
 									    margin: 0;
 									    padding: 4% 0;
 									    z-index: 9;
-									    .place-order-btn, .place-subscrition-btn{
-									    	width: 96%;
+                                            .place-order-btn{
+                                                width: 96%;
+                                                border-color:#e7131a; 
+                                            }	
 									    }	
 									}
 							    }
@@ -3296,18 +3577,27 @@
 						#checkout-rightcol.mz-l-column-2{
 						    width: 100%;
 						    .gray-data-sec{
-					    	    padding: 10px 5px;
-                                margin-top: 15px;
+					    	    padding: 10px;
+                                margin-top: 0px;
 					    	    .mz-formstep.mz-checkoutform-ordersummary{ 
 					    	    	.mz-ordersummary-checkout{ 
 					    	    		.mz-formstep-body{ 
+                                            .mz-ordersummary .summary-table-head span{
+                                                font-weight: 500;
+                                                &.productDetails{
+                                                    width: 59%; 
+                                                }
+                                            }
 					    	    			.mz-ordersummary{ 
 					    	    				.item-list{ 
 					    	    					.summary-item{ 
 					    	    						.item-name{
-					    	    							width: 54%;
+					    	    							width: 52%;
 					    	    						}
 					    	    					}
+                                                }
+                                                .summary-data-total span.mz-ordersummary-grandtotal .label{
+                                                    width: 47%;
 					    	    				}
 					    	    			}
 					    	    		}
@@ -3326,7 +3616,8 @@
 						    	}
 						    }
 						    .mz-l-formfieldgroup{
-						    	padding: 0 8px; 
+                                padding: 0 9px; 
+                                width: 93%;
 						    	div{ 
 						    		.mz-checkoutform-comments{ 
 						    			.mz-checkoutform-comments-field{
@@ -3345,4 +3636,114 @@
 			}
 		}
 	}
+}
+//larger screen
+@media only screen and (min-width: 1680px){
+    .mz-checkout{
+        .mz-l-pagewrapper {
+            .mz-l-pagecontent {
+                .mz-l-container {
+                    .checkbox-outer-label{
+                        .checkmark-style{
+                            top:2px;
+                           
+                        }
+                    }
+                    .div-cointainer{
+                        .mz-checkoutform.mz-l-2column-right#checkout-form{
+                            .mz-l-column{
+                                .mz-fromstep.popupmodal {
+                                    #checkoutmodal{
+                                        #email-dialog {
+                                            .content {
+                                                .main_content {
+                                                    .proceed_guest.form-content {
+                                                        .guest_submit{
+                                                            .mz-l-formfieldgroup {
+                                                                .mz-l-formfieldgroup-row.margin-btm{
+                                                                    padding-top:2px;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .mz-formstep.mz-checkoutform-shippingaddress {
+                                    .mz-formstep-body {
+                                        .mz-formstep-next #continuetoshipping{
+                                            width: 50%;
+                                        }
+                                    }
+                                }
+                                .mz-formstep.mz-checkoutform-shippingmethod{
+                                    .mz-formstep-body {
+                                        .mz-formstep-fields.mz-l-formfieldgroup {
+                                            .estimated-date{
+                                                width: 58%;
+                                            }
+                                        }
+                                    }
+                                } 
+                               .mz-formstep.mz-checkoutform-paymentinfo {
+                                .mz-formstep-body {
+                                    .mz-formstep-fields{
+                                        .mz-checkout-digitalcredit.mz-l-stack-section {
+                                            .store-credit-input-sec {
+                                                .mz-l-formfieldgroup-cell .mz-checkout-digitalcredit-enter-code{
+                                                    width: 34%; 
+                                                }
+                                            }
+                                        }
+                                      .mz-l-stack-section {
+                                        .mz-l-formfieldgroup {
+                                            .mz-l-formfieldgroup-row.billing-email {
+                                                .mz-l-formfieldgroup-cell #billing-email{
+                                                    width: 97.5%;
+                                                }
+                                            }
+                                        }
+                                      }
+                                      
+                                    }
+                                }
+                               }
+                                .mz-formstep.mz-checkoutform-review{
+                                    .mz-formstep-body {
+                                        .mz-l-formfieldgroup-row {
+                                            .checkbox-outer-label .checkmark-style{
+                                                top:1px;
+                                            }
+                                        }
+                                        .mz-formstep-next .place-order-btn{
+                                            width: 48.5%; 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #checkout-rightcol.mz-l-column-2{
+                            max-width:24.5%;
+                            .gray-data-sec {
+                                .mz-formstep.mz-checkoutform-ordersummary {
+                                    .mz-ordersummary-checkout {
+                                        .mz-formstep-body {
+                                            .mz-ordersummary {
+                                                .item-list .summary-item .item-name{
+                                                    width: 52.7%; 
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                }
+            }
+            
+        }
+    }
 }

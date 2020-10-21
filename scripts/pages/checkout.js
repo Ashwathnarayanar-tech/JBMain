@@ -209,8 +209,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     self.model.set('errormessage','');
                     window.couponCode.model.set('errormessagecoupon','');
                 } 
-                setTimeout(function(){
-                    //$('.error-msg').html(''); 
+                setTimeout(function(){   
+                    $('.error-msg').html(''); 
                     
 										$('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');
@@ -227,8 +227,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                         self.model.set('errorsetdigitlcredit',''); 
                          $('.digitalcrediterror-msg').hide();
                           $('.digitalcrediterror-msg').css('display','none'); 
-                    }   
-                },10000); 
+                    }  
+                },3000); 
             }
             
             this.resize();
@@ -409,9 +409,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
             } 
 
-            // if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
-            //     $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
-            // } 
              // To make the paypal success to come to checkout page
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
@@ -863,6 +860,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     }
                 });
             });
+            if($.cookie('isPoBoxSelected') == "true")c.model.address.addressType = "POBox";
             return c;
         },
         beginAddContact: function () {
@@ -1641,7 +1639,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                         self.model.set('errormessage','');  
                         self.model.set('errorsetdigitlcredit','');  
                     }
-                },3000);
+                },10000);
             }
             preserveElements(this, ['.v-button', '.p-button'], function() {
                 CheckoutStepView.prototype.render.apply(this, arguments);
@@ -2950,8 +2948,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         $(document).on('change','#submitorder-cpp-checkbox', function() {
             if (this.checked) {
             $('.place-order-btn').prop('disabled',false);
+            $('.place-subscrition-btn').prop('disabled',false);
             }else{
             $('.place-order-btn').prop('disabled',true);
+            $('.place-subscrition-btn').prop('disabled',true);
             }
         });
 
@@ -3050,9 +3050,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 if($('[data-mz-validationmessage-for="shippingMethodCode"]').text().length > 0){
                     $('[data-mz-validationmessage-for="shippingMethodCode"]').focus();
                 } else {
-					$('html, body').animate({
-						scrollTop: $('#step-payment-info').offset().top - 30 //#DIV_ID is an example. Use the id of your destination on the page
-                    }, 'fast');   
                     // $('html, body').animate({
                         //scrollTop: $('#step-payment-info').offset().top - 30 //#DIV_ID is an example. Use the id of your destination on the page
                     // }, 'fast');   
