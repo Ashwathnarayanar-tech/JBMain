@@ -97,13 +97,6 @@
                                                 } 
                                             
                                             }
-                                            if(window.location.pathname != "/checkout" && window.location.pathname != "/cart"){
-                                                setTimeout(function(){ 
-                                                    self.$el.css('display','none');
-                                                },8000);
-                                            } 
-                                           
-                                            }
                                         }
                                     }
                                 }else{
