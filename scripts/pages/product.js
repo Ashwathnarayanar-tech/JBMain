@@ -1281,6 +1281,20 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },5000);
         
+        function updateRelatedProductsCarousel() { 
+          setTimeout(function(){ 
+            $('.related-section div.owl-prev').attr("aria-label", "Scroll to previous product").attr("role", "button");
+            $('.related-section div.owl-next').attr("aria-label", "Scroll to next product").attr("role", "button");
+          }, 2000); 
+        }
+        
+        function updateJustunoButton() {
+          setTimeout(function(){ 
+            $('#ju_bbox p > span > span > span').attr("role", "button").attr("tabindex", 0);
+          }, 5000); 
+        }
+        
+        updateJustunoButton();
     });		
 
 });

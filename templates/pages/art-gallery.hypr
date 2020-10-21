@@ -1189,6 +1189,32 @@
                 <div style="clear: both;"></div>
             </div>
 			
+			<div class="art-gallery-details" AGD="86" style="display:none;">
+                <img alt="Hagrid" class="banner" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Large View Size/Hagrid.jpg"/>
+                <div  class="banner-detail" >
+                    <h3>Hagrid</h3>
+                    <p  class="banner-dimension">
+                        Artist: Kristen Cumings <br>
+                        Dimensions: 4' x 5'
+                    </p>
+                    <p class="banner-detail-desc">This portrait of Hagrid took approximately 60 hours to complete. It is made up of about 12,000 Jelly Belly jelly beans. Flavors used in this piece include ginger ale, maple syrup, chili mango, root beer and Bertie Bott's Every Flavour Beans such as sausage and black pepper.</p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+			
+			<div class="art-gallery-details" AGD="87" style="display:none;">
+                <img alt="Hagrid" class="banner" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Icons/Large View - Size/Hagrid.jpg"/>
+                <div  class="banner-detail" >
+                    <h3>Hagrid</h3>
+                    <p  class="banner-dimension">
+                        Artist: Kristen Cumings <br>
+                        Dimensions: 4' x 5'
+                    </p>
+                    <p class="banner-detail-desc">This portrait of Hagrid took approximately 60 hours to complete. It is made up of about 12,000 Jelly Belly jelly beans. Flavors used in this piece include ginger ale, maple syrup, chili mango, root beer and Bertie Bott's Every Flavour Beans such as sausage and black pepper.</p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+			
         </div>
         <div class="art-gallery-item-thumb">
             <div class="art-gallery-item-thumbs endangered_species"  style="display:none;">
@@ -1202,6 +1228,7 @@
                 <img class="thump" AGD="6" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Endangered Species/Thumb Nails - Size/thumb_turtle.png" alt="turtle-thumbnail"/>
             </div>
             <div class="art-gallery-item-thumbs new_art" style="display:block;">
+			    <img class="thump" AGD="86" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/Hagrid.jpg" alt="hagrid thumbnail"/>
 			    <img class="thump" AGD="85" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/Frozen_2_Elsa_Anna.jpg" alt="Elsa and Anna Frozen 2"/>
 				<img class="thump" AGD="81" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/water-lillies.jpg" alt="water lillies thumbnail"/>
 				<img class="thump" AGD="79" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/hermoine.jpg" alt="hermoine granger thumbnail"/>
@@ -1275,6 +1302,7 @@
                 <img class="thump" AGD="52" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation menu - Master Pieces/Thumb Nail -Size/YoungBlondeGirl.png" alt="Young Blonde Girl-thumbnail"/>
             </div>
             <div class="art-gallery-item-thumbs icons"  style="display:none;">
+			    <img class="thump" AGD="87" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Icons/Thumb Nail - Size/Hagrid.jpg" alt="hagrid thumbnail"/>
 			    <img class="thump" AGD="84" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Icons/Thumb Nail - Size/Frozen_2_Elsa_Anna.jpg" alt="Elsa and Anna Frozen 2"/>
 				<img class="thump" AGD="80" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Icons/Thumb Nail - Size/hermoine.jpg" alt="hermoine granger thumbnail"/>
 				<img class="thump" AGD="76" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Icons/Thumb Nail - Size/ronweasley2.jpg" alt="ron weasley thumbnail"/>

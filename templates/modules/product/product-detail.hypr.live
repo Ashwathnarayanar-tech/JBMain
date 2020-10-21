@@ -47,7 +47,7 @@
                                   {{ themeSettings.zinreloPointMultiplier|multiply(model.price.price)|floatformat(0) }}
                                 {% endif %}
                             </span> 
-                            <span class="sweet-rewards-pdp">Sweet Rewards</span> Points
+                            <span class="sweet-rewards-pdp" role="button" tabindex="0">Sweet Rewards</span> Points
                         </span>     
                     </div> 
                     

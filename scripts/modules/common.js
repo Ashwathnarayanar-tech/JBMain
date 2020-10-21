@@ -1239,5 +1239,7 @@ require([
 
 		require(['modules/browser-info']);
 		require(['modules/regional-scheme/geodetect2']);
+    require(['modules/add-to-cart-modal']);
+		//require(['modules/regional-scheme/geodetect2']);
     });
 });
