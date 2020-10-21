@@ -400,3 +400,6 @@
 <script type="text/javascript"> 
     var bnProductId = "{{ model.productCode }}";
 </script>    
+
+
+

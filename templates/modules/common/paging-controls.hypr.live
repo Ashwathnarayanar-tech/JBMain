@@ -1,5 +1,5 @@
   <div class="jb-result-details" data-total-results="{{ model.totalCount }}">
-        <span class="heading-jb-result" tabindex="0"> 
+        <span class="heading-jb-result" tabindex="0" role="contentinfo"> 
             {% if  pageContext.search.query %}
                         {% if model.totalCount %}
                             {{ labels.pageStateSearchPlural|string_format(1,model.lastIndex,model.totalCount,pageContext.search.query) }}
@@ -49,3 +49,17 @@
     </div>
     {% endcomment %} 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+

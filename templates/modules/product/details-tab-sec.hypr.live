@@ -25,15 +25,18 @@
             </div>
             <div class="tab-content-sec"> 
                 <div class="item-content ProductInfo active">
-                    
+                    <ul>
+                        <li tabindex="0">
                             <div class="product-info" tabindex="0">
                                 {{ model.content.productFullDescription|safe }}
                             </div>
                             <div class="clearfix"></div>
-                    
+                        </li>
+                    </ul>
                 </div>
                 <div class="item-content NutritionIngredients">
-                    
+                    <ul>   
+                        <li tabindex="0">  
                             <span id ="nutrition-image"  aria-hidden="true"></span>
                             <span id="nut_panel_title"></span>
                             <span id ="nutrition-text" tabindex="0">
@@ -44,7 +47,8 @@
                                 (Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> 
                                 or send us an <a href="https://www.jellybelly.com/contact-us">email.
                                 </a></span> 
-                    
+                        </li>    
+                    </ul> 
                     <!-- nutrition panel end-->
                         {% if model.mixvar %}
                             <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>

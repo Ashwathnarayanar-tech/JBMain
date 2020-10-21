@@ -50,7 +50,7 @@
                         <input type="password" name="password" class="forminput" />
                         <div class="pwd-message-desktop">
                                     <div class="arrow-left"></div>
-                                    <p id="password-requirements">Create a password with at least 6 characters, containing at least 1 number and 1 alphabetic character. Please donít use a password from another site or something too obvious (like ìpasswordî or your name).</p>
+                                    <p id="password-requirements">Create a password with at least 6 characters, containing at least 1 number and 1 alphabetic character. Please don‚Äôt use a password from another site or something too obvious (like ‚Äúpassword‚Äù or your name).</p>
                                 </div>
                         <span class="passwordError"></span>
                     </div>

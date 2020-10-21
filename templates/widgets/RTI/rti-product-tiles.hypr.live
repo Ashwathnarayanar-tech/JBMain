@@ -47,7 +47,7 @@
                     {% block product-image %}
                         <div class="row product-listing-row-content">
                             <div class="mz-subcategory-image-div">
-                                  <a aria-label="{{prod.content.productName}} product image" href="{{prod.url}}" data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}">
+                                <a aria-label="{{prod.content.productName}} product image" href="{{prod.url}}" data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}">
                                     {% if prod.mainImage.imageUrl %}
                                         <img src="{{ prod.mainImage.imageUrl }}?max=200" style="max-height: 200px" alt="{{prod.content.productName}} product image"/>
                                     {% else %}
@@ -90,7 +90,7 @@
                                                     </select>
                                                 {% endif %}  
                                             {% endfor %}
-                                        {% else %}  
+                                        {% else %} 
                                             {%if prod.price.price%}<a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
                                             strikeprice {% endif %}">{{prod.price.price|currency}}</a>{%endif%}
                                             {% if prod.price.price !=  prod.price.salePrice %} 
@@ -116,20 +116,19 @@
                                 <div class="mz-productdetail-conversion-controls">
                                     {% if prod.price.price > 0 %}
                                         <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                                            <input type="text" class="quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1" 
-                                            aria-label="Quantity of {{ prod.content.productName|safe }} to add to cart"/> 
-                                            <span tabindex="0" role="button" class="increment spinner" aria-label="Increase quantity of {{ prod.content.productName|safe }} by one to add to cart" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
-                                            <span tabindex="0" role="button" class="dicrement spinner" aria-label="Decrease quantity of {{ prod.content.productName|safe }} by one to add to cart" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
+                                            <input type="text" class="quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1"/> 
+                                            <span class="increment spinner" aria-label="Increases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
+                                            <span class="dicrement spinner" aria-label="Decreases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
                                         </div>  
                                     {% endif %}
                                   <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
                                 </div>
                                 <div class="jb-buy-product quickview-jb">
                                     {% if  prod.purchasableState.isPurchasable %}
-                                        <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
+                                        <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
                                     {% else %}   
                                         {% if prod.options and prod.options.length > 0 %}
-                                            <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
+                                            <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
                                                 {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
                                                 data-jb-pid="{{ prod.productCode }}" 
                                                 class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >

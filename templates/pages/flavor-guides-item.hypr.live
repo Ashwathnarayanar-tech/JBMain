@@ -1,6 +1,6 @@
 <div class="jb-childcategory" data-mz-category-url="{{model.guide}}" data-mz-category-guide="{{model.guide}}" aria-expanded="false">
   <div class="jb-colapsing-title">
-    <h2 role="button" class="jb-category-title" aria-expanded="false" tabindex="0">{{model.name|safe}}</h2>
+    <h2 class="jb-category-title" aria-expanded="false" tabindex="0">{{model.name|safe}}</h2>
     <p class="mz-desktop" title="open/close button" aria-expanded="false" tabindex="0">open/close</p>
     <p class="mz-mobile" aria-label="open/close button" title="expand, button, collapsed" aria-expanded="false" tabindex="-1">+</p>
   </div>
@@ -33,3 +33,18 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

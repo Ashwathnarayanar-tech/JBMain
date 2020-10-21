@@ -1558,7 +1558,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     1440: {
                         items: 3
                     }
-                }
+                } 
             });
             $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
             loopInAddTocart(); 
@@ -1826,10 +1826,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }, 700);
         } else {
             setTimeout(function() {
-                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="">');
+                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="FREE Shipping on Orders Over $55!">');
                 $('.free-text').append('FREE SHIPPING');
                 $('.orders-over-text').append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
-                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" title="opens a dialog">here</a> for details.)');
+                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" role="link" aria-label="Open shipping details model" title="opens a dialog">here</a> for details.)');
             }, 700);
         }
     
@@ -1932,8 +1932,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         1025:{ 
                             items:4
                         }
-                    },
-                    onInitialized: updateRelatedProductsCarousel
+                    }
                 });
             }else if(len>3 && $(window).width()>767 && $(window).width()<1025 ){
                 owlMBRP = $('#related-products').find('.product-row');

@@ -99,21 +99,34 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     signupemail : this.$el.find('.mz-signup-email')[0].value,
                     confirmpassword : this.$el.find('.mz-signup-password')[0].value,
                     signuppassword : this.$el.find('.mz-signup-confirmpassword')[0].value
-                },
-                payload = {
-                    account: {
-                        emailAddress: this.$el.find('.mz-signup-email')[0].value,
-                        userName: this.$el.find('.mz-signup-email')[0].value,
-                        firstName: this.$el.find('.mz-signup-firstname')[0].value,
-                        lastName: this.$el.find('.mz-signup-lastname')[0].value,
-                        contacts: [{
-                            email: this.$el.find('.mz-signup-email')[0].value,
+                },payload={};
+                if(require.mozuData('pagecontext').pageType=="checkout"){
+                    payload = {
+                        account: {
+                            emailAddress: this.$el.find('.mz-signup-email')[0].value,
+                            userName: this.$el.find('.mz-signup-email')[0].value,
                             firstName: this.$el.find('.mz-signup-firstname')[0].value,
-                            lastNameOrSurname: this.$el.find('.mz-signup-lastname')[0].value
-                        }]
-                    },
-                    password: this.$el.find('.mz-signup-password')[0].value
-                };
+                            lastName: this.$el.find('.mz-signup-lastname')[0].value
+                        },
+                        password: this.$el.find('.mz-signup-password')[0].value
+                    };
+                }else{
+                    payload = {
+                        account: {
+                            emailAddress: this.$el.find('.mz-signup-email')[0].value,
+                            userName: this.$el.find('.mz-signup-email')[0].value,
+                            firstName: this.$el.find('.mz-signup-firstname')[0].value,
+                            lastName: this.$el.find('.mz-signup-lastname')[0].value,
+                            contacts: [{
+                                email: this.$el.find('.mz-signup-email')[0].value,
+                                firstName: this.$el.find('.mz-signup-firstname')[0].value,
+                                lastNameOrSurname: this.$el.find('.mz-signup-lastname')[0].value
+                            }]
+                        },
+                        password: this.$el.find('.mz-signup-password')[0].value
+                    };
+                }
+                
                 if (this.validate(data)) {
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {

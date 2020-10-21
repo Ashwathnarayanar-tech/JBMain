@@ -4651,7 +4651,7 @@
 	</script>
   {% endif %}
 
-{% if pagecontext.pageType != "checkout" and pagecontext.pageType != "confirmation" %}
+{% if pagecontext.pageType != "checkout"%}
   {% require_script "modules/new-lazy-load" %}
 {% endif %}
 
@@ -4728,7 +4728,7 @@
 		        <div class="progress-bar">
 		            <a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
 		            <div class="meter blue"> 
-		                <p class="text-content" role="alert"></p>
+		                <p class="text-content"></p>
 		                <span style="width: 0%"></span>
 		            </div> 
 		            </a>
@@ -4745,7 +4745,7 @@
 
             
  
-            <div role="main" role="region" id="page-content" class="mz-l-pagecontent" tabindex="-1">
+            <div role="main" role="region" id="page-content" class="mz-l-pagecontent">
                 <div class="RTI-overlay"></div>   
         <div class="notify-me-popup" style="display:none">
           {% include "modules/common/notify-me" %}
@@ -4757,6 +4757,8 @@
 
                 {% endif %}
                 {% endblock breadcrumbs %}
+
+				<p name="maincontent" id="maincontent" class="sr-only" role="contentinfo" tabindex="-1">Beginning of main content</p>
 
                 {% block body-content %}
                     {% dropzone "body" scope="page" %}

@@ -76,20 +76,26 @@
                                             // $('#giftcard-messages').css('display','block');
                                                 
                                             
-                                        
-                                        
-                                        if (this.model.length > 0) {
-                                            this.$el.ScrollTo({
-                                                onlyIfOutside: true,
-                                                offsetTop: offset,  
-                                                offsetLeft: offset * 1.5,
-                                                axis: 'y'
-                                            });
-                                            this.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();
-                                            if(window.location.pathname == "/cart"){
-                                                setTimeout(function(){ 
-                                                    self.$el.css('display','none');
-                                                },12000);
+                                            
+                                            if (this.model.length > 0) {
+                                                this.$el.ScrollTo({
+                                                    onlyIfOutside: true,
+                                                    offsetTop: offset,  
+                                                    offsetLeft: offset * 1.5,
+                                                    axis: 'y'
+                                                });
+                                                this.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();
+                                                if(window.location.pathname == "/cart"){
+                                                    setTimeout(function(){ 
+                                                        self.$el.css('display','none');
+                                                    },12000);
+                                                }
+                                                if(window.location.pathname != "/checkout" && window.location.pathname != "/cart"){
+                                                    setTimeout(function(){ 
+                                                        self.$el.css('display','none');
+                                                    },8000);
+                                                } 
+                                            
                                             }
                                             if(window.location.pathname != "/checkout" && window.location.pathname != "/cart"){
                                                 setTimeout(function(){ 

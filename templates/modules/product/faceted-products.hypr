@@ -27,8 +27,8 @@
 {% endif %}
 {% endcomment %}
 
-<h1 class="mz-pagetitle">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
-<div class="brand-dicreption-top">
+<h1 class="mz-pagetitle" tabindex="0">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
+<div class="brand-dicreption-top" >
 
   <style>
     .visually-hidden {
@@ -45,9 +45,9 @@
 <div class="brand-dicreption">
     <div class="a-spot-cointainer">
         {% if pageContext.isMobile %}
-        <img class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
+        <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
         {% else %}
-        <img class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
+        <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
         {% endif %}
         <!-- <img class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/BBZ-Fiery-Five-Banners-A-spot_coming_soon.jpg" alt="BeanBoozled® Fiery Five"> -->
 	

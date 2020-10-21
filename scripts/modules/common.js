@@ -98,8 +98,8 @@ require([
     'modules/cart-monitor',
     "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
-    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator', "modules/views-collections"
-], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter) {
+    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator'
+], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
     $(document).ready(function () {
         // Shruthi JEL-1433 Qty increase and Decrement
@@ -424,8 +424,6 @@ require([
                $('.mob-pwd-row').css('display', 'none');          
             });
         }
-
-        require(["modules/add-to-cart-plp", "modules/add-to-wishlist-modal"]);
         
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
@@ -812,11 +810,11 @@ require([
 
         $('.skipto').click(function(e) {
             e.preventDefault();
-            var aTag = $("#page-content");
+            var aTag = $("#maincontent");
             $('html,body').animate({
                 scrollTop: aTag.offset().top - 150
             }, 2000);
-            $(document).find("#page-content").focus();
+            $(document).find("#maincontent").focus();
         });
 
         $(document).on('keypress', '.skipto', function(e) {
@@ -1282,6 +1280,7 @@ require([
         //}
 
 		require(['modules/browser-info']);
+		require(['modules/regional-scheme/geodetect2']);
     require(['modules/add-to-cart-modal']);
 		//require(['modules/regional-scheme/geodetect2']);
     });

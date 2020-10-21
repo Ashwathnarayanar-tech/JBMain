@@ -4,8 +4,7 @@ var pwrInitialPoints = 0;
 var pwrDisplayPoints = 0;
 var pwrMaxRedemptions = 2;
 var zinreloLoaded = false;
-var paypalFlowComplete = false;
-
+var paypalFlowComplete=false;
 function getMethod(name) {
 	// Helper function. Returns an object containing information about that shipping method
 	//
@@ -193,6 +192,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             }else{
                 this.$el.removeClass('is-new is-incomplete is-complete is-invalid').addClass('is-' + this.model.stepStatus());     
             }
+
+
             EditableView.prototype.render.apply(this, arguments);
             // Removing other payment methods when subscription is created 
             if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
@@ -208,8 +209,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     self.model.set('errormessage','');
                     window.couponCode.model.set('errormessagecoupon','');
                 } 
-                setTimeout(function(){   
-                    $('.error-msg').html(''); 
+                setTimeout(function(){
+                    //$('.error-msg').html(''); 
                     
 										$('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');
@@ -226,8 +227,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                         self.model.set('errorsetdigitlcredit',''); 
                          $('.digitalcrediterror-msg').hide();
                           $('.digitalcrediterror-msg').css('display','none'); 
-                    }  
-                },3000); 
+                    }   
+                },10000); 
             }
             
             this.resize();
@@ -408,35 +409,25 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
             } 
 
+            // if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
+            //     $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+            // } 
+             // To make the paypal success to come to checkout page
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
                 }
                 else if(!paypalFlowComplete){
                     setTimeout(function(){
-                        $(document).find('.mz-shipmethod') && $(document).find('.mz-shipmethod').click();
+                        //$(document).find('.mz-shipmethod') && $(document).find('.mz-shipmethod').click();
+                        $(document).find('.mz-shipmethod').click();
                         paypalFlowComplete = true;
                     },2000);
-                }
-               /* else if(!paypalFlowComplete){
-                    setTimeout(function(){
-                        if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                            $(document).find('.mz-shipmethod') && $(document).find('.mz-shipmethod').click();
-                            setTimeout(function(){
-                                    $('.place-subscrition-btn').prop('disabled',false);
-                                    $('.place-subscrition-btn').click();
-                            },500);
-                        }
-                        else{
-                            $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
-                        }
-                        paypalFlowComplete = true;
-                    },2000);
-                }*/
-            } 
-            
+                } 
+            }
 
             if($(document).find(".popupmodal").hasClass('hide-shippingAddress')){ 
+                $(document).find('.mz-formstep.mz-checkoutform-shippingaddress').removeClass('is-complete');
                 $(document).find('.mz-formstep.mz-checkoutform-shippingaddress').addClass('is-new');
                 $(document).find('.mz-fromstep-direct-payment').addClass('no-direct-payment');
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');
@@ -446,7 +437,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             //     $(document).find('.mz-fromstep-direct-payment').removeClass('no-direct-payment');
             // } 
 
-            if(window.flag){
+            if(window.flag ){
                 $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
                 $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
                 $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
@@ -464,9 +455,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $('html, body').animate({
                      scrollTop: $("#step-payment-info").offset().top
                  }, 500);
-            }
+            }  
             window.setSubscriptionData();
-            this.dateSelector();  
+            this.dateSelector(); 
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
@@ -479,15 +470,16 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     if(method.shippingMethodCode == "ups_UPS_SUREPOST_LESS_THAN_1LB"){
                         updatedValue = "FREE";
                         isValueChanged = true;
-                    }
-                    
+                    } 
                     if(method.shippingMethodCode == "ups_UPS_SUREPOST_1LB_OR_GREATER"){
                         updatedValue = "FREE";
                         isValueChanged = true;
                     }
                     // show the original price for ground
                     if(method.shippingMethodCode == "ups_UPS_GROUND" && $.cookie("shipmethod_ups_UPS_GROUND")){
-                        updatedValue = $.cookie("shipmethod_ups_UPS_GROUND");
+                       //Commented by Shruthi as the price is not showign the older
+                        //updatedValue = $.cookie("shipmethod_ups_UPS_GROUND");
+                        updatedValue = method.price;
                         isValueChanged = true;
                     }
                 } else if (subtotal >= Hypr.getThemeSetting('shippingSwitchoverValue')) {
@@ -498,11 +490,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     }
                     // show the original prices for the surepost methods
                     if(method.shippingMethodCode == "ups_UPS_SUREPOST_LESS_THAN_1LB" && $.cookie("shipmethod_ups_UPS_SUREPOST_LESS_THAN_1LB")){
-                        updatedValue = $.cookie("shipmethod_ups_UPS_SUREPOST_LESS_THAN_1LB");
+                       // updatedValue = $.cookie("shipmethod_ups_UPS_SUREPOST_LESS_THAN_1LB");
+                       updatedValue = method.price;
                         isValueChanged = true;
                     }
                     if(method.shippingMethodCode == "ups_UPS_SUREPOST_1LB_OR_GREATER" && $.cookie("shipmethod_ups_UPS_SUREPOST_1LB_OR_GREATER")){
-                        updatedValue = $.cookie("shipmethod_ups_UPS_SUREPOST_1LB_OR_GREATER");
+                        //updatedValue = $.cookie("shipmethod_ups_UPS_SUREPOST_1LB_OR_GREATER");
+                        updatedValue = method.price;
                         isValueChanged = true;
                     }
                 }else{}
@@ -854,8 +848,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             "keyup input[name='shippingphone']": "phoneNumberFormating2",
             "change [data-mz-value='address.addressType']": "addressTypeChanged",
             "click [data-mz-value='contactId']": "addressSelection",
-            "click #continuetoshipping" : "resetbypassbtn",
-            "keydown input[name='postal-code']": "zipcodeFormating"
+            "click #continuetoshipping" : "resetbypassbtn"
+            //"keyup input[name='postal-code']": "zipcodeFormating"
         },
         initialize: function(){
             this.model.set('address.countryCode',"US");  
@@ -928,23 +922,42 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }
             }
         },
-        zipcodeFormating:function(e){
-            if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
-                return true;    
-            }else{
-                return false;
-            }
-        },
+        // zipcodeFormating:function(e){
+        //     if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
+        //         $.ajax({
+        //             url: "https://zip.getziptastic.com/v2/US/"+e.currentTarget.value,
+        //             cache: false,
+        //             dataType: "json",
+        //             type: "GET",
+        //             success:function(result){
+        //                 $('#step-shipping-address').find("[data-mz-value='address.cityOrTown']").val(result.city);
+        //                 $('#step-shipping-address').find("[data-mz-value='address.stateOrProvince'] option[value="+result.state_short+"]").attr('selected','selected');
+        //             },
+        //             error:function(errmsg){
+        //                 $('#step-shipping-address').find("[data-mz-validationmessage-for='address.cityOrTown']").html(errmsg); 
+        //             }
+        //        });
+        //        return true;    
+        //     }else{
+        //         return false;
+        //     }
+        // },
         confirmValidationBypass: function(){
             this.model.bypass(); 
         },
         resetbypassbtn: function(){
-            this.model.resetbypass();
+            this.model.resetbypass(); 
             setTimeout(function(){
                 var $errEl = $('#step-shipping-address').find('.mz-validationmessage').filter(':visible');
                 if($errEl.length > 0) {
                     $errEl.prev().attr('aria-invalid',true);
-                    $errEl.first().prev().focus();
+                    //$errEl.first().prev().focus();
+                    if( $('.mz-l-formfieldgroup-cell .is-invalid').length==1){
+                        $('.mz-l-formfieldgroup-cell .is-invalid').focus(); 
+                    } else{
+                        $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
+                    }
+                    
                 }
             }, 700);
         }    
@@ -990,7 +1003,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     var dates = self.shippingestimation(method);
                     method.estimation = dates.estimation;
                     method.estimationDate = dates.estimationDate;
-                    var values = checkoutViews.steps.shippingInfo.updateFreeShippingData(method);
+                    var values = window.checkoutViews.steps.shippingInfo.updateFreeShippingData(method);
                     method.updatedValue = values.updatedValue;
                     method.isValueChanged = values.isValueChanged;
                     return method;
@@ -1071,6 +1084,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             this.model.updateShippingMethod(this.$('[data-mz-shipping-method]:checked').val());
             $(document).find('.method-label').removeClass('active');
             $(document).find('[data-mz-shipping-method]:checked').parents('.method-label').addClass('active').focus();
+            this.getRenderContext();
             // $('.mz-formstep-next').find('.mz_date_value2').focus();
             // setTimeout(function(){$('.mz-formstep-next').find('.mz_date_value2').focus();},1000);  
         },
@@ -1107,13 +1121,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 					$(document).find('.shippingAKHI').show();
                 }
 			}else if (mdef.method === "ups_UPS_GROUND") {
-                estimation = "Standard Ground: 4 to 7 business days from ship date";
+                estimation = "Estimated Transit Time: 4 to 7 business days from ship date";
 				estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }else if (mdef.method === "ups_UPS_SUREPOST_LESS_THAN_1LB") {
-                estimation = "Arrival: 6 to 9 business days from ship date";
+                estimation = "Estimated Transit Time: 6 to 9 business days from ship date";
 				estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }else if (mdef.method === "ups_UPS_SUREPOST_1LB_OR_GREATER") {
-                estimation = "Arrival: 6 to 9 business days from ship date";
+                estimation = "Estimated Transit Time: 6 to 9 business days from ship date";
 				estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }else if (mdef.method === "ups_UPS_THREE_DAY_SELECT") {
                 estimation = "Expected Arrival Date: "+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -1219,7 +1233,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
     var pageContext = require.mozuData('pagecontext');
     var BillingInfoView = CheckoutStepView.extend({
         templateName: 'modules/checkout/step-payment-info',
-        autoUpdate: [
+        autoUpdate: [ 
             'savedPaymentMethodId',
             //'paymentType',
             'card.paymentOrCardType',
@@ -1250,7 +1264,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         ],
         renderOnChange: [
             'billingContact.address.countryCode',
-            //'paymentType', 
+           //'paymentType', 
             'isSameBillingShippingAddress',
             'usingSavedCard',
             'savedPaymentMethodId'
@@ -1260,24 +1274,39 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             "change [data-mz-digital-credit-amount]": "applyDigitalCredit",
             "change [data-mz-digital-add-remainder-to-customer]": "addRemainderToCustomer",
             "paste #digital-credit-code":"onPasteStoreCreaditEnable",
-            //"change [name='paymentType']": "resetPaymentData", 
+            "change [name='paymentType']": "resetPaymentData", 
             "click [paymentType-edit]":"cancelExternalCheckout",
             "click .select-li": "updatePaymentType", 
             "keydown .select-li": "kyupdatepayment",
             //"click .inpit-select": "showDropdown",   
-            "click .btn_validatepaypal": "validateaddressform",
-            //"change select[name='savedPaymentMethods']" : "changesavedcard"
+            "click .btn_validatepaypal": "validateaddressform", 
+            "change input[name='savedPaymentMethods']" : "changesavedcard",
             //"keypress [id='paymentType']": "keypressForMobile",
             //"change [id='paymentType']": "setFocusforOption",
             "keydown [name='credit-card-number']":"creditcardformat",
-            "keydown [name='postal-code']":"zipcodeFormating",
+            //"keydown [name='postal-code']":"zipcodeFormating",
 			//"click .pay-with-rewards-prepare" : "payWithRewardsPrepare",
 			"click .redeem": "redeem",
-            "change #mz-payment-credit-card-number" : "updateCardType"
+            "keyup #mz-payment-credit-card-number" : "updateCardType",
+            "change [data-mz-value=isSameBillingShippingAddress]":"changebillingInfo"
+        },
+        changebillingInfo:function(e){
+            if($("[data-mz-value='isSameBillingShippingAddress']").is(':checked')){
+                this.model.set('isSameBillingShippingAddress', true);
+                var billingContact = this.model.get('billingContact');
+                billingContact.set(this.model.parent.apiModel.data.fulfillmentInfo.fulfillmentContact, { silent: true });
+                $(".mz-same-as-shipping-summary").hide(); 
+                $('.mz-l-formfieldgroup-address').hide();
+            }else{
+                this.model.set('isSameBillingShippingAddress', false);                
+                $('.mz-l-formfieldgroup-address').show();
+              
+                
+            }
         },
         updateCardType: function(e){
             var card = $(e.target).val();
-            var cardType = {
+            /*var cardType = {
                 electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
                 maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
                 dankort: /^(5019)\d+$/,
@@ -1289,7 +1318,20 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
                 DISCOVER: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
                 jcb: /^(?:2131|1800|35\d{3})\d{11}$/
-            }
+            };*/
+            var cardType = {
+                electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
+                maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
+                dankort: /^(5019)\d+$/,
+                interpayment: /^(636)\d+$/,
+                unionpay: /^(62|88)\d+$/,
+                VISA: /^4/,
+                MC: /^5/,
+                AMEX: /^3/,
+                diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+                DISCOVER: /^6/,
+                jcb: /^(?:2131|1800|35\d{3})\d{11}$/
+            };
             var cardREJX = Object.entries(cardType);
             var myCardType = cardREJX.filter(function(v,i){
                 if(v[1].test(card)){
@@ -1303,6 +1345,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 this.model.get('card').set('paymentOrCardType',myCardType[0][0]);
                 $(document).find('#mz-payment-credit-card-number').parents('.mz-l-formfieldgroup-cell').addClass(myCardType[0][0].toLowerCase());
                 console.log(this.model);
+            }
+            else{
+                $(document).find('#mz-payment-credit-card-number').parents('.mz-l-formfieldgroup-cell').removeClass('visa mc discover ');
             }
         },
         getRenderContext: function () {
@@ -1334,6 +1379,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             if(!this.model.get('billingContact.address.addressType')){this.model.set('billingContact.address.addressType',"Residential");}
             if(window.paymentinfo.model.get('paymentType').toLowerCase() === "storecredit" && window.checkoutViews.parentView.model.get('amountRemainingForPayment')>0){
                 $('.store-credit-message').focus();
+                if(!$('.mz-payment-select-saved-payments').is(':checked')){
+                    $('[data-value="Credit Card"]').trigger('click');
+                    $('.btn_validatepaypal').trigger('click'); 
+                }
                 return false;
             }
             
@@ -1386,8 +1435,16 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             }else{
                 attr.billingContact.phoneNumbers.home = null;
             }
+          
             var flag = false;
             if(!(window.paymentinfo.model.validate(attr))){
+                 //CVV Validation
+                 var regcvv=/^[0-9]{3,4}$/;
+                 if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
+                     $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
+                      $('[data-mz-value="card.cvv"]').focus();
+                  return false;
+                 }
                 $('#completePaymment').click();
                 if($('.is-showing.mz-errors').length > 0){
                     $('.is-showing.mz-errors').first().focus();
@@ -1511,7 +1568,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $('[data-mz-saved-cvv]').val('').change();
                 this.render();
             }, this);
+            var billingContact = this.model.get('billingContact'); 
+            this.model.set('isSameBillingShippingAddress', true);
+            billingContact.set(this.model.parent.apiModel.data.fulfillmentInfo.fulfillmentContact, { silent: true });
             this.codeEntered = !!this.model.get('digitalCreditCode');
+           
         },
         resetPaymentData: function (e) {
             if (e.target !== $('[data-mz-saved-credit-card]')[0]) {
@@ -1531,13 +1592,27 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 return true;
             }
         },
-        zipcodeFormating:function(e){
-            if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
-                return true;    
-            }else{
-                return false;
-            }
-        },
+        // zipcodeFormating:function(e){
+        //     if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
+        //         $.ajax({
+        //             url: "https://zip.getziptastic.com/v2/US/"+e.currentTarget.value,
+        //             cache: false,
+        //             dataType: "json",
+        //             type: "GET",
+        //             success:function(result){
+        //                 $('#step-payment-info').find("[data-mz-value='address.cityOrTown']").val(result.city);
+        //                 $('#step-payment-info').find("[data-mz-value='address.stateOrProvince'] option[value="+result.state_short+"]").attr('selected','selected');
+        //             },
+        //             error:function(errmsg){
+        //                 $('#step-payment-info').find("[data-mz-validationmessage-for='address.cityOrTown']").html(errmsg); 
+        //             }
+        //        });
+        //        return true; 
+             
+        //     }else{
+        //         return false;
+        //     }
+        // },
         onPasteStoreCreaditEnable:function(){
             setTimeout(function(e){
                 if($('#digital-credit-code').val() !==""){
@@ -1553,10 +1628,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     self.model.set('errormessage',''); 
                 }  
                 setTimeout(function(){    
-                    $('.error-msg').html(''); 
-                    //$('#coupon-code').focus();
+                   // $('.error-msg').html(''); 
+                    $('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');   
-                },3000); 
+                },6000);
             }
             if($('.digitalcrediterror-msg').html() !== ''){   
                 setTimeout(function(){   
@@ -1579,7 +1654,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     (this.model.get('card').id && this.model.get("savedPaymentMethodId") === 'CreditCard' && this.model.get('usingSavedCard')===false && !this.model.get('card.isDefaultPayMethod') && this.model.get('card.cvv'))
                     )
                 {
-                    
+            
                 }
                 else if(this.model.get("savedPaymentMethodId") === undefined ){
                      //this.model.get('billingContact').clear();
@@ -1590,9 +1665,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }else {
                     this.model.get('card').clear();
                     this.model.set('usingSavedCard',false); 
-                    this.model.set('isSameBillingShippingAddress',false);
+                    //this.model.set('isSameBillingShippingAddress',true);
                     this.model.get('billingContact').clear();
                 }  
+                if(this.model.get('usingSavedCard')===false){
+                    this.model.set('isSameBillingShippingAddress',true);  
+                    this.model.set("savedPaymentMethodId",'CreditCard');
+                    var billingContact = this.model.get('billingContact'); 
+                    billingContact.set(this.model.parent.apiModel.data.fulfillmentInfo.fulfillmentContact, { silent: true });
+                }else{
+                    this.model.set('isSameBillingShippingAddress',false); 
+                }
             }
             if (visaCheckoutSettings.isEnabled && !this.visaCheckoutInitialized && this.$('.v-button').length > 0) {
                 window.onVisaCheckoutReady = _.bind(this.initVisaCheckout, this);
@@ -1605,13 +1688,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 this.model.set('usingSavedCard',false); 
             }*/
             
-             setTimeout(function() {
+             /*setTimeout(function() {
                 if($('#step-payment-info').hasClass('is-complete')) {
                     if($('#step-review').is(':visible')) {
                         $('#step-review').filter(':visible').find('.mz-formstep-desc').focus();
                     }
                 }
-            }, 2000);
+            }, 2000);*/
             
             if (this.$(".p-button").length > 0)
                 PayPal.loadScript();
@@ -1670,7 +1753,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 PayPal.loadScript();
                 setTimeout(function(){
                     $(document).find('#btn_xpressPaypal').click();
-                },1500);                
+                },3000);                
             }
 
         },
@@ -1730,13 +1813,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             this.$el.addClass('is-loading');
             this.model.getDigitalCredit().ensure(function () {
                 self.$el.removeClass('is-loading');
-                if(window.checkoutViews.messageView.model.models[0].attributes.errorCode == "ITEM_NOT_FOUND"){  
+                /*if(window.checkoutViews.messageView.model.models[0].attributes.errorCode == "ITEM_NOT_FOUND"){  
                     self.model.set('errorsetdigitlcredit',"creditcode");  
-                    // $('.mz-checkout-digitalcredit-enter-code').val('');  
-                    self.model.set('errormessage', 'Error: '+window.checkoutViews.messageView.model.models[0].attributes.message);  
+                    $('.mz-checkout-digitalcredit-enter-code').val('');  
+                    self.model.set('errormessage', 'Error: '+window.checkoutViews.messageView.model.models[0].attributes.message.replace('coupon code','gift card or store credit code'));  
                     setTimeout(function(){   
                         self.render();  
-                    },1000);
+                    },6000);
                     
                     // $('#digital-credit-code').'Error: '+html('');
                     // $('#digital-credit-code').val('');
@@ -1746,7 +1829,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     setTimeout(function(){   
                         // $('.digitalcrediterror-msg').focus();   
                     },1000);
-                }
+                }*/
             });
         },
         stripNonNumericAndParseFloat: function (val) {
@@ -2352,6 +2435,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             } 
         }) ;
     }
+    $(window).resize(function(){
+        if($(window).width()>1100){
+            $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
+        }
+    });
     $(document).ready(function () {
         var setSubscriptionData = window.setSubscriptionData = function(){
             var myObj = {
@@ -2525,12 +2613,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         // FAQ accordian function
         $(document).on('click', '#mz-drop-zone-checkout-faq h2', function(){
             $(document).find('#mz-drop-zone-checkout-faq').toggleClass('active');
-        })
+        });
 
         // trigger next for shipping address
         $(document).on('click', '.dummi-procudeto-shipping-method', function(){
             $(document).find('#continuetoshipping').click();
-        })
+        });
         $(document).on('keydown','input,select',function(e){
             if(e.keyCode === 13){
                 e.preventDefault();
@@ -2626,6 +2714,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             if(getguest) { 
                 $(".popupmodal").hide(); 
                 $(".popupmodal").removeClass('hide-shippingAddress'); 
+                $(".mz-formstep").removeClass('hide-shippingAddress'); 
                 $(".guestData").addClass("active");
                 $(".guestData").find('span').html(getguest); 
                 if(window.innerWidth <= 1024 && window.innerWidth > 767){
@@ -2746,6 +2835,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         window.checkoutViews.comments.render();
         window.checkoutViews.orderSummary.render();
         window.checkoutViews.steps.shippingInfo.render();
+       PayPal.loadScript();
+      
         checkoutModel.on('complete', function() {
             CartMonitor.setCount(0);
             window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";
@@ -2755,7 +2846,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         var $reviewPanel = $('#step-review');
         checkoutModel.on('change:isReady',function (model, isReady) {
             if (isReady) {
-                setTimeout(function () { window.scrollTo(0, $reviewPanel.offset().top); }, 750);
+                //commented JEL-1110
+                //setTimeout(function () { window.scrollTo(0, $reviewPanel.offset().top); }, 750);
             }
         });
 
@@ -2788,8 +2880,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             }
         
         });
-        
-        // shipping method keyboard interactions
+        if($(window).width()>1100){ 
+            $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
+        }
+            // shipping method keyboard interactions
         $(document).on('keydown', 'input[data-mz-shipping-method]', function(e) {
             if(e.keyCode == 40 || e.keyCode == 39) {
                 e.preventDefault();	
@@ -2855,22 +2949,30 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         });
         $(document).on('change','#submitorder-cpp-checkbox', function() {
             if (this.checked) {
-                $('.place-subscrition-btn').prop('disabled',false);
-                $('.place-order-btn').prop('disabled',false);
+            $('.place-order-btn').prop('disabled',false);
             }else{
-                $('.place-subscrition-btn').prop('disabled',true);
-                $('.place-order-btn').prop('disabled',true);
+            $('.place-order-btn').prop('disabled',true);
             }
         });
 
+        // $(document).on('click', '.place-order-btn', function(e){
+        //     $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').click();
+        // });
+        // To make the paypal success to come to checkout page
         $(document).on('click', '.place-order-btn', function(e){
             if( window.paymentinfo.model.get('paymentType') === "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') === "PayPalExpress2"){
-                  $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+            }
+            else{
+                if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').length>0){
+                    $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').click();
                 }
-             else{
-                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next').find('button').click();
-             }   
+                else{
+                    $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next button').click();
+                }
+            }
         });
+
         /*$(document).on('keydown','.inpit-select', function(e) { //keypress for payment type option opening
             //var allowEsc = window.allowEsc = false;
             if($(this).hasClass('inactive')) {
@@ -2951,6 +3053,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 					$('html, body').animate({
 						scrollTop: $('#step-payment-info').offset().top - 30 //#DIV_ID is an example. Use the id of your destination on the page
                     }, 'fast');   
+                    // $('html, body').animate({
+                        //scrollTop: $('#step-payment-info').offset().top - 30 //#DIV_ID is an example. Use the id of your destination on the page
+                    // }, 'fast');   
                 }                
             },10000);            
             if($('.mz-checkoutform-shippingaddress').hasClass('is-complete') && $('input[name="shippingMethod"]:checked').length > 0){
@@ -3030,20 +3135,20 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
           $("body").css({"overflow":"hidden"});
           $(".popupmodal2").show();
           $("#guestcheckoutmodal").show();
-          if($(ev.target).text() == "Account") {
+          if($(ev.target).attr('data-mz-attr') == "Account") {
             $("#guestcheckoutmodal").find('.payment-section').find(".labelmodel").removeClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".labelmodel").first().addClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".form-content").removeClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".form-content").first().addClass("active");
           }
-          else if($(ev.target).text() == "Login") {
+          else if($(ev.target).attr('data-mz-attr') == "Login") {
             $("#guestcheckoutmodal").find('.payment-section').find(".labelmodel").removeClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".labelmodel").last().addClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".form-content").removeClass("active");
             $("#guestcheckoutmodal").find('.payment-section').find(".form-content").last().addClass("active");
           }
           $("#guestcheckoutmodal").find(".close-icon a").focus();
-          $(".popupmodal2").css("overflow","auto");
+          $(".popupmodal2").css({"overflow":"auto","height":"100%"}); 
           keepFocusWithinModal('.popupmodal2 #email-dialog','.popupmodal2 #email-dialog');
           modalAriaFix('true');
         });
@@ -3150,6 +3255,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             LoginErrorMessage: function(){
                 $('.loginError').text(Hypr.getLabel('loginFailedMessage',$("#email").val()));
                 $('.loginError').prev('input').focus(); 
+                if($(window).width()>1100){ 
+                    $('#checkoutmodal .top-sec .checkout_login.form-content').removeAttr('style');
+                    $('#addbutton.checkout-login-btn').last().css('position','static');
+                }
             },
             loginProcess: function(e){
               if(!window.guestLoginWithExistingAccount) {
@@ -3191,13 +3300,19 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                      $('.error-user').text(Hypr.getThemeSetting('validEmialSignUp'));
                      $('.error-user').prev('input').focus();
                     validity = false; 
-                }
+                }  
                 if( $('.user-password:visible').val().length === 0){
                     $('.loginError').text("Please enter password.");
                     $('.user-password:visible').css({'border':'1px solid #e9000f'});     
                     validity = false;
                 }else{ 
                     $('.user-password:visible').css({'border':'1px solid #c2c2c2'});    
+                }
+                if(!validity){
+                    if($(window).width()>1100){ 
+                        $('#checkoutmodal .top-sec .checkout_login.form-content').removeAttr('style');
+                        $('#addbutton.checkout-login-btn').last().css('position','static');
+                    }
                 }
                 return validity; 
             },

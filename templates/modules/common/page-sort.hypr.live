@@ -1,5 +1,5 @@
-<label for="sort-by">{{ labels.sortby }}</label>
-<select id="sort-by" class="page-sort-sel" title="Sort type" data-mz-value="sortBy" class="mz-pagingcontrols-pagesort-dropdown" autocomplete="off">
+<p>{{ labels.sortby }}</p>
+<select class="page-sort-sel" title="Sort type" data-mz-value="sortBy" class="mz-pagingcontrols-pagesort-dropdown" autocomplete="off">
     {% block sort-types %}
         {% for sort in model.sorts %} 
             {% with sort.value as sortValue %}

@@ -405,7 +405,7 @@
         <tr class="checkout-col">
             <td  style="padding-bottom: 5px;">
                 <span class="mleft18">SubTotal:</span>
-                <span class="mz-carttable-total">
+                <span id="mz-carttable-total" class="mz-carttable-total">
                     {{ model.discountedSubtotal|currency }}
                 </span>
             </td>
@@ -413,7 +413,7 @@
         <tr class="checkout-col checkout-mobile">
             <td  style="padding-bottom: 5px;">
                 <span class="mleft18">Tax:</span>
-                <span class="mz-carttable-total">
+                <span id="mz-carttable-total" class="mz-carttable-total">
                     TBD
                 </span>
             </td>

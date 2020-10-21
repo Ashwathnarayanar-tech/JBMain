@@ -1,30 +1,111 @@
 <div class="mz-checkout-digitalcredit mz-l-stack-section">
-  <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4>
-  <div class="mz-l-formfieldgroup-cell">
-    <label for="digital-credit-code">{{ labels.digitalCreditCode }}: </label>
-  </div>
-  <div class="mz-l-formfieldgroup-cell">
-    
-    {% if model.errormessage %}
-        <input aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
-    {% else %}
-        <input aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+    <div class="store-credit-input-sec">
+        <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4>
+        {% comment %}
+            <div class="mz-l-formfieldgroup-cell">
+                <label for="digital-credit-code">{{ labels.digitalCreditCode }}: </label>
+            </div>
+        {% endcomment %}
+        <div class="mz-l-formfieldgroup-cell">
+            {% if model.errormessage %}
+                <input aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+            {% else %}
+                <input aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+            {% endif %}
+            <button class="mz-button applyDigitalCredit" data-mz-action="getDigitalCredit" {% if not model.digitalCreditCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+            {% if model.errorsetdigitlcredit === "creditcode" %}
+                <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
+                    {{ model.errormessage }} 
+                </span> 
+            {% else %} 
+                <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
+                </span>  
+            {% endif %}
+            <span id="storecredit-messages">
+                {% include "modules/common/message-bar" with model=model.messages %}
+            </span>
+        </div> 
+    </div>
+    {% if user.isAuthenticated %}
+        <div id="sweet-rewards-worksheet">
+            <span class="first-section"><h3 class="sweet-rewards-headder">Redeem Sweet Rewards points</h3> <b class="sweet-rewards-points">You currently have <span id="sweet-rewards-points"></span> points.</b>
+            <div class="message-rewards"> You may redeem up to two rewards per order.</div>
+            <div id="pwr-max-statement"></div>
+            <div id="redemption-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i></div>
+            <h4 tabindex="0" style="font-weight: normal; margin: 12.5px;" id="pwr-congrats-statement"></h4>
+            <div id="pwr-rewards-list"></div>
+            <div class="btn-section">
+                <button id="reward-500" class="mz-button redeem" reward-id="reward_3206a" aria-label="Redeem 500 points for 5 dollars">500 Points  <span class="in-dollers">$5</span></button>{% comment %}{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}{% endcomment %}
+                <button id="reward-950" class="mz-button redeem" reward-id="reward_191e0" aria-label="Redeem 950 points for 10 dollars" >950 Points <span class="in-dollers">$10</span></button>{% comment %}{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}{% endcomment %}
+                <button id="reward-1800" class="mz-button redeem" reward-id="reward_28df0" aria-label="Redeem 1800 points for 20 dollars">1800 Points <span class="in-dollers">$20</span></button>{% comment %}{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}{% endcomment %}
+            </div>
+            <div id="sweet-rewards-error"></div>
+        </div>
+        <div class="line"></div>
     {% endif %}
-    
-    <button class="mz-button applyDigitalCredit" data-mz-action="getDigitalCredit" {% if not model.digitalCreditCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
-   <span class="note-text">{{ labels.coupncodeNote }}</span> 
-    {% if model.errorsetdigitlcredit === "creditcode" %}
-      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
-        {{ model.errormessage }} 
-      </span> 
-    {% else %} 
-      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
-      </span>  
+    {% if model.availableDigitalCredits %}
+        <div class="mz-checkout-digitalcredit-table">
+            <table class="mz-table">
+                <thead>
+                    <tr>
+                        <th id="apply">Apply</th>
+                        <th class="mz-checkout-digitalcredit-header-code" id="{{ labels.digitalCreditCode }}">{{ labels.digitalCreditCode }}</th>
+                        <th class="mz-checkout-digitalcredit-header-balance" id="{{ labels.digitalCreditBalance }}">{{ labels.digitalCreditBalance }}</th>
+                        <th class="mz-checkout-digitalcredit-header-amt-to-apply" id="{{ labels.digitalCreditAmtToUse }}">{{ labels.digitalCreditAmtToUse }}</th>
+                        <th class="mz-checkout-digitalcredit-header-remainder" id="{{ labels.digitalCreditRemainder }}">{% if pageContext.isDesktop %}{{ labels.digitalCreditRemainder }}{% endif %}</th>
+                        <th class="mz-checkout-digitalcredit-header-unlabeled">&nbsp;</th>
+                        <th class="mz-checkout-digitalcredit-header-unlabeled">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <style>
+                        label[label-code*="PWR-"] { display: none !important; }
+                        label[enabled-code*="PWR-"] { display: block !important; }
+                    </style>
+                    {% for credit in model.availableDigitalCredits.models %}
+                        <tr class="mz-checkout-digitalcredit-row" data-mz-store-credit-code="{{ credit.attributes.code }}" zinrelo-amount="{{ credit.attributes.currentBalance }}">
+                            <td class="mz-checkout-digitalcredit-cell-enable" tabindex="0" header="apply">
+                                <label enabled-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}" style="display: none;">APPLIED</label>
+                                <label class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
+                                    <input type="checkbox" data-mz-digital-credit-enable {% if credit.attributes.isEnabled %} checked="checked" {% else %} {% with credit.attributes.code as code %} {% with code|split("-")|first as mycode %} {% if mycode == "PWR" %} {% comment %} checked="checked" disabled="disabled" {% endcomment %} {% endif %} {% endwith %} {% endwith %} {% endif %} class="data-mz-credit-enabled" data-mz-credit-code-source="{{ credit.attributes.code }}"  data-mz-credit-balance="{{ credit.attributes.currentBalance }}"  id="enable{{ credit.attributes.code }}" />
+                                    <span class="checkmark-style"></span>
+                                </label>
+                            </td>
+                            <td class="mz-checkout-digitalcredit-cell-code" tabindex="0" header="{{ labels.digitalCreditCode }}">
+                                <label class="mz-checkout-digitalcredit-code" for="enable{{ credit.attributes.code }}">
+                                    <span class="mz-checkout-digitalcredit-code" data-mz-value="credit.attributes.code">{{ credit.attributes.code }}</span>
+                                    <span data-mz-sweet-reward-display="{{ credit.attributes.code }}">(SWEET REWARD)</span>
+                                </label>
+                            </td>
+                            <td class="mz-checkout-digitalcredit-cell-balance" tabindex="0" header="{{ labels.digitalCreditBalance }}">{{ credit.attributes.currentBalance|currency }}</td>
+                            <td class="mz-checkout-digitalcredit-cell-amt-to-apply" tabindex="0" header="{{ labels.digitalCreditAmtToUse }}">
+                                <input class="data-mz-credit-amt-to-apply" data-mz-credit-code-target="{{ credit.attributes.code }}" min="1" step="0.01" data-mz-digital-credit-amount data-mz-value="creditAmountApplied" {% if credit.attributes.creditAmountApplied %}value="{{ credit.attributes.creditAmountApplied|currency }}"{% endif %} {% if not credit.attributes.isEnabled %}disabled="true"{% endif %} />
+                                <span data-mz-sweet-reward-code="{{ credit.attributes.code }}">{{ credit.attributes.currentBalance|currency }}</span>
+                            </td>
+                            <td class="mz-checkout-digitalcredit-cell-remainder" tabindex="0" header="{{ labels.digitalCreditRemainder }}>
+                                {% if credit.attributes.isEnabled and credit.attributes.remainingBalance > 0 %}
+                                    <span class="mz-checkout-digitalcredit-remainder" data-mz-value="credit.attributes.remainingBalance">{{ credit.attributes.remainingBalance|currency }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="mz-checkout-digitalcredit-cell-savetoaccount">
+                                {% if not model.isAnonymousShopper and not credit.attributes.isTiedToCustomer and credit.attributes.isEnabled and credit.attributes.remainingBalance > 0 %}
+                                    <input type="checkbox" data-mz-value="credit.attributes.addRemainderToCustomer" aria-label="add remaining amount to myaccount" data-mz-digital-add-remainder-to-customer data-mz-credit-code-to-tie-to-customer="{{ credit.attributes.code }}" id="addCust{{ credit.attributes.code }}" value="true" {% if credit.attributes.isTiedToCustomer %}disabled="true" checked="true"{% else %} {% if credit.attributes.addRemainderToCustomer %}checked="true"{% endif %} {% endif %} />
+                                {% endif %}
+                            </td>
+                            <td class="mz-checkout-digitalcredit-cell-savetoaccount-label">
+                                {% if not model.isAnonymousShopper and not credit.attributes.isTiedToCustomer and credit.attributes.isEnabled and credit.attributes.remainingBalance > 0 %}
+                                    <label class="mz-paymenttype mz-paymenttype-store" for="addCust{{ credit.attributes.code }}">
+                                        <span class="mz-checkout-digitalcredit-remainder">{{ labels.digitalCreditAddToAccount }}</span>
+                                    </label>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% endif %}
-    <span id="storecredit-messages">
-        {% include "modules/common/message-bar" with model=model.messages %}
-    </span>
-  </div>
+</div>
 
   {% if user.isAuthenticated %}
     <div id="sweet-rewards-worksheet" style="background: #f3d5cc; padding: 10px;">
@@ -35,16 +116,6 @@
       <div id="redemption-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i></div>
       <h4 tabindex="0" style="font-weight: normal; margin: 12.5px;" id="pwr-congrats-statement"></h4>
 
-      <div id="pwr-rewards-list">
-      </div>
-      <div>
-          <button id="reward-500" class="mz-button redeem" reward-id="reward_3206a" aria-label="Redeem 500 points for 5 dollars">$5 (500 points)</button>{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}
-          <button id="reward-950" class="mz-button redeem" reward-id="reward_191e0" aria-label="Redeem 950 points for 10 dollars" >$10 (950 points)</button>{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}
-          <button id="reward-1800" class="mz-button redeem" reward-id="reward_28df0" aria-label="Redeem 1800 points for 20 dollars">$20 (1800 points)</button>{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}
-      </div>
-      <div id="sweet-rewards-error"></div>
-    </div>
-  {% endif %}
 
 
   {% if model.availableDigitalCredits %}

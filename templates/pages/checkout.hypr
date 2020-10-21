@@ -11,6 +11,7 @@
 {% block body-content %}
     {% require_script "pages/checkout" %}
     {% preload_json model "checkout" %}
+  
     <div class="mz-l-container">
         {% if user.isAnonymous %}
             <div class="mz-fromstep popupmodal2" style="display: none;">
@@ -47,7 +48,7 @@
                 {% else %}
                     <span class="mz-pagetitle">
                         <label class="heading">{{ labels.checkout }}</label>
-                        <div class="continueshopping"><a href="/">Continue shopping</a></div>
+                        <div class="continueshopping"><a href="/">Continue Shopping</a></div>
                     </span>
                     <a href="/" class="logoicon"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a> 
                     <div class="links-sec">
@@ -78,7 +79,9 @@
             <div class="example-banner"></div>
         {% endcomment %}
         <!-- <a class="keep-shop" href="/shopmain">Keep Shopping</a> -->
-        <div class="div-cointainer"> 
+       
+        <div class="div-cointainer">  
+         
             <form id="checkout-form" class="mz-checkoutform mz-l-2column mz-l-2column-right fades-in" method="post" onsubmit="return false;">
                 {% include "modules/common/message-bar" with model=model.messages %}
                 <p class="ind-req" tabindex="0">* indicates a required field</p>
@@ -101,7 +104,7 @@
                                 Guest Checkout with 
                                 <span>
                                     
-                                </span>. Create your account at the end of placing the order.
+                                </span>.Create your account at the end of placing the order.
                             </div>
                         {% endif %}  
                     </div>
@@ -127,10 +130,10 @@
                                             {% endif %} 
                                         {% endfor %}
                                     {% endif %}
-                                {% endwith %} 
-                            </div>  
+                                {% endwith %}
+                            </div>
                         </div>
-                        <div class="sapareter"> 
+                        <div class="sapareter">  
                             <span class="halfBar first"></span><span class="orText">OR</span><span class="halfBar second"></span>
                         </div>
                     </div>

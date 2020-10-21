@@ -6,7 +6,7 @@
     <div class="jb-minicart-items-container">
         <ul> 
             {% for item in model.items %}
-                <li role="contentinfo">
+                <li tabindex="0" role="contentinfo">
                     {% if item.product.imageUrl and themeSettings.showCartItemImage %}
                         <div class="item-image">
                             <img src="{{ item.product.imageUrl }}?max=80" alt="Item thumbnail"/>
@@ -25,51 +25,14 @@
                         {% endif %}
                     </div>
                     <div class="item-sub-total">  
-                        {% if item.discountTotal > 0 %}<span class="discounted-total"><span class="sr-only">Item total: </span>{{ item.discountedTotal|currency }}</span> {% else %}<span class="total-sub"><span class="sr-only">Item total: </span>{{item.subtotal|currency}}</span>{% endif %}
+                        {% if item.discountTotal > 0 %}<h4 class="discounted-total">{{ item.discountedTotal|currency }}</h4> {% else %}<h4 class="total-sub">{{item.subtotal|currency}}</h4>{% endif %}
                     </div>
                 </li>
             {% endfor %}
         </ul>
     </div>
-         
-<style>
-      
-.minicart-details      dl {
-  width: 100%;
-  overflow: hidden;
-  background: #ff0;
-  padding: 0;
-  margin: 0;
-}
-.minicart-details dt {
-  text-align: right;
-  float: left;
-  width: 75%;
-  padding: 0;
-  margin: 0;
-}
-.minicart-details dd {
-  text-align: right;
-  float: left;
-  width: 25%;
-  padding: 0;
-  margin: 0;
-}
-
-.minicart-details dd > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.minicart-details dt > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-
-      </style>
     <div class="jb-minicart-total-container">
+<<<<<<< HEAD
       
         <dl class="minicart-details">
           <dt><span>SubTotal:</span></dt>
@@ -95,10 +58,29 @@
                   <a href="/shipping-information">
                   FREE Ground Shipping</a>! 
             </span>
+=======
+        <div class="sub-total"><span>SubTotal:</span><p>{{model.subtotal|currency}}</p></div>
+        <div class="tax-total"><span>Tax:</span><p class="redColor">TBD</p></div>
+        <div class="shipping-details"><span>Shipping:</span><p class="redColor"> TBD </p></div>
+        {% if model.remainingfreeshippinng > 0  && !model.hasHeatSensitive  %}
+            {% if model.isNoShipping %}
+                <div class="hide-when-heat-sensitive" tabindex="0" role="contentinfo">
+                        You are only ${{model.remainingfreeshippinng}} away from 
+                        <a href="/shipping-information">
+                        Discounted Shipping</a>!
+                </div> 
+            {% else %}
+                <div class="hide-when-heat-sensitive" tabindex="0" role="contentinfo">
+                        You are only ${{model.remainingfreeshippinng}} away from 
+                        <a href="/shipping-information">
+                        FREE Ground Shipping</a>! 
+                </div> 
+>>>>>>> origin/checkoutRedesign
             {% endif %}
         {% endif %}
         {% if model.remainingfreeshippinng == 0  && !model.hasHeatSensitive %}
             {% if model.isNoShipping %}
+<<<<<<< HEAD
             <span class="hide-when-heat-sensitive">
                     Congratulations, you qualify for 
                     <a href="/shipping-information" >Discounted Shipping</a>!
@@ -115,8 +97,22 @@
         <dt><span class="estimated-total">Estimated Total:</span></dt>
         <dd><span style="color: #a00d12;">{{model.total|currency}}</span></dd>
         </dl>
+=======
+                <div class="hide-when-heat-sensitive" tabindex="0" role="contentinfo">
+                    Congratulations, you qualify for 
+                    <a href="/shipping-information" >Discounted Shipping</a>!
+                </div> 
+            {% else %}
+                <div class="hide-when-heat-sensitive" tabindex="0" role="contentinfo">
+                    Congratulations, you qualify for 
+                    <a href="/shipping-information" >FREE Ground Shipping</a>!
+                </div> 
+            {% endif %}
+        {% endif %}
+>>>>>>> origin/checkoutRedesign
     </div>
     <div class="jb-minicart-checkout-container">
+        <div class="estimated-total" tabindex="0" role="contentinfo"> <span>Estimated Total:</span> <p>{{model.total|currency}}</p></div>
         <div class="cart-checkout-buttons">
             <a href="/cart" aria-label="View Cart" class="view-cart-btn">view cart</a>
             <form method="post" action="{{ pageContext.secureHost }}/checkout" id="minicartform">
@@ -125,7 +121,8 @@
         </div>
     </div>    
 {% else %}
-    <p class="no-items-found-message">
+    <p class="no-items-found-message" role="contentinfo">
         No products are added to cart.
     </p>
 {% endif %}
+

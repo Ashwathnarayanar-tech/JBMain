@@ -185,12 +185,26 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 				else
 					return true;
 		}
-		$(document).on('click','.Take-Survey',function(e){
+		$(document).on('DOMNodeInserted', function(e) {
+            if ($('.brdialog-win').find(e.target).find('#brDialog').length) {
+				$('.Take-Survey').addClass('active');
+			}
+		});
+		$(document).on('click','.Take-Survey.active',function(e){
 			e.preventDefault();
-			$('#brmerchantLogo').trigger('click'); 
+			$('#brDialog a').trigger('click'); 
+			//$(document).find('#invite-img').trigger('click');
 			$('.Take-Survey').removeClass('active');
 		});
 	$(document).ready(function () {
+		// if($(window).width() < 768){ 
+        //     $('.mz-signup-password').focusin(function(){
+        //         $('.mob-pwd-row').css('display','block');     
+        //     });
+        //     $('.mz-signup-password').focusout(function(){
+        //        $('.mob-pwd-row').css('display', 'none');          
+        //     });
+        // }
 
 		var johnList = []; //Hypr.getThemeSetting('onetimeCoupons').split(',');
 		var orderInfo = JSON.parse(document.getElementById('data-mz-preload-order').innerHTML);

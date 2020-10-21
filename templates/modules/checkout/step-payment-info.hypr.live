@@ -52,7 +52,7 @@
                                 {% include "modules/common/address-summary" with model=payment.billingInfo.billingContact %}
                             </div>
                         </dd>
-                    </dl>
+                    </dl> 
                 </div>
             {% endif %}
             {% if payment.billingInfo.paymentType|lower == "paypalexpress2"  %}
@@ -280,7 +280,6 @@
         {% endif %}  
     </div>
     {% if  model.paymentType != "PayPalExpress2" %} 
-
     <div class="mz-formstep-next">
         {% if model.activeStoreCredits and model.nonStoreCreditTotal == 0 %}
             <button id="store-credit" class="mz-button checkout-btn" role="button" aria-label="checkout with store credit" data-mz-action="next">{{ labels.next }}</button>

@@ -1,4 +1,4 @@
-{% if pagecontext.pageType != "checkout" and pagecontext.pageType != "confirmation" %}
+{% if pagecontext.pageType != "checkout" %}
     {% if pageContext.isDesktop or pageContext.isTablet %}
         <header class="page-header mz-pageheader-desktop desktop"> 
             {% block search-box %}
@@ -51,7 +51,7 @@
             {% block utility-nav %}
                 {% include "modules/page-header/utility-nav" %}
             {% endblock utility-nav %} 
-            <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Customer Service"> 1-800-522-3267 </a></p></div>
+            <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
         </header> 
         {% block site-nav %}
             <div class="nav-cointainer" id="megaMenu">
@@ -157,27 +157,15 @@
         </div>
     </div> 
 {% else %}
-    {% if pagecontext.pageType == "confirmation"  %}
-        <div class="confirmation-header">
-            <div class="confirmation-cointainer">
-                {% include "modules/page-header/store-branding" %}
-                <div class="links-sec">
-                    {% if user.isAuthenticated %}
-                        <div style="float: right; margin: 10px;"><a href="/logout">Logout</a></div>
-                    {% endif %}
-                    <div style="float: right; margin: 10px;"><a href="/">Continue shopping</a></div>
-                </div>
+   
+    {% if not pageContext.isDesktop %}
+        {% if not pageContext.isTablet %}
+            <div class="jb-mobile-logo">
+                <a href="/">
+                    <img src="../../resources/images/new-logo-images/jb_logo_web_header_mobile.png" alt="Jelly Belly logo" width="50%">
+                </a>
             </div> 
-        </div>
-    {% else %}
-        {% if not pageContext.isDesktop %}
-            {% if not pageContext.isTablet %}
-                <div class="jb-mobile-logo">
-                    <a href="/">
-                        <img src="../../resources/images/new-logo-images/jb_logo_web_header_mobile.png" alt="Jelly Belly logo" width="50%">
-                    </a>
-                </div> 
-            {% endif %}
         {% endif %}
     {% endif %}
+   
 {% endif %}

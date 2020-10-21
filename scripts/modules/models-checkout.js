@@ -1,4 +1,4 @@
-define([
+ define([
     'modules/jquery-mozu',
     'underscore',
     'hyprlive',
@@ -322,8 +322,8 @@ define([
                     // always make them choose again
                     _.each(['shippingMethodCode', 'shippingMethodName'], this.unset, this);
                 // after unset we need to select the cheapest option
-                //this.updateShippingMethod();
-                },
+                //this.updateShippingMethod(); 
+                }, 
                 calculateStepStatus: function() {
                     if (!this.requiresFulfillmentInfo()) return this.stepStatus("complete");
                     //if (this.provisional) return this.stepStatus("incomplete");
@@ -1473,7 +1473,7 @@ define([
                 });
                 if (!errorHandled) order.messages.reset(error.items);
                 order.isSubmitting = false;
-                throw error;
+               throw error;
             },
             addNewCustomer: function() {
                 var self = this,
@@ -1748,16 +1748,19 @@ define([
                 }
 
                 //save contacts
-                if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
-                    if (!isSameBillingShippingAddress && !isSavingCreditCard) {
-                        if (requiresFulfillmentInfo) process.push(this.addShippingContact);
-                        if (requiresBillingInfo) process.push(this.addBillingContact);
-                    } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
-                        process.push(this.addShippingAndBillingContact);
-                    } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
-                        process.push(this.addShippingContact);
+                //if((window.location.href).split('?')[1] !== 'cl=returningUser'){
+                    if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
+                        if (!isSameBillingShippingAddress && !isSavingCreditCard) {
+                            if (requiresFulfillmentInfo) process.push(this.addShippingContact);
+                            if (requiresBillingInfo) process.push(this.addBillingContact);
+                        } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
+                            process.push(this.addShippingAndBillingContact);
+                        } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
+                            process.push(this.addShippingContact);
+                        }
                     }
-                }
+               // }
+                
 
                 process.push(/*this.finalPaymentReconcile, */this.apiCheckout);
 
