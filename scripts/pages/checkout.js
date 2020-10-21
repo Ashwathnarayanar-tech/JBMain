@@ -402,9 +402,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
             } 
 
-            // if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
-            //     $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
-            // } 
              // To make the paypal success to come to checkout page
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
@@ -764,13 +761,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 
     var ShippingInfoView = CheckoutStepView.extend({
         templateName: 'modules/checkout/step-shipping-method', 
-        // initialize:function(){
-        //     if(!this.model.get('shippingMethodCode')){
-        //         this.model.get('availableShippingMethods');
-        //         var lowestValue = _.min(this.model.get('availableShippingMethods'), function(ob) { return ob.price; });
-        //         this.model.set(lowestValue); 
-        //     }
-        // },
         getRenderContext : function () {
             var self = this;
             var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);

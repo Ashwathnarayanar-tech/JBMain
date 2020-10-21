@@ -52,6 +52,7 @@
             </div>
             {% if model.availableShippingMethods.length > 0 %}
     			<p class="method-info" tabindex="0" role="contentinfo">Choose Shipping Method</p> 
+             
     			{% for method in model.availableShippingMethods %} 
 			        {% if model.shippingMethodCode == method.shippingMethodCode %} 
 			            <p class="estimated-date"><span class="bold-text">Shipped by: </span>{{method.estimationDate}}</p> 

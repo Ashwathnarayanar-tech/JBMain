@@ -1724,7 +1724,7 @@
                                                             .down-caret-ma-year,.up-caret-ma-year{
                                                                 top: 15px;
                                                                 left: unset;
-                                                                right: 7%;
+                                                                right: 6%;
                                                             }
                                                         }
                                                         .down-caret-ma-cardType,.up-caret-ma-cardType{
@@ -1930,6 +1930,9 @@
                                                                             background-color: #f3f3f3;
                                                                             padding: 10px 10px;
                                                                             width: 60%;
+                                                                            @media only screen and (min-width : 1px) and (max-width : 767px) {
+                                                                                width: 99%; 
+                                                                             }
                                                                         }  
                                                                     }
                                                                 }
@@ -3289,6 +3292,41 @@
     													}
     												}
 							    				}
+                                                .mz-checkout-digitalcredit-table{
+                                                    .mz-table{
+                                                        display: flex;
+                                                        thead{
+                                                            tr{
+                                                                display: flex;
+                                                                flex-direction: column;
+                                                                th{
+                                                                    background-color: transparent;
+                                                                    color: #4a4a4a;
+                                                                }
+                                                            }
+                                                        }
+                                                        tbody{
+                                                            padding-left: 10px;
+                                                            tr{
+                                                                display: flex;
+                                                                flex-direction: column;
+                                                                align-items:start;
+                                                                td{
+                                                                    .checkbox-outer-label{
+                                                                        padding: 10px 0; 
+                                                                    }
+                                                                    .data-mz-credit-amt-to-apply{
+                                                                       border: 1px solid rgb(118,118,118);
+                                                                        text-align: left;
+                                                                    }
+                                                                    .mz-paymenttype-store{
+                                                                        vertical-align: top;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
 							    			}
 							    			.mz-l-formfieldgroup-row.saved-payment-methods{ 
                                                 margin-bottom: 15px;
@@ -3347,7 +3385,7 @@
 							    							.select-ul{ 
 							    								.select-li{ 
 							    									width: 44%;
-                                                                    padding: 11px 0 5px 11px;
+                                                                    padding: 11px 0 11px 11px;
                                                                     text-align: left;
                                                                    &.paypal-trigger{
                                                                        margin-right: 0;
@@ -3355,7 +3393,7 @@
                                                                     &[data-value="Credit Card"]:after{
                                                                         width: 40px;
                                                                         height: 29px;
-                                                                        top: 9px;
+                                                                        top: 12px;
                                                                         left: -2px;
                                                                     }
                                                                     &[data-value="PayPalExpress2"]:after{
@@ -3372,7 +3410,7 @@
                                                                         }
                                                                     }
 							    									.mz-paymenttype-label{
-                                                                        font-size: 12px; 
+                                                                        font-size: 16px; 
                                                                         vertical-align: top;
                                                                         margin-left: 16px;
 							    									}
@@ -3426,15 +3464,15 @@
                                             position: fixed;
                                             bottom: 0;
                                             background-color: #fff;
-                                            width: 100%;
-                                            left: 0;
+                                            width: 92%;
+                                            left: 0; 
                                             text-align: center;
                                             margin: 0;
-                                            padding: 4% 0;
+                                            padding: 4%;
                                             z-index: 9;
                                             
                                             .place-order-btn{
-                                                width: 96%;
+                                                width: 100%;
                                                 border-color:#e7131a; 
                                             }	
                                         }

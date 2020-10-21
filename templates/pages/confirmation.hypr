@@ -21,8 +21,11 @@
     <div class="clearfix"></div>
     <div class="content-container">
         <h1 class="mz-pagetitle"><span class="tick-mark"></span>{{ labels.orderConfirmation }} </h1>
-        <p tabindex="0" role="contentinfo">{{ labels.yourOrderNumber|string_format(model.orderNumber)|safe }}</p>
-    	<p tabindex="0" role="contentinfo" class="confirmtext">{{ labels.confirmationText }}</p>
+        <div class="ordertext">
+        <p tabindex="0" role="contentinfo" class="ordertext1">{{ labels.yourOrderNumbertext1 }}</p>
+         <p tabindex="0" role="contentinfo" class="ordertext2">{{ labels.yourOrderNumbertext2|string_format(model.orderNumber)|safe }}</p>
+    	</div> 
+        <p tabindex="0" role="contentinfo" class="confirmtext">{{ labels.confirmationText }}</p>
         <div class="button-section">
             <a href="/" class="continue-shopping">Continue Shopping</a>
             <a href="javaScript:void(0)" class="Take-Survey">Take a Survey!</a> 
