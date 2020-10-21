@@ -99,7 +99,7 @@ require([
     "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
     'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator', "modules/views-collections"
-], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
+], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter) {
 
     $(document).ready(function () {
         // Shruthi JEL-1433 Qty increase and Decrement
@@ -1282,6 +1282,7 @@ require([
         //}
 
 		require(['modules/browser-info']);
+    require(['modules/add-to-cart-modal']);
 		//require(['modules/regional-scheme/geodetect2']);
     });
 });

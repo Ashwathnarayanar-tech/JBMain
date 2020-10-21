@@ -128,16 +128,20 @@ define(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'
                 Minicart.MiniCart.updateMiniCart();
 
             }, 400),
-            additionalEvents: {
-                // 'keyup #shipping-zip': 'testfun',
-                'click .remove-coupon': 'removeCoupon',
-                "click .plus-prod-qty-cart" : "increseQty",
-                "click .minus-prod-qty-cart" : "decQty"
-            },
-            removeCoupon: function(e) {
-                var self = this,
-                    removedCoupon,
-                    couponCodes = self.model.get('couponCodes');
+        additionalEvents: {
+            // 'keyup #shipping-zip': 'testfun',
+            'click .remove-coupon': 'removeCoupon',
+            "click .plus-prod-qty-cart" : "increseQty",
+            "click .minus-prod-qty-cart" : "decQty",
+            "touchstart .minus-prod-qty-cart": "decQty",
+            "touchstart .plus-prod-qty-cart": "increseQty", 
+            "click .coupon-text":"couponSlide",
+            'click .p-button-mobile':'paypal'
+        },
+        removeCoupon: function(e) {
+            var self = this,
+                removedCoupon,
+                couponCodes = self.model.get('couponCodes');
 
                 $.each(couponCodes, function(i, o) {
                     self.model.apiRemoveCoupon(o).then(function(res) {

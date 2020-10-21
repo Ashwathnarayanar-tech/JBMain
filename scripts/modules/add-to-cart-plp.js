@@ -263,14 +263,14 @@ require([
         $(document).on('click', '.cross-close-popup',function(){
             $(document).find('.Add-to-cart-popup').removeClass("active");
             $(document).find('body').removeClass("noScroll");
-            trigger.focus();
+            //trigger.focus();
         });
 
-        $(document).keyup(function(e) {
-            if (e.keyCode === 27 && $('.Add-to-cart-popup').hasClass("active")) {
-                $('.cross-close-popup').trigger('click');
-            }
-        });
+        // $(document).keyup(function(e) {
+        //     if (e.keyCode === 27 && $('.Add-to-cart-popup').hasClass("active")) {
+        //         $('.cross-close-popup').trigger('click');
+        //     }
+        // });
 
         $(document).on('click', '.continue-shoping  ',function(){
             $(document).find('.Add-to-cart-popup').removeClass("active");

@@ -884,11 +884,11 @@
                                             <div class="namespan-container"><span class="name-span">Bean Machines & Dispensers</span></div>
                                         </a>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/apparel-and-accessories/c/132" aria-label="Apparel & Accessories">
+                                    <!--<div class="subitem">
+                                        <a href="/apparel-and-accessories/c/132" original-al="Apparel & Accessories">
                                             <div class="namespan-container"><span class="name-span">Apparel & Accessories</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" aria-label="Gift Baskets">
                                             <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
@@ -1325,8 +1325,8 @@
                             <li class="sunmenu-container active" data-attr="California-Visitors-Center">
                                 <div class="submenu-list California-Visitors-Center">
                                     <div class="subitem">
-                                        <a href="/california-factory-tours" aria-label="Free Self Guided Factory Tours">
-                                            <div class="namespan-container"><span class="name-span">Free Self-Guided Factory Tours</span></div>
+                                        <a href="/california-factory-tours" original-al="Self Guided Factory Tours">
+                                            <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
                                         </a>
                                     </div> 
                                     <div class="subitem">
@@ -2352,11 +2352,11 @@
                                             <div class="namespan-container"><span class="name-span">Bean Machines & Dispensers</span></div>
                                         </a>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/apparel-and-accessories/c/132" aria-label="Apparel & Accessories">
+                                    <!--<div class="subitem">
+                                        <a href="/apparel-and-accessories/c/132" original-al="Apparel & Accessories">
                                             <div class="namespan-container"><span class="name-span">Apparel & Accessories</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" aria-label="Gift Baskets">
                                             <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
@@ -2846,8 +2846,8 @@
                             <li class="sunmenu-container" data-attr="California-Visitors-Center">
                                 <div class="submenu-list California-Visitors-Center">
                                     <div class="subitem">
-                                        <a href="/california-factory-tours" aria-label="Free Self Guided Factory Tours">
-                                            <div class="namespan-container"><span class="name-span">Free Self-Guided Factory Tours</span></div>
+                                        <a href="/california-factory-tours" original-al="Self Guided Factory Tours">
+                                            <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
                                         </a>
                                     </div> 
                                     <div class="subitem">

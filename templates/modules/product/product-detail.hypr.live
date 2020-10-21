@@ -189,7 +189,7 @@
                                   {{ themeSettings.zinreloPointMultiplier|multiply(model.price.price)|floatformat(0) }}
                                 {% endif %}
                             </span> 
-                            <span class="sweet-rewards-pdp" role="button" aria-label="Open Sweet Rewards information modal">Sweet Rewards</span> Points
+                            <span class="sweet-rewards-pdp" role="button" tabindex="0">Sweet Rewards</span> Points
                         </span>     
                     </div> 
                     

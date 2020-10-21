@@ -2042,7 +2042,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         
         function updateJustunoButton() {
           setTimeout(function(){ 
-            $('#ju_bbox p > span > span > span').attr("role", "button").attr("aria-label", "Open modal for 10% off offer");
+            $('#ju_bbox p > span > span > span').attr("role", "button").attr("tabindex", 0);
           }, 5000); 
         }
         
