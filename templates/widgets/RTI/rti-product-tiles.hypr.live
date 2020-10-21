@@ -47,14 +47,14 @@
                     {% block product-image %}
                         <div class="row product-listing-row-content">
                             <div class="mz-subcategory-image-div">
-                                  <a aria-label="{{prod.content.productName}} product image" 
+                                  <a  
                                     href="{{prod.url}}" 
                                     data-baynote-slot="{{prod.slot}}" 
                                     data-baynote-widget="{{prod.widgetId}}" 
                                     data-baynote-pid="{{prod.productCode}}" 
                                     data-baynote-href="{{prod.href}}">
                                     {% if prod.mainImage.imageUrl %}
-                                        <img src="{{ prod.mainImage.imageUrl }}?max=300" style="max-height: 300px" alt="{{prod.content.productName}} product image"/>
+                                        <img src="{{ prod.mainImage.imageUrl }}?max=300" style="max-height: 300px" alt="{{prod.content.productName}} product page"/>
                                     {% else %}
                                         <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
                                     {% endif %}

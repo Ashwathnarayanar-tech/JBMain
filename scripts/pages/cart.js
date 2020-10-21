@@ -132,7 +132,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             'click .remove-coupon': 'removeCoupon',
             "click .plus-prod-qty-cart" : "increseQty",
             "click .minus-prod-qty-cart" : "decQty",
-	    "touchstart .minus-prod-qty-cart": "decQty",
+            "touchstart .minus-prod-qty-cart": "decQty",
             "touchstart .plus-prod-qty-cart": "increseQty", 
             "click .coupon-text":"couponSlide",
             'click .p-button-mobile':'paypal'
@@ -860,9 +860,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
             });
-	    });
+          });
 	
-    	function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
+          function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             var myMata = PRODUCT;
             $('#mybuyspagezone3').addClass('is-loading');

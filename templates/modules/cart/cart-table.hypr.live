@@ -128,7 +128,7 @@
                     </td>
                     <td class="mz-carttable-item-remove">
                       <!-- <a href="javascript:;" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mz-icon mz-icon-close" style="color: #111;" >{{ labels.remove }}</a> -->
-            		  <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img src="../../resources/images/removecart.png"/></span></a>
+            		  <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img alt="" src="../../resources/images/removecart.png"/></span></a>
                     </td>
                   </tr>
                 {% endfor %}
@@ -162,7 +162,7 @@
                                 <span class="item-title-holder">
                                     <a class="mz-mobile-carttable-item-title" href="{{item.product.url}}">{{ item.product.name|safe }}</a>
                                     <span data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mobile-remove-icon" role="button" aria-label="remove {{ item.product.name|safe }}">
-                                        <span><img src="../../resources/images/removecart.png"/></span>
+                                        <span><img alt="" src="../../resources/images/removecart.png"/></span>
                                     </span>
                                     {% if item.product.isNoShipping %}
                                         <p tabindex="0" class="no-free-shiping-msg">This product does not count toward the Free Shipping threshold</p>

@@ -2,6 +2,7 @@
  
 {% block body-tag-classes %}mz-footer-static mz-wedding{% endblock body-tag-classes %} 
 {% block body-content %}
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet"> 
 {% require_script "modules/common" %} 
 <section>
     <article class="wedding-title">
@@ -188,11 +189,7 @@
         <!-- /Zen Wedding -->
     </div>
 </section>
-<!--test comment-->
+
 {{ "stylesheets/pages/wedding-center.less"|stylesheet_tag:"default" }}
 
-<script src="{{siteContext.cdnPrefix}}/scripts/vendor/cufon.js"></script> 
-<script src="{{siteContext.cdnPrefix}}/scripts/vendor/UniRom_500.font.js"></script>
-<script type="text/javascript">Cufon.replace('.sectionTitle');</script>
-<script type="text/javascript">Cufon.now();</script>
 {% endblock body-content %}

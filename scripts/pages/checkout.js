@@ -719,8 +719,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 			var self = this;
 			var modalText = "<div style='width: 95%; text-align: center; padding: 10px;'><h1 id='heat-sensitive-confirmation' tabindex='-1' style='font-size: 16px; margin: 2px;'>Heat Sensitive item(s)</h1><p>The Heat-Sensitive item(s) on your order may melt if you don’t choose UPS Second Day Air or UPS Next Day Air Saver. Are you willing to take responsibility for that possibility?</p>";
 			
-			modalText += "<div role='button' id='hs-yes' class='mz-button' style='background: #177d23; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>YES, I’ll take my chances</div><br>";
-			modalText += "<div role='button' id='hs-no' class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</div>";
+			modalText += "<button id='hs-yes' class='mz-button' style='background: #177d23; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>YES, I’ll take my chances</button><br>";
+			modalText += "<button id='hs-no' class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</button>";
 			modalText += "<p><b>Note:</b> Orders with Heat-Sensitive items may not ship immediately.</p>";
 			modalText += "</div>"; 
 			

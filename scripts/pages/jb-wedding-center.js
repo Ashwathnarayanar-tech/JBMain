@@ -2,7 +2,7 @@
 require([
         "modules/jquery-mozu",
         "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"
-    ], function ($,Cufon) {
+    ], function ($) {
         $(document).ready(function () {
 
             if(require.mozuData('pagecontext').url.indexOf("California-Factory-Conference-Space") > 0){
