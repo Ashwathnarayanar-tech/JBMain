@@ -2384,6 +2384,7 @@
                                         .how-often-input-sub{
                                             display: inline-block;
                                             width: 24%;
+                                            position: relative;
                                             .how-often-val{
                                                 width: 100%;
                                                 height: 39px;
@@ -2391,6 +2392,16 @@
                                                 padding: 0 10px;
                                                 font-weight: bold;
                                             }
+                                            &:after{
+                                                content: "";
+                                                background: url('../../resources/images/icons/facet-close.png') no-repeat;
+                                                background-size: contain;
+                                                width:12px;
+                                                height:14px;
+                                                position: absolute;
+                                                right: 12px;
+                                                top: 17px;
+										    }
                                         }
                                         .weekormonth{
                                             display: inline-block;
@@ -2438,6 +2449,7 @@
                                             }
                                         }
                                         .how-long-input-sub{
+                                            position: relative;
                                             .how-long-val{
                                                 width: 96%;
                                                 height: 39px;
@@ -2445,6 +2457,16 @@
                                                 padding: 0 10px; 
                                                 font-weight: bold;  
                                             }
+                                            &:after{
+                                                content: "";
+                                                background: url('../../resources/images/icons/facet-close.png') no-repeat;
+                                                background-size: contain;
+                                                width:12px;
+                                                height:14px;
+                                                position: absolute;
+                                                right: 28px;
+                                                top: 17px;
+										    }
                                         }
                                         .subscribe-now{
                                             border-radius: 4px;
@@ -3629,7 +3651,12 @@
 						    #mz-drop-zone-checkout-faq{
 							    padding: 5px 6px;
 							    margin-bottom: 65px; 
-						    }
+                            }
+                            .mz-checkoutform-paywith-rewards .subscription .expanded-section .formGroup{
+                                .how-long-input-sub::after{
+                                    right: 16px;
+                                }
+                            } 
 						}
 					}
 				}
