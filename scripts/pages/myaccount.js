@@ -1483,7 +1483,8 @@
              var me = this;
              var existingOrders = this.model.get("orderDetails");
              var totalOrders = this.model.get("totalOrders");
-             if((pageSize*page) <= totalOrders){
+             
+             if(pageSize <= totalOrders){
                  Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:pageSize,page:page,sortDirection:"DESC"}).then(function(res) {
                     console.log(res.res);
                      if (!res.error) {
@@ -1496,6 +1497,9 @@
                         }
                         existingOrders.totalReceivedOrders = response.page*response.pageSize;
                         window.mySubscriptionList.model.set("orderDetails",existingOrders);
+                        window.mySubscriptionList.model.set("page",response.page);
+                        window.mySubscriptionList.model.set("pageSize",response.pageSize);
+                        window.mySubscriptionList.model.set("totalOrders",response.totalOrders);
                         window.mySubscriptionList.render()
 
                     }
@@ -2275,7 +2279,7 @@
         var customerId = require.mozuData("user").userId,existingEntityData = [],
         subscriptionModel = Backbone.MozuModel.extend({}); 
         try {
-            Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:5,page:1,sortDirection:"DESC"}).then(function(res) {
+            Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:10,page:1,sortDirection:"DESC"}).then(function(res) {
                 console.log(res.res);
                  if (!res.error) {
                     existingEntityData = formatGetListData(res.res);

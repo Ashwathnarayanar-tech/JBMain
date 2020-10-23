@@ -88,7 +88,7 @@
 		</div>	
 		{% endfor %}
 {% endif %}	
-{% if (model.totalReceivedOrders <= model.totalOrders)  %}
+{% if (model.pageSize <= model.totalOrders)  %}
 		<div>
 			<button class="mz-more-order" data-mz-action-load-more-items data-mz-action="loadMoreItems">view more Subscriptions</button>
 		</div>
