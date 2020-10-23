@@ -82,24 +82,7 @@ define([
             var self = this;
             if(MiniCart.MiniCart.model.get('items').length){
                 if($.cookie("subscriptionCreated") && $.cookie("subscriptionCreated") == "true"){
-                    var popupData = {
-                        "isEnabled" : true,
-                        "message" : "You have already started building a Subscription. Do you want to add these products to that Subscription?",
-                        "buttons" : [
-                            {
-                                "buttonLabel" : "Yes! Subscribe",
-                                "action" : "addtoCartAndProcudeToCheckout",
-                                "class" : "yes-subscribe"   
-                            },
-                            {
-                                "buttonLabel" : "No",
-                                "action" : "removeCItemsandPTocheckoutotherpp",
-                                "class" : "no-subscribe"
-                            }
-                        ]
-                    }; 
-                    this.model.set('popupData', popupData); 
-                    this.render();
+                    this.addtoCartAndProcudeToCheckout();
                 }else{
                     var popupData = {
                         "isEnabled" : true,
