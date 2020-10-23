@@ -62,14 +62,15 @@ define([
         showMobSummary : function(){
             var flag = this.model.get('isMobileShowSummary') ? false : true;
             this.model.set('isMobileShowSummary', flag);
-            this.render();
+            var _this = this;
+            _this.render();
             setTimeout(function(){
                 console.log(" flag ---",flag);
                 if(flag){
-                    $(".summaryListItems").focus();
+                    $(".subscription").focus();
                     //$(".itemListTotal-bottom").focus();
                 }
-            },1500)
+            },500)
         },
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
@@ -936,8 +937,13 @@ define([
                     }
                 }
             } else {
-                /*$('#interval-startdate').datepicker("setDate", finaldate);
-                $('#interval-startdate').val(finaldate);*/
+                $('#interval-startdate').datepicker("setDate", finaldate);
+                $('#interval-startdate').val(finaldate);
+                var subscriptionData = me.model.get('subscriptionData');
+                if(subscriptionData && subscriptionData.Data){
+                    subscriptionData.Data.when = finaldate;
+                    me.model.set('subscriptionData', subscriptionData); 
+                }
             }
 
             function heatSensitive(date) {
@@ -1095,6 +1101,8 @@ define([
                 'when' : myval.when, 
                 'howLong' : myval.howLong
             };
+            window.shipdate = myval.when;
+            console.log(" window.shipdate ---- ",window.shipdate);
         }
         var dataVal = {
             'Data' : myObj,
@@ -1173,5 +1181,16 @@ define([
                 modelRapidOrder.closeSearchOverlay();   
             }
         });
+       /* $(window).on('load', function() {
+            console.log(" window on load ");
+            setTimeout(function(){
+                if(typeof $.cookie("subscriptionData") != "undefined") {
+                    var prevDate = JSON.parse($.cookie("subscriptionData")).when;
+                    console.log(" prev Date ",prevDate);
+                    window.shipdate = prevDate;
+                    $("#interval-startdate").val(prevDate);
+                }
+            },2000);
+        });*/
     });
 });
