@@ -52,9 +52,8 @@
 <div class="subscription-content {% if model.isMobileShowSummary %}showMobSummary{% endif %}">
 	{% if model.headBar %}
 		<div class="top-bar" tabindex="0"> 
-			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
 			<ul class="bar-list">
-				<li class="bar-item" aria-label ="hii">
+				<li class="bar-item" >
 					<img class="list-image" alt="number one" src="../../resources/images/number-1.svg" />
 					<span class="list-content" tabindex="0" role="contentinfo">You'll see your Subscription products here (and only here)</span>
 				</li>
@@ -67,6 +66,7 @@
 					<span class="list-content" tabindex="0" role="contentinfo">We'll take you through a special Checkout to confirm and start your Subscription</span>
 				</li>
 			</ul>
+			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
 		</div> 
 	{% endif %}
 	<div class="header">
