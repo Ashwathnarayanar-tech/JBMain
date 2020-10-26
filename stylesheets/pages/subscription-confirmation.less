@@ -1,3 +1,8 @@
+.mz-subscription-confirmation{
+	#bri-overlay,.cnx-mask,.brdialog-win,.cnx-boxes,.boxes{ 
+		display: none !important;
+	}
+}
 .subscription-summary{
 	 background-color: #f7f7f7;
 	.subscriptionConfirmationSection{
@@ -73,7 +78,12 @@
                     background-color: #cc0108;
                     border-color: #cc0108;
                     color: white;
-                }   
+				}   
+				&[disabled]{
+					border: solid 1px #cfcfcf;
+					background-color: #cfcfcf;
+					color: rgba(0, 0, 0, 0.5);
+				}
             }
             .print-receipt{
                 position: absolute;
@@ -395,7 +405,22 @@
 		    			text-align: right;
 		    		}
 		    	}
-		    }
+			}
+			.mz-ordercomments,.logconf{
+                            display: none;
+                        }
+                        .giftmessage{
+							display: block;
+							text-align:left;
+                            h5{
+                                margin: 0;
+                            }
+                            .mz-ordercomments-body{
+                                word-break: break-all;
+                                text-align: left;
+                                margin: 0;
+                            }
+                        }
 	    }
 	}
 

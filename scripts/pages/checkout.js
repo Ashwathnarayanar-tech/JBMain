@@ -209,12 +209,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     self.model.set('errormessage','');
                     window.couponCode.model.set('errormessagecoupon','');
                 } 
-                setTimeout(function(){   
-                    $('.error-msg').html(''); 
+                setTimeout(function(){
+                    //$('.error-msg').html(''); 
                     
 										$('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');
-                },3000); 
+                },10000); 
             }
             
             if($('.digitalcrediterror-msg').html() !== ''){   
@@ -228,7 +228,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                          $('.digitalcrediterror-msg').hide();
                           $('.digitalcrediterror-msg').css('display','none'); 
                     }  
-                },3000); 
+                },10000); 
             }
             
             this.resize();
@@ -2485,7 +2485,115 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         });
 
         $(document).on('click', '.place-subscrition-btn', function(){
-            subscritpionFunction.subscribe();
+            var billincontact = checkoutModel.toJSON().billingInfo.billingContact;
+            var card =  checkoutModel.toJSON().billingInfo.card;
+            var attr = {
+                billingContact:{ 
+                    address:{  
+                        address1:billincontact.address.address1,
+                        cityOrTown:billincontact.address.cityOrTown,
+                        countryCode:billincontact.address.countryCode,
+                        postalOrZipCode:billincontact.address.postalOrZipCode,
+                        stateOrProvince:billincontact.address.stateOrProvince
+                        },
+                    email:billincontact.email,
+                    firstName:billincontact.firstName,
+                    lastNameOrSurname:billincontact.lastNameOrSurname, 
+                    phoneNumbers:{home: null}
+                },
+                card:{
+                    cardNumberPartOrMask:card.cardNumberPartOrMask,
+                    expireMonth:card.expireMonth,
+                    expireYear:card.expireYear,
+                    nameOnCard:card.nameOnCard,
+                    paymentOrCardType:card.paymentOrCardType,
+                    cvv:card.cvv
+                    
+                }
+                
+            };
+if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
+                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.home;
+            }else{
+                attr.billingContact.phoneNumbers.home = null;
+            }
+			 var flag = false;
+            if(!(window.paymentinfo.model.validate(attr))){
+                 //CVV Validation
+                 var regcvv=/^[0-9]{3,4}$/;
+                 if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
+                     $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
+                      $('[data-mz-value="card.cvv"]').focus();
+                  return false;
+                 }
+                 if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
+                    checkoutModel.saveCustomerCard(); 
+                 }
+                // subscritpionFunction.subscribe();
+                if($('.is-showing.mz-errors').length > 0){
+                    $('.is-showing.mz-errors').first().focus();
+                }
+            }else if(window.paymentinfo.model.validate(attr)){
+                var k = window.paymentinfo.model.validate(attr);
+                var counter = 0;var totalcounter = 0;
+                $.each(k,function(k,v){
+                    totalcounter++;
+                    if("savedPaymentMethodId" == k || k == "billingContact.address.addressType" || k == "billingContact.address.countryCode"){
+                        counter++;
+                    }
+                });
+                if(totalcounter <= counter){
+                    $('#bcompletePaymment').click();
+                }else{
+                    // form validation errors focus
+                    var $errEl;
+                    if($('.payment-form-section')) {
+                        window.scrollTo(0, $('.payment-form-section').offset().top);
+                        setTimeout(function() {
+                            $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');
+                            if($errEl.length > 0) {
+                                $errEl.prev().attr('aria-invalid',true);
+                                //$errEl.first().prev().focus();
+                                if( $('.mz-l-formfieldgroup-cell .is-invalid').length==1){
+                                    $('.mz-l-formfieldgroup-cell .is-invalid').focus(); 
+                                } else{
+                                    $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
+                                }
+                                
+                            }
+                            // if($errEl.first().prev().length > 0) {
+                            //     if($errEl.first().prev().is('input') || $errEl.first().prev().is('select'))
+                            //         $errEl.first().prev().attr('aria-invalid', true).focus();
+                            //     else
+                            //         $errEl.first().prevAll('input').attr('aria-invalid',true).focus();
+                            // }
+                        }, 700);
+                        
+                        if($('.mz-l-formfieldgroup-address').is(':visible')) {
+                            $errEl = $('.mz-l-formfieldgroup-address').find('.mz-validationmessage').filter(':visible');
+                            // $errEl.prev().attr('aria-invalid',true);
+                            // $errEl.first().prev().focus();
+                            if($errEl.length > 0) {
+                                $errEl.prev().attr('aria-invalid',true);
+                                //$errEl.first().prev().focus();
+                                if( $('.mz-l-formfieldgroup-cell .is-invalid').length==1){
+                                    $('.mz-l-formfieldgroup-cell .is-invalid').focus(); 
+                                } else{
+                                    $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
+                                }
+                                
+                            }
+                        }
+                    }
+                }  
+            }
+            // global errors focus
+            setTimeout(function() {
+                if($('.mz-messagebar').find('.is-showing.mz-errors').filter(':visible').length > 0) {
+                    $('.mz-messagebar').find('.is-showing.mz-errors').focus();
+                }
+            }, 500);
+            // step 4 msg focus 
         });
 
 
@@ -2506,7 +2614,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 order.subscriptionId = subscriptionId;
                 order.modifiedDate = modifiedDate;
                 order.subscribedStatus = "Active"; 
-                order.lastOrderDate = null; 
+                order.lastOrderDate = null;
+                order.estimationInfo=$('.expected-data').text();
                 try{
                     order.nextOrderDate = new Date($(document).find('.subscription').find('#interval-startdate').val()).toISOString();
                 } catch(err){
@@ -2533,6 +2642,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                                 existingorder.nextOrderDate = order.nextOrderDate;
                                 existingorder.order = order.order;
                                 existingorder.schedule = order.schedule;
+                                existingorder.estimationInfo=$('.expected-data').text();
                                 me.updateSubscription(existingorder,editSubsId);
                             }   
                         }, function(er) {
@@ -2837,7 +2947,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
       
         checkoutModel.on('complete', function() {
             CartMonitor.setCount(0);
-            window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";
+            if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+            }
+            else{
+                window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";
+            }
+            
         });
 
         $('input[name="shippingphone"]').mask("(999) 999-9999");

@@ -7,4 +7,19 @@
 		{% include 'modules/subscription-details' %}
 	</div>
 {% require_script "pages/subscription-confirmation" %}
+<!-- Start Bizrate POS Code --> 
+<center>
+<script language="JavaScript"> 
+
+var orderId='{{ model.order.orderNumber }}';
+var cartTotal='{{ model.order.total }}'; 
+var billingZipCode='{{ model.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode }}'; 
+
+var productsPurchased= 'URL=^SKU=^GTIN=^PRICE=|URL=^SKU=^GTIN=^PRICE=|URL=^SKU=^GTIN=^PRICE=|URL=^SKU=^GTIN=^PRICE=|URL=^SKU=^GTIN=^PRICE=';
+
+</script> 
+<script type="text/javascript" src="//eval.bizrate.com/js/pos_22539.js"> 
+</script> 
+</center>
+<!-- End Bizrate POS Code -->
 {% endblock body-content %}

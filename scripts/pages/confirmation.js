@@ -185,15 +185,9 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 				else
 					return true;
 		}
-		$(document).on('DOMNodeInserted', function(e) {
-            if ($('.brdialog-win').find(e.target).find('#brDialog').length) {
-				$('.Take-Survey').addClass('active');
-			}
-		});
-		$(document).on('click','.Take-Survey.active',function(e){
+		$(document).on('click','.Take-Survey',function(e){
 			e.preventDefault();
-			$('#brDialog a').trigger('click'); 
-			//$(document).find('#invite-img').trigger('click');
+			$('#brmerchantLogo').trigger('click'); 
 			$('.Take-Survey').removeClass('active');
 		});
 	$(document).ready(function () {

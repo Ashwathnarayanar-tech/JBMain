@@ -105,6 +105,8 @@
 					<h2 class="mz-pagetitle-sub" tabindex="0">{{ labels.shippingMethod }} </h1>
 					<div>
 						<p tabindex="0" role="alert">{{model.order.fulfillmentInfo.shippingMethodName}}</p>
+						<p tabindex="0" role="alert" class="estimation-info"></p>
+
 					</div> 
 				</div>
 			</div> 
@@ -112,19 +114,19 @@
 	</div>
 	<div class="subscription-order-detail-section">
 		<div class="subscription-order-detail-sub-section">
-
+			
                 <h4 class="mz-l-stack-sectiontitle" tabindex="0">{{ labels.subscriptionorderSummary }} </h4>
                 {% include "modules/subscription-order-details" %}
-                {% if model.shopperNotes.comments %}
+                {% if model.order.shopperNotes.comments %}
                 <div class="mz-ordercomments" tabindex="0" role="alert">
                     <h5 class="mz-ordercomments-header">{{ labels.comments }}</h5>
-                    <p class="mz-ordercomments-body" tabindex="0" role="alert">{{ model.shopperNotes.comments|safe }}</p>
+                    <p class="mz-ordercomments-body" tabindex="0" role="alert">{{ model.order.shopperNotes.comments|safe }}</p>
                 </div>
                 {% endif %}
-                {% if model.shopperNotes.giftMessage %}
-                <div class="mz-ordercomments" tabindex="0" role="alert">
+                {% if model.order.shopperNotes.giftMessage %}
+                <div class="mz-ordercomments giftmessage" tabindex="0" role="alert">
                     <h5 class="mz-ordercomments-header">{{ labels.giftMessage }}</h5>
-                    <p class="mz-ordercomments-body" tabindex="0" role="alert">{{ model.shopperNotes.giftMessage }}</p>
+                    <p class="mz-ordercomments-body" tabindex="0" role="alert">{{ model.order.shopperNotes.giftMessage }}</p>
                 </div>
                 {% endif %}
 				<div class = "logconf">
