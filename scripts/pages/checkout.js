@@ -653,6 +653,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             } else {
                /* $('#interval-startdate').datepicker("setDate", finaldate);
                 $('#interval-startdate').val(finaldate);*/
+                $('#interval-startdate').datepicker("setDate", selectedDate);
+                $('#interval-startdate').val(selectedDate);
+                var subscriptionData = me.model.get('subscriptionData');
+                if(subscriptionData && subscriptionData.Data){
+                    subscriptionData.Data.when = selectedDate;
+                    me.model.set('subscriptionData', subscriptionData); 
+                }
             }
 
             function heatSensitive(date) {
@@ -803,6 +810,14 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         },
         editCart: function () {
             if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
+                var schedule = {
+                    "howOften": $(document).find('.subscription').find('.how-often-val').val(),
+                    "weeks": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? true : false,
+                    "years": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? false : true,
+                    "howLong": $(document).find('.subscription').find('.how-long-val').val(),
+                    "when": $(document).find('.subscription').find('#interval-startdate').val()
+                }
+                $.cookie("subscriptionData", JSON.stringify(schedule), { path: '/'});
                 window.location = "/subscription";
             }else{
                 window.location = "/cart";
@@ -2456,6 +2471,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     'when' : myval.when, 
                     'howLong' : myval.howLong
                 };
+                window.shipdate = myval.when;
             }
             $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
             if(myObj.weeks){

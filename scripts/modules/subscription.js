@@ -298,7 +298,8 @@ define([
                 ]
             }; 
             this.model.set('popupData', popupData); 
-            this.render();      
+            this.render(); 
+           // return;     
         }, 
         clearList : function(e){
             var catList = this.model.get('categoryList');
@@ -920,11 +921,11 @@ define([
                     }
                 }
             } else {
-                $('#interval-startdate').datepicker("setDate", finaldate);
-                $('#interval-startdate').val(finaldate);
+                $('#interval-startdate').datepicker("setDate", selectedDate);
+                $('#interval-startdate').val(selectedDate);
                 var subscriptionData = me.model.get('subscriptionData');
                 if(subscriptionData && subscriptionData.Data){
-                    subscriptionData.Data.when = finaldate;
+                    subscriptionData.Data.when = selectedDate;
                     me.model.set('subscriptionData', subscriptionData); 
                 }
             }
@@ -1175,5 +1176,33 @@ define([
                 }
             },2000);
         });*/
+
+       /* window.onbeforeunload = function () {
+            return "Do you want to leave?"
+            }
+            
+            // A jQuery event (I think), which is triggered after "onbeforeunload"
+            $(window).unload(function () {
+            if(Confirm("Do Reset..??"))
+            {
+            alert("You Press OK");
+            }
+            else
+            {
+            alert("You Press CANCEL");
+            }
+            //I will call my method
+            });*/
     });
+
+    
 });
+/*
+window.addEventListener('beforeunload', function (e) {
+   alert("hi");
+    // Cancel the event
+    e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+    // Chrome requires returnValue to be set
+    e.returnValue = "You're leaving?";
+  });
+ */
