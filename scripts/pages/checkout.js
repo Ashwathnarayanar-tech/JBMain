@@ -2545,7 +2545,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                  if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
                     checkoutModel.saveCustomerCard(); 
                  }
-                // subscritpionFunction.subscribe();
+                 subscritpionFunction.subscribe();
                 if($('.is-showing.mz-errors').length > 0){
                     $('.is-showing.mz-errors').first().focus();
                 }
