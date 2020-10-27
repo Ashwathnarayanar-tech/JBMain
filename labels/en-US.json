@@ -191,7 +191,7 @@
   "yourOrderNumber": "Your order number is <strong>{0}</strong>.",
   "shippingAddress": "Shipping Address",
   "orderConfirmation": "Your Order Has Been Placed !",
-  "confirmationText": "You will recieve an email confirmation.",
+  "confirmationText": "You will receive an email confirmation.",
   "yourOrderNumber": "Thank you for your order! Your order number is <strong>{0}</strong>.",
   "payments": "Payments",
   "orderDetails": "Order Details",
