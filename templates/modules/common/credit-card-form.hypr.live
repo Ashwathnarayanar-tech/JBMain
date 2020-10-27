@@ -28,6 +28,15 @@
     </div>
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
+            <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell checkout-card-name">
+            <input type="text" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
+            <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
+        </div>
+    </div>
+    <div class="mz-l-formfieldgroup-row">
+        <div class="mz-l-formfieldgroup-cell">
             <label for="mz-payment-credit-card-number">{{ labels.cardNumber }}<span class="is-required" aria-label="mandatory field"> *</span></label>
         </div>
         <div class="mz-l-formfieldgroup-cell">
@@ -41,7 +50,7 @@
             <span style="top: 43px;" id="err_2" class="mz-validationmessage" data-mz-validationmessage-for="{{ cardcontext }}cardNumberPartOrMask"></span>
         </div>
     </div>
-    <div class="mz-l-formfieldgroup-row">
+    {% comment %} <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
             <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
         </div>
@@ -49,7 +58,7 @@
             <input type="text" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
             <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
         </div>
-    </div>
+    </div> {% endcomment %}
 	
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
