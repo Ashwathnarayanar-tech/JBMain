@@ -12,17 +12,7 @@
             <a href="javaScript:void(0)" class="Take-Survey">Take a Survey!</a> 
             <div class="print-receipt" tabindex="0"><a role="button" aria-label="print receipt" onclick="printform();">Print Receipt</a></div>
             <script>
-                function printform(){
-                    jQuery('.button-section').hide();
-                    jQuery('.page-header').hide();
-                    jQuery('.jb-footer-dpzone').hide();
-                    jQuery('.logconf').hide(); 
-                    window.print();
-                    jQuery('.button-section').show();
-                    jQuery('.page-header').show();
-                    jQuery('.logconf').show(); 
-                    jQuery('.jb-footer-dpzone').show();
-                }
+                
             </script>
         </div>
 	</div>

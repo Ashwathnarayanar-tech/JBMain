@@ -31,6 +31,12 @@
                             // left: 29%;
                         }
                     }
+                    .ordertext{
+                        text-align: center;
+                        p{
+                            display:inline-block;
+                        }
+                    }
                     p{
                         font-size: 18px;
                         text-align: center;
@@ -74,7 +80,7 @@
                             text-align: center;
                             color: #e7131a;
                             padding: 7px 45px;
-                            margin-left: 12px; 
+                            margin-left: 12px;
                             text-decoration: none;
                             display: inline-block;
                             &:hover{
@@ -82,6 +88,12 @@
                                 border-color: #cc0108;
                                 color: white;
                             }   
+                            &[disabled]{
+                            background-color:#e0e0e0;
+                            border-color: #e0e0e0;
+                            color: #fff;
+                            cursor: not-allowed;
+                            }
                         }
                         .print-receipt{
                             position: absolute;
@@ -654,6 +666,11 @@
                                 }
                             }
                         }
+                        .ordertext{
+                            p{
+                                display:block;
+                            }
+                        }
                         .mz-l-stack .user-details-sec{
                             .mz-l-stack-section .sub-label{
                                 margin-bottom: 4px;
@@ -663,7 +680,7 @@
                             font-size: 14px;
                             text-align: center;
                             color: #545454;
-                            width: 50%;
+                            //width: 50%;
                             margin: 0 auto;
                             &.confirmtext{
                                 width: 100%;
@@ -745,8 +762,8 @@
                                 }
                             }
                             .mz-l-stack-section-summary{
-                                padding: 0 ;
-                                width: 100;
+                                padding: 0 0 20px 0;
+                                width: 100%;
                                 .mz-ordersummary{
                                     .summary-table-head{
                                         display: none;

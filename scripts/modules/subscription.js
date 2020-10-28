@@ -198,6 +198,7 @@ define([
                     console.log('cart',cart); 
                     cartModel.apiCheckout().then(function(cartId) {
                         console.log('cartId',cartId);
+                        window.valid=true;
                         window.location.href = "/checkout/" + cartId.data.id;
                     }, function(err) {
                         console.warn(err);
@@ -714,6 +715,7 @@ define([
                     console.log('cart',cart); 
                     cartModel.apiCheckout().then(function(cartId) {
                         console.log('cartId',cartId);
+                        window.valid=true;
                         var urlParams = modelRapidOrder.getUrlParams(window.location.href);
                         var subscriptionId = urlParams && urlParams.subscriptionId ? "&subId="+urlParams.subscriptionId :"";
                         //$.cookie("editsubscriptionId", subscriptionId, { path: '/'});
@@ -1177,32 +1179,25 @@ define([
             },2000);
         });*/
 
-       /* window.onbeforeunload = function () {
-            return "Do you want to leave?"
-            }
-            
-            // A jQuery event (I think), which is triggered after "onbeforeunload"
-            $(window).unload(function () {
-            if(Confirm("Do Reset..??"))
-            {
-            alert("You Press OK");
-            }
-            else
-            {
-            alert("You Press CANCEL");
-            }
-            //I will call my method
-            });*/
+        wireUpEvents();
     });
 
+    window.valid=false;
+    function wireUpEvents() {
+        if(window.valid){
+            alert("Page Refreshed or Redirected");
+        }else{
+            window.onbeforeunload = askWhetherToClose;
+        }
+    function askWhetherToClose(event) {
+        if(!window.valid){
+            var msg;
+            msg = "You're leaving the page, do you really want to?";
+            event = event || window.event;
+            event.returnValue = msg;
+            return msg;
+        }
+    }
+ }
     
 });
-/*
-window.addEventListener('beforeunload', function (e) {
-   alert("hi");
-    // Cancel the event
-    e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-    // Chrome requires returnValue to be set
-    e.returnValue = "You're leaving?";
-  });
- */

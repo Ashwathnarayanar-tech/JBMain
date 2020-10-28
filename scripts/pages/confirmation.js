@@ -187,8 +187,8 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 		}
 		$(document).on('click','.Take-Survey',function(e){
 			e.preventDefault();
-			$('#brmerchantLogo').trigger('click'); 
-			$('.Take-Survey').removeClass('active');
+			$('#brmerchantLogo,.invitation-navigation-element').trigger('click'); 
+			$('.Take-Survey').attr('disabled',true);
 		});
 	$(document).ready(function () {
 		// if($(window).width() < 768){ 
@@ -229,7 +229,8 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 			var cpassword = $('.forminput[name="cpassword"]').val();
 			$(document).find('.cpasswordError').html('');
 			$(document).find('.passwordError').html('');
-			if(password.length > 6){
+			var passregex=/^(?=.*\d)(?=.*[A-Za-z])(?=.*[a-zA-Z]).{6,}$/;
+			if(passregex.test(password)){
 				if(password == cpassword){
 					var email = $.cookie('guest');
 					api.request('post','/svc/customersignup', 
@@ -251,10 +252,13 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 					$(document).find('.cpasswordError').html("Password must match with confirmation password.");	
 				}
 			}else{
-                if(cpassword.length === 0){
+                if(!passregex.test(password)){
+					$(document).find('.passwordError').html(" Password must contain at least 6 characters, containing at least 1 number and 1 alphabetic character.");
+				}
+				else if(cpassword.length === 0){
                     $(document).find('.cpasswordError').html("Password must match with confirmation password.");
                 }
-				$(document).find('.passwordError').html("Password must contain 6 characters.");
+				//$(document).find('.passwordError').html("Password must contain 6 characters.");
 			}
 			console.log('password',password, "cpassword", cpassword);
 		});
