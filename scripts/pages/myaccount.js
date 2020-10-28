@@ -1492,7 +1492,7 @@
                         for (var i =0 ; i<response.kiboOrderTemplates.length;i++)
                         {
                             var localObj = response.kiboOrderTemplates[i];
-                            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId+"test",nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
+                            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId,nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
                             existingOrders.push(obj);
                         }
                         existingOrders.totalReceivedOrders = response.page*response.pageSize;
