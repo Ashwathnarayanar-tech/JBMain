@@ -26,6 +26,7 @@ define([
             getRenderContext: function () {
                 var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
                 var noshippingTotal = 0;
+                console.log(noShippingProducts); 
                 if(require.mozuData("pagecontext").pageType != "cart") {                    
                     window.cartModel.checkBOGA();
                 }
@@ -62,7 +63,7 @@ define([
                     }else{
                         c.model.remainingfreeshippinng=0; 
                     }
-                  }
+                }
 				c.model.hasHeatSensitive = false;
 				if(Hypr.getThemeSetting('showHeatSensitiveText')) {
 					_.each(c.model.items, function(item) {
@@ -531,3 +532,6 @@ define([
     
     return { MiniCart:miniCartView };
 });
+
+
+

@@ -29,7 +29,7 @@
 <div class="jb-no-result-container mz-l-container">
     <div class="jb-no-result-box">
         <div class="jb-no-search-result">
-            <div class="sorry-message"  tabindex="0">
+            <div class="sorry-message" role="contentinfo" tabindex="0">
                 <div class="img-container"><img aria-hidden="true" src="/resources/images/no-search-text-icon.png" alt = "sorry"/></div>Sorry, but <strong>"{{ pageContext.search.query }}"</strong> wasn’t found. 
             </div>    
             <div class="jb-no-search-result-text">
@@ -78,3 +78,5 @@
     {% dropzone "no-searchresult-below-mbz" scope="template" %}
 </div>
 {% endblock body-content %} 
+
+

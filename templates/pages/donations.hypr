@@ -23,7 +23,7 @@
         </h1>
         <article>
             <h2 tabindex="0">Donations Policy</h2>
-            <p tabindex="0" >
+            <p tabindex="0" role="contentinfo">
                 Jelly Belly Candy Company is dedicated to giving back to the local communities we serve. 
                 Charitable donations of Jelly Belly products are limited to 501(c)(3) non-profit organizations,
                 located within the following counties surrounding Jelly Belly:
@@ -60,16 +60,16 @@
         </article>
         <hr>
         <article>
-            <p tabindex="0" >
+            <p tabindex="0" role="contentinfo">
                 Donations in support of community goodwill to public/private schools, churches, U.S. Military and other organizations are at the discretion of Jelly Belly Candy Company.
             </p>
-            <p class="listHeading" tabindex="0" >
+            <p class="listHeading" tabindex="0" role="contentinfo">
                 Jelly Belly Candy Company does not donate to the following:
             </p>
             <ul class="contentList">
                 <li tabindex="0">●&nbsp;Organizations that limit membership based on race, religion, color, creed, gender, sexual orientation, age or national origin</li>
             </ul>
-            <p class="listHeading" tabindex="0" >
+            <p class="listHeading" tabindex="0" role="contentinfo">
                 In order to be considered, your organization must meet the following criteria and provide 90 days advance notice:
             </p>
             <ul class="contentList">
@@ -80,19 +80,19 @@
             </ul>
         </article>
         <article class="txt-center" id="step2a">
-            <p tabindex="0" >Does your organization meet the criteria listed above?</p>
+            <p tabindex="0" role="contentinfo">Does your organization meet the criteria listed above?</p>
             <input type="button" id="s1y"  value="Yes">
             <input type="button" id="s1n" value="No">
         </article>
         <article class="txt-center donationReq" id="step3a" style="display:none;">
             <hr>
-            <p tabindex="0" >
+            <p tabindex="0" role="contentinfo">
                 Is your request in support of any of the following?
             </p>
             <ul class="contentList">
                 <li tabindex="0">●&nbsp;Organizations that limit membership based on race, religion, color, creed, gender, sexual orientation, age or national origin</li>
             </ul>
-            <p class="finePrint" tabindex="0" >
+            <p class="finePrint" tabindex="0" role="contentinfo">
                 These organizations may hold not-for profit status but are not considered charitable in nature.
             </p>
             <input type="button" id="s2y"  value="Yes" >
@@ -101,7 +101,7 @@
         
         <article class="donationReq txt-center" id="step4a"  style="display:none;">
         <hr>
-            <p tabindex="0" >
+            <p tabindex="0" role="contentinfo">
                 Are you submitting this request 90 days prior to the date of need?
             </p>
             <input type="button" id="s3y"  value="Yes">
@@ -110,7 +110,7 @@
         
         <article class="donationReq txt-center" id="step5a"  style="display:none;">
         <hr>    
-            <p tabindex="0" >
+            <p tabindex="0" role="contentinfo">
                 Are you submitting this request more than 6 months in advance of the date of need?
             </p>
             <input type="button" id="s4y"  value="Yes">
@@ -124,7 +124,7 @@
                 <br>
                 below to confirm that your organization meets the above criteria.
             </h1>
-            <p tabindex="0"  class="finePrint">NOTE:  Jelly Belly Candy Company reserves the right to amend, change or discontinue this policy at its discretion. </p>
+            <p tabindex="0" role="contentinfo" class="finePrint">NOTE:  Jelly Belly Candy Company reserves the right to amend, change or discontinue this policy at its discretion. </p>
             <input type="button" id="agree" value="I Agree">
             <hr>
         </article>  
@@ -138,3 +138,10 @@
 <div class="clearfix"></div>
 {% require_script "pages/jb-donations" %}
 {% endblock body-content %}
+
+
+
+
+
+
+

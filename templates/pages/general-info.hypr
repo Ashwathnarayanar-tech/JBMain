@@ -25,7 +25,7 @@
             <figure> 
                 <img border="0" src="/resources/images/footer-static/cartwheel.png" alt="Jelly Belly Jelly Beans Have a Lot Going for Them">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Jelly Belly jelly beans are gluten free, peanut free, dairy free, fat free and vegetarian friendly.
             </p>
             <div class="clearfix"></div>
@@ -37,7 +37,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/ou-kosher.png" alt="Certified Kosher">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 All Jelly Belly jelly beans and most of our Confections are certified OU Kosher by the Orthodox Union.  
             </p>
             <div class="clearfix"></div>
@@ -48,11 +48,11 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/dancing.png" alt="4 Calories Per Bean">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Each Jelly Belly jelly bean is four calories.   
                 Twenty-five Jelly Belly jelly beans is 100 calories &ndash; you can dance off that amount of calories in about 15 minutes. 
-                <!--For more ideas to Treat Right, check out <a target="_blank" href="https://www.candyusa.com/life-candy/">this resource</a> 
-                for making life a little sweeter.-->
+                For more ideas to Treat Right, check out <a target="_blank" href="https://www.candyusa.com/life-candy/">this resource</a> 
+                for making life a little sweeter.
             </p>
             <div class="clearfix"></div>
         </div>
@@ -63,7 +63,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/no-gelatin.png" alt="No Gelatin">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Jelly Belly jelly beans do not contain gelatin. 
             </p>
             <div class="clearfix"></div>
@@ -75,7 +75,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/basket-o-beans.png" alt="How Much Does it Weigh?">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Twenty-five Jelly Belly jelly beans weigh approximately 1 ounce. 
             </p>
             <div class="clearfix"></div>
@@ -87,7 +87,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/snapple_box.png" alt="Natural Flavors">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Looking for Jelly Belly jelly beans with natural flavors and colors from natural sources? Check out the Snapple Flavor line and the Superfruit flavors. 
                 Confectionery choices free of artificial colors can be found in the Sunkist Fruit Gems and Sunkist Orange Slices.
             </p>
@@ -100,7 +100,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/floating-beans.png" alt="More Than 100 Flavors">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 Jelly Belly jelly beans are made in more than 100 different flavors.
             </p>
             <div class="clearfix"></div>
@@ -112,7 +112,7 @@
             <figure>
                 <img border="0" src="/resources/images/footer-static/peanut-free_factory.png" alt="Made in a Peanut Free Factory">
             </figure>
-            <p class="noPad" tabindex="0" >
+            <p class="noPad" tabindex="0" role="contentinfo">
                 After two decades of tasty service, Peanut Butter flavor was retired to make room for new flavors.
             </p>
             <div class="clearfix"></div>
@@ -121,14 +121,20 @@
 </ul>
 <figure class="vertImage">
     <img src="/resources/images/footer-static/mrJB_verticalImage.jpg" alt="nutritional information">
-    <figcaption tabindex="0" >Did you know we have an extensive list of nutritional information questions in our <a href="/frequently-asked-questions">FAQ</a>? 
+    <figcaption tabindex="0" role="contentinfo">Did you know we have an extensive list of nutritional information questions in our <a href="/frequently-asked-questions">FAQ</a>? 
         If you don’t find your answer there, submit a question for a personal response.
     </figcaption>
     <br>
-    <figcaption tabindex="0" >If you have questions regarding any products that carry the Jelly Belly logo, please contact our Consumer Affairs Department, toll free, 
+    <figcaption tabindex="0" role="contentinfo">If you have questions regarding any products that carry the Jelly Belly logo, please contact our Consumer Affairs Department, toll free, 
         at 1-800-522-3267 between 8 AM and 5 PM Pacific Time, Monday through Friday, excluding major holidays, 
         OR you may submit a question at any time on our <a href="/frequently-asked-questions">FAQ</a> page for a personal response.
     </figcaption>
 </figure>
 <div class="clearfix"></div>
 {% endblock body-content %}
+
+
+
+
+
+

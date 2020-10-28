@@ -350,9 +350,7 @@ define(['modules/jquery-mozu','underscore', 'hyprlive', "modules/backbone-mozu",
           } else {
             mzPowerReview.displayInlineRatings(config);
           }
-          setTimeout(function(){
-            $('span.pr-checkbox-icon svg').attr("aria-hidden","true");
-          },2000);
+
         });
       });
 });

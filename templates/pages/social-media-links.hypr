@@ -27,14 +27,14 @@
                 <li>
                     <div>
                         <a href="//www.youtube.com/jellybelly" class="youTube">You Tube</a>
-                        <p tabindex="0" >Immerse yourself in the colorful world of flavor with Jelly Belly videos on YouTube.</p>
+                        <p tabindex="0" role="contentinfo">Immerse yourself in the colorful world of flavor with Jelly Belly videos on YouTube.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="//instagram.com/JellyBellyCandyCo" class="instagram">Instagram</a>
-                        <p tabindex="0" >A snapshot of the sweet life at Jelly Belly. Delicious!</p>
+                        <p tabindex="0" role="contentinfo">A snapshot of the sweet life at Jelly Belly. Delicious!</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -42,42 +42,42 @@
                 <li>
                     <div>
                         <a href="//www.pinterest.com/jellybelly" class="pintrest">Pinterest</a>
-                        <p tabindex="0" >Find inspiration on our Pinterest boards for your next celebration and holiday gift ideas.</p>
+                        <p tabindex="0" role="contentinfo">Find inspiration on our Pinterest boards for your next celebration and holiday gift ideas.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="//www.facebook.com/jellybelly" class="facebook">Facebook</a>
-                        <p tabindex="0" >Join fellow fans and share your favorite flavors with us on the Jelly Belly Facebook page.</p>
+                        <p tabindex="0" role="contentinfo">Join fellow fans and share your favorite flavors with us on the Jelly Belly Facebook page.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="//www.linkedin.com/company/jelly-belly-candy-company" class="linkedin">Lnkedin</a>
-                        <p tabindex="0" >Follow us on LinkedIn for company news and job opportunities.</p>
+                        <p tabindex="0" role="contentinfo">Follow us on LinkedIn for company news and job opportunities.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="//plus.google.com/+jellybelly/posts" class="google">Google Plus</a>
-                        <p tabindex="0" >Add us to your circle for Jelly Belly news and flavor fun.</p>
+                        <p tabindex="0" role="contentinfo">Add us to your circle for Jelly Belly news and flavor fun.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="#" id="emailSignupFooter" class="email">Email</a>
-                        <p tabindex="0" >Sign up for our email newsletter and be the first to learn about our sales, discount coupons, events and new products!</p>
+                        <p tabindex="0" role="contentinfo">Sign up for our email newsletter and be the first to learn about our sales, discount coupons, events and new products!</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
                 <li>
                     <div>
                         <a href="//www.facebook.com/JellyBelly/app_137541772984354" class="globally">Globally</a>
-                        <p tabindex="0" >Connect with us in your corner of the globe.</p>
+                        <p tabindex="0" role="contentinfo">Connect with us in your corner of the globe.</p>
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -88,3 +88,11 @@
     </article>
 </section>
 {% endblock body-content %}
+
+
+
+
+
+
+
+

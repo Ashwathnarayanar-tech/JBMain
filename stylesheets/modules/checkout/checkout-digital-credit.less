@@ -1,10 +1,11 @@
 ﻿.mz-checkout-digitalcredit {
     th {
-        text-align: right;
-        padding: @gutter/2 @gutter;
+        text-align: left;
+        padding: @gutter/2 5px;
         color: #eee;
         background-color: #666;
         border-bottom: 1px solid #fff;
+        font-size: 15px;
         &.mz-checkout-digitalcredit-header-code {
             text-align: left;
         }
@@ -14,12 +15,15 @@
         }
     }
     td {
-        text-align: right;
-        padding: @gutter/2 @gutter;
+        text-align: left;
+        padding: @gutter/2 5px;
         &.mz-checkout-digitalcredit-cell-enable, &.mz-checkout-digitalcredit-cell-code,
         &.mz-checkout-digitalcredit-cell-savetoaccount, &.mz-checkout-digitalcredit-cell-savetoaccount-label {
             text-align: left;
             padding-right: 0;
+        }
+        .checkmark-style{
+            top: -3px; 
         }
     }
     input {

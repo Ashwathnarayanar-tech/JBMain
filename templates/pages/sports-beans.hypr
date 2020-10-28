@@ -29,17 +29,17 @@
    <div class="headline-beans">
        <h3  tabindex="0" >Quick Energy for Sports Performance</h3>
        </div>
-        <p class="mar-top0"  tabindex="0" >
+        <p class="mar-top0"  tabindex="0" role="contentinfo">
      Sport Beans jelly beans are a first-of-its-kind carbohydrate replenishment for sports performance from the makers of Jelly Belly<sup>®</sup>.
     </p>
     
     <div class="headline-beans">
 	<h2  tabindex="0">What are Sport Beans jelly beans?</h2>
 	</div>
-        <p class="mar-top0"  tabindex="0" >
+        <p class="mar-top0"  tabindex="0" role="contentinfo">
     Sport Beans<sup>®</sup> Energizing Jelly Beans are formulated to help fuel the body during intense exercise. Clinically proven to maximize sports performance, each bean is loaded with carbs for fuel, electrolytes to help maintain fluid balance and vitamins to optimize energy release and protect cells against oxidative damage.
     </p>
- <p tabindex="0" >
+ <p tabindex="0" role="contentinfo">
  For more information visit <a target="_blank" href="http://www.sportbeans.com/" class="brown-clr" title="www.SportBeans.com">www.SportBeans.com</a>
  </p>
  

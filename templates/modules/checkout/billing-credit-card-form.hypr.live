@@ -11,15 +11,17 @@
                 <span style="margin-top:-3px" class="checkmark-style"></span>
               </label> 
               {% else %}
-                <label style="display: inline-block;margin-top:-10px;" for="saved-card-info" class="mz-inline" id="labellinkto-popup">{{ labels.saveCard2 }} create an <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup">Account</a> or <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup">Login</a>.</label>
+               <label for="sweet rewards" class="mz-inline sweetrewards" id="sweet-rewards"><a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="sweet-rewards" data-mz-attr="Login"> Log in</a> to use your Sweet Rewards</label>
+                <label for="saved-card-info" class="mz-inline" id="labellinkto-popup">{{ labels.saveCard2 }} create an <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup" data-mz-attr="Account">Account</a> or <a href="javascript:void(0);" role="button" class="open-guestcheckoutmodal-modal" aria-describedby="labellinkto-popup" data-mz-attr="Login">Log in</a>.</label>
                 {% comment %}
-                {% if user.isAnonymous %}
-                    <div class="popupmodal">
-                        <div id="guestcheckoutmodal" style="display:none" >{% extends "modules/checkout/chekout-email-capture" %}</div>
-                    </div>
-                {%  endif %}
+                    {% if user.isAnonymous %}
+                        <div class="popupmodal">
+                            <div id="guestcheckoutmodal" style="display:none" >{% extends "modules/checkout/chekout-email-capture" %}</div>
+                        </div>
+                    {%  endif %}
                 {% endcomment %}
               {% endif %}
               </div>
         </div>
 {% endblock credit-card-form %}
+

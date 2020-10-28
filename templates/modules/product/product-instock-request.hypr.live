@@ -8,7 +8,7 @@
  
 <div class="mz-instock-request" id="mz-instock-request">
   {% if subscribed %}
-  <p tabindex="0"  id="notify-success">{{ labels.notifyWidgetSuccess }}</p>
+  <p tabindex="0" role="contentinfo" id="notify-success">{{ labels.notifyWidgetSuccess }}</p>
   {% else %}
   <div class="notify-header"><label for="mz-instock-request-email">{{ labels.notifyWidgetHeader }}</label></div>
   <div>

@@ -618,10 +618,8 @@
 	 * @protected
 	 */
 	Owl.prototype.onThrottledResize = function() {
-		if(this.e !=null) {
-			window.clearTimeout(this.resizeTimer);
-			this.resizeTimer = window.setTimeout(this.e._onResize, this.settings.responsiveRefreshRate);
-		}
+		window.clearTimeout(this.resizeTimer);
+		this.resizeTimer = window.setTimeout(this.e._onResize, this.settings.responsiveRefreshRate);
 	};
 
 	/**

@@ -30,7 +30,7 @@
                     <img alt="Online Ordering Information" src="/resources/images/footer-static/onlineOrder.png" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Read more about the billing and ordering policies of our JellyBelly.com Shop, and other ways that you can place orders for your favorite Jelly Belly Candy Co. products. 
                   <a class="jb-feature-brand-moreinfo" href="/ordering-information">More Info ►</a>
                 </p>
@@ -47,7 +47,7 @@
                     <img alt="Jelly Belly Discount and Promotions" src="/resources/images/footer-static/promo_thumb.jpg" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   From time to time, Jelly Belly may offer discounts and/or promotions on products, categories or shipping. Learn more about how they may be used. 
                   <a class="jb-feature-brand-moreinfo" href="/ordering-information">More Info ►</a>
                 </p>
@@ -64,7 +64,7 @@
                     <img alt="Jelly Belly Volume Pricing" src="/resources/images/footer-static/volumeDiscount_thumb.jpg" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   When you purchase in quantity, a discount will be applied to your order according to the total purchase amount of your order (excluding shipping). 
                   <a class="jb-feature-brand-moreinfo" href="/volume-discounts">More Info ►</a>
                 </p>
@@ -81,7 +81,7 @@
                     <img alt="Jelly Belly Shipping Information" src="/resources/images/footer-static/free_shipping.gif" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Read more to learn about our various shipping methods, shipping policies, and our Free Standard Shipping promotion. 
                   <a class="jb-feature-brand-moreinfo" href="/shipping-information">More Info ►</a>
                 </p>
@@ -98,7 +98,7 @@
                     <img alt="Return Policy information" src="/resources/images/footer-static/returntoSender.png" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Our refund policy on all candy and steps to return apparel products purchased through JellyBelly.com are here. 
                   <a class="jb-feature-brand-moreinfo" href="/return-policy">More Info ►</a>
                 </p>
@@ -114,7 +114,7 @@
                     <img alt="Frequently Asked Questions Information" src="/resources/images/footer-static/faq.png" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Many of the questions that you might have are already answered in our Frequently Asked Questions (FAQ) section. If you don't find what you need, submit your question to us! 
                   <a class="jb-feature-brand-moreinfo" href="/frequently-asked-questions">More Info ►</a>
                 </p>

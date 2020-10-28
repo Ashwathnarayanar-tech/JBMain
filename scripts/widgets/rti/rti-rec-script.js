@@ -137,11 +137,10 @@ $('.recommended-product-container').each(function(){
             // owl2.trigger('destroy.owl.carousel');  
             // owl2.html(owl2.find('.owl-stage-outer').html()).removeClass('owl-loaded');
             var stagePadding = 0;
-            var loop = false,nav=true;
+            var loop = false;
             if($(window).width() <= 767){
               stagePadding = 30;
               loop = true; 
-              nav=false;
             }
             owl2.owlCarousel({  
               loop: loop, 
@@ -149,7 +148,7 @@ $('.recommended-product-container').each(function(){
               dots: false,
               autoPlay: false,  
               pagination: false,   
-              nav: nav,     
+              nav: true,     
               navText:false,
               slideBy: 1,
               items: 1,

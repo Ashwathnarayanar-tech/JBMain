@@ -25,24 +25,16 @@
   {% endwith %}
   {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
     {% if licensedStatus === "LICENSED_REDUCED" %}
-      <p class="product-sale-new-label mz-reduced" aria-hidden="true">Reduced</p>
-      <p class="sr-only">The following licensed product has a reduced price.</p>
+      <p class="product-sale-new-label mz-reduced">Reduced</p>
     {% else %}
-      <p class="product-sale-new-label" attr-value="" aria-hidden="true">Sale</p>
-      <p class="sr-only">The following product is on sale.</p>
+      <p class="product-sale-new-label" attr-value="">Sale</p>
     {% endif %} 
   {% else %} 
     {% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
       {% if prodState %}
         {% for state in prodState.values %}
           {% if state.value == "COMINGSOON" or state.value == "NEW" %}
-            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" aria-hidden="true">{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
-            {% if state.value == "COMINGSOON" %}
-              <span class="sr-only">The following product is coming soon.</span>
-            {% endif %}
-            {% if state.value == "NEW" %}
-              <span class="sr-only">The following product is new.</span>
-            {% endif %}
+            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
           {% endif %}
         {% endfor %}
       {% endif %}
@@ -147,11 +139,11 @@
           {% else %}
             <span class="visually-hidden">Current price: </span>
           {% endif %}
-          <a href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
+          <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
         {%endif%}
           {% if model.price.salePrice and model.price.price > model.price.salePrice %}
             {% if licensedStatus === "LICENSED_REDUCED" %}
-              <a href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
+              <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
             {% else %}
               <span class="visually-hidden">Current price: </span>
               <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
@@ -170,85 +162,85 @@
         <style>
           img[src*='star-'] { width: 15px; height: 15px; display: inline-block; vertical-align: top; margin-right: 1px; }
         </style>
-        <div class="jb-stars-rating" tabindex="0">         
+        <div class="jb-stars-rating" tabindex="0" aria-label="star rating" >         
           {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
             {% for rating in rate.values %}
             {% if rating.value == 0 %} 
-              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 0.5 and rating.value < 1.0 %} 
-              <img src="/resources/images/icons/star-half.png"  alt="Average product rating of one-half star out of five possible stars"
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-half.png"  alt="Average product rating of one-half star"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 1.0 and rating.value < 1.5 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one star out of five possible stars"
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one star"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 1.5 and rating.value < 2.0 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one and a half stars out of five possible stars"
-              ><img src="/resources/images/icons/star-half.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of one and a half stars"
+              ><img src="/resources/images/icons/star-half.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 2.0 and  rating.value < 2.5 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 2.5 and rating.value < 3.0 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two and a half stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-half.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of two and a half stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-half.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 3.0 and rating.value < 3.5 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 3.5 and rating.value < 4.0 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three and a half stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-half.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of three and a half stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-half.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 4.0 and rating.value < 4.5 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-empty.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-empty.png">
             {% endif %}
             {% if rating.value >= 4.5 and rating.value < 5.0 %} 
-              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four and a half stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-half.png" alt="">
+              <img src="/resources/images/icons/star-full.png"  alt="Average product rating of four and a half stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-half.png">
             {% endif %}
             {% if rating.value == 5.0 %} 
-              <img src="/resources/images/icons/star-full.png" alt="Average product rating of five stars out of five possible stars"
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt=""
-              ><img src="/resources/images/icons/star-full.png" alt="">
+              <img src="/resources/images/icons/star-full.png" alt="Average product rating of zero stars"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png"
+              ><img src="/resources/images/icons/star-full.png">
             {% endif %}
             {% endfor %}
           {% endwith %}

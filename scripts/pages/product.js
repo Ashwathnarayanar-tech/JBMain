@@ -71,7 +71,6 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     $(list[0].children[0]).find('ul').slideUp();
                 }
             }
-            $('span[attr-data="ProductInfo"]').focus();
         },
         sweetRewards:function(){
             $(document).find('.zinrelo-tab').click();
@@ -595,7 +594,6 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
-            $('span[attr-data="ProductReviews"]').focus();
         });           
         
         $('.mz-productoptions-option').on('change',function(){   
@@ -631,7 +629,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"",
+                    img = product.get('mainImage').imageUrl + '?max=150',
                     qty = product.get('quantity');
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);
             } else {
@@ -809,7 +807,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     1440: {
                         items: 3
                     }
-                }
+                } 
             });
             $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
             loopInAddTocart(); 
@@ -978,8 +976,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }
 
         var modalText = ""; 
-        modalText += "<div class='free-shipping' tabindex='-1' style='padding: 20px;'>";
-        modalText += "<h1 id='modal-title'>FREE GROUND SHIPPING RESTRICTIONS</h1>";
+        modalText += "<div class='free-shipping' tabindex='-1' role='dialog' aria-labelledby='modal-title' style='padding: 20px;'>";
+        modalText += "<strong><p id='modal-title'>FREE GROUND SHIPPING RESTRICTIONS</p></strong>";
         modalText += "<ul id='desc'><li class='free-shipping' tabindex='-1' >This offer applies ONLY to orders shipping to the Lower 48 Contiguous States.</li>";
         modalText += "<li class='free-shipping' tabindex='-1'>The Free Ground Shipping method offered will be the least expensive ground shipping option based on weight combined with the location to which the package is being shipped.</li>";
         modalText += "<li class='free-shipping' tabindex='-1'>This offer applies ONLY to orders placed with JellyBelly.com and does not apply to orders placed with MyJellyBelly.com or affiliated websites.</li>";
@@ -998,9 +996,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 html : modalText,
                 overlayClose : true,
                 trapFocus: false,
-                onLoad: function (){
-                  $('#colorbox').attr("aria-modal",true).attr("aria-labelledby","modal-title");
-                },
+                
                 onComplete : function () {
                     $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
                     $('#cboxClose').fadeIn();
@@ -1064,7 +1060,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
           console.log(badPromise);
             if(badPromise.message && badPromise.message.indexOf('The following items have limited quantity or are out of stock') > -1){
                 $('#mz-errors-list').attr({tabindex:0});
-                $('#mz-errors-list').find('li').attr({tabindex:0});
+                $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
                 $('#mz-errors-list').find('li').focus();
             }
         });
@@ -1079,10 +1075,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }, 700);
         } else {
             setTimeout(function() {
-                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="">');
+                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="FREE Shipping on Orders Over $55!">');
                 $('.free-text').append('FREE SHIPPING');
                 $('.orders-over-text').append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
-                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" title="opens a dialog">here</a> for details.)');
+                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" role="link" aria-label="Open shipping details model" title="opens a dialog">here</a> for details.)');
             }, 700);
         }
     
@@ -1185,8 +1181,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         1025:{ 
                             items:4
                         }
-                    },
-                    onInitialized: updateRelatedProductsCarousel
+                    }
                 });
             }else if(len>3 && $(window).width()>767 && $(window).width()<1025 ){
                 owlMBRP = $('#related-products').find('.product-row');
@@ -1282,24 +1277,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $(document).find('.pr-snippet-reco-to-friend-percent').attr('aria-hidden','false');
             }
             if($(document).find('.at_flat_counter').length>0){
-                $(document).find('.at_flat_counter').attr({'tabindex':'0'});
+                $(document).find('.at_flat_counter').attr({'tabindex':'0','role':'contentinfo'});
             }
         },5000);
         
-        function updateRelatedProductsCarousel() { 
-          setTimeout(function(){ 
-            $('.related-section div.owl-prev').attr("aria-label", "Scroll to previous product").attr("role", "button");
-            $('.related-section div.owl-next').attr("aria-label", "Scroll to next product").attr("role", "button");
-          }, 2000); 
-        }
-        
-        function updateJustunoButton() {
-          setTimeout(function(){ 
-            $('#ju_bbox p > span > span > span').attr("role", "button").attr("tabindex", 0);
-          }, 5000); 
-        }
-        
-        updateJustunoButton();
     });		
 
 });
