@@ -653,11 +653,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             } else {
                /* $('#interval-startdate').datepicker("setDate", finaldate);
                 $('#interval-startdate').val(finaldate);*/
-                $('#interval-startdate').datepicker("setDate", selectedDate);
-                $('#interval-startdate').val(selectedDate);
+                var date = selectedDate ? selectedDate : finaldate;
+                $('#interval-startdate').datepicker("setDate", date);
+                $('#interval-startdate').val(date);
                 var subscriptionData = me.model.get('subscriptionData');
                 if(subscriptionData && subscriptionData.Data){
-                    subscriptionData.Data.when = selectedDate;
+                    subscriptionData.Data.when = date;
                     me.model.set('subscriptionData', subscriptionData); 
                 }
             }

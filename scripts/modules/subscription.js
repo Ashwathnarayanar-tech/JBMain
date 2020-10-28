@@ -923,11 +923,12 @@ define([
                     }
                 }
             } else {
-                $('#interval-startdate').datepicker("setDate", selectedDate);
-                $('#interval-startdate').val(selectedDate);
+                var date = selectedDate ? selectedDate : finaldate;
+                $('#interval-startdate').datepicker("setDate", date);
+                $('#interval-startdate').val(date);
                 var subscriptionData = me.model.get('subscriptionData');
                 if(subscriptionData && subscriptionData.Data){
-                    subscriptionData.Data.when = selectedDate;
+                    subscriptionData.Data.when = date;
                     me.model.set('subscriptionData', subscriptionData); 
                 }
             }
@@ -1067,7 +1068,7 @@ define([
         var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
     
         var dateObj = new Date();
-        var month = dateObj.getMonth();  
+        var month = dateObj.getMonth() +1 ;  
         var day = String(dateObj.getDate()).padStart(2, '0');
         var year = dateObj.getFullYear();
         var output = month  + '-'+ day  + '-' + year;
