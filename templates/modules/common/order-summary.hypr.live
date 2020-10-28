@@ -52,7 +52,6 @@
             <span class="subtotal-label label">{{ labels.subtotal }}</span> 
             <span class="subtotal-value value">{{ model.subtotal|currency }}</span>
         </span>
-        <div style="display:none;">{% dump model %}</div>
         {% if model.taxTotal %}
             <span tabindex="0" role="contentinfo" class="summary-tax" {% if model.taxTotal==0 %} style="display:none;" {% endif%}> 
                 <span class="mz-ordersummary-totalname label">{{ labels.tax }}</span>

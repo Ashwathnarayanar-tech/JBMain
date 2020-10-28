@@ -339,13 +339,23 @@ define(['modules/jquery-mozu',
                 $(document).find('.zinrelo-tab').click();
             }
         });
-
         $(document).on('keydown', '.sweetrewardstextcontent', function(e){
             if(e.which == 13 || e.which == 32){
                 $(document).find('.zinrelo-tab').click();
             }
         });
+        $(document).on('keydown', '.mz-utilitynav-content', function(e){
+            if(e.which == 13 || e.which == 32){
+                if((require.mozuData("user").isAuthenticated) && !(require.mozuData("user").isAnonymous)){
+                    $(document).find('.popover-content.myaccount').show();
+                    $(document).find('.popover-content.myaccount').focus();
+                } else {
+                    $(document).find('.popover-content.login').show();
+                    $(document).find('.popover-content.login').focus(); 
+                }
 
+            }
+        });
         $(document).on('keydown', '.head-list-item.view-products a', function(e){
             if ((e.which === 9 && e.shiftKey)){
                 e.preventDefault();
