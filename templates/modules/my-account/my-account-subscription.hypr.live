@@ -396,6 +396,7 @@
 									<label>Shipping Method</label>
 									<div class="address-section">
 										<span>{{order.order.fulfillmentInfo.shippingMethodName}}</span>
+										<span role="alert">{{order.order.estimationInfo.estimation}}</span>
 									</div>
 								</div>	
 							</div>
