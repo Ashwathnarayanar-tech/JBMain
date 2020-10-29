@@ -243,6 +243,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     console.log('cart',cart); 
                     cartModel.apiCheckout().then(function(cartId) {
                         console.log('cartId',cartId);
+                        self.model.get('subscriptionData').popupData.isEnabled = false;
+                        self.render(); 
                         window.location.href = "/checkout/" + cartId.data.id + "?chktSub=true";
                     }, function(err) {
                         console.warn(err);
@@ -264,7 +266,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
             // $.cookie("subscriptionCreated", true);
             $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data));
+            var me = this;
             setTimeout(function(){
+               me.model.get('subscriptionData').popupData.isEnabled = false;
+               me.render(); 
                 window.location.href = window.location.origin+"/subscription?productCode="+self.model.get('productCode')+"&qty="+$(document).find('.quantity-sub').val();
             },500);            
         },
