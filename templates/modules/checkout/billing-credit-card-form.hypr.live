@@ -5,8 +5,8 @@
         <div class="mz-l-formfieldgroup-row save-credit-card-info {% if not user.isAuthenticated %}guest-account-pop{% endif %}">
             <div class="mz-l-formfieldgroup-cell">
               {% if user.isAuthenticated %} 
-              <label for="saved-card-info" class="checkbox-outer-label">
-                <input class="checkbox-primary" id="saved-card-info" type="checkbox" name="save-card-info" data-mz-value="{{ cardcontext }}isCardInfoSaved" value="true" {% if model.isCardInfoSaved %}checked="checked"{% endif %}>
+              <label for="saved-card-info" class="checkbox-outer-label" tabindex="0">
+                <input tabindex="-1" class="checkbox-primary" id="saved-card-info" type="checkbox" name="save-card-info" data-mz-value="{{ cardcontext }}isCardInfoSaved" value="true" {% if model.isCardInfoSaved %}checked="checked"{% endif %}>
                 {{ labels.saveCard }}
                 <span style="margin-top:-3px" class="checkmark-style"></span>
               </label> 

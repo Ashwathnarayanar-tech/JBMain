@@ -1,4 +1,4 @@
-<div class="atw-modal">
+<div class="atw-modal" role="dialog" aria-modal="true">
     <div id="email-dialog" class="atw-dialog" tabindex="-1" role="region" aria-label="Please login to add the product to wishlist"> 
         <div class="content">
             <div class="close-icon">
@@ -27,12 +27,18 @@
                                     <span class="loginError" id="loginerror"></span> 
                                 </div>
                             </div>
+                    <div class="mz-l-formfieldgroup-row">
+                        <label class="checkbox-outer-label" tabindex="0">
+                        <input id="wishlist-cpp-checkbox" tabindex="-1" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                         <span class="checkmark-style" ></span>  
+                        </label>
+                    </div> 
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell"></div> 
                                 <div class="mz-l-formfieldgroup-cell">
                                     <label style="color: #707070" class="required_fields">*Required</label>
-                                    <input type="submit" role="button" tabindex="0" aria-label="Login" class="mz-button mz-button-large active-button" id="addbutton" value="Login">
-                                </div>   
+                                    <input type="submit" role="button" tabindex="0" aria-label="Login" class="mz-button mz-button-large  wishlist-login-btn" disabled="disabled" id="addbutton" value="Login">
+                                </div>    
                                 <div class="mz-l-formfieldgroup-cell">
                                     <a href="/user/signup" role="button" tabindex="0" aria-label="create an account" class="mz-button mz-button-large active-button" id="signbutton">Create An Account</a>
                                 </div> 
