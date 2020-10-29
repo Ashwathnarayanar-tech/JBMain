@@ -119,7 +119,7 @@ define([
                 api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                     console.log(res);
                     CartMonitor.update();
-                    MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
+                   // MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
                     $.cookie("subscriptionCreated", true, { path: '/'});
                     $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
                     self.redirectTosubCheckout();  
@@ -226,7 +226,7 @@ define([
             api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                 console.log(res);
                 CartMonitor.update();
-                MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
+              //  MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
                 $.cookie("subscriptionCreated", true, { path: '/'});
                 $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
                 self.redirectTosubCheckout();                
@@ -250,7 +250,7 @@ define([
                 api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                     console.log(res);
                     CartMonitor.update();
-                    MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
+                   // MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
                     $.cookie("subscriptionCreated", true, { path: '/'});
                     $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
                     self.redirectTosubCheckout();  
