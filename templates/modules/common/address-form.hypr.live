@@ -26,26 +26,6 @@
             <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_err_lastname2{% endif %}" tabindex="-1" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
         </div>
     </div>
-    {% if themeSettings.showAddressTypeDropdown %}
-        <div class="mz-l-formfieldgroup-row mz-addressform-addresstype">
-            <div class="mz-l-formfieldgroup-cell">
-                <label for="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}">{{ labels.addressType }}<span class="is-required" aria-label="mandatory field">*</span></label>
-            </div>
-            <div class="mz-l-formfieldgroup-cell">
-                <select class="myacc-add-form-sel" name="address-type" id="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.addressType" aria-label="mandatory field - Address type">
-                    <option value="Nan">Select a type</option>
-                    <option value="Residential" {% if model.address.postalOrZipCode && model.address.addressType == "Residential" %}selected="selected"{% endif %} >{{ labels.residential }}</option>
-                    <option value="Commercial"   {% if model.address.postalOrZipCode && model.address.addressType == "Commercial" %}selected="selected"{% endif %} >{{ labels.commercial }}</option>
-                    <option value="POBox"  {% if model.address.postalOrZipCode && model.address.addressType == "POBox" %}selected="selected"{% endif %}>Post Office Box</option> 
-                   
-                </select>
-                <img width="13" class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" />
-                <img width="13" class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" />
-                 <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.addressType"></span>
-            </div>
-        </div>
-    {% endif %}
-    
     {% comment %} <div class="mz-l-formfieldgroup-row mz-addressform-companyname"> 
         <div class="mz-l-formfieldgroup-cell">
             <label for="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}">{{ labels.companyName }}</label>
@@ -126,6 +106,25 @@
             <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_7{% else %}err_7{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.postalOrZipCode"></span>
         </div>
     </div>
+    {% if themeSettings.showAddressTypeDropdown %}
+        <div class="mz-l-formfieldgroup-row mz-addressform-addresstype">
+            <div class="mz-l-formfieldgroup-cell">
+                <label for="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}">{{ labels.addressType }}<span class="is-required" aria-label="mandatory field">*</span></label>
+            </div>
+            <div class="mz-l-formfieldgroup-cell">
+                <select class="myacc-add-form-sel" name="address-type" id="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.addressType" aria-label="mandatory field - Address type">
+                    <option value="Nan">Select a type</option>
+                    <option value="Residential" {% if model.address.postalOrZipCode && model.address.addressType == "Residential" %}selected="selected"{% endif %} >{{ labels.residential }}</option>
+                    <option value="Commercial"   {% if model.address.postalOrZipCode && model.address.addressType == "Commercial" %}selected="selected"{% endif %} >{{ labels.commercial }}</option>
+                    <option value="POBox"  {% if model.address.postalOrZipCode && model.address.addressType == "POBox" %}selected="selected"{% endif %}>Post Office Box</option> 
+                   
+                </select>
+                <img width="13" class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" />
+                <img width="13" class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" />
+                 <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}address.addressType"></span>
+            </div>
+        </div>
+    {% endif %}
     <div class="mz-l-formfieldgroup-row mz-addressform-phone">
         <div class="mz-l-formfieldgroup-cell">
             <label for="{% if addresscontext == "billingContact." %}bshippingphone{% else %}shippingphone{% endif %}">{{ labels.phone }}<span class="is-required" aria-label="mandatory field">*</span></label>

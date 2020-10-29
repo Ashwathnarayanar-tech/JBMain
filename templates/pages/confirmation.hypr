@@ -49,12 +49,14 @@
                 <div class="form-sec">
                     <div class="form-group passwd">
                         <label class="form-label" for="password">Create Password*</label>
-                         <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
+                         
                         <input type="password" name="password" class="forminput" />
+                        
                         <div class="pwd-message-desktop">
                                     <div class="arrow-left"></div>
                                     <p id="password-requirements">Create a password with at least 6 characters, containing at least 1 number and 1 alphabetic character. Please don’t use a password from another site or something too obvious (like “password” or your name).</p>
                                 </div>
+                        <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
                         <span class="passwordError"></span>
                     </div>
                     <div class="form-group confirmpassword">
@@ -73,7 +75,7 @@
             <div class="user-details-sec">
                 <div class="mz-l-stack-section billing-section" tabindex="0" role="contentinfo">
                     <h4 class="mz-l-stack-sectiontitle">{{ labels.billingInformation }}</h4>
-                    <p class="sub-label">Billing Address</p>
+                    {% comment %} <p class="sub-label">Billing Address</p> {% endcomment %}
                     {% for payment in model.payments %}
                         {% if payment.status != "Voided" and payment.status != "Declined" %}
                             <span class="payment-address-summary"> 
@@ -93,7 +95,7 @@
                     <div class="mz-l-stack-section shipping-section" tabindex="0" role="contentinfo">
                         <h4 class="mz-l-stack-sectiontitle">{{ labels.shippingInformation }}</h4>
                         <div class="mz-propertylist">
-                            <p class="sub-label">Shipping Address</p>
+                            {% comment %} <p class="sub-label">Shipping Address</p> {% endcomment %}
                             <span class="shipping-address-summary">
                                 <span>{{model.fulfillmentInfo.fulfillmentContact.firstName}} {{model.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
                                 <span>{{model.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
@@ -102,10 +104,11 @@
                                 <span>{{model.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
                                 <span>{{model.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
                             </span>
-                            <p class="sub-label shipping-label">Shipping Method</p>
+                            </div>
+                            <h4 class="mz-l-stack-sectiontitle">Shipping Method</h4>
                             <div class="shipping-method-name">{{ model.fulfillmentInfo.shippingMethodName }}</div>
                             <div class="estimation-info"></div>
-                        </div>
+                        
                     </div>
                 {% endif %}
                 {% for item in model.items %}
@@ -130,7 +133,7 @@
                                 {% endif %}
                             {% endif %}
                             {% if payment.billingInfo.paymentType == "CreditCard" %}
-                                <p class="sub-label">Credit Card</p>
+                                {% comment %} <p class="sub-label">Credit Card</p> {% endcomment %}
                                 <div class="payment-info">{{ payment.billingInfo.card.paymentOrCardType }} Card</div>
                                 <div class="payment-info">Number ending with {{ payment.billingInfo.card.cardNumberPartOrMask|replace("************")}}</div>
                             {% endif %}

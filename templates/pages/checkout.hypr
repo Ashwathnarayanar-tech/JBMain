@@ -84,7 +84,7 @@
          
             <form id="checkout-form" class="mz-checkoutform mz-l-2column mz-l-2column-right fades-in" method="post" onsubmit="return false;">
                 {% include "modules/common/message-bar" with model=model.messages %}
-                <p class="ind-req" tabindex="0">* indicates a required field</p>
+                <p class="ind-req" tabindex="0">* Indicates a Required Field</p>
                 <div class="mz-l-column">
                     {% if user.isAnonymous %} 
                         <div class="mz-fromstep popupmodal">
@@ -104,7 +104,7 @@
                                 Guest Checkout with 
                                 <span>
                                     
-                                </span>.Create your account at the end of placing the order.
+                                </span>.&nbsp;Create your account at the end of placing the order.
                             </div>
                         {% endif %}  
                     </div>

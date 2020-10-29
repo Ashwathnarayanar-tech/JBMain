@@ -1094,10 +1094,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(".mz-same-as-shipping-summary").hide(); 
                 $('.mz-l-formfieldgroup-address').hide();
             }else{
-                this.model.set('isSameBillingShippingAddress', false);                
+                $("[data-mz-value='isSameBillingShippingAddress']").removeAttr('checked');
+                this.model.set('isSameBillingShippingAddress', false);  
+                this.render();              
                 $('.mz-l-formfieldgroup-address').show();
-              
-                
+
             }
         },
         updateCardType: function(e){
