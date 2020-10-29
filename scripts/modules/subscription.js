@@ -354,12 +354,16 @@ define([
                 v.Items.map(function(a,b){
                     if(a.productCode == productCode && addedproductIds.indexOf(a.productCode) > -1){
                         a.isSelected = false;
-                        a.selectedData.Qty = 1;  
+                        a.selectedData.Qty = 1; 
+                        var qty =1;
+                        a.total = a.price.salePrice && a.price.salePrice <  a.price.price ? qty*a.price.salePrice : qty*a.price.price;    
                         itemsinsublist.splice(addedproductIds.indexOf(a.productCode),1);   
                         addedproductIds.splice(addedproductIds.indexOf(a.productCode),1);
                     }else if(a.productCode == productCode){
                         a.isSelected = false;
                         a.selectedData.Qty = 1;
+                        var qty =1;
+                        a.total = a.price.salePrice && a.price.salePrice <  a.price.price ? qty*a.price.salePrice : qty*a.price.price;    
                     }  
                 });
                 return true;
