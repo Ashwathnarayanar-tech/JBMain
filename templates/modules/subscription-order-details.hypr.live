@@ -101,7 +101,7 @@
                 </td>
             </tr>
 
-       <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
+       <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo" style="display:none">
                 <td></td>
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionCouponDiscount }}</span>
@@ -235,7 +235,7 @@
                 </td>
             </tr>    
               
-               <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
+               <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo" style="display:none">
                 <td  colspan="2" class="textAlignLeft">
                     <span class="mz-ordersummary-totalname " tabindex="0" role="contentinfo">{{ labels.subscriptionCouponDiscount }}</span> 
                     <span class="mz-ordersummary-totalvalue textAlignRight" tabindex="0" role="contentinfo"></span>
