@@ -299,7 +299,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
-                loopInpopup();
+                //loopInpopup();
             }else{
                 this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
                 this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
@@ -327,7 +327,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                        loopInpopup();
+                       // loopInpopup();
                     }else{
                         var popupData = {
                             "isEnabled" : true,
@@ -347,7 +347,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                        loopInpopup();
+                        //loopInpopup();
                     }
                 }else{
                     this.myAddTocartFunc(this.model.get('subscriptionData').Data);
