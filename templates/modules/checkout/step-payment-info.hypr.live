@@ -138,7 +138,7 @@
             <div class="mz-l-formfieldgroup">
                 <div class="mz-l-formfieldgroup-row paymenttypes-choosing">
                     <div class="payment-type-select"> 
-                        <ul class="select-ul">  
+                        <ul class="select-ul clearfix">  
                             <li class="select-li {% if model.paymentType == 'CreditCard' && not model.usingSavedCard %}active{% endif %}" role="button" data-value="{{ labels.creditCard }}" tabindex="0" aria-label="{{ labels.creditCard }}">
                                 <input data-mz-value="paymentType" name="paymentType" type="radio" class="mz-paymenttype-input" value="CreditCard" {% if model.paymentType == "CreditCard" %}checked="checked"{% endif %} />
                                 <span class="mz-paymenttype-label mz-paymenttype-label-creditcard">{{ labels.creditCard }}</span>      

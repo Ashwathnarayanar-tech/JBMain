@@ -1,5 +1,5 @@
 <div class="jb-inner-overlay"></div>
-<div class="loader-checkout"></div>
+{% comment %} <div class="loader-checkout"></div> {% endcomment %}
   <div class="mz-messagebar" data-mz-message-bar>
     <ul id="bypassNotification" tabindex="-1" role="contentinfo" class="is-showing mz-errors" style="display: none; color:#000; font-weight:bold;padding: 3px 3px 3px 3px;">
       <li>
