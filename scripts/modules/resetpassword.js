@@ -49,6 +49,20 @@ require([
                 this.$messagebar.html(this.messageTemplate.render({
                     model: [{ message: msg }]
                 }));
+                if($(this.$messagebar).find(".mz-errors #error-inventory").length > 0) {
+                    $(this.$messagebar).find(".mz-errors").attr("role","list").focus();
+                    $(this.$messagebar).find(".mz-errors").removeAttr("tabindex");
+                    $(this.$messagebar).find(".mz-errors li").attr("role","listitem");
+                    $(this.$messagebar).find(".mz-errors li").focus();
+                    $(this.$messagebar).find(".mz-errors li").removeAttr("aria-describedby");
+                    $(this.$messagebar).find(".mz-errors li p").attr("tabindex","-1");
+                    $(this.$messagebar).find(".mz-errors li p").removeAttr("role");
+                } else if($(this.$messagebar).find(".mz-errors").length > 0){
+                    $(this.$messagebar).find(".mz-errors").attr("role","list").focus();
+                    $(this.$messagebar).find(".mz-errors").removeAttr("tabindex");
+                    $(this.$messagebar).find(".mz-errors li").attr("role","listitem");
+                    $(this.$messagebar).find(".mz-errors li").attr("tabindex","0").focus();
+                }
             },
             displayApiMessage: function (xhr) {
                 if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND"){
