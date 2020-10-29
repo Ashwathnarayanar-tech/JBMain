@@ -28,7 +28,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             "click .cpp-loginpopup" : "login",
             "change .how-long-val" :"setHowLongVal",
             "change .how-often-val" :"setHowOffenVal",
-            "click #signup-submit":"signupSubmit"
+            "click #signup-submit":"signupSubmit",
+            "change .quantity-sub" :"changeQuantity",
+            "keyup .quantity-sub" :"changeQuantity"
         },
         login: function(e){
             e.preventDefault();
@@ -559,6 +561,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 me.model.set('quantity', qty-1);
                 $(document).find('.scroll-header .qty-input-box .quantity').val(qty - 1);
             }
+        },
+        changeQuantity:function(e){
+            var productCode = $(e.target).attr('data-mz-productcode');
+            var qty = parseInt($(e.target).val()) >=1 && parseInt($(e.target).val()) <=25 ?  parseInt($(e.target).val()) : 1; 
+            $(e.target).val(qty);
+            console.log(" productCode --- ",productCode,qty);
         },
         scrollToProductDetails:function(e){
             if($(window).width()>767){
@@ -1430,7 +1438,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 'months' : myval.months,
                 'when' : myval.when, 
                 'howLong' : myval.howLong,
-                'qty' : myval.qty
+                'qty' : (myval.qty ? myval.qty : 1)
             };
         }
         var clickSubscribeNow = window.location.search.indexOf("subscribeNow=true") != -1 ? true : false;
