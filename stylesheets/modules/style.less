@@ -1062,7 +1062,19 @@ body #cdawrap:hover #cda-remove {
   border: 0px solid #f1f1f1;
   border-radius: 5px;
 }
-.is-loading  .jb-inner-overlay {
+.loader-checkout{
+    background: url('../../resources/images/2.gif') no-repeat;
+    background-size: contain;
+    display:none;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 0;right:0;bottom:0;
+    left: 0;
+    margin: auto auto;
+    z-index:9;
+}
+.is-loading  .jb-inner-overlay,.is-loading .loader-checkout {
     display: block;
 }
 .jb-career-iframe, .jb-faq-iframe {

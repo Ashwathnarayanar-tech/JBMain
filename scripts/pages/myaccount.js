@@ -1316,7 +1316,13 @@
         finishEditContact: function () {
             var self = this,
                 isAddressValidationEnabled = HyprLiveContext.locals.siteContext.generalSettings.isAddressValidationEnabled;
+            
             var operation = this.doModelAction('saveContact', { forceIsValid: isAddressValidationEnabled }); // hack in advance of doing real validation in the myaccount page, tells the model to add isValidated: true
+            $( ".mz-accountaddressbook-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+            });
             if (operation) {
                 operation.otherwise(function() {
                     self.editing.contact = true;

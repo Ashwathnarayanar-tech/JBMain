@@ -161,7 +161,7 @@
                                 .mob-pwd-row{
                                     display: none;
                                     background-color: #fff;
-                                    border: 0.5px solid;
+                                    border:none;
                                     padding: 7px;
                                     font-size: 13px;
                                     margin: 10px 0; 
@@ -258,7 +258,10 @@
                                     font-weight: bold;
                                     color: #9b9b9b; 
                                     text-align: left;
-                                    margin: 15px 0;
+                                    margin: 5px 0;
+                                    &.extramargin{
+                                        margin-top:30px;
+                                    }
                                 }
                                 &.billing-section{
                                     .payment-address-summary{
@@ -304,6 +307,15 @@
                                         color: #000000;
                                         display: block;
                                         line-height: 1.2;    
+                                    }
+                                    .billingcontact{
+                                        padding-top: 15px;
+                                        div{
+                                            font-size: 16px;
+                                            &.billingcontact-label{
+                                                font-weight:bold;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -621,6 +633,9 @@
 }
 @media only screen and (min-width : 1px) and (max-width : 767px){
     .mz-confirmation{
+    .mz-l-pagewrapper .page-header.mobile.zerotag-mobile{
+        top:0;
+    }
         .confirmation-header{
             .confirmation-cointainer{
                 .mz-storebranding{
@@ -691,7 +706,7 @@
                             padding-bottom: 0px;
                             .continue-shopping,.Take-Survey{ 
                                 width: 85%;
-                                margin: 10px 0;
+                                margin: 5px 0;
                                 padding: 8px 0;
                                 &[disabled]{
                                     border: solid 1px #cfcfcf;
@@ -704,7 +719,7 @@
                                 text-align: center;
                                 display: block;
                                 width: 50%;
-                                margin: 26px auto;
+                                margin: 16px auto;
                                 right: 0;
                                 top:0; 
                                 &:after{
@@ -727,7 +742,7 @@
                                     width: 100%;
                                     &.confirmpassword{
                                         label{
-                                            margin-top:20px; 
+                                            margin-top:0; 
                                         }
                                     }
                                     .forminput{

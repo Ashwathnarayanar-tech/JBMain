@@ -46,7 +46,7 @@
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address2">
          <div class="mz-l-formfieldgroup-cell">
-            <label for="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2 {% endif %}">{{ labels.address2 }}</label>
+            <label for="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2{% endif %}">{{ labels.address2 }}</label>
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="address-line-2" id="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2{% endif %}" data-mz-value="{{ addresscontext }}address.address2" value="{{ model.address.address2 }}"><!-- ADA OK -->
