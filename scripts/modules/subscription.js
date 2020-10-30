@@ -67,10 +67,9 @@ define([
             setTimeout(function(){
                 console.log(" flag ---",flag);
                 if(flag){
-                    $(".subscription").focus();
-                    //$(".itemListTotal-bottom").focus();
+                    window.scrollTo(0, $('.subscription').offset().top);
                 }
-            },500)
+            },100)
         },
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
@@ -421,6 +420,7 @@ define([
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            window.valid=false;
             this.render();    
         },
         increment : function(e){
@@ -464,6 +464,7 @@ define([
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            window.valid=false;
             this.render();
         },
         updateQuantityChanges : function(productCode,qty){
@@ -505,6 +506,7 @@ define([
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            window.valid=false;
             this.render();
         },
         changeQuantity:function(e){
@@ -597,6 +599,7 @@ define([
                     }  
                     return true;
                 });
+                window.valid=false;
             }else{
                 newLisr = catList.filter(function(v,i){
                     v.Items.map(function(a,b){
@@ -1187,14 +1190,17 @@ define([
         wireUpEvents();
     });
 
-    window.valid=false;
+    window.valid=true;
     function wireUpEvents() {
-        if(window.valid){
-            alert("Page Refreshed or Redirected");
+       /* if(window.valid){
+           // alert("Page Refreshed or Redirected");
+            window.onbeforeunload = askWhetherToClose;
         }else{
             window.onbeforeunload = askWhetherToClose;
-        }
+        }*/
+        window.onbeforeunload = askWhetherToClose;
     function askWhetherToClose(event) {
+        console.log("sdsdsd ",window.valid);
         if(!window.valid){
             var msg;
             msg = "You're leaving the page, do you really want to?";

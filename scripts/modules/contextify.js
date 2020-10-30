@@ -260,13 +260,14 @@ define(['modules/jquery-mozu',
                 }
             }
         };
-
         //header login layover
         $(document).mousemove(function(e) { 
             if($(e.target).hasClass('mz-utilitynav-content') || $(e.target).parents().hasClass('mz-utilitynav-content')){
                 $(document).find('.popover-content').addClass('active');
+                $(document).find('.popover-content').show();
             }else{
-                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');}},150);
+                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');$(document).find('.popover-content').hide();}},150);
+                
             }
         });
 

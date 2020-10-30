@@ -2066,6 +2066,20 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         //ada for social sharing
         $('.addthis_sharing_toolbox:visible').find('.at-share-btn').attr('tabindex','0');
 
+        $(document).on('DOMNodeInserted', function(e) {
+            if ($('.review-snippet-cointainer').find(e.target).find('.pr-accessible-text').length) {
+                //$(document).find('.pr-accessible-text').attr('tabindex','0').attr('role','text').attr('aria-label','audible text');
+                var spanEle = $(document).find('.pr-accessible-text'),textVal;
+                if(spanEle){
+                   textVal =  spanEle[0].innerHTML;
+                }
+                $(document).find('.pr-snippet-stars-container').attr('tabindex','0').attr('role','text').attr('aria-label',textVal);
+                $(document).find('.pr-snippet-reco-to-friend').attr({'tabindex':'0'});
+                $(document).find('.pr-snippet-reco-to-friend-percent').attr('aria-hidden','false');
+                $(document).find('.at_flat_counter').attr({'tabindex':'0'});
+            }
+            
+        });
         setTimeout(function(){
             if($(document).find('.pr-accessible-text').length>0){
                 $(document).find('.pr-accessible-text').attr('tabindex','0');
