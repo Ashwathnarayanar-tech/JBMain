@@ -40,7 +40,9 @@
                     </div>
                     </td>
                     <td class="mz-ordersummary-item-qty"><span tabindex="0" role="contentinfo">{{ item.quantity }}</span></td>
-                    <td class="mz-ordersummary-item-total"><span class="mz-item-rowtotal" tabindex="0" role="contentinfo"> {{ item.subtotal|currency }}</span></td>
+                    <td class="mz-ordersummary-item-total"><span class="mz-item-rowtotal" tabindex="0" role="contentinfo" style="margin-left:25%;">
+                            {% include "modules/common/item-total" %} </span>
+                    </td>
                 </tr>
                 {% comment %}
                 {% for productDiscount in item.productDiscounts %}
@@ -195,7 +197,7 @@
                         <span class="itemDetailsValue" tabindex="0" role="contentinfo">{{ item.quantity }}</span></div>
                         <div class="mz-ordersummary-item-total">
                         <span class="itemDetailsHeader" tabindex="0" role="contentinfo"> Item total</span>
-                        <span class="itemDetailsValue" tabindex="0" role="contentinfo"> {{ item.subtotal|currency }}</span></div>
+                        <span class="itemDetailsValue" tabindex="0" role="contentinfo" style="margin-left:25%;"> {% include "modules/common/item-total" %}</span></div>
                      </div>   
                  </td>
                 </tr>

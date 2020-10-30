@@ -244,7 +244,7 @@
 									</td>
 									<td class="product-row">
 										<div class="total">
-											<span>{{item.subtotal | currency}}</span>
+											<span style="margin-left:25%">{% include "modules/common/item-total" %}</span>
 										</div>
 									</td>
 								</tr>
@@ -428,7 +428,7 @@
 											 	</span>
 											 	<span class="total">
 											 		<label>Item Total</label>
-											 		<span>$100.00</span>
+											 		<span style="margin-left:10%">{% include "modules/common/item-total" %}</span>
 											 	</span>
 											 </div>
 										</div>
