@@ -33,14 +33,15 @@
                   <div class="tabs">
                     <div class="tab-item signup-form {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}">
                         <div class="jb-signup" id="jb-signup">
-                        <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
                             <div class="mz-l-formfieldgroup">
+                              <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
                                 <div class="mz-l-formfieldgroup-row half-width-block">
                                     <div class="mz-l-formfieldgroup-cell">
                                         <label for="signup-firstname">*First Name:</label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <input type="text" class="mz-signup-firstname" placeholder="First Name" data-mz-signup-firstname="" id="signup-firstname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                        <input aria-describedby="firstemailerror" type="text" class="mz-signup-firstname" placeholder="First Name" data-mz-signup-firstname="" id="signup-firstname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                        <span  class="signup-error-msg" id="firstemailerror"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row half-width-second-block">
@@ -48,7 +49,8 @@
                                         <label for="signup-lastname">*Last Name:</label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <input type="text" class="mz-signup-lastname" placeholder="Last Name" data-mz-signup-lastname="" id="signup-lastname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                        <input aria-describedby="lastemailerror" type="text" class="mz-signup-lastname" placeholder="Last Name" data-mz-signup-lastname="" id="signup-lastname" data-emailcapturepoint="Input Type"> <!-- ADA -->
+                                          <span class="signup-error-msg" id="lastemailerror"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
@@ -56,7 +58,8 @@
                                         <label for="signup-email" style="width: 280px">*Email Address:</label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <input type="email" class="mz-signup-email" id="signup-email" placeholder="Email Address" data-mz-signup-emailaddress="" data-emailcapturepoint="Sign Up">
+                                        <input aria-describedby="signupemailerror" type="email" class="mz-signup-email" id="signup-email" placeholder="Email Address" data-mz-signup-emailaddress="" data-emailcapturepoint="Sign Up">
+                                    <span class="signup-error-msg" id="signupemailerror"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row password-row">
@@ -64,7 +67,8 @@
                                         <label for="pswd" style="width: 280px">*Password:</label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <input type="password" class="mz-signup-password" id="pswd" placeholder="Password" aria-describedby="pswd-msg" data-mz-signup-password="">
+                                        <input  aria-describedby="signuppassword" type="password" class="mz-signup-password" id="pswd" placeholder="Password" aria-describedby="pswd-msg" data-mz-signup-password="">
+                                        <span class="signup-error-msg" id="signuppassword"></span>
                                     </div>
                                     <div class="pwd-message-desktop" style="display: none;">
                                         <div class="arrow-left"></div>
@@ -77,7 +81,8 @@
                                         <label for="cnf-pswd" style="width: 280px">*Confirm Password:</label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell zero-cellspace">
-                                        <input type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="Confirm Password" data-mz-signup-confirmpassword="">
+                                        <input aria-describedby="confirmpassword" type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="Confirm Password" data-mz-signup-confirmpassword="">
+                                        <span class="signup-error-msg" id="confirmpassword"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
@@ -144,7 +149,7 @@
     {% if model.subscriptionData.popupData.isEnabled %}
         <div class="popup">
             <div class="popup-body">
-                <span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
+                <span class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
                 <div class="popup-content">
                     <span class="message" tabindex="0" role="contentinfo">
                         {{model.subscriptionData.popupData.message|safe}}
@@ -291,10 +296,10 @@
                     </div>
                     <div class="formGroup howofter">
                         <span class="how-often-label-sub">
-                            <label for="howOften">How Often? Every</label>
+                            <label id="howOften">How Often? Every</label>
                         </span>
                         <div class="how-often-input-sub">
-                            <select class="how-often-val" name="howOften">
+                            <select class="how-often-val" name="howOften"aria-labelledby="howOften">
                                 <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
                                 <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
                                 <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
@@ -320,10 +325,10 @@
                     </div>
                     <div class="formGroup howling">
                         <span class="for-how-long-label-sub">
-                            <label for="howlong">For How Long?</label>
+                            <label id="howlong">For How Long?</label>
                         </span>
                         <div class="how-long-input-sub">
-                            <select class="how-long-val" name="howlong">
+                            <select class="how-long-val" name="howlong" aria-labelledby="howlong">
                                 <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
                                 <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
                                 <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
@@ -342,7 +347,7 @@
                     <div class="formGroup btnsec">
                         <button class="subscribe-now">Subscribe Now</button>  
                         <span class="subscrib-multi">
-                            <span tabindex="1" role="content-info" class="text-info">Subscribing to Multiple items?</span>
+                            <span tabindex="0" role="content-info" class="text-info">Subscribing to Multiple items?</span>
                             <a class="subscription-list" href="javascript:void(0)">Go to Subscription List</a>
                         </span>       
                     </div>

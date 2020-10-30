@@ -65,7 +65,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 validity = false;
             }
             if( $('.user-password').val().length === 0){
-                $('.user-password').css({'border':'1px solid #e9000f'});     
+                $('.user-password').css({'border':'1px solid #e9000f'});   
+                $('#loginerror').text('Please provide a valid Password');  
                 validity = false;
             }else{ 
                 $('.user-password').css({'border':'1px solid #c2c2c2'});    
@@ -132,61 +133,62 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         signupvalidData: function(){
-            var validity = true;
+            var validity = true, 
+            passregex=/^(?=.*\d)(?=.*[A-Za-z])(?=.*[a-zA-Z]).{6,}$/;
+            $('.signup-error-msg').text('');
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var patt = new RegExp(re);
             if($('[data-mz-signup-firstname]').val().length === 0){
                $('[data-mz-signup-firstname]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text('Error: Please provide your First Name.');
-                return false;
+                $('#firstemailerror').text('Error: Please provide your First Name.');
+                
             }else{
                 $('[data-mz-signup-firstname]').css({'border':'1px solid #c2c2c2'});
             }
             if($('[data-mz-signup-lastname]').val().length === 0){
                 $('[data-mz-signup-lastname]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text('Error: Please provide your Last Name.');
-                return false;
+                $('#lastemailerror').text('Error: Please provide your Last Name.');
+               
             }else{
                 $('[data-mz-signup-lastname]').css({'border':'1px solid #c2c2c2'});
             }
             if($('[data-mz-signup-emailaddress]').val().length === 0){
                 $('[data-mz-signup-emailaddress]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text("Error: Please provide your Email Address.");
-                return false;
+                $('#signupemailerror').text("Error: Please provide your Email Address.");
+               
             }else if(patt.test($('[data-mz-signup-emailaddress]').val())){
                 $('[data-mz-signup-emailaddress]').css({'border':'1px solid #c2c2c2'});
             }else{
                 $('[data-mz-signup-emailaddress]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text("Error: Please enter a valid Email Address and Password combination. Make sure you include the '@' and the '.' in the Email Address and that your Password has a minimum of 6 characters with at least 1 number and 1 alphabetic character.");
-                return false;
+                $('#signupemailerror').text("Error: Please enter a valid Email Address and Password combination. Make sure you include the '@' and the '.' in the Email Address and that your Password has a minimum of 6 characters with at least 1 number and 1 alphabetic character.");
+               
             }
-            if($('[data-mz-signup-password]').val().length === 0){
+            if($('[data-mz-signup-password]').val().length === 0 || !passregex.test($('[data-mz-signup-password]').val())){
                 $('[data-mz-signup-password]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text('Error: Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
-                return false;
+                $('#signuppassword').text('Error: Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
+              
             }else{
                 $('[data-mz-signup-password]').css({'border':'1px solid #c2c2c2'});
-               
                 
             }
             if($('[data-mz-signup-confirmpassword]').val().length === 0){
                 $('[data-mz-signup-confirmpassword]').css({'border':'1px solid #e9000f'});
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text('Error: Provide both password. Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
-                return false;
+                $('#confirmpassword').text('Error: Provide both password. Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
+                
             }else{
                 $('[data-mz-signup-confirmpassword]').css({'border':'1px solid #c2c2c2'});
             }
             // var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-            if($('[data-mz-signup-confirmpassword]').val() != $('[data-mz-signup-password]').val()){
+            if($('[data-mz-signup-confirmpassword]').val() != $('[data-mz-signup-password]').val() && $('[data-mz-signup-confirmpassword]').val().length!==0){
                 validity = false;
-                $('[data-mz-role="mz-signup-register-message"]').text('Error: Password doesn\'t match. Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
-                return false;
+                $('#confirmpassword').text('Error: Password doesn\'t match. Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.');
+               
             }
             
             return validity;
@@ -245,7 +247,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     console.log('cart',cart); 
                     cartModel.apiCheckout().then(function(cartId) {
                         console.log('cartId',cartId);
-                        self.model.get('subscriptionData').popupData.isEnabled = false;
+                        if(self.model.get('subscriptionData').popupData!==undefined){
+                            self.model.get('subscriptionData').popupData.isEnabled = false;
+                        }
                         self.render(); 
                         window.location.href = "/checkout/" + cartId.data.id + "?chktSub=true";
                     }, function(err) {
@@ -276,6 +280,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             },500);            
         },
         loopInpopup:function(){
+            
             var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
             var lastInput = window.lastInput = window.inputs.last(); 
@@ -301,7 +306,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
-                //loopInpopup();
+                $(document).find('.popup-body').focus();
+                this.loopInpopup();
             }else{
                 this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
                 this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
@@ -329,7 +335,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                       // loopInpopup();
+                        $(document).find('.popup-body').focus();
+                       this.loopInpopup();
                     }else{
                         var popupData = {
                             "isEnabled" : true,
@@ -349,7 +356,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                        //loopInpopup();
+                        $(document).find('.popup-body').focus();
+                        this.loopInpopup();
                     }
                 }else{
                     this.myAddTocartFunc(this.model.get('subscriptionData').Data);
@@ -473,7 +481,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $.cookie("subscriptionCreated", true, { path: '/'});
                 $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
                 CartMonitor.update();
-                self.model.get('subscriptionData').popupData.isEnabled = false;
+                if(self.model.get('subscriptionData').popupData!==undefined){
+                    self.model.get('subscriptionData').popupData.isEnabled = false;
+                }
                 self.redirectTosubCheckout();                    
             });  
             // Api.on('error', function (badPromise, xhr, requestConf) {
