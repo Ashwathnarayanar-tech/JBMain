@@ -67,10 +67,9 @@ define([
             setTimeout(function(){
                 console.log(" flag ---",flag);
                 if(flag){
-                    $(".subscription").focus();
-                    //$(".itemListTotal-bottom").focus();
+                    window.scrollTo(0, $('.subscription').offset().top);
                 }
-            },500)
+            },100)
         },
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
