@@ -149,11 +149,12 @@
     {% if model.subscriptionData.popupData.isEnabled %}
         <div class="popup">
             <div class="popup-body">
-                <span class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
+               
                 <div class="popup-content">
                     <span class="message" tabindex="0" role="contentinfo">
                         {{model.subscriptionData.popupData.message|safe}}
                     </span>
+                     <button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
                     <div class="button-section">
                         {% for item in model.subscriptionData.popupData.buttons %}
                             <button class="button button-{{item.class}}" data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>

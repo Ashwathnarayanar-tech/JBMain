@@ -222,6 +222,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
                 var popupData = {
                     "isEnabled" : true,
+                    "isSubscriptionList":true,
                     "message" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
                     "buttons" : [
                         {
@@ -237,7 +238,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     ]
                 };
                 this.model.get('subscriptionData').popupData = popupData;
-                this.render();     
+                this.render(); 
+                $(document).find('.popup-body .message').focus();  
+                 this.loopInpopup();
             }
         },
         redirectTosubCheckout: function(e){
@@ -306,7 +309,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
-                $(document).find('.popup-body').focus();
+                $(document).find('.popup-body .message').focus();
                 this.loopInpopup();
             }else{
                 this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
@@ -335,7 +338,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                        $(document).find('.popup-body').focus();
+                        $(document).find('.popup-body .message').focus();
                        this.loopInpopup();
                     }else{
                         var popupData = {
@@ -356,7 +359,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         };
                         this.model.get('subscriptionData').popupData = popupData;
                         this.render();
-                        $(document).find('.popup-body').focus();
+                        $(document).find('.popup-body .message').focus();
                         this.loopInpopup();
                     }
                 }else{
@@ -382,7 +385,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 ]
             };
             this.model.get('subscriptionData').popupData = popupData;
-            this.render();       
+            this.render(); 
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup();      
         },
         showOnemorePopUp : function(){
             var popupData = {
@@ -442,7 +447,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 ]
             };
             this.model.get('subscriptionData').popupData = popupData;
-            this.render();    
+            this.render(); 
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup();   
         },
         backtosubscription : function(){
            // alert("back to subscription page with current product and quentity.");
@@ -470,6 +477,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         closePopup : function(){
             this.model.get('subscriptionData').popupData.isEnabled = false;
             this.render();  
+            if(this.model.get('subscriptionData').popupData.isSubscriptionList){
+                $(document).find('.subscription-list').focus();
+            }else{
+                $(document).find('.subscribe-now').focus();
+            }
+            
         },
         addProducttosubscription : function(){
             var self = this;
@@ -778,7 +791,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     ]
                 };
                 this.model.get('subscriptionData').popupData = popupData;
-                this.render();       
+                this.render(); 
+                $(document).find('.popup-body .message').focus();
+                this.loopInpopup();      
             }else{
                 this.model.addToCart();     
             }
@@ -2062,7 +2077,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
            
         },3000);
-
+        //ADA for subscription close popup on ESC
+        $(document).on('keypress', '.popup-body .close-icon', function(e) {
+            if(e.keyCode === 27 ){
+                window.productView.closePopup();
+            }
+        });   
         //ada for social sharing
         $('.addthis_sharing_toolbox:visible').find('.at-share-btn').attr('tabindex','0');
 
