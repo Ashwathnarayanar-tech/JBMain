@@ -2544,10 +2544,12 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                       $('[data-mz-value="card.cvv"]').focus();
                   return false;
                  }
-                 if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
-                    checkoutModel.saveCustomerCard(); 
-                 }
-                 subscritpionFunction.subscribe();
+                //  if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
+                  
+                //     checkoutModel.saveCustomerCard(); 
+                //  }
+                 $('#completePaymment').click();
+                //  subscritpionFunction.subscribe();
                 if($('.is-showing.mz-errors').length > 0){
                     $('.is-showing.mz-errors').first().focus();
                 }
@@ -2966,6 +2968,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
         checkoutModel.on('complete', function() {
             CartMonitor.setCount(0);
             if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+                subscritpionFunction.subscribe();
             }
             else{
                 window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";

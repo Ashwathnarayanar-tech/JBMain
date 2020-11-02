@@ -44,7 +44,36 @@
             color:#004e99;
         }
     }
-   
+    @media only screen and (min-width : 1px) and (max-width : 767px)  {
+       .innerclass{
+        display: flex;
+        border-bottom: solid 1px #cfcfcf ;
+        flex-direction: column;
+           .tablerows{
+               display: flex;
+               padding: 10px 0;
+               align-items:start;
+               >div{
+                   width: 49%;
+                   text-align: left;
+                   .checkmark-style{
+                       margin-left:0;
+                   }
+                   input.data-mz-credit-amt-to-apply{
+                       height: 40px;
+                       text-align: left;
+                        width: 100%;
+                   }
+                   .checkbox-outer-label input:checked ~ .checkmark-style::after{
+                       left: 7px;
+                   }
+                   .mz-paymenttype{
+                       vertical-align: top;
+                   }
+               }
+           }
+       }
+   }
 
     
 
