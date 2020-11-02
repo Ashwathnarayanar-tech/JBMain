@@ -1,0 +1,254 @@
+[1mdiff --git a/scripts/pages/cart.js b/scripts/pages/cart.js[m
+[1mindex 29e28e6..7e60d00 100644[m
+[1m--- a/scripts/pages/cart.js[m
+[1m+++ b/scripts/pages/cart.js[m
+[36m@@ -1,11 +1,12 @@[m
+ // Changes made by Amit on 3- july for empty cart and coupon code at line no 74-116[m
+ define(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu', 'modules/models-cart', [m
+[31m-        'modules/cart-monitor','modules/minicart', 'modules/api' , 'modules/models-product', "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"], [m
+[31m-        function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, ProductModels) {[m
+[32m+[m[32m        'modules/cart-monitor','modules/minicart', 'modules/api' , 'modules/preserve-element-through-render',[m[41m[m
+[32m+[m[32m        'modules/models-product','modules/xpressPaypal', "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"],[m[41m [m
+[32m+[m[32mfunction (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveElement,ProductModels,paypal) {[m[41m[m
+ 		[m
+     var ThresholdMessageView = Backbone.MozuView.extend({[m
+       templateName: 'modules/cart/cart-discount-threshold-messages'[m
+[31m-    });[m
+[32m+[m[32m    });[m[41m [m
+     var CartView = Backbone.MozuView.extend({[m
+         templateName: "modules/cart/cart-table",[m
+         getRenderContext : function(){[m
+[36m@@ -72,8 +73,8 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+             });[m
+         },[m
+         increseQty : function(e){[m
+[31m-            var newQuantity = parseInt($(e.target).parent().find('input').val())+1,[m
+[31m-            id = $(e.target).parent().find('input').attr('data-mz-cart-item'),[m
+[32m+[m[32m            var newQuantity = parseInt($(e.target).parents('.qty-input-box').find('input').val(),10)+1,[m[41m[m
+[32m+[m[32m            id = $(e.target).parents('.qty-input-box').find('input').attr('data-mz-cart-item'),[m[41m[m
+             item = this.model.get("items").get(id);[m
+ [m
+             if(newQuantity <= 25){[m
+[36m@@ -90,8 +91,8 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+             }[m
+         },[m
+         decQty: function(e){[m
+[31m-            var newQuantity = parseInt($(e.target).parent().find('input').val())-1,[m
+[31m-            id = $(e.target).parent().find('input').attr('data-mz-cart-item'),[m
+[32m+[m[32m            var newQuantity = parseInt($(e.target).parents('.qty-input-box').find('input').val(),10)-1,[m[41m[m
+[32m+[m[32m            id = $(e.target).parents('.qty-input-box').find('input').attr('data-mz-cart-item'),[m[41m[m
+             item = this.model.get("items").get(id);[m
+             if(!newQuantity){[m
+                 newQuantity = 1;[m
+[36m@@ -174,7 +175,17 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+                     }[m
+                 }[m
+             },[m
+[31m-[m
+[32m+[m[32m        couponSlide: function(e){[m[41m[m
+[32m+[m[32m            var coupon = $(document).find('.coupon-code-main');[m[41m[m
+[32m+[m[32m            if(coupon.is(':visible')){[m[41m[m
+[32m+[m[32m                coupon.slideUp();[m[41m     [m
+[32m+[m[32m                $(e.currentTarget).find('span img').removeClass('arrow');[m[41m [m
+[32m+[m[32m            }else{[m[41m[m
+[32m+[m[32m                coupon.slideDown();[m[41m[m
+[32m+[m[32m                $(e.currentTarget).find('span img').addClass('arrow');[m[41m[m
+[32m+[m[32m                $(document).find('#coupon-code').focus();[m[41m[m
+[32m+[m[32m            }[m[41m[m
+[32m+[m[32m        },[m[41m[m
+        /* testfun: function(e) {[m
+                 var cartDetails = this.model.apiModel.data;[m
+                 if (cartDetails && cartDetails.items.length > 0) {[m
+[36m@@ -195,7 +206,9 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+ [m
+             //this.model.checkBOGA();  [m
+             Minicart.MiniCart.updateMiniCart();[m
+[31m-            Backbone.MozuView.prototype.render.apply(this);[m
+[32m+[m[32m            preserveElement(this, ['.p-button'], function() {[m[41m[m
+[32m+[m[32m                Backbone.MozuView.prototype.render.call(this);[m[41m[m
+[32m+[m[32m            });[m[41m[m
+             if(this.model.get('couponCodes').length>1 && $.cookie('coupon')){[m
+                 this.removeAllCoupon(); [m
+             }else if($.cookie('coupon')==="" && this.model.get('couponCodes').length>0){[m
+[36m@@ -203,7 +216,16 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+             }else if(this.model.get('suggestedDiscounts').length <= 0 && this.model.get('couponCodes').length>0 && this.model.get('discountTotal')===0){ [m
+                 this.removeCoupon();[m
+             } [m
+[32m+[m[32m            if(this.model.apiModel.data.items.length>0){[m[41m[m
+ 			this.checkInventory(); [m
+[32m+[m[32m            }[m[41m [m
+[32m+[m[32m            if(this.model.apiModel.data.items.length<1){[m[41m[m
+[32m+[m[32m                $(document).find('.p-button').attr('disabled',true);[m[41m[m
+[32m+[m[32m                $(document).find('.p-button-mobile').attr('disabled',true);[m[41m[m
+[32m+[m[32m            }else{[m[41m[m
+[32m+[m[32m                $(document).find('.p-button').attr('disabled',false);[m[41m[m
+[32m+[m[32m                $(document).find('.p-button-mobile').attr('disabled',false);[m[41m[m
+[32m+[m[32m            }[m[41m[m
+         },[m
+         [m
+         removeItem: function(e) {[m
+[36m@@ -442,73 +464,365 @@[m [mdefine(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu'[m
+                 }[m
+         },*/[m
+             checkInventory: function() {[m
+[31m-                var error = 0;[m
+[31m-                _.each(this.model.apiModel.data.items, function(item) {[m
+[31m-                    Api.get('product', item.product.productCode).then(function(sdkProduct) {[m
+[31m-                        if (item.quantity > sdkProduct.data.inventoryInfo.onlineSoftStockAvailable){[m
+[31m-                            $('[data-mz-carttable-item-sku="' + item.product.productCode + '"]').next('.error-msg').remove();[m
+[31m-                            $('[data-mz-carttable-item-sku="' + item.product.productCode + '"]').after("<tr class='mz-carttable-item error-msg'><td colspan=5 class='mz-carttable-item-product' style='margin-top: 20px;'><span style='font-size: 14px; font-weight: bold;'>ALERT: Sorry, but " + item.product.productCode + ":" + item.product.name + " no longer has enough inventory to satisfy your order.  There are " + sdkProduct.data.inventoryInfo.onlineSoftStockAvailable + " units left in stock. Please adjust your order and try again.</span></td></tr>");[m
+[31m-                            error++;[m
+[31m-							if(error===1){[m
+[31m-								$(document).find('.oos-error').text( Hypr.getLabel('ooserror'));[m
+[31m-							}[m
+[32m+[m[32m            var error = 0,[m[41m[m
+[32m+[m[32m            items = this.model.apiModel.data.items,[m[41m[m
+[32m+[m[32m            productCodes = [],locatioCodes = [items[0].fulfillmentLocationCode];[m[41m[m
+[32m+[m[32m            _.each(items, function(item) {[m[41m[m
+[32m+[m[32m                productCodes.push(item.product.productCode);[m[41m[m
+[32m+[m[32m            });[m[41m[m
+[32m+[m[32m            Api.request('POST','api/commerce/catalog/storefront/products/locationinventory',{"locationCodes": ["US01"],[m[41m[m
+[32m+[m[32m            "productCodes": productCodes}).then(function(res){[m[41m[m
+[32m+[m[32m                for(var i=0;i<items.length;i++){[m[41m[m
+[32m+[m[32m                    for(var j=0;j<res.items.length;j++){[m[41m[m
+[32m+[m[32m                        if (items[i].product.productCode === res.items[j].productCode && items[i].quantity > res.items[j].softStockAvailable){[m[41m[m
+[32m+[m[32m                            $('[data-mz-carttable-item-sku="' + items[i].product.productCode + '"]').next('.error-msg').remove();[m[41m[m
+[32m+[m[32m                            $('[data-mz-carttable-item-sku="' + items[i].product.productCode + '"]').after("<tr class='mz-carttable-item error-msg'><td colspan=5 class='mz-carttable-item-product' style='margin-top: 20px;'><span role='content-info' tabindex='0' style='font-size: 14px; font-weight: bold;'>ALERT: Sorry, but " + items[i].product.productCode + ":" + items[i].product.name + " no longer has enough inventory to satisfy your order.  There are " + res.items[j].softStockAvailable + " units left in stock. Please adjust your order and try again.</span></td></tr>");[m[41m[m
+[32m+[m[32m                            if($(window).width()<768){[m[41m[m
+[32m+[m[32m                                $('[data-mz-carttable-item-sku-mobile="' + items[i].product.productCode + '"]').next('.error-msg').remove();[m[41m[m
+[32m+[m[32m                                $('[data-mz-carttable-item-sku-mobile="' + items[i].product.productCode + '"]').after("<div class='mz-carttable-item error-msg' role='content-info' tabindex='0'><span colspan=5 class='mz-carttable-item-product' style='margin-top: 20px;'><span style='font-size: 14px; font-weight: bold;'>ALERT: Sorry, but " + items[i].product.productCode + ":" + items[i].product.name + " no longer has enough inventory to satisfy your order.  There are " + res.items[j].softStockAvailable + " units left in stock. Please adjust your order and try again.</span></span></div>");[m[41m[m
+[32m+[m[32m                            }[m[41m[m
+[32m+[m[32m                           error++;[m[41m[m
+[32m+[m[32m                            if(error===1){[m[41m[m
+[32m+[m[32m                                 $(document).find('.oos-error').text( Hypr.getLabel('ooserror')).attr({tabindex:'0',role:'content-info'});[m[41m[m
+[32m+[m[32m                            }[m[41m[m
+[32m+[m[32m                            j=res.length;[m[41m [m
+                         }else if(error===0){[m
+[31m-							$(document).find('.oos-error').text('');[m
+[31m-						}[m
+[31m-                    });[m
+[32m+[m[32m                            $(document).find('.oos-error').text('').attr({tabindex:'-1'});[m[41m[m
+[32m+[m[32m                        }[m[41m[m
+[32m+[m[32m                    }[m[41m[m
+[32m+[m[32m                }[m[41m[m
+[32m+[m[32m            },function(err){[m[41m[m
+[32m+[m[32m                console.log(err);[m[41m  [m
+[32m+[m[32m            });[m[41m[m
+[32m+[m[32m        },[m[41m[m
+[32m+[m[32m        paypal:function(e){[m[41m[m
+[32m+[m[32m            e.preventDefault();[m[41m[m
+[32m+[m[32m            $(document).find('.p-button').trigger('click');[m[41m[m
+[32m+[m[32m        }[m[41m[m
+[32m+[m[32m    });[m[41m[m
+[32m+[m[32m    var WishlistView =  Backbone.MozuView.extend({[m[41m[m
+[32m+[m[32m        templateName: "modules/cart/cart-wishlist",[m[41m[m
+[32m+[m[32m        additionalEvents: {[m[41m[m
+[32m+[m[32m            'click .add-to-cart-wish':'addToCart'[m[41m[m
+[32m+[m[32m        },[m[41m[m
+[32m+[m[32m        addToCart:function(e){[m[41m[m
+[32m+[m[32m            var productCode = $(e.currentTarget).attr('data-mz-prcode'),self = this,//addProduct = true,[m[41m[m
+[32m+[m[32m            $target = $(e.currentTarget);[m[41m[m
+[32m+[m[32m            $('.mz-l-pagewrapper').addClass('is-loading');[m[41m[m
+[32m+[m[32m            var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-wish').val();[m[41m[m
+[32m+[m[32m            var count = parseInt($quantity,10);[m[41m[m
+[32m+[m[32m            var items = window.cartView.model.get('items').models;[m[41m[m
+[32m+[m[32m            // if(items.length>0){[m[41m[m
+[32m+[m[32m            //     for(var i=0;i<items.length;i++){[m[41m[m
+[32m+[m[32m            //         if(items[i].get('product.productCode')===productCode){[m[41m[m
+[32m+[m[32m            //             addProduct = (items[i].get('quantity')+count>25)?false:true;[m[41m[m
+[32m+[m[32m            //             i = items.length;[m[41m[m
+[32m+[m[32m            //         }[m[41m[m
+[32m+[m[32m            //     }[m[41m[m
+[32m+[m[32m            // }[m[41m[m
+[32m+[m[32m           // if(addProduct){[m[41m[m
+[32m+[m[32m                Api.get('product', productCode).then(function(sdkProduct) {[m[41m[m
+[32m+[m[32m                    var PRODUCT = new ProductModels.Product(sdkProduct.data);[m[41m[m
+[32m+[m[32m                    if(PRODUCT.get('purchasableState').isPurchasable){[m[41m[m
+[32m+[m[32m                        var variantOpt = sdkProduct.data.options;[m[41m[m
+[32m+[m[32m                        if(variantOpt !== undefined && variantOpt.length>0){[m[41m  [m
+[32m+[m[32m                            var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;[m[41m[m
+[32m+[m[32m                            var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');[m[41m[m
+[32m+[m[32m                            if(newValue != "Select gift amount" && newValue !== ''){[m[41m[m
+[32m+[m[32m                                var option = PRODUCT.get('options').get(ID);[m[41m[m
+[32m+[m[32m                                var oldValue = option.get('value');[m[41m[m
+[32m+[m[32m                                if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {[m[41m[m
+[32m+[m[32m                                    option.set('value', newValue);[m[41m[m
+[32m+[m[32m                                }[m[41m[m
+[32m+[m[32m                                setTimeout(function(){[m[41m[m
+[32m+[m[32m                                    self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);[m[41m[m
+[32m+[m[32m                                },2000);[m[41m[m
+[32m+[m[32m                            }else{[m[41m[m
+[32m+[m[32m                               $('.mz-l-pagewrapper').removeClass('is-loading');[m[41m[m
+[32m+[m[32m                            }[m[41m[m
+[32m+[m[32m                        }else{[m[41m[m
+[32m+[m[32m                            self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);[m[41m[m
+[32m+[m[32m                        }[m[41m[m
+[32m+[m[32m                    }else{[m[41m[m
+[32m+[m[32m                        self.outOfStock(e,productCode,PRODUCT);[m[41m[m
+[32m+[m[32m                    }[m[41m[m
+                 });[m
+[32m+[m[32m            // }else{[m[41m[m
+[32m+[m[32m            //     $('.mz-l-pagewrapper').removeClass('is-loading');[m[41m[m
+[32m+[m[32m            // }[m[41m[m
+[32m+[m[32m        },[m[41m [m
+[32m+[m[32m        addToCartAndUpdateMiniCart:function(PRODUCT,count,$target){[m[41m[m
+[32m+[m[32m            PRODUCT.set({'quantity':count});[m[41m[m
+[32m+[m[32m            PRODUCT.addToCart(1);[m[41m [m
+[32m+[m[32m            var myMata = PRODUCT,self = this;[m[41m[m
+[32m+[m[32m            PRODUCT.on('addedtocart', function(attr) {[m[41m[m
+[32m+[m[32m                $('.mz-l-pagewrapper').removeClass('is-loading');[m[41m[m
+[32m+[m[32m                CartMonitor.update();[m[41m[m
+[32m+[m[32m                PRODUCT = '';[m[41m[m
+[32m+[m[32m                var prodName = attr.data.product.name;[m[41m[m
+[32m+[m[32m                var listPrice = myMata.get('price').get('price');[m[41m[m
+[32m+[m[32m                var salePrice = myMata.get('price').get('salePrice');[m[41m[m
+[32m+[m[32m                var img = attr.data.product.imageUrl+"?max=150";[m[41m[m
+[32m+[m[32m                var Qty = myMata.get('quantity');[m[41m[m
+[32m+[m[32m                self.showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty);[m[41m[m
+[32m+[m[32m                setTimeout(function() {[m[41m[m
+[32m+[m[32m                    window.cartView.model.apiGet();[m[41m[m
+[32m+[m[32m                    window.cartView.render();[m[41m[m
+[32m+[m[32m                }, 500);[m[41m[m
+[32m+[m[32m                console.log("added via wish list button");[m[41m[m
+[32m+[m[32m                brontoObj.build(Api);[m[41m[m
+[32m+[m[32m            });[m[41m[m
+[32m+[m[32m            Api.on('error', function (badPromise, xhr, requestConf) {[m[41m[m
+[32m+[m[32m                $('.mz-l-pagewrapper').removeClass('is-loading');[m[41m[m
+[32m+[m[32m                $(document).find('.Add-to-cart-popup').removeClass("active");[m[41m[m
+[32m+[m[32m                $(document).find('body').removeClass("noScroll");[m[41m[m
+[32m+[m[32m                if(badPromise.message && badPromise.message.indexOf('The following items have limited quantity or are out of stock') > -1){[m[41m[m
+[32m+[m[32m                    $('[data-mz-message-bar]').empty();[m[41m[m
+[32m+[m[32m                    var emsg = '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>'+badPromise.message+'</li></ul>';[m[41m[m
+[32m+[m[32m                    $('[data-mz-message-bar]').append(emsg);[m[41m[m
+[32m+[m[32m                    $('[data-mz-message-bar]').fadeIn();[m[41m[m
+[32m+[m[32m                    $('#mz-errors-list').attr({tabindex:0});[m[41m[m
+[32m+[m[32m                    $('#mz-errors-list').find('li').attr({tabindex:0});[m[41m[m
+[32m+[m[32m                    $('#mz-errors-list').find('li').focus();[m[41m[m
+[32m+[m[32m                    var offTop = $(window).width()<768?120:0;[m[41m[m
+[32m+[m[32m                    $('html, body').stop(true, false).animate({scrollTop:$('[data-mz-message-bar]').offset().top-offTop}, "slow");[m[41m[m
+[32m+[m[32m                    setTimeout(function(){[m[41m[m
+[32m+[m[32m                        $('[data-mz-message-bar]').hide();[m[41m[m
+[32m+[m[32m                    },6000);[m[41m [m
+[32m+[m[32m                }[m[41m [m
+[32m+[m[32m            });[m[41m  [m
+[32m+[m[32m            setTimeout(function(){window.cartModel.checkBOGA(); },2000);[m[41m    [m
+[32m+[m[32m        },[m[41m[m
+[32m+[m[32m        showAddtoCartPopup:function(name,price,sprice,img,qty){[m[41m[m
+[32m+[m[32m            var self = this;[m[41m[m
+[32m+[m[32m            $(document).find('.Add-to-cart-popup').find('.product-image').attr('src',img);[m[41m[m
+[32m+[m[32m            $(document).find('.Add-to-cart-popup').find('.product-name').html(name);[m[41m[m
+[32m+[m[32m            if(price > sprice && sprice !== 0){[m[41m[m
+[32m+[m[32m                $(document).find('.Add-to-cart-popup').find('.saleprice').html('$'+sprice.toFixed(2));[m[41m[m
+[32m+[m[32m                $(document).find('.Add-to-cart-popup').find('.listprice').addClass('through');[m[41m[m
+[32m+[m[32m            }else{[m[41m[m
+[32m+[m[32m                $(document).find('.Add-to-cart-popup').find('.saleprice').html("");[m[41m  [m
+[32m+[m[32m                $(document).find('.Add-to-cart-popup').find('.listprice').removeClass('through');[m[41m[m
+             }[m
+[31m-[m
+[31m-        });[m
+[31m-[m
+[32m+[m[32m            $(document).find('.Add-to-cart-popup').find('.listprice').html('$'+price.toFixed(2));[m[41m[m
+[32m+[m[32m            $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);[m[41m[m
+[32m+[m[32m            $(document).find('.Add-to-cart-popup').addClass("active");[m[41m[m
+[32m+[m[32m            $(document).find('body').addClass("noScroll");[m[41m[m
+[32m+[m[32m            var owl = $(document).find('.rec-prod-list-popup');[m[41m    

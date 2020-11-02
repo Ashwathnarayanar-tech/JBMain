@@ -802,14 +802,11 @@ select::-ms-expand {
 
 .mz-carttable-item-qty {
   .qty-input-box {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 0 0 0 40px;
     .minus-prod-qty-cart {
       border-bottom-right-radius: 4px;
       top: 18px;
-      left: 131px;
-      height: 19px;
+      right: 1%;
+      height: 19px; 
       color: rgba(61, 61, 61, 0.3);
       background-color: whitesmoke;
       border: 0;
@@ -828,8 +825,8 @@ select::-ms-expand {
       }
     }
     .plus-prod-qty-cart { 
-      left: 131px;
-      height: 18px;
+      right: 1%; 
+      height: 19px;
       width: 30px;
       border: 0;
       border-top-right-radius: 4px;
@@ -839,7 +836,7 @@ select::-ms-expand {
       font-weight: bold;
       color: rgba(61, 61, 61, 0.3);
       background-color: whitesmoke;
-      top: 1px;
+      top: 1px; 
       position: absolute;
       padding-left: 10px;
       cursor: pointer;
@@ -854,89 +851,40 @@ select::-ms-expand {
     .quantity-field-cart {
       text-align: center;
       display: inline-block !important;
-      width: 33px;
-      height: 24px;
-      padding: 6px 29px 6px 0;
-      float: left;
-      border-radius: 4px;
+      width: 72%;
+      height: 36px; 
+      border-radius: 4px; 
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px;
       border: 1px solid #cfcfcf;
-      margin-bottom: -15px;
-      margin-left: 32px;
-      padding-left: 26px;
+      padding: 0;
+      padding-left: 26%;
       text-align: left;
-      margin-right: 20px;
     }
   }
 }
 
-@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
   .mz-carttable-item-qty {
     .qty-input-box {
-      margin-bottom: 30px !important;
-      margin-left: 10px;
       .minus-prod-qty-cart {
-        left: 21px;
-        border: none;
-        height: 34px;
-        top: 1px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        width: 26px;
-        background-image: url(../../resources/images/icons/minus_qty_mob.png);
+        right: 0;
       }
-      .plus-prod-qty-cart {
-        border: none;
-        height: 30px;
-        width: 26px;
-        left: 103px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        background-image: url(../../resources/images/icons/plus-qty_mob.png);
-      }
-      .quantity-field-cart {
-        width: 106px;
-        height: 20px;
-        text-align: center;
-        float: none;
-        margin: 0 auto;
-        margin-left: -20px;
+      .plus-prod-qty-cart { 
+        right: 0;
       }
     }
   }
 }
-
-@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   .mz-carttable-item-qty {
-    .qty-input-box {
-      margin-bottom: 30px !important;
+    .qty-input-box { 
       .minus-prod-qty-cart {
-        left: 21px;
-        border: none;
-        height: 34px;
-        top: 1px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        width: 26px;
-        background-image: url(../../resources/images/icons/minus_qty_mob.png);
-      }
+        right: 1%;
+      } 
       .plus-prod-qty-cart {
-        border: none;
-        height: 30px;
-        width: 26px;
-        left: 103px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        background-image: url(../../resources/images/icons/plus-qty_mob.png);
-      }
-      .quantity-field-cart {
-        width: 106px;
-        height: 20px; 
-        text-align: center;
-        float: none;
-        margin: 0 auto;
-        margin-left: -20px;
+        right: 1%;
       }
     }
   }
@@ -958,9 +906,7 @@ select::-ms-expand {
   user-select: none;
   font-size: 16px;
 }
-.mz-accountpaymentmethods-list .checkbox-outer-label {
-    padding-left: 0px;
-}
+
 /* Hide the browser's default checkbox */
 .checkbox-outer-label input {
   position: absolute;

@@ -19,44 +19,18 @@
 
 {% preload_json model "cart" %}
 
-<div class="mz-l-container">
-
-   <section>
-   
-       {% dropzone "cart-notification-dropzone" scope="template" %}
-    
-</section>
-   
-     <div class="cart-header">
-        <div id="mz-discount-threshold-messages">
-            {% include "modules/cart/cart-discount-threshold-messages" with model=model %}
-        </div>
-<h1 class="mz-pagetitle">{{ labels.cart }}
-
-<!-- <br /><span style="font-size: 14px; color: #000000; height: 20px;"><span class="holiday-shipping-modal" style="text-decoration: underline; cursor: pointer;">Click here</span> for our Holiday Shipping Shedule.</span> -->
-
-</h1>
-    <div class="oos-error"></div>
-        
-    
-    	<!-- <figure class="cart-ad">
-    	    <img src="../resources/images/directimages/sparkGift_banner_optimizely.jpg">
-        </figure> -->
-        <div class="clearfix"></div>
-    </div> 
+<div class="mz-l-container"> 
 	<form method="post" action="{{ siteContext.secureHost }}/checkout" id="cartform">
 		<input type="hidden" name="id" value="{{model.Id}}" />
         {% include "modules/common/message-bar" with model=model.messages %} 
-        <table class="mz-table mz-table-cart" id="cart">
-                    {% include "modules/cart/cart-table" %}
-        </table>
+        <div id="cart">
+             {% include "modules/cart/cart-table" %}
+        </div>
 	</form>
 </div>
-
-<h2 class="recommended-prod-head">Jelly Belly Also Recommends</h2> 
+<div class="wishlist-section"></div>
+<h2 class="recommended-prod-head" tabindex="0">Jelly Belly Also Recommends</h2> 
 {% dropzone zoneId="rti-cart" scope="template" %}
-
-<p id="dumpcart" style="display:none">{{ model }}</p>
 {% endblock body-content %}
 
 
