@@ -2296,6 +2296,15 @@
 }
 @media only screen  and (min-width: 320px) and (max-width: 767px){
     .mz-product{
+        &.openPopup{
+           overflow: hidden; 
+            .mz-l-pagewrapper .mz-l-pagecontent .mz-l-container .mz-productdetail-wrap .mz-productdetail{
+                overflow: hidden;
+           }
+           .mz-l-pagewrapper .mz-l-pagecontent .mz-l-container{
+               z-index: 9999;
+           }
+        }
         .mz-l-pagewrapper{
             .mz-l-pagecontent{
                 .mz-l-container{
@@ -2304,6 +2313,11 @@
                         width: 100%;
                         margin-left: 0;
                         .mz-productdetail{
+                            margin-left:0px;
+                            box-sizing: border-box;
+                            width: 100%;
+                            padding-left: 20px;
+                            padding-right: 20px;
                             .mz-pagetitle{
                                 font-size: 22px;
                                 line-height: normal;

@@ -15,6 +15,25 @@
     }   
 </style> 
 
+{% if model.subscriptionData.popupData.isEnabled %}
+        <div class="popup">
+            <div class="popup-body">
+               
+                <div class="popup-content">
+                    <span class="message" tabindex="0" role="contentinfo">
+                        {{model.subscriptionData.popupData.message|safe}}
+                    </span>
+                     <button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
+                    <div class="button-section">
+                        {% for item in model.subscriptionData.popupData.buttons %}
+                            <button class="button button-{{item.class}}" data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
 <div> 
     {% if not user.isAuthenticated %} 
         {% if model.subscriptionData.singnupopoup.isEnabled %} 
@@ -145,24 +164,6 @@
                 </div>
             </div>
         {% endif %} 
-    {% endif %}
-    {% if model.subscriptionData.popupData.isEnabled %}
-        <div class="popup">
-            <div class="popup-body">
-               
-                <div class="popup-content">
-                    <span class="message" tabindex="0" role="contentinfo">
-                        {{model.subscriptionData.popupData.message|safe}}
-                    </span>
-                     <button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
-                    <div class="button-section">
-                        {% for item in model.subscriptionData.popupData.buttons %}
-                            <button class="button button-{{item.class}}" data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
     {% endif %}
     <div class="ip-container"><div class="jb-inner-overlay"></div></div>
     <h1 class="mz-pagetitle" tabindex="0" itemprop="name">{{ model.content.productName|safe }}</h1>
