@@ -2038,7 +2038,18 @@
                             .mz-formstep.mz-checkoutform-review{
                             	display: none;
                             	&.showContent{
-                            		display: block; 
+                                    display: block; 
+                                    .place-order-btn{
+                                        background-image: url('../../resources/images/button-loading.gif') !important;
+                                        background-position: 50% 50% !important;
+                                        border-color: #004e99;
+                                        background-color: #004e99 !important;
+                                        color:
+                                        transparent !important;
+                                        animation: loadingthrob 1s linear 0s alternate infinite;
+                                        -webkit-animation: loadingthrob 1s linear 0s alternate infinite;
+                                        background-repeat: no-repeat;
+                                    }
                             	}
                             	.mz-formstep-body{
                             		width: 80%;
@@ -3378,6 +3389,8 @@
                                                     background-color: #fff;
                                                     width: 100%;
                                                     left: 0;
+                                                    z-index:9;
+                                                    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.25);
                                                     .dummi-procudeto-shipping-method{   
                                                         width: 96%;
                                                         display: block; 
