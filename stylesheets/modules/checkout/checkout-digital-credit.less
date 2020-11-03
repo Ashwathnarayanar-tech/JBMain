@@ -48,10 +48,20 @@
     @media only screen and (min-width : 1px) and (max-width : 767px)  {
         .innerclass{
          display: flex;
+         display: -webkit-box;
+         display: -moz-box;
+         display: -ms-flexbox;
+         display: -webkit-flex;
          border-bottom: solid 1px #cfcfcf ;
          flex-direction: column;
+         -webkit-flex-direction: column;
+        -ms-flex-direction: column;
             .tablerows{
                 display: flex;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
                 padding: 10px 0;
                 align-items:start;
                 >div{

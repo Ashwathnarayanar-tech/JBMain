@@ -405,7 +405,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
              // To make the paypal success to come to checkout page
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    if(window.paymentinfo.model.get('paymentType')=="CreditCard")
+                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
                 }
                 else if(!paypalFlowComplete){
                     setTimeout(function(){
@@ -1241,6 +1242,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                      $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
                       $('[data-mz-value="card.cvv"]').focus();
                   return false;
+                 }else if(card.cvv===undefined || card.cvv === ""){
+                    $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card\'s security code');
+                    $('[data-mz-value="card.cvv"]').focus();
+                    return false;
                  }
                 $('#completePaymment').click();
                 if($('.is-showing.mz-errors').length > 0){
@@ -2612,6 +2617,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             else{
                 if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').length>0){
                     $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').click();
+                }
+                //Added this code for store credit as mz-formstep-next button is credit card validation
+                else if( window.paymentinfo.model.get('paymentType')==="StoreCredit" && window.paymentinfo.model.get('card').get('cvv')===undefined){
+                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
                 }
                 else{
                     $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next button').click();
