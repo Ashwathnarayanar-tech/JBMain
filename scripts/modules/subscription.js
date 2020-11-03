@@ -14,8 +14,8 @@ define([
         templateName: "modules/subscription",
         additionalEvents: {
             "keyup .searchBoxSub" : "search",
-            //"click .side-bar-item" : "changeCatList",
-            "click .accordian-headitem" : "changeCatList",
+            "click .side-bar-item" : "changeCatList",
+            //"click .accordian-headitem" : "changeCatList",
             "click .increment" : "increment",
             "click .decrement" : "decrement",
             "click .span-tabs" : "changeWeekorMonth",
