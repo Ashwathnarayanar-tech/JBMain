@@ -15,7 +15,7 @@ define([
         additionalEvents: {
             "keyup .searchBoxSub" : "search",
             "click .side-bar-item" : "changeCatList",
-            //"click .accordian-headitem" : "changeCatList",
+            "click .accordian-headitem" : "changeCatList",
             "click .increment" : "increment",
             "click .decrement" : "decrement",
             "click .span-tabs" : "changeWeekorMonth",
@@ -1198,10 +1198,15 @@ define([
         }else{
             window.onbeforeunload = askWhetherToClose;
         }*/
-        window.onbeforeunload = askWhetherToClose;
+        var isOnIOS = navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPhone/i);
+        var eventName = !isOnIOS ? "pagehide" : "beforeunload";
+
+        window.addEventListener(eventName, askWhetherToClose);
+
     function askWhetherToClose(event) {
         console.log("sdsdsd ",window.valid);
         if(!window.valid){
+            window.event.cancelBubble = true;
             var msg;
             msg = "You're leaving the page, do you really want to?";
             event = event || window.event;
