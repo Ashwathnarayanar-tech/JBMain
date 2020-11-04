@@ -19,7 +19,7 @@
     {% if not user.isAuthenticated %} 
         {% if model.subscriptionData.singnupopoup.isEnabled %} 
             <div class="loginSignupPopupsub"> 
-                <div class="popupBody {% if model.subscriptionData.singnupopoup.signup %} signupheight {% endif%}">
+                <div class="popupBody popup-body{% if model.subscriptionData.singnupopoup.signup %} signupheight {% endif%}">
                   <a class="closepopup" tabindex="0" href="javascript:void(0);"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a>
                   <div class="logoicon">
                     <img src="../../resources/images/JB_logo2.png?max=900" alt="Jelly Belly Candy Company">
@@ -130,7 +130,7 @@
                                     <div class="mz-l-formfieldgroup-row">
                                         <label class="checkbox-outer-label">  
                                         <input id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
-                                        <span class="checkmark-style"></span></label> 
+                                        <span class="checkmark-style" tabindex="0"></span></label> 
                                     </div>
                                     <!-- <a href="#" class="mz-button mz-button-large" id="addbutton" data-mz-action="loginCheckout" disabled>Next</a>--> 
                                     <input type="submit" role="button" disabled="disabled" tabindex="0" aria-label="next button" class="mz-button mz-button-large cpp-loginpopup active-button brontocart-login-email addbutton-alt-class" id="addbutton" value="Login">

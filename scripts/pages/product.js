@@ -309,7 +309,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
-                $(document).find('.popup-body .message').focus();
+                $(document).find('.popupBody .popuptext').focus();
                 this.loopInpopup();
             }else{
                 this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
