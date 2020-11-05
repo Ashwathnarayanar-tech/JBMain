@@ -191,7 +191,7 @@ define([
         gotonormalCheckout: function(){
             var cartModel = new CartModels.Cart(), self = this;
             try{
-                $.cookie("subscriptionCreated", '', { path: '/'});
+                $.cookie("subscriptionCreated", false, { path: '/'});
                 $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
                 cartModel.apiGet().then(function(cart) {
                     console.log('cart',cart); 
@@ -335,7 +335,7 @@ define([
                 if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
                     MiniCart.MiniCart.clearCart();
                     setTimeout(function(){ 
-                        $.cookie("subscriptionCreated", false);
+                        $.cookie("subscriptionCreated", false, { path: '/'});
                     },2000);
                 }
                 this.render(); 
