@@ -88,8 +88,8 @@
 		</div>	
 		{% endfor %}
 {% endif %}	
-{% if (model.pageSize <= model.totalOrders)  %}
+{% if (model.totalReceivedOrders < model.totalOrders)  %}
 		<div>
-			<button class="mz-more-order" data-mz-action-load-more-items data-mz-action="loadMoreItems">view more Subscriptions</button>
+			<button class="mz-more-order" data-mz-action-load-more-items data-mz-action="loadMoreItems">view more Subscriptions  </button>
 		</div>
 {% endif %}
