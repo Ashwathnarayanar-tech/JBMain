@@ -1492,13 +1492,14 @@
         },
         loadMoreSubscriptions:function(){
              console.log("this.model ",this.model);
-             var page = this.model.get("page")+1;
+             var modelPagesize = this.model.get("page");
+             var page = modelPagesize+1;
              var pageSize = this.model.get("pageSize");
              var me = this;
              var existingOrders = this.model.get("orderDetails");
              var totalOrders = this.model.get("totalOrders");
              
-             if(pageSize <= totalOrders){
+             if((pageSize*modelPagesize) < totalOrders){
                  Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:pageSize,page:page,sortDirection:"DESC"}).then(function(res) {
                     console.log(res.res);
                      if (!res.error) {
@@ -1510,10 +1511,12 @@
                             existingOrders.push(obj);
                         }
                         existingOrders.totalReceivedOrders = response.page*response.pageSize;
+                        console.log("existingOrders ------",existingOrders.totalReceivedOrders);
                         window.mySubscriptionList.model.set("orderDetails",existingOrders);
                         window.mySubscriptionList.model.set("page",response.page);
                         window.mySubscriptionList.model.set("pageSize",response.pageSize);
                         window.mySubscriptionList.model.set("totalOrders",response.totalOrders);
+                        window.mySubscriptionList.model.set("totalReceivedOrders",existingOrders.totalReceivedOrders);
                         window.mySubscriptionList.render()
 
                     }

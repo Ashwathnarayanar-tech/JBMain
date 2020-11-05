@@ -511,7 +511,7 @@ define([
         },
         changeQuantity:function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
-            var qty = parseInt($(e.target).val()) >=1 && parseInt($(e.target).val()) <=25 ?  parseInt($(e.target).val()) : 1; 
+            var qty = parseInt($(e.target).val()) >=1 && parseInt($(e.target).val()) <=25 ?  parseInt($(e.target).val()) : (parseInt($(e.target).val()) > 25 ? 25 : 1 ); 
             $(e.target).val(qty);
             console.log(" productCode --- ",productCode,qty);
             var _this = this;
