@@ -73,23 +73,23 @@
               </td>  
               <td></td>
               <td class="textAlignRight">
-                <span class="mz-ordersummary-totalvalue" tabindex="0" role="contentinfo">{{ model.order.total|currency }}</span>
+                <span class="mz-ordersummary-totalvalue" tabindex="0" role="contentinfo">{{ model.order.subtotal|currency }}</span>
               </td>
             </tr>
-            
-            <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
-                <td></td>
-                <td class="textAlignLeft">
-                    <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionCartDiscount }}</span>
-                </td>
-                <td></td>
-                 <td class="textAlignRight">   
-                    <span class="mz-ordersummary-totalvalue" style='color:#289000' tabindex="0" role="contentinfo">
-                             -{{model.order.total|subtract(model.order.subtotal)|currency}}
-                    </span>
-                </td>
-            </tr>
-              
+            {% if model.order.discountTotal !=0 %}
+                <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
+                    <td></td>
+                    <td class="textAlignLeft">
+                        <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionCartDiscount }}</span>
+                    </td>
+                    <td></td>
+                    <td class="textAlignRight">   
+                        <span class="mz-ordersummary-totalvalue" style='color:#289000' tabindex="0" role="contentinfo">
+                                -{{model.order.discountTotal|currency}}
+                        </span>
+                    </td>
+                </tr>
+               {% endif %}
               <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
                 <td></td>
                 <td class="textAlignLeft">
@@ -211,21 +211,21 @@
                 <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionSubTotal }}</span>
               </td>  
               <td class="textAlignRight">
-                <span class="mz-ordersummary-totalvalue" tabindex="0" role="contentinfo">{{ model.order.total|currency }}</span>
+                <span class="mz-ordersummary-totalvalue" tabindex="0" role="contentinfo">{{ model.order.subtotal|currency }}</span>
               </td>
             </tr>
-            
-             <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
-                <td class="textAlignLeft">
-                    <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionCartDiscount }}</span>
-                </td>
-                 <td class="textAlignRight">   
-                    <span class="mz-ordersummary-totalvalue" style='color:#289000' tabindex="0" role="contentinfo">
-                           -{{model.order.total|subtract(model.order.subtotal)|currency}}
-                    </span>
-                </td>
-            </tr>
-
+            {% if model.order.discountTotal !=0 %}
+                <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
+                    <td class="textAlignLeft">
+                        <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionCartDiscount }}</span>
+                    </td>
+                    <td class="textAlignRight">   
+                        <span class="mz-ordersummary-totalvalue" style='color:#289000' tabindex="0" role="contentinfo">
+                            -{{model.order.discountTotal|currency}}
+                        </span>
+                    </td>
+                </tr>
+             {% endif %}
             <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-totalname" tabindex="0" role="contentinfo">{{ labels.subscriptionTax }}</span>
