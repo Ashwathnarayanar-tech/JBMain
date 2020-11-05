@@ -79,6 +79,7 @@ define([
         },
         createsubbtnClick : function(){
             var self = this;
+            $('.create-subscription').attr('disabled',true);
             if(MiniCart.MiniCart.model.get('items').length){
                 if($.cookie("subscriptionCreated") && $.cookie("subscriptionCreated") == "true"){
                     this.addtoCartAndProcudeToCheckout();
@@ -101,6 +102,7 @@ define([
                     }; 
                     this.model.set('popupData', popupData); 
                     this.render();
+                    $('.create-subscription').attr('disabled',false);
                 }
             }else{
                 var addToCartProducts = [], self = this;
@@ -191,7 +193,7 @@ define([
         gotonormalCheckout: function(){
             var cartModel = new CartModels.Cart(), self = this;
             try{
-                $.cookie("subscriptionCreated", '', { path: '/'});
+                $.cookie("subscriptionCreated", false, { path: '/'});
                 $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
                 cartModel.apiGet().then(function(cart) {
                     console.log('cart',cart); 
@@ -335,7 +337,7 @@ define([
                 if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
                     MiniCart.MiniCart.clearCart();
                     setTimeout(function(){ 
-                        $.cookie("subscriptionCreated", false);
+                        $.cookie("subscriptionCreated", false, { path: '/'});
                     },2000);
                 }
                 this.render(); 

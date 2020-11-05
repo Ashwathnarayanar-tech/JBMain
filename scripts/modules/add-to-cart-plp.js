@@ -63,7 +63,7 @@ require([
         $(document).find('.popup').on('click', '.button-yes', function(e){
             MiniCart.MiniCart.clearCart();
             setTimeout(function(){ 
-                $.cookie("subscriptionCreated", false);
+                $.cookie("subscriptionCreated", false, { path: '/'});
                 $(document).find('[data-mz-productlist]').addClass('is-loading');
                 $(document).find('[data-mz-facets]').addClass('is-loading');
                 var $target = $(e.target), productCode = $target.attr("productCode");

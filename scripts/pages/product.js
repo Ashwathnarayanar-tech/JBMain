@@ -829,7 +829,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var self = this;
             MiniCart.MiniCart.clearCart();
             setTimeout(function(){ 
-                $.cookie("subscriptionCreated", false);
+                $.cookie("subscriptionCreated", false, { path: '/'});
                 self.model.addToCart();  
                 self.closePopup();
             },2000);  
