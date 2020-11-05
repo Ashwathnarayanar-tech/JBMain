@@ -34,16 +34,19 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         },
         login: function(e){
             e.preventDefault();
+            $('#loginerror').text('');
+            $('body').css('overflow','hidden');
             var valid = this.validData();
             var currentUser = require.mozuData("user");
             if(valid && currentUser.isAnonymous){
                 Api.action('customer', 'loginStorefront', {
                     email: $('.user-email').val(),
                     password: $('.user-password').val()
-                }).then(
-                this.loginProcess(window.loginFlag), this.LoginErrorMessage);
+                }).then(function(resp){
+                    this.loginProcess(window.loginFlag)
+                },this.LoginErrorMessage);
 
-                setTimeout(function(){ window.scrollTo(0, -5000);},300);
+                // setTimeout(function(){ window.scrollTo(0, -5000);},1000);
             } 
         },
         validData: function(){
@@ -83,11 +86,17 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             },2000);
             
         },
-        LoginErrorMessage: function(){
-            $('.loginError').text(Hypr.getLabel('loginFailedMessage',$("#email").val()));
+        LoginErrorMessage: function(xhr){
+            if(xhr.message.indexOf('Login as')>=0){
+                $('.loginError').text(Hypr.getLabel('loginFailedMessage',$("#email").val()));
+            }else{
+                $('.loginError').text(xhr.message);
+            }
+         
             $('.loginError').prev('input').focus(); 
         },
         closeSignupPopup : function(){
+            $('body').removeAttr('style');
             this.model.get('subscriptionData').singnupopoup.isEnabled = false;
             this.render();
         },
@@ -106,6 +115,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         signupSubmit:function(){
+            $('body').css('overflow','hidden');
             var self = this,
                 email = $('[data-mz-signup-emailaddress]').val(),
                 firstName = $('[data-mz-signup-firstname]').val(),
@@ -195,6 +205,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         },
         displayApiMessage:function(xhr){
             $('[data-mz-role="mz-signup-register-message"]').text(xhr.message); 
+            $('[data-mz-role="mz-signup-register-message"]').focus();
+            $(".loginSignupPopupsub").animate({ scrollTop: $(window).height() }, 1000);
             console.log(xhr);
         },
         checngetab : function(e){
@@ -373,7 +385,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         showOtherPopUptoConfirm : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "To create a Subscription, you must have only <strong>Subscription items</strong> in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to check out?",
+                "message" : "To create a Subscription, you must have only <strong>Subscription items</strong> in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "No",

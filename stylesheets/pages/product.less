@@ -828,6 +828,7 @@
                             -webkit-transition: opacity 400ms ease-in;
                             -moz-transition: opacity 400ms ease-in;
                             transition: opacity 400ms ease-in;
+                            overflow-y: auto;
                             .popupBody{
                                 width: 30%;
                                 margin: 0 auto;
@@ -837,8 +838,8 @@
                                 background-color: #ffffff;
                                 position: relative;
                                 &.signupheight{
-                                    height: 94%;
-                                    overflow-y: auto;
+                                    //height: 94%;
+                                    
                                     margin-top: 2%;
                                 }
                                 .closepopup{
@@ -1653,13 +1654,13 @@
                                     padding: 10px;
                                     .section-head{
                                         .subscribe-input.checkbox-outer-label{
-                                            width: 26%;
+                                            width: 30%;
                                             .label-input{
                                                 font-size: 16px;   
                                             }
                                         }
                                         .text-content-sub{
-                                            width: 60%;
+                                            width: 56%;
                                             .text-place{
                                                 font-size: 14px;
                                             }
@@ -1682,13 +1683,14 @@
                                                 .subscribe-now{
                                                     font-size: 18px;
                                                     padding: 6px 12px 6px 40px;
+                                                    width:100%;
                                                     &:after{
                                                         top: 3px;
                                                         left: 10px;
                                                     }
                                                 }
                                                 .subscrib-multi{
-                                                    width: 49%;
+                                                    width: 100%;
                                                     .text-info{
                                                         font-size: 12px;
                                                     }
@@ -2179,6 +2181,62 @@
                                     .add-to-wishlist{
                                         width: 35%;
                                         background-position: 30px 9px;
+                                    }
+                                }
+                                .subscription{
+                                    padding: 10px;
+                                    .section-head{
+                                        .subscribe-input.checkbox-outer-label{
+                                            width: 26%;
+                                            .label-input{
+                                                font-size: 16px;   
+                                            }
+                                        }
+                                        .text-content-sub{
+                                            width: 56%;
+                                            .text-place{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                    .expanded-section{
+                                        padding: 0px;
+                                        padding-top: 20px;
+                                        .formGroup{
+                                            .weekormonth{
+                                                width:64%;
+                                                text-align:right;
+                                            }
+                                            &.qty{
+                                                width: 100%;
+                                                .line{
+                                                    display: none;
+                                                }
+                                            }
+                                            &.howofter{
+                                                width: 100%;
+                                            }
+                                            &.btnsec{
+                                                .subscribe-now{
+                                                    font-size: 18px;
+                                                    padding: 6px 12px 6px 40px;
+                                                    width:100%;
+                                                    &:after{
+                                                        top: 3px;
+                                                        left: 10px;
+                                                    }
+                                                }
+                                                .subscrib-multi{
+                                                    width: 100%;
+                                                    .text-info{
+                                                        font-size: 12px;
+                                                    }
+                                                    .subscription-list{
+                                                        font-size: 16px;
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             } 
