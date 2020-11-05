@@ -116,6 +116,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         },
         signupSubmit:function(){
             $('body').css('overflow','hidden');
+            
             var self = this,
                 email = $('[data-mz-signup-emailaddress]').val(),
                 firstName = $('[data-mz-signup-firstname]').val(),
@@ -135,11 +136,18 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     password: $('[data-mz-signup-password]').val()
                 };
             if (this.signupvalidData()) {
+                $('#signup-submit').attr('disabled');
                 //var user = api.createSync('user', payload);
                 //this.setLoading(true);
-                return Api.action('customer', 'createStorefront', payload).then(function () {
-                    window.location.reload();
-                }, self.displayApiMessage);
+               var p1=new Promise(function(resolve, reject) {
+                    return Api.action('customer', 'createStorefront', payload).then(function (res) {
+                        $('#signup-submit').removeAttr('disabled');
+                        window.location.reload();
+                    }, self.displayApiMessage);
+               });
+                p1.catch(function(e){
+                    console.log(e);
+                })
             }
         },
         signupvalidData: function(){
@@ -204,9 +212,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             return validity;
         },
         displayApiMessage:function(xhr){
+            $('#signup-submit').removeAttr('disabled');
             $('[data-mz-role="mz-signup-register-message"]').text(xhr.message); 
-            $('[data-mz-role="mz-signup-register-message"]').focus();
             $(".loginSignupPopupsub").animate({ scrollTop: $(window).height() }, 1000);
+            $('[data-mz-role="mz-signup-register-message"]').focus();
             console.log(xhr);
         },
         checngetab : function(e){
