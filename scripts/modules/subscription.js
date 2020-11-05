@@ -79,6 +79,7 @@ define([
         },
         createsubbtnClick : function(){
             var self = this;
+            $('.create-subscription').attr('disabled',true);
             if(MiniCart.MiniCart.model.get('items').length){
                 if($.cookie("subscriptionCreated") && $.cookie("subscriptionCreated") == "true"){
                     this.addtoCartAndProcudeToCheckout();
@@ -101,6 +102,7 @@ define([
                     }; 
                     this.model.set('popupData', popupData); 
                     this.render();
+                    $('.create-subscription').attr('disabled',false);
                 }
             }else{
                 var addToCartProducts = [], self = this;
