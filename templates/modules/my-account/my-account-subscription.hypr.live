@@ -254,17 +254,17 @@
 						<div class="subscription-sub-total">
 							<div class="total-details">
 								<div tabindex="0" >
-									<label>Sub Total</label><span>{{order.order.total | currency}}</span>
+									<label>Sub Total</label><span>{{order.order.subtotal | currency}}</span>
 								</div>
+								{% if order.order.discountTotal !=0 %}
 								<div tabindex="0">
-									<label>Cart Discount</label><span class="discount">-{{order.order.total|subtract(order.order.subtotal)|currency}}</span>
+									<label>Cart Discount</label><span class="discount">-{{order.order.discountTotal |currency}}</span>
 								</div>
+								{% endif %}
 								<div tabindex="0">
 									<label>Tax</label><span>{{order.order.taxTotal | currency}}</span>
 								</div>
-								<div tabindex="0">
-									<label>Coupon Discount</label><span></span>
-								</div>
+								
 								<div tabindex="0">
 									<label>Shipping</label><span>{{order.order.shippingSubTotal | currency }}</span>
 								</div>
@@ -438,17 +438,17 @@
 							<div class="subscription-sub-total">
 								<div class="total-details">
 									<div tabindex="0">
-										<label>Sub Total</label><span>{{order.order.total | currency}}</span>
+										<label>Sub Total</label><span>{{order.order.subtotal | currency}}</span>
 									</div>
-									<div tabindex="0">
-										<label>Cart Discount</label><span class="discount">-{{order.order.total|subtract(order.order.subtotal)|currency}}</span>
-									</div>
+									{% if order.order.discountTotal !=0 %}
+										<div tabindex="0">
+											<label>Cart Discount</label><span class="discount">-{{order.order.discountTotal |currency}}</span>
+										</div>
+									 {% endif %}
 									<div tabindex="0">
 										<label>Tax</label><span>{{order.order.taxTotal | currency}}</span>
 									</div>
-									<div tabindex="0">
-										<label>Coupon Discount</label><span></span> 
-									</div>
+									
 									<div tabindex="0">
 										<label>Shipping</label><span>{{order.order.shippingSubTotal | currency }}</span>
 									</div>
