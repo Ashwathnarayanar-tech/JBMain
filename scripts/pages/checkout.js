@@ -405,8 +405,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
              // To make the paypal success to come to checkout page
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                    if(window.paymentinfo.model.get('paymentType')=="CreditCard")
-                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    if(window.paymentinfo.model.get('paymentType')=="CreditCard"){
+                        $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    }
                 }
                 else if(!paypalFlowComplete){
                     setTimeout(function(){

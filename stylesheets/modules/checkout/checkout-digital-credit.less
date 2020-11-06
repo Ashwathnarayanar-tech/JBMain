@@ -47,37 +47,57 @@
    
     @media only screen and (min-width : 1px) and (max-width : 767px)  {
         .innerclass{
-         display: flex;
-         display: -webkit-box;
-         display: -moz-box;
-         display: -ms-flexbox;
-         display: -webkit-flex;
-         border-bottom: solid 1px #cfcfcf ;
-         flex-direction: column;
-         -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            .tablerows{
+            border: 3px solid#cfcfcf;
+            border-radius: 4px;
+            padding: 10px 10px;
+            margin-bottom:10px;
+            .innercontent{
                 display: flex;
                 display: -webkit-box;
                 display: -moz-box;
                 display: -ms-flexbox;
                 display: -webkit-flex;
-                padding: 10px 0;
+                flex-direction: row;
+                -webkit-flex-direction: row;
+               -ms-flex-direction: row;
+            
+               .tablerows{ 
+                padding: 5px 0 5px 40px;
                 align-items:start;
-                >div{
-                    width: 49%;
-                    text-align: left;
-                    .checkmark-style{
-                        margin-left:0;
+                flex-direction: column;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                 width: 50%; 
+                 &:nth-child(even){
+                    text-align:right;
+                }
+                    .checkbox-outer-label{
+                        .checkmark-style{
+                            left:-40px;
+                            top:13px !important;
+                            margin-left: 0;
+                        }
+                    } 
+                    .mz-checkout-digitalcredit-cell-code{
+                        .mz-checkout-digitalcredit-code{
+                            font-weight: bold;
+                        }
+                      }
+
+                    .mz-checkout-digitalcredit-cell-balance{
+                        font-weight: bold;
+                        font-size: 22px;
+                        padding: 10px 0 0;
                     }
                     input.data-mz-credit-amt-to-apply{
                         height: 40px;
                         text-align: left;
-                         width: 100%;
+                        width: 100%;
+                        border: 3px solid #cfcfcf;
+                        border-radius: 4px;
+                        padding: 0 10px;
                     }
-                    .checkbox-outer-label input:checked ~ .checkmark-style::after{
-                        left: 7px;
-                    }
+                    
                     .mz-paymenttype{
                         vertical-align: top;
                     }
