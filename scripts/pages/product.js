@@ -30,7 +30,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             "change .how-often-val" :"setHowOffenVal",
             "click #signup-submit":"signupSubmit",
             "change .quantity-sub" :"changeQuantity",
-            "keyup .quantity-sub" :"changeQuantity"
+           // "keyup .quantity-sub" :"changeQuantity"
         },
         login: function(e){
             e.preventDefault();
@@ -547,6 +547,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }); 
         },
         showHideContent : function(e){
+            console.log(" showHideContent");
             var isChecked = false;
             if($(e.target).is(":checked")){
                 isChecked = true;
