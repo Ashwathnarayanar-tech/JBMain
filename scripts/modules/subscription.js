@@ -1194,28 +1194,32 @@ define([
 
     window.valid=true;
     function wireUpEvents() {
-       /* if(window.valid){
-           // alert("Page Refreshed or Redirected");
-            window.onbeforeunload = askWhetherToClose;
-        }else{
-            window.onbeforeunload = askWhetherToClose;
-        }*/
-        var isOnIOS = navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPhone/i);
-        var eventName = !isOnIOS ? "pagehide" : "beforeunload";
 
-        window.addEventListener(eventName, askWhetherToClose);
+        window.addEventListener("pagehide",event=>{
+            if(!window.valid){
+                window.event.cancelBubble = true;
+                event.persisted = true;
+            }
+            return event;
+        },false);
 
-    function askWhetherToClose(event) {
-        console.log("sdsdsd ",window.valid);
-        if(!window.valid){
-            window.event.cancelBubble = true;
-            var msg;
-            msg = "You're leaving the page, do you really want to?";
-            event = event || window.event;
-            event.returnValue = msg;
-            return msg;
-        }
-    }
+        window.addEventListener("beforeunload",event=>{
+            console.log("sdsdsd ",window.valid);
+            if(!window.valid){
+                window.event.cancelBubble = true;
+                var msg;
+                msg = "You're leaving the page, do you really want to?";
+                event = event || window.event;
+                event.returnValue = msg;
+               
+            }
+            return event;
+        },false);
+        document.addEventListener('visibilitychange', function () {
+            // code goes here
+            console.log("document.hidden ---",document.hidden);
+            alert(document.hidden);
+          }, false)
  }
     
 });
