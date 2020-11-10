@@ -47,9 +47,9 @@
    
     @media only screen and (min-width : 1px) and (max-width : 767px)  {
         .innerclass{
-            border: 3px solid#cfcfcf;
+            border: 2px solid#cfcfcf;
             border-radius: 4px;
-            padding: 10px 10px;
+            padding: 5px 10px 7px;
             margin-bottom:10px;
             .innercontent{
                 display: flex;
@@ -62,14 +62,21 @@
                -ms-flex-direction: row;
             
                .tablerows{ 
-                padding: 5px 0 5px 40px;
+                padding: 2px 5px 2px 5px;
                 align-items:start;
                 flex-direction: column;
                 -webkit-flex-direction: column;
                 -ms-flex-direction: column;
-                 width: 50%; 
+                 width: 60%;
+                 flex: 0 0 60%; 
+                 &.applygiftcheckbox {
+                    padding-left: 40px;
+                 }
                  &:nth-child(even){
+
                     text-align:right;
+                    width: 40%;
+                    flex: 0 0 40%; 
                 }
                     .checkbox-outer-label{
                         .checkmark-style{
@@ -81,19 +88,28 @@
                     .mz-checkout-digitalcredit-cell-code{
                         .mz-checkout-digitalcredit-code{
                             font-weight: bold;
+                            font-size: 18px;
+                            em {
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                            }
                         }
                       }
-
+                    .mz-checkout-digitalcredit-cell-remainder {
+                        margin-top: 8px;
+                    }
                     .mz-checkout-digitalcredit-cell-balance{
                         font-weight: bold;
                         font-size: 22px;
-                        padding: 10px 0 0;
+                        padding: 0px 0 0;
                     }
+
                     input.data-mz-credit-amt-to-apply{
                         height: 40px;
                         text-align: left;
                         width: 100%;
-                        border: 3px solid #cfcfcf;
+                        border: 2px solid #cfcfcf;
                         border-radius: 4px;
                         padding: 0 10px;
                     }
