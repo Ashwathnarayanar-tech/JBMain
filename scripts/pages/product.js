@@ -36,14 +36,15 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             e.preventDefault();
             $('#loginerror').text('');
             $('body').css('overflow','hidden');
-            var valid = this.validData();
+            var valid = this.validData(),
+            self=this;
             var currentUser = require.mozuData("user");
             if(valid && currentUser.isAnonymous){
                 Api.action('customer', 'loginStorefront', {
                     email: $('.user-email').val(),
                     password: $('.user-password').val()
                 }).then(function(resp){
-                    this.loginProcess(window.loginFlag)
+                    self.loginProcess(window.loginFlag);
                 },this.LoginErrorMessage);
 
                 // setTimeout(function(){ window.scrollTo(0, -5000);},1000);
@@ -115,7 +116,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         signupSubmit:function(){
-            $('body').css('overflow','hidden');
+            
             
             var self = this,
                 email = $('[data-mz-signup-emailaddress]').val(),
@@ -139,15 +140,20 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $('#signup-submit').attr('disabled');
                 //var user = api.createSync('user', payload);
                 //this.setLoading(true);
-               var p1=new Promise(function(resolve, reject) {
-                    return Api.action('customer', 'createStorefront', payload).then(function (res) {
+                Api.on('error', function (badPromise, xhr, requestConf) {
+                    console.log("Shruthi",badPromise);
+                     if(xhr.status===502){
+                         var err={
+                             message:"Bad Gateway, Please try again"
+                         };
+                        self.displayApiMessage(err);
+                     }
+                  });
+                return Api.action('customer', 'createStorefront', payload).then(function (res) {
                         $('#signup-submit').removeAttr('disabled');
                         window.location.reload();
-                    }, self.displayApiMessage);
-               });
-                p1.catch(function(e){
-                    console.log(e);
-                })
+                }, self.displayApiMessage);
+             
             }
         },
         signupvalidData: function(){
@@ -234,6 +240,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscriptionList";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
+                $('body').css('overflow','hidden');
+                $(document).find('.popupBody .popuptext').focus();
+                this.loopInpopup();
             }else{
                 this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
                 this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
@@ -331,6 +340,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
+                $('body').css('overflow','hidden');
                 $(document).find('.popupBody .popuptext').focus();
                 this.loopInpopup();
             }else{
@@ -374,7 +384,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                                     "class" : "no"   
                                 },
                                 {
-                                    "buttonLabel" : "Yes",
+                                    "buttonLabel" : "Yes! Subscribe",
                                     "action" : "addTocartandConvertToSub",
                                     "class" : "yes"
                                 }
@@ -402,7 +412,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         "class" : "no"   
                     },
                     {
-                        "buttonLabel" : "Yes",
+                        "buttonLabel" : "Yes! Subscribe",
                         "action" : "Proceed",
                         "class" : "yes"
                     }
@@ -812,7 +822,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                             "class" : "no"   
                         },
                         {
-                            "buttonLabel" : "Yes",
+                            "buttonLabel" : "Yes! Subscribe",
                             "action" : "clearCartandaddtocart",
                             "class" : "yes"
                         }
