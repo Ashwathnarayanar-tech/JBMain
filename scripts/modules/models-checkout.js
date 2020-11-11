@@ -276,7 +276,13 @@
                             } else {
                                 order.messages.reset({ message: Hypr.getLabel('addressValidationError') });
                                 $('#bypassNotification').show().focus();
-                                $('#bypassButton').show(); 
+                                if($('.dummi-procudeto-useaddress-method').length>0){
+                                    $('.dummi-procudeto-useaddress-method').show().focus();
+                                    $('#bypassButton').hide(); 
+                               }else{
+                                    $('.dummi-procudeto-useaddress-method').hide();
+                                    $('#bypassButton').show().hide(); 
+                               }
                                 $('#continuetoshipping').hide(); 
                                 $('.dummi-procudeto-shipping-method').hide(); 
                             }
