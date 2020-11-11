@@ -336,10 +336,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else if($.cookie('coupon')==="" && window.couponCode.model.get('couponCodes') && window.couponCode.model.get('couponCodes').length>0){
                 window.couponCode.removeCouponCheckout();
             }
-            
-            
-            
-            
             if(window.shipAddressFlagFirst){
                 setTimeout(function(){
                     $(document).find('[data-mz-value="contactId"]').filter(':checked').focus();
@@ -402,10 +398,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
             } 
 
-             // To make the paypal success to come to checkout page
+             // To make the paypal success to come to checkout page 
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                    if(window.paymentinfo.model.get('paymentType')=="CreditCard"){
+                    if(window.paymentinfo.model.get('paymentType')=="CreditCard" && window.paymentinfo.model.get('card').get('cvv')!==undefined){
                         $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
                     }
                 }
@@ -1614,8 +1610,18 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         getDigitalCredit: function (e) {
             var self = this;
             this.$el.addClass('is-loading');
-            this.model.getDigitalCredit().ensure(function () {
+            this.model.getDigitalCredit().ensure(function (res) {
                 self.$el.removeClass('is-loading');
+                console.log(res);
+                if(window.checkoutViews.messageView.model.models[0].attributes.errorCode===undefined){
+                    $('#digital-credit-code').html('');
+                    $('.digitalcrediterror-msg').html(window.checkoutViews.messageView.model.models[0].attributes.message); 
+                    $('.digitalcrediterror-msg').show();
+                    $('.digitalcrediterror-msg').focus(); 
+                }
+                // setTimeout(function(){   
+                //     $('#digital-credit-code').html('');
+                // },10000);
                 /*if(window.checkoutViews.messageView.model.models[0].attributes.errorCode == "ITEM_NOT_FOUND"){  
                     self.model.set('errorsetdigitlcredit',"creditcode");  
                     $('.mz-checkout-digitalcredit-enter-code').val('');  
