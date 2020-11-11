@@ -281,7 +281,7 @@
                                     $('#bypassButton').hide(); 
                                }else{
                                     $('.dummi-procudeto-useaddress-method').hide();
-                                    $('#bypassButton').show().hide(); 
+                                    $('#bypassButton').show().focus(); 
                                }
                                 $('#continuetoshipping').hide(); 
                                 $('.dummi-procudeto-shipping-method').hide(); 
