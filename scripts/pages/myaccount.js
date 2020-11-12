@@ -1446,7 +1446,7 @@
                             }
                             
                             if(res.res && res.res.order){
-                                var order = res.res.order;
+                                 order = res.res.order;
                                 var fulfillmentInfo = order.fulfillmentInfo;
                                 res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo);
                                 console.log(res.res.order.estimationInfo);
@@ -1579,7 +1579,7 @@
         getNextShippmentDate:function(subscriptionObj){
             var self = this,k=subscriptionObj;
                 if(k.subscribedStatus==="Active"){
-                    var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
+                    /*var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
                         frequency = k.schedule.frequency,
                         frequencyType = k.schedule.frequencyType,
                         startDate = new Date(k.schedule.startDate.split('T')[0]),
@@ -1599,7 +1599,13 @@
                             } else {
                                 k.schedule.nextShippment = self.datePicker(startDate,days-1);
                             }
-                        }
+                        }*/
+
+                        var date = new Date(subscriptionObj.nextOrderDate);
+                        var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+                        var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
+                        console.log("finaldate =====",finaldate);
+                        k.schedule.nextShippment = finaldate;
                 }else{
                     k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
                 }
@@ -2178,7 +2184,7 @@
         return {"estimation": estimation,"estimationDate" : estimationDate};  
     };
     var hasHeatSensitiveItemsByCategory = function() {
-        var items = order.items;
+        var items = order &&  order.items ? order.items : [];
     
         var result = _.find(items, function(item) {
             return _.find(item.product.categories, function(category){
