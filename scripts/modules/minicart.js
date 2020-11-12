@@ -446,6 +446,16 @@ define([
                 this.updateMiniCart();
             },
             showCartval: function() {
+            },
+            cartRedirection:function(){
+                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
+                   // $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
+                    //setTimeout(function(){$(document).find('a.view-cart-btn').attr('href', window.location.origin+"/subscription");},2000);
+                    window.location.href ="/subscription"
+                } 
+                else{
+                    window.location.href ="/cart"
+                }
             }
         });
         var cartModel = window.cartModel = new CartModels.Cart(),
@@ -458,11 +468,7 @@ define([
         if(require.mozuData("pagecontext").pageType != "checkout") {
           cartModel.apiGet();
         }
-
-        if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
-            $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
-            setTimeout(function(){$(document).find('a.view-cart-btn').attr('href', window.location.origin+"/subscription");},2000);
-        } 
+ 
         // $(document).on('submit','#minicartform', function(e){
         //     if(if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true')){
         //         e.preventDefault();
@@ -579,9 +585,10 @@ define([
         //  miniCartView.render();
        
     window.miniCartView = miniCartView;  
-              
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
-
+        $(document).on('click', '.mz-utilitynav-link-cart', function(e){
+            miniCartView.cartRedirection();
+        });
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
             $(".jb-mobile-minicart-popup").hide();
         });
