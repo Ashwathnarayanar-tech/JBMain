@@ -423,7 +423,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             $(document).find('.popup-body .message').focus();
             this.loopInpopup();   
             $("body").addClass("openPopup");   
-        },
+        },  
         showOnemorePopUp : function(){
             var popupData = {
                 "isEnabled" : true,
@@ -809,7 +809,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
-        },
+        }, 
         addToCart: function () {
             if($.cookie("subscriptionCreated") == "true"){
                 var popupData = {
