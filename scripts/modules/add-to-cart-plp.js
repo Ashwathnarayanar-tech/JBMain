@@ -10,13 +10,20 @@ require([
         
         $(document).find('.popup').on('click', '.close-icon, .button-no', function(e){
             $(e.target).parents('.popup').removeClass('active');
+            $('.jb-add-to-cart ').focus();
         });
+        $(document).find('.popup').on('keypress', '.close-icon, .button-no', function(e) {
+            if(e.keyCode === 27 || e.keyCode === 13){
+                $(e.target).parents('.popup').removeClass('active');
+                $('.jb-add-to-cart ').focus();
+            }
+        });   
         $(document).on('click', '.jb-add-to-cart', function(e) {
             e.preventDefault();
             trigger = e.target;
             if($.cookie("subscriptionCreated") !== "true"){
-    			$(document).find('[data-mz-productlist]').addClass('is-loading');
-    			$(document).find('[data-mz-facets]').addClass('is-loading');
+                $(document).find('[data-mz-productlist]').addClass('is-loading');
+                $(document).find('[data-mz-facets]').addClass('is-loading');
                 var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
                 $(document).find('[data-mz-message-bar]').hide();             
                 $target.addClass('is-loading');            
@@ -57,6 +64,26 @@ require([
                 var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
                 $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
                 $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
+                $(document).find('.popup-body .message').focus();
+                var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
+            var firstInput = window.firstInput = window.inputs.first();
+            var lastInput = window.lastInput = window.inputs.last(); 
+            
+            // if current element is last, get focus to first element on tab press.
+            window.lastInput.on('keydown', function (e) {
+               if ((e.which === 9 && !e.shiftKey)) {
+                   e.preventDefault();
+                   window.firstInput.focus(); 
+               }
+            });
+            
+            // if current element is first, get focus to last element on tab+shift press.
+            window.firstInput.on('keydown', function (e) {
+                if ((e.which === 9 && e.shiftKey)) {
+                    e.preventDefault();
+                    window.lastInput.focus();  
+                }
+            }); 
             }
         }); 
 
@@ -167,6 +194,7 @@ require([
                 $target.removeClass('is-loading');
                 $(document).find('.Add-to-cart-popup').removeClass("active");
                 $(document).find('body').removeClass("noScroll");
+                
             });
         }
 
