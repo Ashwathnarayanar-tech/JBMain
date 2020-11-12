@@ -511,7 +511,7 @@
   "signuperror": "Thanks for trying to register, but there is already an account with that email address. Please visit the <a href='/user/forgotpassword' title='forgot password'>Forgot Password</a> page to update your password or <a href='/contact-us' title='contact us'>Contact Us</a> for additional assistance.",
   "ooserror":"*** At least one of your items is now out-of-stock. Please scroll down to make changes. ***",
   "shippingAKHI":"Shipping to AK, HI, or a Military address can take up to 6 weeks for delivery.",
-  "mysubscription":"MY SUBSCRIPTION",
+  "mysubscription":"MY SUBSCRIPTIONS",
   "subscriptionorderSummary": "Subscription Order Summary",
   "subscriptionSubTotal":"Sub Total",
   "subscriptionCartDiscount":"Cart Discount",
