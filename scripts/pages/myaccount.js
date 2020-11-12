@@ -288,7 +288,8 @@
                 });
                 }else{
                     $(document).find('.popup').addClass('active');
-                    var $target = $(e.currentTarget), productCode = Item[0].product.productCode;
+                     $target = $(e.currentTarget);
+                    var productCode = Item[0].product.productCode;
                     var $quantity = Item[0].quantity;
                     $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
                     $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
@@ -631,9 +632,10 @@
             }
         },
         addInlineItemToCart: function(e){
+            var productId,orderNumber;
             if($.cookie("subscriptionCreated") !== "true"){
-                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
                 var quantityElement;
                 //var variantCode = e.currentTarget.getAttribute('variationCode');
                 if(e.currentTarget.getAttribute('variationCode')){
@@ -654,8 +656,8 @@
                 this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
                 window.targetFocusEl = e.target;
             }else{
-                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
                 $(document).find('.popup').addClass('active');
                 $(document).find('.popup').find('.button-yes').attr('isOrder', true);
                 $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
@@ -1410,7 +1412,7 @@
         toggleShow:function(e){
             var subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
             
-            if(window.mySubscription !=undefined){
+            if(window.mySubscription !== undefined){
                 var id = window.mySubscription.model.attributes.subscriptionId;
                 $(".subscriptionViewDetails[data-subscription-id='"+subId+"']").removeClass('active');
                 $("#"+id).removeClass("active");
@@ -1444,7 +1446,7 @@
                             }
                             
                             if(res.res && res.res.order){
-                                order = res.res.order
+                                var order = res.res.order;
                                 var fulfillmentInfo = order.fulfillmentInfo;
                                 res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo);
                                 console.log(res.res.order.estimationInfo);

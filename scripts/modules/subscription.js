@@ -1,3 +1,4 @@
+var modelRapidOrder;
 define([
     "modules/jquery-mozu",
     "hyprlive",
@@ -7,9 +8,8 @@ define([
     "modules/models-cart",
     'modules/cart-monitor',
     'modules/minicart',
-    "modules/models-cart",
     "vendor/jquery-ui.min"
-], function($, Hypr, Backbone, _, api, CartModels, CartMonitor, MiniCart, CartModels) {
+], function($, Hypr, Backbone, _, api, CartModels, CartMonitor, MiniCart) {
     var reapidOrder = Backbone.MozuView.extend({
         templateName: "modules/subscription",
         additionalEvents: {
@@ -69,7 +69,7 @@ define([
                 if(flag){
                     window.scrollTo(0, $('.subscription').offset().top);
                 }
-            },100)
+            },500);
         },
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
@@ -105,7 +105,7 @@ define([
                     $('.create-subscription').attr('disabled',false);
                 }
             }else{
-                var addToCartProducts = [], self = this;
+                var addToCartProducts = [], me = this;
                 var itemsinsublist = this.model.get('SubScriptionItemsList');
                 itemsinsublist.filter(function(v,i){
                     addToCartProducts.push({
@@ -116,14 +116,14 @@ define([
                 var data = {
                     'funName' : "addProducts",
                     'products' : addToCartProducts
-                }          
+                };          
                 api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                     console.log(res);
                     CartMonitor.update();
                    // MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
                     $.cookie("subscriptionCreated", true, { path: '/'});
-                    $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
-                    self.redirectTosubCheckout();  
+                    $.cookie("subscriptionData", JSON.stringify(me.model.get('subscriptionData').Data), { path: '/'});
+                    me.redirectTosubCheckout();  
                 });
                 // $.cookie("subscriptionCreated", true, { path: '/'});
                 // $.cookie("subscriptionData", JSON.stringify(self.model.get('subscriptionData').Data), { path: '/'});
@@ -223,7 +223,7 @@ define([
             var data = {
                 'funName' : 'clearCartandAddall',
                 'products' : addToCartProducts
-            }
+            };
             api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                 console.log(res);
                 CartMonitor.update();
@@ -247,7 +247,7 @@ define([
                 var data = {
                     'funName' : "addProducts",
                     'products' : addToCartProducts
-                }          
+                };          
                 api.request('POST', 'svc/subscriptionpage', data).then(function(res){
                     console.log(res);
                     CartMonitor.update();
@@ -304,7 +304,7 @@ define([
            // return;     
         }, 
         clearList : function(e){
-            var catList = this.model.get('categoryList');
+            var catList = this.model.get('categoryList'),newLisr;
             var itemsinsublist = this.model.get('SubScriptionItemsList');
             if(itemsinsublist.length){
                 newLisr = catList.filter(function(v,i){
@@ -348,6 +348,8 @@ define([
             var catList = this.model.get('categoryList');  
             var addedproductIds = [];
             var itemsinsublist = this.model.get('SubScriptionItemsList');
+            var qty =1;
+            var newLisr;
             itemsinsublist.filter(function(v,i){
                 addedproductIds.push(v.productCode);
             });
@@ -356,14 +358,14 @@ define([
                     if(a.productCode == productCode && addedproductIds.indexOf(a.productCode) > -1){
                         a.isSelected = false;
                         a.selectedData.Qty = 1; 
-                        var qty =1;
+                         qty =1;
                         a.total = a.price.salePrice && a.price.salePrice <  a.price.price ? qty*a.price.salePrice : qty*a.price.price;    
                         itemsinsublist.splice(addedproductIds.indexOf(a.productCode),1);   
                         addedproductIds.splice(addedproductIds.indexOf(a.productCode),1);
                     }else if(a.productCode == productCode){
                         a.isSelected = false;
                         a.selectedData.Qty = 1;
-                        var qty =1;
+                         qty =1;
                         a.total = a.price.salePrice && a.price.salePrice <  a.price.price ? qty*a.price.salePrice : qty*a.price.price;    
                     }  
                 });
@@ -735,8 +737,8 @@ define([
                 }, function(err) {
                     console.log("cart error" + err);
                 });
-            }catch (e) { 
-                console.warn(e);
+            }catch (err) { 
+                console.warn(err);
             }
         },
         getUrlParams:function(url){
@@ -763,12 +765,13 @@ define([
 
         api.request('post', "svc/subscriptionpage", body).then(function(result){
                 var myResult = [], dataPCodes = [];
-                var preSelecteArray = [], grandtotal = 0;;
+                var preSelecteArray = [], grandtotal = 0;
+                var isLessThanMobileWidth = $(window).width() < 768 ? true : false;
                 result.items.filter(function(v,i){
                     var myTemp = {
                         "Category" : v.category[0],
                         "Items" : [],
-                        "isActive" : (i === 0 && !($(window).width() < 768)) ? true : false,
+                        "isActive" : (i === 0 && !isLessThanMobileWidth) ? true : false,
                         "isAllSelected" : false
                     };
                     v.items.filter(function(m,n){
@@ -1063,8 +1066,7 @@ define([
             var currentUser = require.mozuData("user");
             if(currentUser.isAnonymous){
                 console.log("yes user is guest ");
-                window.location.href = "/user/login"
-
+                window.location.href = "/user/login";
             }
             this.dateSelector();
         } 
@@ -1145,7 +1147,7 @@ define([
             'remaingAmount' : 0,
             'shippingThrashold' : shippingThrashold
         };
-        var modelRapidOrder = window.modelRapidOrder = new reapidOrder({
+         modelRapidOrder = window.modelRapidOrder = new reapidOrder({
             el: $('#subscription-body'),
             model: new QOModel(myModel)
         });
@@ -1173,7 +1175,7 @@ define([
         
 
         $(document).on('click', function(e){
-            if((!$(e.target).hasClass('search-box-cointainer')) && $(e.target).parents('.search-box-cointainer').length == 0 && $(document).find('.suggetion-item').length > 0){
+            if((!$(e.target).hasClass('search-box-cointainer')) && $(e.target).parents('.search-box-cointainer').length === 0 && $(document).find('.suggetion-item').length > 0){
                 modelRapidOrder.closeSearchOverlay();   
             }
         });

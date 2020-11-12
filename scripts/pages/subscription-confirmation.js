@@ -4,9 +4,10 @@ require([
     "modules/backbone-mozu",
     "modules/api",
     'modules/models-cart',
+    'underscore',
     "vendor/jquery-ui.min",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"
-], function($, Hypr, Backbone, api, CartModels) {
+], function($, Hypr, Backbone, api, CartModels,_) {
   var order="";
     function getMethod(name) {
         // Helper function. Returns an object containing information about that shipping method

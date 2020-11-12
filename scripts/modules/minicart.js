@@ -87,8 +87,8 @@ define([
                     }else{
                         c.model.remainingfreeshippinng=0; 
                     }
-    			}
-				c.model.hasHeatSensitive = false;
+                }
+                c.model.hasHeatSensitive = false;
 				if(Hypr.getThemeSetting('showHeatSensitiveText')) {
 					_.each(c.model.items, function(item) {
 						_.each(item.product.categories, function(category) {
