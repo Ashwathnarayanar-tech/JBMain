@@ -1220,7 +1220,7 @@ define([
         document.addEventListener('visibilitychange', function () {
             // code goes here
             console.log("document.hidden ---",document.hidden);
-            alert(document.hidden);
+           // alert(document.hidden);
           }, false)
  }
     
