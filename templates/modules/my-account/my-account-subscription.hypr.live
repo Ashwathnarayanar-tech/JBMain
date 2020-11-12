@@ -19,19 +19,19 @@
 {% with model as order %}
 				<div id="{{order.subscriptionId}}" class={% if order.open %}"subscription-list-body active"{% else %}"subscription-list-body"{% endif %}>
 					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-details cancelled-subscription"{% else %}"subscription-details"{% endif %}>
-						<div class="subscription-frequency" tabindex="0" role="alert">
+						<div class="subscription-frequency" tabindex="0" role="content">
 							<label>How Often? Every</label>
 							<span>{{order.schedule.frequency}} {{order.schedule.frequencyType}}</span>
 						</div>
-						<div class="subscription-start" tabindex="0" role="alert">
+						<div class="subscription-start" tabindex="0" role="content">
 							<label>When? Starting</label>
 							<span>{{order.schedule.startDate}}</span>
 						</div>
-						<div class="subscription-end" tabindex="0" role="alert">
+						<div class="subscription-end" tabindex="0" role="content">
 							<label>For How Long?</label>
 							<span>{{order.schedule.endType}}</span>
 						</div>
-						<div class="subscription-next" tabindex="0" role="alert">
+						<div class="subscription-next" tabindex="0" role="content">
 							<label>Next Shipment</label>
 							<span>{{order.schedule.nextShippment}}</span>
 						</div>

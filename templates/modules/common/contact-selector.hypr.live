@@ -10,7 +10,7 @@
             </div>
             {% if model.contactId == "new" %}  
                 <div class="dummi-shipping">
-                 <button class="dummi-procudeto-useaddress-method" data-mz-action="confirmValidationBypass" style="display:none;">Use this Address</button>
+                    <button class="dummi-procudeto-useaddress-method" data-mz-action="confirmValidationBypass" style="display:none;">Use this Address</button>
                     <button class="dummi-procudeto-shipping-method">Continue to Shipping Method</button>
                 </div>
             {% endif %}

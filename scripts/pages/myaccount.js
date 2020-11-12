@@ -288,7 +288,8 @@
                 });
                 }else{
                     $(document).find('.popup').addClass('active');
-                    var $target = $(e.currentTarget), productCode = Item[0].product.productCode;
+                     $target = $(e.currentTarget);
+                    var productCode = Item[0].product.productCode;
                     var $quantity = Item[0].quantity;
                     $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
                     $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
@@ -631,9 +632,10 @@
             }
         },
         addInlineItemToCart: function(e){
+            var productId,orderNumber;
             if($.cookie("subscriptionCreated") !== "true"){
-                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
                 var quantityElement;
                 //var variantCode = e.currentTarget.getAttribute('variationCode');
                 if(e.currentTarget.getAttribute('variationCode')){
@@ -654,8 +656,8 @@
                 this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
                 window.targetFocusEl = e.target;
             }else{
-                var productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                productId = e.currentTarget.getAttribute('quickOrderProductCode');
+                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
                 $(document).find('.popup').addClass('active');
                 $(document).find('.popup').find('.button-yes').attr('isOrder', true);
                 $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
@@ -1153,6 +1155,12 @@
         finishEditCard: function () {
             var self = this;  
             var operation = this.doModelAction('saveCard');
+            $( ".mz-accountpaymentmethods-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+                
+            });
             if (operation && !operation.isError) {
                 operation.otherwise(function() {
                     self.editing.card = true;
@@ -1322,6 +1330,7 @@
                 if($(this).text() !== "") {
                     $(this).attr("tabindex","0");
                 }
+
             });
             if (operation) {
                 operation.otherwise(function() {
@@ -1410,7 +1419,7 @@
         toggleShow:function(e){
             var subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
             
-            if(window.mySubscription !=undefined){
+            if(window.mySubscription !== undefined){
                 var id = window.mySubscription.model.attributes.subscriptionId;
                 $(".subscriptionViewDetails[data-subscription-id='"+subId+"']").removeClass('active');
                 $("#"+id).removeClass("active");
@@ -1444,7 +1453,7 @@
                             }
                             
                             if(res.res && res.res.order){
-                                order = res.res.order
+                                 order = res.res.order;
                                 var fulfillmentInfo = order.fulfillmentInfo;
                                 res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo);
                                 console.log(res.res.order.estimationInfo);
@@ -1577,7 +1586,7 @@
         getNextShippmentDate:function(subscriptionObj){
             var self = this,k=subscriptionObj;
                 if(k.subscribedStatus==="Active"){
-                    var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
+                    /*var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
                         frequency = k.schedule.frequency,
                         frequencyType = k.schedule.frequencyType,
                         startDate = new Date(k.schedule.startDate.split('T')[0]),
@@ -1597,7 +1606,13 @@
                             } else {
                                 k.schedule.nextShippment = self.datePicker(startDate,days-1);
                             }
-                        }
+                        }*/
+
+                        var date = new Date(subscriptionObj.nextOrderDate);
+                        var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+                        var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
+                        console.log("finaldate =====",finaldate);
+                        k.schedule.nextShippment = finaldate;
                 }else{
                     k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
                 }
@@ -2176,7 +2191,7 @@
         return {"estimation": estimation,"estimationDate" : estimationDate};  
     };
     var hasHeatSensitiveItemsByCategory = function() {
-        var items = order.items;
+        var items = order &&  order.items ? order.items : [];
     
         var result = _.find(items, function(item) {
             return _.find(item.product.categories, function(category){

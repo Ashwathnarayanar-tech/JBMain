@@ -336,6 +336,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }); 
         },
         subscribeNow : function(e){
+            var popupData;
             if(require.mozuData('user').isAnonymous){
                 window.loginFlag  = "subscribeNow";
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
@@ -352,7 +353,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
                 if(MiniCart.MiniCart.model.get('items').length){
                     if($.cookie("subscriptionCreated") == "true"){
-                        var popupData = {
+                        popupData = {
                             "isEnabled" : true,
                             "message" : "You have already started building a <strong>Subscription</strong>. Do you want to add these products to that Subscription?",
                             "buttons" : [
@@ -374,7 +375,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                        this.loopInpopup();
                        $("body").addClass("openPopup");
                     }else{
-                        var popupData = {
+                        popupData = {
                             "isEnabled" : true,
                             "message" : "We can't mix <strong>Subscription</strong> and <strong>non-Subscription</strong> items at this time. Do you want to Subscribe to everything you have in the Cart?",
                             "buttons" : [

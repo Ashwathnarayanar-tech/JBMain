@@ -343,10 +343,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             }else if($.cookie('coupon')==="" && window.couponCode.model.get('couponCodes') && window.couponCode.model.get('couponCodes').length>0){
                 window.couponCode.removeCouponCheckout();
             }
-            
-            
-            
-            
             if(window.shipAddressFlagFirst){
                 setTimeout(function(){
                     $(document).find('[data-mz-value="contactId"]').filter(':checked').focus();
@@ -409,11 +405,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
             } 
 
-             // To make the paypal success to come to checkout page
+             // To make the paypal success to come to checkout page 
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                    if(window.paymentinfo.model.get('paymentType')=="CreditCard")
-                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    if(window.paymentinfo.model.get('paymentType')=="CreditCard" && window.paymentinfo.model.get('card').get('cvv')!==undefined){
+                        $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    }
                 }
                 else if(!paypalFlowComplete){
                     setTimeout(function(){
@@ -818,7 +815,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     "years": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? false : true,
                     "howLong": $(document).find('.subscription').find('.how-long-val').val(),
                     "when": $(document).find('.subscription').find('#interval-startdate').val()
-                }
+                };
                 $.cookie("subscriptionData", JSON.stringify(schedule), { path: '/'});
                 window.location = "/subscription";
             }else{
@@ -1831,8 +1828,18 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         getDigitalCredit: function (e) {
             var self = this;
             this.$el.addClass('is-loading');
-            this.model.getDigitalCredit().ensure(function () {
+            this.model.getDigitalCredit().ensure(function (res) {
                 self.$el.removeClass('is-loading');
+                console.log(res);
+                if(window.checkoutViews.messageView.model.models[0].attributes.errorCode===undefined){
+                    $('#digital-credit-code').html('');
+                    $('.digitalcrediterror-msg').html(window.checkoutViews.messageView.model.models[0].attributes.message); 
+                    $('.digitalcrediterror-msg').show();
+                    $('.digitalcrediterror-msg').focus(); 
+                }
+                // setTimeout(function(){   
+                //     $('#digital-credit-code').html('');
+                // },10000);
                 /*if(window.checkoutViews.messageView.model.models[0].attributes.errorCode == "ITEM_NOT_FOUND"){  
                     self.model.set('errorsetdigitlcredit',"creditcode");  
                     $('.mz-checkout-digitalcredit-enter-code').val('');  
@@ -2495,7 +2502,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.place-subscrition-btn').addClass('active');
                 $(document).find('.place-order-btn').removeClass('active');    
             }
-        }
+        };
 
         $(document).on('click', '.span-tabs', function(e){
             if($(e.target).hasClass('week')){
@@ -2540,7 +2547,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             }else{
                 attr.billingContact.phoneNumbers.home = null;
             }
-			 var flag = false;
+            var flag = false;
             if(!(window.paymentinfo.model.validate(attr))){
                  //CVV Validation
                  var regcvv=/^[0-9]{3,4}$/;
@@ -2653,7 +2660,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     "frequencyType": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? "Weeks" : "Months",
                     "endType": $(document).find('.subscription').find('.how-long-val').val(),
                     "startDate": $(document).find('.subscription').find('#interval-startdate').val()
-                }
+                };
                 order.completedOrders = [];
                 order.nickname = require.mozuData('user').firstName;
                 try {
@@ -2724,7 +2731,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
           }
           return params;
         }
-        }
+        };
 
         // navigate through ordersummary
         $(document).on('keydown', '.summary-item', function(e){
