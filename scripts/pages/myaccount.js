@@ -202,14 +202,14 @@
                                 option.set('value', newValue);
                             }
                             setTimeout(function(){
-                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                                WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             },2000);
                         }else{
-                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                            WishListView.showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                             $target.removeClass('is-loading');
                         }
                     }else{
-                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                        WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                     }
                 });
                 setTimeout(function(){ 
@@ -666,7 +666,7 @@
                 $(document).find('.popup').find('.button-yes').attr('productId', productId);
             }
         },
-        removerProductandAddtocart: function(orderNumber,productId){
+        removerProductandAddtocart: function(orderNumber,productId,e){
             var self = this;
             MiniCart.MiniCart.clearCart();
             var quantityElement;
@@ -745,7 +745,7 @@
                 $(document).find('.popup').find('.button-yes').attr('productId', "");   
             }
         },
-        removerProductandAddalltoCart: function(orderId){
+        removerProductandAddalltoCart: function(orderId,e){
                 $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
                 var products = [];
                 var locationCodes = [];
@@ -787,6 +787,7 @@
                 $(orderQuantity).each(function(key,val){
                     productQuantity.push(val.value);
                 });*/
+                var el=e;
                 this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
                 window.targetFocusEl = e.target;    
         },
@@ -1453,9 +1454,9 @@
                             }
                             
                             if(res.res && res.res.order){
-                                 order = res.res.order;
-                                var fulfillmentInfo = order.fulfillmentInfo;
-                                res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo);
+                                 //order = res.res.order;
+                                var fulfillmentInfo = res.res.order.fulfillmentInfo;
+                                res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo,res.res.order);
                                 console.log(res.res.order.estimationInfo);
                             }
                             
@@ -1526,7 +1527,7 @@
                         window.mySubscriptionList.model.set("pageSize",response.pageSize);
                         window.mySubscriptionList.model.set("totalOrders",response.totalOrders);
                         window.mySubscriptionList.model.set("totalReceivedOrders",existingOrders.totalReceivedOrders);
-                        window.mySubscriptionList.render()
+                        window.mySubscriptionList.render();
 
                     }
                  });
@@ -2137,14 +2138,14 @@
         }
     };
 
-    var shippingestimation = function(shippingmethod){
+    var shippingestimation = function(shippingmethod,order){
         var testDate = new Date();
         var deadline = new Date(testDate.getTime());
         deadline.setHours(12);
         deadline.setMinutes(0);
         deadline.setSeconds(0);
         deadline.setMilliseconds(0);
-        var heatsensitive =hasHeatSensitiveItemsByCategory() || false; // document.getElementById('heatsensitive').value;
+        var heatsensitive =hasHeatSensitiveItemsByCategory(order) || false; // document.getElementById('heatsensitive').value;
         var state;		
         // error handling in case there is not a state available yet on the order
         try {
@@ -2190,7 +2191,7 @@
         }
         return {"estimation": estimation,"estimationDate" : estimationDate};  
     };
-    var hasHeatSensitiveItemsByCategory = function() {
+    var hasHeatSensitiveItemsByCategory = function(order) {
         var items = order &&  order.items ? order.items : [];
     
         var result = _.find(items, function(item) {

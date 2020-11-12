@@ -451,10 +451,10 @@ define([
                 if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
                    // $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
                     //setTimeout(function(){$(document).find('a.view-cart-btn').attr('href', window.location.origin+"/subscription");},2000);
-                    window.location.href ="/subscription"
+                    window.location.href ="/subscription";
                 } 
                 else{
-                    window.location.href ="/cart"
+                    window.location.href ="/cart";
                 }
             }
         });
@@ -587,6 +587,9 @@ define([
     window.miniCartView = miniCartView;  
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
         $(document).on('click', '.mz-utilitynav-link-cart', function(e){
+            miniCartView.cartRedirection();
+        });
+        $(document).on('click', '.mz-Mob-utilitynav-link-cart', function(e){
             miniCartView.cartRedirection();
         });
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
