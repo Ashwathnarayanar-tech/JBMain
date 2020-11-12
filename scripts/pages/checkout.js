@@ -2725,11 +2725,16 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 });
             },
         getUrlParams:function(url){
-        var regex = /[?&]([^=#]+)=([^&#]*)/g,params = {},match;
-          while (match = regex.exec(url)) {
-            params[match[1]] = match[2];
-          }
-          return params;
+            var result = {};
+            var params = window.location.search;
+            params = params.substr(1);
+            var queryParamArray = params.split('&');
+            queryParamArray.forEach(function(queryParam) {
+                var item = queryParam.split('=');
+                result[item[0]] = decodeURIComponent(item[1]);
+            });
+            console.log(result);
+            return result;
         }
         };
 

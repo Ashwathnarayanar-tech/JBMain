@@ -60,10 +60,10 @@ require([
                 },6200); 
             }else{
                 $(document).find('.popup').addClass('active');
-                var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
-                var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-                $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
-                $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
+                var $target1 = $(e.currentTarget), productCode1 = $target1.data("mz-prcode");
+                var $quantity1 = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
+                $(document).find('.popup').find('.button-yes').attr('productCode',productCode1);
+                $(document).find('.popup').find('.button-yes').attr('quantity',$quantity1);
                 $(document).find('.popup-body .message').focus();
                 var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
