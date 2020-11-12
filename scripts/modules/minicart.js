@@ -589,6 +589,9 @@ define([
         $(document).on('click', '.mz-utilitynav-link-cart', function(e){
             miniCartView.cartRedirection();
         });
+        $(document).on('click', '.mz-Mob-utilitynav-link-cart', function(e){
+            miniCartView.cartRedirection();
+        });
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
             $(".jb-mobile-minicart-popup").hide();
         });
