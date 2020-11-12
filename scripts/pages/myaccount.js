@@ -1155,6 +1155,12 @@
         finishEditCard: function () {
             var self = this;  
             var operation = this.doModelAction('saveCard');
+            $( ".mz-accountpaymentmethods-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+                
+            });
             if (operation && !operation.isError) {
                 operation.otherwise(function() {
                     self.editing.card = true;
@@ -1324,6 +1330,7 @@
                 if($(this).text() !== "") {
                     $(this).attr("tabindex","0");
                 }
+
             });
             if (operation) {
                 operation.otherwise(function() {

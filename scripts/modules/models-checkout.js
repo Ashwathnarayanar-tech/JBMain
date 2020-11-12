@@ -283,7 +283,6 @@
                                     $('.dummi-procudeto-useaddress-method').hide();
                                     $('#bypassButton').show().focus(); 
                                }
-                              
                                 $('#continuetoshipping').hide(); 
                                 $('.dummi-procudeto-shipping-method').hide(); 
                             }
