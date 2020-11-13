@@ -94,7 +94,7 @@
 		</div>
 {% endif %}
 
-{% if model.totalOrders.length === 0 %}
+{% if model.orderDetails.length === 0 %}
 	<div class="mz-noorders">
 		You have not placed any orders.
 	</div>
