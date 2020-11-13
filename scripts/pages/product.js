@@ -219,7 +219,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         },
         displayApiMessage:function(xhr){
             $('#signup-submit').removeAttr('disabled');
-            $('[data-mz-role="mz-signup-register-message"]').text(xhr.message); 
+            if(xhr.message.indexOf("EmailAddress already associated with a login")){
+                $('[data-mz-role="mz-signup-register-message"]').html(Hypr.getLabel("signuperror")); 
+            }
+            else {
+                $('[data-mz-role="mz-signup-register-message"]').text(xhr.message);
+            }
             $(".loginSignupPopupsub").animate({ scrollTop: $(window).height() }, 1000);
             $('[data-mz-role="mz-signup-register-message"]').focus();
             console.log(xhr);
@@ -363,7 +368,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                                     "class" : "no"   
                                 },
                                 {
-                                    "buttonLabel" : "Yes",
+                                    "buttonLabel" : "Yes! Subscribe",
                                     "action" : "addProducttosubscription",
                                     "class" : "yes"
                                 }
