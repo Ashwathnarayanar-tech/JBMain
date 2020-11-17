@@ -2727,7 +2727,7 @@
 							    		width: 75px;	
 							    	}
 							    }
-							}
+                            }
 							.links-sec{
 								width: 49.5%;
 								.contact-num{
@@ -2799,7 +2799,9 @@
 							    			}
 							    		}
 							    	}
-							    }
+                                }
+                                
+                              
 								.mz-fromstep-direct-payment{ 
 								    padding: 10px 0;
 								   	.heading-text{
@@ -2826,12 +2828,21 @@
 										font-size: 25px;
 									}
 									.mz-formstep-body{ 
+                                       
 										.mz-formstep-fields.mz-l-formfieldgroup{ 
+                                            .mz-l-formfieldgroup-row{
+                                                width: 98%;
+                                            }
 											.mz-contactselector{ 
 												.data-contact{
 													width: 100%;
-												}
-											}
+                                                }
+                                                .dummi-procudeto-shipping-method,.dummi-procudeto-useaddress-method{
+                                                    width: 98%;
+                                                    padding: 8px 0;
+                                                }
+                                            }
+                                           
 											.mz-contactselector{ 
 												.mz-contactselector-contact.mz-contactselector-new{ 
 													.mz-contactselector-summarywrapper{ 
@@ -2841,7 +2852,12 @@
 													}
 												}
 											}
-										}
+                                        }
+                                        .mz-formstep-next{
+                                            #continuetoshipping, #bypassButton{
+                                                width: 94%;
+                                            }
+                                        } 
 										.mz-formstep-summary.mz-addresssummary{
 											padding: 15px 18px 25px;
 										}
@@ -2855,8 +2871,9 @@
 										.mz-formstep-fields.mz-l-formfieldgroup{
 											padding: 0 0 0 16px;
     										width: 97%;
-    										.method-info{
-											    width: 100%;
+    										.method-info,.estimated-date{
+                                                width: 100%;
+                                                text-align:left;
     										}
     										.method-item{ 
     											.method-label{ 
@@ -2878,7 +2895,7 @@
     														font-size: 12px;
     													}
     													.estimated-arrival{
-														    width: 59%;
+														    width: 56%;
 														    font-size: 12px;	
     													}
     												}
@@ -3017,7 +3034,34 @@
 							    		}
 							    	}
 							    }
-							}
+                            }
+                             .mz-checkoutform-paywith-rewards .subscription {
+                                 width: 91%;
+                                 margin:14px auto;
+                                .expanded-section{
+                                   width: 100%;
+                                    .formGroup{
+                                        width:100%;
+                                        .how-often-input-sub{
+                                            width: 24%;
+                                            select{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                        .weekormonth{
+                                            width:73%;
+                                            text-align:right;
+                                            span{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                       
+                                        
+                                    }
+                                   
+                                }
+                             }
+                            
 							.mz-l-formfieldgroup,#mz-drop-zone-checkout-faq{
 								padding: 0 14px;
 							}
@@ -3920,6 +3964,36 @@
 		}
 	}
 }
+//Ipad Portrait
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation:portrait){
+    .mz-checkout{
+        .mz-l-pagewrapper{
+            .mz-l-pagecontent{
+                .mz-l-container{
+                    .div-cointainer{
+                        .mz-checkoutform.mz-l-2column-right#checkout-form .mz-l-column{
+                            .mz-formstep.mz-checkoutform-shippingaddress{
+                                .mz-formstep-body{
+                                    .mz-formstep-fields.mz-l-formfieldgroup{
+                                        .mz-contactselector {
+                                            .mz-contactselector-contact.mz-contactselector-new.no-form{
+                                                top: -132px; 
+                                                right: -2%; 
+                                            }
+                                        }
+                                    }
+                                }
+                            } 
+                        }
+                    }
+                }
+            }   
+        } 
+
+    } 
+        
+}
+
 //larger screen
 @media only screen and (min-width: 1680px){
     .mz-checkout{
