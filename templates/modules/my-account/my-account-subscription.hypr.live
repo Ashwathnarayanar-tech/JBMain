@@ -210,7 +210,7 @@
 									<th scope="col">Product Details</th>
 									<th scope="col">Price</th>
 									<th scope="col">quantity</th>
-									<th scope="col">item total</th>
+									<th scope="col" style="text-align:right">item total</th>
 								</tr>
 							</thead>
 							<tbody>
