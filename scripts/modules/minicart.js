@@ -588,7 +588,9 @@ define([
     window.miniCartView = miniCartView;  
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
         $(document).on('click', '.mz-utilitynav-link-cart', function(e){
-            miniCartView.cartRedirection();
+            if($('.jb-minicart-popup').css('display') !== 'block'){
+             miniCartView.cartRedirection();
+            }
         });
         $(document).on('click', '.mz-Mob-utilitynav-link-cart', function(e){
             miniCartView.cartRedirection();
