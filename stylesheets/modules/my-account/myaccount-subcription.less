@@ -74,6 +74,8 @@
 					display: inline-block;
 					width: 48%;
 					text-align: right;
+					float:right;
+					padding-top: 5px;
 					.subscription-order-total{
 						font-size: 18px;
 						font-weight: normal;
@@ -84,6 +86,7 @@
 					.header-status{
 						width: 15px;
 						display: inline-block;
+						float:right;
 						img{
 							width: 100%;
 						}
@@ -100,7 +103,7 @@
 					border-bottom: 0.5px solid #cfcfcf;
 					.subscription-start, .subscription-frequency, .subscription-end, .subscription-next{
 						float:left;
-						label{
+						.labelStyle{
 							font-size: 14px;
 							line-height: normal;
 							color: #9b9b9b;
@@ -949,7 +952,7 @@
 						.subscription-start, .subscription-frequency, .subscription-end, .subscription-next{
 							float:none;
 							display: inline-block;
-							label{
+							.labelStyle{
 								font-size: 14px;
 								font-weight: bold;
 								line-height: normal;
@@ -1121,7 +1124,7 @@
 							.subscription-start, .subscription-frequency{
 								display: inline-block;
 								width: 45%;
-								label{
+								.labelStyle{
 									font-size: 14px;
 									font-weight: bold;
 									line-height: normal;
