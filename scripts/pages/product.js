@@ -282,6 +282,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         redirectTosubCheckout: function(e){
             var cartModel = new CartModels.Cart(), self = this;
             try{
+                $("body").removeClass("openPopup");
                 cartModel.apiGet().then(function(cart) {
                     console.log('cart',cart); 
                     cartModel.apiCheckout().then(function(cartId) {
@@ -312,6 +313,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             // $.cookie("subscriptionCreated", true);
             $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data));
             var me = this;
+            $("body").removeClass("openPopup"); 
             setTimeout(function(){
                me.model.get('subscriptionData').popupData.isEnabled = false;
                me.render(); 
