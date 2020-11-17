@@ -103,6 +103,8 @@ define([
                     this.model.set('popupData', popupData); 
                     this.render();
                     $('.create-subscription').attr('disabled',false);
+                    $(document).find('.popup-body .message').focus();
+                    this.loopInpopup();
                 }
             }else{
                 var addToCartProducts = [], me = this;
@@ -148,7 +150,9 @@ define([
                 ]
             }; 
             this.model.set('popupData', popupData); 
-            this.render();   
+            this.render(); 
+            $(document).find('.popup-body .message').focus();  
+            this.loopInpopup();
         },
         removeCItemsandPTocheckoutpp : function(){
             var popupData = {
@@ -169,6 +173,8 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render();
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup();
         },
         oneMoreppIgnoreSubscription: function(){
             var popupData = {
@@ -189,6 +195,8 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render();
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup();
         },
         gotonormalCheckout: function(){
             var cartModel = new CartModels.Cart(), self = this;
@@ -280,6 +288,8 @@ define([
                 }; 
                 this.model.set('popupData', popupData); 
                 this.render();  
+                $(document).find('.popup-body .message').focus();
+                this.loopInpopup();
             }     
         },
         closePopupdynamic : function(){
@@ -301,7 +311,8 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render(); 
-           // return;     
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup();  
         }, 
         clearList : function(e){
             var catList = this.model.get('categoryList'),newLisr;
@@ -1065,6 +1076,28 @@ define([
             } else {
                 return false;
             }
+        },
+        loopInpopup:function(){
+            
+            var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
+            var firstInput = window.firstInput = window.inputs.first();
+            var lastInput = window.lastInput = window.inputs.last(); 
+            
+            // if current element is last, get focus to first element on tab press.
+            window.lastInput.on('keydown', function (e) {
+               if ((e.which === 9 && !e.shiftKey)) {
+                   e.preventDefault();
+                   window.firstInput.focus(); 
+               }
+            });
+            
+            // if current element is first, get focus to last element on tab+shift press.
+            window.firstInput.on('keydown', function (e) {
+                if ((e.which === 9 && e.shiftKey)) {
+                    e.preventDefault();
+                    window.lastInput.focus();  
+                }
+            }); 
         },
         render : function(){
             Backbone.MozuView.prototype.render.apply(this);

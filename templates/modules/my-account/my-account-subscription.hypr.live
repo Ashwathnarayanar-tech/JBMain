@@ -18,21 +18,21 @@
 {% if pageContext.isDesktop or pageContext.isTablet %}
 {% with model as order %}
 				<div id="{{order.subscriptionId}}" class={% if order.open %}"subscription-list-body active"{% else %}"subscription-list-body"{% endif %}>
-					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-details cancelled-subscription"{% else %}"subscription-details"{% endif %}>
-						<div class="subscription-frequency" tabindex="0" role="content">
-							<label>How Often? Every</label>
+					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-details cancelled-subscription"{% else %}"subscription-details"{% endif %} tabindex="0" role="content">
+						<div class="subscription-frequency" >
+							<div class="labelStyle">How Often? Every</div>
 							<span>{{order.schedule.frequency}} {{order.schedule.frequencyType}}</span>
 						</div>
-						<div class="subscription-start" tabindex="0" role="content">
-							<label>When? Starting</label>
+						<div class="subscription-start" >
+							<div class="labelStyle">When? Starting</div>
 							<span>{{order.schedule.startDate}}</span>
 						</div>
-						<div class="subscription-end" tabindex="0" role="content">
-							<label>For How Long?</label>
+						<div class="subscription-end" >
+							<div class="labelStyle">For How Long?</div>
 							<span>{{order.schedule.endType}}</span>
 						</div>
-						<div class="subscription-next" tabindex="0" role="content">
-							<label>Next Shipment</label>
+						<div class="subscription-next" >
+							<div class="labelStyle">Next Shipment</div>
 							<span>{{order.schedule.nextShippment}}</span>
 						</div>
 					</div>
@@ -210,7 +210,7 @@
 									<th scope="col">Product Details</th>
 									<th scope="col">Price</th>
 									<th scope="col">quantity</th>
-									<th scope="col">item total</th>
+									<th scope="col" style="text-align:right">item total</th>
 								</tr>
 							</thead>
 							<tbody>
