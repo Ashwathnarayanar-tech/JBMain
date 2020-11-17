@@ -17,7 +17,8 @@ define([
         var MiniCartView = Backbone.MozuView.extend({
             templateName: "modules/page-header/softcart",
             additionalEvents: {
-                "submit #minicartform": "redirectTosubCheckout"
+                "submit #minicartform": "redirectTosubCheckout",
+                "click .view-cart-btn":"cartRedirection"
             },
             initialize: function () { 
                 var me = this;
