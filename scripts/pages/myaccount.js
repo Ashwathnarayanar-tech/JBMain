@@ -1608,12 +1608,13 @@
                                 k.schedule.nextShippment = self.datePicker(startDate,days-1);
                             }
                         }*/
-
-                        var date = new Date(subscriptionObj.nextOrderDate);
-                        var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
-                        var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
-                        console.log("finaldate =====",finaldate);
-                        k.schedule.nextShippment = finaldate;
+                        if(subscriptionObj.nextOrderDate){
+                            var date = new Date(subscriptionObj.nextOrderDate);
+                            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
+                            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
+                            console.log("finaldate =====",finaldate);
+                            k.schedule.nextShippment = finaldate;
+                        }
                 }else{
                     k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
                 }
