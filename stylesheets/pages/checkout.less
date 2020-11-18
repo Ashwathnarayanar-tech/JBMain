@@ -2445,22 +2445,22 @@
                             .subscription{
                                 border-radius: 6px;
                                 background-color: rgba(210, 231, 255, 0.5);
-                                margin: 14px 30px;
+                                margin: 14px 49px;
                                 display: none;
                                 &.active{
                                     display: block;
                                 }
                                 .expanded-section{
-                                    padding: 10px 10px; 
+                                    padding: 20px 18px; 
                                     .formGroup{
                                         display: inline-block;
                                         vertical-align: top;
                                         position: relative;
-                                        margin-bottom: 15px;
+                                        margin-bottom: 0px;
                                         span{
                                             display: block;
                                             label{
-                                                font-size: 16px;
+                                                font-size: 14px;
                                                 font-weight: bold;
                                                 line-height: 1.5;
                                                 color: #1c2e36;
@@ -2500,7 +2500,7 @@
                                         }
                                         .weekormonth{
                                             display: inline-block;
-                                            width: 70%;
+                                            width: 68%;
                                             text-align: center;
                                             margin-left: 12px;
                                             .span-tabs{
@@ -2510,13 +2510,16 @@
                                                 line-height: 1.33;
                                                 letter-spacing: normal;
                                                 color: #000;
-                                                padding: 7px 18px;  
+                                                padding: 7px 26px;  
                                                 background-color: #fff; 
                                                 border: 1px solid #004e99;
                                                 cursor: pointer;
                                                 &.week{                                                     
                                                     border-bottom-left-radius: 4px;
                                                     border-top-left-radius: 4px;
+                                                }
+                                                &.months{
+                                                   border-radius: 0 3px 3px 0;
                                                 }
                                                 &.year{
                                                     border-bottom-right-radius: 4px;
@@ -2592,6 +2595,7 @@
 
                                         &.howofter{
                                             width: 100%;
+                                            padding-bottom: 26px;
                                         }
                                         &.interval{
                                             width: 49%;
@@ -2716,6 +2720,7 @@
 		.mz-l-pagewrapper{
 			.mz-l-pagecontent{ 
 				.mz-l-container{ 
+                
 					.checkout-header{ 
 						.header-wraper{ 
                             padding:0 11px;
@@ -2740,6 +2745,9 @@
 						}
 					}
 					.div-cointainer{ 
+                        .ind-req{
+                            padding-left:10px;
+                        }
 						.mz-checkoutform.mz-l-2column-right#checkout-form{ 
 							.mz-l-column{
 								padding: 0 3%;
@@ -3039,7 +3047,7 @@
                                  width: 91%;
                                  margin:14px auto;
                                 .expanded-section{
-                                   width: 100%;
+                                   width: 94% !important;
                                     .formGroup{
                                         width:100%;
                                         .how-often-input-sub{
@@ -3049,15 +3057,42 @@
                                             }
                                         }
                                         .weekormonth{
-                                            width:73%;
+                                            width:68%;
                                             text-align:right;
+                                            margin:0;
                                             span{
-                                                font-size: 14px;
+                                                font-size: 14px !important;
+                                                padding: 7px 27px !important;
                                             }
                                         }
-                                       
+                                        span label{
+                                            font-size: 14px;
+                                        }
+                                        .datepicker-cointainer{
+                                            #interval-startdate{
+                                                font-size: 13px;
+                                            }
+                                            label.mz-small{
+                                                right: 26px;
+                                                top:7px;
+                                            }
+                                        }
+                                        .how-long-input-sub{
+                                            .how-long-val{
+                                                padding:0 3px;
+                                                font-size: 13.5px;
+                                                width:88%; 
+                                            }
+                                            &:after{
+                                                right: 32px;
+                                                top: 18px;
+                                                width: 10px;
+                                                height: 6px;
+                                            }
+                                        }
                                         
                                     }
+                                
                                    
                                 }
                              }
@@ -3965,7 +4000,7 @@
 	}
 }
 //Ipad Portrait
-@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation:portrait){
+@media only screen  and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
     .mz-checkout{
         .mz-l-pagewrapper{
             .mz-l-pagecontent{
@@ -3984,13 +4019,82 @@
                                     }
                                 }
                             } 
+                           .mz-formstep.mz-checkoutform-paymentinfo{
+                                .mz-formstep-body {
+                                    .mz-formstep-fields .mz-l-stack-section{
+                                        .mz-l-formfieldgroup {
+                                            .mz-l-formfieldgroup-row.paymenttypes-choosing {
+                                                .payment-type-select {
+                                                    .select-ul .select-li{
+                                                        width: 40%; 
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                } 
+                            }
+                        }
+                        #checkout-rightcol.mz-l-column-2{ 
+                            .mz-checkoutform-paywith-rewards .subscription {
+                                width: 91%; 
+                                margin:14px auto;
+                            .expanded-section{
+                                width: 94% !important;
+                                .formGroup{
+                                    width:100%;
+                                    .how-often-input-sub{
+                                        width: 24%;
+                                        select{
+                                            font-size: 14px;
+                                        }
+                                    }
+                                    .weekormonth{
+                                        width:68%;
+                                        text-align:right;
+                                        margin:0;
+                                        span{
+                                            font-size: 14px !important;
+                                            padding: 7px 16px !important;
+                                        }
+                                    }
+                                    span label{
+                                        font-size: 14px;
+                                    }
+                                    .datepicker-cointainer{
+                                        #interval-startdate{
+                                            font-size: 13px;
+                                        }
+                                        label.mz-small{
+                                            right: 16px;
+                                            top:8px;
+                                        }
+                                    }
+                                    .how-long-input-sub{
+                                        .how-long-val{
+                                            padding:0 3px;
+                                            font-size: 12.5px;
+                                            width:88%; 
+                                        }
+                                        &:after{
+                                            right: 17px;
+                                            top: 18px;
+                                            width: 10px;
+                                            height: 6px;
+                                        }
+                                    }
+                                    
+                                }
+                            
+                                
+                            }
+                            }
                         }
                     }
-                }
-            }   
+                }   
+            } 
         } 
-
-    } 
+    }
         
 }
 
