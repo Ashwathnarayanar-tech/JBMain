@@ -99,6 +99,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         closeSignupPopup : function(){
             $('body').removeAttr('style');
             this.model.get('subscriptionData').singnupopoup.isEnabled = false;
+            $("body").removeClass("openPopup"); 
             this.render();
         },
         enableloginbutton : function(e){
@@ -246,6 +247,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
                 $('body').css('overflow','hidden');
+                $("body").addClass("openPopup"); 
                 $(document).find('.popupBody .popuptext').focus();
                 this.loopInpopup();
             }else{
@@ -349,6 +351,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 this.model.get('subscriptionData').singnupopoup.isEnabled = true;
                 this.render();
                 $('body').css('overflow','hidden');
+                $("body").addClass("openPopup"); 
                 $(document).find('.popupBody .popuptext').focus();
                 this.loopInpopup();
             }else{
