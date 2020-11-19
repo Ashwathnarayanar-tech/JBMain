@@ -677,7 +677,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var me = this;  
             this.model.attributes.savePrice = this.model.attributes.price.attributes.price - this.model.attributes.price.attributes.salePrice;
             console.log("this.model", this.model);
+            var quantityVal=$('#quantity-sub').val();
             Backbone.MozuView.prototype.render.apply(this);
+           $('#quantity-sub').html(quantityVal);
             me.dateSelector();
             if(window.wishlistFlag){
                 $(document).find('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist')).attr('aria-label',Hypr.getLabel('addedToWishlist'));
