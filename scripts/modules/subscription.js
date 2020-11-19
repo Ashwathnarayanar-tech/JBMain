@@ -1228,9 +1228,13 @@ define([
                 }
             },2000);
         });*/
-        
+
         if(myModel && myModel.isFirstPopup){
-            modelRapidOrder.loopInpopup();
+            setTimeout(function(){
+                $(document).find('.popup-body.popup-content').focus();
+                modelRapidOrder.loopInpopup();
+            },500);
+           
         }
 
         wireUpEvents();

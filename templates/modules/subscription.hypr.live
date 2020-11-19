@@ -1,6 +1,6 @@
 {% if model.isFirstPopup %}
 	<div class="first-popup">
-		<div class="popup-body">
+		<div class="popup-body" tabindex="0">
 			<div class="popup-content">
 				<div class="head-sec" tabindex="0"> 
 					<h2 class="content-text">Subscription Setup Page</h2>
