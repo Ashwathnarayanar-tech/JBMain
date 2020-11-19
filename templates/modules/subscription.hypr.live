@@ -1,11 +1,11 @@
 {% if model.isFirstPopup %}
 	<div class="first-popup">
 		<div class="popup-body">
-			<span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
 			<div class="popup-content">
-				<div class="head-sec"> 
+				<div class="head-sec" tabindex="0"> 
 					<h2 class="content-text">Subscription Setup Page</h2>
 				</div>
+				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
 				<div class="body-sec">
 					<ul class="item-list">  
 						<li class="list-item">
