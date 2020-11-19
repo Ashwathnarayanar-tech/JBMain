@@ -458,7 +458,30 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             // $.cookie("subscriptionCreated", true, { path: '/'});
             // $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
             // alert("go to subscription checkout.");
-            this.redirectTosubCheckout();
+            this.redirectToNormalCheckout();
+        },
+        redirectToNormalCheckout: function(e){
+            var cartModel = new CartModels.Cart(), self = this;
+            try{
+                $("body").removeClass("openPopup");
+                cartModel.apiGet().then(function(cart) {
+                    console.log('cart',cart); 
+                    cartModel.apiCheckout().then(function(cartId) {
+                        console.log('cartId',cartId);
+                        if(self.model.get('subscriptionData').popupData!==undefined){
+                            self.model.get('subscriptionData').popupData.isEnabled = false;
+                        }
+                        self.render(); 
+                        window.location.href = "/checkout/" + cartId.data.id;
+                    }, function(err) {
+                        console.warn(err);
+                    });
+                }, function(err) {
+                    console.log("cart error" + err);
+                });
+            }catch (err) { 
+                console.warn(err);
+            }
         },
         addTocartandConvertToSub : function(){
             var self = this;
