@@ -385,7 +385,8 @@ define([
             this.model.set('categoryList', newLisr);
             this.model.set('SubScriptionItemsList',itemsinsublist);
             this.model.set('total', this.calculateTotal(itemsinsublist));
-
+            var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
         },
         changeWeekorMonth : function(e){
@@ -1228,6 +1229,14 @@ define([
                 }
             },2000);
         });*/
+
+        if(myModel && myModel.isFirstPopup){
+            setTimeout(function(){
+                $(document).find('.popup-body.popup-content').focus();
+                modelRapidOrder.loopInpopup();
+            },500);
+           
+        }
 
         wireUpEvents();
     });

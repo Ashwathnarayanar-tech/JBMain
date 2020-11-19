@@ -457,6 +457,14 @@ define([
                 else{
                     window.location.href ="/cart";
                 }
+            },
+            setCartPagepath:function(){
+                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
+                     $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
+                 } 
+                 else{
+                    $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/cart");
+                 }
             }
         });
         var cartModel = window.cartModel = new CartModels.Cart(),
@@ -533,6 +541,9 @@ define([
                         } else {
                          $(document).find('.popover-content.login').hide();
                         }
+                    setTimeout(function(){
+                        miniCartView.setCartPagepath();
+                    },1000);
                 },
                 mouseleave: function (e) {
                     setTimeout(function(){
@@ -589,8 +600,12 @@ define([
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
         $(document).on('click', '.mz-utilitynav-link-cart', function(e){
             if($('.jb-minicart-popup').css('display') !== 'block'){
-             miniCartView.cartRedirection();
+                miniCartView.cartRedirection();
             }
+
+            setTimeout(function(){
+                miniCartView.setCartPagepath();
+            },1000);
         });
         $(document).on('click', '.mz-Mob-utilitynav-link-cart', function(e){
             miniCartView.cartRedirection();

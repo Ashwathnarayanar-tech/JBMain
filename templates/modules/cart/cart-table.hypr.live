@@ -243,28 +243,68 @@
                         <span tabindex="0">
                             <span class="mleft18">Subtotal <span class="count">{% if model.count>1 %} {{ model.count }} items {% else %} {{ model.count }} item{% endif %}</span></span>
                             <span id="mz-carttable-total" class="mz-carttable-total">
-                                {{ model.subtotal|currency }}
+                                {% comment %}silpa {{ model.subtotal|currency }}{% endcomment %}
+                                {{ model.discountedSubtotal|currency }}
                             </span>
                         </span>
                     </td>   
                 </tr> 
+                 {% comment %}
                 {% if model.discountTotal>0%}
-                <tr class="checkout-col checkout-mobile">
-                    <td> 
-                        <span tabindex="0">
-                            <span class="mleft18 mleft19">cart discount</span>
-                            <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
-                                  -{{ model.discountTotal|currency }}
-                            </span> 
-                            {% comment %}
-                                <span id="mz-carttable-total" class="mz-carttable-total mleft19">
-                                  {{ model.discountTotal|currency }}
-                                </span>  
-                            {% endcomment %}    
-                        </span>    
-                    </td> 
-                </tr>
+                {% dump model.orderDiscounts %}
+                {% dump model.discountTotal %}
+                    {% with model.orderDiscounts as discountData %}
+                        {% with discountData|first as getdiscountName %}
+                            <tr class="checkout-col checkout-mobile">
+                                <td> 
+                                    <span tabindex="0">
+                                        <span class="mleft18 mleft19">Discount</span>
+                                        <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                            {% if getdiscountName.impact && model.discountTotal > getdiscountName.impact && getdiscountName.couponCode !== "" %}
+                                              -{{ model.discountTotal|subtract(getdiscountName.impact)|currency }}
+                                            {% else %}
+                                                {% if getdiscountName.impact && model.discountTotal == getdiscountName.impact %}
+                                                   {{ model.discountTotal|currency }}
+                                                {% else %}
+                                                    {{ model.discountTotal|currency }}
+                                                {% endif %}
+                                            {% endif %}
+                                        </span>   
+                                    </span>    
+                                </td> 
+                            </tr>
+                            {% if getdiscountName.couponCode %}
+                                <tr class="checkout-col checkout-mobile">
+                                    <td> 
+                                        <span tabindex="0">
+                                            <span class="mleft18 mleft19">{{ getdiscountName.couponCode }}</span>
+                                                
+                                            <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                                  -{{ getdiscountName.impact|currency }}
+                                            </span> 
+                                               
+                                        </span>    
+                                    </td> 
+                                </tr>
+                            {% endif %}
+                        {% endwith %}
+                    {% endwith %}
                 {% endif %}
+                {% endcomment %}
+                {% for discount in model.orderDiscounts %}
+                    {% if not discount.excluded %}
+                        <tr class="checkout-col checkout-mobile discountCol">
+                            <td>
+                                <span tabindex="0">
+                                    <span class="mleft18 mleft19">{{ discount.discount.name }}</span>
+                                    <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                        - {{ discount.impact|currency }}
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                    {% endif %}
+                  {% endfor %}
                 <tr class="checkout-col checkout-mobile">
                     <td>
                         <span tabindex="0">
@@ -285,6 +325,22 @@
                         </span>      
                     </td>
                 </tr> 
+                {% comment %}
+                    {% for discount in model.orderDiscounts %}
+                        {% if not discount.excluded %}
+                      
+                          <tr class="mz-carttable-total-row">
+                            <td class="mz-carttable-total-label" colspan="3">
+                                <div>
+                                    <span class="mleft18">{{ discount.discount.name }}:</span>
+                                    <span class="mz-carttable-rowtotal">- {{ discount.impact|currency }}</span>
+                                    {% if discount.couponCode %}<span class="remove-coupon" coupon="{{ discount.couponCode }}" tabindex="0" role="button" aria-label="remove coupon">Remove</span>{% endif %} 
+                                </div>
+                            </td>
+                          </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endcomment %}
                 <tr class="mz-carttable-total-row checkout-col">
                     <td class="mz-carttable-total-wrap" colspan="4">
                         <span class="mleft18 order-total ordertotalWithoutshipping" tabindex="0">
