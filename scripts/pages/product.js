@@ -305,6 +305,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         getStarted : function(){
+            MiniCart.MiniCart.clearCart();
             var self = this;
             this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
             this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
@@ -320,7 +321,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                me.model.get('subscriptionData').popupData.isEnabled = false;
                me.render(); 
                 window.location.href = window.location.origin+"/subscription?productCode="+self.model.get('productCode')+"&qty="+$(document).find('.quantity-sub').val();
-            },500);            
+            },1000);            
         },
         loopInpopup:function(){
             
