@@ -19,10 +19,8 @@
         <div class="popup">
             <div class="popup-body">
                
-                <div class="popup-content">
-                    <span class="message" tabindex="0" role="contentinfo">
-                        {{model.subscriptionData.popupData.message|safe}}
-                    </span>
+                <div class="popup-content" aria-model="true">
+                    <span class="message" tabindex="0" role="contentinfo">{{model.subscriptionData.popupData.message|safe}}</span>
                      <button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
                     <div class="button-section">
                         {% for item in model.subscriptionData.popupData.buttons %}
@@ -274,13 +272,13 @@
         {% if  model.purchasableState.isPurchasable %}
             <section class="subscription">
                 <div class="section-head"> 
-                    <div class="subscribe-input checkbox-outer-label">
-                        <input type="checkbox" name="subscribe" id="subscribe" class="subscribe-input" {% if model.subscriptionData.showContent %}checked="checked"{% endif %} />
+                    <div class="subscribe-input checkbox-outer-label" aria-describedby="label-input" >
+                        <input  tabindex="0" type="checkbox" name="subscribe" id="subscribe" class="subscribe-input" {% if model.subscriptionData.showContent %}checked="checked"{% endif %} />
                         <span class="checkmark-style"></span>
                         <label for="subscribe" class="label-input">Subscribe</label>
                     </div>
-                    <div class="text-content-sub">
-                        <p class="text-place" tabindex="0">You can subscribe to this item (and others) to get regular deliveries on your own schedule!</p>
+                    <div class="text-content-sub" tabindex="0">
+                        <p class="text-place" >You can subscribe to this item (and others) to get regular deliveries on your own schedule!</p>
                     </div>
                 </div>
                 <div class="expanded-section {% if model.subscriptionData.showContent %}active{% endif %}">

@@ -412,7 +412,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         showOtherPopUptoConfirm : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "To create a Subscription, you must have only <strong>Subscription items</strong> in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to checkout?",
+                "message" :"To create a Subscription, you must have only <strong>Subscription items</strong> in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "No",
@@ -427,9 +427,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 ]
             };
             this.model.get('subscriptionData').popupData = popupData;
-            this.render(); 
+            this.render();
             $(document).find('.popup-body .message').focus();
-            this.loopInpopup();   
+       
+            this.loopInpopup(); 
             $("body").addClass("openPopup");   
         },  
         showOnemorePopUp : function(){
@@ -450,7 +451,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 ]
             };
             this.model.get('subscriptionData').popupData = popupData;
-            this.render();  
+            this.render();
+            $(document).find('.popup-body .message').focus();
+            this.loopInpopup(); 
             $("body").addClass("openPopup");     
         },
         goToCheckoutByNotAdding : function(){
@@ -702,7 +705,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             console.log("this.model", this.model);
             var quantityVal=$('#quantity-sub').val();
             Backbone.MozuView.prototype.render.apply(this);
-           $('#quantity-sub').html(quantityVal);
+            if(quantityVal>1){
+                 $('.subscription #quantity-sub').val(quantityVal);
+            }
+           
             me.dateSelector();
             if(window.wishlistFlag){
                 $(document).find('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist')).attr('aria-label',Hypr.getLabel('addedToWishlist'));
@@ -2152,6 +2158,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         $(document).on('keypress', '.popup-body .close-icon', function(e) {
             if(e.keyCode === 27 ){
                 window.productView.closePopup();
+            }
+        });   
+        $(document).on('keypress', '.span-tabs', function(e) {
+            if(e.keyCode === 13 ){
+                window.productView.changeWeekorMonth(e);
             }
         });   
         //ada for social sharing
