@@ -1228,6 +1228,10 @@ define([
                 }
             },2000);
         });*/
+        
+        if(myModel && myModel.isFirstPopup){
+            modelRapidOrder.loopInpopup();
+        }
 
         wireUpEvents();
     });
