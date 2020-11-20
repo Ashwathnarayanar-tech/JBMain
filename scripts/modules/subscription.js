@@ -1,4 +1,5 @@
 var modelRapidOrder;
+var itemClick;
 define([
     "modules/jquery-mozu",
     "hyprlive",
@@ -79,6 +80,7 @@ define([
         },
         createsubbtnClick : function(){
             var self = this;
+            itemClick = "create-subscription";
             $('.create-subscription').attr('disabled',true);
             if(MiniCart.MiniCart.model.get('items').length){
                 if($.cookie("subscriptionCreated") && $.cookie("subscriptionCreated") == "true"){
@@ -103,7 +105,7 @@ define([
                     this.model.set('popupData', popupData); 
                     this.render();
                     $('.create-subscription').attr('disabled',false);
-                    $(document).find('.popup-body .message').focus();
+                    $(document).find('.popup-content .message').focus();
                     this.loopInpopup();
                 }
             }else{
@@ -268,6 +270,7 @@ define([
                        
         },
         showClearPopUp : function(){
+            itemClick = "clearList";
             var itemsinsublist = this.model.get('SubScriptionItemsList');
             if(itemsinsublist.length){
                 var popupData = {
@@ -313,7 +316,16 @@ define([
             this.render(); 
             $(document).find('.popup-body .message').focus();
             this.loopInpopup();  
+            this.showFocus();
         }, 
+        showFocus:function(){
+            if(itemClick === "clearList"){
+                $(document).find('.clearList').focus();
+            }
+            if(itemClick === "create-subscription"){
+                $(document).find('.create-subscription').focus();
+            }
+        },
         clearList : function(e){
             var catList = this.model.get('categoryList'),newLisr;
             var itemsinsublist = this.model.get('SubScriptionItemsList');
@@ -352,6 +364,7 @@ define([
                     },2000);
                 }
                 this.render(); 
+                $(document).find('.headertital').focus();
             }
         },
         removeFromList : function(e){
