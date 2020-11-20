@@ -673,6 +673,12 @@ define([
             });  
             this.model.set('categoryList', catList); 
             this.render();
+            var self = this;
+            setTimeout(function(){
+                $(document).find('.product-list').focus();
+                self.loopInpopup("product-list");
+
+            },1000); 
         },
         search : _.debounce(function (e){
             var self = this;
@@ -717,7 +723,12 @@ define([
                     });
                     self.model.set('isSearchenabled', true);
                     self.model.set('searchResult', mySearch); 
-                    self.render();   
+                    self.render();  
+                    setTimeout(function(){
+                        $(document).find('.suggetion-list').focus();
+                        self.loopInpopup("suggetion-list");
+
+                    },1000); 
                 },function(error){
                     console.log("Error getting search result", error);
                 });
@@ -1091,11 +1102,15 @@ define([
                 return false;
             }
         },
-        loopInpopup:function(){
+        loopInpopup:function(ele){
+            if(ele){
+                window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
+            }
+            else
+            window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             
-            var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
-            var firstInput = window.firstInput = window.inputs.first();
-            var lastInput = window.lastInput = window.inputs.last(); 
+            window.firstInput = window.inputs.first();
+            window.lastInput = window.inputs.last(); 
             
             // if current element is last, get focus to first element on tab press.
             window.lastInput.on('keydown', function (e) {
@@ -1112,6 +1127,7 @@ define([
                     window.lastInput.focus();  
                 }
             }); 
+            console.log("window.inputs----",window.inputs);
         },
         render : function(){
             Backbone.MozuView.prototype.render.apply(this);

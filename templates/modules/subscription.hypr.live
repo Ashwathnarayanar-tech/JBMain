@@ -76,14 +76,14 @@
 			<span class="search-icon"></span>
 			{% if model.isSearchenabled %}
 				{% if model.isDesktop %}
-					<div class="suggetion-list">
+					<div class="suggetion-list" tabindex="0">
 						{% if model.searchResult.length > 0 %}
-						<div class="suggetion-head">
-							<span class="head-li itemId">ITEM #</span>
-							<span class="head-li description">DESCRIPTION</span>
-							<span class="head-li price">PRICE</span>
-							<span class="head-li heatsensitive">HEAT-SENSITIVE <span class="heatIcon" > i </span></span>
-							<span class="head-li quantity">QUANTITY</span>					
+						<div class="suggetion-head" tabindex="0">
+							<span class="head-li itemId" tabindex="0">ITEM #</span>
+							<span class="head-li description" tabindex="0">DESCRIPTION</span>
+							<span class="head-li price" tabindex="0">PRICE</span>
+							<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span></span>
+							<span class="head-li quantity" tabindex="0">QUANTITY</span>					
 						</div>
 						{% endif %}
 						<div class="suggetion-item-list" tabindex="0">
@@ -136,7 +136,7 @@
 					</div> 
 				{% else %}
 					{% if model.isMobile %}
-						<div class="suggetion-list">
+						<div class="suggetion-list" tabindex="0">
 							<div class="suggetion-item-list" tabindex="0">
 								{% if model.searchResult.length > 0 %}
 									{% for item in model.searchResult %}
@@ -189,7 +189,7 @@
 						</div>
 					{% else %}
 						{% if model.isTablet and model.isPotreate %}
-							<div class="suggetion-list">
+							<div class="suggetion-list" tabindex="0">
 								<div class="suggetion-item-list" tabindex="0">
 									{% if model.searchResult.length > 0 %}
 										{% for item in model.searchResult %}
@@ -241,13 +241,13 @@
 								</div>
 							</div>
 						{% else %}
-							<div class="suggetion-list">
-								<div class="suggetion-head">
-									<span class="head-li itemId">ITEM #</span>
-									<span class="head-li description">DESCRIPTION</span>
-									<span class="head-li price">PRICE</span>
-									<span class="head-li heatsensitive">HEAT-SENSITIVE <span class="heatIcon" > i </span> </span>
-									<span class="head-li quantity">QUANTITY</span>					
+							<div class="suggetion-list" tabindex="0">
+								<div class="suggetion-head" tabindex="0">
+									<span class="head-li itemId" tabindex="0">ITEM #</span>
+									<span class="head-li description" tabindex="0">DESCRIPTION</span>
+									<span class="head-li price" tabindex="0">PRICE</span>
+									<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span> </span>
+									<span class="head-li quantity" tabindex="0">QUANTITY</span>					
 								</div>
 								<div class="suggetion-item-list" tabindex="0">
 									{% if model.searchResult.length > 0 %}
