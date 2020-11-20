@@ -44,8 +44,8 @@
                     Let’s get started! You must login or create an account to start a Subscription.
                     </div>
                   </div>
-                  <div class="tabSec-actio">
-                    <span class="tabitem {% if model.subscriptionData.singnupopoup.login %}active{% endif %}" data-mz-data="login">Login</span><span class="tabitem {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}" data-mz-data="signup">Create an Account</span>
+                  <div class="tabSec-actio" tabindex="0">
+                    <span class="tabitem {% if model.subscriptionData.singnupopoup.login %}active{% endif %}" data-mz-data="login" tabindex="0" >Login</span><span class="tabitem {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}" data-mz-data="signup" tabindex="0">Create an Account</span>
                   </div>
                   <div class="tabs">
                     <div class="tab-item signup-form {% if model.subscriptionData.singnupopoup.signup %}active{% endif %}">
