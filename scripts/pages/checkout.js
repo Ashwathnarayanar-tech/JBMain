@@ -762,6 +762,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         getRenderContext : function () {
             var self = this;
             var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
+            var getcurrentState = window.checkoutViews.steps.shippingAddress.model.attributes.address.attributes.stateOrProvince;
+            var getShippingstates = Hypr.getThemeSetting('usStates');
+            var validateState = getShippingstates.filter(function(item){return item.abbreviation == getcurrentState;});
+            if(validateState.length === 0) {
+                c.model.availableShippingMethods = [];
+            }
             if(!this.model.get('shippingMethodCode')){
                 this.model.get('availableShippingMethods');
                 var lowestValue = _.min(this.model.get('availableShippingMethods'), function(ob) { return ob.price; });
@@ -2493,7 +2499,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         window.checkoutViews.comments.render();
         window.checkoutViews.orderSummary.render();
         window.checkoutViews.steps.shippingInfo.render();
-       PayPal.loadScript();
+        PayPal.loadScript();
       
         checkoutModel.on('complete', function() {
             CartMonitor.setCount(0);
