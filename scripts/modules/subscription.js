@@ -401,6 +401,7 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
+            $(document).find('.headertital').focus();
         },
         changeWeekorMonth : function(e){
             $(e.target).attr('data-mz-value');
@@ -450,7 +451,9 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
-            this.render();    
+            this.render();  
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
         increment : function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -495,8 +498,10 @@ define([
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
-        updateQuantityChanges : function(productCode,qty){
+        updateQuantityChanges : function(productCode,qty,e){
             var catList = this.model.get('categoryList');
             var serchList = this.model.get('searchResult');
             var subList = this.model.get('SubScriptionItemsList');
@@ -537,6 +542,8 @@ define([
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
         changeQuantity:function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -545,9 +552,24 @@ define([
             console.log(" productCode --- ",productCode,qty);
             var _this = this;
             setTimeout(function(){
-                _this.updateQuantityChanges(productCode,qty);
+                _this.updateQuantityChanges(productCode,qty,e);
             },500);
 
+        },
+        focusQuantity:function(productCode,isClearList){
+            console.log(" itemClick ----- ",itemClick);
+            var self = this;
+            setTimeout(function(){
+                if(itemClick === "search"){
+                    $(".suggetion-item .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                    self.loopInpopup("suggetion-list");
+                }
+                else if(isClearList && isClearList === 'true'){
+                    $(".listitemlist .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                }else{
+                    $(".product-list .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                }  
+            },1000);
         },
         selectthecatrgory : function(e){
             var catCode = $(e.target).attr('data-mz-catCode');
@@ -660,6 +682,13 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
+            setTimeout(function(){
+                if(itemClick === "search")
+                    $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
+                else
+                    $(".add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
+            },1000);
+            
         },
         changeCatList : function(e){
             var categoryCode = $(e.target).attr('data-mz-attr'); 
@@ -676,11 +705,12 @@ define([
             var self = this;
             setTimeout(function(){
                 $(document).find('.product-list').focus();
-                self.loopInpopup("product-list");
+               // self.loopInpopup("product-list");
 
             },1000); 
         },
         search : _.debounce(function (e){
+            itemClick = "search";
             var self = this;
             var query = $(e.target).val();
             var addedproductIds = [], qtyArray = [];
@@ -737,7 +767,8 @@ define([
         closeSearchOverlay : function(){
             this.model.set('isSearchenabled', false);
             this.model.set('searchResult', []); 
-            this.render();     
+            this.render();   
+            itemClick = "";  
         },
         closePopup : function(){
             $.cookie("ClosefirstPopup",true);
