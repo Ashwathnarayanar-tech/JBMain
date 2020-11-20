@@ -53,7 +53,7 @@
                             <div class="mz-l-formfieldgroup">
                                 <div class="mz-l-formfieldgroup-row half-width-block">
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <label for="signup-firstname">*First Name:</label>
+                                        <label for="signup-firstname"><span class="is-required" aria-label="Mandatory Field"> *</span><span>First Name:</span></label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="firstemailerror" type="text" class="mz-signup-firstname" placeholder="First Name" data-mz-signup-firstname="" id="signup-firstname" data-emailcapturepoint="Input Type"> <!-- ADA -->
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row half-width-second-block">
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <label for="signup-lastname">*Last Name:</label>
+                                        <label for="signup-lastname"><span class="is-required" aria-label="Mandatory Field"> *</span><span>Last Name:</span></label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="lastemailerror" type="text" class="mz-signup-lastname" placeholder="Last Name" data-mz-signup-lastname="" id="signup-lastname" data-emailcapturepoint="Input Type"> <!-- ADA -->
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <label for="signup-email" style="width: 280px">*Email Address:</label>
+                                        <label for="signup-email" style="width: 280px"><span class="is-required" aria-label="Mandatory Field"> *</span><span>Email Address:</span></label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="signupemailerror" type="email" class="mz-signup-email" id="signup-email" placeholder="Email Address" data-mz-signup-emailaddress="" data-emailcapturepoint="Sign Up">
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row password-row">
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <label for="pswd" style="width: 280px">*Password:</label>
+                                        <label for="pswd" style="width: 280px"><span class="is-required" aria-label="mandatory field"> *</span><span>Password:</span></label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input  aria-describedby="signuppassword" type="password" class="mz-signup-password" id="pswd" placeholder="Password" aria-describedby="pswd-msg" data-mz-signup-password="">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
                                     <div class="mz-l-formfieldgroup-cell">
-                                        <label for="cnf-pswd" style="width: 280px">*Confirm Password:</label>
+                                        <label for="cnf-pswd" style="width: 280px"><span class="is-required" aria-label="mandatory field"> *</span><span>Confirm Password:</span></label>
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell zero-cellspace">
                                         <input aria-describedby="confirmpassword" type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="Confirm Password" data-mz-signup-confirmpassword="">
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
                                     <div class="mz-l-formfieldgroup-cell required-fild-msg">
-                                        <span class="required">*Required Fields</span>
+                                        <span class="required"><span class="is-required" aria-label="mandatory field"> *</span><span>Required Fields</span></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
@@ -116,7 +116,7 @@
                                         <button class="mz-button mz-signup-register active-button" id="signup-submit" disabled>Register</button>
                                     </div>
                                 </div>
-                                 <section data-mz-role="mz-signup-register-message" class="mz-popover-message"></section>
+                                 <section data-mz-role="mz-signup-register-message" class="mz-popover-message" role="alert"></section>
                             </div>
                         </div>
                     </div>
