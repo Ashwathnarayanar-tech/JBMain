@@ -36,7 +36,7 @@
     <div class="popup">
         <div class="popup-body">
             <div class="popup-content">
-                <span class="message" tabindex="0" role="contentinfo">
+                <span class="message" tabindex="0" >
                     {{model.popupData.message|safe}}
                 </span>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopupdynamic" aria-label="close popup"></button>
