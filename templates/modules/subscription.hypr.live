@@ -624,7 +624,7 @@
 	            <div class="expanded-section">
 	                <div class="formGroup howofter">
 	                    <span class="how-often-label-sub">
-	                        <label for="howOften">How Often? Every</label>
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
 	                    </span>
 	                    <div class="how-often-input-sub">
 	                        <select class="how-often-val" name="howOften">
@@ -643,7 +643,7 @@
 	                </div>
 	                <div class="formGroup interval">
 	                    <span class="when-sub">
-	                        <label for="interval-startdate">When? Starting</label>
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 	                    </span>
 	                    <div class="datepicker-cointainer">
 	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -653,9 +653,9 @@
 	                </div>
 	                <div class="formGroup howling">
 	                    <span class="for-how-long-label-sub">
-	                        <label for="howlong">For How Long?</label>
+	                        <label for="howlong" tabindex="0">For How Long?</label>
 	                    </span>
-	                    <div class="how-long-input-sub">
+	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
 	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -700,7 +700,7 @@
 	            <div class="expanded-section"> 
 	                <div class="formGroup howofter">
 	                    <span class="how-often-label-sub">
-	                        <label for="howOften">How Often? Every</label>
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
 	                    </span>
 	                    <div class="how-often-input-sub">
 	                        <select class="how-often-val" name="howOften">
@@ -719,7 +719,7 @@
 	                </div>
 	                <div class="formGroup interval">
 	                    <span class="when-sub">
-	                        <label for="interval-startdate">When? Starting</label>
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 	                    </span>
 	                    <div class="datepicker-cointainer">
 	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -729,9 +729,9 @@
 	                </div>
 	                <div class="formGroup howling">
 	                    <span class="for-how-long-label-sub">
-	                        <label for="howlong">For How Long?</label>
+	                        <label for="howlong" tabindex="0">For How Long?</label>
 	                    </span>
-	                    <div class="how-long-input-sub">
+	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
 	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -846,7 +846,7 @@
 		            <div class="expanded-section"> 
 		                <div class="formGroup howofter">
 		                    <span class="how-often-label-sub">
-		                        <label for="howOften">How Often? Every</label>
+		                        <label for="howOften" tabindex="0">How Often? Every</label>
 		                    </span>
 		                    <div class="how-often-input-sub">
 		                        <select class="how-often-val" name="howOften">
@@ -865,7 +865,7 @@
 		                </div>
 		                <div class="formGroup interval">
 		                    <span class="when-sub">
-		                        <label for="interval-startdate">When? Starting</label>
+		                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 		                    </span>
 		                    <div class="datepicker-cointainer">
 		                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -875,9 +875,9 @@
 		                </div>
 		                <div class="formGroup howling">
 		                    <span class="for-how-long-label-sub">
-		                        <label for="howlong">For How Long?</label>
+		                        <label for="howlong" tabindex="0">For How Long?</label>
 		                    </span>
-		                    <div class="how-long-input-sub">
+		                    <div class="how-long-input-sub" tabindex="0">
 		                        <select class="how-long-val" name="howlong">
 		                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -1043,7 +1043,7 @@
 			            <div class="expanded-section">
 			                <div class="formGroup howofter">
 			                    <span class="how-often-label-sub">
-			                        <label for="howOften">How Often? Every</label>
+			                        <label for="howOften" tabindex="0">How Often? Every</label>
 			                    </span>
 			                    <div class="how-often-input-sub">
 			                        <select class="how-often-val" name="howOften">
@@ -1062,7 +1062,7 @@
 			                </div>
 			                <div class="formGroup interval">
 			                    <span class="when-sub">
-			                        <label for="interval-startdate">When? Starting</label>
+			                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 			                    </span>
 			                    <div class="datepicker-cointainer">
 			                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -1072,9 +1072,9 @@
 			                </div>
 			                <div class="formGroup howling">
 			                    <span class="for-how-long-label-sub">
-			                        <label for="howlong">For How Long?</label>
+			                        <label for="howlong" tabindex="0">For How Long?</label>
 			                    </span>
-			                    <div class="how-long-input-sub">
+			                    <div class="how-long-input-sub" tabindex="0">
 			                        <select class="how-long-val" name="howlong">
 			                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 			                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
