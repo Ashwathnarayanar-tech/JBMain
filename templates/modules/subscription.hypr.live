@@ -36,7 +36,7 @@
     <div class="popup">
         <div class="popup-body">
             <div class="popup-content">
-                <span class="message" tabindex="0" role="contentinfo">
+                <span class="message" tabindex="0" >
                     {{model.popupData.message|safe}}
                 </span>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopupdynamic" aria-label="close popup"></button>
@@ -76,14 +76,14 @@
 			<span class="search-icon"></span>
 			{% if model.isSearchenabled %}
 				{% if model.isDesktop %}
-					<div class="suggetion-list">
+					<div class="suggetion-list" tabindex="0">
 						{% if model.searchResult.length > 0 %}
-						<div class="suggetion-head">
-							<span class="head-li itemId">ITEM #</span>
-							<span class="head-li description">DESCRIPTION</span>
-							<span class="head-li price">PRICE</span>
-							<span class="head-li heatsensitive">HEAT-SENSITIVE <span class="heatIcon" > i </span></span>
-							<span class="head-li quantity">QUANTITY</span>					
+						<div class="suggetion-head" tabindex="0">
+							<span class="head-li itemId" tabindex="0">ITEM #</span>
+							<span class="head-li description" tabindex="0">DESCRIPTION</span>
+							<span class="head-li price" tabindex="0">PRICE</span>
+							<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span></span>
+							<span class="head-li quantity" tabindex="0">QUANTITY</span>					
 						</div>
 						{% endif %}
 						<div class="suggetion-item-list" tabindex="0">
@@ -122,7 +122,7 @@
 											{% endif %}
 										</span>
 										<span class="item-li quantity" tabindex="0" aria-label="item Quantity 1">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
 											<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 											<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 											<div class="clear"></div>
@@ -136,7 +136,7 @@
 					</div> 
 				{% else %}
 					{% if model.isMobile %}
-						<div class="suggetion-list">
+						<div class="suggetion-list" tabindex="0">
 							<div class="suggetion-item-list" tabindex="0">
 								{% if model.searchResult.length > 0 %}
 									{% for item in model.searchResult %}
@@ -175,7 +175,7 @@
 												{% endif %}
 											</span>			 							
 											<span class="item-li quantity"  tabindex="0" aria-label="item Quantity 1">
-												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
 												<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 												<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 												<div class="clear"></div>
@@ -189,7 +189,7 @@
 						</div>
 					{% else %}
 						{% if model.isTablet and model.isPotreate %}
-							<div class="suggetion-list">
+							<div class="suggetion-list" tabindex="0">
 								<div class="suggetion-item-list" tabindex="0">
 									{% if model.searchResult.length > 0 %}
 										{% for item in model.searchResult %}
@@ -228,7 +228,7 @@
 													{% endif %}
 												</span>			 							
 												<span class="item-li quantity" tabindex="0" aria-label="item Quantity 1">
-													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
 													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 													<div class="clear"></div>
@@ -241,13 +241,13 @@
 								</div>
 							</div>
 						{% else %}
-							<div class="suggetion-list">
-								<div class="suggetion-head">
-									<span class="head-li itemId">ITEM #</span>
-									<span class="head-li description">DESCRIPTION</span>
-									<span class="head-li price">PRICE</span>
-									<span class="head-li heatsensitive">HEAT-SENSITIVE <span class="heatIcon" > i </span> </span>
-									<span class="head-li quantity">QUANTITY</span>					
+							<div class="suggetion-list" tabindex="0">
+								<div class="suggetion-head" tabindex="0">
+									<span class="head-li itemId" tabindex="0">ITEM #</span>
+									<span class="head-li description" tabindex="0">DESCRIPTION</span>
+									<span class="head-li price" tabindex="0">PRICE</span>
+									<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span> </span>
+									<span class="head-li quantity" tabindex="0">QUANTITY</span>					
 								</div>
 								<div class="suggetion-item-list" tabindex="0">
 									{% if model.searchResult.length > 0 %}
@@ -285,7 +285,7 @@
 													{% endif %}
 												</span>
 												<span class="item-li quantity" tabindex="0" aria-label="item Quantity 1">
-													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
 													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 													<div class="clear"></div>
@@ -363,7 +363,7 @@
 									{% endif %}
 								</span>
 								<span class="item-li quantity">
-									<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="-1" name="quantity-sub"  data-mz-productCode="{{item.productCode}}" data-mz-value="quantity" min="1" max="25" >
+									<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="0" name="quantity-sub"  data-mz-productCode="{{item.productCode}}" data-mz-value="quantity" min="1" max="25" >
 		                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 		                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 		                            <div class="clear"></div>
@@ -420,7 +420,7 @@
 											{% endif %}
 										</span>			 							
 										<span class="item-li quantity">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
 				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 				                            <div class="clear"></div>
@@ -477,7 +477,7 @@
 												{% endif %}
 											</span>			 							
 											<span class="item-li quantity">
-												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
 					                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 					                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 					                            <div class="clear"></div>
@@ -548,7 +548,7 @@
 											{% endif %}
 										</span>
 										<span class="item-li quantity">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}"  data-mz-value="quantity" min="1" max="25" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}"  data-mz-value="quantity" min="1" max="25" >
 				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 				                            <div class="clear"></div>
@@ -585,7 +585,7 @@
 							<div class="list-item">
 								<span class="item-li decreption" tabindex="0">{{item.name|safe}}</span>
 								<span class="item-li quantity" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
-									<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1"  data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+									<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0"  data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25"  data-mz-clearList="true">
 		                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 		                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 		                            <div class="clear"></div>
@@ -624,7 +624,7 @@
 	            <div class="expanded-section">
 	                <div class="formGroup howofter">
 	                    <span class="how-often-label-sub">
-	                        <label for="howOften">How Often? Every</label>
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
 	                    </span>
 	                    <div class="how-often-input-sub">
 	                        <select class="how-often-val" name="howOften">
@@ -643,7 +643,7 @@
 	                </div>
 	                <div class="formGroup interval">
 	                    <span class="when-sub">
-	                        <label for="interval-startdate">When? Starting</label>
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 	                    </span>
 	                    <div class="datepicker-cointainer">
 	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -653,9 +653,9 @@
 	                </div>
 	                <div class="formGroup howling">
 	                    <span class="for-how-long-label-sub">
-	                        <label for="howlong">For How Long?</label>
+	                        <label for="howlong" tabindex="0">For How Long?</label>
 	                    </span>
-	                    <div class="how-long-input-sub">
+	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
 	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -700,7 +700,7 @@
 	            <div class="expanded-section"> 
 	                <div class="formGroup howofter">
 	                    <span class="how-often-label-sub">
-	                        <label for="howOften">How Often? Every</label>
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
 	                    </span>
 	                    <div class="how-often-input-sub">
 	                        <select class="how-often-val" name="howOften">
@@ -719,7 +719,7 @@
 	                </div>
 	                <div class="formGroup interval">
 	                    <span class="when-sub">
-	                        <label for="interval-startdate">When? Starting</label>
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 	                    </span>
 	                    <div class="datepicker-cointainer">
 	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -729,9 +729,9 @@
 	                </div>
 	                <div class="formGroup howling">
 	                    <span class="for-how-long-label-sub">
-	                        <label for="howlong">For How Long?</label>
+	                        <label for="howlong" tabindex="0">For How Long?</label>
 	                    </span>
-	                    <div class="how-long-input-sub">
+	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
 	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -807,7 +807,7 @@
 											<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
 										</span>			 							
 										<span class="item-li quantity">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
 				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 				                            <div class="clear"></div>
@@ -846,7 +846,7 @@
 		            <div class="expanded-section"> 
 		                <div class="formGroup howofter">
 		                    <span class="how-often-label-sub">
-		                        <label for="howOften">How Often? Every</label>
+		                        <label for="howOften" tabindex="0">How Often? Every</label>
 		                    </span>
 		                    <div class="how-often-input-sub">
 		                        <select class="how-often-val" name="howOften">
@@ -865,7 +865,7 @@
 		                </div>
 		                <div class="formGroup interval">
 		                    <span class="when-sub">
-		                        <label for="interval-startdate">When? Starting</label>
+		                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 		                    </span>
 		                    <div class="datepicker-cointainer">
 		                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -875,9 +875,9 @@
 		                </div>
 		                <div class="formGroup howling">
 		                    <span class="for-how-long-label-sub">
-		                        <label for="howlong">For How Long?</label>
+		                        <label for="howlong" tabindex="0">For How Long?</label>
 		                    </span>
-		                    <div class="how-long-input-sub">
+		                    <div class="how-long-input-sub" tabindex="0">
 		                        <select class="how-long-val" name="howlong">
 		                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
@@ -953,7 +953,7 @@
 												<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
 											</span>			 							
 											<span class="item-li quantity">
-												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
 					                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 					                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 					                            <div class="clear"></div>
@@ -1004,7 +1004,7 @@
 									<div class="list-item">
 										<span class="item-li decreption">{{item.name|safe}}</span>
 										<span class="item-li quantity" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="-1" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
 				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
 				                            <div class="clear"></div>
@@ -1043,7 +1043,7 @@
 			            <div class="expanded-section">
 			                <div class="formGroup howofter">
 			                    <span class="how-often-label-sub">
-			                        <label for="howOften">How Often? Every</label>
+			                        <label for="howOften" tabindex="0">How Often? Every</label>
 			                    </span>
 			                    <div class="how-often-input-sub">
 			                        <select class="how-often-val" name="howOften">
@@ -1062,7 +1062,7 @@
 			                </div>
 			                <div class="formGroup interval">
 			                    <span class="when-sub">
-			                        <label for="interval-startdate">When? Starting</label>
+			                        <label for="interval-startdate" tabindex="0">When? Starting</label>
 			                    </span>
 			                    <div class="datepicker-cointainer">
 			                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
@@ -1072,9 +1072,9 @@
 			                </div>
 			                <div class="formGroup howling">
 			                    <span class="for-how-long-label-sub">
-			                        <label for="howlong">For How Long?</label>
+			                        <label for="howlong" tabindex="0">For How Long?</label>
 			                    </span>
-			                    <div class="how-long-input-sub">
+			                    <div class="how-long-input-sub" tabindex="0">
 			                        <select class="how-long-val" name="howlong">
 			                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
 			                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>

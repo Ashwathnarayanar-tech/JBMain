@@ -1,4 +1,5 @@
 var modelRapidOrder;
+var itemClick;
 define([
     "modules/jquery-mozu",
     "hyprlive",
@@ -79,6 +80,7 @@ define([
         },
         createsubbtnClick : function(){
             var self = this;
+            itemClick = "create-subscription";
             $('.create-subscription').attr('disabled',true);
             if(MiniCart.MiniCart.model.get('items').length){
                 if($.cookie("subscriptionCreated") && $.cookie("subscriptionCreated") == "true"){
@@ -103,7 +105,7 @@ define([
                     this.model.set('popupData', popupData); 
                     this.render();
                     $('.create-subscription').attr('disabled',false);
-                    $(document).find('.popup-body .message').focus();
+                    $(document).find('.popup-content .message').focus();
                     this.loopInpopup();
                 }
             }else{
@@ -268,6 +270,7 @@ define([
                        
         },
         showClearPopUp : function(){
+            itemClick = "clearList";
             var itemsinsublist = this.model.get('SubScriptionItemsList');
             if(itemsinsublist.length){
                 var popupData = {
@@ -313,7 +316,16 @@ define([
             this.render(); 
             $(document).find('.popup-body .message').focus();
             this.loopInpopup();  
+            this.showFocus();
         }, 
+        showFocus:function(){
+            if(itemClick === "clearList"){
+                $(document).find('.clearList').focus();
+            }
+            if(itemClick === "create-subscription"){
+                $(document).find('.create-subscription').focus();
+            }
+        },
         clearList : function(e){
             var catList = this.model.get('categoryList'),newLisr;
             var itemsinsublist = this.model.get('SubScriptionItemsList');
@@ -352,6 +364,7 @@ define([
                     },2000);
                 }
                 this.render(); 
+                $(document).find('.headertital').focus();
             }
         },
         removeFromList : function(e){
@@ -388,6 +401,7 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
+            $(document).find('.headertital').focus();
         },
         changeWeekorMonth : function(e){
             $(e.target).attr('data-mz-value');
@@ -437,7 +451,9 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
-            this.render();    
+            this.render();  
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
         increment : function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -482,8 +498,10 @@ define([
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
-        updateQuantityChanges : function(productCode,qty){
+        updateQuantityChanges : function(productCode,qty,e){
             var catList = this.model.get('categoryList');
             var serchList = this.model.get('searchResult');
             var subList = this.model.get('SubScriptionItemsList');
@@ -524,6 +542,8 @@ define([
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
+            var isClearList =  $(e.target).attr('data-mz-clearList');
+            this.focusQuantity(productCode,isClearList);  
         },
         changeQuantity:function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -532,9 +552,24 @@ define([
             console.log(" productCode --- ",productCode,qty);
             var _this = this;
             setTimeout(function(){
-                _this.updateQuantityChanges(productCode,qty);
+                _this.updateQuantityChanges(productCode,qty,e);
             },500);
 
+        },
+        focusQuantity:function(productCode,isClearList){
+            console.log(" itemClick ----- ",itemClick);
+            var self = this;
+            setTimeout(function(){
+                if(itemClick === "search"){
+                    $(".suggetion-item .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                    self.loopInpopup("suggetion-list");
+                }
+                else if(isClearList && isClearList === 'true'){
+                    $(".listitemlist .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                }else{
+                    $(".product-list .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                }  
+            },1000);
         },
         selectthecatrgory : function(e){
             var catCode = $(e.target).attr('data-mz-catCode');
@@ -647,6 +682,13 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
+            setTimeout(function(){
+                if(itemClick === "search")
+                    $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
+                else
+                    $(".add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
+            },1000);
+            
         },
         changeCatList : function(e){
             var categoryCode = $(e.target).attr('data-mz-attr'); 
@@ -660,8 +702,15 @@ define([
             });  
             this.model.set('categoryList', catList); 
             this.render();
+            var self = this;
+            setTimeout(function(){
+                $(document).find('.product-list').focus();
+               // self.loopInpopup("product-list");
+
+            },1000); 
         },
         search : _.debounce(function (e){
+            itemClick = "search";
             var self = this;
             var query = $(e.target).val();
             var addedproductIds = [], qtyArray = [];
@@ -704,7 +753,12 @@ define([
                     });
                     self.model.set('isSearchenabled', true);
                     self.model.set('searchResult', mySearch); 
-                    self.render();   
+                    self.render();  
+                    setTimeout(function(){
+                        $(document).find('.suggetion-list').focus();
+                        self.loopInpopup("suggetion-list");
+
+                    },1000); 
                 },function(error){
                     console.log("Error getting search result", error);
                 });
@@ -713,7 +767,8 @@ define([
         closeSearchOverlay : function(){
             this.model.set('isSearchenabled', false);
             this.model.set('searchResult', []); 
-            this.render();     
+            this.render();   
+            itemClick = "";  
         },
         closePopup : function(){
             $.cookie("ClosefirstPopup",true);
@@ -1078,11 +1133,15 @@ define([
                 return false;
             }
         },
-        loopInpopup:function(){
+        loopInpopup:function(ele){
+            if(ele){
+                window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
+            }
+            else
+            window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             
-            var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
-            var firstInput = window.firstInput = window.inputs.first();
-            var lastInput = window.lastInput = window.inputs.last(); 
+            window.firstInput = window.inputs.first();
+            window.lastInput = window.inputs.last(); 
             
             // if current element is last, get focus to first element on tab press.
             window.lastInput.on('keydown', function (e) {
@@ -1099,6 +1158,7 @@ define([
                     window.lastInput.focus();  
                 }
             }); 
+            console.log("window.inputs----",window.inputs);
         },
         render : function(){
             Backbone.MozuView.prototype.render.apply(this);
