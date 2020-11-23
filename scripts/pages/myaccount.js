@@ -1437,7 +1437,11 @@
                 try {
                     var _this=this,existingEntityData=[],
                     subscriptionModel = Backbone.MozuModel.extend({});
-
+                    $('.subscription-list-header').removeClass('active');
+                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
+                        $(e.currentTarget).addClass('active');
+                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
+                        _this.changeToggleStatus(subId,true);
                      Api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subId}).then(function(res) {
                         if (!res.error &&  res.res.subscriptionId !== undefined) {
                             if(res.res && res.res.order && res.res.order.billingInfo){
@@ -1470,12 +1474,6 @@
                             model: new subscriptionModel(existingEntityData)
                         }); 
                         mySubscription.render();
-
-                        $('.subscription-list-header').removeClass('active');
-                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
-                        $(e.currentTarget).addClass('active');
-                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
-                        _this.changeToggleStatus(subId,true);
                         setTimeout(function(){
                             console.log("herer in deliveries ");
                             window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
