@@ -2500,7 +2500,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             if(window.location.search.indexOf("chktSub=true") != -1 || (typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true')){
                 $(document).find('.subscription').addClass('active');
                 $(document).find('.place-subscrition-btn').addClass('active');
-                $(document).find('.place-order-btn').removeClass('active');    
+                $(document).find('.place-order-btn').removeClass('active');   
+                $('.mz-pagetitle span').html('Subscription Checkout');
             }
         };
 

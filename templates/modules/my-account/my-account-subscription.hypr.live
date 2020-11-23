@@ -39,7 +39,7 @@
 					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-payment-details cancelled-subscription"{% else %}"subscription-payment-details"{% endif %}>
 						{% if pageContext.isTablet %}
 							<div class="subscription-actions"> 
-								<div class="button-container" role="alert">
+								<div class="button-container" >
 									{% if order.subscribedStatus == "Cancelled" %}
 										<button disabled class="cancelled">Cancelled Subscription</button>
 									{% else %}
@@ -60,11 +60,11 @@
 									<div class="billing-address" tabindex="0" >
 										<label>Billing Information</label>
 										<div class="address-section" tabindex="0" aria-label="billing address">
-											<span role="alert">{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.address1}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.address2}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
+											<span >{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.address1}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.address2}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
+											<span >{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
 										</div>
 									</div>
 									<div class="subscription-payment" tabindex="0" aria-label="payment details">
@@ -72,8 +72,8 @@
 										<div class="payment-section">
 											{% for pay in order.order.payments %}
 												{% if pay.paymentType == "CreditCard" %}
-													<span role="alert">{{pay.billingInfo.card.paymentOrCardType}}</span>
-													<span role="alert">Ending with {{pay.billingInfo.card.cardNumberPartOrMask|split('*')|last}}</span>
+													<span >{{pay.billingInfo.card.paymentOrCardType}}</span>
+													<span >Ending with {{pay.billingInfo.card.cardNumberPartOrMask|split('*')|last}}</span>
 												{% endif %}
 											{% endfor %}	
 										</div>
@@ -83,17 +83,17 @@
 									<div class="shipping-info" tabindex="0" aria-label="shipping address">
 										<label>Shipping Address</label>
 										<div class="address-section">
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
 										</div>
 									</div>
 									<div class="shipping-method" tabindex="0" aria-label="shipping method">
 										<label>Shipping Method</label>
 										<div class="address-section">
-											<span role="alert">{{order.order.fulfillmentInfo.shippingMethodName}}</span>
+											<span >{{order.order.fulfillmentInfo.shippingMethodName}}</span>
 										</div>
 									</div>	
 								</div>
@@ -104,21 +104,21 @@
 									<div class="billing-address" tabindex="0" aria-label="billing address">
 										<label>Billing Information</label>
 										<div class="address-section">
-											<span role="alert">{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.address1}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.address2}}</span>
-											<span role="alert">{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
+											<span >{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.address1}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.address2}}</span>
+											<span >{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
 											{% if model.order.billingInfo.billingContact.phoneNumbers !== null %}
-												<span role="alert">{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
+												<span >{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
 											{% endif %}
 										</div>
 									</div>
 									<div class="subscription-payment"  tabindex="0" aria-label="payment details">
 										<label>Payment Information</label>
 										<div class="payment-section">
-											<span tabindex="0" role="alert">{{order.order.billingInfo.card.cardType}} </span>
+											<span tabindex="0" >{{order.order.billingInfo.card.cardType}} </span>
 											{% if order.order.billingInfo.card.lastFour !="" %}
-												<span tabindex="0" role="alert">  Ending with {{ order.order.billingInfo.card.lastFour }} </span>
+												<span tabindex="0" >  Ending with {{ order.order.billingInfo.card.lastFour }} </span>
 											{% endif %}		
 											</div>
 									</div>
@@ -127,18 +127,18 @@
 									<div class="shipping-info" tabindex="0" aria-label="shipping address">
 										<label>Shipping Address</label>
 										<div class="address-section">
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
-											<span role="alert">{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
+											<span >{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
 										</div>
 									</div>
 									<div class="shipping-method" tabindex="0" aria-label="shipping method">
 										<label>Shipping Method</label>
 										<div class="address-section">
-											<span role="alert">{{order.order.fulfillmentInfo.shippingMethodName}}</span>
-											<span role="alert">{{order.order.estimationInfo.estimation}}</span>
+											<span >{{order.order.fulfillmentInfo.shippingMethodName}}</span>
+											<span >{{order.order.estimationInfo.estimation}}</span>
 										</div>
 									</div>	
 								</div>
@@ -146,9 +146,7 @@
 							<div class="subscription-actions"> 
 								<div class="button-container">
 									{% if order.subscribedStatus == "Cancelled" %}
-										<button disabled class="cancelled">Edit Subscription</button>
-										<button disabled class="cancelled">Pause/Unpause Subscription</button>
-										<button disabled class="cancelled">Cancel Subscription</button>
+										<button disabled class="cancelled">Cancelled Subscription</button>
 									{% else %}
 										{% if order.subscribedStatus == "Active" or order.subscribedStatus == "Paused" %}
 											<button data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="edit" >Edit Subscription</button>
@@ -168,29 +166,29 @@
 						<span class="heading" tabindex="0" aria-label="subscription Deliveries">Deliveries</span>
 						<div>
 							{% if order.currentPage > 1 %}
-								<span class="previous" tabindex="0" role="alert" data-mz-action="previousDelivery" data-subscription-id="{{order.subscriptionId}}" index={{order.currentPage}}><img src="../../../resources/images/left-arrow.svg" alt=""/><span class="sr-only">Previous Deliveries</span></span>
+								<span class="previous" tabindex="0"  data-mz-action="previousDelivery" data-subscription-id="{{order.subscriptionId}}" index={{order.currentPage}}><img src="../../../resources/images/left-arrow.svg" alt=""/><span class="sr-only">Previous Deliveries</span></span>
 							{% endif %}
 							{% with order.schedule.delivered as delivered %}
 								<ul> 
 									{% for d in order.schedule.noOfDeliveries %} 
 										{% if order.open and (forloop.index > order.startDelivery and forloop.index <= order.endDeliivery) %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered" tabindex="0"><span  {% if forloop.index == delivered %} style ="display:none" {% endif %} role="alert">Order</span> {{d}} <span class= "sr-only" {% if forloop.index == delivered %} style ="display:none" {% endif %} >Delivered</span></li>
+												<li class="delivered" tabindex="0"><span  {% if forloop.index == delivered %} style ="display:none" {% endif %} >Order</span> {{d}} <span class= "sr-only" {% if forloop.index == delivered %} style ="display:none" {% endif %} >Delivered</span></li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused"  tabindex="0"><span class="sr-only" role="alert">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused"  tabindex="0"><span class="sr-only" >Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li  tabindex="0" role="alert"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li  tabindex="0" ><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% else %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered hide" tabindex="0"><span class="sr-only">Order</span>{{d}}<span class="sr-only" role="alert">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered hide" tabindex="0"><span class="sr-only">Order</span>{{d}}<span class="sr-only" >Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused hide" tabindex="0"><span class="sr-only">Order</span>{{d}} <span class="sr-only" role="alert">Paused</span></li>
+													<li class="paused hide" tabindex="0"><span class="sr-only">Order</span>{{d}} <span class="sr-only" >Paused</span></li>
 												{% else %}
-													<li class="hide" tabindex="0"><span class="sr-only" role="alert">Order</span> {{d}} <span class="sr-only" role="alert">Yet to be Delivered</span></li>
+													<li class="hide" tabindex="0"><span class="sr-only" >Order</span> {{d}} <span class="sr-only" >Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% endif %}	
@@ -198,7 +196,7 @@
 								</ul>
 							{% endwith %}
 							{% if order.currentPage < order.pages %}
-								<span class="next" tabindex="0" role="alert" data-mz-action="nextDelivery" data-subscription-id="{{order.subscriptionId}}" index={{order.currentPage}}><img src="../../../resources/images/right-arrow.svg" alt=""/><span class="sr-only">Next Deliveries</span></span>
+								<span class="next" tabindex="0"  data-mz-action="nextDelivery" data-subscription-id="{{order.subscriptionId}}" index={{order.currentPage}}><img src="../../../resources/images/right-arrow.svg" alt=""/><span class="sr-only">Next Deliveries</span></span>
 							{% endif %}
 						</div>
 					</div>
@@ -374,9 +372,9 @@
 								<div class="subscription-payment" tabindex="0">
 									<label>Payment Information</label>
 									<div class="payment-section">
-										<span tabindex="0" role="alert">{{order.order.billingInfo.card.cardType}} </span>
+										<span tabindex="0" >{{order.order.billingInfo.card.cardType}} </span>
 										{% if order.order.billingInfo.card.lastFour !="" %}
-											<span tabindex="0" role="alert">  Ending with {{ order.order.billingInfo.card.lastFour }} </span>
+											<span tabindex="0" >  Ending with {{ order.order.billingInfo.card.lastFour }} </span>
 										{% endif %}	
 									</div>
 								</div>
@@ -396,7 +394,7 @@
 									<label>Shipping Method</label>
 									<div class="address-section">
 										<span>{{order.order.fulfillmentInfo.shippingMethodName}}</span>
-										<span role="alert">{{order.order.estimationInfo.estimation}}</span>
+										<span >{{order.order.estimationInfo.estimation}}</span>
 									</div>
 								</div>	
 							</div>
