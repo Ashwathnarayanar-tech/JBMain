@@ -15,8 +15,10 @@
             {% dump coupon %}
             </div>
             {% endcomment %}
-            {% if coupon.couponCode %}
+            {% if coupon.couponCode!=="" %}
                 <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div>  
+            {% else %}
+                  <button class="mz-button" data-mz-action="addCoupon" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>  
             {% endif %}
         {% endfor %}
     {% else %}
