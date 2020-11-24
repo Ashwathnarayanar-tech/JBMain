@@ -1432,11 +1432,16 @@
                 window.mySubscription.model.set({'open':false});
                 window.mySubscription.render();
                 active=false;
+                this.changeToggleStatus(subId,false);
             }else{
                 try {
                     var _this=this,existingEntityData=[],
                     subscriptionModel = Backbone.MozuModel.extend({});
-
+                    $('.subscription-list-header').removeClass('active');
+                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
+                        $(e.currentTarget).addClass('active');
+                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
+                        _this.changeToggleStatus(subId,true);
                      Api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subId}).then(function(res) {
                         if (!res.error &&  res.res.subscriptionId !== undefined) {
                             if(res.res && res.res.order && res.res.order.billingInfo){
@@ -1469,12 +1474,6 @@
                             model: new subscriptionModel(existingEntityData)
                         }); 
                         mySubscription.render();
-
-                        $('.subscription-list-header').removeClass('active');
-                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
-                        $(e.currentTarget).addClass('active');
-                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
-
                         setTimeout(function(){
                             console.log("herer in deliveries ");
                             window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
@@ -1496,6 +1495,15 @@
              for(var i=0;i<this.model.get('orderDetails').length;i++){
                 if(this.model.get('orderDetails')[i].subscriptionId === subId ){
                     this.model.get('orderDetails')[i].subscribedStatus = status;
+                }
+            }
+            this.render();
+        },
+        changeToggleStatus:function(subId,status){
+            console.log("this.model ",this.model);
+             for(var i=0;i<this.model.get('orderDetails').length;i++){
+                if(this.model.get('orderDetails')[i].subscriptionId === subId ){
+                    this.model.get('orderDetails')[i].open = status;
                 }
             }
             this.render();

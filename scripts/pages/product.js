@@ -307,7 +307,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         getStarted : function(){
-            MiniCart.MiniCart.clearCart();
+           // MiniCart.MiniCart.clearCart();
             var self = this;
             this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
             this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
