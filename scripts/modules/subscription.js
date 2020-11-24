@@ -707,7 +707,7 @@ define([
                 $(document).find('.product-list').focus();
                // self.loopInpopup("product-list");
 
-            },1000); 
+            },100); 
         },
         search : _.debounce(function (e){
             itemClick = "search";
