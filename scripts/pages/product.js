@@ -234,6 +234,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.model.get('subscriptionData').singnupopoup.signup = $(e.target).attr('data-mz-data') == "signup" ? true : false;
             this.model.get('subscriptionData').singnupopoup.login = $(e.target).attr('data-mz-data') == "login" ? true : false;
             this.render(); 
+            $(document).find('.popupBody .popuptext').focus();
+            this.loopInpopup();
         },
         changeWeekorMonth : function(e){
             $(e.target).attr('data-mz-value');
