@@ -2003,26 +2003,33 @@
                 }
            }
         },
-        loopInPopups: function(){
-            var inputs = $(document).find('.popup-body').find('button,[tabindex="0"]');
-            var firstInput =  inputs.first();
-            var lastInput = inputs.last(); 
+        loopInPopups:function(ele){
+            if(ele){
+                window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
+            }
+            else
+            window.inputs = $(document).find('.subscriptionpopup .popup-body').find('button,[tabindex="0"],a,input');
+            
+            window.firstInput = window.inputs.first();
+            window.lastInput = window.inputs.last(); 
             
             // if current element is last, get focus to first element on tab press.
-            lastInput.on('keydown', function (e) {
+            window.lastInput.on('keydown', function (e) {
                if ((e.which === 9 && !e.shiftKey)) {
                    e.preventDefault();
-                   firstInput.focus(); 
+                   window.firstInput.focus(); 
                }
             });
             
             // if current element is first, get focus to last element on tab+shift press.
-            firstInput.on('keydown', function (e) {
+            window.firstInput.on('keydown', function (e) {
                 if ((e.which === 9 && e.shiftKey)) {
                     e.preventDefault();
-                    lastInput.focus();  
+                    window.lastInput.focus();  
                 }
             }); 
+            console.log("window.inputs----",window.inputs);
+            console.log("window.lastInput----",window.lastInput);
         },
         render:function() {
             Backbone.MozuView.prototype.render.apply(this);
