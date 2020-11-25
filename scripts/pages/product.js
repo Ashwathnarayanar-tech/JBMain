@@ -667,6 +667,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var productCode = $(e.target).attr('data-mz-productcode');
             var qty = parseInt($(e.target).val()) >=1 && parseInt($(e.target).val()) <=25 ?  parseInt($(e.target).val()) : (parseInt($(e.target).val()) >25 ? 25 : 1); 
             $(e.target).val(qty);
+            $(e.target).focus();
             console.log(" productCode --- ",productCode,qty);
         },
         scrollToProductDetails:function(e){
