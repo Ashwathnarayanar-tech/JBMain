@@ -1433,6 +1433,9 @@
                 window.mySubscription.render();
                 active=false;
                 this.changeToggleStatus(subId,false);
+                setTimeout(function(){
+                    $(e.currentTarget).focus();
+                },200);
             }else{
                 try {
                     var _this=this,existingEntityData=[],
@@ -1478,6 +1481,9 @@
                             console.log("herer in deliveries ");
                             window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
                             window.mySubscription.render();
+                            setTimeout(function(){
+                            $(document).find('.subscription-list-body').focus();
+                            },500);
                         },1000);
                     }, function(er) {
                         // fail condition
