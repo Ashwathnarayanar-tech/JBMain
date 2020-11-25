@@ -2485,9 +2485,21 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     'when' : myval.when, 
                     'howLong' : myval.howLong
                 };
-                window.shipdate = myval.when;
+                if($(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
+                    window.shipdate = $(document).find('.subscription').find('#interval-startdate').val();
+                }else{
+                    window.shipdate = myval.when;
+                }
+               if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
+
+               }
             }
-            $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
+            if($(document).find('.subscription').find('.how-often-val').val()>1){
+                $(document).find('.subscription').find('.how-often-val').val($(document).find('.subscription').find('.how-often-val').val());
+            }else{
+                $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
+            }
+            
             if(myObj.weeks){
                 $(document).find('.subscription').find('.span-tabs.week').addClass('active');
                 $(document).find('.subscription').find('.span-tabs.months').removeClass('active');
@@ -2495,8 +2507,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
                 $(document).find('.subscription').find('.span-tabs.months').addClass('active');
             }
-            $(document).find('.subscription').find('#interval-startdate').val(myObj.when);
-            $(document).find('.subscription').find('.how-long-val').val(myObj.howLong);
+            if( $(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
+                $(document).find('.subscription').find('#interval-startdate').val($(document).find('.subscription').find('#interval-startdate').val());
+            }else{
+                $(document).find('.subscription').find('#interval-startdate').val(myObj.when);
+            }
+            if($(document).find('.subscription').find('.how-long-val').val()!==myObj.howLong){
+                $(document).find('.subscription').find('.how-long-val').val($(document).find('.subscription').find('.how-long-val').val());
+            }else{
+                $(document).find('.subscription').find('.how-long-val').val(myObj.howLong);
+            }
+            
             if(window.location.search.indexOf("chktSub=true") != -1 || (typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true')){
                 $(document).find('.subscription').addClass('active');
                 $(document).find('.place-subscrition-btn').addClass('active');
