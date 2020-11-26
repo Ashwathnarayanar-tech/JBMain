@@ -346,6 +346,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     window.lastInput.focus();  
                 }
             }); 
+            console.log(" window.inputs ---",window.inputs);
         },
         subscribeNow : function(e){
             var popupData;
@@ -604,6 +605,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
             this.model.get('subscriptionData').showContent = isChecked;
             this.render();
+            $("#subscribe").focus();
         },
         qtyPlusSub : function(e,cqty){
             var me = this,qty;
@@ -669,6 +671,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             $(e.target).val(qty);
             $(e.target).focus();
             console.log(" productCode --- ",productCode,qty);
+            console.log("$(e.target) ====",$(e.target));
         },
         scrollToProductDetails:function(e){
             if($(window).width()>767){
