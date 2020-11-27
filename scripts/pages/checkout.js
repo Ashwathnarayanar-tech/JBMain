@@ -2543,6 +2543,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         });
 
         $(document).on('click', '.place-subscrition-btn', function(){
+            $('.place-subscrition-btn').prop('disabled',true);
             var billincontact = checkoutModel.toJSON().billingInfo.billingContact;
             var card =  checkoutModel.toJSON().billingInfo.card;
             var attr = {
@@ -2582,6 +2583,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
                      $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
                       $('[data-mz-value="card.cvv"]').focus();
+                      $('.place-subscrition-btn').prop('disabled',false);
                   return false;
                  }
                 //  if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
@@ -2592,6 +2594,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 //  subscritpionFunction.subscribe();
                 if($('.is-showing.mz-errors').length > 0){
                     $('.is-showing.mz-errors').first().focus();
+                    //$('.place-subscrition-btn').prop('disabled',false);
                 }
             }else if(window.paymentinfo.model.validate(attr)){
                 var k = window.paymentinfo.model.validate(attr);
