@@ -318,7 +318,7 @@
 							{% endif %}
 						</div>
 					</div>	
-					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-delivery-details cancelled-subscription"{% else %}"subscription-delivery-details"{% endif %}>
+					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-delivery-details cancelled-subscription"{% else %}"subscription-delivery-details"{% endif %} data-subscription-id="{{order.subscriptionId}}">
 						<span class="heading" tabindex="0">Deliveries</span>
 						<div>
 							{% if order.currentPage > 1 %}
