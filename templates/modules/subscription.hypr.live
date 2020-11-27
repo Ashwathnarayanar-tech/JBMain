@@ -110,8 +110,8 @@
 										</span> 
 										<span class="item-li price">
 											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-												<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 												<span class="salsesprice" tabindex="0" aria-label="item sales price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+												<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 											{% else %}
 												<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 											{% endif %}
@@ -273,8 +273,8 @@
 												</span> 
 												<span class="item-li price">
 													{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-														<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 														<span class="salsesprice" tabindex="0" aria-label="item sales price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+														<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 													{% else %}
 														<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 													{% endif %}
@@ -351,8 +351,8 @@
 								</span> 
 								<span class="item-li price">
 									{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-										<span class="price strike" tabindex="0" aria-label="price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 										<span class="salsesprice" tabindex="0" aria-label="price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+										<span class="price strike" tabindex="0" aria-label="price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 									{% else %}
 										<span class="price" tabindex="0" aria-label="price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 									{% endif %}
@@ -535,8 +535,8 @@
 										</span> 
 										<span class="item-li price">
 											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-												<span class="price strike" tabindex="0" aria-label="item stricked price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 												<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+												<span class="price strike" tabindex="0" aria-label="item stricked price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 											{% else %}
 												<span class="price" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 											{% endif %}
@@ -598,8 +598,8 @@
 								<span class="item-li price">
 									{% comment %}
 									{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-										<span class="price strike" tabindex="0" aria-label="item price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 										<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+										<span class="price strike" tabindex="0" aria-label="item price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 									{% else %}
 										<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 									{% endif %}
@@ -684,7 +684,7 @@
 				</a>
 			{% else %}
 				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
-					<span class="freeshippingmsg">Congratulations,  you qualify for Free Ground Shipping! Click for Details.</span>
+					<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
 				</a>
 			{% endif %}
 			<div class="button-sec">
@@ -831,7 +831,7 @@
 				</a>
 			{% else %}
 				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
-					<span class="freeshippingmsg">Congratulations,  you qualify for Free Ground Shipping! Click for Details.</span>
+					<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
 				</a>
 			{% endif %}
 			<div class="button-sec">
@@ -977,7 +977,7 @@
 					</a>
 				{% else %}
 					<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
-						<span class="freeshippingmsg">Congratulations,  you qualify for Free Ground Shipping! Click for Details.</span>
+						<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
 					</a>
 				{% endif %}
 				<div class="button-sec">
@@ -1017,8 +1017,8 @@
 										<span class="item-li price">
 											{% comment %}
 											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
-												<span class="price strike">{{item.price.price|currency}}</span>
 												<span class="salsesprice">{{item.price.salePrice|currency}}</span>
+												<span class="price strike">{{item.price.price|currency}}</span>
 											{% else %}
 												<span class="price">{{item.price.price|currency}}</span>
 											{% endif %}
@@ -1103,7 +1103,7 @@
 						</a>
 					{% else %}
 						<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
-							<span class="freeshippingmsg">Congratulations,  you qualify for Free Ground Shipping! Click for Details.</span>
+							<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
 						</a>
 					{% endif %}
 					<div class="button-sec">

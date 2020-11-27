@@ -687,7 +687,7 @@ define([
                     $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                 else
                     $(".add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
-            },1000);
+            },200);
             
         },
         changeCatList : function(e){
