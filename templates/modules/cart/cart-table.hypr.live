@@ -229,7 +229,13 @@
     {% if pageContext.isDesktop or pageContext.isTablet %}
     <div class="table-bottom">
         <div class="continue-shopping"><a href="/"><i class="arrow"></i>continue shopping</a></div> 
-        <div class="title-section" tabindex="0">Estimated Total: {{ model.discountedTotal|currency }}</div>
+        <div class="title-section" tabindex="0">
+        {% comment %}
+            silpa
+            Estimated Total: {{ model.discountedTotal|currency }}{{ model.discountedSubtotal|currency }}
+        {% endcomment %}
+            Item Total: {{ model.discountedSubtotal|currency }}
+        </div>
     </div> 
     {% endif %}
 </div>   
@@ -241,9 +247,14 @@
                 <tr class="checkout-col">
                     <td>
                         <span tabindex="0">
+                            {% comment %}
+                            silpa
                             <span class="mleft18">Subtotal <span class="count">{% if model.count>1 %} {{ model.count }} items {% else %} {{ model.count }} item{% endif %}</span></span>
+                            {% endcomment %}
+                            <span class="mleft18">Item Total</span>
                             <span id="mz-carttable-total" class="mz-carttable-total">
-                                {% comment %}silpa {{ model.subtotal|currency }}{% endcomment %}
+                                {% comment %}silpa {{ model.subtotal|currency }} {{ model.discountedSubtotal|currency }}{% endcomment %}
+
                                 {{ model.discountedSubtotal|currency }}
                             </span>
                         </span>

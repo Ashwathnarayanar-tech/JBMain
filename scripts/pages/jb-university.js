@@ -9,7 +9,6 @@ require([
             });
 
             $(document).on('keydown', '#accordian li h2', function(e) {
-                e.preventDefault();
                 if (e.which == 13 || e.which == 32) {
                     accordianFunction($(this));
                 }
