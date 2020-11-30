@@ -11,9 +11,9 @@
       </li>
     </ul>
   </div>
-  <h3 class="mz-formstep-header">
+  <h3 class="mz-formstep-header" >
     <span class="step-no"><label>1.</label></span>
-    <label>{{ labels.shippingInformation }}</label> 
+    <label  tabindex="0" >{{ labels.shippingInformation }}</label> 
     <span class="step-completed"></span>
     {% if model.requiresFulfillmentInfo || model.requiresDigitalFulfillmentContact %}
       <button id="shippingaddress-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping information" data-mz-action="edit" >

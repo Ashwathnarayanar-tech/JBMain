@@ -1294,7 +1294,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         var existing = getExistingNotifications();
         $.cookie('mozustocknotify', existing.concat(productCode).join(','), { path: '/', expires: 365 });
     }
-    $(document).on('keypress', ".checkmark-style", function(e) {
+    $(document).on('keypress', "#guestsignup-cpp-checkbox", function(e) {
         if(e.keyCode == 13) {
             $(e.target).siblings('input').trigger('click');
         }

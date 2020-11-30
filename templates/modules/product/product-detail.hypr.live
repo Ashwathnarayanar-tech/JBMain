@@ -109,9 +109,10 @@
                                 <div class="mz-l-formfieldgroup-row"> 
                                     <div class="mz-l-formfieldgroup-cell">
                                         <div class="mz-l-formfieldgroup-row">
-                                            <label class="checkbox-outer-label">  
+                                            <label class="checkbox-outer-label" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy.">  
                                             <input id="guestsignup-cpp-checkbox" type="checkbox" > 
-                                             <span class="checkmark-style" tabindex="0" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."></span><span tabindex="-1">By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
+                                            By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a>
+                                             <span class="checkmark-style" ></span>
                                            </label> 
                                         </div>
                                         <button tabindex="0" class="mz-button mz-signup-register active-button" id="signup-submit" disabled>Register</button>
@@ -141,15 +142,16 @@
                                     <span class="loginError" id="loginerror"></span> 
                                 </div>
                             </div> 
-                            <div class="mz-l-formfieldgroup-row">
+                            <div class="mz-l-formfieldgroup-row"> 
                                 <div class="mz-l-formfieldgroup-cell"></div> 
                                 <div class="mz-l-formfieldgroup-cell">
                                     <label style="color: #707070" class="required_fields">*Required</label>
                                     <div class="mz-l-formfieldgroup-row">
-                                        <label class="checkbox-outer-label">  
+                                        <label class="checkbox-outer-label" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy.">  
                                         <input id="guestlogin-cpp-checkbox" type="checkbox" > 
-                                        <span class="checkmark-style" tabindex="0"aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."></span>
-                                        <span tabindex="-1">By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
+                                       
+                                        By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a>
+                                         <span class="checkmark-style" tabindex="0"></span>
                                         </label> 
                                     </div>
                                     <!-- <a href="#" class="mz-button mz-button-large" id="addbutton" data-mz-action="loginCheckout" disabled>Next</a>--> 

@@ -1,6 +1,6 @@
-    <h3 class="mz-formstep-header">
+    <h3 class="mz-formstep-header" >
         <span class="step-no"><label>2.</label></span>
-        <label>{{ labels.shippingMethod }}</label>
+        <label tabindex="0" aria-label="Step 2 {{ labels.shippingMethod }}">{{ labels.shippingMethod }}</label>
         <span class="step-completed"></span>
          {% if model.requiresFulfillmentInfo %}
             <button id="shippingmethod-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping method" data-mz-action="edit">{{ labels.edit }}</button>

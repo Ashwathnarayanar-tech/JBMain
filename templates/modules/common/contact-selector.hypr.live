@@ -17,10 +17,10 @@
         {% endif %}
         {% if model.contactId != "new" %}
             <label class="mz-contactselector-contact mz-contactselector-new no-form">
-                <span class="mz-contactselector-inputwrapper" >
+                <span class="mz-contactselector-inputwrapper" tabindex="0">
                     <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
                 </span>
-                <span class="mz-contactselector-summarywrapper"  style="width: auto;">
+                <span class="mz-contactselector-summarywrapper"  style="width: auto;" tabindex="0">
                     <div class="mz-addresssummary">
                         <span>{{ labels.enterNewAddress }}</span>
                     </div>
