@@ -404,6 +404,7 @@
                                         vertical-align: middle;
                                         border-right: 1px solid #004e99;
                                         display: inline-block;
+                                        padding-left: 34px;
                                         .subscribe-input{
                                             left: 0;
                                             width: 20px;
@@ -413,6 +414,12 @@
                                         .checkmark-style{
                                             border-radius: 2px;
                                             border: 1px solid #004e99;
+                                            width: 25px;
+                                            height: 25px;
+                                            &:after{
+                                                width: 10px;
+                                                height: 15px;
+                                            }
                                         }
                                         .label-input{
                                             font-size: 18px;
@@ -436,7 +443,7 @@
                                     }
                                 }
                                 .expanded-section{
-                                    padding: 0 25px;
+                                    padding: 0 5%;
                                     display: none;
                                     padding-top: 20px;
                                     &.active{
@@ -464,7 +471,7 @@
                                             display: inline-block;
                                             vertical-align: middle;
                                             .quantity-sub{
-                                                border: solid 1px #cfcfcf;
+                                                border:solid 0.6px #8d8d8d;
                                                 width: 55px;
                                                 padding: 8.5px 30px 8.5px 1px;
                                                 margin: 0; 
@@ -511,7 +518,7 @@
                                             height: 35px;
                                             position: absolute;
                                             background-color: #004e99;
-                                            right: 11px;
+                                            right: 15%;
                                             bottom: 0;
                                         }
                                         .how-often-input-sub{
@@ -519,10 +526,10 @@
                                             width: 25%;
                                             position: relative;
                                             .how-often-val{
-                                                width: 100%;
+                                                width: 92%;
                                                 height: 39px;
                                                 border-radius: 4px;
-                                                padding: 0 10px;
+                                                padding: 0 10px 0 35px;
                                                 font-weight: bold;
                                                 position: relative;
                                                
@@ -541,9 +548,8 @@
                                         }
                                         .weekormonth{
                                             display: inline-block;
-                                            width: 70%;
+                                            width: 68%;
                                             text-align: center;
-                                            margin-left: 12px;
                                             .span-tabs{
                                                 display: inline-block;
                                                 font-size: 18px;
@@ -559,7 +565,7 @@
                                                     border-bottom-left-radius: 4px;
                                                     border-top-left-radius: 4px;
                                                 }
-                                                &.year{
+                                                &.months{
                                                     border-bottom-right-radius: 4px;
                                                     border-top-right-radius: 4px;  
                                                     border-left: 0px;  
@@ -573,7 +579,7 @@
                                         .datepicker-cointainer{
                                             position: relative;
                                             #interval-startdate{
-                                                width: 83%;
+                                                width: 88%;
                                                 height: 30px;
                                                 border-radius: 4px;
                                                 font-weight: bold;
@@ -602,7 +608,7 @@
                                                 content: "";
                                                 position: absolute;
                                                 top:17px;
-                                                right:29px;
+                                                right:17px;
                                             }
                                         }
                                         .subscribe-now{
@@ -613,9 +619,10 @@
                                             font-weight: bold;
                                             text-align: center;
                                             color: #ffffff;
-                                            padding: 6px 22px 6px 51px;
+                                            padding: 1% 2% 1% 10%;
                                             position: relative;
                                             vertical-align: top;
+                                            width: 43.5%;
                                             &:hover{
                                                 border: solid 1px #003a72;
                                                 background-color: #003a72;
@@ -633,7 +640,7 @@
                                         }
                                         .subscrib-multi{
                                             display: inline-block;
-                                            width: 54%;
+                                            width: 51%;
                                             text-align: center;
                                             .text-info{
                                                 font-size: 14px;
@@ -655,10 +662,11 @@
                                             width: 72%;
                                         }
                                         &.interval{
-                                            width: 49%;
+                                            width: 46%;
                                         }
                                         &.howling{
-                                            width: 49%;
+                                            width: 45%;
+                                            margin-left:2%
                                         }
                                         &.btnsec{
                                             margin-top: 20px;
@@ -2205,7 +2213,7 @@
                                             }
                                         }
                                         .text-content-sub{
-                                            width: 56%;
+                                            width: 50%;
                                             .text-place{
                                                 font-size: 14px;
                                             }
@@ -2218,6 +2226,7 @@
                                             .weekormonth{
                                                 width:64%;
                                                 text-align:right;
+                                                margin-left:2%;
                                             }
                                             &.qty{
                                                 width: 100%;
@@ -2622,22 +2631,58 @@
                                             width: 100%;
                                             .weekormonth{
                                                 margin-left: 3%;
+                                                width:65%;
                                                 .span-tabs{
                                                     padding:7px 0;
                                                     width: 48.3%;
+                                                    font-size: 15px;
                                                 }
                                             }
                                         }
                                         .formGroup.howling{
+                                            width: 50%;
                                             .how-long-input-sub{
                                                 .how-long-val{
                                                     font-size: 14.9px;
+                                                    width: 100%;
                                                 }
                                                 &:after{
                                                     right: 17px;
                                                 }
                                             }
                                         }
+                                        .formGroup .how-often-input-sub{
+                                            width:30%;
+                                            .how-often-val{
+                                                padding:0 10px 0 30px; 
+                                            }
+                                            &:after{
+                                                right:15px;
+                                            }
+                                        }
+                                        .formGroup .datepicker-cointainer{
+                                            label.mz-small{
+                                               right: 10px;
+                                            }
+                                       }
+                                       .formGroup .how-long-input-sub .how-long-val{
+                                           width: 100%;;
+                                       }
+                                       .formGroup.btnsec{
+                                           margin-top: 0px;
+                                           padding-top: 10%;
+                                           border-top: solid 1px #d2e7ff;
+                                       }
+                                       .formGroup span label{
+                                           font-size: 12px;
+                                       }
+                                       .formGroup .qty-input-box-sub .quantity-sub{
+                                           padding:8.5px 30px 9.5px 1px;
+                                           font-size: 14.9px;;
+                                       }
+                                       .formGroup .datepicker-cointainer #interval-startdate{
+                                           font-size: 14.9px;
+                                       }
                                     }
                                 }
                             } 

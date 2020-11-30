@@ -73,7 +73,8 @@
 									    vertical-align: top;
     									margin-top: 30px;
 									    &:first-child{
-									    	border-right: solid 1px #cfcfcf;
+											border-right: solid 1px #cfcfcf;
+											padding-bottom: 22px;;
 									    }
 									    &:nth-child(2){
 									    	border-right: solid 1px #cfcfcf;
@@ -233,7 +234,7 @@
 	            }
 				.subscription-content{
 					background-color: #e8f3ff;
-				    padding: 12px 15px;
+				    padding: 12px 5px 15px 10px;
 				    width: 74%;
 				    display: inline-block;
     				vertical-align: top;
@@ -242,6 +243,8 @@
 					    background-color: #fff;
 						padding: 9px;
 						height: 30Px;
+						border-radius: 5px;
+						width: 97%;
     					.close-icon{
 						    width: 12px;
 						    height: 13px;
@@ -293,7 +296,7 @@
 						}
 						.search-box-cointainer{
 							text-align: right; 
-						    width: 49.5%;
+						    width: 48.5%;
 						    display: inline-block;
 						    position: relative;
 						    &::-webkit-scrollbar {
@@ -362,7 +365,7 @@
 							    border-radius: 6px;
 							    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.28);
 							    background-color: #ffffff;
-							    padding: 20px 0px;
+							    padding: 10px 0px;
 							    top: 89%;
 							    z-index: 999;
 							    .suggetion-head{
@@ -378,7 +381,8 @@
 									    display: inline-block;
     									text-align: left;
     									&.itemId{
-    										width: 14%;
+											width: 14%;
+											text-align: center;
     									}
     									&.description{
     										width: 42%;
@@ -393,8 +397,8 @@
 												font-size: 9.2px;
 												border: 1px solid #004e99;
 												border-radius: 50%;
-												width: 10px;
-												height: 10px;
+												width: 12px;
+												height: 12px;
 												display: inline-block;
 												text-align: center;
 												color: #004e99;
@@ -402,7 +406,8 @@
 											}
     									}
     									&.quantity{
-    										width: 13%;
+											width: 13%;
+											text-align: center;
     									}
 								    }
 							    }
@@ -467,7 +472,8 @@
     										}
     										.sku-cointianer{
     											font-size: 14px;
-    											color: #222222;
+												color: #222222;
+												padding-left: 4%;
     										}
     										.image-cointainer{
     											display: inline-block;
@@ -500,7 +506,8 @@
 											    }
 											}
     										&.sku-input{
-    											width: 14%;	
+												width: 13%;	
+												padding-top: 1%;
     										}
     										&.description-image{
     											width: 42%;	
@@ -511,8 +518,8 @@
     										&.heat-sensitive{
     											width: 15%;	
     											.heat-tickmark{
-												    width: 8px;
-												    height: 14px;
+												    width: 6px;
+												    height: 12px;
 												    border-right: 3px solid #004e99;
 												    border-bottom: 3px solid #004e99;
 												    display: block;
@@ -522,11 +529,12 @@
     											}
     										}
     										&.quantity{
-    											width: 95px;
+    											width: 15%;
     											position: relative;
 	                                            margin: 0 auto;
 	                                            display: inline-block;
-	                                            vertical-align: middle;
+												vertical-align: middle;
+												text-align: right;
 	                                            .quantity-sub{
 	                                                border: solid 1px #cfcfcf;
 	                                                width: 55px;
@@ -555,7 +563,7 @@
 														cursor: not-allowed; 
 													}
 	                                                &.decrement{
-	                                                    right: 8px;
+	                                                    right: 2px;
 	                                                    top: 18px;
 	                                                    border-top: 0.6px solid #cfcfcf; 
 	                                                    border-bottom-right-radius: 4px;
@@ -568,7 +576,7 @@
                                                 		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAAXNSR0IArs4c6QAAABRJREFUCB1jtLGx8WUgAJgIyIOlAUiMAQXyTmaGAAAAAElFTkSuQmCC");
 	                                                }
 	                                                &.increment {
-	                                                    right: 8px; 
+	                                                    right: 2px; 
 	                                                    top: 1px; 
 	                                                    border-bottom: 0.6px solid #cfcfcf; 
 	                                                    border-top-right-radius: 4px;
@@ -658,13 +666,14 @@
 									    font-size: 14px;
 									    font-weight: 500;
 									    color: #000000;
-									    background-color: #fff;
+										background-color: #fff;
+										border-radius:4px;
 								    }
     							}		
 							}
 					    }
 					    .product-list{
-					    	width: 77%;
+					    	width: 77.5%;
     						display: inline-block;
     						margin-left: 2.5%;
     						height: 735px;
@@ -735,8 +744,8 @@
 											font-size: 9.2px;
 											border: 1px solid #004e99;
 											border-radius: 50%;
-											width: 10px;
-											height: 10px;
+											width: 12px;
+											height: 12px;
 											display: inline-block;
 											text-align: center;
 											color: #004e99;
@@ -745,12 +754,15 @@
 									}
 									&.quantity{
 										width: 13%;
+										text-align: center;
 									}
 							    }	
     						}
     						.product-item-list{
     							max-height: 700px;
-    							overflow-x: auto;
+								overflow-x: auto;
+								width: 99%;
+								border-radius: 5px;
     							&::-webkit-scrollbar {
 								  width: 4px;
 								}
@@ -808,6 +820,7 @@
 										.sku-cointianer{
 											font-size: 14px;
 											color: #222222;
+											padding-left:4px;
 										}
 										.image-cointainer{
 											display: inline-block;
@@ -851,8 +864,8 @@
 										&.heat-sensitive{
 											width: 15%;	
 											.heat-tickmark{
-											    width: 8px;
-											    height: 14px;
+											    width: 6px;
+											    height: 12px;
 											    border-right: 3px solid #004e99;
 											    border-bottom: 3px solid #004e99;
 											    display: block;
@@ -862,11 +875,11 @@
 											}
 										}
 										&.quantity{
-											width: 97px; 
 											position: relative;
                                             margin: 0 auto;
                                             display: inline-block;
-                                            vertical-align: middle;
+											vertical-align: middle;
+											float:right;
                                             .quantity-sub{
                                                 border: solid 1px #cfcfcf;
                                                 width: 55px;
@@ -895,7 +908,7 @@
 													cursor: not-allowed; 
 												}
                                                 &.decrement{
-                                                    right: 10px;
+                                                    right: 2px;
                                                     top: 18px;
                                                     border-top: 0.6px solid #cfcfcf; 
                                                     border-bottom-right-radius: 4px;
@@ -908,7 +921,7 @@
                                             		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAAXNSR0IArs4c6QAAABRJREFUCB1jtLGx8WUgAJgIyIOlAUiMAQXyTmaGAAAAAElFTkSuQmCC");
                                                 }
                                                 &.increment {
-                                                    right: 10px; 
+                                                    right: 2px; 
                                                     top: 1px; 
                                                     border-bottom: 0.6px solid #cfcfcf; 
                                                     border-top-right-radius: 4px;
@@ -930,7 +943,7 @@
 				}
 				.summary-list{
 					display: inline-block;
-				    width: 22%;
+				    width: 23%;
 				    vertical-align: top;
 				    padding: 10px;
 				    .summary-accordian{
@@ -1012,13 +1025,17 @@
 							    color: #9b9b9b;
 							    display: inline-block;
 							    &.dicreption{
-						    	    width: 42%;
+						    	    width: 35%;
 							    }
 							    &.qty{
-							    	width: 10%;
+							    	width: 15%;
 							    }
 							    &.heat-sensitive{
-							    	width: 28%;
+							    	width: 25%;
+								}
+								&.price{
+									width: 15%;
+									text-align: right;
 							    }
 						    }
 						}
@@ -1053,7 +1070,7 @@
 											display: inline-block;
 										    font-size: 12px;
 										    color: #222222;
-										    width: 39%;
+										    width: 35%;
 										}
 										.price,.salsesprice{
 										    display: block;
@@ -1065,14 +1082,14 @@
 										    }
 										}
 										&.price{
-											width: 18%;
-											text-align: center;
+											width: 15%;
+											text-align: right;
 										}
 										&.heat-sensitive{
-											width: 15%;
+											width: 25%;
 											.heat-tickmark{
-											    width: 8px;
-											    height: 14px;
+											    width: 6px;
+											    height: 12px;
 											    border-right: 3px solid #004e99;
 											    border-bottom: 3px solid #004e99;
 											    display: block;
@@ -1082,11 +1099,10 @@
 											}	
 										}
 										&.quantity{
-											width: 60px;
 											position: relative;
                                             margin: 0 auto;
                                             display: inline-block;
-                                            vertical-align: middle;
+											vertical-align: middle;
                                             .quantity-sub{
                                                 border: solid 1px #cfcfcf;
                                                 width: 25px;
@@ -1118,7 +1134,7 @@
 													cursor: not-allowed; 
 												}
                                                 &.decrement{
-                                                    right: 3px;
+                                                    right: 1px;
                                                     top: 15px;
                                                     border-top: 0.6px solid #cfcfcf; 
                                                     border-bottom-right-radius: 4px;
@@ -1131,7 +1147,7 @@
                                             		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAAXNSR0IArs4c6QAAABRJREFUCB1jtLGx8WUgAJgIyIOlAUiMAQXyTmaGAAAAAElFTkSuQmCC");
                                                 }
                                                 &.increment {
-                                                   	right: 3px;
+                                                   	right: 1px;
                                                     top: 1px; 
                                                     border-bottom: 0.6px solid #cfcfcf; 
                                                     border-top-right-radius: 4px;
@@ -1148,6 +1164,7 @@
 										&.removeItem{
 											width: 3%;
 											position: relative;
+											float:right;
 											cursor: pointer;
 											img{
 												position: absolute;
@@ -1242,7 +1259,8 @@
                                             color: #000;
                                             padding: 7px 18px;  
                                             background-color: #fff; 
-                                            border: 1px solid #004e99;
+											border: 1px solid #004e99;
+											width: 30%;
                                             cursor: pointer;
                                             &.week{                                                     
                                                 border-bottom-left-radius: 4px;
@@ -1441,7 +1459,8 @@
 					   					    }
 					   					    &:first-child{
 					   					    	border: 0px;
-										    	border-bottom: solid 1px #cfcfcf;
+												border-bottom: solid 1px #cfcfcf;
+												padding-bottom: 18px;
 										    }
 										    &:nth-child(2){
 										    	border: 0px;
@@ -2357,6 +2376,7 @@
 					.subscription-content{
     					width: 68%;
 						.top-bar{ 
+							height:100px;
 							.close-icon{
 								top: 10px;
 								right: 10px;
@@ -2510,9 +2530,11 @@
 												width: 40%;
 											}
 											&.quantity{ 
+												float: none;
+												width: 15%;
 												.spinner{
 													&.increment, &.decrement{
-													    right: -21px;
+													    right: -10px;
 													}
 												}
 											}
@@ -2623,7 +2645,8 @@
 					   					    }
 					   					    &:first-child{
 					   					    	border: 0px;
-										    	border-bottom: solid 1px #cfcfcf;
+												border-bottom: solid 1px #cfcfcf;
+												padding-bottom: 18px;
 										    }
 										    &:nth-child(2){
 										    	border: 0px;
@@ -2698,6 +2721,7 @@
 						    width: 88%;
 							margin: 12px 15px;
 							height: 104px;
+							display: none;
 							.close-icon{
 							    width: 15px;
 							    height: 15px;
@@ -2715,7 +2739,8 @@
 						}
 						.header{
 						    width: 92%;
-    						margin: 0 auto;
+							margin: 0 auto;
+							padding:0px;
 							.page-tital{
 								width: 100%;
 							    font-size: 18px;
@@ -2726,7 +2751,8 @@
 							    text-align: left;
     							width: 100%;
     							.searchBoxSub{
-    								width: 95%;
+									width: 95%;
+									font-size: 14px;
     							}
     							.suggetion-list{
     								width: 100%;
@@ -3025,7 +3051,7 @@
                                     span{
                                         display: block;
                                         label{
-                                            font-size: 16px;
+                                            font-size: 12.2px;
                                             font-weight: bold;
                                             line-height: 1.5;
                                             color: #1c2e36;
@@ -3072,7 +3098,7 @@
                                         margin-left: 12px;
                                         .span-tabs{
                                             display: inline-block;
-                                            font-size: 18px;
+                                            font-size: 15.7px;
                                             font-weight: bold;
                                             line-height: 1.33;
                                             letter-spacing: normal;
@@ -3102,11 +3128,12 @@
                                             width: 83%;
                                             height: 30px;
                                             border-radius: 4px;
-                                            font-weight: bold;
+											font-weight: bold;
+											font-size: 15.7px;
                                         }
                                         label.mz-small{
                                             position: absolute;
-                                            right: 33px;
+                                            right: 25px;
                                             top: 9px;
                                         }
                                     }
@@ -3118,7 +3145,8 @@
                                             border-radius: 4px;
                                             padding: 0 10px; 
                                             font-weight: bold; 
-                                            background-color: #fff; 
+											background-color: #fff; 
+											font-size: 15.7px;
 										}
 										&:after{
 											content: "";
@@ -3127,7 +3155,7 @@
 											width:12px;
 											height:14px;
 											position: absolute;
-											right: 22px;
+											right: 18px;
 											top: 17px;
 											
 										}
@@ -3229,7 +3257,8 @@
 											    }
 											    &.removeItem{
 										    	    width: 16px;
-    												height: 16px;
+													height: 16px;
+													float: right;
     												.mz-calendar-icon{
     													width: 100%;
     												}

@@ -9,8 +9,15 @@
     <input type="text" id="coupon-code" name="coupon-code" {% for discount in model.orderDiscounts %} {% if not discount.excluded %} value="{{ discount.couponCode}}" {% else %} value=""  {% endif %} {% endfor %} data-mz-value="couponCode" autocomplete="new-coupon" />
     {% if model.orderDiscounts.length > 0 %}
         {% for coupon in model.orderDiscounts  %}
-            {% if coupon.couponCode %}
+            {% comment %}
+            <div>validation purpose we have given. Once validated we will remove the below dummy code
+            {% dump coupon %}
+            </div>
+            {% endcomment %}
+            {% if coupon.couponCode!=="" %}
                 <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div>  
+            {% else %}
+                  <button class="mz-button" data-mz-action="addCoupon" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>  
             {% endif %}
         {% endfor %}
     {% else %}

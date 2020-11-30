@@ -16,7 +16,7 @@ define([
         additionalEvents: {
             "keyup .searchBoxSub" : "search",
             "click .side-bar-item" : "changeCatList",
-            "click .accordian-headitem" : "changeCatList",
+            "click .accordian-headitem" : "changeCategory",
             "click .increment" : "increment",
             "click .decrement" : "decrement",
             "click .span-tabs" : "changeWeekorMonth",
@@ -687,10 +687,17 @@ define([
                     $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                 else
                     $(".add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
-            },1000);
+            },200);
             
         },
         changeCatList : function(e){
+           this.changeCategory(e);
+            var self = this;
+            setTimeout(function(){
+                $(document).find('.product-list').focus();
+            },100); 
+        },
+        changeCategory:function(e){
             var categoryCode = $(e.target).attr('data-mz-attr'); 
             var catList = this.model.get('categoryList').filter(function(v,i){
                 if(v.Category.categoryCode == categoryCode && !v.isActive){
@@ -701,13 +708,7 @@ define([
                 return true;
             });  
             this.model.set('categoryList', catList); 
-            this.render();
-            var self = this;
-            setTimeout(function(){
-                $(document).find('.product-list').focus();
-               // self.loopInpopup("product-list");
-
-            },100); 
+            this.render(); 
         },
         search : _.debounce(function (e){
             itemClick = "search";

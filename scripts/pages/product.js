@@ -350,6 +350,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     window.lastInput.focus();  
                 }
             }); 
+            console.log(" window.inputs ---",window.inputs);
         },
         subscribeNow : function(e){
             var popupData;
@@ -608,6 +609,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
             this.model.get('subscriptionData').showContent = isChecked;
             this.render();
+            $("#subscribe").focus();
         },
         qtyPlusSub : function(e,cqty){
             var me = this,qty;
@@ -671,7 +673,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var productCode = $(e.target).attr('data-mz-productcode');
             var qty = parseInt($(e.target).val()) >=1 && parseInt($(e.target).val()) <=25 ?  parseInt($(e.target).val()) : (parseInt($(e.target).val()) >25 ? 25 : 1); 
             $(e.target).val(qty);
+            $(e.target).focus();
             console.log(" productCode --- ",productCode,qty);
+            console.log("$(e.target) ====",$(e.target));
         },
         scrollToProductDetails:function(e){
             if($(window).width()>767){
