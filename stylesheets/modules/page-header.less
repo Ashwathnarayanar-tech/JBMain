@@ -1319,6 +1319,131 @@ body{
         }
     }
 }
+
+.subscriptionPopup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    .popup-body{
+        width: 45%;
+        margin: 0 auto;
+        margin-top: 17%;
+        padding: 3%;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        background-color: #ffffff;
+        position: relative;
+       
+        .close-icon{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url(../../resources/images/close-icon-popup.svg);
+            top: 16px;
+            background-repeat: no-repeat;
+            right: 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+        .popup-content{
+            .message{
+                font-size: 18px;
+                color: #000000;
+                margin-bottom: 40px;
+                display: block;
+                strong{
+                    font-weight: bold;
+                }
+            }
+            .button-section{
+                text-align: right;
+                .button{
+                    font-size: 18px;
+                    border-radius: 4px;
+                    border: solid 1px #004e99;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 7px 0;
+                    &.button-yes{
+                        background-color: #004e99;
+                        color: #fff;
+                         width:25%;
+                        &:hover{
+                            background-color: #003a72;
+                            border: solid 1px #003a72;
+                        }
+                       
+                    }
+                    &.button-no{
+                        background-color: #fff;
+                        color: #004e99;
+                         width:25%;
+                        &:hover{
+                            background-color: #003a72;
+                            color: #fff;
+                            border: solid 1px #003a72;
+                        }
+                       
+                    }
+                    &.button-Proceed{
+                        background-color: #004e99;
+                        color: #fff;
+                        width:40%;
+                        &:hover{
+                            background-color: #003a72;
+                            border: solid 1px #003a72;
+                        }
+                    }
+                    &.button-Back-To-Subscription{
+                        background-color: #fff;
+                        color: #004e99;
+                        width:40%;
+                        &:hover{
+                            background-color: #003a72;
+                            color: #fff;
+                            border: solid 1px #003a72;
+                        }
+                    }
+                    &.button-Get-Started{
+                        background-color: #004e99;
+                        color: #fff;
+                        width:30%;
+                        &:hover{
+                            background-color: #003a72;
+                            border: solid 1px #003a72;
+                        }
+                       
+                    }
+                    &.button-cancel{
+                        background-color: #fff;
+                        color: #004e99;
+                         width:30%;
+                        &:hover{
+                            background-color: #003a72;
+                            color: #fff;
+                            border: solid 1px #003a72;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    &.active{
+        display: block;
+    }
+    &.Inactive{
+        display: none;
+    }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .mz-l-pagewrapper{ 
         .page-header.desktop{
@@ -2320,6 +2445,23 @@ body{
             }
         }
     }
+    .subscriptionPopup{
+        .popup-body{
+            width: 90%;
+            .popup-content{
+                .button-section{
+                    .button{
+                        &.button-yes{
+                             width:46%;
+                        }
+                        &.button-no{
+                             width:46%;
+                        }
+                    }
+                }
+            }
+        }
+    }    
 }
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape) {
     .mz-l-pagewrapper{ 
