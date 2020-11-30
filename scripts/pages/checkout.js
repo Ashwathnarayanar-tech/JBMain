@@ -2490,16 +2490,20 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }else{
                     window.shipdate = myval.when;
                 }
-               if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
-
-               }
+              if($(document).find('.subscription').find('.span-tabs.active').text()!==""){
+                 if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
+                    myObj.weeks=true;
+                 }else{
+                     myObj.weeks=false;
+                 }
+              }
             }
             if($(document).find('.subscription').find('.how-often-val').val()>1){
                 $(document).find('.subscription').find('.how-often-val').val($(document).find('.subscription').find('.how-often-val').val());
             }else{
                 $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
             }
-            
+           
             if(myObj.weeks){
                 $(document).find('.subscription').find('.span-tabs.week').addClass('active');
                 $(document).find('.subscription').find('.span-tabs.months').removeClass('active');

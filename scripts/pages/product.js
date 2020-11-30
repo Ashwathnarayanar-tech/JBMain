@@ -326,11 +326,15 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             },1000);            
         },
         loopInpopup:function(){
-            
+
             var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
             var lastInput = window.lastInput = window.inputs.last(); 
-            
+            if($(document).find('.popup-body').hasClass('signupheight')){
+                inputs=$(document).find('.popup-body .signup-form').find('[tabindex="0"],a,input');
+                firstInput = window.firstInput = inputs.first();
+                lastInput = window.lastInput = inputs.last(); 
+            }
             // if current element is last, get focus to first element on tab press.
             window.lastInput.on('keydown', function (e) {
                if ((e.which === 9 && !e.shiftKey)) {
@@ -2167,7 +2171,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         });   
         $(document).on('keypress', '.span-tabs', function(e) {
-            if(e.keyCode === 13 ){
+            if(e.keyCode === 13 || e.keyCode === 27){
                 window.productView.changeWeekorMonth(e);
             }
         });   

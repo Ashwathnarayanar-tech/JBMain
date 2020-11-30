@@ -106,12 +106,12 @@
                                         <span class="required"><span class="is-required" aria-label="mandatory field"> *</span><span>Required Fields</span></span>
                                     </div>
                                 </div>
-                                <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-row"> 
                                     <div class="mz-l-formfieldgroup-cell">
                                         <div class="mz-l-formfieldgroup-row">
                                             <label class="checkbox-outer-label">  
                                             <input id="guestsignup-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span tabindex="-1">By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a></span> 
-                                            <span class="checkmark-style"></span></label> 
+                                            <span class="checkmark-style" tabindex="0"></span></label> 
                                         </div>
                                         <button class="mz-button mz-signup-register active-button" id="signup-submit" disabled>Register</button>
                                     </div>
