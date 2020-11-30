@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="firstemailerror" type="text" class="mz-signup-firstname" placeholder="First Name" data-mz-signup-firstname="" id="signup-firstname" data-emailcapturepoint="Input Type"> <!-- ADA -->
-                                        <span  class="signup-error-msg" id="firstemailerror"></span>
+                                        <span  class="signup-error-msg" id="firstemailerror" role="alert"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row half-width-second-block">
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="lastemailerror" type="text" class="mz-signup-lastname" placeholder="Last Name" data-mz-signup-lastname="" id="signup-lastname" data-emailcapturepoint="Input Type"> <!-- ADA -->
-                                          <span class="signup-error-msg" id="lastemailerror"></span>
+                                          <span class="signup-error-msg" id="lastemailerror" role="alert"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input aria-describedby="signupemailerror" type="email" class="mz-signup-email" id="signup-email" placeholder="Email Address" data-mz-signup-emailaddress="" data-emailcapturepoint="Sign Up">
-                                    <span class="signup-error-msg" id="signupemailerror"></span>
+                                    <span class="signup-error-msg" id="signupemailerror"role="alert"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row password-row">
@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell">
                                         <input  aria-describedby="signuppassword" type="password" class="mz-signup-password" id="pswd" placeholder="Password" aria-describedby="pswd-msg" data-mz-signup-password="">
-                                        <span class="signup-error-msg" id="signuppassword"></span>
+                                        <span class="signup-error-msg" id="signuppassword" role="alert"></span>
                                     </div>
                                     <div class="pwd-message-desktop" style="display: none;">
                                         <div class="arrow-left"></div>
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="mz-l-formfieldgroup-cell zero-cellspace">
                                         <input aria-describedby="confirmpassword" type="password" class="mz-signup-confirmpassword" id="cnf-pswd" placeholder="Confirm Password" data-mz-signup-confirmpassword="">
-                                        <span class="signup-error-msg" id="confirmpassword"></span>
+                                        <span class="signup-error-msg" id="confirmpassword" role="alert"></span>
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">

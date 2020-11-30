@@ -332,7 +332,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var lastInput = window.lastInput = window.inputs.last(); 
             if($(document).find('.popup-body').hasClass('signupheight')){
                 inputs=$(document).find('.popup-body .signup-form').find('[tabindex="0"],a,input');
-                firstInput = window.firstInput = inputs.first();
+                firstInput = window.firstInput =$(document).find('.popup-body .closepopup');
                 lastInput = window.lastInput = inputs.last(); 
             }
             // if current element is last, get focus to first element on tab press.
@@ -1294,7 +1294,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         var existing = getExistingNotifications();
         $.cookie('mozustocknotify', existing.concat(productCode).join(','), { path: '/', expires: 365 });
     }
-
+    $(document).on('keypress', ".checkmark-style", function(e) {
+        if(e.keyCode == 13) {
+            $(e.target).siblings('input').trigger('click');
+        }
+    });
     $(document).ready(function () {
         var loginFlag = window.loginFlag = "";
         // date picker
