@@ -329,10 +329,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
 
             var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
-            var lastInput = window.lastInput = window.inputs.last(); 
+            var lastInput = window.lastInput = window.inputs.last();
             if($(document).find('.popup-body').hasClass('signupheight')){
                 inputs=$(document).find('.popup-body .signup-form').find('[tabindex="0"],a,input');
-                firstInput = window.firstInput =$(document).find('.popup-body .closepopup');
+                firstInput = window.firstInput =$(document).find('.popup-body .closepopup'); 
                 lastInput = window.lastInput = inputs.last(); 
             }
             // if current element is last, get focus to first element on tab press.
@@ -1271,7 +1271,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
         },
-        setHowOffenVal:function(){
+        setHowOffenVal:function(){ 
             this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
         }  
     });
@@ -1282,11 +1282,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.model.set('loadMore',false);
             this.render();
         },
-        render: function (){   
+        render: function (){
             Backbone.MozuView.prototype.render.apply(this);
         }
     });
-    function getExistingNotifications() {
+    function getExistingNotifications() { 
         return ($.cookie('mozustocknotify') || '').split(',');
     }
 
