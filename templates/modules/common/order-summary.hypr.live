@@ -35,7 +35,9 @@
                                     <span class="discount-productImpact"> -{{ productDiscount.impact|currency }}</span>
                                 {% endif %}
                             </div>
+                            {% comment %}
                             {% if productDiscount.couponCode %}<span class="remove-coupon" coupon="{{ productDiscount.couponCode }}">Remove</span>{% endif %} 
+                            {% endcomment %}
                         </span>
                     </span>  
                 {% endfor %} 
@@ -52,7 +54,7 @@
             <span class="subtotal-label label">{{ labels.subtotal }}</span> 
             <span class="subtotal-value value">{{ model.subtotal|currency }}</span>
         </span>
-        {% if model.taxTotal %}
+       {% if model.taxTotal %}
             <span tabindex="0" role="contentinfo" class="summary-tax" {% if model.taxTotal==0 %} style="display:none;" {% endif%}> 
                 <span class="mz-ordersummary-totalname label">{{ labels.tax }}</span>
                 <span class="mz-ordersummary-totalvalue value">
@@ -88,7 +90,7 @@
             {% if not discount.excluded %}
                 <span tabindex="0" role="contentinfo" class="mz-ordersummary-discount">
                     <div class="remove-discount">
-                        <span class="mz-ordersummary-discountname lebel">{{ discount.discount.name }}</span>
+                        <span class="mz-ordersummary-discountname label">{{ discount.discount.name }}</span>
                         <span class="mz-ordersummary-discountamt value discount">-{{ discount.impact|currency }}</span>
                         {% if discount.couponCode %}<span tabindex="0" role="button" aria-label="remove coupon" class="remove-coupon" coupon="{{ discount.couponCode }}">Remove</span>{% endif %} 
                     </div>
@@ -118,12 +120,31 @@
                 <span class="mz-ordersummary-rewardsvalue value discount" style="padding-right: 34px;">{{ model.adjustment.amount|currency }}</span>
             </span>
         {% endif %}
+        {% comment %}
         {% if model.discountTotal %}
             <span tabindex="0" role="contentinfo" class="cart-discount" {% if model.discountTotal==0%} style="display:none" {% endif %}>
                 <span class="mz-ordersummary-discountname label">Discount</span>
                 <span class="mz-ordersummary-discountvalue value discount">-{{ model.discountTotal|currency }}</span>
             </span>
         {% endif %}
+        {% endcomment %}
+        {% for discount in model.orderDiscounts %}
+                {% if not discount.excluded %}
+                    <span tabindex="0" role="contentinfo" class="cart-discount" {% if model.discountTotal==0%} style="display:none" {% endif %}>
+                        <span class="mz-ordersummary-discountname label">{{ discount.discount.name }}:</span>
+                        <span class="mz-ordersummary-discountvalue value discount">-{{ discount.impact|currency }}</span>
+                    </span>
+                {% endif %}   
+            {% endfor %}
+            {% for discount in model.shippingDiscounts %}
+                {% if not discount.excluded %}
+                    <span tabindex="0" role="contentinfo" class="cart-discount" {% if model.discountTotal==0%} style="display:none" {% endif %}>
+                        <span class="mz-ordersummary-discountname label">{{ discount.discount.discount.name }}:</span>
+                        <span class="mz-ordersummary-discountvalue value discount">-{{ discount.discount.impact|currency }}</span>
+                    </span>
+
+                {% endif %}   
+            {% endfor %}
         <span tabindex="0" role="contentinfo" class="mz-ordersummary-grandtotal">
             <span class="mz-ordersummary-totalname label">{{ labels.total }}</span>
             {% if pageContext.pageType == 'checkout' %}

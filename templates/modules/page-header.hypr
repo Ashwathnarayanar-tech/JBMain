@@ -143,7 +143,7 @@
                 </div>
                 <div class="call-to-action-buttons">
                     <a class="continue-shoping" href="javascript:void(0)" title="continue shoping" role="button">Continue Shopping</a>
-                    <a class="view-cart" href="/cart" tital="view cart" role="button">View Cart</a>
+                    <a class="view-cart" href="/cart" title="view cart" role="button">View Cart</a>
                 </div>
                 <div class="rec-prod-sec" id="addtocart-popup-rec-prod-sec">
                     <div class="head-rec-prod-list">
