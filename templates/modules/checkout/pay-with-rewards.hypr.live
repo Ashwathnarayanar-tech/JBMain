@@ -15,7 +15,7 @@
 <section class="subscription">
   <div class="expanded-section"> 
       <div class="formGroup howofter">
-          <span class="how-often-label-sub">
+          <span class="how-often-label-sub" tabindex="0">
               <label for="howOften">How Often? Every</label>
           </span>
           <div class="how-often-input-sub">
@@ -44,7 +44,7 @@
           </div>
       </div>
       <div class="formGroup howling">
-          <span class="for-how-long-label-sub">
+          <span class="for-how-long-label-sub" tabindex="0">
               <label for="howlong">For How Long?</label>
           </span>
           <div class="how-long-input-sub">

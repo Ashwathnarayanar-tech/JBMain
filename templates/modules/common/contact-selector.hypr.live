@@ -16,13 +16,13 @@
             {% endif %}
         {% endif %}
         {% if model.contactId != "new" %}
-            <label class="mz-contactselector-contact mz-contactselector-new no-form">
-                <span class="mz-contactselector-inputwrapper" tabindex="0">
+            <label class="mz-contactselector-contact mz-contactselector-new no-form" >
+                <span class="mz-contactselector-inputwrapper">
                     <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
                 </span>
-                <span class="mz-contactselector-summarywrapper"  style="width: auto;" tabindex="0">
+                <span class="mz-contactselector-summarywrapper"  style="width: auto;" >
                     <div class="mz-addresssummary">
-                        <span>{{ labels.enterNewAddress }}</span>
+                        <span tabindex="0" style="display:inline-block;">{{ labels.enterNewAddress }}</span>
                     </div>
                 </span>
             </label>
@@ -32,13 +32,13 @@
             {% if contact.isDefaultShipping %}
                 <p class="default-address-text"><b>Default Shipping Address</b></p>
                 <span class="data-contact">
-                    <label class="mz-contactselector-contact {% if model.id == contact.id or model.contactId == contact.id" %} default-addr{% endif %}">
+                    <label tabindex="0" class="mz-contactselector-contact {% if model.id == contact.id or model.contactId == contact.id" %} default-addr{% endif %}">
                         <span class="mz-contactselector-inputwrapper">
                             <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.id == contact.id or model.contactId == contact.id" %} checked="checked" {% endif %}>    
                             <span class="custom-radio"></span>
                         </span> 
                         <span class="mz-contactselector-summarywrapper">
-                            <div class="mz-addresssummary">
+                            <div class="mz-addresssummary" tabindex="0">
                                 {% include "modules/common/address-summary" with model=contact %}        
                             </div>
                         </span>  

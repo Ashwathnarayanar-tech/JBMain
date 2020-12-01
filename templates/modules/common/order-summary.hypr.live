@@ -4,9 +4,9 @@
         <span class="productqty">QTY</span>
         <span class="producttotal">ITEM TOTAL</span>
     </div>
-    <div class="item-list">
+    <div class="item-list" tabindex="0" role="contentinfo">
         {% for item in model.items %}
-            <div class="summary-item"  tabindex="0" role="contentinfo">
+            <div class="summary-item"  >
                 <span class="item-name">
                     {{ item.product.name|safe }}
                     {% if item.product.productUsage == 'Bundle' %}
@@ -47,7 +47,7 @@
             </div>
         {% endfor %}
     </div>
-    <div class="summary-data-total">
+    <div class="summary-data-total"> 
         <span tabindex="0" role="contentinfo" class="summary-subtotal">
             <span class="subtotal-label label">{{ labels.subtotal }}</span> 
             <span class="subtotal-value value">{{ model.subtotal|currency }}</span>

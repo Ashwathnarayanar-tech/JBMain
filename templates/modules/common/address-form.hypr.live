@@ -14,7 +14,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="firstname" id="{% if addresscontext == "billingContact." %}bfirstname{% else %}firstname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_1{% else %}err_firstname1{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}firstName" value="{{ model.firstName }}"><!-- ADA OK -->
-            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_1{% else %}err_err_firstname1{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}firstName"></span>
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_1{% else %}err_firstname1{% endif %}" data-mz-validationmessage-for="{{ addresscontext }}firstName"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-lastname">
@@ -23,7 +23,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="lastname" id="{% if addresscontext == "billingContact." %}blastname{% else %}lastname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_2{% else %}err_lastname2{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}lastNameOrSurname" value="{{ model.lastNameOrSurname }}"><!-- ADA OK -->
-            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_err_lastname2{% endif %}" tabindex="-1" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_lastname2{% endif %}" tabindex="-1" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
         </div>
     </div>
     {% comment %} <div class="mz-l-formfieldgroup-row mz-addressform-companyname"> 
@@ -41,7 +41,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
-            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_err_address3{% endif %}" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
+            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address2">

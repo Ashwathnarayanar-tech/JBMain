@@ -2770,20 +2770,20 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             });
             console.log(result);
             return result;
-        }
+        } 
         };
 
         // navigate through ordersummary
-        $(document).on('keydown', '.summary-item', function(e){
-            if ((e.which === 9 && e.shiftKey)) {
-                e.preventDefault();
-                $(e.target).prev('.summary-item').focus();
-            }
-            if((e.which === 9 && !e.shiftKey)){
-                e.preventDefault();
-                $(e.target).next('.summary-item').focus();
-            }
-        });
+        // $(document).on('keydown', '.summary-item', function(e){
+        //     if ((e.which === 9 && e.shiftKey)) {
+        //         e.preventDefault();
+        //         $(e.target).prev('.summary-item').focus();
+        //     }
+        //     if((e.which === 9 && !e.shiftKey)){
+        //         e.preventDefault();
+        //         $(e.target).next('.summary-item').focus();
+        //     }
+        // });
 
         // coupon code field functanality
         $(document).on('click', '.coupondata', function(e){
@@ -2949,7 +2949,18 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     e.preventDefault();   
                 }
             }
-        });
+        }); 
+        $(document).on('keypress', '.span-tabs', function(e) {
+            if(e.keyCode === 13 || e.keyCode === 27){
+                if($(e.target).hasClass('week')){
+                    $(document).find('.subscription').find('.span-tabs.week').addClass('active');
+                    $(document).find('.subscription').find('.span-tabs.months').removeClass('active');
+                }else{
+                    $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
+                    $(document).find('.subscription').find('.span-tabs.months').addClass('active');
+                }    
+            }
+        });   
         $("#checkoutmodal").on('click',function(){
             window.location.replace("/cart"); 
             // $(this).children(".wrapper_email").toggle(); 
@@ -3070,7 +3081,8 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
         }
             // shipping method keyboard interactions
-        $(document).on('keydown', 'input[data-mz-shipping-method]', function(e) {
+       /// $(document).on('keydown', 'input[data-mz-shipping-method]', function(e) {
+        $(document).on('keypress', '.method-label', function(e) {
             if(e.keyCode == 40 || e.keyCode == 39) {
                 e.preventDefault();	
                 if($(this).parents('div').next().find('input[data-mz-shipping-method]')) {
@@ -3083,8 +3095,8 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     $(this).parents('div').prev().find('input[data-mz-shipping-method]').focus();
                 }
             }
-            if(e.keyCode == 13 || e.keyCode == 32) {
-                $(this).trigger('click');
+            if(e.keyCode == 13 || e.keyCode == 32 || e.keyCode == 27) {
+                $(this).find('input').trigger('click');
                 e.preventDefault();
             }
         });
