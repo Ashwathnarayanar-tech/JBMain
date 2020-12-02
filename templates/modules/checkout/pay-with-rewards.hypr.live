@@ -15,12 +15,12 @@
 <section class="subscription">
   <div class="expanded-section"> 
       <div class="formGroup howofter">
-          <span class="how-often-label-sub" tabindex="0">
-              <label for="howOften">How Often? Every</label>
+          <span class="how-often-label-sub">
+              <label for="howOften" id="howOften">How Often? Every</label>
           </span>
           <div class="how-often-input-sub">
-              <select class="how-often-val" name="howOften">
-                  <option value="1">1</option>
+              <select class="how-often-val" name="howOften" aria-labelledby="howOften">
+                  <option selected value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -44,11 +44,11 @@
           </div>
       </div>
       <div class="formGroup howling">
-          <span class="for-how-long-label-sub" tabindex="0">
-              <label for="howlong">For How Long?</label>
+          <span class="for-how-long-label-sub">
+              <label for="howlong" id="howlong">For How Long?</label>
           </span>
           <div class="how-long-input-sub">
-              <select class="how-long-val" name="howlong">
+              <select class="how-long-val" name="howlong" aria-labelledby="howlong">
                   <option value="untill i cancel">Untill I Cancel</option>
                   <option value="3 Deliveries">3 Deliveries</option>
                   <option value="4 Deliveries">4 Deliveries</option>
