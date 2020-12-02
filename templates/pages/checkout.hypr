@@ -163,14 +163,16 @@
                 <div class="mz-l-formfieldgroup" style="display: block;">
                     {% if themeSettings.showCheckoutCommentsField %}
                         <div>
-                            <label class="label-text" for="comments-field">Gift Message</label>
-                            <div tabindex="0" class="mz-checkoutform-comments mz-l-formfieldgroup-row" id="comments-field" style="display: block;"  >
+                            <label class="label-text" for="comments-field" id="gift-comments">Gift Message</label>
+                            <div class="mz-checkoutform-comments mz-l-formfieldgroup-row" id="comments-field" style="display: block;"  >
                                 {% include "modules/checkout/comments-field" %}
                             </div>
                         </div>
                     {% endif %} 
                 </div>
+                <div tabindex="0">
                 {% dropzone "checkout-faq" scope="template"%}
+                </div>
             </div>
             <div class="clearfix"></div>
         </div> 

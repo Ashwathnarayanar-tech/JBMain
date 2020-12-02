@@ -218,7 +218,7 @@
         </div>
         {% if model.paymentType == "CreditCard" and model.paymentType != "PayPalExpress2" and model.paymentType != 'select payment type' %}
         <div class="mz-l-stack-section">
-            <h4 class="mz-l-stack-sectiontitle">{{ labels.billingAddress }}</h4>
+            <h4 class="mz-l-stack-sectiontitle" tabindex="0">{{ labels.billingAddress }}</h4>
             {% if model.requiresFulfillmentInfo %}
                 {% comment %}
                     <p tabindex="0" role="contentinfo">If your Billing Information is same as the Shipping Information, click the "Copy from Shipping" button</p>

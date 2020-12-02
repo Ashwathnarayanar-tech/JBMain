@@ -3235,7 +3235,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                // $(this).trigger('click');
                 if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
                     $(document).find('label[for=mz-payment-credit-card-name]').focus();
-                }
+                } 
                 else{
                     $(this).next().focus(); 
                 }
