@@ -1496,6 +1496,27 @@ require([
 				$(".jb-childcategory").focus();
 			}
 		}
+		
+		setTimeout(function(){
+		    // Flover guide navigation from header
+            var myFlover = window.location.hash; 
+            if(myFlover && myFlover == "#flavor-List" && !$('.jb_contentfolder').is(':visible')){
+                if($(document).find(myFlover).find('.jb-colapsing-title')){
+                    $(document).find(myFlover).find('.jb-colapsing-title').trigger('click');
+                }
+                if($(document).find("#flavor-List")){
+                    if($(window).width() <= 767){
+                        $('html, body').animate({
+                            scrollTop: $(document).find("#flavor-List").offset().top-100
+                        }, 1500);
+                    }else{
+                        $('html, body').animate({
+                            scrollTop: $(document).find("#flavor-List").offset().top
+                        }, 500);
+                    } 
+                }
+            }
+		},2000);
 	});
 
 	function GetURLParameter(sParam) {
@@ -1510,4 +1531,6 @@ require([
 		return '';
 	}
 });
+
+
 

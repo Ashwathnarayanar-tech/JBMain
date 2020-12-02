@@ -1,0 +1,821 @@
+<section class="products-mixes-wrapper products-section">
+  <!-- THE CLASSICS -->
+  <div class="products-mixes-sours-wrapper classics ltr category">
+    <h2 class="products-category-heading">
+      The Classics
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d21c5386-c0c2-4143-8fd5-b8cd5cd1a63f?quality=70" alt="">
+      </div>
+
+      <div class="product-items-wrapper">
+        <!-- CLASSICS PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b16c882c-1105-4d0a-96b7-233688bfd88a" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">8.5 oz. Jelly Belly® 20-Flavor Christmas Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b16c882c-1105-4d0a-96b7-233688bfd88a" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CLASSICS PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1fea573e-f3d6-4183-9f6f-7f403a2f8c63" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 lb. 20-Flavor Jelly Belly® Clear Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1fea573e-f3d6-4183-9f6f-7f403a2f8c63" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CLASSICS PROD 3 -->
+        <div class="product-item wide gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/204b2687-7758-46c7-8c7b-7b0ca40c8a05" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">4.25 oz. Jelly Belly® 10-Flavor Christmas Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/204b2687-7758-46c7-8c7b-7b0ca40c8a05" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLASSICS PROD WRAPPER - BOTTOM ROW -->
+    <div class="products-category-item-wrapper bottom">
+      <div class="product-items-wrapper bottom-product-items">
+        <!-- CLASSICS PROD 4 -->
+        <div class="product-item wide gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/9903b635-8b34-4e14-9e6d-69bf4d746ff3" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">17 oz. Jelly Belly® 40-Flavor Christmas Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/9903b635-8b34-4e14-9e6d-69bf4d746ff3" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CLASSICS PROD 5 -->
+        <div class="product-item wide gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/6e9f26a8-e8eb-4dfc-8850-de113e3599ae" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">2 lb. 40-Flavor Jelly Belly® Clear Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/6e9f26a8-e8eb-4dfc-8850-de113e3599ae" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- FOR CHOCOLATE LOVERS -->
+  <div class="products-mixes-ice-cream-wrapper rtl category">
+    <h2 class="products-category-heading">
+      For Chocolate Lovers
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="product-items-wrapper">
+        <!-- CHOCOLATE LOVERS PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f8698573-6d92-4788-b7f7-3aa7104b9c1f" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.75 oz. Mint Gourmet Milk Chocolate Bar</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f8698573-6d92-4788-b7f7-3aa7104b9c1f" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CHOCOLATE LOVERS PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/fbd6fc7b-7787-4897-a54e-f4d3cb8b6de4" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.75 oz. Very Cherry Gourmet Milk Chocolate Bar</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/fbd6fc7b-7787-4897-a54e-f4d3cb8b6de4" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1a785d42-b2c9-434e-ae42-aaa6a7afe044?quality=50" alt="">
+      </div>
+    </div>
+
+    <div class="products-category-item-wrapper bottom">
+      <div class="product-items-wrapper bottom-product-items">
+        <!-- CHOCOLATE LOVERS PROD 3 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2162beff-dafc-4752-b898-e595d9862d37" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.6 oz. Gourmet Milk Chocolate Truffles Very Cherry Gable Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2162beff-dafc-4752-b898-e595d9862d37" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CHOCOLATE LOVERS PROD 4 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/bfdfd68b-719d-4ff4-924e-27e44fd229fe" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.6 oz. Gourmet Milk Chocolate Truffles Mint Gable Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/bfdfd68b-719d-4ff4-924e-27e44fd229fe" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CHOCOLATE LOVERS PROD 5 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2767a0c8-77b9-46b4-8b9a-1ee156938fc6" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.6 oz. Gourmet Milk Chocolate Truffles Orange Gable Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2767a0c8-77b9-46b4-8b9a-1ee156938fc6" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- CHOCOLATE LOVERS PROD 6 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/5466ecd8-f084-4e28-a371-a6257b16d40a" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">4.8 oz. Gourmet Milk Chocolate Truffles Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/5466ecd8-f084-4e28-a371-a6257b16d40a" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- FLAVORS OF THE SEASON -->
+  <div class="products-flavors-season-wrapper ltr category">
+    <h2 class="products-category-heading">
+      Flavors of the Season
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f62747b5-566d-4832-bb36-66ae52bb7890?quality=50" alt="">
+      </div>
+
+      <div class="product-items-wrapper">
+        <!-- SEASON PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/02b97756-af71-4151-888c-3926c367fb04" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">6 oz. Christmas Chocolate Dutch Mints</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/02b97756-af71-4151-888c-3926c367fb04" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- SEASON PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/dba22b94-84a8-4f7c-83e6-a36bbbbf3287" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">5.75 oz. Sugar Plums</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/dba22b94-84a8-4f7c-83e6-a36bbbbf3287" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-category-item-wrapper bottom">
+      <div class="product-items-wrapper bottom-product-items">
+        <!-- SEASON PROD 3 -->
+        <div class="product-item wide">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/650d5faa-9c18-49d7-a491-b67b85e64ec6" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">4.25 oz. Jelly Belly® Holiday Favorites Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/650d5faa-9c18-49d7-a491-b67b85e64ec6" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- SEASON PROD 4 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/751fb273-88d2-474a-89be-003da3e2cab7" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.5 oz. Jelly Belly® Holiday Favorites</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/751fb273-88d2-474a-89be-003da3e2cab7" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- SEASON PROD 5 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/5be18321-dd41-4edf-ae65-099f7617a5f1" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">7.5 oz. Jelly Belly® Holiday Favorites Gift Bag</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/5be18321-dd41-4edf-ae65-099f7617a5f1" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- STOCKING STUFFERS -->
+  <div class="products-mixes-ice-cream-wrapper stocking-wrapper rtl category">
+    <h2 class="products-category-heading">
+      Stocking Stuffers
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="product-items-wrapper">
+        <!-- STOCKING PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d7aff5b7-22b8-422b-b2e0-0157e75a0bd9" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.5 oz. Pumpkin Pie</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d7aff5b7-22b8-422b-b2e0-0157e75a0bd9" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- STOCKING PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.5 oz. Jelly Belly® Christmas Jewel Mix</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/9dab9408-d469-48eb-8c8e-097e570add37" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/0449b959-8b81-4b91-a54e-86326d23359a?quality=50" alt="">
+      </div>
+    </div>
+
+    <div class="products-category-item-wrapper bottom">
+      <div class="product-items-wrapper bottom-product-items">
+        <!-- STOCKING PROD 3 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/620ad6d1-a7ce-46b0-b613-cfbac6dd954e" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3 oz. Jelly Belly® Sour Gummi Santas</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/620ad6d1-a7ce-46b0-b613-cfbac6dd954e" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- STOCKING PROD 4 -->
+        <div class="product-item x-wide">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/bc7c70db-fdd6-49c9-9b0f-2a14463a6060" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Jelly Belly® Christmas Light Bulbs</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/bc7c70db-fdd6-49c9-9b0f-2a14463a6060" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- STOCKING PROD 5 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cb209b70-e078-4436-a4de-a09cb28c5466" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 oz. Jelly Belly® Reindeer Corn® Stocking Stuffer Bags</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cb209b70-e078-4436-a4de-a09cb28c5466" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- STOCKING PROD 6 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1b42e2c7-58e9-4433-8de6-6f5813c95408" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 oz. Jelly Belly® Christmas Mix Jelly Beans Stocking Stuffer Bags</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1b42e2c7-58e9-4433-8de6-6f5813c95408" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- STOCKING PROD 7 -->
+        <div class="product-item wide">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/eef95689-187a-4be9-b436-ed5c9aa24d07" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">4 oz. Jelly Belly® NOEL Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/eef95689-187a-4be9-b436-ed5c9aa24d07" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JUST FOR FUN -->
+  <div class="products-jff-wrapper ltr category">
+    <h2 class="products-category-heading">
+      Just For Fun
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/5caa9a6e-2d1f-49e1-bb3d-bd196baf6f89?quality=50" alt="">
+      </div>
+
+      <div class="product-items-wrapper">
+        <!-- JFF PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c9672ce2-4764-4e12-9c10-0966b99dc20d" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">5.6 oz. Jelly Belly® Ros&#233; Bottle</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c9672ce2-4764-4e12-9c10-0966b99dc20d" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- JFF PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.36 oz. BeanBoozled® Fiery Five® Spinner Tin</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b7684c0e-5552-4740-97ef-53c67a3b529f" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- JFF PROD 3 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/667c74bb-207f-4fb4-9335-d095dff771d6" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 oz. 20 Flavors Factory Bean Dispenser</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/667c74bb-207f-4fb4-9335-d095dff771d6" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- JFF PROD 4 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.5 oz. BeanBoozled® Naughty or Nice Spinner Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/921cf63f-5156-4d05-84c6-bcfd187cc41e" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- JFF PROD 5 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/17cb7927-5ad0-4639-af72-bfc8f5b5edc0" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 oz. 20 Flavors My Favorites Bean Dispenser</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/17cb7927-5ad0-4639-af72-bfc8f5b5edc0" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- JFF PROD 6 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">3.5 oz. BeanBoozled® Fiery Five® Gift Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/3f27f3d2-bc62-436f-8fef-4c35648c4e61" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- HARRY POTTER -->
+  <div class="products-harry-potter-wrapper rtl category">
+    <h2 class="products-category-heading">
+      For Harry Potter Fans
+    </h2>
+
+    <div class="products-category-item-wrapper">
+      <div class="product-items-wrapper">
+        <!-- HARRY POTTER PROD 1 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/708cd537-2bba-42bf-bc7b-a392b2a97555" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.2 oz. Bertie Bott’s Every-Flavour Beans™ Flip Top Box</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/708cd537-2bba-42bf-bc7b-a392b2a97555" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 2 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.9 oz. Bertie Bott’s Every-Flavour Beans™ Bag</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/856ea1a3-b50f-4326-a913-5df939a77f84" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 3 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/9c9df304-a5d6-43f8-b15e-ede3d3a1424a" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">2.1 oz. Harry Potter™ Jelly Slugs</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/9c9df304-a5d6-43f8-b15e-ede3d3a1424a" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 4 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">2.1 oz. Harry Potter™ Magical Sweets</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/6c128909-5ed4-493a-80d1-3aa5b85c998d" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 5 -->
+        <div class="product-item gtm-products-product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ced0ca7f-8bdb-420b-8b36-45c85efa43c7" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">.55 oz. Harry Potter™ Chocolate Frog</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ced0ca7f-8bdb-420b-8b36-45c85efa43c7" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 6 -->
+        <div class="product-item gtm-products-product-item">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">.55 oz. Harry Potter™ Chocolate Creatures</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/98aa79ae-81fc-45cf-b0da-2e4be26d5849" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-category-image-wrapper">
+        <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b389dd8c-7882-44c9-962b-97c8a68d840c?quality=38" alt="">
+      </div>
+    </div>
+
+    <div class="products-category-item-wrapper bottom">
+      <div class="product-items-wrapper bottom-product-items">
+        <!-- HARRY POTTER PROD 7 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2cde7f89-97b9-47e1-aee1-3678362c2f84" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">Harry Potter™ Solid Milk Chocolate Golden Snitch</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2cde7f89-97b9-47e1-aee1-3678362c2f84" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 8 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2a2d80d5-a88d-478b-ba84-12b640139695" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Harry Potter™ Platform 9 3/4 Ticket Milk Chocolate with Crisped Rice Candy Bar</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2a2d80d5-a88d-478b-ba84-12b640139695" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 9 -->
+        <div class="product-item wide">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8cd5febd-9b29-4312-b5df-2d4be3791492" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1 oz. Harry Potter™ Crest Tins</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8cd5febd-9b29-4312-b5df-2d4be3791492" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 10 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c5274f19-863b-4344-9d4b-83733a29e522" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Harry Potter™ Chocolate Wand</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c5274f19-863b-4344-9d4b-83733a29e522" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 11 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c03acfae-bed0-49f7-b2d8-a3d130aad7c2" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Hermione Granger Chocolate Wand</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c03acfae-bed0-49f7-b2d8-a3d130aad7c2" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 12 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/73646311-6cb1-420f-b0f3-53b662b18173" width="465" height="515"alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Albus Dumbledore™ Chocolate Wand</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/73646311-6cb1-420f-b0f3-53b662b18173" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- HARRY POTTER PROD 13 -->
+        <div class="product-item">
+          <!-- Image is a placeholder for flexbox dynamic height -->
+          <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/0b77a9e3-9bf2-4348-8adf-e24e3d958bbb" width="465" height="515" alt="" class="prod-spacer">
+          <div class="product-heading-pos-fix">
+            <div class="product-item-heading">
+              <span class="product-name">1.5 oz. Voldemort™ Chocolate Wand</span>
+            </div>
+          </div>
+
+          <div class="product-item-pos-fix">
+            <div class="product-img-wrapper">
+              <img loading="lazy" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/0b77a9e3-9bf2-4348-8adf-e24e3d958bbb" width="465" height="515" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

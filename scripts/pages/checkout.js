@@ -670,6 +670,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         templateName: 'modules/checkout/step-shipping-method', 
         getRenderContext: function () {
                 var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
+                var getcurrentState = window.checkoutViews.steps.shippingAddress.model.attributes.address.attributes.stateOrProvince;
+            var getShippingstates = Hypr.getThemeSetting('usStates');
+            var validateState = getShippingstates.filter(function(item){return item.abbreviation == getcurrentState;});
+                if(validateState.length === 0) {
+                    c.model.availableShippingMethods = [];
+                }
                 if(c.model.availableShippingMethods){
                     c.model.availableShippingMethods = _.map(c.model.availableShippingMethods, function(method) { 
                         if(method.shippingMethodCode.indexOf("SUREPOST") > -1)

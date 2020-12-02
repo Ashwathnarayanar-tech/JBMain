@@ -484,7 +484,7 @@
                                     </div>                              
                                 </div>  
                                 <div class="submenu-list brand-sidebar">
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <div tabindex="0" class="item-name-list" original-al="Disney category">
                                             <a href="/disney-candy-and-gifts/c/337" original-al="Disney">
                                                 <div class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/4518a175-6fb1-47ad-aab7-e1cd95e9b6b8" width="62" height="31" alt=""></div>
@@ -518,7 +518,7 @@
                                                 </li>
                                             </ui>
                                         </div>  
-                                    </div>
+                                    </div>-->
                                    <!-- <div class="subitem">
                                         <div tabindex="0" class="item-name-list" original-al="Star Wars category">
                                             <a  href="/star-wars-gifts-and-candy/c/47" original-al="Star Wars">
@@ -540,7 +540,7 @@
                                         </div>     
                                     </div>-->
                                     {% comment %}
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="Pixar category">
                                             <a href="/pixar/c/885" original-al="Pixar">
                                                 <div class="img-container"><img class="new-lazy-load" src="/resources/images/icons/coming_soon.png" data-src="/resources/images/icons/coming_soon.png" width="62" height="31" alt="Pixar"></div>     
@@ -579,7 +579,7 @@
                                                 </li>
                                             </ui>
                                         </div>      
-                                    </div> 
+                                    </div>--> 
                                     {% endcomment %}
                                     <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="DC Heroes category">
@@ -601,7 +601,7 @@
                                             </ui>
                                         </div>      
                                     </div>-->                             
-                                </div>                           
+                                </div>-->                           
                             </li>
                             <li class="sunmenu-container" data-attr="Weight/Size">
                                 <div class="submenu-list weight-styling">
@@ -1329,11 +1329,11 @@
                                             <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
                                         </a>
                                     </div> 
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <a href="/personal-california-factory-tours" original-al="Personal-Guided Factory Tours">
                                             <div class="namespan-container"><span class="name-span">Personal Guided Factory Tours</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <!--<div class="subitem">
                                         <a href="/jelly-belly-university" original-al="Jelly Belly University">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly University</span></div>
@@ -1999,7 +1999,7 @@
                                             </ui>
                                         </div>      
                                     </div>
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="Disney category">
                                             <div class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/4518a175-6fb1-47ad-aab7-e1cd95e9b6b8" width="62" height="33" alt="Disney"></div>
                                             <div class="namespan-container">
@@ -2034,7 +2034,7 @@
                                                 </li>
                                             </ui>
                                         </div>  
-                                    </div>
+                                    </div>-->
                                     <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="Star Wars category">
                                             <div class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/03c03ca1-ad17-453f-be5a-d5d84e467739" width="62" height="33" alt="Star Wars"></div>     
@@ -2057,7 +2057,7 @@
                                         </div>     
                                     </div>-->
                                     {% comment %}
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="Pixar category">
                                             <div class="img-container"><img class="new-lazy-load" src="/resources/images/icons/coming_soon.png" data-src="/resources/images/icons/coming_soon.png" width="62" height="33" alt="Pixar"></div>     
                                             <div class="namespan-container">
@@ -2097,7 +2097,7 @@
                                                 </li>
                                             </ui>
                                         </div>      
-                                    </div> 
+                                    </div>--> 
                                     {% endcomment %}
                                     <!--<div class="subitem">
                                         <div tabindex="0"  class="item-name-list" original-al="DC Heroes category">
@@ -2855,11 +2855,11 @@
                                             <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
                                         </a>
                                     </div> 
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <a href="/personal-california-factory-tours" original-al="Personal-Guided Factory Tours">
                                             <div class="namespan-container"><span class="name-span">Personal Guided Factory Tours</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <!--<div class="subitem">
                                         <a href="/jelly-belly-university" original-al="Jelly Belly University">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly University</span></div>

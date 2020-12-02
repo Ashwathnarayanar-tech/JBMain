@@ -185,8 +185,11 @@ define([
                     if (!this.requiresFulfillmentInfo() && this.requiresDigitalFulfillmentContact()) {
                         return this.nextDigitalOnly();
                     }
-                    var state = this.attributes.address.attributes.stateOrProvince,
-                        zip = this.attributes.address.attributes.postalOrZipCode,
+                    var getShippingstates = Hypr.getThemeSetting('usStates');
+                    var getCurrentState = this.attributes.address.attributes.stateOrProvince;
+                    var validateState = getShippingstates.filter(function(item){return item.abbreviation == getCurrentState;});
+                    var state = validateState.length > 0 ?this.attributes.address.attributes.stateOrProvince:"",
+                    zip = this.attributes.address.attributes.postalOrZipCode,
                         addType = $.cookie('isExistingAddress') === "true" ? "Residential" : $('[data-mz-value="address.addressType"]').val() === undefined ? this.attributes.address.attributes.addressType : $('[data-mz-value="address.addressType"]').val();
                     var phone = this.attributes.phoneNumbers ? this.attributes.phoneNumbers.attributes.home : this.attributes.phoneNumbers;
                     if ($.cookie('isExistingAddress') === "true") {
@@ -256,15 +259,31 @@ define([
                         addr.syncApiModel();
                         addr.apiModel[methodToUse]().then(function (resp) {
                             if (resp.data && resp.data.addressCandidates && resp.data.addressCandidates.length) {
+                                var getState = resp.data.addressCandidates[0];                                    
+                                var getdeliveryStates = Hypr.getThemeSetting('usStates');
+                                var stateValue = getState && getState.stateOrProvince?getState.stateOrProvince:"" ;
+                                var validatedeliveryState = getdeliveryStates.filter(function(item){return item.abbreviation == stateValue;});
                                 if (_.find(resp.data.addressCandidates, addr.is, addr)) {
-                                    addr.set('isValidated', true); 
+                                    if(validatedeliveryState.length > 0){
+                                        addr.set('isValidated', true); 
                                         completeStep();
                                         return;
+                                    } else {
+
+                                        me.set('address.stateOrProvince', "");
+                                        order.messages.reset();
+                                        completeStep();
                                     }
-                                addr.set('candidateValidatedAddresses', resp.data.addressCandidates);
-                                promptValidatedAddress();
-                                $('#candidateValidatedAddresses').trigger('click');
-                                completeStep();  
+                                } else if(validatedeliveryState === undefined || validatedeliveryState.length === 0){
+                                    me.set('address.stateOrProvince', "");
+                                    order.messages.reset();
+                                    completeStep();
+                                } else {
+                                    addr.set('candidateValidatedAddresses', resp.data.addressCandidates);
+                                    promptValidatedAddress();
+                                    $('#candidateValidatedAddresses').trigger('click');
+                                    completeStep();  
+                                } 
                             } else {
                                 completeStep();
                             }
@@ -380,9 +399,17 @@ define([
                 }
             },
             next: function () {
-                if(this.applyShipping()){
-                    this.stepStatus('complete');
-                    this.parent.get('billingInfo').calculateStepStatus();
+                var addressCheck = this.attributes.fulfillmentContact.attributes.address.attributes.stateOrProvince;
+                var getShippingstates = Hypr.getThemeSetting('usStates');
+                var validateState = getShippingstates.filter(function(item){return item.abbreviation == addressCheck;});
+                if(validateState.length) {
+                    if(this.applyShipping()){
+                        this.stepStatus('complete');
+                        this.parent.get('billingInfo').calculateStepStatus();
+                    }    
+                } else {
+                    $(".mz-validationmessage[data-mz-validationmessage-for='shippingMethodCode']").html('The Location provided is not eligible for delivery');
+                    $(".brontocart-ship-method.gtm-to-billing.mz-button.mz-shipmethod.checkout-btn[data-mz-action='next']").attr("disabled","disabled");
                 }
             }
         }),

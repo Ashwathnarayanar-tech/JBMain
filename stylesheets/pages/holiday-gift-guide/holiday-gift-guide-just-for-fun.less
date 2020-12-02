@@ -1,0 +1,22 @@
+.products-fun-wrapper {
+  .category {
+    .products-category-item-wrapper {
+      .product-items-wrapper {
+        .product-item {
+          max-height: calc(~"33.3% - 10px");
+          min-height: calc(~"33.3% - 10px");
+        }
+
+        &.bottom-product-items {
+          width: 100%;
+
+          .product-item {
+            flex-basis: calc(~"25% - 10px");
+            max-height: calc(~"100% - 10px");
+            min-height: calc(~"100% - 10px");
+          }
+        }
+      }
+    }
+  }
+}

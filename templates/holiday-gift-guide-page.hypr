@@ -1,0 +1,211 @@
+{% autoescape on %}
+{% block doctype %}
+<!doctype html>
+{% endblock doctype %}
+
+{% comment %}
+    The comment tag lets you write comments that will be visible when editing the template file, but don't appear in the rendered HTML. It's essentially just an "ignore this" tag.
+{% endcomment %}
+
+{% comment %}
+    The conditional statements below detect if visitor is on a particular
+    version of IE and adds the appropriate classes to the HTML element. You can then target
+    these browsers in your CSS without hacks, like:
+
+        .thing {
+        padding: 10px;
+        }
+        .ie6 .thing {
+        padding: 12px;
+        }
+
+    no-js:
+    The Modernizr library we're using will replace the class "no-js" with "js" if javascript
+    available. Again you can use this as a way to make sensible fallbacks if javascript
+    is not available.
+{% endcomment %}
+
+{% block open-html-tag %}
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|(!IE) ]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+{%endblock open-html-tag %}
+
+    {% block head-tag %}
+    <head>
+
+        {% include "modules/json-required-for-hyprlive" %}
+
+
+        {% block meta-tags %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="{{ PageContext.MetaDescription }}">
+        <meta name="keywords" content="{{ PageContext.MetaKeywords }}">
+        <meta name="correlationId" content="{{ pageContext.correlationId }}">
+        {% endblock meta-tags %}
+
+
+        {% block shortcut-icon %}
+        <link rel="stylesheet" href="https://use.typekit.net/nxf7krm.css">
+		<link rel="shortcut icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
+		<link rel="icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+        {% include "modules/canonical-tag2" %}
+
+		{% endblock shortcut-icon %}
+
+
+        <!-- Google Tag Manager -->
+        {% ifnotequal siteContext.tenantId 9046 %}
+
+        <!-- test GTM (development environment in container) -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=9yQN6-jWJKVJrv5oGkpY7g&gtm_preview=env-5&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PMHCW97');</script>
+        {% else %}
+        <!-- production GTM -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PMHCW97');</script>
+        {% endifnotequal %}
+        <!-- End Google Tag Manager -->
+
+        <title>{% block title-tag-content %}{{ siteContext.generalSettings.websiteName }} {% endblock title-tag-content %}</title>
+
+        {% if PageContext.FeedUrl  %}
+        <link rel="alternate" type="application/rss+xml" title="{{ PageContext.Title }}" href="{{ PageContext.FeedUrl }}" />
+        {% endif %}
+
+		{% if PageContext.CrawlerInfo.CanonicalUrl  %}
+        <link rel="canonical" href="{{PageContext.CrawlerInfo.CanonicalUrl}}">
+        {% endif %}
+
+		{% if PageContext.CrawlerInfo.PreviousUrl  %}
+        <link rel="prev" href="{{PageContext.CrawlerInfo.PreviousUrl}}">
+        {% endif %}
+
+		{% if PageContext.CrawlerInfo.NextUrl  %}
+        <link rel="next" href="{{PageContext.CrawlerInfo.NextUrl}}">
+        {% endif %}
+
+        {% if themeSettings.enableRecaptcha %}
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        {% endif %}
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://use.typekit.net/nxf7krm.css">
+        {% comment %}
+        <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/storefront.less" %}" title="default" />
+        {% endcomment %}
+        <link rel="stylesheet" href="/stylesheets/compiled/pages/holiday-gift-guide.less">
+        {% endblock stylesheets %}
+
+        {% block head-tag-scripts %}
+        <script src="{% make_url "cdn" "/scripts/vendor/modernizr.min.js" %}"></script>
+        {% include "modules/web-fonts-loader" %}
+        {% endblock head-tag-scripts %}
+        {% cms_resources %}
+
+
+        {%header_content%}
+
+
+
+    </head>
+    {% endblock head-tag %}
+
+    {% block body-tag %}
+
+    {% block open-body-tag %}
+    <body class="{% block body-tag-classes %}{% endblock body-tag-classes %}">
+    {% endblock open-body-tag %}
+
+
+        <div id="page-wrapper" class="mz-l-pagewrapper">
+            {% if themeSettings.showCookieNotice %}
+            {% require_script "modules/cookie-notice" %}
+            {% endif %}
+
+            {% if themeSettings.enableRecaptcha %}
+            <div id="recaptcha-container-global"></div>
+            {% endif %}
+
+            {% comment %}
+            {% block utility-bar %}
+                {% include "modules/utility-bar/header" %}
+            {% endblock utility-bar %}
+
+            {% block page-header %}
+            {% include "modules/page-header" %}
+            {% endblock page-header %}
+
+            {% block site-nav %}
+            {% include "modules/site-nav" %}
+            {% endblock site-nav %}
+            {% endcomment %}
+
+            <div role="main" id="page-content" class="mz-l-pagecontent">
+                <style>
+                    body {
+                        display: flex;
+                    }
+
+                    .mz-l-pagecontent {
+                        padding: 0;
+                    }
+                </style>
+
+                {% comment %}
+                {% block breadcrumbs %}
+                {% if themeSettings.showBreadcrumbs %}
+                {% include "modules/breadcrumbs" %}
+                {% endif %}
+                {% endblock breadcrumbs %}
+                {% endcomment %}
+
+                {% block body-content %}
+                {% endblock body-content %}
+                
+                {% comment %}
+                {% dropzone "body" scope="page" %}
+                {% endcomment %}
+                
+                {% block body-below-content %}
+                {% comment %}
+                {% dropzone "body-bottom" scope="template" %}
+                {% endcomment %}
+                {% endblock body-below-content %}
+
+            </div>
+
+            {% comment %}
+            {% block page-footer %}
+            {% include "modules/page-footer" %}
+            {% endblock page-footer %}
+            {% include "modules/common/message-bar" %}
+            {% endcomment %}
+
+        </div>
+
+        {% block trailing-scripts %}
+        {% include "modules/trailing-scripts" %}
+        {% endblock trailing-scripts %}
+
+        {% visitor_tracking_pixel %}
+
+    </body>
+    {% endblock body-tag %}
+
+</html>
+{% endautoescape %}

@@ -799,6 +799,14 @@
       "template": "pages/beanboozled-challenge-ada"
     },
     {
+      "id": "holiday-gift-guide",
+      "title": "Holiday Gift Guide",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "userCreatable": true,
+      "template": "pages/holiday-gift-guide"
+    },
+    {
       "id": "resize",
       "title": "Resize  Review",
       "entityType": "webpage",
