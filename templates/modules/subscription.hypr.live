@@ -542,7 +542,6 @@
 											{% endif %}
 										</span>
 										<span class="item-li heat-sensitive">
-											<span class="heat-tickmark"></span>
 											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
 												<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product"></span>
 											{% endif %}
