@@ -856,7 +856,7 @@ define([
                             } 
                         });
                         var preSelcectedProduct =null,preSelectedQty=null;
-                            console.log("preSelectedProducts --- ",preSelectedProducts);
+                          //  console.log("preSelectedProducts --- ",preSelectedProducts);
                             for(var l=0;l<preSelectedProducts.length;l++){
                                 if(preSelectedProducts[l].skuCode === m.productCode  && dataPCodes.indexOf(m.productCode) == -1){
                                      preSelcectedProduct = preSelectedProducts[l].skuCode;
@@ -878,7 +878,7 @@ define([
                                         "Qty" : (preSelectedQty && preSelcectedProduct && preSelcectedProduct == m.productCode) ? preSelectedQty : 1
                                     }
                                 }; 
-                                console.log("preSelcectedProduct ----",preSelcectedProduct,m.productCode);
+                              //  console.log("preSelcectedProduct ----",preSelcectedProduct,m.productCode);
                                // 
                                 if(preSelcectedProduct && preSelcectedProduct == m.productCode){
                                     dataPCodes.push(m.productCode);
@@ -889,7 +889,7 @@ define([
                     });
                     myResult.push(myTemp); 
                 });
-                console.log(" preSelecteArray ---- ",preSelecteArray);
+               // console.log(" preSelecteArray ---- ",preSelecteArray);
                 modelRapidOrder.model.set('SubScriptionItemsList', preSelecteArray);
                 modelRapidOrder.model.set('total', modelRapidOrder.calculateTotal(preSelecteArray));
                 var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
@@ -1140,7 +1140,7 @@ define([
                 window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
             }
             else
-            window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
+            window.inputs = $(document).find('.popup .popup-body').find('button,[tabindex="0"],a,input,span');
             
             window.firstInput = window.inputs.first();
             window.lastInput = window.inputs.last(); 
@@ -1149,10 +1149,17 @@ define([
             window.lastInput.on('keydown', function (e) {
                if ((e.which === 9 && !e.shiftKey)) {
                    e.preventDefault();
-                   window.firstInput.focus(); 
+                  window.firstInput.focus(); 
                }
             });
-            
+            /*
+            window.lastInput[0].addEventListener('keydown', function (e) {
+                if ((e.which === 9 && !e.shiftKey)) {
+                    e.preventDefault();
+                   window.firstInput.focus(); 
+                }
+             });
+            */
             // if current element is first, get focus to last element on tab+shift press.
             window.firstInput.on('keydown', function (e) {
                 if ((e.which === 9 && e.shiftKey)) {
@@ -1161,6 +1168,7 @@ define([
                 }
             }); 
             console.log("window.inputs----",window.inputs);
+            console.log(" window.lastInput --- ",window.lastInput);
         },
         render : function(){
             Backbone.MozuView.prototype.render.apply(this);
@@ -1294,8 +1302,8 @@ define([
 
         if(myModel && myModel.isFirstPopup){
             setTimeout(function(){
-                $(document).find('.popup-body.popup-content').focus();
-                modelRapidOrder.loopInpopup();
+                $(document).find('.popup-content .head-sec').focus();
+                modelRapidOrder.loopInpopup("first-popup");
             },500);
            
         }

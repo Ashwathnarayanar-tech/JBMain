@@ -10,19 +10,19 @@
 					<ul class="item-list">  
 						<li class="list-item">
 							<img class="list-image" alt="You'll see your Subscription products here (and only here)" src="../../resources/images/popup-image-3.svg" />
-							<span class="text-content-popup" tabindex="0" role="contentinfo">
+							<span class="text-content-popup first" tabindex="0" >
 								You'll see your Subscription products here <strong>(and only here)</strong>
 							</span>
 						</li> 	   
 						<li class="list-item">
-							<img class="list-image" alt="We'll take you through a Special Checkout to confirm and start your Subscription" src="../../resources/images/popup-image-2.svg" />
-							<span class="text-content-popup" tabindex="0" role="contentinfo">
+							<img class="list-image" alt="When you are ready, click Create Subscription " src="../../resources/images/popup-image-2.svg" />
+							<span class="text-content-popup second" tabindex="0" >
 								When you are ready, click <strong>Create Subscription</strong>
 							</span> 
 						</li> 
 						<li class="list-item">
-							<img class="list-image" alt="When you are ready, click Create Subscription" src="../../resources/images/popup-image-1.svg" />							
-							<span class="text-content-popup" tabindex="0" role="contentinfo">
+							<img class="list-image" alt="We'll take you through a Special Checkout to confirm and start your Subscription" src="../../resources/images/popup-image-1.svg" />							
+							<span class="text-content-popup third" tabindex="0" >
 								We'll take you through a <strong>Special Checkout</strong> to confirm and start your Subscription
 							</span>
 						</li> 
@@ -55,15 +55,15 @@
 			<ul class="bar-list">
 				<li class="bar-item" >
 					<img class="list-image" alt="number one" src="../../resources/images/number-1.svg" />
-					<span class="list-content" tabindex="0" role="contentinfo">You'll see your Subscription products here (and only here)</span>
+					<span class="list-content" tabindex="0" >You'll see your Subscription products here (and only here)</span>
 				</li>
 				<li class="bar-item">
 					<img class="list-image" alt="number one" src="../../resources/images/number-3.svg" />
-					<span class="list-content" tabindex="0" role="contentinfo">When you are ready, click Create Subscription</span>
+					<span class="list-content" tabindex="0" >When you are ready, click Create Subscription</span>
 				</li>
 				<li class="bar-item">
 					<img class="list-image" alt="number one" src="../../resources/images/number-2.svg" />
-					<span class="list-content" tabindex="0" role="contentinfo">We'll take you through a special Checkout to confirm and start your Subscription</span>
+					<span class="list-content" tabindex="0" >We'll take you through a special Checkout to confirm and start your Subscription</span>
 				</li>
 			</ul>
 			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
