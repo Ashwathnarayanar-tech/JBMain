@@ -1,0 +1,30 @@
+{% extends "holiday-gift-guide-page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %} -
+{% parent %}{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<link rel="stylesheet" href="/stylesheets/modules/magnify/magnify.css">
+
+{% block hero %}
+{% include "modules/holiday-gift-guide/holiday-gift-hero" %}
+{% endblock hero %}
+
+{% block holiday-products %}
+{% include "modules/holiday-gift-guide/holiday-gift-products" %}
+{% endblock holiday-products %}
+
+{% comment %}
+{% block gifts %}
+{% include "modules/intl-products/products-gifts" %}
+{% endblock gifts %}
+
+{% block just-for-fun %}
+{% include "modules/intl-products/products-just-for-fun" %}
+{% endblock just-for-fun %}
+{% endcomment %}
+
+{% require_script "pages/holiday-gift-guide" %}
+
+{% endblock body-content %}

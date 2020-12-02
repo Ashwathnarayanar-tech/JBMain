@@ -1,0 +1,321 @@
+.hero-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+
+  #header-hgg-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    background-color: #fff;
+    width: 100%;
+    z-index: 999;
+    transition: height 250ms;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 500px;
+      height: 100%;
+      margin: 0 0 0 40px;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+      }
+
+      .hgg-nav-item {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100%;
+
+        a {
+          text-transform: uppercase;
+          font-size: 16px;
+          font-weight: 700;
+          color: #262b31;
+          text-decoration: none;
+        }
+
+        h1 {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          height: 100%;
+          box-sizing: border-box;
+          text-align: center;
+
+          img {
+            // position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+            // left: 50%;
+            max-width: 113px;
+            // max-height: 100%;
+            // transform: translateX(-50%);
+            transition: max-width 250ms, height 250ms;
+          }
+        }
+
+        &:nth-child(2) {
+          padding: 14px 0;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+
+  .hgg-hero-img {
+    max-width: 100%;
+    flex-shrink: 0;
+    height: auto;
+  }
+
+  .text-prod-img-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    #hero-hand {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 799px;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    #hero-hand-mobile {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      margin: 0 300px 0 0;
+      transform: translateY(-50%);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .hero-tagline {
+      color: white;
+      font-size: 205px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: 144px;
+      max-width: 780px;
+      margin: 0 0 0 108px;
+    }
+
+    .hero-products-img-wrapper {
+      position: relative;
+      width: 564px;
+      height: 716px;
+      margin: 32px 0 0 96px;
+
+      .hero-prod-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 125ms ease-in-out;
+
+        &.hide-candy {
+          opacity: 0;
+        }
+      }
+    }
+
+  }
+
+  .products-hero-product-bar {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 116px;
+    width: 100%;
+    z-index: 5;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-bar-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 140px;
+      height: 116px;
+      text-decoration: none;
+      border: none;
+      padding: 0;
+
+      .product-bar-bean-img {
+        max-width: 75px;
+        height: auto;
+        margin: auto;
+        z-index: 6;
+      }
+
+      &.bar-item-1 {
+        background: #e7899e;
+      }
+
+      &.bar-item-2 {
+        background: #c6528e;
+      }
+
+      &.bar-item-3 {
+        background: #b33c79;
+      }
+
+      &.bar-item-4 {
+        background: #f576ac;
+      }
+
+      &.bar-item-5 {
+        background: #f58514;
+      }
+
+      &.bar-item-6 {
+        background: #d02126;
+      }
+
+      &.bar-item-7 {
+        background: #a5161f;
+      }
+
+      &.bar-item-8 {
+        background: #81080c;
+      }
+
+      &.bar-item-9 {
+        background: #90051d;
+      }
+
+      &.bar-item-10 {
+        background: #cc1c2c;
+      }
+
+      &.bar-item-11 {
+        background: #a435bd;
+      }
+
+      &.bar-item-12 {
+        background: #a86cc0;
+      }
+
+      &.bar-item-13 {
+        background: #a6a0cd;
+      }
+
+      &.bar-item-14 {
+        background: #58aadb;
+      }
+
+      &.bar-item-15 {
+        background: #3d5693;
+      }
+
+      &.bar-item-16 {
+        background: #7cbe43;
+      }
+
+      &.bar-item-17 {
+        background: #4e9342;
+      }
+
+      &.bar-item-18 {
+        background: #f5d46b;
+      }
+
+      &.bar-item-19 {
+        background: #a87c1c;
+      }
+
+      &.bar-item-20 {
+        background: #5F5D68;
+      }
+    }
+  }
+
+  .left-arrow {
+    position: absolute;
+    width: 60px;
+    height: 116px;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    z-index: 999;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      transform: rotate(45deg) translate(-50%, -50%);
+      transition: border 125ms ease-in-out;
+    }
+
+    &:hover::after {
+      border-left: 4px solid white;
+      border-bottom: 4px solid white;
+    }
+  }
+
+  .right-arrow {
+    position: absolute;
+    width: 60px;
+    height: 116px;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    z-index: 999;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid white;
+      border-right: 2px solid white;
+      transform: rotate(45deg) translate(-50%, -50%);
+      transition: border 125ms ease-in-out;
+    }
+
+    &:hover::after {
+      border-top: 4px solid white;
+      border-right: 4px solid white;
+    }
+  }
+}

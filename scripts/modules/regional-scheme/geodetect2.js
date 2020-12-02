@@ -34,7 +34,7 @@ function getCountryDestination(cc) {
     },
     {
       countryCode: 'CA',
-      url: 'http://www.jellybellyinternational.com'
+      url: 'http://www.jellybelly.ca'
     },
     {
       countryCode: 'GL',
