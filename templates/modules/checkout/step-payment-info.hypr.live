@@ -99,11 +99,11 @@
         {% if model.savedPaymentMethods %}
             <div class="mz-l-formfieldgroup-row saved-payment-methods">
                 <div class="mz-l-formfieldgroup-cell">
-                    <label>Saved Payment Methods</label>
+                    <label tabindex="0">Saved Payment Methods</label>
                 </div>
                 <div class="card-list">
                     {% for card in model.savedPaymentMethods %}
-                        <label class="card-item  {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} active {% endif %}">
+                        <label tabindex="0" class="card-item  {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} active {% endif %}">
                             <span class="input-Cointainer">
                                 <input name="savedPaymentMethods" value="{{ card.id }}" aria-label="{{ card.cardType }} {{ card.cardNumberPartOrMask }}" class="mz-payment-select-saved-payments" type="radio" data-mz-value="savedPaymentMethodId" {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} checked="checked" {% endif %}>
                                 <span class="customradio"></span>
@@ -129,9 +129,9 @@
         {% endif %}
             <div class="tital-sec-head">
             {% if model.savedPaymentMethods %}
-             <h4 class="mz-l-stack-sectiontitle">Alternate Payment Method</h4>
+             <h4 class="mz-l-stack-sectiontitle" tabindex="0">Alternate Payment Method</h4>
             {% else %}
-                <h4 class="mz-l-stack-sectiontitle">Payment Method</h4>
+                <h4 class="mz-l-stack-sectiontitle" tabindex="0">Payment Method</h4>
             {% endif %}
             </div>
             <div class="mz-l-formfieldgroup">

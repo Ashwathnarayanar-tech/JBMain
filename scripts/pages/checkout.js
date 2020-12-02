@@ -1396,6 +1396,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         validateaddressform: function(e){  
             if(this.model.get('billingContact.phoneNumbers.home')){this.model.set('billingContact.phoneNumbers.home', this.model.get('billingContact.phoneNumbers.home').replace(/[^0-9]+/g, "")); }
             if(!this.model.get('billingContact.address.addressType')){this.model.set('billingContact.address.addressType',"Residential");}
+           if(window.paymentinfo.model.get('paymentType')!== undefined){
             if(window.paymentinfo.model.get('paymentType').toLowerCase() === "storecredit" && window.checkoutViews.parentView.model.get('amountRemainingForPayment')>0){
                 $('.store-credit-message').focus();
                 if(!$('.mz-payment-select-saved-payments').is(':checked')){
@@ -1404,6 +1405,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }
                 return false;
             }
+           }
+            
             
             if(!require.mozuData('user').isAnonymous){ 
                 window.paymentinfo.model.attributes.billingContact.attributes.email = require.mozuData('user').email;
@@ -3177,7 +3180,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             }
         });
 
-        /*$(document).on('keydown','.inpit-select', function(e) { //keypress for payment type option opening
+        $(document).on('keydown','.inpit-select', function(e) { //keypress for payment type option opening
             //var allowEsc = window.allowEsc = false;
             if($(this).hasClass('inactive')) {
                 if(e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 32) {
@@ -3220,12 +3223,22 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 
                 
             }
-        });*/
-        
-        /*$(document).on('keydown','.select-li', function(e) { //keypress for payment type option selection
+        });
+        $(document).on('keydown','.how-often-val,.how-long-val', function(e) {
+            if(e.keyCode == 13) {
+                $(e.currentTarget).trigger('click');
+            }
+        });
+        $(document).on('keydown','.select-li', function(e) { //keypress for payment type option selection
             if(e.keyCode == 9 || e.keyCode == 13 || e.keyCode == 32) {
                 e.preventDefault();
-                $(this).trigger('click');
+               // $(this).trigger('click');
+                if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+                    $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                }
+                else{
+                    $(this).next().focus(); 
+                }
                 //$(this).parent().prev().focus();
                 window.paymentTypeFlag = true;
             }
@@ -3234,7 +3247,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 if($(this).next().length > 0)
                     $(this).next().focus();
             }
-            else if(e.keyCode == 38) {
+            else if(e.keyCode == 38) { 
                 e.preventDefault();
                 if($(this).prev().length > 0)
                     $(this).prev().focus();
@@ -3247,7 +3260,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 $('.inpit-select').addClass('inactive'); 
                 $('.inpit-select').removeClass('active'); 
             }
-        });*/
+        });
         
         $(document).on('click','.mz-shipmethod',function(e){
             setTimeout(function(){
