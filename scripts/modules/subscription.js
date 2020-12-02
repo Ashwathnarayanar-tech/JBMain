@@ -17,6 +17,7 @@ define([
             "keyup .searchBoxSub" : "search",
             "click .side-bar-item" : "changeCatList",
             "click .accordian-headitem" : "changeCategory",
+            "touchstart .side-bar-item" : "changeCategory",
             "click .increment" : "increment",
             "click .decrement" : "decrement",
             "click .span-tabs" : "changeWeekorMonth",
