@@ -359,7 +359,7 @@ define([
                 this.model.set('total', 0);
                 this.model.set('popupData', popupData); 
                 if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                    MiniCart.MiniCart.clearCart();
+                   // MiniCart.MiniCart.clearCart();
                     setTimeout(function(){ 
                         $.cookie("subscriptionCreated", false, { path: '/'});
                     },2000);
