@@ -1419,8 +1419,13 @@
             "click .mz-more-order":"loadMoreSubscriptions"
         },
         toggleShow:function(e){
-            var subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
             
+            if(window.subId){
+                //$(window.currentSubEle).removeClass('active');
+                this.changeToggleStatus(window.subId,false);
+            }
+            var subId = window.subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
+
             if(window.mySubscription !== undefined){
                 var id = window.mySubscription.model.attributes.subscriptionId;
                 $(".subscriptionViewDetails[data-subscription-id='"+subId+"']").removeClass('active');
@@ -1441,7 +1446,7 @@
                 try {
                     var _this=this,existingEntityData=[],
                     subscriptionModel = Backbone.MozuModel.extend({});
-                    $('.subscription-list-header').removeClass('active');
+                  
                         $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
                         $(e.currentTarget).addClass('active');
                         $(e.currentTarget).siblings('.subscription-list-body').slideDown();
@@ -1856,8 +1861,10 @@
             }
             this.model.set('popupData',popupData);
             this.render();
-            $(document).find('.popup-body .message').focus();
             this.loopInPopups();
+           // setTimeout(function(){
+                $(document).find('.subscriptionpopup .popup-body .message').focus();
+           // },100);
         },
         closePopup:function(e,type){
             var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
