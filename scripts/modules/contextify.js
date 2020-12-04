@@ -123,6 +123,7 @@ define(['modules/jquery-mozu',
         var megamenufunctions = {
             showMenuNav : function(ele){
                 $(document).find('.mz-sitenav').addClass('active');
+                
                 var menu = ele.attr('attr-menuname');
                 if(menu && menu !== "store-locator" && menu != "store-branding"){  
                     $(document).find('.head-list-item').removeClass('active'); 
@@ -224,6 +225,7 @@ define(['modules/jquery-mozu',
             mobileFunc : {  
                 showMenuNav : function(ele){
                     $(document).find('.mz-sitenav.mz-mobile').addClass('active');
+                    $("html").addClass("removeScroll");
                     var menuName = ele.attr('attr-menuname');
                     $(document).find('.jb-megamenu').removeClass('active');
                     $(document).find('.'+menuName).addClass('active').find('.menu').addClass('active');                    
@@ -237,6 +239,7 @@ define(['modules/jquery-mozu',
                         top: "611px"
                     },500); 
                     setTimeout(function(){
+                        $("html").removeClass("removeScroll");
                         $(document).find('.mz-sitenav.mz-mobile').removeClass('active');
                         $(document).find('.jb-megamenu').removeClass('active');
                         $(document).find('.jb-megamenu').find('.menu').removeClass('active');

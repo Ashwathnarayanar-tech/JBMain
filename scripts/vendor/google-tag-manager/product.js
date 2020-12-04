@@ -12,7 +12,7 @@ require(["modules/jquery-mozu", "modules/api"],
             'id': product.productCode,
             'price': product.price.price,
             'brand': 'Jelly Belly',
-            'category': product.categories[0].content.name || "",
+            'category': product.categories.length ? product.categories[0].content.name : "",
             'variant': 'standard',
           }]
         }
@@ -32,7 +32,7 @@ require(["modules/jquery-mozu", "modules/api"],
               'id': product.productCode,
               'price': product.price.price,
               'brand': 'Jelly Belly',
-              'category': product.categories[0].content.name,
+              'category': product.categories.length ? product.categories[0].content.name:"",
               'variant': 'standard',
               'quantity': $("#quantity").children(":selected").attr("value")
             }]

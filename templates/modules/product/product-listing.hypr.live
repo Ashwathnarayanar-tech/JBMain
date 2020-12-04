@@ -165,6 +165,13 @@
         </style>
         <div class="jb-stars-rating" tabindex="0" aria-label="star rating" >         
           {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
+            {% if not rate %}
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png"
+              ><img src="/resources/images/icons/star-empty.png">
+            {% endif %}
             {% for rating in rate.values %}
             {% if rating.value == 0 %} 
               <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars"

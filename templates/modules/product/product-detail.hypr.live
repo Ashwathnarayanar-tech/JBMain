@@ -14,7 +14,6 @@
         width:auto; height:auto;  
     }   
 </style> 
-  
 <div> 
     <div class="ip-container"><div class="jb-inner-overlay"></div></div>
     <h1 class="mz-pagetitle" tabindex="0" itemprop="name">{{ model.content.productName|safe }}</h1>
@@ -103,10 +102,10 @@
                     </button>
                 {% else %}
                     {% if model.options and model.options.length > 0 %}
-                        <button style="padding: 4px 0px;width: 135px;" id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
+                        <button id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
                         {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                            SHOP GIFT CARD
+                            Shop Gift Card
                         </button>
                     {% else %}
                         <span role="contentinfo" tabindex="0" style="display:block; color:#fff">Out of Stock</span>

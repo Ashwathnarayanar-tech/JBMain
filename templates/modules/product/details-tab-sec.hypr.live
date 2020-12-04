@@ -190,10 +190,10 @@
                             </button>
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
-                                <button style="padding: 4px 0px;width: 135px;" id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                                <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
                                 class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
                                 {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} >
-                                    SHOP GIFT CARD
+                                    Shop Gift Card
                                 </button>
                             {% else %}
                                 <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
