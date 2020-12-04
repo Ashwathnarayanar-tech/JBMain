@@ -173,22 +173,22 @@
 									{% for d in order.schedule.noOfDeliveries %} 
 										{% if order.open and (forloop.index > order.startDelivery and forloop.index <= order.endDeliivery) %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered" tabindex="0" ><span tabindex="0" {% if forloop.index == delivered %} style ="display:none" {% endif %} >Order</span> {{d}} <span tabindex="0" class= "sr-only" {% if forloop.index == delivered %} style ="display:none" {% endif %} >Delivered</span></li>
+												<li class="delivered" tabindex="0" aria-label=" order {{d}} delivered" ><span {% if forloop.index == delivered %} style ="display:none" {% endif %} >Order</span> {{d}} <span  class= "sr-only" {% if forloop.index == delivered %} style ="display:none" {% endif %} >Delivered</span></li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused" tabindex="0" ><span tabindex="0" class="sr-only" >Order</span>{{d}} <span  tabindex="0" class="sr-only">Paused</span></li>
+													<li class="paused" tabindex="0" aria-label=" order {{d}} Paused"><span class="sr-only" >Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li   tabindex="0"><span  tabindex="0" class="sr-only">Order</span> {{d}} <span tabindex="0" class="sr-only">Yet to be Delivered</span></li>
+													<li   tabindex="0" aria-label=" order {{d}} Yet to be Delivered"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% else %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered hide" tabindex="0"><span tabindex="0" class="sr-only">Order</span>{{d}}<span tabindex="0" class="sr-only" >Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered hide" tabindex="0" aria-label=" order {{d}}  Delivered"><span  class="sr-only">Order</span>{{d}}<span  class="sr-only" >Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused hide"tabindex="0" ><span tabindex="0"  class="sr-only">Order</span>{{d}} <span tabindex="0" class="sr-only" >Paused</span></li>
+													<li class="paused hide" tabindex="0" aria-label=" order {{d}}  Paused"><span  class="sr-only">Order</span>{{d}} <span  class="sr-only" >Paused</span></li>
 												{% else %}
-													<li class="hide"tabindex="0" ><span tabindex="0" class="sr-only" >Order</span> {{d}} <span tabindex="0" class="sr-only" >Yet to be Delivered</span></li>
+													<li class="hide" tabindex="0" aria-label=" order {{d}}  Yet to be Delivered"><span  class="sr-only" >Order</span> {{d}} <span class="sr-only" >Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% endif %}	
@@ -329,22 +329,22 @@
 									{% for d in order.schedule.noOfDeliveries %}
 										{% if order.open and (forloop.index > order.startDelivery and forloop.index <= order.endDeliivery) %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered" tabindex="0"><span  class="sr-only">Order</span> {{d}} <span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered" tabindex="0" aria-label="Order {{d}} Delivered"><span  class="sr-only">Order</span> {{d}} <span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused"  tabindex="0"><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused"  tabindex="0" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li  tabindex="0"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li  tabindex="0" aria-label="Order {{d}} Yet to be Delivered"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% else %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered hide" tabindex="0"><span class="sr-only">Order</span>{{d}}<span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered hide" tabindex="0" aria-label="Order {{d}} Delivered"><span class="sr-only">Order</span>{{d}}<span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused hide" tabindex="0"><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused hide" tabindex="0" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li class="hide" tabindex="0"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li class="hide" tabindex="0" aria-label="Order {{d}} Yet to be Delivered" ><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% endif %}	
