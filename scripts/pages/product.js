@@ -1265,7 +1265,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         isHeatSensitivePrd = properties[i].values[0].value;
                     }
                 }
-             } 
+             }
              return isHeatSensitivePrd;        
         }, 
         setHowLongVal:function(){
