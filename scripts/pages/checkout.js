@@ -3224,6 +3224,18 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 
             }
         });
+        $(document).on('keydown','.no-form .mz-contactselector-summarywrapper span,.mz-contactselector-contact', function(e) {
+        if($(e.currentTarget).hasClass('mz-contactselector-contact')){
+            if(e.keyCode == 13) {
+                $(e.currentTarget).parents('.data-contact').find('input').trigger('click');
+            }
+        }else{
+            if(e.keyCode == 13) {
+                $(e.currentTarget).parents('.mz-contactselector-new.no-form').find('input').trigger('click');
+            }
+        }
+            
+        });
         $(document).on('keydown','.how-often-val,.how-long-val', function(e) {
             if(e.keyCode == 13) {
                 $(e.currentTarget).trigger('click');
@@ -3237,7 +3249,12 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     $(document).find('label[for=mz-payment-credit-card-name]').focus();
                 } 
                 else{
-                    $(this).next().focus(); 
+                    if($(e.currentTarget).hasClass('paypal-trigger')){
+                        $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                    }else{
+                        $(this).next().focus();
+                    }
+                   
                 }
                 //$(this).parent().prev().focus();
                 window.paymentTypeFlag = true;

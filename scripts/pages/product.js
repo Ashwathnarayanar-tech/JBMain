@@ -1645,6 +1645,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             $('#mybuyspagezone3').addClass('is-loading');
+            Api.get('cart').then(function(cartitems){
+               console.log('items',cartitems);
+            });
             PRODUCT.addToCart(1);
             PRODUCT.on('addedtocart', function(attr) {
                 $('[data-mz-productlist],[data-mz-facets]').removeClass('is-loading');
