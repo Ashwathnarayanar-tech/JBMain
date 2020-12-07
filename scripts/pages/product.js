@@ -2139,7 +2139,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             $(document).find('#add-to-cart-scroll').on('click',function(){
                 window.productView.addToCart();
             });
-
+            
             $(document).find('.scroll-header .increment').on('keydown',function(e){
                 if(e.which === 13 || e.which === 32){
                     e.preventDefault();
@@ -2187,6 +2187,18 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 window.productView.changeWeekorMonth(e);
             }
         });   
+        $(document).on('keypress','.qty-input-box-sub .increment',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+            window.productView.qtyPlusSub(e,parseInt($(this).parents('.qty-input-box').find('.quantity').val(),10));
+            }
+        });
+        $(document).on('keypress','.qty-input-box-sub .decrement',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+            window.productView.qtyMinusSub(e,parseInt($(this).parents('.qty-input-box').find('.quantity').val(),10));
+            }
+        });
         //ada for social sharing
         $('.addthis_sharing_toolbox:visible').find('.at-share-btn').attr('tabindex','0');
 
