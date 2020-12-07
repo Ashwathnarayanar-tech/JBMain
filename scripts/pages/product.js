@@ -1154,8 +1154,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             } else {
-                $('#interval-startdate').datepicker("setDate", finaldate);
-                $('#interval-startdate').val(finaldate);
+                var date = selectedDate ? selectedDate : finaldate;
+                $('#interval-startdate').datepicker("setDate", date);
+                $('#interval-startdate').val(date);
             }
 
             function heatSensitive(date) {
