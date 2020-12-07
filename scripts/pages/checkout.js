@@ -618,6 +618,14 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 
                     $('#interval-startdate').datepicker("setDate", shipdate);
                     $('#interval-startdate').val(shipdate);
+                    data = {
+                        'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
+                        'weeks' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?true:false, 
+                        'months' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?false:true,
+                        'when' :$(document).find('.subscription').find('#interval-startdate').val(),
+                        'howLong' : $(document).find('.subscription').find('.how-long-val').val()
+                    };
+                    $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
                     //$('.estimateddate').text(shipdate);  
                     //me.render(); 
                 },
@@ -2476,6 +2484,32 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
         }
     });
+    var subData="",data="";
+    $(document).on('change','.how-long-val,.how-often-val',function(e){
+        subData="";data="";
+         //subData = JSON.parse($.cookie("subscriptionData"));
+         data = {
+            'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
+            'weeks' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?true:false, 
+            'months' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?false:true,
+            'when' :$(document).find('.subscription').find('#interval-startdate').val(),
+            'howLong' : $(document).find('.subscription').find('.how-long-val').val()
+        };
+        $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
+    });
+    
+    $(document).on('click','.span-tabs',function(e){
+        subData="";data="";
+         //subData = JSON.parse($.cookie("subscriptionData"));
+         data = {
+            'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
+            'weeks' : $(e.target).attr('data-mz-value') == "weeks" ? true : false, 
+            'months' : $(e.target).attr('data-mz-value') == "weeks" ? false : true,
+            'when' : $(document).find('.subscription').find('#interval-startdate').val(),
+            'howLong' : $(document).find('.subscription').find('.how-long-val').val()
+        };
+        $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
+    });
     $(document).ready(function () {
         var setSubscriptionData = window.setSubscriptionData = function(){
             var myObj = {
@@ -2494,24 +2528,24 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     'when' : myval.when, 
                     'howLong' : myval.howLong
                 };
-                if($(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
-                    window.shipdate = $(document).find('.subscription').find('#interval-startdate').val();
-                }else{
-                    window.shipdate = myval.when;
-                }
-              if($(document).find('.subscription').find('.span-tabs.active').text()!==""){
-                 if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
-                    myObj.weeks=true;
-                 }else{
-                     myObj.weeks=false;
-                 }
-              }
+                // if($(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
+                //     window.shipdate = $(document).find('.subscription').find('#interval-startdate').val();
+                // }else{
+                     window.shipdate = myval.when;
+                // }
+            //   if($(document).find('.subscription').find('.span-tabs.active').text()!==""){
+            //      if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
+            //         myObj.weeks=true;
+            //      }else{
+            //          myObj.weeks=false;
+            //      }
+            //   }
             }
-            if($(document).find('.subscription').find('.how-often-val').val()>1){
-                $(document).find('.subscription').find('.how-often-val').val($(document).find('.subscription').find('.how-often-val').val());
-            }else{
-                $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
-            }
+            // if($(document).find('.subscription').find('.how-often-val').val()>1){
+            //     $(document).find('.subscription').find('.how-often-val').val($(document).find('.subscription').find('.how-often-val').val());
+            // }else{
+                 $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
+            // }
            
             if(myObj.weeks){
                 $(document).find('.subscription').find('.span-tabs.week').addClass('active');
@@ -2520,16 +2554,16 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
                 $(document).find('.subscription').find('.span-tabs.months').addClass('active');
             }
-            if( $(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
-                $(document).find('.subscription').find('#interval-startdate').val($(document).find('.subscription').find('#interval-startdate').val());
-            }else{
+            // if( $(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
+            //     $(document).find('.subscription').find('#interval-startdate').val($(document).find('.subscription').find('#interval-startdate').val());
+            // }else{
                 $(document).find('.subscription').find('#interval-startdate').val(myObj.when);
-            }
-            if($(document).find('.subscription').find('.how-long-val').val()!==myObj.howLong){
-                $(document).find('.subscription').find('.how-long-val').val($(document).find('.subscription').find('.how-long-val').val());
-            }else{
-                $(document).find('.subscription').find('.how-long-val').val(myObj.howLong);
-            }
+            // }
+            // if($(document).find('.subscription').find('.how-long-val').val()!==myObj.howLong){
+            //     $(document).find('.subscription').find('.how-long-val').val($(document).find('.subscription').find('.how-long-val').val());
+            // }else{
+                 $(document).find('.subscription').find('.how-long-val').val(myObj.howLong);
+            // }
             
             if(window.location.search.indexOf("chktSub=true") != -1 || (typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true')){
                 $(document).find('.subscription').addClass('active');
