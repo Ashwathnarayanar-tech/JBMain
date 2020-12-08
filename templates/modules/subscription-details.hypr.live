@@ -48,7 +48,7 @@
 					<li>
 						<div class="subscriptionDetailBottomSubSection subscriptionDetailBottomSubSectionHowLong">
 							<p tabindex="0" >{{ labels.forHowLong }}</p>
-							<p class="subscriptionDetailBottomSubSectionValue" tabindex="0" >{{ model.schedule.endType }}</p>
+							<p class="subscriptionDetailBottomSubSectionValue forhowlong" tabindex="0" >{{ model.schedule.endType }}</p>
 						</div>
 					</li>
 					
