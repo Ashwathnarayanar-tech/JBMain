@@ -5,7 +5,6 @@ require(["modules/jquery-mozu", "modules/api",
 'modules/minicart', 
 "modules/jquery-dateinput-localized", "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"],
 function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageViews, MiniCart) {
-
     var user = require.mozuData('user'); 
     var ProductView = Backbone.MozuView.extend({ 
         templateName: 'modules/product/product-detail', 
