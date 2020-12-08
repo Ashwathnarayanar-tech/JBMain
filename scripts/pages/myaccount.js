@@ -1435,8 +1435,10 @@
             if($(e.currentTarget).hasClass('active')){
                 $(e.currentTarget).removeClass('active');
                 $(e.currentTarget).siblings('.subscription-list-body').slideUp();
-                window.mySubscription.model.set({'open':false});
-                window.mySubscription.render();
+                if(window.mySubscription){
+                    window.mySubscription.model.set({'open':false});
+                    window.mySubscription.render();
+                }
                 active=false;
                 this.changeToggleStatus(subId,false);
                 setTimeout(function(){
@@ -1450,7 +1452,9 @@
                         $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
                         $(e.currentTarget).addClass('active');
                         $(e.currentTarget).siblings('.subscription-list-body').slideDown();
-                        _this.changeToggleStatus(subId,true);
+                        setTimeout(function(){
+                            _this.changeToggleStatus(subId,true);
+                        },200);
                      Api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subId}).then(function(res) {
                         if (!res.error &&  res.res.subscriptionId !== undefined) {
                             if(res.res && res.res.order && res.res.order.billingInfo){
