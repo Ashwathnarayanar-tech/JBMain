@@ -1,3 +1,4 @@
+
 {% if pageContext.isDesktop or pageContext.isTablet %}
     <div class="accordian-prod"> 
         {% if themeSettings.showHeatSensitiveText %}
