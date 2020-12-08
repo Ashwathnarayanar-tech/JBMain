@@ -28,11 +28,11 @@
                     <span tabindex="0" role="contentinfo" class="discount-cointainer">
                         <span class="discount-data">    
                             <div class="discount-tital">
-                                <span class="discount-name">{{ productDiscount.discount.name }}</span>
+                                <span class="discount-name">{{ productDiscount.discount.name }} {% if productDiscount.couponCode %}( {{ productDiscount.couponCode }} coupon code is applied ) {% endif %}</span>
                                 {% if productDiscount.discount.freeShipping %}
                                     <span class="discount-freeshipping">{{ labels.freeShipping }}</span>
                                 {% else %}
-                                    <span class="discount-productImpact"> -{{ productDiscount.impact|currency }}</span>
+                                    <span class="discount-productImpact"> - {{ productDiscount.impact|currency }}</span>
                                 {% endif %}
                             </div>
                             {% comment %}
