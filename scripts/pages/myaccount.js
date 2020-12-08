@@ -355,7 +355,34 @@
             var self = this;
             PRODUCT.set({'quantity':count});
             $(document).find('.RTI-overlay').addClass('active');
-            PRODUCT.addToCart(1);
+            //PRODUCT.addToCart(1);
+            var productCode=PRODUCT.get('productCode');
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                         alert('Maximum quantity that can be purchased is 25');
+                         return false;
+                     }else{
+                        PRODUCT.addToCart(1);
+                        return false;
+                     }
+                 }else{
+                    
+                    PRODUCT.addToCart(1);
+                     return false;
+                     
+                 }
+             });    
             PRODUCT.on('addedtocart', function(attr) {
                 $(document).find('.RTI-overlay').removeClass('active');
 				brontoObj.build(Api);  
@@ -772,7 +799,35 @@
                     }
                      setTimeout(function(){
                         PRODUCT.set({'quantity':pid.qty });
-                        PRODUCT.addToCart();
+                        //PRODUCT.addToCart();
+                        var productCode=PRODUCT.get('productCode');
+                        var prdqty=PRODUCT.get('quantity');
+                        Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                            var flag=false;
+                             if(cartitem.items.length>0){
+                                 for(var j=0;j<cartitem.items.length;j++){
+                                     var cartitemCode=cartitem.items[j].product.productCode;
+                                     var cartitemQty=cartitem.items[j].quantity; 
+                                     var totalQty=prdqty+cartitemQty;
+                                     if(cartitemCode==productCode && totalQty>25){
+                                         flag=true;
+                                         // alert('Maximum quantity that can be purchased is 25');
+                                     }
+                                 }
+                                 if(flag){
+                                     alert('Maximum quantity that can be purchased is 25');
+                                     return false;
+                                 }else{
+                                    PRODUCT.addToCart();
+                                    return false;
+                                 }
+                             }else{
+                                
+                                PRODUCT.addToCart();
+                                 return false;
+                                 
+                             }
+                         });    
                             PRODUCT.on('addedtocart', function(attr) {
                             productAdded++;
                             PRODUCT = ''; 
