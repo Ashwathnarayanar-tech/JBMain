@@ -1446,7 +1446,7 @@
                 },200);
             }else{
                 try {
-                    var _this=this,existingEntityData=[],
+                    var _this=this,existingEntityDataView=[],
                     subscriptionModel = Backbone.MozuModel.extend({});
                   
                         $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
@@ -1478,13 +1478,14 @@
                                 console.log(res.res.order.estimationInfo);
                             }
                             
-                             existingEntityData = res.res;
-                             existingEntityData.open = true;
+                            existingEntityDataView = JSON.parse(JSON.stringify(res.res));
+                            existingEntityDataView.open = true;
+                            window.existingEntityDataView = existingEntityDataView;
                             }
                             
                         var mySubscription = window.mySubscription =  new MySubscriptionView({
                             el: $(".subscriptionViewDetails[data-subscription-id='"+subId+"']"),
-                            model: new subscriptionModel(existingEntityData)
+                            model: new subscriptionModel(existingEntityDataView)
                         }); 
                         mySubscription.render();
                         setTimeout(function(){
@@ -1511,9 +1512,17 @@
              for(var i=0;i<this.model.get('orderDetails').length;i++){
                 if(this.model.get('orderDetails')[i].subscriptionId === subId ){
                     this.model.get('orderDetails')[i].subscribedStatus = status;
+                    this.model.get('orderDetails')[i].open = true;
                 }
             }
             this.render();
+            var subscriptionModel = Backbone.MozuModel.extend({});
+            window.existingEntityDataView.subscribedStatus = status;
+            var mySubscription = window.mySubscription =  new MySubscriptionView({
+                el: $(".subscriptionViewDetails[data-subscription-id='"+subId+"']"),
+                model: new subscriptionModel(window.existingEntityDataView)
+            }); 
+            mySubscription.render();
         },
         changeToggleStatus:function(subId,status){
             console.log("this.model ",this.model);
@@ -1915,8 +1924,8 @@
                     Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
                         $(".overlay-for-complete-page").hide();
                         me.closePopup(e,"unpause");
-                       // me.render();
                        window.mySubscriptionList.changeStatus(postData.subscriptionId,"Paused");
+                       me.render();
                     }).then(function(er) {
                         $(".overlay-for-complete-page").hide();
                         me.closePopup(e,"pause");
@@ -1953,8 +1962,8 @@
                     Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
                         $(".overlay-for-complete-page").hide();
                         me.closePopup(e,"pause");
-                        //me.render();
                         window.mySubscriptionList.changeStatus(postData.subscriptionId,"Active");
+                        me.render();
                     }).then(function(er) {
                         console.log(er);
                         $(".overlay-for-complete-page").hide();
