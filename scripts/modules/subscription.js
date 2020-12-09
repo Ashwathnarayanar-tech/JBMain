@@ -89,7 +89,7 @@ define([
                 }else{
                     var popupData = {
                         "isEnabled" : true,
-                        "message" : "We can't mix Subscription and non-Subscription items at this time. Do you want to Subscribe to everything you have in the Cart?",
+                        "message" : "We can't mix Subscription and non-Subscription items at this time. <strong>Do you want to Subscribe to everything you have in the Cart?</strong>",
                         "buttons" : [
                             {
                                 "buttonLabel" : "Yes! Subscribe",
@@ -138,7 +138,7 @@ define([
         removeCItemsandPTocheckoutotherpp : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "Proceeding will ignore the previous Subscription List and allow you to purchase newly created subscription list",
+                "message" : "Proceeding will <strong> ignore the previously-started Subscription </strong> and allow you to set up the new Subscription",
                 "buttons" : [
                     {
                         "buttonLabel" : "Proceed",
@@ -160,7 +160,7 @@ define([
         removeCItemsandPTocheckoutpp : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "To create a Subscription, you may have only Subscription items in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to Checkout?",
+                "message" : "To create a Subscription, you may have only Subscription items in the Cart. Do you want to <strong> remove </strong> the <strong> non-subscription </strong> items from the Cart and proceed to Checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "Yes! Subscribe",
@@ -182,7 +182,7 @@ define([
         oneMoreppIgnoreSubscription: function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "Proceeding will ignore your Subscription List and allow you to purchase your At Once item(s)",
+                "message" : "Proceeding will <strong>ignore </strong> your <strong>Subscription List</strong> and allow you to purchase your At Once item(s).",
                 "buttons" : [
                     {
                         "buttonLabel" : "Proceed",

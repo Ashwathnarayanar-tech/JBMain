@@ -373,7 +373,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     if($.cookie("subscriptionCreated") == "true"){
                         popupData = {
                             "isEnabled" : true,
-                            "message" : "You have already started building a <strong>Subscription</strong>. Do you want to add these products to that Subscription?",
+                            "message" : "<strong>You have already started building a Subscription</strong>. Do you want to add these products to that Subscription?",
                             "buttons" : [
                                 {
                                     "buttonLabel" : "No",
@@ -395,7 +395,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }else{
                         popupData = {
                             "isEnabled" : true,
-                            "message" : "We can't mix <strong>Subscription</strong> and <strong>non-Subscription</strong> items at this time. Do you want to Subscribe to everything you have in the Cart?",
+                            "message" : "We can't mix Subscription and non-Subscription items at this time. <strong>Do you want to Subscribe to everything you have in the Cart?</strong>",
                             "buttons" : [
                                 {
                                     "buttonLabel" : "No",
@@ -423,7 +423,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         showOtherPopUptoConfirm : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" :"To create a Subscription, you must have only <strong>Subscription items</strong> in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to checkout?",
+                "message" :"To create a Subscription, you must have only Subscription items in the Cart. Do you want to <strong> remove </strong> the <strong> non-subscription  </strong>items from the Cart and proceed to checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "No",
@@ -513,7 +513,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         showOtherPopUp : function(){
             var popupData = {
                 "isEnabled" : true,
-                "message" : "Proceeding will ignore your previously-started <strong>Subscription</strong> and allow you to set up the new Subscription.",
+                "message" : "Proceeding will <strong> ignore the previously-started Subscription </strong> and allow you to set up the new Subscription",
                 "buttons" : [
                     {
                         "buttonLabel" : "Back To Subscription",
@@ -867,7 +867,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             if($.cookie("subscriptionCreated") == "true"){
                 var popupData = {
                     "isEnabled" : true,
-                    "message" : " You have already started building a <strong>Subscription</strong>. Do you want to remove the subscription products and add this product to the cart?",
+                    "message" : " <strong>You have already started building a Subscription</strong>. Do you want to remove the subscription products and add this product to the cart?",
                     "buttons" : [
                         {
                             "buttonLabel" : "No",
