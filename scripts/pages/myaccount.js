@@ -1761,7 +1761,17 @@
                 this.model.attributes.show = false;
             }
             setTimeout(function(){
-                me.render();    
+                me.render();  
+                if($(e.currentTarget).parents('.subscription-order-details').hasClass('showmore')){
+                    $('.address-container .subscription-shipping').attr('aria-hidden', false);
+                    $('.subscription-product-details').attr('aria-hidden', false);
+                    $('.address-container .subscription-shipping').focus();
+                    active=false;
+                }else{
+                    $('.address-container .subscription-shipping').attr('aria-hidden', true);
+                    $('.subscription-product-details').attr('aria-hidden', true);
+                    $(e.currentTarget).focus();
+                }  
             },300);
         },
         deliveries:function(currentSub,currentpage){

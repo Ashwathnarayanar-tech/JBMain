@@ -379,7 +379,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="subscription-shipping">
+							<div class="subscription-shipping" aria-hidden="true">
 								<div class="shipping-info" tabindex="0">
 									<label>Shipping Address</label>
 									<div class="address-section">
@@ -399,7 +399,7 @@
 								</div>	
 							</div>
 						</div>
-						<div class="subscription-product-details">
+						<div class="subscription-product-details" aria-hidden="true">
 							<h5>Subscription Order Summary</h5>
 							<div class="item-details">
 								{% for item in order.order.items %}
