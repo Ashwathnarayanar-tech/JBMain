@@ -85,7 +85,7 @@
 		<div class="mz-l-stack-section mz-loyalty-program" id="x-account-loyalty-program" role="tabpanel" arialabelledby="sweetrewards-panel" style="display:none;">
             {% include "modules/my-account/my-account-loyalty-program" %}
         </div>
-        <div class="popup" style="display:none">
+        <div class="popup inactive">
             <div class="popup-body">
                 <span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
                 <div class="popup-content">

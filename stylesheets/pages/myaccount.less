@@ -161,6 +161,124 @@ body{
         }
     }
 
+    .mz-myaccount {
+        .mz-myaccount-panels {
+            .popup{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 999;
+                -webkit-transition: opacity 400ms ease-in;
+                -moz-transition: opacity 400ms ease-in;
+                transition: opacity 400ms ease-in;
+                display: none;
+                &.active{
+                    display: block;
+                }
+                &.inactive{
+                    display: none;
+                }
+                .popup-body{
+                    width: 45%;
+                    margin: 0 auto;
+                    margin-top: 17%;
+                    padding: 3%;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                    background-color: #ffffff;
+                    position: relative;
+                    .close-icon{
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        background-image: url(../../resources/images/close-icon-popup.svg);
+                        top: 16px;
+                        background-repeat: no-repeat;
+                        right: 10px;
+                        cursor: pointer;
+                    }
+                    .popup-content{
+                        .message{
+                            font-size: 18px;
+                            color: #000000;
+                            margin-bottom: 40px;
+                            display: block;
+                            strong{
+                                font-weight: bold;
+                            }
+                        }
+                        .button-section{
+                            text-align: right;
+                            .button{
+                                font-size: 18px;
+                                border-radius: 4px;
+                                border: solid 1px #004e99;
+                                font-weight: bold;
+                                text-align: center;
+                                padding: 7px 30px;
+                                &.button-yes{
+                                    background-color: #004e99;
+                                    color: #fff;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                                &.button-no{
+                                    background-color: #fff;
+                                    color: #004e99;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        color: #fff;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                                &.button-Proceed{
+                                    background-color: #004e99;
+                                    color: #fff;
+                                    width:35%;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                                &.button-Back-To-Subscription{
+                                    background-color: #fff;
+                                    color: #004e99;
+                                    width:35%;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        color: #fff;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                                &.button-Get-Started{
+                                    background-color: #004e99;
+                                    color: #fff;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                                &.button-cancel{
+                                    background-color: #fff;
+                                    color: #004e99;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        color: #fff;
+                                        border: solid 1px #003a72;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+
 @media only screen and (min-width: 1px) and (max-width: 767px){
     .mz-myaccount {
         .notify-me-field {
@@ -264,8 +382,28 @@ body{
                 height: 450px;
             }
         }
+        .mz-myaccount-panels {
+            .popup{
+                .popup-body{
+                    width: 88%;
+                }
+            }
+        }
     } 
 }
+
+@media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait){
+    .mz-myaccount{ 
+        .mz-myaccount-panels {
+            .popup{
+                .popup-body{
+                    width: 88%;
+                }
+            }
+        }
+    } 
+}
+
 .mz-payment-credit-card-defaultflag-row{
     margin-bottom:10px;
 }
@@ -288,6 +426,13 @@ body{
         }
         .notify-me-field {
             width: 40%;
+        }
+        .mz-myaccount-panels {
+            .popup{
+                .popup-body{
+                    width: 75%;
+                }
+            }
         }
     }
 }
@@ -314,116 +459,6 @@ body{
             width: 78%;
             float: right;
             margin: 0;
-            .popup{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                z-index: 999;
-                -webkit-transition: opacity 400ms ease-in;
-                -moz-transition: opacity 400ms ease-in;
-                transition: opacity 400ms ease-in;
-                display: none;
-                &.active{
-                    display: block;
-                }
-                .popup-body{
-                    width: 45%;
-                    margin: 0 auto;
-                    margin-top: 17%;
-                    padding: 3%;
-                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-                    background-color: #ffffff;
-                    position: relative;
-                    .close-icon{
-                        position: absolute;
-                        width: 20px;
-                        height: 20px;
-                        background-image: url(../../resources/images/close-icon-popup.svg);
-                        top: 16px;
-                        background-repeat: no-repeat;
-                        right: 10px;
-                        cursor: pointer;
-                    }
-                    .popup-content{
-                        .message{
-                            font-size: 18px;
-                            color: #000000;
-                            margin-bottom: 40px;
-                            display: block;
-                            strong{
-                                font-weight: bold;
-                            }
-                        }
-                        .button-section{
-                            text-align: right;
-                            .button{
-                                font-size: 18px;
-                                border-radius: 4px;
-                                border: solid 1px #004e99;
-                                font-weight: bold;
-                                text-align: center;
-                                padding: 7px 30px;
-                                &.button-yes{
-                                    background-color: #004e99;
-                                    color: #fff;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                                &.button-no{
-                                    background-color: #fff;
-                                    color: #004e99;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        color: #fff;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                                &.button-Proceed{
-                                    background-color: #004e99;
-                                    color: #fff;
-                                    width:35%;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                                &.button-Back-To-Subscription{
-                                    background-color: #fff;
-                                    color: #004e99;
-                                    width:35%;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        color: #fff;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                                &.button-Get-Started{
-                                    background-color: #004e99;
-                                    color: #fff;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                                &.button-cancel{
-                                    background-color: #fff;
-                                    color: #004e99;
-                                    &:hover{
-                                        background-color: #003a72;
-                                        color: #fff;
-                                        border: solid 1px #003a72;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         } 
     }
 }

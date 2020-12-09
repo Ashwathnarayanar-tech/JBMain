@@ -658,6 +658,7 @@
             }else{
                 productId = e.currentTarget.getAttribute('quickOrderProductCode');
                 orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
+                $(document).find('.popup').removeClass('inactive');
                 $(document).find('.popup').addClass('active');
                 $(document).find('.popup').find('.button-yes').attr('isOrder', true);
                 $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
