@@ -508,7 +508,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         addToCart:function(e){
             var productCode = $(e.currentTarget).attr('data-mz-prcode'),self = this,//addProduct = true,
             $target = $(e.currentTarget);
-            $('.mz-l-pagewrapper').addClass('is-loading');
+         
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-wish').val();
             var count = parseInt($quantity,10);
             var items = window.cartView.model.get('items').models;
@@ -521,36 +521,67 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //     }
             // }
            // if(addProduct){
-                Api.get('product', productCode).then(function(sdkProduct) {
-                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                    if(PRODUCT.get('purchasableState').isPurchasable){
-                        var variantOpt = sdkProduct.data.options;
-                        if(variantOpt !== undefined && variantOpt.length>0){  
-                            var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                            var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                            if(newValue != "Select gift amount" && newValue !== ''){
-                                var option = PRODUCT.get('options').get(ID);
-                                var oldValue = option.get('value');
-                                if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                                    option.set('value', newValue);
-                                }
-                                setTimeout(function(){
-                                    self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                                },2000);
-                            }else{
-                               $('.mz-l-pagewrapper').removeClass('is-loading');
-                            }
-                        }else{
-                            self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                        }
-                    }else{
-                        self.outOfStock(e,productCode,PRODUCT);
-                    }
-                });
+                
             // }else{
             //     $('.mz-l-pagewrapper').removeClass('is-loading');
             // }
+            //api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(items.length>0){
+                     for(var j=0;j<items.length;j++){
+                         var cartitemCode=items[j].get('product.productCode');
+                         var cartitemQty=items[j].get('quantity'); 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                         alert('Maximum quantity that can be purchased is 25');
+                         return false;
+                     }else{
+                        $('.mz-l-pagewrapper').addClass('is-loading');
+                        self.additemstoCart(productCode,$target,count,e);
+                        return false;
+                     }
+                 }else{
+                    $('.mz-l-pagewrapper').addClass('is-loading');
+                    self.additemstoCart(productCode,$target,count,e);
+                     return false;
+                     
+                 }
+             //});   
         }, 
+        additemstoCart:function(productCode,$target,count,e){
+            var self=this;
+            Api.get('product', productCode).then(function(sdkProduct) {
+                var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                if(PRODUCT.get('purchasableState').isPurchasable){
+                    var variantOpt = sdkProduct.data.options;
+                    if(variantOpt !== undefined && variantOpt.length>0){  
+                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                        if(newValue != "Select gift amount" && newValue !== ''){
+                            var option = PRODUCT.get('options').get(ID);
+                            var oldValue = option.get('value');
+                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                                option.set('value', newValue);
+                            }
+                            setTimeout(function(){
+                                self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                            },2000);
+                        }else{
+                           $('.mz-l-pagewrapper').removeClass('is-loading');
+                        }
+                    }else{
+                        self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                    }
+                }else{
+                    self.outOfStock(e,productCode,PRODUCT);
+                }
+            });
+        },
         addToCartAndUpdateMiniCart:function(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             PRODUCT.addToCart(1); 
@@ -838,18 +869,48 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
          * ADD CARAOUSEL in mobile view
          **/
         $(document).on('click', '.jb-add-to-cart,.jb-add-to-cart-cur', function(e) {  
-            //e.preventDefault();  
-            $('.mz-l-pagewrapper').addClass('is-loading');
-            $(document).find('.RTI-overlay').addClass('active');
-            $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+            //e.preventDefault(); 
             var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
             $('[data-mz-message-bar]').hide();
-            $('#mybuyspagezone3').addClass('is-loading');  
-            
             // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
-            
             var count = parseInt($quantity,10);
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                         alert('Maximum quantity that can be purchased is 25');
+                         return false;
+                     }else{
+                        $('.mz-l-pagewrapper').addClass('is-loading');
+                        $(document).find('.RTI-overlay').addClass('active');
+                        $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+                        $('#mybuyspagezone3').addClass('is-loading');  
+                        additemstoCart(productCode,$target,count);
+                        return false;
+                     }
+                 }else{
+                    $('.mz-l-pagewrapper').addClass('is-loading');
+                    $(document).find('.RTI-overlay').addClass('active');
+                    $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+                    $('#mybuyspagezone3').addClass('is-loading');  
+                    additemstoCart(productCode,$target,count);
+                     return false;
+                     
+                 }
+             });   
+            
+          });
+          function additemstoCart(productCode,$target,count){
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;
@@ -872,8 +933,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
             });
-          });
-	
+          }
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             var myMata = PRODUCT;

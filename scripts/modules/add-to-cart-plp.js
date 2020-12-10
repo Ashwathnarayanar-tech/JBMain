@@ -11,39 +11,42 @@ require([
         $(document).on('click', '.jb-add-to-cart', function(e) {
             e.preventDefault();
             trigger = e.target;
-			$(document).find('[data-mz-productlist]').addClass('is-loading');
-			$(document).find('[data-mz-facets]').addClass('is-loading');
             var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
-            $(document).find('[data-mz-message-bar]').hide();             
-            $target.addClass('is-loading');            
+            $(document).find('[data-mz-message-bar]').hide(); 
             var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-            var count = parseInt($quantity);            
-            Api.get('product', productCode).then(function(sdkProduct) {
-                var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                var variantOpt = sdkProduct.data.options;                    
-                if(variantOpt !== undefined && variantOpt.length>0){  
-                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                    if(newValue != "Select gift amount" && newValue !== ''){
-                        if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
-                            ID = "Tenant~gift-card-prices";
+            var count = parseInt($quantity);   
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+               var flag=false;
+                if(cartitem.items.length>0){
+                    for(var j=0;j<cartitem.items.length;j++){
+                        var cartitemCode=cartitem.items[j].product.productCode;
+                        var cartitemQty=cartitem.items[j].quantity; 
+                        var totalQty=count+cartitemQty;
+                        if(cartitemCode==productCode && totalQty>25){
+                            flag=true;
+                            // alert('Maximum quantity that can be purchased is 25');
                         }
-                        var option = PRODUCT.get('options').get(ID);
-                        var oldValue = option.get('value');
-                        if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                            option.set('value', newValue);
-                        }
-                        setTimeout(function(){
-                                addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                        },2000);
+                    }
+                    if(flag){
+                        alert('Maximum quantity that can be purchased is 25');
+                        return false;
                     }else{
-                        showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                        $target.removeClass('is-loading');
+                        $(document).find('[data-mz-productlist]').addClass('is-loading');
+                        $(document).find('[data-mz-facets]').addClass('is-loading');
+                        $target.addClass('is-loading'); 
+                        additemstoCart(productCode,$target,count);
+                        return false;
                     }
                 }else{
-                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                    $(document).find('[data-mz-productlist]').addClass('is-loading');
+                    $(document).find('[data-mz-facets]').addClass('is-loading');
+                    $target.addClass('is-loading'); 
+                    additemstoCart(productCode,$target,count);
+                    return false;
+                    
                 }
-            });
+            });         
+            
             setTimeout(function(){ 
                  $target.focus(); 
             },6200); 
@@ -72,7 +75,34 @@ require([
             
         });
         
-        
+        function additemstoCart(productCode,$target,count){
+            Api.get('product', productCode).then(function(sdkProduct) {
+                var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                var variantOpt = sdkProduct.data.options;                    
+                if(variantOpt !== undefined && variantOpt.length>0){  
+                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                    if(newValue != "Select gift amount" && newValue !== ''){
+                        if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                            ID = "Tenant~gift-card-prices";
+                        }
+                        var option = PRODUCT.get('options').get(ID);
+                        var oldValue = option.get('value');
+                        if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                            option.set('value', newValue);
+                        }
+                        setTimeout(function(){
+                                addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                        },2000);
+                    }else{
+                        showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                        $target.removeClass('is-loading');
+                    }
+                }else{
+                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                }
+            });
+        }
         function showErrorMessage(msg){
             $('[data-mz-message-bar]').empty();
             var emsg = '<div class="mz-messagebar" data-mz-message-bar="">'+
