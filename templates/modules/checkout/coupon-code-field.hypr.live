@@ -6,40 +6,29 @@
         
     </label>  
 </div> 
+
 <div class="mz-l-formfieldgroup-cell field-sec">
-    
-    {% if model.orderDiscounts.length > 0 %}
-        {% for coupon in model.orderDiscounts  %}
-            {% if coupon.couponCode!=="" %}
-                {{ coupon.couponCode }}dsvdfvf
-            {% endif %}
-        {% endfor %}
-    {% else %}
+        {% if model.orderDiscounts.length > 0 %}
+            {% for coupon in model.orderDiscounts  %}
+                {% if coupon.couponCode!=="" %}
+                    <input type="text" id="coupon-code" name="coupon-code" value="{{coupon.couponCode}}" data-mz-value="couponCode" autocomplete="new-coupon" />
+                    <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div>  
+                {% endif %}
+            {% endfor %}
+        {% endif %}
         {% for item in model.items  %}
             {% for discounts in item.productDiscounts %}
                 {% if discounts.couponCode !== '' %}
-                    {{ discounts.couponCode }}
+                    <input type="text" id="coupon-code" name="coupon-code" value="{{ discounts.couponCode }}"  data-mz-value="couponCode" autocomplete="new-coupon" />
+                    <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div>
+
                 {% endif %}
             {% endfor %}
         {% endfor %}
-    {% endif %}
-    <input type="text" id="coupon-code" name="coupon-code" {% for discount in model.orderDiscounts %} {% if not discount.excluded %} value="{{ discount.couponCode}}" {% else %} value=""  {% endif %} {% endfor %}  data-mz-value="couponCode" autocomplete="new-coupon" />
-    {% if model.orderDiscounts.length > 0 %}
-        {% for coupon in model.orderDiscounts  %}
-            {% comment %}
-            <div>validation purpose we have given. Once validated we will remove the below dummy code
-            {% dump coupon %}
-            </div>
-            {% endcomment %}
-            {% if coupon.couponCode!=="" %}
-                <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div>  
-            {% else %}
-                  <button class="mz-button" data-mz-action="addCoupon" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>  
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <button class="mz-button" data-mz-action="addCoupon" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
-    {% endif %}
+        {% if model.couponCodes.length == 0 %}
+            <input type="text" id="coupon-code" name="coupon-code" value="" data-mz-value="couponCode" autocomplete="new-coupon" />
+            <button class="mz-button" data-mz-action="addCoupon" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+        {% endif %}
     {% if model.seterror == 'coupon' %}
         <span class="error-msg" tabindex="-1" role="contentinfo">{{ model.errormessagecoupon }}</span> 
     {% else %}

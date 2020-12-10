@@ -35,9 +35,7 @@
                                     <span class="discount-productImpact"> - {{ productDiscount.impact|currency }}</span>
                                 {% endif %}
                             </div>
-                            {% comment %}
-                            {% if productDiscount.couponCode %}<span class="remove-coupon" coupon="{{ productDiscount.couponCode }}">Remove</span>{% endif %} 
-                            {% endcomment %}
+                            {% if productDiscount.couponCode %}<span class="remove-coupon hide" coupon="{{ productDiscount.couponCode }}">Remove</span>{% endif %} 
                         </span>
                     </span>  
                 {% endfor %} 
