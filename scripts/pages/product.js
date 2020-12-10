@@ -263,6 +263,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     "isEnabled" : true,
                     "isSubscriptionList":true,
                     "message" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
+                    "adamessage" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
                     "buttons" : [
                         {
                             "buttonLabel" : "Cancel",
@@ -327,7 +328,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         },
         loopInpopup:function(){
 
-            var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
+            var inputs = window.inputs = $(document).find('.popup .popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
             var lastInput = window.lastInput = window.inputs.last();
             if($(document).find('.popup-body').hasClass('signupheight')){
@@ -374,6 +375,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         popupData = {
                             "isEnabled" : true,
                             "message" : "<strong>You have already started building a Subscription</strong>. Do you want to add these products to that Subscription?",
+                            "adamessage" : "You have already started building a Subscription. Do you want to add these products to that Subscription?",
                             "buttons" : [
                                 {
                                     "buttonLabel" : "No",
@@ -396,6 +398,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         popupData = {
                             "isEnabled" : true,
                             "message" : "We can't mix Subscription and non-Subscription items at this time. <strong>Do you want to Subscribe to everything you have in the Cart?</strong>",
+                            "adamessage" : "We can't mix Subscription and non-Subscription items at this time. Do you want to Subscribe to everything you have in the Cart?",
                             "buttons" : [
                                 {
                                     "buttonLabel" : "No",
@@ -424,6 +427,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var popupData = {
                 "isEnabled" : true,
                 "message" :"To create a Subscription, you must have only Subscription items in the Cart. Do you want to <strong> remove </strong> the <strong> non-subscription  </strong>items from the Cart and proceed to checkout?",
+                "adamessage":"To create a Subscription, you must have only Subscription items in the Cart. Do you want to remove the non-subscription items from the Cart and proceed to checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "No",
@@ -448,6 +452,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var popupData = {
                 "isEnabled" : true,
                 "message" : "Proceeding will ignore your <strong>Subscription</strong> List and allow you to purchase your At Once item(s)",
+                "adamessage" : "Proceeding will ignore your Subscription List and allow you to purchase your At Once item(s)",
                 "buttons" : [
                     {
                         "buttonLabel" : "Back To Subscription",
@@ -514,6 +519,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var popupData = {
                 "isEnabled" : true,
                 "message" : "Proceeding will <strong> ignore the previously-started Subscription </strong> and allow you to set up the new Subscription",
+                "adamessage" : "Proceeding will ignore the previously-started Subscription and allow you to set up the new Subscription",
                 "buttons" : [
                     {
                         "buttonLabel" : "Back To Subscription",
@@ -867,7 +873,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             if($.cookie("subscriptionCreated") == "true"){
                 var popupData = {
                     "isEnabled" : true,
-                    "message" : " <strong>You have already started building a Subscription</strong>. Do you want to remove the subscription products and add this product to the cart?",
+                    "message" : "<strong>You have already started building a Subscription</strong> Do you want to remove the subscription products and add this product to the cart?",
+                    "adamessage":"You have already started building a Subscription  Do you want to remove the subscription products and add this product to the cart?",
                     "buttons" : [
                         {
                             "buttonLabel" : "No",
@@ -883,8 +890,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 };
                 this.model.get('subscriptionData').popupData = popupData;
                 this.render(); 
-                $(document).find('.popup-body .message').focus();
-                this.loopInpopup();      
+                $(document).find('.popup .message').focus();
+                this.loopInpopup();   
+                $("body").addClass("openPopup");   
             }else{
                 this.model.addToCart();     
             }
@@ -892,6 +900,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         clearCartandaddtocart : function(){
             var self = this;
             MiniCart.MiniCart.clearCart();
+            $("body").removeClass("openPopup");
             setTimeout(function(){ 
                 $.cookie("subscriptionCreated", false, { path: '/'});
                 self.model.addToCart();  

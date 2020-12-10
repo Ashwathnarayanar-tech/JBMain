@@ -16,11 +16,10 @@
 </style> 
 
 {% if model.subscriptionData.popupData.isEnabled %}
-        <div class="popup">
-            <div class="popup-body">
-               
+        <div class="popup" role="dialog" >
+            <div class="popup-body" role="document">
                 <div class="popup-content" aria-model="true">
-                    <span class="message" tabindex="0" >{{model.subscriptionData.popupData.message|safe}}</span>
+                    <span class="message" tabindex="0" role="contentinfo" aria-label="{{model.subscriptionData.popupData.adamessage}}">{{model.subscriptionData.popupData.message|safe}}</span>
                      <button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
                     <div class="button-section">
                         {% for item in model.subscriptionData.popupData.buttons %}
