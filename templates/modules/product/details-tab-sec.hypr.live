@@ -141,9 +141,15 @@
     <div class="scroll-section scroll-header">
         <div class="top-section">
             <div class="product-details-section"> 
-                <figure class="mz-productimage">  
-                    <img tabindex="0" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" src="{{ model.mainImage.imageUrl }}?max=100" /> 
-                </figure> 
+                {% if model.content.productImages.length > 0 %} 
+                    <figure class="mz-productimage">  
+                        <img tabindex="0" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" src="{{ model.mainImage.imageUrl }}?max=100" /> 
+                    </figure> 
+                {% else %}
+                    <figure class="mz-productimage">  
+                        <img tabindex="0" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=100" /> 
+                    </figure>
+                {% endif %}
                 <div class="product-name">
                     <h5 tabindex="0" role="contentinfo"><span itemprop="name">{{ model.content.productName|safe }}</span></h1>
                     <span tabindex="0" role="contentinfo" aria-label="product SKU" class="mz-sku">SKU-{{ model.productCode|safe }}</span>
