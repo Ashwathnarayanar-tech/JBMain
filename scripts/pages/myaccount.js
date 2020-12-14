@@ -202,20 +202,20 @@
                                 option.set('value', newValue);
                             }
                             setTimeout(function(){
-                                WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                                window.WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             },2000);
                         }else{
-                            WishListView.showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                            window.WishListView.showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                             $target.removeClass('is-loading');
                         }
                     }else{
-                        WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                        window.WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                     }
                 });
                 setTimeout(function(){ 
                      $target.focus(); 
-                },6200); 
-            },2000);  
+                },1000); 
+            },200);  
         });
     var WishListView = EditableView.extend({
         templateName: 'modules/my-account/my-account-wishlist',
@@ -294,6 +294,9 @@
                     var $quantity = Item[0].quantity;
                     $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
                     $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
+                    $(document).find('.popup').find('.button-yes').attr('isOrder', false);
+                    $(document).find('.popup').find('.button-yes').attr('isWishlist', true);
+                    $(document).find('.popup').find('.button-yes').attr('addAll', false);
                 }
             }
         },
@@ -673,7 +676,7 @@
             MiniCart.MiniCart.clearCart();
             var quantityElement;
             //var variantCode = e.currentTarget.getAttribute('variationCode');
-            if(e.currentTarget.getAttribute('variationCode')){
+            if(e && e.currentTarget &&  e.currentTarget.getAttribute('variationCode')){
                 quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[variationCode="'+e.currentTarget.getAttribute('variationCode')+'"][OrderProductId="'+productId+'"]');
             }else{
                 quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]');
@@ -684,7 +687,7 @@
                 productCode:productId,
                 qty:quantityElement[0].value
             };
-            if(e.currentTarget.getAttribute('variationCode')){
+            if(e && e.currentTarget && e.currentTarget.getAttribute('variationCode')){
                 product.variantcode = e.currentTarget.getAttribute('variationCode');
             }
             productCodes.push(product);
@@ -2443,13 +2446,13 @@
             var isWishlist = $(document).find('.popup').find('.button-yes').attr('isWishlist');
             var addAll = $(document).find('.popup').find('.button-yes').attr('addAll');
             var orderId = $(document).find('.popup').find('.button-yes').attr('orderId');
-            var productId = $(document).find('.popup').find('.button-yes').attr('productId');
+            var productId = $(document).find('.popup').find('.button-yes').attr('productcode');
+            var count = $(document).find('.popup').find('.button-yes').attr('quantity');
             if(isOrder == "true" && addAll == "false"){
                 window.accountViews.orderHistory.removerProductandAddtocart(orderId, productId);
             }else if(isOrder == "true" && addAll == "true"){
                window.accountViews.orderHistory.removerProductandAddalltoCart(orderId); 
             }else if(isWishlist){
-                window.accountViews.orderHistory.removerProductandAddtocart(orderId, productId);
             }   
         });
         
@@ -2540,7 +2543,7 @@
                 if(resp.items.length > 20)resp.items.pop();
                 resp.totalCount = resp.totalCount-1;
                 var wishlist = Backbone.MozuModel.extend({});
-                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
+                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = window.WishListView = new WishListView({
                     el: $wishListEl,
                     model: new wishlist(resp),
                     messagesEl: $messagesEl
