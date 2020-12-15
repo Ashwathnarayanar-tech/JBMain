@@ -21,13 +21,11 @@
         {% include "modules/json-required-for-hyprlive" %}
 		
         {% block meta-candytags %}
-
-       
 	   <meta name="description" content="{% firstof PageContext.MetaDescription model.content.productShortDescription  %} {% if model.content.productShortDescription %} {% endif %} {% if PageContext.MetaDescription %} {% endif %}">
 		<meta name="keywords" content="{{ PageContext.MetaKeywords }}">
 		 {% endblock meta-candytags %}
 		<meta name="correlationId" content="{{ pageContext.correlationId }}">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<meta name="google" content="notranslate" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         {% endblock meta-tags %}
