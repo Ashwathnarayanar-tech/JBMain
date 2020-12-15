@@ -993,7 +993,7 @@ require([
             $('.modal').removeClass('active');
             $('.toggleModal').focus();
         });
-
+        
         $(document).on('click', function(e) {
             var target = $(e.target)[0];
             if ($(target).parents('.modal').length)
@@ -1017,8 +1017,7 @@ require([
         $('#emailConnectPage').on('click', function() {
             NewsLetter.JB.NewsletterSignup.emailFormFooterLinkClicked();
         });
-
-        /**
+       
          * Show and hide header search box in mobile view
          **/
         if ($('#mobile_show_search').length > 0) {

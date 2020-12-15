@@ -977,7 +977,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     } else{
                         $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
                     }
-                    
                 }
                 else if($('.data-contact [data-mz-value="contactId"]').val()!==""){
                     if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
@@ -1332,6 +1331,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 billingContact.set(this.model.parent.apiModel.data.fulfillmentInfo.fulfillmentContact, { silent: true });
                 $(".mz-same-as-shipping-summary").hide(); 
                 $('.mz-l-formfieldgroup-address').hide();
+                this.render(); 
             }else{
                 $("[data-mz-value='isSameBillingShippingAddress']").removeAttr('checked');
                 this.model.set('isSameBillingShippingAddress', false);  
@@ -1339,6 +1339,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $('.mz-l-formfieldgroup-address').show();
 
             }
+        
         },
         updateCardType: function(e){
             var card = $(e.target).val();
@@ -1479,6 +1480,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             if(!(window.paymentinfo.model.validate(attr))){
                  //CVV Validation
                  var regcvv=/^[0-9]{3,4}$/;
+                 if($('#submitorder-cpp-checkbox').is(':checked')){
+                    $('#submitorder-cpp-checkbox').attr('checked',false);
+                 }
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
                      $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
                       $('[data-mz-value="card.cvv"]').focus();
@@ -1506,6 +1510,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }else{
                     // form validation errors focus
                     var $errEl;
+                    if($('#submitorder-cpp-checkbox').is(':checked')){
+                        $('#submitorder-cpp-checkbox').attr('checked',false);
+                     }
                     if($('.payment-form-section')) {
                         window.scrollTo(0, $('.payment-form-section').offset().top);
                         setTimeout(function() {
@@ -2630,6 +2637,9 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             if(!(window.paymentinfo.model.validate(attr))){
                  //CVV Validation
                  var regcvv=/^[0-9]{3,4}$/;
+                 if($('#submitorder-cpp-checkbox').is(':checked')){
+                    $('#submitorder-cpp-checkbox').attr('checked',false);
+                 }
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
                      $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
                       $('[data-mz-value="card.cvv"]').focus();
@@ -2661,6 +2671,9 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     // form validation errors focus
                     var $errEl;
                     if($('.payment-form-section')) {
+                        if($('#submitorder-cpp-checkbox').is(':checked')){
+                            $('#submitorder-cpp-checkbox').attr('checked',false);
+                         }
                         window.scrollTo(0, $('.payment-form-section').offset().top);
                         setTimeout(function() {
                             $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');

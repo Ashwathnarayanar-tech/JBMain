@@ -1074,6 +1074,43 @@ body #cdawrap:hover #cda-remove {
     margin: auto auto;
     z-index:9;
 }
+.maximumProduct{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    .maximum-inner-content{
+        width: 45%;
+    margin: 0 auto;
+    margin-top: 17%;
+    padding: 3%;
+    display: none;
+    //box-shadow: 0 2px 4px 0 rgb(0 0 0/50%);
+    background-color: white;
+    position: relative;
+        .close-icon{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url(../../resources/images/close-icon-popup.svg);
+            top: 16px;
+            background-repeat: no-repeat;
+            right: 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+        .maximum-message{
+
+        }
+    }
+}
 .is-loading  .jb-inner-overlay,.is-loading .loader-checkout {
     display: block;
 }
