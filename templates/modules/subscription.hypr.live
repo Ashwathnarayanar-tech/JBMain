@@ -105,6 +105,7 @@
 												{{item.name|safe}}
 												{% if not item.purchasableState.isPurchasable %}
 													<span class="outofstock" tabindex="0">Out Of Stock</span>
+													<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 												{% endif %}
 											</span>
 										</span> 
@@ -145,10 +146,12 @@
 												<span class="image-cointainer">
 													<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
 												</span>
+												skdnmksn
 												<span class="discription-text" tabindex="0">
 													{{item.name|safe}}
 													{% if not item.purchasableState.isPurchasable %}
 														<span class="outofstock" tabindex="0">Out Of Stock</span>
+														<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 													{% endif %}
 												</span>
 											</span>
@@ -202,6 +205,7 @@
 														{{item.name|safe}}
 														{% if not item.purchasableState.isPurchasable %}
 															<span class="outofstock" tabindex="0">Out Of Stock</span>
+															<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 														{% endif %}
 													</span>
 												</span>
@@ -268,6 +272,7 @@
 														{{item.name|safe}}
 														{% if not item.purchasableState.isPurchasable %}
 															<span class="outofstock" tabindex="0">Out Of Stock</span>
+															<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 														{% endif %}
 													</span>
 												</span> 
@@ -346,6 +351,7 @@
 	                    				{{item.name|safe}}
 	                    				{% if not item.purchasableState.isPurchasable %}
 	                    					<span class="outofstock" tabindex="0">Out Of Stock</span>
+	                    					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 	                    				{% endif %}
 	                    			</span>
 								</span> 
@@ -394,6 +400,7 @@
 		                        				{{item.name|safe}}
 		                        				{% if not item.purchasableState.isPurchasable %}
 		                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+		                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 		                        				{% endif %}
 		                        			</span>
 										</span>
@@ -451,6 +458,7 @@
 			                        				{{item.name|safe}}
 			                        				{% if not item.purchasableState.isPurchasable %}
 			                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+			                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 			                        				{% endif %}
 			                        			</span>
 											</span>
@@ -530,6 +538,7 @@
 			                    				{{item.name|safe}}
 			                    				{% if not item.purchasableState.isPurchasable %}
 			                    					<span class="outofstock" tabindex="0">Out Of Stock</span>
+			                    					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 			                    				{% endif %}
 			                    			</span>
 										</span> 
@@ -774,6 +783,7 @@
 		                        				{{item.name|safe}}
 		                        				{% if not item.purchasableState.isPurchasable %}
 		                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+		                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
 		                        				{% endif %}
 		                        			</span>
 										</span>
