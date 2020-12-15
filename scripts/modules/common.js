@@ -1018,8 +1018,6 @@ require([
             NewsLetter.JB.NewsletterSignup.emailFormFooterLinkClicked();
         });
        
-         * Show and hide header search box in mobile view
-         **/
         if ($('#mobile_show_search').length > 0) {
             $('#mobile_show_search').on('click', function(e) {
                 $('.jb-mobile-search').slideToggle();
