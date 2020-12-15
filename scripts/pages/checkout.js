@@ -979,6 +979,15 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     }
                     
                 }
+                else if($('.data-contact [data-mz-value="contactId"]').val()!==""){
+                    if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
+                        $('.data-contact').first().before("<span class='mz-validationmessage savedaddressError' role='alert' tabindex='0'>Please select the address</span>");
+                        $('.data-contact').siblings('.savedaddressError').focus();
+                    }else{
+                        $('.data-contact').siblings('.savedaddressError').html('');                    }
+                }else{
+                    $('.data-contact').siblings('.savedaddressError').html('');
+                }
             }, 700);
         }    
     });
