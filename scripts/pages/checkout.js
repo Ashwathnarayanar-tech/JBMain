@@ -2533,7 +2533,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 'weeks' : true, 
                 'months' : false,
                 'when' : "",
-                'howLong' : "untill i cancel"
+                'howLong' : "until i cancel"
             };
             if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
                 var myval = JSON.parse($.cookie("subscriptionData"));

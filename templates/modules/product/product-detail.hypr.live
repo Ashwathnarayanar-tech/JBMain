@@ -333,7 +333,7 @@
                         </span>
                         <div class="how-long-input-sub">
                             <select class="how-long-val" name="howlong" aria-labelledby="howlong">
-                                <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+                                <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
                                 <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
                                 <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
                                 <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>

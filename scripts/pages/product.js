@@ -1558,7 +1558,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             'weeks' : true,
             'months' : false,
             'when' : output, 
-            'howLong' : "untill i cancel" 
+            'howLong' : "until i cancel" 
         };
         if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
             var myval = JSON.parse($.cookie("subscriptionData"));

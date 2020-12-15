@@ -665,7 +665,7 @@
 	                    </span>
 	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
-	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
@@ -741,7 +741,7 @@
 	                    </span>
 	                    <div class="how-long-input-sub" tabindex="0">
 	                        <select class="how-long-val" name="howlong">
-	                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
 	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
@@ -888,7 +888,7 @@
 		                    </span>
 		                    <div class="how-long-input-sub" tabindex="0">
 		                        <select class="how-long-val" name="howlong">
-		                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
 		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
 		                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
 		                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
@@ -1085,7 +1085,7 @@
 			                    </span>
 			                    <div class="how-long-input-sub" tabindex="0">
 			                        <select class="how-long-val" name="howlong">
-			                            <option {% if model.subscriptionData.Data.howLong == "untill i cancel" %}selected{% endif %} value="untill i cancel">Untill I Cancel</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
 			                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
 			                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
 			                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
