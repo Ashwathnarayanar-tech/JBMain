@@ -10,9 +10,9 @@
         </thead>
         {% for item in model.order.items %}
 
-            <tbody class="mz-ordersummary-lineitems">
-                <tr tabindex="0"  class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
-                    <td class="mz-ordersummary-item-product">
+            <tbody class="mz-ordersummary-lineitems" tabindex="0">
+                <tr  class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
+                    <td class="mz-ordersummary-item-product" tabindex="0">
                         {% if item.product.imageUrl and themeSettings.showCartItemImage %}
                             <img class="mz-ordersummary-item-image" src="{{ item.product.imageUrl }}?max=80" alt=""/>
                         {% else %}
@@ -33,14 +33,14 @@
                         </div>
                      </div>
                     </td>
-                     <td class="mz-ordersummary-item-price">
+                     <td class="mz-ordersummary-item-price" tabindex="0" >
                        <div class="price" tabindex="0">
                         {% if item.product.price.price>item.product.price.salePrice %}<span class="saleprice">{{item.product.price.salePrice | currency}}</span>{% endif %}
                         {% if item.product.price.price>item.product.price.salePrice %}<span class="strike">{{item.product.price.price | currency}}</span>{% else %}<span class="price">{{item.product.price.price |currency}}</span>{% endif %}
                     </div>
                     </td>
                     <td class="mz-ordersummary-item-qty"><span tabindex="0" >{{ item.quantity }}</span></td>
-                    <td class="mz-ordersummary-item-total"><span class="mz-item-rowtotal" tabindex="0"  style="margin-left:25%;">
+                    <td class="mz-ordersummary-item-total"><span class="mz-item-rowtotal" style="margin-left:25%;">
                             {% include "modules/common/item-total" %} </span>
                     </td>
                 </tr>
@@ -66,7 +66,7 @@
       
         <tbody style="border-top: 2px solid #EDEDED;text-align:right">
             
-            <tr class="mz-ordersummary-subtotal" tabindex="0" >
+            <tr class="mz-ordersummary-subtotal"  >
              <td></td>
               <td class="textAlignLeft">
                 <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionSubTotal }}</span>
@@ -77,7 +77,7 @@
               </td>
             </tr>
             {% if model.order.discountTotal !=0 %}
-                <tr class="mz-ordersummary-subtotal" tabindex="0" >
+                <tr class="mz-ordersummary-subtotal"  >
                     <td></td>
                     <td class="textAlignLeft">
                         <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionCartDiscount }}</span>
@@ -90,7 +90,7 @@
                     </td>
                 </tr>
                {% endif %}
-              <tr class="mz-ordersummary-subtotal" tabindex="0" >
+              <tr class="mz-ordersummary-subtotal" >
                 <td></td>
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionTax }}</span>
@@ -103,7 +103,7 @@
                 </td>
             </tr>
 
-       <tr class="mz-ordersummary-subtotal" tabindex="0"  style="display:none">
+       <tr class="mz-ordersummary-subtotal"   style="display:none">
                 <td></td>
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionCouponDiscount }}</span>
@@ -116,14 +116,14 @@
                 </td>
             </tr>
 
-             <tr class="mz-ordersummary-subtotal" tabindex="0" >
+             <tr class="mz-ordersummary-subtotal"  >
               <td></td>
               <td class="textAlignLeft">
                 <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionShipping }}</span>
               </td>
               <td></td>
                <td class="textAlignRight"> 
-                <span class="mz-ordersummary-totalvalue">
+                <span class="mz-ordersummary-totalvalue" tabindex="0">
                     {% if model.order.shippingTotal == 0 && !model.fulfillmentInfo.shippingMethodCode %}  
                         {% if PageContext.pageType == "confirmation" %} $0 {% else %} TBD {% endif %} 
                     {% else %}
@@ -132,11 +132,11 @@
                 </span>
               </td>
             </tr> 
-            <tr tabindex="0"  class="mz-ordersummary-subtotal">
+            <tr   class="mz-ordersummary-subtotal">
                 <td></td>
                 <td colspan="3" style="border-bottom:solid 1px #cfcfcf"> </td>
              </tr>
-            <tr tabindex="0"  class="mz-ordersummary-subtotal">
+            <tr  class="mz-ordersummary-subtotal">
                 <td></td>
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-Ordertotalname" tabindex="0" >{{ labels.orderTotal }}</span>
@@ -160,7 +160,7 @@
 {% if pageContext.isEditMode or pageContext.isMobile %}
         <table class="mz-ordersummary">
         {% for item in model.order.items %}
-            <tbody class="mz-ordersummary-lineitems">
+            <tbody class="mz-ordersummary-lineitems" >
                 <tr tabindex="0"  class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
                     <td class="mz-ordersummary-item-product">
                         {% if item.product.imageUrl and themeSettings.showCartItemImage %}
@@ -206,7 +206,7 @@
       
         <tbody style="border-top: 2px solid #EDEDED;text-align:right">
             
-            <tr class="mz-ordersummary-subtotal" tabindex="0" >
+            <tr class="mz-ordersummary-subtotal"  >
               <td class="textAlignLeft">
                 <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionSubTotal }}</span>
               </td>  
@@ -215,7 +215,7 @@
               </td>
             </tr>
             {% if model.order.discountTotal !=0 %}
-                <tr class="mz-ordersummary-subtotal" tabindex="0" >
+                <tr class="mz-ordersummary-subtotal" >
                     <td class="textAlignLeft">
                         <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionCartDiscount }}</span>
                     </td>
@@ -226,7 +226,7 @@
                     </td>
                 </tr>
              {% endif %}
-            <tr class="mz-ordersummary-subtotal" tabindex="0" >
+            <tr class="mz-ordersummary-subtotal"  >
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionTax }}</span>
                 </td>
@@ -237,14 +237,14 @@
                 </td>
             </tr>    
               
-               <tr class="mz-ordersummary-subtotal" tabindex="0"  style="display:none">
+               <tr class="mz-ordersummary-subtotal"  style="display:none">
                 <td  colspan="2" class="textAlignLeft">
                     <span class="mz-ordersummary-totalname " tabindex="0" >{{ labels.subscriptionCouponDiscount }}</span> 
                     <span class="mz-ordersummary-totalvalue textAlignRight" tabindex="0" ></span>
                 </td>
             </tr>
                
-             <tr class="mz-ordersummary-subtotal" tabindex="0" >
+             <tr class="mz-ordersummary-subtotal"  >
               <td class="textAlignLeft">
                 <span class="mz-ordersummary-totalname" tabindex="0" >{{ labels.subscriptionShipping }}</span>
               </td>
@@ -258,11 +258,11 @@
                 </span>
               </td>
             </tr> 
-            <tr tabindex="0"  class="mz-ordersummary-subtotal">
+            <tr   class="mz-ordersummary-subtotal">
                 <td colspan="3" style="border-bottom:solid 1px #cfcfcf"> </td>
              </tr>
 
-            <tr tabindex="0"  class="mz-ordersummary-subtotal">
+            <tr   class="mz-ordersummary-subtotal">
                 <td class="textAlignLeft">
                     <span class="mz-ordersummary-Ordertotalname" tabindex="0" >{{ labels.orderTotal }}</span>
                  </td>

@@ -15,6 +15,6 @@
         {% endcomment %}
 		<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="discounted total: {{ item.discountedTotal|currency }}">{{ item.discountedTotal|currency }}</span>
 {% else %}
-	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
+	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="Item total: {{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
 {% endif %}
 
