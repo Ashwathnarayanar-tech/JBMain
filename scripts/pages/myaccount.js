@@ -1498,8 +1498,8 @@
                             window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
                             window.mySubscription.render();
                             setTimeout(function(){
-                            $(document).find('.subscription-list-body').focus();
-                            },500);
+                                $(window).scrollTop($('.details-top').offset().top-150);
+                            },300);
                         },1000);
                     }, function(er) {
                         // fail condition
