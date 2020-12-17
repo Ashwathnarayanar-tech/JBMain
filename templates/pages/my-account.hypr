@@ -90,7 +90,7 @@
                 <span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
                 <div class="popup-content">
                     <span class="message" tabindex="0" role="contentinfo">
-                        <strong> You have already started building a Subscription</strong>. Do you want to remove the subscription products and add this product to the cart?
+                        <strong> You have already started building a Subscription.</strong><br> Do you want to remove the subscription products and add this product to the cart?
                     </span>
                     <div class="button-section">                    
                         <button class="button button-no" >No</button>

@@ -742,6 +742,7 @@
                 this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
                 window.targetFocusEl = e.target;
             }else{
+                $(document).find('.popup').removeClass('inactive');
                 $(document).find('.popup').addClass('active');
                 $(document).find('.popup').find('.button-yes').attr('isOrder', true);
                 $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
@@ -794,7 +795,7 @@
                 });*/
                 var el=e;
                 this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
-                window.targetFocusEl = e.target;    
+                window.targetFocusEl = e && e.target;    
         },
         makeQuickBulkOrder: function(el, products,orderId,locationCodes,productCodes,itemNames){
 
@@ -2446,13 +2447,14 @@
             var isWishlist = $(document).find('.popup').find('.button-yes').attr('isWishlist');
             var addAll = $(document).find('.popup').find('.button-yes').attr('addAll');
             var orderId = $(document).find('.popup').find('.button-yes').attr('orderId');
-            var productId = $(document).find('.popup').find('.button-yes').attr('productcode');
+            var productId = $(document).find('.popup').find('.button-yes').attr('productid');
             var count = $(document).find('.popup').find('.button-yes').attr('quantity');
             if(isOrder == "true" && addAll == "false"){
                 window.accountViews.orderHistory.removerProductandAddtocart(orderId, productId);
             }else if(isOrder == "true" && addAll == "true"){
                window.accountViews.orderHistory.removerProductandAddalltoCart(orderId); 
             }else if(isWishlist){
+                productId = $(document).find('.popup').find('.button-yes').attr('productcode');
             }   
         });
         

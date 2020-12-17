@@ -262,7 +262,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var popupData = {
                     "isEnabled" : true,
                     "isSubscriptionList":true,
-                    "message" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
+                    "message" : "You can <strong> subscribe </strong> to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
                     "adamessage" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
                     "buttons" : [
                         {
@@ -374,7 +374,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     if($.cookie("subscriptionCreated") == "true"){
                         popupData = {
                             "isEnabled" : true,
-                            "message" : "<strong>You have already started building a Subscription</strong>. Do you want to add these products to that Subscription?",
+                            "message" : "<strong>You have already started building a Subscription.</strong> <br> Do you want to add these products to that Subscription?",
                             "adamessage" : "You have already started building a Subscription. Do you want to add these products to that Subscription?",
                             "buttons" : [
                                 {
@@ -873,7 +873,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             if($.cookie("subscriptionCreated") == "true"){
                 var popupData = {
                     "isEnabled" : true,
-                    "message" : "<strong>You have already started building a Subscription</strong> Do you want to remove the subscription products and add this product to the cart?",
+                    "message" : "<strong>You have already started building a Subscription.</strong> <br> Do you want to remove the subscription products and add this product to the cart?",
                     "adamessage":"You have already started building a Subscription  Do you want to remove the subscription products and add this product to the cart?",
                     "buttons" : [
                         {
