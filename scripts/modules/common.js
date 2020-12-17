@@ -572,7 +572,9 @@ require([
                              }
                          }
                          if(flag){
-                             alert('Maximum quantity that can be purchased is 25');
+                            // alert('Maximum quantity that can be purchased is 25');
+                            $('.maximumProduct').show(); 
+                            $('.maximum-message').focus();
                              return false;
                          }else{
                             $('.mz-l-pagewrapper').addClass('is-loading');

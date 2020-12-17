@@ -370,7 +370,10 @@
                          }
                      }
                      if(flag){
-                         alert('Maximum quantity that can be purchased is 25');
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show();
+                        $('.maximum-message').focus();
+                        loopInMax();
                          return false;
                      }else{
                         PRODUCT.addToCart(1);
@@ -815,7 +818,10 @@
                                      }
                                  }
                                  if(flag){
-                                     alert('Maximum quantity that can be purchased is 25');
+                                     //alert('Maximum quantity that can be purchased is 25');
+                                     $('.maximumProduct').show();
+                        $('.maximum-message').focus();
+                                     loopInMax();
                                      return false;
                                  }else{
                                     PRODUCT.addToCart();
@@ -1471,6 +1477,32 @@
     });
     
     */
+   $(document).on('click', '.maximumProduct .close-icon',function(){
+    $('.maximumProduct').hide();
+    $(document).find('.add-to-cart-btn-plp').focus();
+     //trigger.focus();
+ });
+   function loopInMax(){
+    var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+    var firstInput = window.firstInput = window.inputs.first();
+    var lastInput = window.lastInput = window.inputs.last(); 
+    
+    // if current element is last, get focus to first element on tab press.
+    window.lastInput.on('keydown', function (e) {
+       if ((e.which === 9 && !e.shiftKey)) {
+           e.preventDefault();
+           window.firstInput.focus(); 
+       }
+    });
+    
+    // if current element is first, get focus to last element on tab+shift press.
+    window.firstInput.on('keydown', function (e) {
+        if ((e.which === 9 && e.shiftKey)) {
+            e.preventDefault();
+            window.lastInput.focus();  
+        }
+    }); 
+} 
     $(document).ready(function () {
         
         var targetFocusEl = window.targetFocusEl;
@@ -1635,6 +1667,11 @@
                 e.preventDefault();
             }
         });
+        $(document).on('click', '.maximumProduct .close-icon',function(){
+            $('.maximumProduct').hide();
+            $(document).find('.add-to-cart-btn-plp').focus();
+             //trigger.focus();
+         });
         
         /*var $myAccountNav = $('.mz-scrollnav-list');
         if($myAccountNav.length > 0) {

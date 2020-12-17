@@ -226,7 +226,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 }
             }
         },
-        addToCart: function () {
+        addToCart: function (e) {
             var productCode=this.model.get('productCode'),self=this;
             var count=this.model.get('quantity');
             Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
@@ -242,7 +242,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                          }
                      }
                      if(flag){
-                         alert('Maximum quantity that can be purchased is 25');
+                         //alert('Maximum quantity that can be purchased is 25');
+                         $('.maximumProduct').show().focus();
+                         $('.maximum-message').focus();
+                         $(e.currentTarget).addClass('maximum-close');
+                         loopInMax(e);
                          return false;
                      }else{
                         self.model.addToCart();
@@ -254,7 +258,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                      return false;
                      
                  }
-             });         
+            });         
             
         },
         /*addToWishlist: function () {
@@ -456,6 +460,27 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             Backbone.MozuView.prototype.render.apply(this);
         }
     });
+    function loopInMax(e){
+        var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+        var firstInput = window.firstInput = window.inputs.first();
+        var lastInput = window.lastInput = window.inputs.last(); 
+        
+        // if current element is last, get focus to first element on tab press.
+        window.lastInput.on('keydown', function (e) {
+           if ((e.which === 9 && !e.shiftKey)) {
+               e.preventDefault();
+               window.firstInput.focus(); 
+           }
+        });
+        
+        // if current element is first, get focus to last element on tab+shift press.
+        window.firstInput.on('keydown', function (e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                window.lastInput.focus();  
+            }
+        }); 
+    }
     function getExistingNotifications() {
         return ($.cookie('mozustocknotify') || '').split(',');
     }
@@ -536,6 +561,13 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
          * Add click event for PDP page accordian.
          * Functionality: Open clicked accordian, if its closed and close other.
          **/
+        $(document).on('click', '.maximumProduct .close-icon',function(){
+            $('.maximumProduct').hide();
+            $(document).find('.maximum-close').focus();
+            $(document).find('.maximum-close').removeClass('maximum-close');
+            //$(document).find('.add-to-cart-btn-plp').focus();
+             //trigger.focus();
+         });
         $(document).on('click', '#ReviewHeader a[href="#ReviewHeader"]', function (e) {
             $('#accordian li').removeClass('active');
             $('#accordian li').attr("aria-expanded", "false");
@@ -778,7 +810,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                          }
                      }
                      if(flag){
-                         alert('Maximum quantity that can be purchased is 25');
+                         //alert('Maximum quantity that can be purchased is 25');
+                         $('.maximumProduct').show().focus();
+                         $('.maximum-message').focus();
+                         $('$target').addClass('maximum-close');
+                         loopInMax();
                          return false;
                      }else{
                         PRODUCT.addToCart(1);
@@ -887,6 +923,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 }
             }); 
         }
+        
         function showErrorMessage(msg){
             $('[data-mz-message-bar]').empty();
             var emsg = '<div class="mz-messagebar" data-mz-message-bar="">'+
@@ -1270,6 +1307,15 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $(document).find('#related-products .single-product').css({'margin-right':'15px'});
             }    
         } 
+        $(document).find('.maximumProduct .close-icon').on('click',function(e){
+            $('.maximumProduct').hide();
+        });
+        $(document).on('keypress', '.maximumProduct .close-icon', function(e) {
+            if(e.keyCode == 13 || e.keyCode == 32) {
+                e.preventDefault();
+                $('.maximumProduct').hide();
+            }
+        });
         //scroll quantity update
         setTimeout(function(){
             $(document).find('.scroll-header .increment').on('click',function(e){

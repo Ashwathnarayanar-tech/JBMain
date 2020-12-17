@@ -538,7 +538,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                          }
                      }
                      if(flag){
-                         alert('Maximum quantity that can be purchased is 25');
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show().focus();
+                        $('.maximum-message').focus();
                          return false;
                      }else{
                         $('.mz-l-pagewrapper').addClass('is-loading');
@@ -714,8 +716,38 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         render:function(){
             Backbone.MozuView.prototype.render.apply(this);
         }
-    });    
- 
+    }); 
+    function loopInMax(){
+        var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+        var firstInput = window.firstInput = window.inputs.first();
+        var lastInput = window.lastInput = window.inputs.last(); 
+        
+        // if current element is last, get focus to first element on tab press.
+        window.lastInput.on('keydown', function (e) {
+           if ((e.which === 9 && !e.shiftKey)) {
+               e.preventDefault();
+               window.firstInput.focus(); 
+           }
+        });
+        
+        // if current element is first, get focus to last element on tab+shift press.
+        window.firstInput.on('keydown', function (e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                window.lastInput.focus();  
+            }
+        }); 
+    } 
+    $(document).on('click', '.maximumProduct .close-icon',function(){
+        $('.maximumProduct').hide();
+        $(document).find('.add-to-cart-btn-plp').focus();
+         //trigger.focus();
+     });  
+    $(document).on('click', '.maximumProduct .close-icon',function(){
+        $('.maximumProduct').hide();
+        $(document).find('.add-to-cart-btn-plp').focus();
+         //trigger.focus();
+     });
     $(document).ready(function () {
         $(document).on('keydown','#keep-shopping-button',function(e) {
            if(e.keyCode == 13) {
@@ -888,7 +920,10 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                          }
                      }
                      if(flag){
-                         alert('Maximum quantity that can be purchased is 25');
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show().focus();
+                        $('.maximum-message').focus();
+                        loopInMax();
                          return false;
                      }else{
                         $('.mz-l-pagewrapper').addClass('is-loading');
