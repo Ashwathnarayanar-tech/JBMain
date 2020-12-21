@@ -2,7 +2,7 @@
     <div class="subscriptionpopup">
         <div class="popup-body" > 
             <div class="popup-content">
-                <span class="message" tabindex="0">
+                <span class="message" tabindex="0" aria-label="{{model.popupData.adamessage}}">
                     {{model.popupData.message|safe}}
                 </span>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
@@ -19,7 +19,7 @@
 {% with model as order %}
 				<div id="{{order.subscriptionId}}" class={% if order.open %}"subscription-list-body active"{% else %}"subscription-list-body"{% endif %} tabindex="0">
 					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-details cancelled-subscription"{% else %}"subscription-details"{% endif %} tabindex="0">
-						<div class="subscription-frequency" tabindex="0">
+						<div class="subscription-frequency" >
 							<div class="labelStyle" tabindex="0">How Often? Every</div>
 							<span tabindex="0">{{order.schedule.frequency}} {{order.schedule.frequencyType}}</span>
 						</div>
@@ -229,20 +229,20 @@
 											</div>
 										</div>
 									</td>
-									<td class="product-row" tabindex="0">
-										<div class="price">
+									<td class="product-row" >
+										<div class="price" tabindex="0">
 											{% if item.product.price.price>item.product.price.salePrice %}<span class="saleprice" aria-label="Price: {{ item.product.price.salePrice|currency }}" >{{item.product.price.salePrice | currency}}</span>{% endif %}
 											{% if item.product.price.price>item.product.price.salePrice %}<span class="strike" aria-label="Price: {{ item.product.price.price|currency }}">{{item.product.price.price | currency}}</span>{% else %}<span class="price" aria-label="Price: {{ item.product.price.price|currency }}">{{item.product.price.price |currency}}</span>{% endif %}
 										</div>	
 									</td>
-									<td class="product-row" tabindex="0">
+									<td class="product-row">
 										<div class="qty">
-											<span aria-label="Quantity: {{ item.quantity}}">{{item.quantity}}</span>
+											<span aria-label="Quantity: {{ item.quantity}}"  tabindex="0">{{item.quantity}}</span>
 										</div>
 									</td>
-									<td class="product-row" tabindex="0">
+									<td class="product-row" >
 										<div class="total">
-											<span style="margin-left:25%">{% include "modules/common/item-total" %}</span>
+											<span style="margin-left:25%" tabindex="0">{% include "modules/common/item-total" %}</span>
 										</div>
 									</td>
 								</tr>
@@ -281,39 +281,39 @@
 				<div  id="{{order.subscriptionId}}" class={% if order.open %}"subscription-list-body active"{% else %}"subscription-list-body"{% endif %}>
 					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-details cancelled-subscription"{% else %}"subscription-details"{% endif %}>
 						<div class="details-top">
-							<div class="subscription-frequency" tabindex="0">
-								<label>How Often? Every</label>
-								<span>{{order.schedule.frequency}} {{order.schedule.frequencyType}}</span>
+							<div class="subscription-frequency" >
+								<label tabindex="0">How Often? Every</label>
+								<span tabindex="0">{{order.schedule.frequency}} {{order.schedule.frequencyType}}</span>
 							</div>
-							<div class="subscription-start" tabindex="0">
-								<label>When? Starting</label>
-								<span>{{order.schedule.startDate}}</span>
+							<div class="subscription-start">
+								<label tabindex="0">When? Starting</label>
+								<span tabindex="0">{{order.schedule.startDate}}</span>
 							</div>
 						</div>
 						<div class="details-bottom">
-							<div class="subscription-end" tabindex="0">
-								<label>For How Long?</label>
-								<span>{{order.schedule.endType}}</span>
+							<div class="subscription-end">
+								<label tabindex="0">For How Long?</label>
+								<span tabindex="0">{{order.schedule.endType}}</span>
 							</div>
-							<div class="subscription-next" tabindex="0">
-								<label>Next Shipment</label>
-								<span>{{order.schedule.nextShippment}}</span>
+							<div class="subscription-next" >
+								<label  tabindex="0">Next Shipment</label>
+								<span  tabindex="0">{{order.schedule.nextShippment}}</span>
 							</div>
 						</div>
 					</div>
 					<div class={% if order.subscribedStatus == "Cancelled" %}"subscription-actions cancelled-subscription"{% else %}"subscription-actions"{% endif %}> 
 						<div class="button-container">
 							{% if order.subscribedStatus == "Cancelled" %}
-								<button disabled class="cancelled">Cancelled Subscription</button>
+								<button tabindex="0" disabled class="cancelled">Cancelled Subscription</button>
 							{% else %}
 								{% if order.subscribedStatus == "Active" or order.subscribedStatus == "Paused" %}
-									<button data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="edit" >Edit Subscription</button>
+									<button data-mz-action="popup" tabindex="0" data-order-id="{{order.subscriptionId}}" data-action="edit" >Edit Subscription</button>
 									{% if order.subscribedStatus =="Paused" %} 
-										<button class="unpause-button" data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="unpause">Unpause Subscription</button>
+										<button class="unpause-button" tabindex="0" data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="unpause">Unpause Subscription</button>
 									{% else %}
-										<button data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="pause">Pause Subscription</button>
+										<button data-mz-action="popup" tabindex="0" data-order-id="{{order.subscriptionId}}" data-action="pause">Pause Subscription</button>
 									{% endif %}
-									<button data-mz-action="popup"  data-order-id="{{order.subscriptionId}}" data-action="cancel">Cancel Subscription</button>
+									<button data-mz-action="popup" tabindex="0"  data-order-id="{{order.subscriptionId}}" data-action="cancel">Cancel Subscription</button>
 								{% endif %}
 							{% endif %}
 						</div>
@@ -359,18 +359,18 @@
 					<div class={% if order.show %}"subscription-order-details showmore"{% else %}"subscription-order-details"{% endif %} >
 						<div class={% if order.subscribedStatus == "Cancelled" %}"address-container cancelled-subscription"{% else %}"address-container"{% endif %}>
 							<div class="billing-section">
-								<div class="billing-address" tabindex="0">
-									<label>Billing Information</label>
+								<div class="billing-address" >
+									<label tabindex="0">Billing Information</label>
 									<div class="address-section">
-										<span>{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
-										<span>{{order.order.billingInfo.billingContact.address.address1}}</span>
-										<span>{{order.order.billingInfo.billingContact.address.address2}}</span>
-										<span>{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
-										<span>{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
+										<span tabindex="0">{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
+										<span tabindex="0">{{order.order.billingInfo.billingContact.address.address1}}</span>
+										<span tabindex="0">{{order.order.billingInfo.billingContact.address.address2}}</span>
+										<span tabindex="0">{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
+										<span tabindex="0">{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
 									</div>
 								</div>
-								<div class="subscription-payment" tabindex="0">
-									<label>Payment Information</label>
+								<div class="subscription-payment" >
+									<label tabindex="0">Payment Information</label>
 									<div class="payment-section">
 										<span tabindex="0" >{{order.order.billingInfo.card.cardType}} </span>
 										{% if order.order.billingInfo.card.lastFour !="" %}
@@ -380,33 +380,33 @@
 								</div>
 							</div>
 							<div class="subscription-shipping" aria-hidden="true">
-								<div class="shipping-info" tabindex="0">
-									<label>Shipping Address</label>
+								<div class="shipping-info" >
+									<label tabindex="0">Shipping Address</label>
 									<div class="address-section">
-										<span>{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
-										<span>{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
-										<span>{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
-										<span>{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
-										<span>{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
 									</div>
 								</div>
-								<div class="shipping-method" tabindex="0">
-									<label>Shipping Method</label>
+								<div class="shipping-method" >
+									<label tabindex="0">Shipping Method</label>
 									<div class="address-section">
-										<span>{{order.order.fulfillmentInfo.shippingMethodName}}</span>
-										<span >{{order.order.estimationInfo.estimation}}</span>
+										<span tabindex="0">{{order.order.fulfillmentInfo.shippingMethodName}}</span>
+										<span tabindex="0" >{{order.order.estimationInfo.estimation}}</span>
 									</div>
 								</div>	
 							</div>
 						</div>
 						<div class="subscription-product-details" aria-hidden="true">
-							<h5>Subscription Order Summary</h5>
+							<h5 tabindex="0">Subscription Order Summary</h5>
 							<div class="item-details">
 								{% for item in order.order.items %}
-									<div class="item" tabindex="0">
-										<div class="image-container"><img src="{{item.product.imageUrl}}" alt="{{item.product.name}}"/></div>
+									<div class="item" >
+										<div class="image-container" tabindex="0"><img src="{{item.product.imageUrl}}" alt="{{item.product.name}}"/></div>
 										<div class="item-detail">
-											<span class="name">{{item.product.name|safe}}</span>
+											<span class="name" tabindex="0">{{item.product.name|safe}}</span>
 												{% with item.product.properties|findwhere('attributeFQN','tenant~IsHeatSensitive') as heat %}
 				                                    {% for val in heat.values%}
 				                                      {% if val.value   %}
@@ -416,17 +416,17 @@
 				                                {% endwith %}	
 											 <div class="item-price-section">
 											 	<span class="item-price">
-											 		<label>Price</label>
-										 			{% if item.product.price.price>item.product.price.salePrice %}<span class="saleprice">{{item.product.price.salePrice | currency}}</span>{% endif %}
-													{% if item.product.price.price>item.product.price.salePrice %}<span class="strike">{{item.product.price.price | currency}}</span>{% else %}<span class="price">{{item.product.price.price |currency}}</span>{% endif %}
+											 		<label tabindex="0">Price</label>
+										 			{% if item.product.price.price>item.product.price.salePrice %}<span class="saleprice" tabindex="0">{{item.product.price.salePrice | currency}}</span>{% endif %}
+													{% if item.product.price.price>item.product.price.salePrice %}<span class="strike" tabindex="0">{{item.product.price.price | currency}}</span>{% else %}<span class="price" tabindex="0">{{item.product.price.price |currency}}</span>{% endif %}
 											 	</span>
 											 	<span class="qty">
-											 		<label>QTY</label>
-											 		<span>{{item.quantity}}</span>
+											 		<label tabindex="0">QTY</label>
+											 		<span tabindex="0">{{item.quantity}}</span>
 											 	</span>
 											 	<span class="total">
-											 		<label>Item Total</label>
-											 		<span style="margin-left:10%">{% include "modules/common/item-total" %}</span>
+											 		<label tabindex="0">Item Total</label>
+											 		<span style="margin-left:10%" tabindex="0">{% include "modules/common/item-total" %}</span>
 											 	</span>
 											 </div>
 										</div>
@@ -435,25 +435,25 @@
 							</div>	
 							<div class="subscription-sub-total">
 								<div class="total-details">
-									<div tabindex="0">
-										<label>Sub Total</label><span>{{order.order.subtotal | currency}}</span>
+									<div >
+										<label tabindex="0">Sub Total</label><span tabindex="0">{{order.order.subtotal | currency}}</span>
 									</div>
 									{% if order.order.discountTotal !=0 %}
-										<div tabindex="0">
-											<label>Cart Discount</label><span class="discount">-{{order.order.discountTotal |currency}}</span>
+										<div >
+											<label tabindex="0">Cart Discount</label><span class="discount" tabindex="0">-{{order.order.discountTotal |currency}}</span>
 										</div>
 									 {% endif %}
-									<div tabindex="0">
-										<label>Tax</label><span>{{order.order.taxTotal | currency}}</span>
+									<div >
+										<label tabindex="0">Tax</label><span tabindex="0">{{order.order.taxTotal | currency}}</span>
 									</div>
 									
-									<div tabindex="0">
-										<label>Shipping</label><span>{{order.order.shippingSubTotal | currency }}</span>
+									<div >
+										<label tabindex="0">Shipping</label><span tabindex="0">{{order.order.shippingSubTotal | currency }}</span>
 									</div>
 								</div>	
-								<div class="order-total" tabindex="0">
-									<label>Order Total</label>
-									<span>{{order.order.total|currency}}</span>
+								<div class="order-total" >
+									<label tabindex="0">Order Total</label>
+									<span tabindex="0">{{order.order.total|currency}}</span>
 								</div>
 							</div>
 						</div>

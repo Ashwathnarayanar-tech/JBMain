@@ -1821,6 +1821,7 @@
                     "isEnabled" : true,
                     "aria-label":"Pause Subscription Modal",
                     "message" : "If you <strong>Pause your Subscription,</strong> all pending deliveries will be cancelled until you Unpause it. Are you sure?",
+                    "adamessage" : "If you Pause your Subscription, all pending deliveries will be cancelled until you Unpause it. Are you sure?",
                     "buttons" : [
                         {
                             "buttonLabel" : "No",
@@ -1840,6 +1841,7 @@
                     "isEnabled" : true,
                     "aria-label":"Cancel Subscription Modal",
                     "message" : "If you <strong>Cancel your Subscription</strong> and then change your mind, you will have to start over. Are you sure?",
+                    "adamessage" : "If you Cancel your Subscription and then change your mind, you will have to start over. Are you sure?",
                     "buttons" : [
                         {
                             "buttonLabel" : "No",
@@ -1859,6 +1861,7 @@
                     "isEnabled" : true,
                     "aria-label":"Unpause Subscription Modal",
                     "message" : "Are you sure you want to <strong>Unpause your Subscription?</strong>",
+                    "adamessage" : "Are you sure you want to Unpause your Subscription?",
                     "buttons" : [
                         {
                             "buttonLabel" : "No",
@@ -1891,9 +1894,9 @@
             this.model.set('popupData',popupData);
             this.render();
             this.loopInPopups();
-           // setTimeout(function(){
+            setTimeout(function(){
                 $(document).find('.subscriptionpopup .popup-body .message').focus();
-           // },100);
+            },500);
         },
         closePopup:function(e,type){
             var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
