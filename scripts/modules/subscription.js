@@ -819,14 +819,21 @@ define([
         getSubscriptionPageData:function(preSelectedProducts){
          if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true' && ((preSelectedProducts.length === 0 && MiniCart.MiniCart.model.get('items').length >0) || (MiniCart.MiniCart.model.get('items').length > preSelectedProducts.length ))){
             var cartItems = MiniCart.MiniCart.model.apiModel.data.items;
+            preSelectedProducts = [];
             console.log(" cartItems",cartItems);
             for(var i=0;i<cartItems.length;i++){
                 var item = cartItems[i];
                  var product = {"skuCode":item.product.productCode,"qty":item.quantity};
+                 var urlParam = modelRapidOrder.getUrlParams(window.location.href);
+                 var preSelcectedPrd = urlParam && urlParam.productCode ? urlParam.productCode :null;
+                 var preSelectedQuantity = urlParam && urlParam.qty ? urlParam.qty :null;
+                 if(preSelcectedPrd && preSelectedQuantity && preSelcectedPrd == parseInt(product.skuCode)){
+                    product.qty = parseInt(product.qty)+parseInt(preSelectedQuantity);
+                 }
                 preSelectedProducts.push(product);
             }
          }
-
+         
             var body = {
                 "funName" : "getcatprods"
             };
@@ -1267,7 +1274,7 @@ define([
             }
             else{
                 if(preSelcectedProduct && preSelectedQty){
-                    products = [{"skuCode":preSelcectedProduct,"qty":preSelectedQty}];
+                    products = [{"skuCode":preSelcectedProduct,"qty":parseInt(preSelectedQty)}];
                 }
                 modelRapidOrder.getSubscriptionPageData(products);
             }
