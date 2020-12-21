@@ -33,7 +33,7 @@
                         </div>
                      </div>
                     </td>
-                     <td class="mz-ordersummary-item-price" tabindex="0" >
+                     <td class="mz-ordersummary-item-price" >
                        <div class="price" tabindex="0">
                         {% if item.product.price.price>item.product.price.salePrice %}<span class="saleprice">{{item.product.price.salePrice | currency}}</span>{% endif %}
                         {% if item.product.price.price>item.product.price.salePrice %}<span class="strike">{{item.product.price.price | currency}}</span>{% else %}<span class="price">{{item.product.price.price |currency}}</span>{% endif %}
