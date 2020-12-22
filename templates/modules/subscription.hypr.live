@@ -93,7 +93,7 @@
 										<span class="item-li sku-input" tabindex="0">
 											<span class="input-cointainer checkbox-outer-label">
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-												<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+												<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 											</span>
 											<span class="sku-cointianer" tabindex="0" aria-label="product code is {{item.productCode}}">{{item.productCode}}</span>
 										</span>
@@ -158,7 +158,7 @@
 											<span class="item-li sku-input">
 												<span class="input-cointainer checkbox-outer-label">
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-													<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+													<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 												</span>
 											</span>
 											<span class="item-li heat-sensitive">
@@ -212,7 +212,7 @@
 												<span class="item-li sku-input">
 													<span class="input-cointainer checkbox-outer-label">
 														<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 													</span>
 												</span>
 												<span class="item-li heat-sensitive">
@@ -260,7 +260,7 @@
 												<span class="item-li sku-input" tabindex="0">
 													<span class="input-cointainer checkbox-outer-label">
 														<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 													</span>
 													<span class="sku-cointianer" tabindex="0" aria-label="product code is {{item.productCode}}">{{item.productCode}}</span>
 												</span>
@@ -325,7 +325,7 @@
 					<div class="product-head">
 						<span class="head-li itemId checkbox-outer-label">
 							<input type="checkbox" name="selectitem" data-mz-action="selectthecatrgory" data-mz-catCode="{{catItem.Category.categoryCode}}" class="add-to-list-checkbox" {% if catItem.isAllSelected %}checked="checked"{% endif %}/>
-		        			<span class="checkmark-style"></span> 
+		        			<span class="checkmark-style" data-mz-attribute="{{item.productCode}}"></span> 
 							ITEM #
 						</span>
 						<span class="head-li description" >DESCRIPTION</span>
@@ -339,7 +339,7 @@
 								<span class="item-li sku-input">
 									<span class="input-cointainer checkbox-outer-label">
 										<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-	                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}"></span>
+	                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 	                    			</span>
 	                    			<span tabindex="0" aria-label="product code {{item.productCode}}" class="sku-cointianer">{{item.productCode}}</span>
 								</span>
@@ -407,7 +407,7 @@
 										<span class="item-li sku-input">
 											<span class="input-cointainer checkbox-outer-label">
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 		                        			</span>
 										</span>
 										<span class="item-li heat-sensitive">
@@ -465,7 +465,7 @@
 											<span class="item-li sku-input">
 												<span class="input-cointainer checkbox-outer-label">
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 			                        			</span>
 											</span>
 											<span class="item-li heat-sensitive">
@@ -512,7 +512,7 @@
 							<div class="product-head">
 								<span class="head-li itemId checkbox-outer-label">
 									<input type="checkbox" name="selectitem" data-mz-action="selectthecatrgory" data-mz-catCode="{{catItem.Category.categoryCode}}" class="add-to-list-checkbox" {% if catItem.isAllSelected %}checked="checked"{% endif %}/>
-				        			<span class="checkmark-style"></span> 
+				        			<span class="checkmark-style" data-mz-attribute="{{item.productCode}}"></span> 
 									ITEM #
 								</span>
 								<span class="head-li description">DESCRIPTION</span>
@@ -526,7 +526,7 @@
 										<span class="item-li sku-input">
 											<span class="input-cointainer checkbox-outer-label">
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}"></span>
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 			                    			</span>
 			                    			<span class="sku-cointianer" tabindex="0">{{item.productCode}}</span>
 										</span>
@@ -790,7 +790,7 @@
 										<span class="item-li sku-input" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
 											<span class="input-cointainer checkbox-outer-label">
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 		                        			</span>
 										</span>
 										<span class="item-li removeItem" tabindex="0" role="button" aria-label="remove this item" mz-data-attr="{{item.productCode}}">
@@ -936,7 +936,7 @@
 											<span class="item-li sku-input" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
 												<span class="input-cointainer checkbox-outer-label">
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" ></span>
+				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 			                        			</span>
 											</span>
 											<span class="item-li removeItem" mz-data-attr="{{item.productCode}}">

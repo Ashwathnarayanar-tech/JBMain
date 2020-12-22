@@ -448,7 +448,7 @@ define([
             window.valid=false;
             this.render();  
             var isClearList =  $(e.target).attr('data-mz-clearList');
-            this.focusQuantity(productCode,isClearList);  
+            this.focusQuantity(productCode,isClearList,"decrement");  
         },
         increment : function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -494,7 +494,7 @@ define([
             window.valid=false;
             this.render();
             var isClearList =  $(e.target).attr('data-mz-clearList');
-            this.focusQuantity(productCode,isClearList);  
+            this.focusQuantity(productCode,isClearList,"increment");  
         },
         updateQuantityChanges : function(productCode,qty,e){
             var catList = this.model.get('categoryList');
@@ -538,7 +538,7 @@ define([
             window.valid=false;
             this.render();
             var isClearList =  $(e.target).attr('data-mz-clearList');
-            this.focusQuantity(productCode,isClearList);  
+            this.focusQuantity(productCode,isClearList,"inputfield");  
         },
         changeQuantity:function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -551,18 +551,33 @@ define([
             },500);
 
         },
-        focusQuantity:function(productCode,isClearList){
+        focusQuantity:function(productCode,isClearList,type){
             console.log(" itemClick ----- ",itemClick);
             var self = this;
             setTimeout(function(){
                 if(itemClick === "search"){
-                    $(".suggetion-item .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                    if(type =="increment")
+                        $(".suggetion-item .increment[data-mz-productcode='"+productCode+"']").focus();
+                    else if(type =="decrement")
+                        $(".suggetion-item .decrement[data-mz-productcode='"+productCode+"']").focus();
+                    else
+                        $(".suggetion-item .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
                     self.loopInpopup("suggetion-list");
                 }
                 else if(isClearList && isClearList === 'true'){
-                    $(".listitemlist .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                    if(type =="increment")
+                        $(".listitemlist .increment[data-mz-productcode='"+productCode+"']").focus();
+                    else if(type =="decrement")
+                        $(".listitemlist .decrement[data-mz-productcode='"+productCode+"']").focus();
+                    else
+                        $(".listitemlist .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
                 }else{
-                    $(".product-list .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
+                    if(type =="increment")
+                        $(".product-list .increment[data-mz-productcode='"+productCode+"']").focus();
+                    else if(type =="decrement")
+                        $(".product-list .decrement[data-mz-productcode='"+productCode+"']").focus();
+                    else
+                        $(".product-list .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
                 }  
             },1000);
         },
@@ -678,11 +693,15 @@ define([
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
             setTimeout(function(){
-                if(itemClick === "search")
+                if(itemClick === "search"){
                     $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
-                else
-                    $(".add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
-            },200);
+                    $(".suggetion-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
+                }
+                else{
+                    $(".product-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
+                    $(".product-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
+                }
+            },500);
             
         },
         changeCatList : function(e){
