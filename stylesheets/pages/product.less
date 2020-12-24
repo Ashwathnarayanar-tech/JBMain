@@ -632,7 +632,7 @@
                                 .item-content {
                                     display : none;
                                     padding : 2% 1%;
-                                    max-height : 520px;
+                                    /*max-height : 520px;*/
                                     overflow-x : hidden;
                                     overflow-y : auto;
                                     font-size: 18px;
@@ -796,11 +796,23 @@
                                             text-transform: capitalize;
                                             .p-price{
                                               color: #0065a1;
+                                              strike {
+                                                font-size: 13px;
+                                                font-weight: normal;
+                                                color: #004e99;
+                                                text-decoration-color: #e7131a;
+                                              }
                                             }
                                         }
                                         .sale-offer{
                                             color: #e7131a;
-                                            font-size: 13px;
+                                            font-size: 20px;
+                                            strike {
+                                                font-weight: normal;
+                                                font-size: 13px;
+                                                color: #004e99;
+                                                text-decoration-color: #e7131a;
+                                              }
                                         }
                                     }
 
@@ -979,6 +991,12 @@
                                 &:last-child{
                                     border: none;
                                 }
+                            }
+                        }
+                        &.removeactiveCls {
+
+                            .product-info-scroll .header-item.active {
+                                font-weight: normal;
                             }
                         }
                     }
@@ -1414,10 +1432,10 @@
                                         .mz-productdetail-price{
                                             width: 38%;
                                             .price{
-                                                font-size: 18px;
+                                                font-size: 14px;
                                             }
                                             .sale-price{
-                                                font-size: 18px;
+                                                font-size: 14px;
                                             }
                                             .sale-offer{
                                                 font-size: 14px;

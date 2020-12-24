@@ -1180,22 +1180,34 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 if ($(window).scrollTop() > $(".tab-header-sec").offset().top) {
                     $(document).find('.scroll-section').show();
                     $(document).find('.progress-bar').addClass('add-progress-bar');
+                    if ($(window).scrollTop() > $(".accordian-prod").position().top + $(".accordian-prod").innerHeight()) {
+                        $(document).find('.scroll-section').addClass("removeactiveCls"); 
+                    } else {
+                      $(document).find('.scroll-section').removeClass("removeactiveCls");   
+                    }
+
                 }
                 else {
                     $(document).find('.scroll-section').hide();
                     $(document).find('.progress-bar').removeClass('add-progress-bar');
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                 }
+
+                
             });
         }else if(deviceWidth<768){
             $(window).scroll(function(){
                 if ($(window).scrollTop() > $(".accordian-list").offset().top) {
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                     $(document).find('.mobile-scroll-section').show();
                 }
                 else {
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                     $(document).find('.mobile-scroll-section').hide();
                 }
             });
         }
+        
         
         //On click Show more reviews hiding the sticky header
         setTimeout(function(){
