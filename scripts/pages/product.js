@@ -316,8 +316,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.model.get('subscriptionData').Data.months = $(document).find('.span-tabs.months').hasClass("active");
             this.model.get('subscriptionData').Data.when = $(document).find('#interval-startdate').val();
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
-            // $.cookie("subscriptionCreated", true);
-            $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data));
+            $.cookie("subscriptionCreated", true,{ path: '/'});//Uncommented by Shruthi As none of the values like howoften,weeks are reflecting in Subscription Setup page
+            $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data),{ path: '/'});
             var me = this;
             $("body").removeClass("openPopup"); 
             setTimeout(function(){

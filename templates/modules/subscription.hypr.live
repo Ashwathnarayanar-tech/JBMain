@@ -625,7 +625,7 @@
 				{% endif %}
 			</div>
 			<div class="itemListTotal">
-				<span class="label-total" tabindex="0">Sub Total</span>
+				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
 				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
 			</div>
 			<section class="subscription">
@@ -683,9 +683,13 @@
 	            </div>
 	        </section>
 	        <div class="itemListTotal-bottom">
-				<span class="label-total" tabindex="0">Sub Total</span>
+				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
 				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
+				<div class="note">
+			Prices may vary per delivery based on pricing changes and/or active promotions
 			</div>
+			</div>
+			
 			{% if model.remaingAmount > 0 %}
 				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
 					<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
