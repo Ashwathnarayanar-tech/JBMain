@@ -2283,8 +2283,14 @@
                 else
                     $elSelected.focus();
             }
-            else
-                $elSelected.attr('tabindex','0').focus();
+            else {
+                if(myView == "account-subscription") {
+                    $elSelected.find(".subscriptionstitle").focus();
+                } else {
+
+                    $elSelected.attr('tabindex','0').focus();
+                }
+            }
         }
     };
 

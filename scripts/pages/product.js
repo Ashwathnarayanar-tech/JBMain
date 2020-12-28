@@ -1548,7 +1548,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
 
         var dateObj = new Date();
         var month = dateObj.getMonth();  
-        var day = String(dateObj.getDate()).padStart(2, '0');
+        var day = (dateObj.getDate() < 10 ? '0' : '') + dateObj.getDate();
         var year = dateObj.getFullYear();
         var output = month  + '-'+ day  + '-' + year;
 

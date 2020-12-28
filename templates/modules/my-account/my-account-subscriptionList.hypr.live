@@ -1,9 +1,10 @@
 {% if pageContext.isDesktop or pageContext.isTablet %}
-	<h3 tabindex="0">MY SUBSCRIPTIONS</h3>
+	<h3 tabindex="0" class="subscriptionstitle">MY SUBSCRIPTIONS</h3>
 {% endif %}
+<div>
 {% if pageContext.isDesktop or pageContext.isTablet %}
 	{% for order in model.orderDetails %}
-		<div class="subscription-lists-container">
+		<div class="subscription-lists-container" role="tabpanel">
 			<div class="subscription-list">
 				<div role="button" tabindex="0" aria-controls="{{order.subscriptionId}}" {% if order.open %}aria-expanded="true"{% else %}aria-expanded="false"{% endif %} class={% if order.open %} "subscription-list-header active" {% else %} "subscription-list-header" {% endif %} data-subscription-id="{{order.subscriptionId}}">
 					<div class="header-left">
@@ -88,6 +89,7 @@
 		</div>	
 		{% endfor %}
 {% endif %}	
+</div>
 {% if (model.totalReceivedOrders < model.totalOrders)  %}
 		<div>
 			<button class="mz-more-order" data-mz-action-load-more-items data-mz-action="loadMoreItems">view more Subscriptions  </button>

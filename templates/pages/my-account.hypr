@@ -62,7 +62,7 @@
             </div>
         {% endif %}
 
-        <div class="mz-l-stack-section mz-accountsubscriptionlist" id="x-account-subscription" role="tabpanel" arialabelledby="subscription-panel" style="display:none;">
+        <div class="mz-l-stack-section mz-accountsubscriptionlist" id="x-account-subscription" style="display:none;">
         
         </div>
         
