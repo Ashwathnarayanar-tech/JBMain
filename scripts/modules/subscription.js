@@ -1195,7 +1195,7 @@ define([
             var currentUser = require.mozuData("user");
             if(currentUser.isAnonymous){
                 console.log("yes user is guest ");
-                window.location.href = "/user/login";
+                window.location.href = "/user/login?returnURL=subscription";
             }
             this.dateSelector();
         } 
