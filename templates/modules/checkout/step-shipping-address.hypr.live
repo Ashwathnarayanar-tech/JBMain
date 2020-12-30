@@ -21,16 +21,16 @@
         {{ labels.edit }}
       </button>
     {% endif %}
-      {% if model.contactId != "new" && model.stepStatus!=="complete"%}
-            <label class="mz-contactselector-contact mz-contactselector-new no-form" style="display:inline-block;">
+      {% if model.contactId != "new" && model.stepStatus!=="complete"%} 
+            <label tabindex="0" aria-labelledby="Enter New Address" class="mz-contactselector-contact mz-contactselector-new no-form" style="display:inline-block;">
                 <span class="mz-contactselector-inputwrapper">
                     <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
                 </span>
-                <span class="mz-contactselector-summarywrapper" >
+                <div class="mz-contactselector-summarywrapper" >
                     <div class="mz-addresssummary">
-                        <span tabindex="0" style="display:inline-block;">{{ labels.enterNewAddress }}</span>
+                        <span  >{{ labels.enterNewAddress }}</span>
                     </div>
-                </span>
+                </div>
             </label>
         {% endif %}
        

@@ -4,13 +4,13 @@
         <span class="productqty">QTY</span>
         <span class="producttotal">ITEM TOTAL</span>
     </div>
-    <div class="item-list" tabindex="0">
+    <div class="item-list">
         {% for item in model.items %}
             <div class="summary-item"  >
-                <span class="item-name">
+                <span class="item-name" tabindex="0" aria-label="Product Name {{ item.product.name|safe }}">
                     {{ item.product.name|safe }}
                     {% if item.product.productUsage == 'Bundle' %}
-                        <span class="mz-propertylist">
+                        <span class="mz-propertylist" >
                             {% for bundledProduct in item.product.bundledProducts %}
                                 <span>{{ bundledProduct.productCode }}</span>&nbsp;
                                 <span>{{ bundledProduct.name }} ({{ bundledProduct.quantity }})</span>
@@ -18,7 +18,7 @@
                         </span>
                     {% endif %}
                 </span>
-                <span class="item-qty" aria-label="Quantity {{ item.quantity }}">
+                <span class="item-qty" tabindex="0" aria-label="Quantity {{ item.quantity }}">
                     {{ item.quantity }}
                 </span>
                 <span class="item-total">

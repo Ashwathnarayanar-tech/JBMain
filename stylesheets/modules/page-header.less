@@ -1500,10 +1500,12 @@ body{
                 }
             }
             .jb-serach-box-with-label{ 
+                width: 46%;
                 .mz-searchbox{ 
+                    vertical-align: top;
                     .mz-searchbox-field{
                         font-size: 12px;
-                        width: 190px;
+                        width: 69%;
                         &:-ms-input-placeholder {
                             color: #007aaf !important;
                             font-size: 12px;
@@ -1538,34 +1540,16 @@ body{
                         }
                     }
                 }
-            }
-            .mz-utilitynav{
-                width: 70%;
-                .mz-utilitynav-content{
-                    width: 162px;
-                    padding-left: 1%;
-                    padding-top: 2px;
-                    img{
-                        width: 20px;
-                    }
-                    .popover-label{
-                        width: 105px;
-                        font-size: 14px;
-                    }
-                    .arrow-down{
-                        margin-top: 6px;
-                    }
-                    &:after{
-                        height: 25px;
-                        top: 1px;
-                    }
-                }
                 .contact-num{ 
+                    width: 38%;
+                    vertical-align: top;
                     .mz-tollfree-content{
                         font-size: 14px;
-                        padding-top: 10px;
+                        padding: 0;
+                        text-align: left;
                         .number{
                             font-size: 14px;    
+                            display: block;
                         }
                     }
                     &:after{
@@ -1573,8 +1557,38 @@ body{
                         top: 1px;
                     }
                 }
+            }
+            .mz-utilitynav{
+                width: 53%;
+                display: flex;
+                .mz-utilitynav-content{
+                    width: 30%;
+                    padding-left: 1%;
+                    padding-top: 2px;
+                    img{
+                        width: 20px;
+                    }
+                    .popover-label{
+                        width: 50%;
+                        font-size: 14px;
+                    }
+                    .arrow-down{
+                        margin-top: 10px;
+                    }
+                    &:after{
+                        height: 25px;
+                        top: 1px;
+                    }
+                }
+                .subscription-content{
+                    width: 37%;
+                    a{
+                        font-size: 14px;
+                    }
+                }
+               
                 .mini-cart-header{
-                    width: 136px;
+                    width: 36%;
                     .shoping-cart{
                         margin: 0 5px 0 5px;
                         img{
@@ -1582,6 +1596,7 @@ body{
                         }
                     }
                     .mz-utilitynav-link-cart,.mz-Mob-utilitynav-link-cart{
+                        text-align: right;
                         .shoping-cart{
                             margin: 0 5px 0 5px;
                             img{
