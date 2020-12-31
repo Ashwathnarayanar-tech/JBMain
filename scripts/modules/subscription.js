@@ -1219,7 +1219,8 @@ define([
             'when' : output, 
             'howLong' : "until i cancel" 
         };
-        if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+        //if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+            if(typeof $.cookie("subscriptionData") !== 'undefined'){
             var myval = JSON.parse($.cookie("subscriptionData"));
             myObj = {
                 'howOften' : myval.howOften,
