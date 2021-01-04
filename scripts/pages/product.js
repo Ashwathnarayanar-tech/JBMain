@@ -259,29 +259,33 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 this.model.get('subscriptionData').Data.months = $(document).find('.span-tabs.months').hasClass("active");
                 this.model.get('subscriptionData').Data.when = $(document).find('#interval-startdate').val();
                 this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
-                var popupData = {
-                    "isEnabled" : true,
-                    "isSubscriptionList":true,
-                    "message" : "You can <strong> subscribe </strong> to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
-                    "adamessage" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
-                    "buttons" : [
-                        {
-                            "buttonLabel" : "Cancel",
-                            "action" : "closePopup",
-                            "class" : "cancel"   
-                        },
-                        {
-                            "buttonLabel" : "Get Started",
-                            "action" : "getStarted",
-                            "class" : "Get-Started"
-                        }
-                    ]
+                // var popupData = {
+                //     "isEnabled" : true,
+                //     "isSubscriptionList":true,
+                //     "message" : "You can <strong> subscribe </strong> to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
+                //     "adamessage" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
+                //     "buttons" : [
+                //         {
+                //             "buttonLabel" : "Cancel",
+                //             "action" : "closePopup",
+                //             "class" : "cancel"   
+                //         },
+                //         {
+                //             "buttonLabel" : "Get Started",
+                //             "action" : "getStarted",
+                //             "class" : "Get-Started"
+                //         }
+                //     ]
+                // };
+                var popupData={
+                    "isEnabled" : false
                 };
                 this.model.get('subscriptionData').popupData = popupData;
                 this.render(); 
-                $(document).find('.popup-body .message').focus();  
-                 this.loopInpopup();
-                 $("body").addClass("openPopup");
+                this.getStarted();
+                // $(document).find('.popup-body .message').focus();  
+                //  this.loopInpopup();
+                //  $("body").addClass("openPopup");
             }
         },
         redirectTosubCheckout: function(e){
@@ -316,7 +320,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.model.get('subscriptionData').Data.months = $(document).find('.span-tabs.months').hasClass("active");
             this.model.get('subscriptionData').Data.when = $(document).find('#interval-startdate').val();
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
-            $.cookie("subscriptionCreated", true,{ path: '/'});//Uncommented by Shruthi As none of the values like howoften,weeks are reflecting in Subscription Setup page
+           // $.cookie("subscriptionCreated", true,{ path: '/'});//Uncommented by Shruthi As none of the values like howoften,weeks are reflecting in Subscription Setup page
             $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data),{ path: '/'});
             var me = this;
             $("body").removeClass("openPopup"); 
@@ -905,7 +909,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $.cookie("subscriptionCreated", false, { path: '/'});
                 self.model.addToCart();  
                 self.closePopup();
-            },2000);  
+            },100);  
         },
         /*addToWishlist: function () {
             this.model.addToWishlist();

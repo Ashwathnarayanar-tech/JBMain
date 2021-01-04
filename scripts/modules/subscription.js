@@ -569,7 +569,7 @@ define([
         focusQuantity:function(productCode,isClearList,type){
             console.log(" itemClick ----- ",itemClick);
             var self = this;
-            setTimeout(function(){
+            //setTimeout(function(){
                 if(itemClick === "search"){
                     if(type =="increment")
                         $(".suggetion-item .increment[data-mz-productcode='"+productCode+"']").focus();
@@ -594,7 +594,7 @@ define([
                     else
                         $(".product-list .quantity-sub[data-mz-productcode='"+productCode+"']").focus();
                 }  
-            },1000);
+            //},0);
         },
         selectthecatrgory : function(e){
             var catCode = $(e.target).attr('data-mz-catCode');
@@ -707,7 +707,7 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
-            setTimeout(function(){
+            //setTimeout(function(){
                 if(itemClick === "search"){
                     $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                     $(".suggetion-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
@@ -716,7 +716,7 @@ define([
                     $(".product-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
                     $(".product-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                 }
-            },500);
+           // },0);
             
         },
         changeCatList : function(e){
@@ -1210,7 +1210,7 @@ define([
             var currentUser = require.mozuData("user");
             if(currentUser.isAnonymous){
                 console.log("yes user is guest ");
-                window.location.href = "/user/login";
+                window.location.href = "/user/login?returnURL=subscription";
             }
             this.dateSelector();
             if(this.model.get('isFirstPopup')){
@@ -1237,7 +1237,8 @@ define([
             'when' : output, 
             'howLong' : "until i cancel" 
         };
-        if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+        //if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+            if(typeof $.cookie("subscriptionData") !== 'undefined'){
             var myval = JSON.parse($.cookie("subscriptionData"));
             myObj = {
                 'howOften' : myval.howOften,

@@ -546,13 +546,14 @@ body{
         -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         .jb-serach-box-with-label{
-            width: 30%;
+            width: 40%;
             display: inline-block;
             vertical-align: top;
             .mz-searchbox{
                 padding-top:2px;
                 padding-bottom:6px;
                 position: relative;
+                display: inline-block;
                 .mz-searchbox-button{
                     background: transparent;
                     border: none;
@@ -632,33 +633,14 @@ body{
                     }
                 }
             }
-        } 
-        .mz-utilitynav{
-            display: inline-block;
-            position: relative;
-            margin: 0;
-            padding: 0;
-            float: right;
-            text-align: right;
-            width: auto;
-            &::after{
-                clear: both;
-            }
-            .contact-num{
+              .contact-num{
                 width: 200px; 
                 display: inline-block;
                 /*border-right: 1px solid  #004e99;*/
                 padding-right: 14px;
                 line-height: normal;
                 position: relative;
-                &:after{
-                    content: '';
-                    height: 21px;
-                    top: 7px;
-                    position: absolute;
-                    border-right: 1px solid #004e99;
-                    right: 0;
-                }
+               
                 .mz-tollfree-content{
                     margin: 0;
                     color: #a9a3a3;
@@ -672,6 +654,69 @@ body{
                     }
                 }
             }
+        } 
+        .mz-utilitynav{
+            display: inline-block;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            float: right;
+            text-align: right;
+            width: auto;
+            &::after{
+                clear: both;
+            }
+            .subscription-content{
+                width: 200px;
+                display: inline-block;
+                padding-right: 14px;
+                line-height: normal;
+                position: relative;
+                /* vertical-align: 29px; */
+                padding: 4.8px;
+                text-align: center;
+                a{
+                    color: #004E99;
+                    text-decoration: none;
+                    vertical-align: middle;
+                }
+                &:after{
+                    content: '';
+                    height: 21px;
+                    top: 7px;
+                    position: absolute;
+                    border-right: 1px solid #004e99;
+                    right: 0;
+                }
+            }
+            // .contact-num{
+            //     width: 200px; 
+            //     display: inline-block;
+            //     /*border-right: 1px solid  #004e99;*/
+            //     padding-right: 14px;
+            //     line-height: normal;
+            //     position: relative;
+            //     &:after{
+            //         content: '';
+            //         height: 21px;
+            //         top: 7px;
+            //         position: absolute;
+            //         border-right: 1px solid #004e99;
+            //         right: 0;
+            //     }
+            //     .mz-tollfree-content{
+            //         margin: 0;
+            //         color: #a9a3a3;
+            //         padding-top: 6px;
+            //         padding-bottom: 6px;
+            //         text-align: center;
+            //         .number{
+            //             color: #004E99;
+            //             text-decoration: none;
+            //             font-size: 16px;
+            //         }
+            //     }
+            // }
             .mini-cart-header{
                 width: 170px;
                 display: inline-block;
@@ -1455,10 +1500,12 @@ body{
                 }
             }
             .jb-serach-box-with-label{ 
+                width: 46%;
                 .mz-searchbox{ 
+                    vertical-align: top;
                     .mz-searchbox-field{
                         font-size: 12px;
-                        width: 190px;
+                        width: 69%;
                         &:-ms-input-placeholder {
                             color: #007aaf !important;
                             font-size: 12px;
@@ -1493,34 +1540,16 @@ body{
                         }
                     }
                 }
-            }
-            .mz-utilitynav{
-                width: 70%;
-                .mz-utilitynav-content{
-                    width: 162px;
-                    padding-left: 1%;
-                    padding-top: 2px;
-                    img{
-                        width: 20px;
-                    }
-                    .popover-label{
-                        width: 105px;
-                        font-size: 14px;
-                    }
-                    .arrow-down{
-                        margin-top: 6px;
-                    }
-                    &:after{
-                        height: 25px;
-                        top: 1px;
-                    }
-                }
                 .contact-num{ 
+                    width: 38%;
+                    vertical-align: top;
                     .mz-tollfree-content{
                         font-size: 14px;
-                        padding-top: 10px;
+                        padding: 0;
+                        text-align: left;
                         .number{
                             font-size: 14px;    
+                            display: block;
                         }
                     }
                     &:after{
@@ -1528,8 +1557,38 @@ body{
                         top: 1px;
                     }
                 }
+            }
+            .mz-utilitynav{
+                width: 53%;
+                display: flex;
+                .mz-utilitynav-content{
+                    width: 30%;
+                    padding-left: 1%;
+                    padding-top: 2px;
+                    img{
+                        width: 20px;
+                    }
+                    .popover-label{
+                        width: 50%;
+                        font-size: 14px;
+                    }
+                    .arrow-down{
+                        margin-top: 10px;
+                    }
+                    &:after{
+                        height: 25px;
+                        top: 1px;
+                    }
+                }
+                .subscription-content{
+                    width: 37%;
+                    a{
+                        font-size: 14px;
+                    }
+                }
+               
                 .mini-cart-header{
-                    width: 136px;
+                    width: 36%;
                     .shoping-cart{
                         margin: 0 5px 0 5px;
                         img{
@@ -1537,6 +1596,7 @@ body{
                         }
                     }
                     .mz-utilitynav-link-cart,.mz-Mob-utilitynav-link-cart{
+                        text-align: right;
                         .shoping-cart{
                             margin: 0 5px 0 5px;
                             img{
@@ -1710,7 +1770,7 @@ body{
                     width: 30%;
                     text-align: right;
                     display: inline-block;
-                    .contact-num{
+                    .contact-num,.subscription-content{
                         display: none;
                     }
                     .mz-utilitynav-content{
@@ -1748,6 +1808,7 @@ body{
                 }
                 .contact-num{
                     text-align: center;
+                    display: inline-block;
                     .mz-tollfree-content{
                         margin: 0; 
                         font-size: 14px;
@@ -1761,6 +1822,15 @@ body{
                             font-weight: 700;
                         }   
                     }
+                }
+                .subscription-content{
+                   width: 46%;
+                   display: inline-block;
+                   text-align:right;
+                   a{
+                        color: #004E99; 
+                        text-decoration: none;
+                   }
                 }
                 &.search-active{
                     min-height: 82px;
@@ -2098,7 +2168,7 @@ body{
                 width: 30%;
                 text-align: right;
                 display: inline-block;
-                .contact-num{
+                .contact-num,.subscription-content{
                     display: none;
                 }
                 .mz-utilitynav-content{
@@ -2134,22 +2204,37 @@ body{
                     }
                 }
             }
-            .contact-num{
-                text-align: center;
-                .mz-tollfree-content{
-                    margin: 0; 
-                    font-size: 14px;
-                    color: #a9a3a3;
-                    padding-top: 6px;
-                    padding-bottom: 6px;
-                    text-align: center;
-                    .number{
-                        color: #004E99;
-                        text-decoration: none;
-                        font-weight: 700;
-                    }   
+            .mobile-contactnum{
+                .contact-num{
+                    text-align: left;
+                    display: inline-block;
+                    float: left;
+                    .mz-tollfree-content{
+                        margin: 0; 
+                        font-size: 14px;
+                        color: #a9a3a3;
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                        text-align: center;
+                        .number{
+                            color: #004E99;
+                            text-decoration: none;
+                            font-weight: 700;
+                        }   
+                    }
                 }
+                .subscription-content{
+                   // width: 46%;
+                    display: inline-block;
+                    text-align:right;
+                    float:right;
+                    a{
+                         color: #004E99; 
+                         text-decoration: none;
+                    }
+                 }
             }
+            
             &.search-active{
                 min-height: 82px;
                 .jb-serach-box-with-label{

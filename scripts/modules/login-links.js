@@ -437,6 +437,8 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }
             else if(window.location.href.indexOf('checkout')>-1){
                 $('#minicartform').submit();
+            }else if(window.location.queryString.returnURL=="subscription"){
+                window.location = '/subscription';
             }else{
                 window.location = '/';
             }
