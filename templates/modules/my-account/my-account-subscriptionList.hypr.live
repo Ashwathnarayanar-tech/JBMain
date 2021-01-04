@@ -5,7 +5,7 @@
 			<div class="subscription-list">
 				<div role="button" tabindex="0" aria-controls="{{order.subscriptionId}}" {% if order.open %}aria-expanded="true"{% else %}aria-expanded="false"{% endif %} class={% if order.open %} "subscription-list-header active" {% else %} "subscription-list-header" {% endif %} data-subscription-id="{{order.subscriptionId}}">
 					<div class="header-left">
-						<div class="subscription-number" role="alert">
+						<div class="subscription-number" >
 							Subscription number: <strong>{{order.subscriptionId}}</strong>
 						</div>
 						<div class={% if order.subscribedStatus =="Active" %}"subscription-status active"
@@ -20,15 +20,15 @@
 									{% endif %}
 								{% endif %}
 							{% endif %}	
-							role="alert">
+							>
 							{{order.subscribedStatus}}
 						</div>
 						</div>
 						<div class="header-right">
-						<div class="subscription-order-total" role="alert">
+						<div class="subscription-order-total" >
 							Order Total: <strong>{{order.order.total|currency}}</strong>
 						</div>
-						<div class="header-status" aria-hiddenn="true" role="alert">
+						<div class="header-status" aria-hiddenn="true" >
 							{% if order.open %}
 								<img src="../../../resources/images/minus1.svg" alt=""/>
 							{% else %}

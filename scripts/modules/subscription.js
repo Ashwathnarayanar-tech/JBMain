@@ -32,7 +32,6 @@ define([
             "keydown .popup-content h2" : "helloworld"
         },
         hello : function(e) {
-            
             if ((e.which === 9 && !e.shiftKey)) {
                 e.preventDefault();
                 $(document).find('.popup-content h2').focus();
@@ -41,6 +40,7 @@ define([
         },
         helloworld : function(e) {
             if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
                 $(document).find('.popup-content .list-item.third').focus();
             }
         },
@@ -191,6 +191,8 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render();
+            $(document).find('#subscription-body .popup').attr("role","dialog");
+            $(document).find('#subscription-body .popup-body').attr("role","document");
             $(document).find('.popup-body .message').focus();
             this.loopInpopup();
         },
