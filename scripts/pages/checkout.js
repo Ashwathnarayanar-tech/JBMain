@@ -1231,8 +1231,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				$.cookie('isNewCustomer', true, { path: '/'});
 			});
 
-            if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
-                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.home;
+            if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes.home ){
+                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.attributes.home;
             }else{
                 attr.billingContact.phoneNumbers.home = null;
             }
@@ -1271,7 +1271,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     if($('.payment-form-section')) {
                         window.scrollTo(0, $('.payment-form-section').offset().top);
                         setTimeout(function() {
-                            $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');
+                           // $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');
+                           $errEl = $('.payment-form-section,.saved-payment-methods').find('.is-invalid').filter(':visible');
                             if($errEl.first().prev().length > 0) {
                                 if($errEl.first().prev().is('input') || $errEl.first().prev().is('select'))
                                     $errEl.first().prev().attr('aria-invalid', true).focus();
@@ -1279,9 +1280,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                                     $errEl.first().prevAll('input').attr('aria-invalid',true).focus();
                             }
                         }, 700);
-                        
                         if($('.mz-l-formfieldgroup-address').is(':visible')) {
-                            $errEl = $('.mz-l-formfieldgroup-address').find('.mz-validationmessage').filter(':visible');
+                           // $errEl = $('.mz-l-formfieldgroup-address').find('.mz-validationmessage').filter(':visible');
+                           $errEl = $('.mz-l-formfieldgroup-address').find('.is-invalid').filter(':visible');
                             $errEl.prev().attr('aria-invalid',true);
                             $errEl.first().prev().focus();
                         }

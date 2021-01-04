@@ -149,9 +149,9 @@ define(["underscore", "backbone", 'hyprlive'], function (_, Backbone, Hypr) {
             // If the attribute is valid, an empty string is returned.
             var validateAttr = function (model, attr, value, computed) {
                 //validation for phone number
-                if((attr === "phoneNumbers.home" || attr === "billingContact.phoneNumbers.home" || attr === "editingContact.phoneNumbers.home") && typeof value != 'undefined' && value.length !=14){
-                    return "Please provide phone number";
-                }
+                // if((attr === "phoneNumbers.home" || attr === "billingContact.phoneNumbers.home" || attr === "editingContact.phoneNumbers.home") && typeof value != 'undefined' && value.length !=14){
+                //     return "Please provide phone number";
+                // }
                 // Reduces the array of validators to an error message by
                 // applying all the validators and returning the first error
                 // message, if any.
