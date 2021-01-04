@@ -1574,6 +1574,7 @@
         },
          render:function() {
             Backbone.MozuView.prototype.render.apply(this);
+            $(".subscriptionstitle").show();
         }
     });
 
@@ -2273,6 +2274,7 @@
         if(($el).hasClass('active')){
             $el.attr('aria-selected',true);
             var myView = $el.attr('forid');
+            $(".subscriptionstitle").hide();
             var $elSelected = $('#account-panels').find('#x-'+myView);
                 // focus to first list item if available
             if(myView == "account-orderhistory" || myView == "account-returnhistory"){
@@ -2285,7 +2287,8 @@
             }
             else {
                 if(myView == "account-subscription") {
-                    $elSelected.find(".subscriptionstitle").focus();
+                    $elSelected.prev(".subscriptionstitle").show();
+                    $elSelected.prev(".subscriptionstitle").focus();
                 } else {
 
                     $elSelected.attr('tabindex','0').focus();

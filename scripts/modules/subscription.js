@@ -27,7 +27,22 @@ define([
             "click .summary-accordian" : "showMobSummary",
             "change .how-long-val" :"setHowLongVal",
             "change .how-often-val" :"setHowOffenVal",
-            "change .quantity-sub" :"changeQuantity"
+            "change .quantity-sub" :"changeQuantity",
+            "keydown .list-item.third span" : "hello",
+            "keydown .popup-content h2" : "helloworld"
+        },
+        hello : function(e) {
+            
+            if ((e.which === 9 && !e.shiftKey)) {
+                e.preventDefault();
+                $(document).find('.popup-content h2').focus();
+           }
+
+        },
+        helloworld : function(e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                $(document).find('.popup-content .list-item.third').focus();
+            }
         },
         initilizeDatePicker : function(){
             var me = this;
@@ -1198,6 +1213,9 @@ define([
                 window.location.href = "/user/login";
             }
             this.dateSelector();
+            if(this.model.get('isFirstPopup')){
+                $(document).find('.popup-content').focus();
+            }
         } 
     });
 
@@ -1321,8 +1339,8 @@ define([
         });*/
 
         if(myModel && myModel.isFirstPopup){
-            setTimeout(function(){
-                $(document).find('.popup-content .head-sec').focus();
+            setTimeout(function(e){
+                $(document).find('.popup-content').focus();
                 modelRapidOrder.loopInpopup("first-popup");
             },500);
            

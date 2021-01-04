@@ -2,7 +2,7 @@
     <div class="subscriptionpopup">
         <div class="popup-body" > 
             <div class="popup-content">
-                <span class="message" tabindex="0" aria-label="{{model.popupData.adamessage}}">
+                <span class="message" tabindex="0" role="contentinfo" aria-label="{{model.popupData.message|safe}}">
                     {{model.popupData.message|safe}}
                 </span>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
