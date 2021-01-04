@@ -2392,7 +2392,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 $("#checkoutmodal").show(); 
                 $(".popupmodal").addClass('hide-shippingAddress');
-               /* if(window.innerWidth <= 1024 && window.innerWidth > 767){
+               /* if(window.innerWidth <= 1024 && window.innerWidth > 767){ 
                     $('#checkout-form').hide();
                     $('#checkout-rightcol').hide();
                     $('.checkout-header').hide();
