@@ -1529,6 +1529,11 @@
                 model: new subscriptionModel(window.existingEntityDataView)
             }); 
             mySubscription.render();
+            setTimeout(function(){
+                window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
+                mySubscription.render();
+            },1000);
+            
         },
         changeToggleStatus:function(subId,status){
             console.log("this.model ",this.model);

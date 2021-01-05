@@ -13,8 +13,7 @@
         position:static;  
         width:auto; height:auto;  
     }   
-</style> 
-ascdcdcd
+</style>
 {% if model.subscriptionData.popupData.isEnabled %}
         <div class="popup" role="dialog" >
             <div class="popup-body" role="document">
