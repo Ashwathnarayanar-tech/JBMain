@@ -628,7 +628,7 @@
 			<div class="itemListTotal">
 				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
 				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
-				<div class="note">
+				<div class="note"  >
 					Prices may vary per delivery based on pricing changes and/or active promotions
 				</div>
 			</div>
@@ -689,7 +689,7 @@
 	        <div class="itemListTotal-bottom">
 				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
 				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
-				<div class="note">
+				<div class="note" tabindex="0">
 			Prices may vary per delivery based on pricing changes and/or active promotions
 			</div>
 			</div>

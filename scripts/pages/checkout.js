@@ -198,6 +198,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             // Removing other payment methods when subscription is created 
             if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
                 $('.mz-fromstep-direct-payment,#coupon-code-field,.mz-checkout-digitalcredit,.paypal-trigger').hide();
+
             }else{
                 $('.mz-fromstep-direct-payment,#coupon-code-field,.mz-checkout-digitalcredit,.paypal-trigger').show();
             }
@@ -2586,6 +2587,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $(document).find('.place-subscrition-btn').addClass('active');
                 $(document).find('.place-order-btn').removeClass('active');   
                 $('.mz-pagetitle span').html('Subscription Checkout');
+                $('.mz-pagetitle span').addClass('subcheckouttitle');
             }
         };
 
@@ -3176,20 +3178,26 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billin
                          return false;
                         }
                     });
-        $(document).on('click','#copyshipping',function(e){
-            setTimeout(function(){
-                $('#copyshipping').focus();
-            }, 700);
-            /*if(!($(this).parents().hasClass('paypal-next'))){
-                $(this).focus(); 
-                //$("html, body").animate({scrollTop:  $(e.target)[0].offsetTop }, 300);
-            }*/
-        });
-        $(document).on('keypress','#copyshipping',function(e) { //keypress for copy from shipping button
+        // $(document).on('click','#copyshipping',function(e){
+        //     setTimeout(function(){
+        //         $('#copyshipping').focus();
+        //     }, 700);
+        //     /*if(!($(this).parents().hasClass('paypal-next'))){
+        //         $(this).focus(); 
+        //         //$("html, body").animate({scrollTop:  $(e.target)[0].offsetTop }, 300);
+        //     }*/
+        // });
+        $(document).on('keydown','.copy-address',function(e) { //keypress for copy from shipping button
             if(e.keyCode == 32 || e.keyCode == 13) {
                 e.preventDefault();
-                $(this).trigger('click');
-                $(this).focus();
+                $(this).find('input').trigger('click');
+                if($(this).find('input').is(':checked')){
+                    $('#step-review').find('.mz-formstep-desc').focus();
+                }   
+               else{
+                   $(document).find('#bcompanyname').focus();
+               }
+                // $(this).focus();'
          /*
                 if($('.mz-l-formfieldgroup-address').find('.mz-addressform-companyname').filter(':visible').length > 0) {
                     $(this).focus();
@@ -3202,6 +3210,8 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billin
                 }*/
                 
                 
+            }else{
+                $(document).find('#bcompanyname').focus();
             }
         });
         $(document).on('change','#submitorder-cpp-checkbox', function() {
@@ -3302,7 +3312,12 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billin
                 e.preventDefault();
                // $(this).trigger('click');
                 if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                    $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                    if($('.card-item.active input.mz-payment-select-saved-payments').is(':checked')){
+                        $(document).find('.copy-address').siblings('.mz-l-stack-sectiontitle').focus();
+                    }else{
+                        $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                    }
+                   
                 } 
                 else{
                     if($(e.currentTarget).hasClass('paypal-trigger')){

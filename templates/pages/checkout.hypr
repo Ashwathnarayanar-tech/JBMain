@@ -46,7 +46,7 @@
                     </div>
                 {% else %}
                     <span class="mz-pagetitle">
-                        <label class="heading">{{ labels.checkout }}</label>
+                        <label class="heading"><span>{{ labels.checkout }}</span></label>
                         <div class="continueshopping"><a href="/">Continue Shopping</a></div>
                     </span>
                     <a href="/" class="logoicon"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a> 

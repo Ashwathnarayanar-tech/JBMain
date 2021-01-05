@@ -224,11 +224,11 @@
                     <p tabindex="0" role="contentinfo">If your Billing Information is same as the Shipping Information, click the "Copy from Shipping" button</p>
                     aria-label="{% if model.isSameBillingShippingAddress %}Same as Shipping Address{% else %}copy from shipping{% endif %}" role="button"
                 {% endcomment %}
-                <div class="copy-address">
+                <div class="copy-address" tabindex="0" aria-labelledby="issameshipping">
                     <label>
-                        <input type="checkbox" data-mz-value="isSameBillingShippingAddress" value="true" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
+                        <input type="checkbox" tabindex="-1" id="issameshipping" data-mz-value="isSameBillingShippingAddress" value="true" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
                         {% if model.isSameBillingShippingAddress %}Same as Shipping Address{% else %}Copy from Shipping{% endif %}
-                        <span id="copyshipping"></span>
+                        <span id="copyshipping" ></span>
                     </label>
                 </div>
             {% endif %}

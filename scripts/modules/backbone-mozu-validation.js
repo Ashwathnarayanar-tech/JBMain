@@ -146,7 +146,7 @@ define(["underscore", "backbone", 'hyprlive'], function (_, Backbone, Hypr) {
             // Validates an attribute against all validators defined
             // for that attribute. If one or more errors are found,
             // the first error message is returned.
-            // If the attribute is valid, an empty string is returned.
+            // If the attribute is valid, an empty string is returned. 
             var validateAttr = function (model, attr, value, computed) {
                 //validation for phone number
                 // if((attr === "phoneNumbers.home" || attr === "billingContact.phoneNumbers.home" || attr === "editingContact.phoneNumbers.home") && typeof value != 'undefined' && value.length !=14){
