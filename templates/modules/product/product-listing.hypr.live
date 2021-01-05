@@ -136,18 +136,13 @@
           {% endfor %}
         {% else %}
         {% if model.price.price%}
-          {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
-            <span class="visually-hidden">Original price: </span>
-          {% else %}
-            <span class="visually-hidden">Current price: </span>
-          {% endif %}
+          
           <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
         {%endif%}
           {% if model.price.salePrice and model.price.price > model.price.salePrice %}
             {% if licensedStatus === "LICENSED_REDUCED" %}
               <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
             {% else %}
-              <span class="visually-hidden">Current price: </span>
               <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
               <span class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
             {% endif %}
