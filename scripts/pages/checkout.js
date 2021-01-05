@@ -1516,19 +1516,19 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     if($('.payment-form-section')) {
                         window.scrollTo(0, $('.payment-form-section').offset().top);
                         setTimeout(function() {
-                            $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');
-                            if($errEl.first().prev().length > 0) {
-                                if($errEl.first().prev().is('input') || $errEl.first().prev().is('select'))
-                                    $errEl.first().prev().attr('aria-invalid', true).focus();
+                            $errEl = $('.payment-form-section,.saved-payment-methods').find('.is-invalid').filter(':visible');
+                            if($errEl.first().length > 0) {
+                                if($errEl.first().is('input') || $errEl.first().is('select'))
+                                    $errEl.first().attr('aria-invalid', true).focus();
                                 else
-                                    $errEl.first().prevAll('input').attr('aria-invalid',true).focus();
+                                    $errEl.first().attr('aria-invalid',true).focus();
                             }
                         }, 700);
                         
                         if($('.mz-l-formfieldgroup-address').is(':visible')) {
-                            $errEl = $('.mz-l-formfieldgroup-address').find('.mz-validationmessage').filter(':visible');
-                            $errEl.prev().attr('aria-invalid',true);
-                            $errEl.first().prev().focus();
+                            $errEl = $('.mz-l-formfieldgroup-address').find('.is-invalid').filter(':visible');
+                            $errEl.attr('aria-invalid',true);
+                            $errEl.first().focus();
                         }
                     }
                 }  
