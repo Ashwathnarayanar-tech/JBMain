@@ -2628,7 +2628,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }
                 
             };
-if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes.home ){
+if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billincontact.phoneNumbers.attributes.home ){
                 attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.attributes.home;
             }else{
                 attr.billingContact.phoneNumbers.home = null;
