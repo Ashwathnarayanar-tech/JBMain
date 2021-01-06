@@ -147,7 +147,6 @@
 												<span class="image-cointainer">
 													<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
 												</span>
-												skdnmksn
 												<span class="discription-text" tabindex="0">
 													{{item.name|safe}}
 													{% if not item.purchasableState.isPurchasable %}
