@@ -1532,7 +1532,7 @@
             setTimeout(function(){
                 window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
                 mySubscription.render();
-            },1000);
+            },1500);
             
         },
         changeToggleStatus:function(subId,status){
@@ -1659,6 +1659,9 @@
                             var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
                             console.log("finaldate =====",finaldate);
                             k.schedule.nextShippment = finaldate;
+                        }
+                        else{
+                            k.schedule.nextShippment = "";
                         }
                 }else{
                     k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
@@ -2060,7 +2063,7 @@
                 window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
             }
             else
-            window.inputs = $(document).find('.subscriptionpopup .popup-body').find('button,[tabindex="0"],a,input');
+            window.inputs = $(document).find('.subscriptionpopup-myAccount .popup-body').find('button,[tabindex="0"],a,input');
             
             window.firstInput = window.inputs.first();
             window.lastInput = window.inputs.last(); 
