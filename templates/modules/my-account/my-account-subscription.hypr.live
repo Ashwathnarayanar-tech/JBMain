@@ -1,14 +1,14 @@
 {% if model.popupData.isEnabled %}
-    <div class="subscriptionpopup">
-        <div class="popup-body" > 
-            <div class="popup-content">
-                <span class="message" tabindex="0" role="contentinfo" aria-label="{{model.popupData.message|safe}}">
+    <div class="subscriptionpopup-myAccount" tabindex="-1" role="dialog">
+        <div class="popup-body" role="document"> 
+            <div class="popup-content" aria-model="true">
+                <span class="message" tabindex="0"  aria-label="{{model.popupData.message|safe}}">
                     {{model.popupData.message|safe}}
                 </span>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
                 <div class="button-section" >
                     {% for item in model.popupData.buttons %}
-                        <button class="button button-{{item.class}}" {% if item.orderId %}data-subscription="{{item.orderId}}" {% endif %} data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>
+                        <button class="button button-{{item.class}}" {% if item.orderId %}data-subscription="{{item.orderId}}" {% endif %} data-mz-action="{{item.action}}" tabindex="0">{{item.buttonLabel}}</button>
                     {% endfor %}
                 </div>
             </div>
@@ -62,7 +62,9 @@
 										<div class="address-section"  aria-label="billing address">
 											<span tabindex="0">{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
 											<span tabindex="0">{{order.order.billingInfo.billingContact.address.address1}}</span>
+											{% if order.order.billingInfo.billingContact.address.address2 !== "" %}
 											<span tabindex="0">{{order.order.billingInfo.billingContact.address.address2}}</span>
+											{% endif %}
 											<span tabindex="0">{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
 											<span tabindex="0">{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
 										</div>
@@ -85,7 +87,9 @@
 										<div class="address-section">
 											<span tabindex="0" >{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
 											<span tabindex="0" >{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
-											<span tabindex="0" >{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											{% if order.order.fulfillmentInfo.fulfillmentContact.address.address2 !== "" %}
+											 <span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											{% endif %}
 											<span tabindex="0" >{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
 											<span tabindex="0" >{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
 										</div>
@@ -106,7 +110,9 @@
 										<div class="address-section">
 											<span tabindex="0" >{{order.order.billingInfo.billingContact.firstName}} {{order.order.billingInfo.billingContact.lastNameOrSurname}}</span>
 											<span tabindex="0" >{{order.order.billingInfo.billingContact.address.address1}}</span>
-											<span tabindex="0" >{{order.order.billingInfo.billingContact.address.address2}}</span>
+											{% if order.order.billingInfo.billingContact.address.address2 !== "" %}
+											<span tabindex="0">{{order.order.billingInfo.billingContact.address.address2}}</span>
+											{% endif %}
 											<span tabindex="0" >{{order.order.billingInfo.billingContact.address.cityOrTown}}, {{order.order.billingInfo.billingContact.address.stateOrProvince}} {{order.order.billingInfo.billingContact.address.postalOrZipCode}}, {{order.order.billingInfo.billingContact.address.countryCode}}</span>
 											{% if model.order.billingInfo.billingContact.phoneNumbers !== null %}
 												<span tabindex="0" >{{order.order.billingInfo.billingContact.phoneNumbers.home}}</span>
@@ -129,7 +135,9 @@
 										<div class="address-section">
 											<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.firstName}} {{order.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</span>
 											<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address1}}</span>
-											<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											{% if order.order.fulfillmentInfo.fulfillmentContact.address.address2 !== "" %}
+											 <span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.address2}}</span>
+											{% endif %}
 											<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{order.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}}, {{order.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
 											<span tabindex="0">{{order.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</span>
 										</div>
@@ -329,22 +337,22 @@
 									{% for d in order.schedule.noOfDeliveries %}
 										{% if order.open and (forloop.index > order.startDelivery and forloop.index <= order.endDeliivery) %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered" tabindex="0" aria-label="Order {{d}} Delivered"><span  class="sr-only">Order</span> {{d}} <span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered"  aria-label="Order {{d}} Delivered"><span  class="sr-only">Order</span> {{d}} <span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused"  tabindex="0" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused"   aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li  tabindex="0" aria-label="Order {{d}} Yet to be Delivered"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li   aria-label="Order {{d}} Yet to be Delivered"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% else %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered hide" tabindex="0" aria-label="Order {{d}} Delivered"><span class="sr-only">Order</span>{{d}}<span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered hide"  aria-label="Order {{d}} Delivered"><span class="sr-only">Order</span>{{d}}<span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused hide" tabindex="0" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused hide" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
 												{% else %}
-													<li class="hide" tabindex="0" aria-label="Order {{d}} Yet to be Delivered" ><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li class="hide"  aria-label="Order {{d}} Yet to be Delivered" ><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% endif %}	
