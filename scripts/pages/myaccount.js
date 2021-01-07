@@ -1421,7 +1421,7 @@
         templateName: 'modules/my-account/my-account-subscriptionList',
         additionalEvents: {
             "click .subscription-list-header": "toggleShow",
-            "touchstart .subscription-list-header": "toggleShow",
+           // "touchstart .subscription-list-header": "toggleShow",
             "click .mz-more-order":"loadMoreSubscriptions"
         },
         toggleShow:function(e){
