@@ -211,15 +211,19 @@
                         return false;
                     }
                 }else{
-                    if($('.data-contact [data-mz-value="contactId"]').val()!==""){
-                        if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
-                            $('.data-contact').first().before("<span class='mz-validationmessage savedaddressError' role='alert' tabindex='0'>Please select the address</span>");
-                            $('.data-contact').siblings('.savedaddressError').focus();
-                            return false;
-                        }else{
-                            $('.data-contact').siblings('.savedaddressError').html('');   
+                    $('.data-contact').siblings('.savedaddressError').html('').removeClass('mz-validationmessage');
+                    var $errEl = $('#step-shipping-address').find('.mz-validationmessage').filter(':visible');
+                    if($errEl.length <= 0) {
+                        if($('.data-contact [data-mz-value="contactId"]').val()!==""){
+                            if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
+                                $('.data-contact').first().before("<span class='mz-validationmessage savedaddressError' role='alert' tabindex='0'>Please select the address</span>");
+                                $('.data-contact').siblings('.savedaddressError').focus();
+                                return false;
+                            }else{
+                                $('.data-contact').siblings('.savedaddressError').html('').removeClass('mz-validationmessage');   
+                            }  
                         }  
-                    }             
+                    }           
                    
                 }
 
