@@ -171,7 +171,7 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render(); 
-            $(document).find('.subscription-body .popup-body .message').focus();  
+            $(document).find('.popup .popup-body .message').focus();  
             this.loopInpopup();
         },
         removeCItemsandPTocheckoutpp : function(){
@@ -196,7 +196,7 @@ define([
             this.render();
             $(document).find('#subscription-body .popup').attr("role","dialog");
             $(document).find('#subscription-body .popup-body').attr("role","document");
-            $(document).find('.subscription-body .popup-body .message').focus();
+            $(document).find('.popup .popup-body .message').focus();
             this.loopInpopup();
         },
         oneMoreppIgnoreSubscription: function(){
@@ -219,7 +219,7 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render();
-            $(document).find('.subscription-body .popup-body .message').focus();
+            $(document).find('.popup .popup-body .message').focus();
             this.loopInpopup();
         },
         gotonormalCheckout: function(){
@@ -314,7 +314,7 @@ define([
                 }; 
                 this.model.set('popupData', popupData); 
                 this.render();  
-                $(document).find('.subscription-body .popup-body .message').focus();
+                $(document).find('.popup .popup-body .message').focus();
                 this.loopInpopup();
             }     
         },
@@ -338,7 +338,7 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render(); 
-            $(document).find('.subscription-body .popup-body .message').focus();
+            $(document).find('.popup .popup-body .message').focus();
             this.loopInpopup();  
             this.showFocus();
         }, 
@@ -1354,7 +1354,7 @@ define([
 
         if(myModel && myModel.isFirstPopup){
             setTimeout(function(e){
-                $(document).find('.popup-content').focus();
+                $(document).find('.first-popup .popup-content').focus();
                 modelRapidOrder.loopInpopup("first-popup");
             },500);
            
