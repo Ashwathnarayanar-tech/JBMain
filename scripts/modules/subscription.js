@@ -105,6 +105,7 @@ define([
                     var popupData = {
                         "isEnabled" : true,
                         "message" : "We can't mix Subscription and non-Subscription items at this time. <strong>Do you want to Subscribe to everything you have in the Cart?</strong>",
+                        "adamessage" : "We can't mix Subscription and non-Subscription items at this time. Do you want to Subscribe to everything you have in the Cart?",
                         "buttons" : [
                             {
                                 "buttonLabel" : "Yes! Subscribe",
@@ -154,6 +155,7 @@ define([
             var popupData = {
                 "isEnabled" : true,
                 "message" : "Proceeding will <strong> ignore the previously-started Subscription </strong> and allow you to set up the new Subscription",
+                "adamessage" : "Proceeding will ignore the previously-started Subscription  and allow you to set up the new Subscription",
                 "buttons" : [
                     {
                         "buttonLabel" : "Proceed",
@@ -176,6 +178,7 @@ define([
             var popupData = {
                 "isEnabled" : true,
                 "message" : "To create a Subscription, you may have only Subscription items in the Cart. Do you want to <strong> remove </strong> the <strong> non-subscription </strong> items from the Cart and proceed to Checkout?",
+                "adamessage" : "To create a Subscription, you may have only Subscription items in the Cart. Do you want to  remove  the  non-subscription  items from the Cart and proceed to Checkout?",
                 "buttons" : [
                     {
                         "buttonLabel" : "Yes! Subscribe",
@@ -200,6 +203,7 @@ define([
             var popupData = {
                 "isEnabled" : true,
                 "message" : "Proceeding will <strong>ignore </strong> your <strong>Subscription List</strong> and allow you to purchase your At Once item(s).",
+                "adamessage" : "Proceeding will ignore your Subscription List and allow you to purchase your At Once item(s).",
                 "buttons" : [
                     {
                         "buttonLabel" : "Proceed",
@@ -294,6 +298,7 @@ define([
                 var popupData = {
                     "isEnabled" : true,
                     "message" : "Are you sure you want to clear the subscription list?",
+                    "adamessage" : "Are you sure you want to clear the subscription list?",
                     "buttons" : [
                         {
                             "buttonLabel" : "Yes",
@@ -317,6 +322,7 @@ define([
             var popupData = {
                 "isEnabled" : false,
                 "message" : "Are you sure you want to clear the subscription list?",
+                "adamessage" : "Are you sure you want to clear the subscription list?",
                 "buttons" : [
                     {
                         "buttonLabel" : "Yes",
@@ -358,6 +364,7 @@ define([
                 var popupData = {
                     "isEnabled" : false,
                     "message" : "Are you sure you want to clear the subscription list?",
+                    "adamessage" : "Are you sure you want to clear the subscription list?",
                     "buttons" : [
                         {
                             "buttonLabel" : "Yes",
@@ -1263,6 +1270,7 @@ define([
         var popupData = {
             "isEnabled" : false,
             "message" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
+            "adamessage" : "You can subscribe to this item (and others) to get regular deliveries on your own schedule! Click below to start the process.",
             "buttons" : [
                 {
                     "buttonLabel" : "Cancel",

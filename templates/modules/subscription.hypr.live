@@ -37,9 +37,9 @@
     <div class="popup">
         <div class="popup-body">
             <div class="popup-content">
-                <span class="message" tabindex="0" >
+                <p class="message" tabindex="0"  role="text" aria-label = "{{model.popupData.adamessage}}">
                     {{model.popupData.message|safe}}
-                </span>
+                </p>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopupdynamic" aria-label="close popup"></button>
                 <div class="button-section">
                     {% for item in model.popupData.buttons %}
