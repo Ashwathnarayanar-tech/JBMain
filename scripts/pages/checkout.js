@@ -360,7 +360,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             
             if(window.byPassFlag) {
                 setTimeout(function() {
-                    $(document).find('.mz-checkoutform-shippingaddress').focus();
+                    //Shruthi
+                $(document).find('.mz-checkoutform-shippingaddress').focus();
                 }, 700);
                 window.byPassFlag = false;
             }
@@ -1413,7 +1414,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 			this.prepareOrder();
 		},
         validateaddressform: function(e){  
-            if(this.model.get('billingContact.phoneNumbers.home')){this.model.set('billingContact.phoneNumbers.home', this.model.get('billingContact.phoneNumbers.home').replace(/[^0-9]+/g, "")); }
+           // if(this.model.get('billingContact.phoneNumbers.home')){this.model.set('billingContact.phoneNumbers.home', this.model.get('billingContact.phoneNumbers.home').(/[^0-9replace]+/g, "")); }
             if(!this.model.get('billingContact.address.addressType')){this.model.set('billingContact.address.addressType',"Residential");}
            if(window.paymentinfo.model.get('paymentType')!== undefined){
             if(window.paymentinfo.model.get('paymentType').toLowerCase() === "storecredit" && window.checkoutViews.parentView.model.get('amountRemainingForPayment')>0){
@@ -3229,6 +3230,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billin
         // });
         // To make the paypal success to come to checkout page
         $(document).on('click', '.place-order-btn', function(e){
+            $('.place-order-btn').prop('disabled',true);
             if( window.paymentinfo.model.get('paymentType') === "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') === "PayPalExpress2"){
                 $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
             }
@@ -3308,37 +3310,52 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes && billin
             }
         });
         $(document).on('keydown','.select-li', function(e) { //keypress for payment type option selection
-            if(e.keyCode == 9 || e.keyCode == 13 || e.keyCode == 32) {
-                e.preventDefault();
-               // $(this).trigger('click');
-                if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                    if($('.card-item.active input.mz-payment-select-saved-payments').is(':checked')){
-                        $(document).find('.copy-address').siblings('.mz-l-stack-sectiontitle').focus();
-                    }else{
-                        $(document).find('label[for=mz-payment-credit-card-name]').focus();
+            if(e.key=="Tab" && !e.shiftKey){
+                if(e.keyCode == 9 || e.keyCode == 13 || e.keyCode == 32) {
+                    e.preventDefault();
+                // $(this).trigger('click');
+                    if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
+                        if($('.card-item.active input.mz-payment-select-saved-payments').is(':checked')){
+                            $(document).find('.copy-address').siblings('.mz-l-stack-sectiontitle').focus();
+                        }else{
+                            $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                        }
+                    
+                    } 
+                    else{
+                        if($(e.currentTarget).hasClass('paypal-trigger')){
+                            $(document).find('label[for=mz-payment-credit-card-name]').focus();
+                        }else{
+                            $(this).next().focus();
+                        }
+                    
                     }
-                   
-                } 
-                else{
-                    if($(e.currentTarget).hasClass('paypal-trigger')){
-                        $(document).find('label[for=mz-payment-credit-card-name]').focus();
-                    }else{
-                        $(this).next().focus();
-                    }
-                   
+                    //$(this).parent().prev().focus();
+                    window.paymentTypeFlag = true;
                 }
-                //$(this).parent().prev().focus();
-                window.paymentTypeFlag = true;
-            }
-            else if(e.keyCode == 40) {
-                e.preventDefault();
-                if($(this).next().length > 0)
-                    $(this).next().focus();
-            }
-            else if(e.keyCode == 38) { 
-                e.preventDefault();
-                if($(this).prev().length > 0)
-                    $(this).prev().focus();
+                else if(e.keyCode == 40) {
+                    e.preventDefault();
+                    if($(this).next().length > 0)
+                        $(this).next().focus();
+                }
+                else if(e.keyCode == 38) { 
+                    e.preventDefault();
+                    if($(this).prev().length > 0)
+                        $(this).prev().focus();
+                }
+            } else {
+                if($(e.target).hasClass('paypal-trigger')){
+                    $(e.target.previousElementSibling).focus();
+                }else{
+                    $(document).find('.tital-sec-head h4').focus();
+                }
+                // else if($(document).find('.mz-checkout-digitalcredit-cell-amt-to-apply').length>0){
+                //     $(document).find('.mz-checkout-digitalcredit-cell-amt-to-apply').focus();
+                // }else if($(document).find('#sweet-rewards-worksheet').length>0){
+                //     $(document).find('#sweet-rewards-worksheet').focus();
+                // }else{
+                //     $(document).find('.mz-checkout-digitalcredit-enter-code').focus();
+                // }
             }
         });
 
