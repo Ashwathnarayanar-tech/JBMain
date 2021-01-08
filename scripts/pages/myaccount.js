@@ -1904,7 +1904,7 @@
             this.render();
             this.loopInPopups();
             setTimeout(function(){
-                $(document).find('.subscriptionpopup .popup-body .message').focus();
+                $(document).find('.subscriptionpopup-myAccount .popup-body .message').focus();
             },500);
         },
         closePopup:function(e,type){
