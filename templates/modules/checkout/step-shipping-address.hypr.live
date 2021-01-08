@@ -13,7 +13,7 @@
   </div>
   <h3 class="mz-formstep-header" >
     <span class="step-no"><label>1.</label></span>
-    <label  tabindex="0" role="text" >{{ labels.shippingInformation }}</label> 
+    <label  tabindex="0" role="text" class="no-pointer" aria-label="Step 1 {{ labels.shippingInformation }}">{{ labels.shippingInformation }}</label> 
     <span class="step-completed"></span>
     
     {% if model.requiresFulfillmentInfo || model.requiresDigitalFulfillmentContact %}

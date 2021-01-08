@@ -1,6 +1,6 @@
 <h3 class="mz-formstep-header" >
     <span class="step-no"><label>{% if model.requiresFulfillmentInfo %}3. {% else %}2. {% endif %}</label></span>
-    <label role="text" tabindex="0" aria-label="Step 3 {{ labels.paymentInformation }}">{{ labels.paymentInformation }}</label>
+    <label role="text" tabindex="0" class="no-pointer" aria-label="Step 3 {{ labels.paymentInformation }}">{{ labels.paymentInformation }}</label>
     <span class="step-completed"></span>
     {% if model.isExternalCheckoutFlowComplete %}
         <button type="button" id="paymentinfo-edit" class="mz-button mz-button-small mz-formstep-edit paymentType-edit" data-mz-action="cancelExternalCheckout">{{ labels.edit }}</button>
