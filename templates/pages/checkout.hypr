@@ -32,16 +32,16 @@
         <section>
             {% dropzone "checkout-notification-dropzone" scope="template" %}
         </section>
-        <div class="checkout-header">
+        <div class="checkout-header" tabindex="0">
             <div class="header-wraper {% if pageContext.isDesktop or pageContext.isTablet %}desktop{% else %}mobile{% endif %}">
                 {% if pageContext.isDesktop or pageContext.isTablet %}
                     <h1 class="mz-pagetitle">
                         <a href="/"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a>
-                        <span>{{ labels.checkout }}</span>
+                        <span tabindex="0" >{{ labels.checkout }}</span>
                     </h1>
                     <div class="links-sec">
                         <div class="continueshopping"><a href="/">Continue Shopping</a></div>
-                        <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
+                        <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                         
                     </div>
                 {% else %}
@@ -51,7 +51,7 @@
                     </span>
                     <a href="/" class="logoicon"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a> 
                     <div class="links-sec">
-                        <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
+                        <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number"  aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                     </div>  
                 {% endif %}
             </div> 
@@ -92,14 +92,14 @@
                     {%  endif %}  
                     <div class="mz-fromstep login-signup">
                         {% if user.isAuthenticated %}  
-                            <div class="logedinuserdata" tabindex="0" role="contentinfo">
+                            <div class="logedinuserdata" tabindex="0" >
                                 Logged in as
                                 <span>
                                     {{user.email}}
                                 </span> 
                             </div>
                         {% else %} 
-                            <div class="logedinuserdata guestData" tabindex="0" role="contentinfo">
+                            <div class="logedinuserdata guestData" tabindex="0">
                                 Guest Checkout with 
                                 <span>
                                     

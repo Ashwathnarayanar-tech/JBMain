@@ -716,7 +716,7 @@ define([
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
             this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
             this.render();
-            //setTimeout(function(){
+            setTimeout(function(){
                 if(itemClick === "search"){
                     $(".suggetion-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                     $(".suggetion-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
@@ -725,7 +725,7 @@ define([
                     $(".product-item .checkmark-style[data-mz-attribute='"+productCode+"']").focus();
                     $(".product-item .add-to-list-checkbox[data-mz-attribute='"+productCode+"']").focus();
                 }
-           // },0);
+            },500);
             
         },
         changeCatList : function(e){
@@ -766,7 +766,7 @@ define([
                 };
                 api.request('post', "svc/subscriptionpage", body).then(function(result){
                     var mySearch = [];
-                    console.log("result", result);
+                   // console.log("result", result);
                     result.filter(function(v,i){
                         var heatObj = {};
                         v.suggestion.properties.filter(function(a,b){
@@ -807,6 +807,9 @@ define([
             this.model.set('isSearchenabled', false);
             this.model.set('searchResult', []); 
             this.render();   
+            setTimeout(function(){
+                $(document).find('.product-list').focus();
+            },100);
             itemClick = "";  
         },
         closePopup : function(){
@@ -1211,8 +1214,8 @@ define([
                     window.lastInput.focus();  
                 }
             }); 
-            console.log("window.inputs----",window.inputs);
-            console.log(" window.lastInput --- ",window.lastInput);
+           // console.log("window.inputs----",window.inputs);
+           // console.log(" window.lastInput --- ",window.lastInput);
         },
         render : function(){
             Backbone.MozuView.prototype.render.apply(this);
