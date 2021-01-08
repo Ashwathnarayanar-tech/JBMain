@@ -1421,7 +1421,7 @@
         templateName: 'modules/my-account/my-account-subscriptionList',
         additionalEvents: {
             "click .subscription-list-header": "toggleShow",
-            "touchstart .subscription-list-header": "toggleShow",
+           // "touchstart .subscription-list-header": "toggleShow",
             "click .mz-more-order":"loadMoreSubscriptions"
         },
         toggleShow:function(e){
@@ -1904,7 +1904,7 @@
             this.render();
             this.loopInPopups();
             setTimeout(function(){
-                $(document).find('.subscriptionpopup .popup-body .message').focus();
+                $(document).find('.subscriptionpopup-myAccount .popup-body .message').focus();
             },500);
         },
         closePopup:function(e,type){

@@ -2,9 +2,9 @@
     <div class="subscriptionpopup-myAccount" tabindex="-1" role="dialog">
         <div class="popup-body" role="document"> 
             <div class="popup-content" aria-model="true">
-                <span class="message" tabindex="0"  aria-label="{{model.popupData.message|safe}}">
+                <p class="message" tabindex="0" role="text" aria-label="{{model.popupData.adamessage}}">
                     {{model.popupData.message|safe}}
-                </span>
+                </p>
 				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
                 <div class="button-section" >
                     {% for item in model.popupData.buttons %}
@@ -337,22 +337,22 @@
 									{% for d in order.schedule.noOfDeliveries %}
 										{% if order.open and (forloop.index > order.startDelivery and forloop.index <= order.endDeliivery) %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered"  aria-label="Order {{d}} Delivered"><span  class="sr-only">Order</span> {{d}} <span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered" ><span  class="sr-only" tabindex="-1" aria-hidden="true">Order</span> <div tabindex="0" role="text"  aria-label="Order {{d}} Delivered"> {{d}} </div> <span class="sr-only" tabindex="-1" aria-hidden="true">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused"   aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused"  ><span class="sr-only" tabindex="-1" aria-hidden="true">Order</span> <div tabindex="0"  role="text" aria-label="Order {{d}} paused" > {{d}} </div> <span class="sr-only" tabindex="-1" aria-hidden="true">Paused</span></li>
 												{% else %}
-													<li   aria-label="Order {{d}} Yet to be Delivered"><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li ><span class="sr-only" tabindex="-1" aria-hidden="true">Order</span> <div tabindex="0"  role="text" aria-label="Order {{d}} Yet to be Delivered" > {{d}} </div> <span class="sr-only" tabindex="-1" aria-hidden="true">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% else %}
 											{% if forloop.index <= delivered %}
-												<li class="delivered hide"  aria-label="Order {{d}} Delivered"><span class="sr-only">Order</span>{{d}}<span class="sr-only">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
+												<li class="delivered hide" ><span class="sr-only" tabindex="-1" aria-hidden="true">Order</span> <div tabindex="0" role="text" aria-label="Order {{d}} Delivered" > {{d}} </div><span class="sr-only" tabindex="-1" aria-hidden="true">Delivered</span>{% if forloop.index < delivered %}<span></span>{% endif %}</li>
 											{% else %}
 												{% if  order.subscribedStatus == "Paused"  and forloop.index == delivered|add(1) %}
-													<li class="paused hide" aria-label="Order {{d}} paused" ><span class="sr-only">Order</span>{{d}} <span class="sr-only">Paused</span></li>
+													<li class="paused hide"  ><span class="sr-only" tabindex="-1" aria-hidden="true">Order</span> <div tabindex="0" role="text" aria-label="Order {{d}} paused" > {{d}} </div> <span class="sr-only" tabindex="-1" aria-hidden="true">Paused</span></li>
 												{% else %}
-													<li class="hide"  aria-label="Order {{d}} Yet to be Delivered" ><span class="sr-only">Order</span> {{d}} <span class="sr-only">Yet to be Delivered</span></li>
+													<li class="hide"  ><span class="sr-only" tabindex="-1" aria-hidden="true">Order</span>  <div tabindex="0" role="text" aria-label="Order {{d}} Yet to be Delivered" >{{d}}  </div> <span class="sr-only" tabindex="-1" aria-hidden="true">Yet to be Delivered</span></li>
 												{% endif %}	
 											{% endif %}
 										{% endif %}	
