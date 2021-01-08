@@ -727,11 +727,14 @@ define([
             
         },
         changeCatList : function(e){
-           this.changeCategory(e);
-            var self = this;
-            setTimeout(function(){
-                $(document).find('.product-list').focus();
-            },100); 
+            console.log(" e ----",e.target);
+            if(!$(e.target).hasClass('active')){
+                this.changeCategory(e);
+                var self = this;
+                setTimeout(function(){
+                    $(document).find('.product-list').focus();
+                },100); 
+            }
         },
         changeCategory:function(e){
             var categoryCode = $(e.target).attr('data-mz-attr'); 
