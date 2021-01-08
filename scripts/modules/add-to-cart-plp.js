@@ -64,7 +64,7 @@ require([
                 var $quantity1 = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
                 $(document).find('.popup').find('.button-yes').attr('productCode',productCode1);
                 $(document).find('.popup').find('.button-yes').attr('quantity',$quantity1);
-                $(document).find('.popup-body .message').focus();
+                $(document).find('.popup .popup-body .message').focus();
                 var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
             var firstInput = window.firstInput = window.inputs.first();
             var lastInput = window.lastInput = window.inputs.last(); 
