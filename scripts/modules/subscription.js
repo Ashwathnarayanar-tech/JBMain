@@ -194,8 +194,6 @@ define([
             }; 
             this.model.set('popupData', popupData); 
             this.render();
-            $(document).find('#subscription-body .popup').attr("role","dialog");
-            $(document).find('#subscription-body .popup-body').attr("role","document");
             $(document).find('.popup .popup-body .message').focus();
             this.loopInpopup();
         },
