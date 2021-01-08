@@ -968,6 +968,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             this.model.bypass(); 
         },
         resetbypassbtn: function(){
+           
+            $('.data-contact').siblings('.savedaddressError').html('');
             this.model.resetbypass(); 
             setTimeout(function(){
                 var $errEl = $('#step-shipping-address').find('.mz-validationmessage').filter(':visible');
@@ -980,16 +982,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                         $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
                     }
                 }
-                else if($('.data-contact [data-mz-value="contactId"]').val()!==""){
-                    if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
-                        $('.data-contact').first().before("<span class='mz-validationmessage savedaddressError' role='alert' tabindex='0'>Please select the address</span>");
-                        $('.data-contact').siblings('.savedaddressError').focus();
-                    }else{
-                        $('.data-contact').siblings('.savedaddressError').html('');                    }
-                }else{
-                    $('.data-contact').siblings('.savedaddressError').html('');
-                }
+            
             }, 700);
+           
         }    
     });
 
