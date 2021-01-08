@@ -179,9 +179,9 @@
         <div class="popup-body" role="document">
             <span tabindex="0" class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
             <div class="popup-content">
-                <span class="message" tabindex="0">
+                <p class="message" tabindex="0" role="text"  aria-label="You have already started building a Subscription. Do you want to remove the subscription products and add this product to the cart?">
                     <strong> You have already started building a Subscription.</strong> <br> Do you want to remove the subscription products and add this product to the cart?
-                </span>
+                </p>
                 <div class="button-section">                    
                     <button class="button button-no" >No</button>
                     <button class="button button-yes" >Yes! Subscribe</button>
