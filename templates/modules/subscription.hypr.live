@@ -177,7 +177,7 @@
 													<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 												{% endif %}
 											</span>			 							
-											<span class="item-li quantity"  tabindex="0" aria-label="item Quantity 1">
+											<span class="item-li quantity" >
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
 												<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 												<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
@@ -231,7 +231,7 @@
 														<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
 													{% endif %}
 												</span>			 							
-												<span class="item-li quantity" tabindex="0" aria-label="item Quantity 1">
+												<span class="item-li quantity" >
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
 													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
@@ -289,7 +289,7 @@
 														<span class="heat-tickmark" tabindex="0" aria-label="item {{item.name|safe}} is heat sensitive"></span>
 													{% endif %}
 												</span>
-												<span class="item-li quantity" tabindex="0" aria-label="item Quantity 1">
+												<span class="item-li quantity" >
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
 													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
 													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
@@ -1019,8 +1019,8 @@
 								{% for item in model.SubScriptionItemsList %}
 									<div class="list-item">
 										<span class="item-li decreption">{{item.name|safe}}</span>
-										<span class="item-li quantity" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
-											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
+										<span class="item-li quantity" >
+											<input aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
 				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub" data-mz-clearList="true"></span>
 				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub" data-mz-clearList="true"></span>
 				                            <div class="clear"></div>
