@@ -98,9 +98,10 @@
     <div class="mz-l-formfieldgroup-row my-account-cvv">
         <div class="mz-l-formfieldgroup-cell payment-label">
             <label for="mz-payment-security-code">{{ labels.securityCode }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+
         </div>
         <div class="mz-l-formfieldgroup-cell">
-            <input type="tel" placeholder="Enter CVV" name="security-code" id="mz-payment-security-code"  aria-describedBy="err_5" class="cvvcodeinput" max="9999" maxlength="4" data-mz-value="{{ cardcontext }}cvv"  pattern="\d*" title="Payment method security code" value="{{ model.cvv }}"><!-- ADA OK -->
+            <input type="tel" placeholder="Enter CVV" name="security-code" id="mz-payment-security-code"  aria-describedBy="err_5" class="cvvcodeinput" max="9999" maxlength="4" data-mz-value="{{ cardcontext }}cvv"  pattern="\d*" title="Payment method security code" value="{{ model.cvv }}" aria-label="{{ labels.securityCode }} mandatory field"><!-- ADA OK -->
             <span class="cvv-info">
 				<a id="toolTipStock" class= "shop-tip" href="javascript:void(0)" data-cart-details="" role="button" aria-describedby="cvv-tip"><span class="hide-for-other">What is CVV</span>?</a>
 				<div class="cvv-info-details" id="cvv-tip" role="tooltip">
