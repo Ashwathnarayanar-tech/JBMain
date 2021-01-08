@@ -737,17 +737,19 @@ define([
             }
         },
         changeCategory:function(e){
-            var categoryCode = $(e.target).attr('data-mz-attr'); 
-            var catList = this.model.get('categoryList').filter(function(v,i){
-                if(v.Category.categoryCode == categoryCode && !v.isActive){
-                    v.isActive = true;
-                }else{
-                    v.isActive = false;
-                }
-                return true;
-            });  
-            this.model.set('categoryList', catList); 
-            this.render(); 
+            if(!$(e.target).hasClass('active')){
+                var categoryCode = $(e.target).attr('data-mz-attr'); 
+                var catList = this.model.get('categoryList').filter(function(v,i){
+                    if(v.Category.categoryCode == categoryCode && !v.isActive){
+                        v.isActive = true;
+                    }else{
+                        v.isActive = false;
+                    }
+                    return true;
+                });  
+                this.model.set('categoryList', catList); 
+                this.render(); 
+            }
         },
         search : _.debounce(function (e){
             itemClick = "search";
