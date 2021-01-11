@@ -165,5 +165,5 @@ define(["modules/jquery-mozu"], function($) {
     } else {
       $('.product-plus-icon').removeClass('.mobile-close-prod');
     }
-  }
+  };
 });
