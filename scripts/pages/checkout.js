@@ -392,6 +392,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             if(this.model.requiresDigitalFulfillmentContact()){
                 $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
+                $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').removeClass('is-new').addClass('is-incomplete');
             }else{
                 if($(document).find('.mz-checkoutform-shippingmethod').hasClass('is-complete')){
                     $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
@@ -432,8 +433,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(window.flag ){
                 $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
                 $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                if(this.model.requiresDigitalFulfillmentContact()){
+                    $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').removeClass('is-new').addClass('is-incomplete');
+                }else{
+                    $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                }
+              
             } 
             
             if(window.flag && (window.location.href).split('?')[1] == 'cl=ml'){

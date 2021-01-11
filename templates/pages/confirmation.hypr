@@ -167,7 +167,7 @@
                                 <div class="summary-item"  tabindex="0" role="contentinfo">
                                     <span class="item-name">
                                         <span class="item-img">
-                                            <img src="{{item.product.imageUrl}}" alt="product img {{ item.product.name|safe }}" />
+                                            <img src="{% if item.product.imageUrl %}{{item.product.imageUrl}}{% else %}{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=200"{% endif %}" alt="product img {{ item.product.name|safe }}" />
                                         </span>
                                         <span class="discount-and-name">
                                             <span class="name">
