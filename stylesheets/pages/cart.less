@@ -246,6 +246,11 @@
                 margin: 0 0 20px;
                 border-bottom: 2px solid #cfcfcf;
             }
+            .shippingEnabled-orderSummary{
+                padding: 0 ;
+                margin: 0 ;
+                border-bottom: none;
+            }
             .price-table { 
                 tr{  
                      td{
@@ -415,6 +420,67 @@
                             text-transform:uppercase; 
                         }
                     }
+                    .estimateShippingCost{
+                        display: inline-block;
+                        border-top: none;
+                        padding: 0;
+                        width: 100%;
+                        font-family: @fontFamily;
+                        font-size: 14px;
+                        color: #004e99;
+                        font-weight: normal;
+                        text-decoration:underline;
+                        cursor: pointer;
+                    }
+                    .estimateShippingCost-onshow{
+                        text-decoration:none;
+                        color:#5e5e5e;
+                        cursor: auto;
+                    }
+                    #estimateShippingCost-entry{
+                        &.inactive{
+                            display: none;
+                        }
+                        &.active{
+                            display: block;
+                        }
+                        #shippingzipcode{
+                            width:56%;
+                            height:28px;
+                            border:solid 1px #ddd;
+                            background-color: #ffffff;
+                            font-family:"merel,sans-serif";
+                            font-size:18px;
+                            border-radius: 4px;
+                            margin: 3% 3% 0 0;
+                            padding-left: 3%;
+                            color:#4a4a4a;
+                        }
+                        .mz-button{
+                            border-radius:4px;
+                            font-size:18px;
+                            width:32%;
+                            text-transform:capitalize;
+                            padding:2% 0;
+                            margin-left:0px;
+                            font-family:"merel,sans-serif";
+                            color: #004e99;
+                            font-weight: 500;
+                            border: solid 1px #004e99;
+                            &:disabled{
+                                background-color: #d2cbcb;
+                                cursor:not-allowed;
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                    #estimateShippingCost-success{
+                        margin-top:2%;
+                    }
+                    #estimateShippingCost-failure{
+                        margin-top: 2%;
+                        color: red;
+                    }
                     .mz-carttable-total {
                         float: right;
                         clear: both; 
@@ -509,6 +575,10 @@
                         }
                         }
                     }
+                }
+                .shippingEnabled-couponcode{
+                    border-top: none;
+                    border-bottom: solid 1px #cfcfcf;
                 }
                 .mz-carttable-emptylink{
                     float: left;
@@ -1091,6 +1161,16 @@
                             }
                         }
                     }
+                    .mz-carttable-total-wrap{
+                        #estimateShippingCost-entry{
+                            #shippingzipcode{
+                                width: 60%;
+                            }
+                            .mz-button{
+                                width: 30%;
+                            }
+                        }
+                    }
                 }            
             }
             .cart-tax{
@@ -1308,6 +1388,17 @@
                             font-size: 14px;
                             .mz-carttable-total{
                                 font-size: 14px;
+                            }
+                        }
+                        #estimateShippingCost-entry{
+                            #shippingzipcode{
+                                width: 54%;
+                                font-size: 16px;
+                            }
+                            .mz-button{
+                                width: 32%;
+                                font-size: 16px;
+                                padding:3% 0;
                             }
                         }
                     }         

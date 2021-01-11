@@ -47,6 +47,11 @@
                 "name":"showHeatSensitiveText",
                 "fieldLabel":"Show heat-sensitive text"
             },
+            {
+              "xtype":"checkbox",
+              "name":"isshippingCalculationEnabled",
+              "fieldLabel":"Enable Shipping Calculator"
+          },
 		{
               "xtype": "textfield",
               "name": "heatSensitiveCategoryId",

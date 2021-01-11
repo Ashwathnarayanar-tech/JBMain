@@ -157,4 +157,120 @@
 	<div class="clearfix"></div>
 </div>
   
+ <div class="Ab-card-slot-parent">
+ <div class="Ab-card-slot" id="Ab-card1">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
+			</a>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title Ab-card1Title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Jelly Beans" style="color: #ed1c24;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0">Discover the world's #1 gourmet jelly belly bean, made over 50 amazing flavors.</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Jelly Beans">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card2">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Harry Potter" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter" width="309" height="247">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#fff5e1">
+			<h2 class="Ab-card-title Ab-card-title-marginBottom" ><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Harry Potter" style="color: #744f01;text-decoration: none"><strong>Harry Potter</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0"> Discover chocolates and confections inspired by Harry Potter!</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Harry Potter">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card3">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#efe7fc">
+			<h2 class="Ab-card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans" style="color: #4a1c9;text-decoration: none"><strong>Bean Boozled Jelly Beans</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0"> Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card4">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings" height="247">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#e2fff7">
+			<h2 class="Ab-card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #027c57;text-decoration: none"><strong>Krispy Kreme<sup>®</sup> Jelly Beans</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0">Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Belly Jelly Beans">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	<div class="clearfix"></div>
+
+	<div class="Ab-card-slot" id="Ab-card5">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Confections" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized.jpg?max=350" alt="Jelly Belly Confections product listings">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#f6f6f6">
+			<h2 class="Ab-card-title b-card5Title" ><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Confections" style="color: #000000;text-decoration: none"><strong>Jelly Belly Confections</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0"> Did you know jelly belly makes over 50 other candies</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Confections">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card6">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="New Products" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-optimized.jpg?max=350" alt="new Jelly Belly products listing page">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#dfeffe">
+			<h2 class="Ab-card-title Ab-card-title-marginBottom" ><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="New Products" style="color: #004e99;text-decoration: none"><strong>New Products</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0"> Explore the new products Mr.Jelly Belly has been cooking up</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="New Products">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card7">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#f6f6f6">
+			<h2 class="Ab-card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans" style="color: #000000;text-decoration: none"><strong>Category Name Example 7 </strong></a></h2>
+			<p class="Ab-card-text" tabindex="0"> Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans">Learn More</a>
+			</div>	
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card8">
+		<div class="Ab-image-container" > 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
+			</a>
+		</div> 
+		<div class="Ab-card-contents" style="background-color:#e2fff7">
+			<h2 class="Ab-card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #027c57;text-decoration: none"><strong>Category Name Example 8</strong></a></h2>
+			<p class="Ab-card-text" tabindex="0">Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Belly Jelly Beans">Learn More</a>
+			</div>	
+		</div>
+	</div>
+ </div> 
 

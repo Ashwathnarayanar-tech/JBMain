@@ -241,7 +241,219 @@
 </div>   
 <div class="right-section">
     <div class="right-inner-section">
-        <h2 class="order-summary-text" tabindex="0">Order Summary</h2>
+        {% if  model.isshippingCalculationEnabled %}
+        <h2 class="order-summary-text shippingEnabled-orderSummary" tabindex="0">Order Summary</h2>
+        <table class="price-table" role="presentation">
+            <tbody>
+                <tr class="mz-carttable-checkout-row">  
+                    <td colspan="4">
+                        <div class="mz-carttable-checkout-couponcode shippingEnabled-couponcode" id="coupon-code-field">
+                          {% include "modules/common/coupon-code-field" %}
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr class="checkout-col">
+                    <td>
+                        <span tabindex="0">
+                            {% comment %}
+                            silpa
+                            <span class="mleft18">Itemtotal  <span class="count">{% if model.count>1 %} {{ model.count }} items {% else %} {{ model.count }} item{% endif %}</span></span>
+                            {% endcomment %}
+                            <span class="mleft18">Item Total</span>
+                            <span id="mz-carttable-total" class="mz-carttable-total">
+                                {% comment %}silpa {{ model.subtotal|currency }} {{ model.discountedSubtotal|currency }}{% endcomment %}
+
+                                {{ model.discountedSubtotal|currency }}
+                            </span>
+                        </span>
+                    </td>   
+                </tr> 
+                 {% comment %}
+                {% if model.discountTotal>0%}
+                {% dump model.orderDiscounts %}
+                {% dump model.discountTotal %}
+                    {% with model.orderDiscounts as discountData %}
+                        {% with discountData|first as getdiscountName %}
+                            <tr class="checkout-col checkout-mobile">
+                                <td> 
+                                    <span tabindex="0">
+                                        <span class="mleft18 mleft19">Discount</span>
+                                        <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                            {% if getdiscountName.impact && model.discountTotal > getdiscountName.impact && getdiscountName.couponCode !== "" %}
+                                              -{{ model.discountTotal|subtract(getdiscountName.impact)|currency }}
+                                            {% else %}
+                                                {% if getdiscountName.impact && model.discountTotal == getdiscountName.impact %}
+                                                   {{ model.discountTotal|currency }}
+                                                {% else %}
+                                                    {{ model.discountTotal|currency }}
+                                                {% endif %}
+                                            {% endif %}
+                                        </span>   
+                                    </span>    
+                                </td> 
+                            </tr>
+                            {% if getdiscountName.couponCode %}
+                                <tr class="checkout-col checkout-mobile">
+                                    <td> 
+                                        <span tabindex="0">
+                                            <span class="mleft18 mleft19">{{ getdiscountName.couponCode }}</span>
+                                                
+                                            <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                                  -{{ getdiscountName.impact|currency }}
+                                            </span> 
+                                               
+                                        </span>    
+                                    </td> 
+                                </tr>
+                            {% endif %}
+                        {% endwith %}
+                    {% endwith %}
+                {% endif %}
+                {% endcomment %}
+                {% for discount in model.orderDiscounts %}
+                    {% if not discount.excluded %}
+                        <tr class="checkout-col checkout-mobile discountCol">
+                            <td>
+                                <span tabindex="0">
+                                    <span class="mleft18 mleft19">{{ discount.discount.name }}</span>
+                                    <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                        - {{ discount.impact|currency }}
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                    {% endif %}
+                  {% endfor %}
+                <tr class="checkout-col checkout-mobile">
+                    <td>
+                        <span tabindex="0">
+                            <span class="mleft18 mleft19">Tax*</span>
+                            <span id="mz-carttable-total" class="mz-carttable-total mleft19">
+                                TBD
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="checkout-col">
+                    <td>
+                        <span tabindex="0">
+                            <span class="mleft18 mleft19">Shipping*</span>
+                            <span id="mz-carttable-shipping-total" class="mz-carttable-total mleft19">
+                              (see below) TBD
+                            </span>
+                        </span>      
+                    </td>
+                </tr> 
+                {% comment %}
+                    {% for discount in model.orderDiscounts %}
+                        {% if not discount.excluded %}
+                      
+                          <tr class="mz-carttable-total-row">
+                            <td class="mz-carttable-total-label" colspan="3">
+                                <div>
+                                    <span class="mleft18">{{ discount.discount.name }}:</span>
+                                    <span class="mz-carttable-rowtotal">- {{ discount.impact|currency }}</span>
+                                    {% if discount.couponCode %}<span class="remove-coupon" coupon="{{ discount.couponCode }}" tabindex="0" role="button" aria-label="remove coupon">Remove</span>{% endif %} 
+                                </div>
+                            </td>
+                          </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endcomment %}
+                <tr class="mz-carttable-total-row checkout-col">
+                    <td class="mz-carttable-total-wrap" colspan="4">
+                        <span class="mleft18 order-total ordertotalWithoutshipping" tabindex="0">
+                            <span class="estimate-total">Sub Total</span>
+                            <span id="mz-carttable-estimated-total" class="mz-carttable-total"> 
+                              <strong>{{ model.discountedTotal|currency }}</strong>
+                            </span>
+                        </span>
+                    </td>
+                    <td></td> 
+                </tr>
+                 {% if model.remainingfreeshippinng > 0  %}
+                <tr class="mz-carttable-total-row checkout-col">
+                    <td class="mz-carttable-total-wrap" colspan="4">
+                        <span class="mleft18 order-total estimateShippingCost" tabindex="0">
+                           Estimate Shipping Cost
+                        </span>
+                        <div class="mz-l-formfieldgroup-cell inactive" id="estimateShippingCost-entry">
+                            <input type="text" id="shippingzipcode" name="shippingzipcode"  aria-label="Enter shipping zip code"  placeholder="Enter your zip code " value="{{ model.shippingzipcode }}"/>
+                            <button type="button" id="shippingzipcode-btn" class="mz-button" data-mz-action="estimateShip" role="button" aria-label="Calculate" {% if not model.shippingzipcode %}  {% endif %} disabled="disabled"> Calculate </button>   
+                        </div>
+                        <div id="estimateShippingCost-success">
+
+                        </div>
+                         <div id="estimateShippingCost-failure">
+
+                        </div>
+                    </td>
+                    <td></td> 
+                </tr> 
+                 {% endif %}
+                {% if model.discountedTotal != 0  %} 
+                    <tr class="mz-carttable-freeshipping-row" >
+                        <td class="mz-carttable-total-wrap" colspan="4">
+                            <span id="mz-carttable-freeshipping" class="mleft18 mz-carttable-freeshipping hide-when-heat-sensitive" tabindex="0" role="note">
+                            {% if model.remainingfreeshippinng > 0  %}
+                                {% if model.isNoShipping %}
+                                    You are only ${{model.remainingfreeshippinng}} away from 
+                                    <a href="/shipping-information" style="text-decoration: none;" aria-label="FREE Ground Shipping">
+                                    Discounted Shipping</a>!
+                                {% else %}
+                                    You are only ${{model.remainingfreeshippinng}} away from 
+                                    <a href="/shipping-information" style="text-decoration: none;" aria-label="FREE Ground Shipping">
+                                    FREE Ground Shipping</a>!
+                                {% endif %}
+                            {% endif %}
+                            {% if model.remainingfreeshippinng == 0  %}
+                                You may qualify for <a href="/shipping-information" aria-label="FREE Ground Shipping">FREE </a>or Discounted Ground Shipping! <span class="exclusion">(Exclusions apply, click for details.)</span>
+                            {% endif %}
+                            </span>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+                <tr class="mz-carttable-checkout-row">  
+                    <td colspan="4">
+                        <button id="cart-checkout" class="mz-button mz-button-large proceed-btn" role="button" aria-label="{{ labels.proceedToCheckout }}"
+                            {% if model.isEmpty %} disabled="disabled" {% endif %} data-mz-action="proceedToCheckout">
+                            {{ labels.proceedToCheckout }}
+                        </button>
+                        {% for externalPayment in siteContext.checkoutSettings.externalPaymentWorkflowSettings %}
+                            {% if externalPayment.isEnabled %}
+                                <div class="mz-carttable-thirdpartypayment" >
+                                    {% if externalPayment.name == "PayPalExpress2" %}
+                                        <button id="btn_xpressPaypal" class="p-button" aria-label="checkout with paypal"> 
+                                            <img  alt="Check out with PayPal" src="../../resources/images/paypallogo.png"/>
+                                        </button>
+                                    {%endif%}
+                                </div> 
+                            {%endif%}  
+                        {%endfor%}     
+                        <div class="accept-cards" tabindex="0" aria-label="Accepted payment methods: American Express, Mastercard, VISA, and Discover credit cards, and Paypal"> 
+                            <img aria-hidden="true" src="../../../resources/images/Artbo222ard.png" alt="amex" />
+                            <img aria-hidden="true" src="../../../resources/images/Bitmap Copy 4.png" alt="mastercard" />
+                            <img aria-hidden="true" src="../../../resources/images/Group 16.png" alt="visa" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard.png" alt="discover" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard Copy 4.png" alt="paypal" />
+                        </div>
+
+                        <div class="accept-cards mobile" tabindex="0" role="img" aria-label="Accepted payment methods: American Express, Mastercard, VISA, and Discover credit cards, and Paypal"> 
+                            <img aria-hidden="true" src="../../../resources/images/Artbo222ard.png" alt="amex" />
+                            <img aria-hidden="true" src="../../../resources/images/Bitmap Copy 4.png" alt="mastercard" />
+                            <img aria-hidden="true" src="../../../resources/images/Group 16.png" alt="visa" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard.png" alt="discover" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard Copy 4.png" alt="paypal" />
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+    <h2 class="order-summary-text" tabindex="0">Order Summary</h2>
         <table class="price-table" role="presentation">
             <tbody>
                 <tr class="checkout-col">
@@ -426,6 +638,7 @@
                 </tr>
             </tbody>
         </table> 
+    {%endif%}  
     </div>  
     <div class="cart-tax" tabindex="0"> 
         {{themeSettings.cartTax }}
