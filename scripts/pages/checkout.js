@@ -390,13 +390,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('.mz-checkoutform-shippingmethod').addClass('is-new');
                 $(document).find('.mz-checkoutform-shippingmethod').removeClass('is-complete');
             }
-            
-            if($(document).find('.mz-checkoutform-shippingmethod').hasClass('is-complete')){
+            if(this.model.requiresDigitalFulfillmentContact()){
                 $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
-            }else{  
-                $(document).find('.mz-formstep.mz-checkoutform-review').removeClass('showContent'); 
-                $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
-            } 
+            }else{
+                if($(document).find('.mz-checkoutform-shippingmethod').hasClass('is-complete')){
+                    $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
+                }else{  
+                    $(document).find('.mz-formstep.mz-checkoutform-review').removeClass('showContent'); 
+                    $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').addClass('is-new');   
+                } 
+            }
+           
 
              // To make the paypal success to come to checkout page 
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
