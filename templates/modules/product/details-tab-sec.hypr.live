@@ -163,10 +163,10 @@
                         {% else %}
 
                             {% if model.price.onSale and model.savePrice %}  
-                                <span class="sale-price" tabindex="0" role="contentinfo">sale: <span class="p-price">{{model.price.salePrice|currency}} <strike>{{model.price.price|currency}}</strike></span></span> 
+                                <span class="sale-price" tabindex="0" role="contentinfo">sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}} </span></span> 
                             {% else %}
                                 {% if model.price.onSale %}
-                                    <span class="sale-price" tabindex="0" role="contentinfo">sale: <span class="p-price">{{model.price.salePrice|currency}} <strike>{{model.price.price|currency}}</strike></span></span> 
+                                    <span class="sale-price" tabindex="0" role="contentinfo">sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}} </span></span> 
                                 {% else %}
                                     <span class="price" tabindex="0" role="contentinfo">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
                                 {% endif %}

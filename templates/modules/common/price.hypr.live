@@ -1,6 +1,6 @@
  <span class="mz-price" tabindex="0" role="contentinfo">
 	{% if model.onSale %}
-		<span style="color: #e7131a !important;" aria-label="on sale">Sale:</span> {{model.salePrice|currency}}
+		<span style="color: #e7131a !important;" aria-label="on sale">Sale:</span> <strike>{{model.price|currency }}</strike> {{model.salePrice|currency}}
 	{% else %}
 	    	<span class="product-price" style="display:none" aria-label="price">Price:</span> {{model.price|currency}}
 	{% endif %}  
