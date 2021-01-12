@@ -120,6 +120,10 @@
                 }
 
                 if (!this.requiresFulfillmentInfo() && !this.requiresDigitalFulfillmentContact()) return this.stepStatus('complete');
+                if(this.requiresFulfillmentInfo() && this.requiresDigitalFulfillmentContact() ){
+                    this.validation = this.digitalOnlyValidation;
+                    return this.stepStatus('complete');
+                }
                     return CheckoutStep.prototype.calculateStepStatus.apply(this);
                 },
                 getOrder: function() {
