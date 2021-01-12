@@ -230,10 +230,11 @@
                                 }
                         }
                     }else if( this.model.models[0].get('name') == "CARD_NUMBER_UNRECOGNIZED"){
+                        this.model.models[0].set("message","Please correct the Card Number.");
                         $(document).find('#mz-payment-credit-card-number').siblings('.mz-validationmessage').html('Error: '+this.model.models[0].get('message')).attr('aria-invalid','true').show();
                         setTimeout(function(){ 
                            $(document).find('#mz-payment-credit-card-number').siblings('.mz-validationmessage').html('').attr('aria-invalid','false').hide();
-                        },6000);
+                        },10000);
                         setTimeout(function(){
                             $(document).find('#mz-payment-credit-card-number').focus();
                         },1000);

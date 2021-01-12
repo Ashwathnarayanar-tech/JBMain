@@ -1481,7 +1481,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     $('#submitorder-cpp-checkbox').attr('checked',false);
                  }
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
-                     $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
+                     $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card’s complete CVV (Security Code)');
                       $('[data-mz-value="card.cvv"]').focus();
                   return false;
                  }else if(card.cvv===undefined || card.cvv === ""){
