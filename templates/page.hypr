@@ -4720,9 +4720,9 @@
         	<a href="javascript:;" class="skipto mz-mobile"  tabindex="0" role="button">Skip to main content</a>
         	{% block progress-bar %} 
 		        <div class="progress-bar">
-		            <a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+		            <a href="/shipping-info#FreeGroundShipping" title="shipping information" target="_blank">
 		            <div class="meter blue"> 
-		                <p class="text-content"></p>
+		                <p class="text-content" aria-live="polite"></p>
 		                <span style="width: 0%"></span>
 		            </div> 
 		            </a>

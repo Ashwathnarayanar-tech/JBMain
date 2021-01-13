@@ -885,6 +885,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 							$(".mz_date_value2").hide();
 							$.colorbox.close(); 
 						});
+					},
+					onClosed: function() {
+						$('input[value="'+window.lastShippingMethod.value+'"]').focus();
 					}
 				});
 			}
@@ -2294,6 +2297,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         $(document).on('click', '.dummi-procudeto-shipping-method', function(){
             $(document).find('#continuetoshipping').click();
         });
+
+        window.lastShippingMethod = '';
+			$(document).on("click", "input[name*='shippingMethod']", function(e){ 
+					window.lastShippingMethod = e.target;
+            });
+            
         $(document).on('keydown','input,select',function(e){
             if(e.keyCode === 13){
                 e.preventDefault();

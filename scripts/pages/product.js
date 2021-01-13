@@ -1409,8 +1409,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         
         function updateRelatedProductsCarousel() { 
           setTimeout(function(){ 
-            $('.related-section div.owl-prev').attr("aria-label", "Scroll to previous product").attr("role", "button");
-            $('.related-section div.owl-next').attr("aria-label", "Scroll to next product").attr("role", "button");
+            $('.related-section div.owl-prev').attr("aria-label", "Scroll to previous product").attr("role", "button").attr('tabindex',0);
+            $('.related-section div.owl-next').attr("aria-label", "Scroll to next product").attr("role", "button").attr('tabindex',0);
           }, 2000); 
         }
         

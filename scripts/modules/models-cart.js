@@ -41,15 +41,21 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
                 this.apiModel.updateQuantity(this.get("quantity"))
                     .then(function(){
                       self.collection.parent.fetch().then(function(cart){
+                        setTimeout(function(){
+                          if(window.qtyButtonToFocus.length > 0) {
+                            window.cartView.focusQtyButton(window.qtyButtonToFocus);
+                            window.qtyButtonToFocus = '';
+                          }
+                        }, 1500);
                         cart.checkBOGA();
-						brontoObj.build(api);
+                        brontoObj.build(api);
                       });
-
+            
                     }, function() {
                         // Quantity update failed, e.g. due to limited quantity or min. quantity not met. Roll back.
                         self.set("quantity", oldQuantity);
                         self.trigger("quantityupdatefailed", self, oldQuantity);
-
+            
                     });
             }
             //if (this.hasChanged("quantity")) this.apiUpdateQuantity(this.get("quantity"));

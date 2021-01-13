@@ -84,9 +84,10 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 
                 }
                 Minicart.MiniCart.updateMiniCart();
-                setTimeout(function() {
-                    $('.plus-prod-qty-cart').focus();
-                }, 800);
+                window.qtyButtonToFocus = '.plus-prod-qty-cart';
+                // setTimeout(function() {
+                //     $('.plus-prod-qty-cart').focus();
+                // }, 5000);
                 // $(e.target).parent().find('input').val(newQuantity);
             }
         },
@@ -104,9 +105,10 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 
                 }
                 Minicart.MiniCart.updateMiniCart();
-                setTimeout(function() {
-                    $('.minus-prod-qty-cart').focus();
-                }, 800);
+                window.qtyButtonToFocus = '.minus-prod-qty-cart';
+                // setTimeout(function() {
+                //     $('.minus-prod-qty-cart').focus();
+                // }, 800);
                 // $(e.target).parent().find('input').val(newQuantity);
             }
         },
@@ -811,6 +813,10 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             model: cartModel,
             messagesEl: $('[data-mz-message-bar]')
         });
+       
+       cartView.focusQtyButton = function(className) { 
+         $(className).focus(); 
+       };
        
         cartModel.on('ordercreated', function (order) {
             cartModel.isLoading(true);

@@ -183,5 +183,10 @@ require([
   var lastInput = window.lastInput;
   addToWishList.activateloopinginmodal();
 
+  // close add to wishlist login with escape key
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27)
+      $('.atw-modal .close-img').click();
+  });
 
 });
