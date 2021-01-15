@@ -449,12 +449,30 @@
                             height:28px;
                             border:solid 1px #ddd;
                             background-color: #ffffff;
-                            font-family:"merel,sans-serif";
+                            font-family:"merel";
                             font-size:18px;
                             border-radius: 4px;
                             margin: 3% 3% 0 0;
                             padding-left: 3%;
                             color:#4a4a4a;
+                            font-weight: normal;
+                            &::-webkit-input-placeholder { 
+                                font-size: 18px;
+                                color: #4a4a4a;
+                                font-weight: normal;
+                            }
+                            
+                            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                font-size: 18px;
+                                color: #4a4a4a;
+                                font-weight: normal;
+                            }
+                            
+                            &::placeholder {
+                                font-size: 18px;
+                                color: #4a4a4a; 
+                                font-weight: normal;
+                            }
                         }
                         .mz-button{
                             border-radius:4px;

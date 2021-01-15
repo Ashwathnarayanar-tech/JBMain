@@ -66,7 +66,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
                 },100);
             });
-            
+
+           
             me.messageView = new ThresholdMessageView({
               el: $('#mz-discount-threshold-messages'),
               model: this.model
@@ -210,6 +211,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             $(".estimateShippingCost").addClass("estimateShippingCost-onshow");
             $('#estimateShippingCost-entry').removeClass('inactive');
             $('#estimateShippingCost-entry').addClass('active');
+            $(document.getElementById("shippingzipcode")).focus();
             $("#estimateShippingCost-success").hide();
             $('#estimateShippingCost-failure').hide();
             $('#shippingzipcode-btn').prop('disabled', true);
@@ -323,7 +325,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 this.$el.find('#cart-coupon-code').removeClass("active-button");
             }
         },
-        onEntershippingzipcode:function(){
+        onEntershippingzipcode:function(e){
             var code = $("#shippingzipcode").val();
             if (code && !this.shippingcodeEntered) {
                 this.shippingcodeEntered = true;
@@ -336,6 +338,10 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                // this.$el.find('#cshippingzipcode-btn').removeClass("active-button");
             }
             $('#estimateShippingCost-failure').hide();
+            console.log(" e-----",e.which);
+            if (e.which === 13 && this.shippingcodeEntered) {
+                $("#shippingzipcode-btn").click();
+            }
         },
         autoUpdate: [
             'couponCode'
@@ -368,24 +374,26 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             var item = {};
                             item.quantity = obj.quantity;
                             item.shipsByItself = false;
-                            item.unitMeasurements = {
-                                "height": {
-                                    "unit": obj.product.measurements.height.unit,
-                                    "value": obj.product.measurements.height.value
-                                },
-                                "length": {
-                                    "unit": obj.product.measurements.length.unit,
-                                    "value": obj.product.measurements.length.value
-                                },
-                                "weight": {
-                                    "unit": obj.product.measurements.weight.unit,
-                                    "value": obj.product.measurements.weight.value
-                                },
-                                "width": {
-                                    "unit": obj.product.measurements.width.unit,
-                                    "value": obj.product.measurements.width.value
-                                }
-                            };
+                            if(obj.product && obj.product.measurements){
+                                item.unitMeasurements = {
+                                    "height": {
+                                        "unit": obj.product.measurements.height ? obj.product.measurements.height.unit:"",
+                                        "value": obj.product.measurements.height ? obj.product.measurements.height.value :""
+                                    },
+                                    "length": {
+                                        "unit": obj.product.measurements.length ? obj.product.measurements.length.unit:"",
+                                        "value": obj.product.measurements.length ? obj.product.measurements.length.value:""
+                                    },
+                                    "weight": {
+                                        "unit": obj.product.measurements.weight ? obj.product.measurements.weight.unit :"",
+                                        "value": obj.product.measurements.weight ? obj.product.measurements.weight.value:""
+                                    },
+                                    "width": {
+                                        "unit": obj.product.measurements.width ? obj.product.measurements.width.unit :"",
+                                        "value": obj.product.measurements.width ? obj.product.measurements.width.value:""
+                                    }
+                                };
+                            }
                             itemArr.push(item);
                         });
                         var now = new Date();
@@ -462,6 +470,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                     $('#estimateShippingCost-entry').addClass('inactive');
                                     $('#estimateShippingCost-entry').removeClass('active');
                                     $('#estimateShippingCost-failure').hide();
+                                    $("#estimateShippingCost-success").focus();
                                 }
                                /* sortedRates = _.map(sortedRates, function(method) {
                                     if (method.code.indexOf("SUREPOST") > -1)
@@ -506,12 +515,25 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 
                                 
                                 
+                   }).catch(function(error) {
+                    console.log("error ---",error);
+                    $('#shippingzipcode').val("");
+                    $("#estimateShippingCost-success").show();
+                    $("#estimateShippingCost-success").html(error && error.message);
+                    $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
+                    $('#estimateShippingCost-entry').addClass('inactive');
+                    $('#estimateShippingCost-entry').removeClass('active');
+                    $('#estimateShippingCost-failure').hide();
+                    $("#estimateShippingCost-success").focus();
+
                    });
+
                     }
                 } else {
                     $('#estimateShippingCost-failure').show();
                     $('#estimateShippingCost-failure').html('Entered Zip code is wrong ');
                     $('#estimateShip').removeClass('is-loading');
+                    $("#estimateShippingCost-failure").focus();
 
                     return;
                 }

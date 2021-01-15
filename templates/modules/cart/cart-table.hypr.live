@@ -379,13 +379,13 @@
                            Estimate Shipping Cost
                         </span>
                         <div class="mz-l-formfieldgroup-cell inactive" id="estimateShippingCost-entry">
-                            <input type="text" id="shippingzipcode" name="shippingzipcode"  aria-label="Enter shipping zip code"  placeholder="Enter your zip code " value="{{ model.shippingzipcode }}"/>
+                            <input type="text" id="shippingzipcode" tabindex="0" name="shippingzipcode"  aria-label="Enter shipping zip code"  placeholder="Enter your zip code " value="{{ model.shippingzipcode }}"/>
                             <button type="button" id="shippingzipcode-btn" class="mz-button" data-mz-action="estimateShip" role="button" aria-label="Calculate" {% if not model.shippingzipcode %}  {% endif %} disabled="disabled"> Calculate </button>   
                         </div>
-                        <div id="estimateShippingCost-success">
+                        <div id="estimateShippingCost-success" tabindex="0">
 
                         </div>
-                         <div id="estimateShippingCost-failure">
+                         <div id="estimateShippingCost-failure" tabindex="0">
 
                         </div>
                     </td>
