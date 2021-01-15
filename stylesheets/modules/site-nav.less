@@ -96,6 +96,11 @@
                                                     &:hover{
                                                         font-weight: 700;
                                                     }
+                                                    @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                        &:hover{
+                                                            font-weight: normal;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -254,6 +259,11 @@
                                                             &:hover{
                                                                 font-weight: 700;
                                                             }
+                                                            @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                &:hover{
+                                                                    font-weight: normal;
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -298,6 +308,11 @@
                                                         .namespan-container{
                                                             .name-span{
                                                                 font-weight: 700;
+                                                            }
+                                                            @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                .name-span{
+                                                                    font-weight: normal;
+                                                                }
                                                             }  
                                                         } 
                                                     }
@@ -490,6 +505,11 @@
                                                         line-height: 14px;
                                                         &:hover{
                                                             font-weight: 700;
+                                                        }
+                                                        @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                            &:hover{
+                                                                font-weight: normal;
+                                                            }
                                                         }                                                    }
                                                     .explore-text{
                                                         display: none;
@@ -814,7 +834,7 @@
                 width: 102%;
                 top: 114%;
                 left: -9px;
-                height: 463px;
+                height: 515px;
                 .nav-menu-details{ 
                     .nav-menu-details-container{ 
                         .nav-main-ul{ 
@@ -1139,6 +1159,15 @@
             }
         }
     } 
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .nav-cointainer{ 
+        .mz-sitenav{
+            &.mz-desktop{
+                height: 530px;
+            }
+        }
+    }
 }
 @media only screen and (min-width: 1px) and (max-width: 767px){
     .nav-cointainer{ 
