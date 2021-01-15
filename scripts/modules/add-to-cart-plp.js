@@ -69,7 +69,7 @@ require([
             var $optionEl = $(e.currentTarget);
             var newValue = $optionEl.val();
             var ax = $optionEl.parent().parent().find('.jb-add-to-cart');
-            if(newValue != "Select gift amount"){
+            if(newValue != "Select Gift Card Amount"){
                 ax.text("Add to Cart");
                 ax.removeClass('gift-prize-select');
             }else{ 
@@ -77,6 +77,30 @@ require([
                 ax.addClass('gift-prize-select');
             }
             
+        });
+
+        $('[data-mz-productlist]').on('click','[plp-giftcart-prize-change-action]',function(e){
+            var caretDown = $(this).parent().find('.down-caret-quantity-myacc-add');
+            var caretUp = $(this).parent().find('.up-caret-quantity-myacc-add');
+            
+            if(caretDown.length == 1 && caretDown.css('display') == 'none'){
+                caretDown.css('display','block');
+                caretUp.css('display','none');
+            }
+            else {
+                caretUp.css('display','block');
+                caretDown.css('display','none');
+            }
+            $('[plp-giftcart-prize-change-action]').focusout(function(){
+                for(var i=0;i<$(document).find('.up-caret-quantity-myacc-add').length;i++){
+                    $($('.up-caret-quantity-sort')[i]).hide();
+                }
+                for(i=0;i<$(document).find('.down-caret-quantity-myacc-add').length;i++){
+                    $($('.down-caret-quantity-myacc-add')[i]).show();
+                }
+                caretUp.removeClass('up-caret-quantity-myacc-add');
+                caretDown.removeClass('down-caret-quantity-myacc-add');
+            });
         });
         
         function additemstoCart(productCode,$target,count){

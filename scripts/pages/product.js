@@ -676,6 +676,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
+            var ax = $(document).find('#add-to-cart-scroll');
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+            }else{ 
+                ax.text("Shop Gift Card");
+            }
         }
     
         var product = ProductModels.Product.fromCurrent();
