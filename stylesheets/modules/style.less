@@ -1049,7 +1049,7 @@ body #cdawrap:hover #cda-remove {
   }
 }
 // Checkout Input field
-.mz-checkout,.login-signup-section { 
+.mz-checkout,.login-signup-section,.mz-myaccount,.mz-footer-row{ 
     .mz-l-formfieldgroup-cell{ 
         position: relative; 
         label, input {
@@ -1063,16 +1063,18 @@ body #cdawrap:hover #cda-remove {
            }
         }
         input{
-            border-width: 2px !important;
-            background-color: #fff !important;
             color: #000 !important;
-            font-weight: 500;
             font-size: 16px !important;
             &:focus{
-                border-color:#004e99;
+                border-color:#004e99 !important;
             }
         }
-     
+     select{
+         background-color: #fff !important;
+        &:focus{
+            border-color:#004e99 !important;
+        } 
+     }
         input:placeholder-shown + label {
             cursor: text;
             max-width: 62%;
@@ -1081,7 +1083,7 @@ body #cdawrap:hover #cda-remove {
             text-overflow: ellipsis;
             transform-origin: left bottom;
             transform: translate(0,1.5rem) scale(1.5);
-            font-size: 13px !important;
+            font-size: 12px !important;
             position: absolute;
             left: 10px;
             top: -7px;
@@ -1101,7 +1103,7 @@ body #cdawrap:hover #cda-remove {
             opacity: 0;
             transition: inherit;
          }
-         
+          
          :-ms-input-placeholder {  
             opacity: 0;
             transition: inherit;
@@ -1109,6 +1111,9 @@ body #cdawrap:hover #cda-remove {
         input:focus::-webkit-input-placeholder {
             opacity: 0;
         } 
+        input:not(:placeholder-shown){
+            background-color: #fff !important;
+        }
         input:not(:placeholder-shown) + label, 
         input:focus + label {
             transform: translate(0, 0) scale(1);
@@ -1117,19 +1122,26 @@ body #cdawrap:hover #cda-remove {
             font-size: 16px !important;
             left: 10px;
             top: -13px;
-            background: #fff;
-            padding: 0 10px;
+            background: #fff !important;
+            padding: 0 6px;
             width: auto!important;
             min-width: auto !important;
             color: #000 !important;
-            font-weight: 500;
             letter-spacing: 0.2px;
         }
         &.select-box{
             label{
                 position: absolute;
                 left: 11px;
-                font-size: 12px !important;
+                font-size: 16px !important;
+                top: -13px;
+                background: #fff;
+                padding: 0 6px;
+                width: auto!important;
+                min-width: auto !important;
+            }
+            .down-caret-ma-cardType,.up-caret-ma-cardType,.down-caret-ma-month,.up-caret-ma-month,.up-caret-ma-year,.down-caret-ma-year{
+                top: 13px;
             }
             
         }

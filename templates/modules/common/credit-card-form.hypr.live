@@ -1,13 +1,14 @@
 {% block credit-card-form %}
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-type">{{ labels.cardType }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+           
         </div>
-        <div class="mz-l-formfieldgroup-cell">
+        <div class="mz-l-formfieldgroup-cell select-box">
+         <label for="mz-payment-credit-card-type">{{ labels.cardType }}<span class="is-required" aria-label="mandatory field"> *</span></label>
 			<select id="mz-payment-credit-card-type" aria-describedBy="err_1" data-mz-value="{{ cardcontext }}paymentOrCardType" 
             class="{% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %}readonlytext{% endif %} my-acc-saved-add"
              {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %} disabled {% endif %}> 
-				<option aria-label="select card type" value=""></option>
+				<option aria-label="select card type" value="">Select Card Type</option>
 				{% if siteContext.checkoutSettings.supportedCards.amex %}
 				<option value="AMEX" {% if model.paymentOrCardType == "AMEX" %}selected="selected"{% endif %}>American Express</option>
 				{% endif %}
@@ -23,21 +24,23 @@
 			</select>
             <img width="13" class="down-caret-ma-cardType" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-cardType" src="/resources/images/icons/up_caret.png" />
+            
             <span class="mz-validationmessage" id="err_1" data-mz-validationmessage-for="{{ cardcontext }}paymentOrCardType"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+           
         </div>
         <div class="mz-l-formfieldgroup-cell checkout-card-name">
-            <input type="text" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
+            <input type="text" placeholder="credit-card-name" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
+             <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
             <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-number">{{ labels.cardNumber }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+            
         </div>
         <div class="mz-l-formfieldgroup-cell">
         
@@ -46,7 +49,7 @@
                 {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %} readonly {% endif %} 
                 class="{% if model.contactId and pageContext.pageType == 'checkout' or model.id and pageContext.pageType=='my_account' %}readonlytext{% endif %}">  <!-- ADA OK -->  
             
-            
+            <label for="mz-payment-credit-card-number">{{ labels.cardNumber }}<span class="is-required" aria-label="mandatory field"> *</span></label>
             <span style="top: 43px;" id="err_2" class="mz-validationmessage" data-mz-validationmessage-for="{{ cardcontext }}cardNumberPartOrMask"></span>
         </div>
     </div>
@@ -62,9 +65,11 @@
 	
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-expiration-month">{{ labels.expires }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+           
         </div>
-        <div class="mz-l-formfieldgroup-cell checkout-card-expmonth">
+        <div class="mz-l-formfieldgroup-cell checkout-card-expmonth select-box">
+         <label for="mz-payment-expiration-month">{{ labels.expires }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+           
             <select aria-label="Expiring Month" aria-describedBy="err_4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add month" id="mz-payment-expiration-month" name="expiration-month" data-mz-value="{{ cardcontext }}expireMonth" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} disabled {% endif %} >
                 <option aria-label="select expiring month" default value="select expiring month" >Month</option>
                 <option {% if model.expireMonth == "01" %}selected="selected"{% endif %} value="01">01 - {{ labels.january }}</option>
@@ -92,6 +97,7 @@
             </select>
             <img width="13" class="down-caret-ma-year" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-year" src="/resources/images/icons/up_caret.png" />
+             
             <span class="mz-validationmessage" id="err_4" data-mz-validationmessage-for="{{ cardcontext }}expireYear"></span>
         </div>
     </div>

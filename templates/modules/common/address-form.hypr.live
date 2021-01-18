@@ -5,7 +5,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
         
-            <input type="text" name="companyname" id="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}" data-mz-value="{{ addresscontext }}companyOrOrganization" placeholder="companyname" value="{{ model.companyOrOrganization }}" autofocus><!-- ADA OK -->
+            <input type="text" placeholder="companyname" name="companyname" id="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}" data-mz-value="{{ addresscontext }}companyOrOrganization"  value="{{ model.companyOrOrganization }}" autofocus><!-- ADA OK -->
               <label for="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}">{{ labels.companyName }}</label>
             <span class="mz-validationmessage" tabindex="-1"  data-mz-validationmessage-for="{{ addresscontext }}companyName"></span>
         </div>
