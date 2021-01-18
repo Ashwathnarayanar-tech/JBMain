@@ -1048,7 +1048,93 @@ body #cdawrap:hover #cda-remove {
     stroke-dashoffset: 0;
   }
 }
-
+// Checkout Input field
+.mz-checkout,.login-signup-section { 
+    .mz-l-formfieldgroup-cell{ 
+        position: relative; 
+        label, input {
+            transition: all 0.2s;
+            touch-action: manipulation;
+        }
+        label{
+            font-size: 16px !important;
+           .is-required{
+            color:#004e99 !important;
+           }
+        }
+        input{
+            border-width: 2px !important;
+            background-color: #fff !important;
+            color: #000 !important;
+            font-weight: 500;
+            font-size: 16px !important;
+            &:focus{
+                border-color:#004e99;
+            }
+        }
+     
+        input:placeholder-shown + label {
+            cursor: text;
+            max-width: 62%;
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform-origin: left bottom;
+            transform: translate(0,1.5rem) scale(1.5);
+            font-size: 13px !important;
+            position: absolute;
+            left: 10px;
+            top: -7px;
+            color: #000 !important;
+           
+        }
+        ::-webkit-input-placeholder {
+            opacity: 0;
+            transition: inherit;
+         }
+         :-moz-placeholder { 
+            opacity: 0;
+            transition: inherit;
+         }
+         
+         ::-moz-placeholder { 
+            opacity: 0;
+            transition: inherit;
+         }
+         
+         :-ms-input-placeholder {  
+            opacity: 0;
+            transition: inherit;
+         }
+        input:focus::-webkit-input-placeholder {
+            opacity: 0;
+        } 
+        input:not(:placeholder-shown) + label, 
+        input:focus + label {
+            transform: translate(0, 0) scale(1);
+            cursor: pointer;
+            position: absolute;
+            font-size: 16px !important;
+            left: 10px;
+            top: -13px;
+            background: #fff;
+            padding: 0 10px;
+            width: auto!important;
+            min-width: auto !important;
+            color: #000 !important;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+        &.select-box{
+            label{
+                position: absolute;
+                left: 11px;
+                font-size: 12px !important;
+            }
+            
+        }
+    }
+}
 .jb-inner-overlay{
   position: absolute;
   top: 0;
@@ -1215,6 +1301,9 @@ body #cdawrap:hover #cda-remove {
 }
 //Content widget
 @media only screen and (min-width: 1px) and (max-width: 767px) {
+    .maximumProduct .maximum-inner-content{
+        width: 74%;
+    }
     .mz-drop-zone{
         blockquote {
             margin: 0 0 0 10px !important;
@@ -1795,6 +1884,9 @@ body #cdawrap:hover #cda-remove {
 }
 
 @media only screen and (min-width : 768px) and (max-width : 979px) {
+    .maximumProduct .maximum-inner-content{
+        width: 70%;
+    }
     .bean-recipe-row  {
         width: 96%;
         ul {

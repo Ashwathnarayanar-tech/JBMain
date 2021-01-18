@@ -37,35 +37,39 @@
 								
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="firstname">*First Name</label>
+                                  
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input required type="text" class="mz-signup-firstname" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
-                                </div>
-                            </div>
-                            <div class="mz-l-formfieldgroup-row">
-                                <div class="mz-l-formfieldgroup-cell">
-                                    <label for="lastname">*Last Name</label>
-                                </div>
-                                <div class="mz-l-formfieldgroup-cell">
-                                    <input required type="text" class="mz-signup-lastname" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
+                                    <input placeholder="firstname" id="firstname" required type="text" class="mz-signup-firstname" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
+                                    <label for="firstname">First Name<span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="email">*Email Address</label>
+                                    
+                                </div>
+                                <div class="mz-l-formfieldgroup-cell">
+                                    <input placeholder="Last Name" id="lastname" required type="text" class="mz-signup-lastname" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
+                                    <label for="lastname">Last Name <span class="is-required" aria-label="mandatory field">*</span></label>
+                                </div>
+                            </div>
+                            <div class="mz-l-formfieldgroup-row">
+                                <div class="mz-l-formfieldgroup-cell">
+                                  
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell"> 
-                                    <input required type="email" class="mz-signup-email" data-mz-signup-emailaddress />
+                                    <input placeholder="email" id="email" required type="email" class="mz-signup-email" data-mz-signup-emailaddress />
+                                    <label for="email">Email Address <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row password-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="email">*Password</label>
+                                   
                                     <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input aria-describedby="password-requirements" required type="password" class="mz-signup-password" data-mz-signup-password />
+                                    <input placeholder="Password" id="Password" aria-describedby="password-requirements" required type="password" class="mz-signup-password" data-mz-signup-password />
+                                     <label for="Password">Password<span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="pwd-message-desktop">
                                     <div class="arrow-left"></div>
@@ -74,10 +78,11 @@
                             </div>
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="email">*Confirm Password</label>
+                                    
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                                    <input required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
+                                    <input placeholder="confirmpassword " id="confirmpassword" required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
+                                    <label for="confirmpassword">Confirm Password <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row">
