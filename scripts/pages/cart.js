@@ -49,12 +49,20 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //setup coupon code text box enter.
             this.listenTo(this.model, 'change:couponCode', this.onEnterCouponCode, this);
             this.codeEntered = !!this.model.get('couponCode');
-            this.$el.on('keypress', 'input', function (e) {
+            /*this.$el.on('keypress', 'input', function (e) {
                 if (e.which === 13) {
                     if (me.codeEntered) {
                         me.handleEnterKey();
                     }
                     return false;
+                }
+            });*/
+
+            $("#coupon-code").keyup(function(event) {
+                if (event.keyCode === 13) {
+                    if (me.codeEntered) {
+                        me.handleEnterKey();
+                    }
                 }
             });
             this.$el.on('paste', 'input', function (e) {
@@ -463,7 +471,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                     }
                                 }
                                 if(shippingGroundAmount > 0){
-                                    var str = " Ground Shipping to <b>"+zip +"</b>  (estimate ): <b> $"+shippingGroundAmount+"</b>";
+                                    var str = " Ground Shipping to <b>"+zip +"</b>(estimate): <b> $"+shippingGroundAmount+"</b>";
                                     $("#estimateShippingCost-success").show();
                                     $("#estimateShippingCost-success").html(str);
                                     $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
@@ -535,7 +543,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     $('#estimateShip').removeClass('is-loading');
                     $("#estimateShippingCost-failure").focus();
 
-                    return;
+                    return false;
                 }
         },
             checkInventory: function() {

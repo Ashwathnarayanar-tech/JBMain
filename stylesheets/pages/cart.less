@@ -1414,11 +1414,22 @@
                         #estimateShippingCost-entry{
                             #shippingzipcode{
                                 width: 54%;
-                                font-size: 16px;
+                                font-size: 14px;
+                                &::-webkit-input-placeholder { 
+                                    font-size: 12px;
+                                }
+                                
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    font-size: 12px;
+                                }
+                                
+                                &::placeholder {
+                                    font-size: 12px;
+                                }
                             }
                             .mz-button{
                                 width: 32%;
-                                font-size: 16px;
+                                font-size: 15px;
                                 padding:3% 0;
                             }
                         }
@@ -1499,6 +1510,25 @@
                             font-size: 15px;
                             .mz-carttable-total{
                                 font-size: 15px;
+                            }
+                        }
+                        #estimateShippingCost-entry{
+                            #shippingzipcode{
+                                font-size: 16px;
+                                &::-webkit-input-placeholder { 
+                                    font-size: 14px;
+                                }
+                                
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    font-size: 14px;
+                                }
+                                
+                                &::placeholder {
+                                    font-size: 14px;
+                                }
+                            }
+                            .mz-button{
+                                font-size: 16px;
                             }
                         }
                     }
