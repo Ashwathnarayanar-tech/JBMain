@@ -12,7 +12,10 @@
                 {% else %}
                     <button type="button" id="cart-coupon-code" class="mz-button" data-mz-action="addCoupon" role="button" aria-label="{{ labels.apply }}" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
                 {% endif %}    
-            </div>  
+            </div> 
+            <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" role="contentinfo">
+                <span><b>Note:</b> Shipping-related coupons must be entered during checkout.</span>
+            </div> 
             <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
             <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
         </div>
