@@ -1591,6 +1591,8 @@
                         return customer.apiModel.addContact(orderContact).then(function(contactResult) {
                                 orderContact.id = contactResult.data.id;
                                 return contactResult;
+                            }).catch(function(error){
+                                console.log(" error ---",error);
                             });
                     }];
                 var contactInfoContactName = contactInfo.get(contactName);
