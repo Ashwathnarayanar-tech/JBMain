@@ -416,7 +416,7 @@ define([
             this.model.set('SubScriptionItemsList',itemsinsublist);
             this.model.set('total', this.calculateTotal(itemsinsublist));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(itemsinsublist))).toFixed(2));
             this.render();
             $(document).find('.headertital').focus();
         },
@@ -466,7 +466,7 @@ define([
             this.model.set('SubScriptionItemsList', subscriptionList);
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();  
             var isClearList =  $(e.target).attr('data-mz-clearList');
@@ -512,7 +512,7 @@ define([
             this.model.set('SubScriptionItemsList', subscriptionList);
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
             var isClearList =  $(e.target).attr('data-mz-clearList');
@@ -556,7 +556,7 @@ define([
             this.model.set('SubScriptionItemsList', subscriptionList);
             this.model.set('total', this.calculateTotal(subscriptionList));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(subscriptionList))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(subscriptionList))).toFixed(2));
             window.valid=false;
             this.render();
             var isClearList =  $(e.target).attr('data-mz-clearList');
@@ -647,7 +647,7 @@ define([
             this.model.set('SubScriptionItemsList',itemsinsublist);
             this.model.set('total', this.calculateTotal(itemsinsublist));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(itemsinsublist))).toFixed(2));
             this.render();
         },
         addtoList : function(e){
@@ -712,7 +712,7 @@ define([
             this.model.set('SubScriptionItemsList',itemsinsublist);
             this.model.set('total', this.calculateTotal(itemsinsublist));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotal(itemsinsublist))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(itemsinsublist))).toFixed(2));
             this.render();
             setTimeout(function(){
                 if(itemClick === "search"){
@@ -827,7 +827,20 @@ define([
         calculateTotal : function(itemsinsublist){
             var total = 0;
             itemsinsublist.filter(function(v,i){
-                total += v.total;
+                    total += v.total;
+            }); 
+            return total;  
+        },
+        calculateTotalWithNoShippingProducts : function(itemsinsublist){
+            var total = 0;
+            var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
+            console.log(noShippingProducts);
+            itemsinsublist.filter(function(v,i){
+                console.log("v--",v.productCode);
+                if(noShippingProducts.indexOf(v.productCode) == -1){
+                    total += v.total;
+                }
+               
             }); 
             return total;  
         },
@@ -943,7 +956,7 @@ define([
                 modelRapidOrder.model.set('SubScriptionItemsList', preSelecteArray);
                 modelRapidOrder.model.set('total', modelRapidOrder.calculateTotal(preSelecteArray));
                 var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-                modelRapidOrder.model.set('remaingAmount', (shippingThrashold-parseFloat(modelRapidOrder.calculateTotal(preSelecteArray))).toFixed(2)); 
+                modelRapidOrder.model.set('remaingAmount', (shippingThrashold-parseFloat(modelRapidOrder.calculateTotalWithNoShippingProducts(preSelecteArray))).toFixed(2)); 
                 modelRapidOrder.model.set('categoryList', myResult); 
                 modelRapidOrder.render();  
                 setTimeout(function(){
