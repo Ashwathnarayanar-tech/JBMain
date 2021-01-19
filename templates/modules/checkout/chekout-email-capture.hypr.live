@@ -27,7 +27,7 @@
                                 <a tabindex="0" href="/user/forgotpassword" title="Forgot password - links to a new page" aria-label="Click here to go to forgot password page" class="mz-forgot">{{ labels.forgotPasswordLink }}</a>
                             </div> 
                             <div class="mz-l-formfieldgroup-cell"></div>  
-                            <div class="mz-l-formfieldgroup-cell">
+                            <div class="mz-l-formfieldgroup-cell noposition">
                                 <div class="mz-l-formfieldgroup-row margin-btm">
                                     <label class="checkbox-outer-label" tabindex="0">   
                                     <input tabindex="0" id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span class="text">By clicking Login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy*.</span></a> 
@@ -135,10 +135,11 @@ display: block;
                     <div class="mz-l-formfieldgroup" style="margin-top: 2px;">
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="guest_email"><span class="is-required" aria-label="mandatory field"> </span>{{ labels.emailAddress }} (required): </label>
+                               
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input aria-describedby="guestemailerror" name="email" id="guest_email" placeholder="Enter email"  type="email" class="guest-email"/>
+                                <input aria-describedby="guestemailerror" name="email" id="guestemail" placeholder="Enter email"  type="email" class="guest-email"/>
+                                 <label for="guestemail"><span class="is-required" aria-label="mandatory field"> </span>{{ labels.emailAddress }} (required): </label>
                                 <span class="error-guest" id="guestemailerror"></span>
                             </div> 
                         </div> 

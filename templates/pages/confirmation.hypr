@@ -47,11 +47,9 @@
                     <p class="heading-text" tabindex="0" role="contentinfo">Complete Your Account Creation</p>
                 </div>
                 <div class="form-sec">
-                    <div class="form-group passwd">
+                    <div class="form-group passwd mz-l-formfieldgroup-cell">
+                        <input placeholder="password" id="password" type="password" name="password" class="forminput" />
                         <label class="form-label" for="password">Create Password*</label>
-                         
-                        <input type="password" name="password" class="forminput" />
-                        
                         <div class="pwd-message-desktop">
                                     <div class="arrow-left"></div>
                                     <p id="password-requirements">Create a password with at least 6 characters, containing at least 1 number and 1 alphabetic character. Please don’t use a password from another site or something too obvious (like “password” or your name).</p>
@@ -59,9 +57,9 @@
                         <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
                         <span class="passwordError"></span>
                     </div>
-                    <div class="form-group confirmpassword">
+                    <div class="form-group confirmpassword mz-l-formfieldgroup-cell">
+                        <input placeholder="cpassword" id="cpassword" type="password" name="cpassword" class="forminput" />
                         <label class="form-label" for="cpassword">Confirm Password*</label>
-                        <input type="password" name="cpassword" class="forminput" />
                         <span class="cpasswordError"></span>
                     </div>
                     <div class="form-group">

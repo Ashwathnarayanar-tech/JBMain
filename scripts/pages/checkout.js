@@ -390,10 +390,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('.mz-checkoutform-shippingmethod').addClass('is-new');
                 $(document).find('.mz-checkoutform-shippingmethod').removeClass('is-complete');
             }
-            if(this.model.requiresDigitalFulfillmentContact()){
-                $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
-                $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').removeClass('is-new').addClass('is-incomplete');
-            }else{
+            // if only gift card
+            if(!this.model.requiresFulfillmentInfo() && this.model.requiresDigitalFulfillmentContact()){
+                $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent');
+                this.$el.removeClass('is-new is-incomplete is-complete is-invalid').addClass('is-' + this.model.stepStatus());
+            }// both gift and normal 
+            else{
                 if($(document).find('.mz-checkoutform-shippingmethod').hasClass('is-complete')){
                     $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent'); 
                 }else{  
@@ -402,7 +404,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 } 
             }
            
-
              // To make the paypal success to come to checkout page 
             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
                 if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
@@ -434,10 +435,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(window.flag ){
                 $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
                 $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
-                if(this.model.requiresDigitalFulfillmentContact()){
+                /*if(this.model.requiresDigitalFulfillmentContact()){
                     if($(document).find('.mz-formstep.mz-checkoutform-shippingaddress').hasClass('is-complete')){
                         if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
-/* nothing doing */
+//nothing
                         }else{
                             $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').removeClass('is-new is-complete').addClass('is-incomplete');
                         }
@@ -449,7 +450,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }else{
                     $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
                     $('.mz-checkoutform-paymentinfo').addClass('is-new');
-                }
+                }*/
               
             } 
             
@@ -1266,11 +1267,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                  //CVV Validation
                  var regcvv=/^[0-9]{3,4}$/;
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
-                     $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
+                     $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card’s complete CVV (Security Code)');
                       $('[data-mz-value="card.cvv"]').focus();
                   return false;
                  }else if(card.cvv===undefined || card.cvv === ""){
-                    $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card\'s security code');
+                    $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card\'s CVV (Security Code)');
                     $('[data-mz-value="card.cvv"]').focus();
                     return false;
                  }
@@ -2347,7 +2348,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 			});
 		} catch(e) { console.warn(orderNumGA + ' error in checkout'); }
 		
-		$(document).on("blur", "#guest_email", function(e) {
+		$(document).on("blur", ".guest-email", function(e) {
 			window._bopiq = window._bopiq || [];
 			window._bopiq.push(['doNotContact']);
 		});
@@ -2886,7 +2887,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                      //$('#addbutton').removeClass('active-button');     
                  }
                 
-                var guestvalue = $.trim($("#guest_email").val());
+                var guestvalue = $.trim($(".guest-email").val());
                 if( guestvalue.length > 0){ 
                     $('#guest_addbutton').addClass('active-button');    
                 }else{ 
@@ -2939,7 +2940,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                        $('#news').attr('checked',true);
                        $('.marketing').hide();
                     }
-                    var br_email = $('#guest_email').val(), br_phone = ''; 
+                    var br_email = $('.guest-email').val(), br_phone = ''; 
 
                     br_email = br_email.length === 0? (br_phone + '-phone-only@jellybelly.com') : br_email;
                     
@@ -3088,7 +3089,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             ChekoutEmailView.logKey();
         });
         
-        $('.guest_submit').find('#guest_email').on('keyup',function(){
+        $('.guest_submit').find('.guest-email').on('keyup',function(){
              ChekoutEmailView.logKey();     
         });
         

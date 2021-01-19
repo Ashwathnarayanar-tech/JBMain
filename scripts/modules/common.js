@@ -773,7 +773,7 @@ require([
 
         /////////////////////////// end Bronto code end
     
-        $(document).on("blur", "#guest_email, #email", function(e) { 
+        $(document).on("blur", ".guest-email, #email", function(e) { 
             window.brontoCart.emailAddress = $(this).val(); 
             });
         
