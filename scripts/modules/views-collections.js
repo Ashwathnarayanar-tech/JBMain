@@ -1398,13 +1398,11 @@ define([
         }
     ];
     function factory(conf) {
-
         var _$body = conf.$body;      
         var _dispatcher = UrlDispatcher;
         var ROUTE_NOT_FOUND = 'ROUTE_NOT_FOUND'; 
         var promodel ,flag,lastpage,loadMore = false, loadAll = window.loadAll = false;
         var defaultpagesize = window.defaultpagesize = 20;        
-        
         function updateUi(response) {
             var url = response.canonicalUrl;
             var $oattr;
@@ -1514,33 +1512,7 @@ define([
         }
         
         
-
-        // function labelShow(){
-        //     var one_day=1000*60*60*24;     
-        //     var comingSoonData = Hypr.getThemeSetting('comingSoonThresholds').split(',');
-        //     var comingSoon = [];
-        //     _.each(comingSoonData, function(pair) { var tmpArray = pair.split('='); 
-        //         comingSoon[tmpArray[0]] = parseInt(tmpArray[1],10);
-        //     });
-        //     $('.mz-productlist-item').each(function(){
-        //         var productDate =$(this).attr('createDate').substring(0,10).replace(/\//g,'-').trim(); 
-        //         var currentDate = $('#currentDate').text();
-        //         var x = productDate.split('-'); 
-        //         var y = currentDate.split('-');   
-        //         var date1 = new Date(x[2],x[0]-1,x[1]);     
-        //         var date2 = new Date(y[2],y[1]-1,y[0]);
-        //         var days = Math.ceil((date2.getTime()-date1.getTime())/(one_day)); 
-    
-        //         if($(this).attr('productType') !== "Gift Certificate"){
-        //             if ( days >= 0 && $(this).attr('onlineStockAvailable') === 0) {
-        //                 $('div[data-mz-product='+$(this).attr('data-mz-product')+']').find('.product-sale-new-label').show().css({ "background-color" : "#000099", "line-height" : "8px"}).html("<span style='font-size: 10px;'>COMING</span><br><span style='font-size: 9px;'>SOON</span>");
-        //             }else if(days <= Hypr.getThemeSetting('newLabelThreshold') && days >= 0 && $(this).attr('price') == $(this).attr('salePrice')){
-        //                 $('div[data-mz-product='+$(this).attr('data-mz-product')+']').find('.product-sale-new-label').show();
-        //             }
-        //         }
-        //     });    
-        // }
-         
+ 
         function initRecProd(){
             $(document).find('.recommended-product').show();
         } 
@@ -1873,6 +1845,7 @@ define([
             // flavor guide issue.
             var category = flavour_Guides1;
             var catCode = require.mozuData('pagecontext').categoryCode;
+            var data= require.mozuData('facetedproducts') ;
             $(category).each(function (index, data) {
                 if(data.category == catCode){
                     $(document).find('#flavor-List').append(Hypr.getTemplate('pages/flavor-guides-item').render({
@@ -1977,52 +1950,6 @@ define([
                     } 
                 });   
             }
-
-            // event to trigger browser resize.
-            setTimeout(function(){
-                if($(window).width() > 767){
-                    if($(window).width() > 1440){ 
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',($(window).width()-1440)/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','600px'); 
-                    }else{
-                        if($(window).width() < 1175){
-                            $(document).find('.a-spotText').css('font-size',"14px");
-                            $(document).find('.a-spotContentHeading').css('font-size',"26px");
-                        }else{
-                            $(document).find('.a-spotText').css('font-size',"1.2vw");
-                            $(document).find('.a-spotContentHeading').css('font-size',"2.3vw");   
-                        }
-                        var newHeigth = 500-((1440 - $(window).width())/3);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
-                    }
-                    $(window).resize(function(){ 
-                        if($(window).width() > 1440){
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',($(window).width()-1440)/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','600px'); 
-                        }else{
-                            if($(window).width() < 1175){
-                                $(document).find('.a-spotText').css('font-size',"14px");
-                                $(document).find('.a-spotContentHeading').css('font-size',"26px");
-                            }else{
-                                $(document).find('.a-spotText').css('font-size',"1.2vw");
-                                $(document).find('.a-spotContentHeading').css('font-size',"2.3vw");   
-                            }
-                            var newHeigth = 500-((1440 - $(window).width())/3);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
-                        }
-                    });
-                }
-            },1000);
         }
         initilizeBrandSec();
         //pagination mobile
