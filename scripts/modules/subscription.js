@@ -15,6 +15,7 @@ define([
         templateName: "modules/subscription",
         additionalEvents: {
             "keyup .searchBoxSub" : "search",
+            "click .search-box-cointainer":"enableSearch",
             "click .side-bar-item" : "changeCatList",
             "click .accordian-headitem" : "changeCategory",
             "touchstart .side-bar-item" : "changeCategory",
@@ -84,9 +85,9 @@ define([
             setTimeout(function(){
                 console.log(" flag ---",flag);
                 if(flag){
-                    window.scrollTo(0, $('.subscription').offset().top);
+                    window.scrollTo(0, $('.summary-accordian').offset().top-150);
                 }
-            },500);
+            },0);
         },
         setHowLongVal:function(){
             this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
@@ -424,7 +425,9 @@ define([
             $(e.target).attr('data-mz-value');
             this.model.get('subscriptionData').Data.weeks = $(e.target).attr('data-mz-value') == "weeks" ? true : false;
             this.model.get('subscriptionData').Data.years = $(e.target).attr('data-mz-value') == "months" ? true : false;
-            this.render();   
+            $(".span-tabs").removeClass("active");
+            $(e.target).addClass("active");
+            //this.render();   
         },
         decrement : function(e){
             var productCode = $(e.target).attr('data-mz-productcode');
@@ -750,6 +753,9 @@ define([
                 this.model.set('categoryList', catList); 
                 this.render(); 
             }
+        },
+        enableSearch:function(){
+            $(".searchBoxSub").focus();
         },
         search : _.debounce(function (e){
             itemClick = "search";
@@ -1318,7 +1324,7 @@ define([
             'isDesktop' : $(window).width() > 1024 ? true : false,
             'isPotreate' : $(window).width() < $(window).height() ? true : false,
             'isLandscape' : $(window).width() > $(window).height() ? true : false,
-            'isMobileShowSummary' : false,
+            'isMobileShowSummary' : true,
             'subscriptionData' : dataVal,
             'popupData' : popupData,
             'remaingAmount' : 0,

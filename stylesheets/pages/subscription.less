@@ -90,7 +90,19 @@
 									    }
 	                				}
 	                			}
-	                		}
+							}
+							.button-sec-gotIt{
+								width: 100%;
+								text-align: center;
+								.gotIt{
+									background-color:#004e99;
+									padding:3% 6%;
+									color: white;
+									border-radius: 5px;
+									font-size: 16px;
+									border: none;
+								}
+							}
 	                	}
 	                }
 				}
@@ -472,7 +484,13 @@
 														border: 1px solid #004e99;
 													}
 												}
-    										}
+											}
+											.checkBoxInfo{
+												padding-top: 6px;
+												display: inline-block;
+												color: #004e99;
+												font-size: 14px;
+											}
     										.sku-cointianer{
     											font-size: 14px;
 												color: #222222;
@@ -829,6 +847,13 @@
 												}
 											}
 										}
+										.checkBoxInfo{
+											padding-top: 18px;
+											display: inline-block;
+											color: #004e99;
+											font-size: 14px;
+											margin-left: -5px;
+										}
 										.sku-cointianer{
 											font-size: 14px;
 											color: #222222;
@@ -983,7 +1008,8 @@
 				    .summary-accordian{
 				    	background-color: #004e99;
 					    color: #fff;
-					    padding: 15px 15px;
+						padding: 15px 15px;
+						display: none;
 					    .list-item-count{
 						    font-size: 14px;
 						    font-weight: 500;
@@ -1928,6 +1954,7 @@
 						border-radius: 0;
 						/*margin-bottom: 46px;*/
 						.summary-accordian{ 
+							display: none;
 							.head-text{
 							    width: 55%;
 							}
@@ -1935,7 +1962,6 @@
 						.subscription{
 						    border-radius: 6px;
   							background-color: rgba(210, 231, 255, 0.5);
-  							display: none;
                             .expanded-section{
                                 padding: 10px 10px; 
                                 .formGroup{
@@ -2098,7 +2124,6 @@
                     	    padding: 12px 10px;
 						    margin: 0;
 						    border: 0px;
-						    display: none;
                         	.label-total{
 							    font-size: 18px;
 							    color: #000000;
@@ -2119,7 +2144,6 @@
                         }
                         .summaryListItems{
                         	background-color: #f5f5f5;
-                        	display: none;
 	                        .headeritems{
 	                    		padding: 12px 8px;
 	                    		.headertital{
@@ -2330,7 +2354,6 @@
 						    }
 	                    }
 	                    .button-sec{
-	                    	display: none;
 	                    	.create-subscription{
 							    border: solid 1px #d0c9c9;
 							    background-color: #d0c9c9;
@@ -3139,7 +3162,6 @@
 						.subscription{
 						    border-radius: 6px;
   							background-color: rgba(210, 231, 255, 0.5);
-  							display: none;
                             .expanded-section{
                                 padding: 10px 10px; 
                                 .formGroup{
@@ -3302,7 +3324,6 @@
                     	    padding: 12px 10px;
 						    margin: 0;
 						    border: 0px;
-						    display: none;
                         	.label-total{
 							    font-size: 18px;
 							    color: #000000;
@@ -3323,7 +3344,6 @@
                         }
                         .summaryListItems{
                         	background-color: #f5f5f5;
-                        	display: none;
 	                        .headeritems{
 	                    		padding: 12px 8px;
 	                        }
@@ -3441,7 +3461,7 @@
 													position: relative;
 		                                            margin: 0 auto;
 		                                            display: inline-block;
-		                                            vertical-align: top;
+													vertical-align: top;
 		                                            .quantity-sub{
 	                                                    border: solid 1px #cfcfcf;
 													    width: 100%;
@@ -3532,7 +3552,6 @@
 						    }
 	                    }
 	                    .button-sec{
-	                    	display: none;
 	                    	.create-subscription{
 							    border: solid 1px #d0c9c9;
 							    background-color: #d0c9c9;
@@ -3542,7 +3561,8 @@
 							    font-weight: bold;
 							    text-align: center;
 							    color: #ffffff;
-							    padding: 14px;
+								padding: 14px;
+								margin-top:2%;
 							    &.active{
 							    	border: solid 1px #e7131a;
 							    	background-color: #e7131a;

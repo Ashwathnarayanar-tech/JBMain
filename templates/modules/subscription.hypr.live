@@ -29,6 +29,11 @@
 						</li> 
 					</ul>
 				</div>
+				{% if model.isMobile %}
+				<div class="button-sec-gotIt" tabindex="0">
+						<button class="gotIt"  tabindex="0" role="button" data-mz-action="closePopup1" aria-label="Got it close popup">Got It</button>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -50,7 +55,7 @@
         </div> 
     </div>
 {% endif %}
-<div class="subscription-content {% if model.isMobileShowSummary %}showMobSummary{% endif %}">
+<div class="subscription-content ">
 	{% if model.headBar %}
 		<div class="top-bar" tabindex="0"> 
 			<ul class="bar-list">
@@ -160,6 +165,7 @@
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
 													<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
 												</span>
+												<span class="checkBoxInfo"> Add </span>
 											</span>
 											<span class="item-li heat-sensitive">
 												{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
@@ -408,7 +414,8 @@
 											<span class="input-cointainer checkbox-outer-label">
 												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
 			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
-		                        			</span>
+		                        				<span class="checkBoxInfo"> Add </span>
+											</span>
 										</span>
 										<span class="item-li heat-sensitive">
 											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
@@ -571,7 +578,7 @@
 			{% endif %}
 		{% endif %}
 	</div>
-</div><div class="summary-list {% if model.isMobileShowSummary %}showMobSummary{% endif %}">
+</div><div class="summary-list ">
 	{% if model.isDesktop %}
 		<div class="headeritems">
 			<span class="headertital" tabindex="0">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount" tabindex="0">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
