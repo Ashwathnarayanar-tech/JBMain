@@ -137,6 +137,7 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 				state = "ZZ";
 			}
 			var mdef = getMethod(shippingmethod.shippingMethodCode);
+			if(mdef!==undefined){
 			var shipDate = getNextShipDate(testDate, deadline, heatsensitive, mdef.method);
 			var a1 = getArrival2(shipDate, 0, mdef.arrivalBegin);
 			var a2 = getArrival2(shipDate, 0, mdef.arrivalEnd);
@@ -171,6 +172,7 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 				estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }
 			return {"estimation": estimation,"estimationDate" : estimationDate};  
+		}
 		}
 		function hasHeatSensitiveItemsByCategory() {
 			var items = order.items;

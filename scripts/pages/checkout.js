@@ -182,7 +182,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             var shippingMethodStatus = window.checkoutViews.steps.shippingInfo.model._stepStatus;
             var shippingAddressStatus = window.checkoutViews.steps.shippingAddress.model._stepStatus;
             
-            if(this.$el && this.$el.hasClass('mz-checkoutform-paymentinfo')){   
+            if(this.$el && this.$el.hasClass('mz-checkoutform-paymentinfo')){ 
+                if(this.model.get('paymentType')=="PayPalExpress2"){
+                    $(document).find('.mz-fromstep-direct-payment').addClass('no-direct-payment'); 
+                }  
                 if(shippingMethodStatus == "complete" && shippingAddressStatus == "complete"){
                     this.$el.removeClass('is-new is-incomplete is-complete is-invalid').addClass('is-' + this.model.stepStatus());
                 }else{
@@ -391,7 +394,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('.mz-checkoutform-shippingmethod').removeClass('is-complete');
             }
             // if only gift card
-            if(!this.model.requiresFulfillmentInfo() && this.model.requiresDigitalFulfillmentContact()){
+            if(!this.model.requiresFulfillmentInfo() && this.model.requiresDigitalFulfillmentContact() && shippingMethodStatus == "complete" && shippingAddressStatus == "complete" ){
+               
                 $(document).find('.mz-formstep.mz-checkoutform-review').addClass('showContent');
                 this.$el.removeClass('is-new is-incomplete is-complete is-invalid').addClass('is-' + this.model.stepStatus());
             }// both gift and normal 
@@ -2280,6 +2284,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         if($(window).width()>1100){
             $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
         }
+    });
+    //As label focus not working JEL-1733
+    $('#checkoutmodal label[for]').on('click',function(e){
+        console.log(e);
+        $(e.target).siblings('input').focus();
     });
     $(document).ready(function () {
         

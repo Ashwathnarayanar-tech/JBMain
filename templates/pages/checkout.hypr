@@ -107,6 +107,7 @@
                             </div>
                         {% endif %}  
                     </div>
+                   
                     <div class="mz-fromstep-direct-payment">
                         <label class="heading-text">Checkout using</label>
                         <div class="payment-options">

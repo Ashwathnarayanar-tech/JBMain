@@ -3,12 +3,13 @@
   <div class="mz-formstep-fields mz-l-formfieldgroup digital-email-content">
     <div class="mz-l-formfieldgroup-row">
       <div class="mz-l-formfieldgroup-cell">
-        <label for="digital-fulfillment-email">
-          {{ labels.email }}<span class="is-required"> *</span>:
-        </label>
+       
       </div>
       <div class="mz-l-formfieldgroup-cell">
-        <input type="text" id="digital-fulfillment-email" name="digital-fulfillment-email" data-mz-value="email" value="{{ model.email }}" /><!-- ADA OK -->
+        <input type="text" placeholder=" {{ labels.email }}" id="digital-fulfillment-email" name="digital-fulfillment-email" data-mz-value="email" value="{{ model.email }}" /><!-- ADA OK -->
+          <label for="digital-fulfillment-email">
+          {{ labels.email }}<span class="is-required"> *</span>:
+        </label>
           <span class="mz-validationmessage" data-mz-validationmessage-for="email"></span>
         </div>
     </div>
