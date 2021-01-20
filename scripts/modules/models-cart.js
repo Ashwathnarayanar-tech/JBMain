@@ -162,29 +162,36 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
             }
             
             var self = this;
+            console.log(" delete api called ");
             this.get('items').get(id).apiModel.del().then(function(prod) {
-              var objArray = [];
-              var obj ={};
-              obj.name = prod.data.product.name;
-              obj.id = prod.data.product.productCode;
-              obj.price = prod.data.product.price.price;
-              obj.brand = 'Jelly Belly';
-              obj.category = combineCategories(prod.data.product.categories);
-              obj.variant = 'standard';
-              obj.quantity = prod.data.quantity;
-              objArray.push(obj);
-              
-              dataLayer.push({
-                'event': 'removeFromCart',
-                  'ecommerce': {
-                    'remove': { 
-                    'products': objArray
-                  }
-                }
-              });
+              try{
+                var objArray = [];
+                var obj ={};
+                obj.name = prod.data.product.name;
+                obj.id = prod.data.product.productCode;
+                obj.price = prod.data.product.price.price;
+                obj.brand = 'Jelly Belly';
+                obj.category = combineCategories(prod.data.product.categories);
+                obj.variant = 'standard';
+                obj.quantity = prod.data.quantity;
+                objArray.push(obj);
                 
+                dataLayer.push({
+                    'event': 'removeFromCart',
+                    'ecommerce': {
+                        'remove': { 
+                        'products': objArray
+                    }
+                    }
+                });
+                    
                 brontoObj.build(api);
                 return self.fetch();
+            }catch(exception){
+                console.log("exception occured in delete api ",exception);
+            }
+            }).catch(function(error){
+                console.log(" api model del error ",error);
             });
         },
         
