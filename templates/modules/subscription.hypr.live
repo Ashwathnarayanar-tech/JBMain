@@ -219,6 +219,7 @@
 													<span class="input-cointainer checkbox-outer-label">
 														<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
 														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+														<span class="checkBoxInfo"> Add </span>
 													</span>
 												</span>
 												<span class="item-li heat-sensitive">
@@ -473,6 +474,7 @@
 												<span class="input-cointainer checkbox-outer-label">
 													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
 				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+													<span class="checkBoxInfo"> Add </span>
 			                        			</span>
 											</span>
 											<span class="item-li heat-sensitive">
