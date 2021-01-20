@@ -31,7 +31,7 @@ require([
                         //alert('Maximum quantity that can be purchased is 25');
                         $('.maximumProduct').show(); 
                         $('.maximum-message').focus();
-                        $('$target').addClass('maximum-close');
+                        $($target).addClass('maximum-close');
                         loopInMax();
                         return false;
                     }else{
@@ -296,13 +296,20 @@ require([
             if(e.keyCode == 13 || e.keyCode == 32) {
                 e.preventDefault();
                 $('.maximumProduct').hide();
-                $(document).find('.maximum-close').removeClass('maximum-close');
+                $(document).find('.maximum-close').focus();
+                setTimeout(function(){
+                    $(document).find('.maximum-close').removeClass('maximum-close');
+                   },2000);
 
             }
         });
         $(document).on('click', '.maximumProduct .close-icon',function(){
            $('.maximumProduct').hide();
-           $(document).find('.maximum-close').removeClass('maximum-close');
+           $(document).find('.maximum-close').focus();
+           setTimeout(function(){
+            $(document).find('.maximum-close').removeClass('maximum-close');
+           },2000);
+          
         });
         // $(document).keyup(function(e) {
         //     if (e.keyCode === 27 && $('.Add-to-cart-popup').hasClass("active")) {

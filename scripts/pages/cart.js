@@ -825,11 +825,6 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         $('.maximumProduct').hide();
         $(document).find('.add-to-cart-btn-plp').focus();
          //trigger.focus();
-     });  
-    $(document).on('click', '.maximumProduct .close-icon',function(){
-        $('.maximumProduct').hide();
-        $(document).find('.add-to-cart-btn-plp').focus();
-         //trigger.focus();
      });
     $(document).ready(function () {
         $(document).on('keydown','#keep-shopping-button',function(e) {

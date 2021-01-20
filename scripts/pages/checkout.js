@@ -1110,7 +1110,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             //"click .inpit-select": "showDropdown",   
             "click .btn_validatepaypal": "validateaddressform", 
             "change input[name='savedPaymentMethods']" : "changesavedcard",
-            //"keypress [id='paymentType']": "keypressForMobile",
+            //"keypress Error: Please add your Phone Number[id='paymentType']": "keypressForMobile",
             //"change [id='paymentType']": "setFocusforOption",
             "keydown [name='credit-card-number']":"creditcardformat",
             //"keydown [name='postal-code']":"zipcodeFormating",
@@ -1124,8 +1124,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 this.model.set('isSameBillingShippingAddress', true);
                 var billingContact = this.model.get('billingContact');
                 billingContact.set(this.model.parent.apiModel.data.fulfillmentInfo.fulfillmentContact, { silent: true });
-                $(".mz-same-as-shipping-summary").hide(); 
-                $('.mz-l-formfieldgroup-address').hide();
+                if(billingContact.toJSON().phoneNumbers.home==="N/A" ||billingContact.toJSON().phoneNumbers.home===""){
+                    $("[data-mz-value='isSameBillingShippingAddress']").removeAttr('checked');
+                    this.model.set('isSameBillingShippingAddress', false);  
+                    this.render();              
+                    $('.mz-l-formfieldgroup-address').show();
+                    $('[data-mz-validationmessage-for="billingContact.phoneNumbers.home]').text('Error: Please add your Phone Number.');
+                }else{
+                    $(".mz-same-as-shipping-summary").hide(); 
+                    $('.mz-l-formfieldgroup-address').hide();
+                }
+               
             }else{
                 $("[data-mz-value='isSameBillingShippingAddress']").removeAttr('checked');
                 this.model.set('isSameBillingShippingAddress', false);  
@@ -1297,6 +1306,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }else{
                     // form validation errors focus
                     var $errEl;
+                    
                     if($('.payment-form-section')) {
                         window.scrollTo(0, $('.payment-form-section').offset().top);
                         setTimeout(function() {
@@ -1511,6 +1521,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }else{
                     this.model.set('isSameBillingShippingAddress',false); 
                 }
+            }
+            if(this.model.requiresDigitalFulfillmentContact() && !this.model.requiresFulfillmentInfo()){
+                this.model.set('isSameBillingShippingAddress',false); 
             }
             if (visaCheckoutSettings.isEnabled && !this.visaCheckoutInitialized && this.$('.v-button').length > 0) {
                 window.onVisaCheckoutReady = _.bind(this.initVisaCheckout, this);
