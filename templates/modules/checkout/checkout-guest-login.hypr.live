@@ -41,10 +41,11 @@
 
                 <div class="mz-l-formfieldgroup-row">
                     <div class="mz-l-formfieldgroup-cell">
-                        <label for="signup-email" style="width: 280px">*Email Address:</label>
+                        
                     </div>
                     <div class="mz-l-formfieldgroup-cell">
                         <input placeholder="signup-email" type="email" class="mz-signup-email" id="signup-email" placeholder="{{ labels.emailAddress }}" data-mz-signup-emailaddress />
+                        <label for="signup-email" style="width: 280px">*Email Address:</label>
                     <div class="mz-l-formfieldgroup-cell">
 
                     </div>
