@@ -243,8 +243,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                      }
                      if(flag){
                          //alert('Maximum quantity that can be purchased is 25');
-                         $('.maximumProduct').show().focus();
-                         $('.maximum-message').focus();
+                         $('.maximumProduct').show();
+                         $('.maximum-inner-content').focus();
                          $(e.currentTarget).addClass('maximum-close');
                          loopInMax(e);
                          return false;
@@ -824,7 +824,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                      if(flag){
                          //alert('Maximum quantity that can be purchased is 25');
                          $('.maximumProduct').show().focus();
-                         $('.maximum-message').focus();
+                         $('.maximum-inner-content').focus();
                          $('$target').addClass('maximum-close');
                          loopInMax();
                          return false;

@@ -574,7 +574,9 @@ require([
                          if(flag){
                             // alert('Maximum quantity that can be purchased is 25');
                             $('.maximumProduct').show(); 
-                            $('.maximum-message').focus();
+                            $('.maximum-inner-content').focus();
+                           // $('.maximum-message').focus();
+                            loopInMax();
                              return false;
                          }else{
                             $('.mz-l-pagewrapper').addClass('is-loading');
@@ -744,6 +746,27 @@ require([
             modal.find('.success-msg').hide();
             $(document).find('body').removeClass("haspopup");
             modal.find('.error').text('');
+        }
+        function loopInMax(){
+            var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],span,input');
+            var firstInput = window.firstInput = window.inputs.first();
+            var lastInput = window.lastInput = window.inputs.last(); 
+            
+            // if current element is last, get focus to first element on tab press.
+            window.lastInput.on('keydown', function (e) {
+               if ((e.which === 9 && !e.shiftKey)) {
+                   e.preventDefault();
+                   window.firstInput.focus(); 
+               }
+            });
+            
+            // if current element is first, get focus to last element on tab+shift press.
+            window.firstInput.on('keydown', function (e) {
+                if ((e.which === 9 && e.shiftKey)) {
+                    e.preventDefault();
+                    window.lastInput.focus();  
+                }
+            }); 
         }
         function focusNotify(){
             window.notifyinputs = $(document).find('.notify-me-popup').find('input, button, a,.close').filter(':visible');    
