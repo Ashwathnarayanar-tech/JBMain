@@ -4816,7 +4816,7 @@
 	    To stay on JellyBelly.com, <span id="myjellybelly-cancel" style="text-decoration: underline; cursor: pointer;">click here.</span>
 	</div>
    <div class="maximumProduct"  role="alert">
-    <div class="maximum-inner-content">
+    <div class="maximum-inner-content" tabindex="0">
     <div class="maximum-message" tabindex="0">Maximum quantity that can be purchased is 25</div>
     <span class="close-icon" tabindex="0" aria-label="Close icon"></span>
 
