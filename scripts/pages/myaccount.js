@@ -372,7 +372,7 @@
                      if(flag){
                         // alert('Maximum quantity that can be purchased is 25');
                         $('.maximumProduct').show();
-                        $('.maximum-message').focus();
+                        $('.maximum-inner-content').focus();
                         loopInMax();
                          return false;
                      }else{
@@ -820,7 +820,7 @@
                                  if(flag){
                                      //alert('Maximum quantity that can be purchased is 25');
                                      $('.maximumProduct').show();
-                        $('.maximum-message').focus();
+                                     $('.maximum-inner-content').focus();
                                      loopInMax();
                                      return false;
                                  }else{
