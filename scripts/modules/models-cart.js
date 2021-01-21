@@ -189,9 +189,11 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
                 return self.fetch();
             }catch(exception){
                 console.log("exception occured in delete api ",exception);
+                return self.fetch();
             }
             }).catch(function(error){
                 console.log(" api model del error ",error);
+                return self.fetch();
             });
         },
         
