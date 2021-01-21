@@ -176,7 +176,7 @@ display: block;
                     <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                
+                                 
                             </div>  
                             <div class="mz-l-formfieldgroup-cell">
                                 <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>

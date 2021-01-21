@@ -31,7 +31,7 @@
                 </div>
                 <div class="mz-l-formfieldgroup-row half-width-second-block">
                     <div class="mz-l-formfieldgroup-cell">
-                        
+                         
                     </div>
                     <div class="mz-l-formfieldgroup-cell">
                         <input placeholder="last Name" type="text" class="mz-signup-lastname" placeholder="{{ labels.lastName }}" data-mz-signup-lastname id="signup-lastname"/> <!-- ADA -->

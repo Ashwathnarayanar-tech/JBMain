@@ -2299,7 +2299,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         }
     });
     //As label focus not working JEL-1733
-    $('#checkoutmodal label[for]').on('click',function(e){
+    $('#checkoutmodal label[for],#guestcheckoutmodal .login_submit-l label[for]').on('click',function(e){
         console.log(e);
         $(e.target).siblings('input').focus();
     });
