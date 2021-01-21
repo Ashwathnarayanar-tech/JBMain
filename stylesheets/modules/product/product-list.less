@@ -3,11 +3,6 @@
     width: 93%;
     margin: 0 auto;
     .mz-productlist-grid{ 
-        &:after{
-            content:'';
-            display:table;
-            clear:both;
-        }
         .mz-productlist-item{
             width: 19%;
             display: inline-block; 
@@ -120,6 +115,7 @@
                     .jb-quickviewdetails{
                         .jb-product-prize{
                             height: 48px;
+                            position: relative;
                             .jb-quickprice{
                                 margin: 0 10px;
                                 color: #000;
@@ -130,6 +126,7 @@
                                     text-decoration:line-through; 
                                 }
                             }
+
                             .jb-quickcsale{
                                 font-weight: bold;
                                 color: #000;
@@ -144,7 +141,21 @@
                                 font-size: 18px;
                             }
                             select{
-                                width: 100%;
+                                width: 94%;
+                                border-radius: 4px;
+                                padding: 11px 8px 11px 8px;
+                                background-size: 16px;
+                                text-align: center;
+                                display: inline-block;
+                                background-color: transparent;
+                                border: solid 0.6px #cfcfcf;
+                                height: auto;
+                                font-size: 14px;
+                            }
+                            .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add {
+                                top: 15px;
+                                left: auto;
+                                right: 15px;
                             }
                         }
                         .qty{
@@ -246,7 +257,7 @@
                             background-color: transparent;
                             border: 1px solid #5c5c5c;
                             width: 94%;
-                            margin: 5px 0 15px 0;
+                            margin: 5px 0 25px 0;
                             border-radius: 4px;
                             &:hover{
                                 color: #000;
@@ -258,6 +269,9 @@
                     }
                 }
             }
+        }
+        .mz-productlist-item:nth-child(5n){
+            margin-right: 1% !important;
         }
     }
 }

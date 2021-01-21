@@ -9,7 +9,6 @@ define(['modules/jquery-mozu',
         // Shop online button function
         $(document).find('.button-dark[title="Shop Online"]').on('click',function(e){
             e.preventDefault();
-            $("#shopping-section").focus();
             if($(window).width() <= 767){ 
                 $('html, body').animate({
                     scrollTop: $(document).find('#mz-productlist-list').offset().top-280
@@ -130,10 +129,9 @@ define(['modules/jquery-mozu',
                 } 
             });   
         }
-
+        //$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').attr('tabindex','0');
         // event to trigger browser resize.
         if($(window).width() > 767){
-            $(document).find('.a-spot-cointainer').addClass('opacity'); 
             if($(window).width() > 1440){ 
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',($(window).width()-1440)/2);
@@ -168,8 +166,6 @@ define(['modules/jquery-mozu',
                     $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
                 }
             });
-        }else{
-            $(document).find('.a-spot-cointainer').addClass('opacity'); 
         }
 
         // old code.        
@@ -267,3 +263,4 @@ define(['modules/jquery-mozu',
     
     require(["modules/add-to-cart-plp"]);
 });
+

@@ -642,10 +642,10 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 			}
 		}
 		if (type == 'unitPrice') {
-			products.push((prodModel.price.salePrice === undefined) ? "" : prodModel.price.price);
+			products.push((prodModel.price === undefined) ? "" : (prodModel.price.salePrice === undefined) ? "" : prodModel.price.price);
 		}
 		if (type == 'salePrice') {
-			products.push((prodModel.price.salePrice === undefined) ? "" : "" + prodModel.price.salePrice);
+			products.push((prodModel.price === undefined) ? "" : (prodModel.price.salePrice === undefined) ? "" : "" + prodModel.price.salePrice);
 		}
 		if (type == 'image') {
 			for (var j = 0; j < prodModel.content.productImages.length; j++) {
@@ -795,20 +795,22 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 		if (type == 'billing_lname') {
 			details.push(confirmationModel.billingInfo.billingContact.lastNameOrSurname);
 		}
-		if (type == 'billing_street1') {
-			details.push(confirmationModel.billingInfo.billingContact.address.address1);
-		}
-		if (type == 'billing_street2') {
-			details.push((confirmationModel.billingInfo.billingContact.address.address2 === null) ? "" : confirmationModel.billingInfo.billingContact.address.address2);
-		}
-		if (type == 'billing_city') {
-			details.push(confirmationModel.billingInfo.billingContact.address.cityOrTown);
-		}
-		if (type == 'billing_state') {
-			details.push(confirmationModel.billingInfo.billingContact.address.stateOrProvince);
-		}
-		if (type == 'billing_zip') {
-			details.push(confirmationModel.billingInfo.billingContact.address.postalOrZipCode);
+		if(confirmationModel.billingInfo.billingContact.address !== undefined){
+			if (type == 'billing_street1') {
+				details.push(confirmationModel.billingInfo.billingContact.address.address1);
+			}
+			if (type == 'billing_street2') {
+				details.push((confirmationModel.billingInfo.billingContact.address.address2 === null) ? "" : confirmationModel.billingInfo.billingContact.address.address2);
+			}
+			if (type == 'billing_city') {
+				details.push(confirmationModel.billingInfo.billingContact.address.cityOrTown);
+			}
+			if (type == 'billing_state') {
+				details.push(confirmationModel.billingInfo.billingContact.address.stateOrProvince);
+			}
+			if (type == 'billing_zip') {
+				details.push(confirmationModel.billingInfo.billingContact.address.postalOrZipCode);
+			}
 		}
 		if (type == 'customer_id') {
 			details.push(confirmationModel.customerAccountId);

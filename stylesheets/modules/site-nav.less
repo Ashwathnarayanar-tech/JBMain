@@ -7,7 +7,7 @@
         &.mz-desktop,&.mz-mobile{
             display: none;
             width: 96%; 
-            height: 478px;
+            height: 520px;
             border-radius: 4px;
             box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.32);
             border: solid 1px #d1d1d1;
@@ -95,6 +95,11 @@
                                                     color: #000;
                                                     &:hover{
                                                         font-weight: 700;
+                                                    }
+                                                    @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                        &:hover{
+                                                            font-weight: normal;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -254,6 +259,11 @@
                                                             &:hover{
                                                                 font-weight: 700;
                                                             }
+                                                            @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                &:hover{
+                                                                    font-weight: normal;
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -298,6 +308,11 @@
                                                         .namespan-container{
                                                             .name-span{
                                                                 font-weight: 700;
+                                                            }
+                                                            @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                .name-span{
+                                                                    font-weight: normal;
+                                                                }
                                                             }  
                                                         } 
                                                     }
@@ -490,6 +505,11 @@
                                                         line-height: 14px;
                                                         &:hover{
                                                             font-weight: 700;
+                                                        }
+                                                        @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                            &:hover{
+                                                                font-weight: normal;
+                                                            }
                                                         }                                                    }
                                                     .explore-text{
                                                         display: none;
@@ -549,6 +569,7 @@
                                             }
                                         }
                                     }
+
                                     .submenu-list[data-attr="Brand"]{
                                         border-right: 1px solid #d1d1d1;
                                     }
@@ -605,7 +626,7 @@
                             .menu{
                                 display: none;
                                 width: 100%;
-                                margin-bottom: 45px;
+                                margin-bottom: 200px;
                                 &.active{
                                     display: block;
                                 }
@@ -632,6 +653,12 @@
                                         }
                                     }
                                     &.menu-sweetrewards{ 
+                                        position: fixed;
+                                        bottom: 0;
+                                        padding-bottom: 50px;
+                                        left: 0;
+                                        right: 0;
+                                        margin: auto;
                                         .sweetrewardstextcontent,.sweetrewardstextcontent-guest{ 
                                             a{
                                                 text-decoration: none;
@@ -766,6 +793,9 @@
                                                             a.explore-text{
                                                                 display: block !important;
                                                             }
+                                                            a:hover {
+                                                                font-weight: normal;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -794,6 +824,9 @@
         }
     } 
 }
+.removeScroll body.Mobile-device.mz-homepage {
+    overflow: hidden;
+}
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .nav-cointainer{ 
         .mz-sitenav{
@@ -801,7 +834,7 @@
                 width: 102%;
                 top: 114%;
                 left: -9px;
-                height: 463px;
+                height: 515px;
                 .nav-menu-details{ 
                     .nav-menu-details-container{ 
                         .nav-main-ul{ 
@@ -1127,6 +1160,15 @@
         }
     } 
 }
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .nav-cointainer{ 
+        .mz-sitenav{
+            &.mz-desktop{
+                height: 530px;
+            }
+        }
+    }
+}
 @media only screen and (min-width: 1px) and (max-width: 767px){
     .nav-cointainer{ 
         .mz-sitenav{ 
@@ -1304,6 +1346,7 @@
                                                     .item-name-list{
                                                         .namespan-container{
                                                             padding: 11px 0;
+                                                            width:100%;
                                                             .name-span{
                                                                 font-weight: normal;
                                                                 padding: 0;

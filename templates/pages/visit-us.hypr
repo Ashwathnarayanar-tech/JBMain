@@ -16,7 +16,7 @@
                   </a>
                 </figure>
                 
-                <p tabindex="0"  >
+                <p tabindex="0" role="contentinfo" >
                   This is where the magic happens: the home of Jelly Belly! Come in and take the famous factory tour, have a bite to eat, and of course indulge in every treat we offer. You can book conference rooms for company functions. 
                   <a title="Halloweens Events at the Fairfield Visitor Center" class="jb-feature-brand-moreinfo" href="/templates/california-factory-index">View More ►</a>
                 </p>
@@ -24,7 +24,7 @@
             </div>
         </li>
         
-        <!--<li class="jb-feature-brand-listing">
+        <li class="jb-feature-brand-listing">
             <div class="jb-feature-brand-item">
                 <h3 tabindex="0">Wisconsin Visitor Center, Pleasant Prairie</h3>
                 <figure>
@@ -32,13 +32,13 @@
                     <img alt="Wisconsin Visitor Center in Pleasant Prairie" src="/resources/images/visit-us/PP_vc_thumb.jpg" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Ever ridden in a train with giant Jelly Belly jelly beans floating overhead? Head to Pleasant Prairie, Wisconsin and take a ride down Candy Alley! Then step into the Visitor Center and try all of our treats. 
                   <a class="jb-feature-brand-moreinfo" href="/templates/wisconsin-warehouse-index" title="Information about Wisconsin Visitor Center in Pleasant Prairie">View More ►</a>
                 </p>
                 <div class="clearfix"></div>
             </div>
-        </li>-->
+        </li>
         
         
         <li class="jb-feature-brand-listing">
@@ -49,7 +49,7 @@
                     <img alt="Jelly Belly Retailer Stores" src="/resources/images/visit-us/stores_thumb.jpg" width="133" border="0">
                   </a>
                 </figure>
-                <p tabindex="0"  >
+                <p tabindex="0"  role="contentinfo">
                   Stores exclusively devoted to Jelly Belly? If you're in the Northern California area, stop by one of our stores to get all the different candies on our menu. Find out where they are and how to reach them right here! 
                   <a class="jb-feature-brand-moreinfo" href="/templates/retail-store" title="Information about Jelly Belly Retailer Stores">View More ►</a>
                 </p>
@@ -67,3 +67,13 @@
         <img alt="Jelly Belly Online Store Locator" style=" border-radius: 10px; border: 1px solid #999;max-width: 100%;margin:0 auto;display: block;margin-bottom:40px;" src="/resources/images/shop_online_store_locator_page.jpg" >
     </a>
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+
+

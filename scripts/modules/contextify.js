@@ -123,6 +123,7 @@ define(['modules/jquery-mozu',
         var megamenufunctions = {
             showMenuNav : function(ele){
                 $(document).find('.mz-sitenav').addClass('active');
+                
                 var menu = ele.attr('attr-menuname');
                 if(menu && menu !== "store-locator" && menu != "store-branding"){  
                     $(document).find('.head-list-item').removeClass('active'); 
@@ -224,6 +225,7 @@ define(['modules/jquery-mozu',
             mobileFunc : {  
                 showMenuNav : function(ele){
                     $(document).find('.mz-sitenav.mz-mobile').addClass('active');
+                    $("html").addClass("removeScroll");
                     var menuName = ele.attr('attr-menuname');
                     $(document).find('.jb-megamenu').removeClass('active');
                     $(document).find('.'+menuName).addClass('active').find('.menu').addClass('active');                    
@@ -237,6 +239,7 @@ define(['modules/jquery-mozu',
                         top: "611px"
                     },500); 
                     setTimeout(function(){
+                        $("html").removeClass("removeScroll");
                         $(document).find('.mz-sitenav.mz-mobile').removeClass('active');
                         $(document).find('.jb-megamenu').removeClass('active');
                         $(document).find('.jb-megamenu').find('.menu').removeClass('active');
@@ -260,13 +263,14 @@ define(['modules/jquery-mozu',
                 }
             }
         };
-
         //header login layover
         $(document).mousemove(function(e) { 
             if($(e.target).hasClass('mz-utilitynav-content') || $(e.target).parents().hasClass('mz-utilitynav-content')){
                 $(document).find('.popover-content').addClass('active');
+                $(document).find('.popover-content').show();
             }else{
-                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');}},150);
+                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');$(document).find('.popover-content').hide();}},150);
+                
             }
         });
 
@@ -283,10 +287,7 @@ define(['modules/jquery-mozu',
             }
         });
         $(document).on('touchstart','.close-serch',function(e){
-            setTimeout(function(){
-                $(document).find('.page-header').removeClass('search-active');
-                $(document).find('.mz-searchbox-field').val('');
-            },200);            
+            setTimeout(function(){$(document).find('.page-header').removeClass('search-active');},200);            
         });
 
         // trigger sweet riwards
@@ -342,13 +343,23 @@ define(['modules/jquery-mozu',
                 $(document).find('.zinrelo-tab').click();
             }
         });
-
         $(document).on('keydown', '.sweetrewardstextcontent', function(e){
             if(e.which == 13 || e.which == 32){
                 $(document).find('.zinrelo-tab').click();
             }
         });
+        $(document).on('keydown', '.mz-utilitynav-content', function(e){
+            if(e.which == 13 || e.which == 32){
+                if((require.mozuData("user").isAuthenticated) && !(require.mozuData("user").isAnonymous)){
+                    $(document).find('.popover-content.myaccount').show();
+                    $(document).find('.popover-content.myaccount').focus();
+                } else {
+                    $(document).find('.popover-content.login').show();
+                    $(document).find('.popover-content.login').focus(); 
+                }
 
+            }
+        });
         $(document).on('keydown', '.head-list-item.view-products a', function(e){
             if ((e.which === 9 && e.shiftKey)){
                 e.preventDefault();

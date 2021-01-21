@@ -1,12 +1,12 @@
 <a href="javascript:void(0);" class="facets-header" aria-label="Filters" aria-expanded="false" role="button" tabindex="0"><div class="container-filter"><span class="filter-icon"></span> Filter By</div></a> 
 <div class="tz-mobileSelected-filter">
-    <label  tabindex="0" title="Selected Filters">Selected Filters: </label> 
+    <label role="contentinfo" tabindex="0" title="Selected Filters">Selected Filters: </label> 
     {% for facet in model.facets %}
         {% if facet.isFaceted %}
             {% if facet.label != "RatingForFacet" %}
                 {% for fval in facet.values %}  
                     {% if fval.isApplied %}    
-                        <span  aria-label="{{ fval.label|title}} {% if facet.label == "Price" %} $ {% endif %}" tabindex="0"  class="selected-facet-mobile">{{ fval.label|title}}<a role="button" aria-label="remove-facet {{ fval.label|title}}" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
+                        <span role="contentinfo" aria-label="{{ fval.label|title}} {% if facet.label == "Price" %} $ {% endif %}" tabindex="0"  class="selected-facet-mobile">{{ fval.label|title}}<a role="button" aria-label="remove-facet {{ fval.label|title}}" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
                     {% endif %}    
                 {% endfor %}
             {% else %} 
@@ -14,16 +14,16 @@
                 {% for fval in facet.values %}  
                     {% if fval.isApplied %}  
                         {% if fval.label == "10 to 50" %}
-                            <span  aria-label="1+ Stars" tabindex="0" class="selected-facet-mobile">1+ Stars<a role="button" aria-label="remove-facet 1+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
+                            <span role="contentinfo" aria-label="1+ Stars" tabindex="0" class="selected-facet-mobile">1+ Stars<a role="button" aria-label="remove-facet 1+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
                         {% else %}
                         {% if fval.label == "20 to 50" %}
-                            <span  aria-label="2+ Stars" tabindex="0" class="selected-facet-mobile">2+ Stars<a role="button" aria-label="remove-facet 2+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
+                            <span role="contentinfo" aria-label="2+ Stars" tabindex="0" class="selected-facet-mobile">2+ Stars<a role="button" aria-label="remove-facet 2+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
                         {% else %}
                         {% if fval.label == "30 to 50" %}
-                            <span  aria-label="3+ Stars" tabindex="0" class="selected-facet-mobile">3+ Stars<a role="button" aria-label="remove-facet 3+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
+                            <span role="contentinfo" aria-label="3+ Stars" tabindex="0" class="selected-facet-mobile">3+ Stars<a role="button" aria-label="remove-facet 3+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
                         {% else %}
                         {% if fval.label == "40 to 50" %}
-                            <span  aria-label="4+ Stars" tabindex="0" class="selected-facet-mobile">4+ Stars<a role="button" aria-label="remove-facet 4+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
+                            <span role="contentinfo" aria-label="4+ Stars" tabindex="0" class="selected-facet-mobile">4+ Stars<a role="button" aria-label="remove-facet 4+ Stars" tabindex="0" href="javascript:void(0);" attr-filter="{{ fval.value }}" attr-require="{{ fval.filterValue }}" class="remove-filter-one" id="{{ facet.label }}">X</a></span>
                         {% endif %}
                         {% endif %}
                         {% endif %}   

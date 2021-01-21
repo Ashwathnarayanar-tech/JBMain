@@ -4,12 +4,887 @@
  {% preload_json model "Category" %}
 
 {% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+	<h1 class="mz-pagetitle" tabindex="0">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
+	<div class="categorytops">
+		<div class="brand-dicreption-top" >
+		    <style>
+		        .visually-hidden {
+		            position: absolute;
+		            left:     -10000px;
+		            top:      auto;
+		            width:    1px;
+		            height:   1px;
+		            overflow: hidden;
+		        }
+		    </style>
+		    {% if pageContext.categoryId == 341 %}
+		        <div class="brand-dicreption">
+		            <div class="a-spot-cointainer">
+		                {% if pageContext.isMobile %}
+		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
+		                {% else %}
+		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
+		                {% endif %}
+		            </div>
+		            <div class="flavor-sec">
+		                <div class="flavor-List" id="flavor-List"></div>
+		            </div>
+		            <div class="brand-buttons">
+		                <a class="button-dark" href="#mz-productlist-list" tital="Shop Online">Shop Online</a>
+		                <a class="button-light" href="/store-locator" tital="find a store">Find a Store</a>
+		            </div>
+		            <div class="brand-description">
+		                <div class="brand-details" tabindex="0" role="contentinfo">
+		                    <p>Jelly Belly BeanBoozled® jelly beans have been delighting adventurous eaters since 2008. These bamboozling beans are meant to take your taste buds on a roller coaster, with colors that look like all your favorite Jelly Belly jelly beans but have unexpected flavors. Compare some of our tastiest and most popular flavors with our craziest ones, but here's the catch — you won't know which ones are which!</p>
+		                    <p>Take the BeanBoozled Challenge for yourself and see if your flavor will be yuck or yum… we dare you!</p>
+		                </div>
+		            </div>
+		            <style>
+		                /* @media only screen and (min-width: 700px) and (max-width: 899px) {
+		                    .tablet {
+		                        display: none;
+		                    }
+		                } */
+		                /*  GO FULL WIDTH BELOW 480 PIXELS */
+		                @media only screen and (max-width: 899px) {
+		                    .desktop {
+		                        display: none;
+		                    }
+		                    .span_2_of_2 {
+		                        margin-right: 200px;
+		                    }
+		                }
+		                /*  GO FULL WIDTH BELOW 480 PIXELS */
+		                @media only screen and (min-width: 900px) {
+		                    .mobile {
+		                        display: none;
+		                    }
+		                    .span_2_of_2 {
+		                        width: 40%;
+		                    }
+		                    .span_1_of_2 {
+		                        width: 40%;
+		                    }
+		                }
+		                /*  SECTIONS  */
+		                .section {
+		                    clear: both;
+		                    padding: 0px;
+		                    margin: 0px;
+		                }
+		                /*  COLUMN SETUP  */
+		                .col {
+		                    display: block;
+		                    float:left;
+		                    margin: 20px 5px 20px 5px;
+		                }
+		                .col:first-child { margin-left: 0; }
+		                .mz-l-pagecontent {
+		                    overflow: inherit !important 
+		                }
+		                /*  GROUPING  */
+		                .group:before,
+		                .group:after { content:""; display:table; }
+		                .group:after { clear:both;}
+		                .group { zoom:1; /* For IE 6/7 */ }
+		                /*  GRID OF FOUR  */
+		                .span_4_of_4 {
+		                    width: 100%;
+		                }
+		                .span_3_of_4 {
+		                    width: 74.6%;
+		                }
+		                .span_2_of_4 {
+		                    width: 49.2%;
+		                }
+		                .span_1_of_4 {
+		                    width: 23.8%;
+		                }
+		                .span_2_of_2 {
+		                    width: 30%;
+		                }
+		                .span_1_of_2 {
+		                    width: 30%;
+		                }
+		                .mySlides {display:none;}
+		                .w3-left, .w3-right, .w3-badge {cursor:pointer}
+		                .w3-badge {height:13px;width:13px;padding:0}
+		                .mySlides_mobile {display:none;}
+		                img {
+		                    vertical-align: middle;
+		                }
+		                .img-responsive,
+		                .thumbnail > img,
+		                .thumbnail a > img,
+		                .carousel-inner > .item > img,
+		                .carousel-inner > .item > a > img {
+		                    display: block;
+		                    max-width: 100%;
+		                    height: auto;
+		                }
+		                .img-rounded {
+		                    border-radius: 6px;
+		                }
+		                .img-thumbnail {
+		                    display: inline-block;
+		                    max-width: 100%;
+		                    height: auto;
+		                    padding: 4px;
+		                    line-height: 1.42857143;
+		                    background-color: #fff;
+		                    border: 1px solid #ddd;
+		                    border-radius: 4px;
+		                    -webkit-transition: all .2s ease-in-out;
+		                    -o-transition: all .2s ease-in-out;
+		                    transition: all .2s ease-in-out;
+		                }
+		                .img-circle {
+		                    border-radius: 50%;
+		                }
+		                .class:hover {
+		                    text-decoration: underline;
+		                }
+		                .hero-image{
+		                    display: flex;
+		                }
+		                .app-download{
+		                    display:flex;
+		                    justify-content: space-evenly;
+		                    flex-wrap: wrap;
+		                }
+		            </style>
+		            <div class="holdervideo" style="display:none;">
+		                <div class="holderpop">
+		                    <a href="javascript:void(0);" id="closevideo">Close</a>
+		                    <iframe id="popvideo" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe>
+		                </div>
+		            </div>
+		            <audio id="soundeff">
+		                <source src="//content.jellybelly.com/beanboozled/images/wheel.ogg" type="audio/ogg">
+		                <source src="//content.jellybelly.com/beanboozled/images/wheel.mp3" type="audio/mpeg">
+		            </audio>
+		            <div class="content">
+		                <input id="alive" name="alive" value="P4x2mIV3UuVCpc4cB30j" type="hidden">
+		                <div class="wrap">
+		                    <div class="andfiremeg"> Your browser is not currently supported, please try using your phones default browser</div>
+		                    <div class="section group ">
+		                        <div class="col span_1_of_2" style="text-align:center; padding: 10px;">
+		                            <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="desktop tablet" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
+		                            <div class="jelly_selectors desktop tablet" style="margin-left: -40px;">
+		                                <center>
+		                                    <h2 class="visually-hidden">
+		                                      Beanboozled beans and flavors
+		                                    </h2>
+		                                    <ul>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Birthday Cake flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Dirty Dishwater flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Dirty Dishwater</span><span>Birthday Cake</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Toasted Marshmallow flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Stink Bug flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Stink Bug</span><span>Toasted Marshmallow</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Stinky Socks flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Tutti-Fruitti flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Stinky Socks</span><span>Tutti-Fruitti</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Spoiled Milk flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Coconut flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Spoiled Milk</span><span>Coconut</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Toothpaste flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Berry Blue flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Toothpaste</span><span>Berry Blue</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Rotten Egg flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Buttered Popcorn flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Rotten Egg</span><span>Buttered Popcorn</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Canned Dog Food flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Chocolate Pudding flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Canned<br> Dog Food</span><span>Chocolate<br> Pudding</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Barf flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Peach flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Barf</span><span>Peach</span>
+		                                        </li>
+		                                        <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Booger flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Juicy Pear flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Booger</span><span>Juicy Pear</span>
+		                                        </li>
+		                                         <li>
+		                                            <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Dead Fish flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Strawberry Banana Smoothie flavor">
+		                                            <div class="clear"></div>
+		                                            <span>Dead Fish</span><span>Strawberry Banana Smoothie</span>
+		                                        </li>
+		                                    </ul>
+		                                </center>
+		                            </div>
+		                            <center>
+		                                <div style="text-align: center;" class="slider desktop">
+		                                    <div class="w3-content w3-display-container" style="max-width:450px; text-align: center;">
+		                                        <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/bbz_app_slider_resize.jpg" usemap="#image-map" class=" desktop" style="width:100%; margin-left: 60px;" alt="Game On! Download the Free BeanBoozled App">
+		                                        <map name="image-map">
+		                                            <area target="_blank" alt="Beanboozled application on Google Play" title="" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled" coords="220,315,348,353" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Google-Play' });">
+		                                            <area target="_blank" alt="Beanboozled application on Apple Store" title="" href="https://itunes.apple.com/us/app/jelly-belly-beanboozled/id1174483761" coords="221,362,348,400" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Apple-Store' });">
+		                                        </map>
+		                                        <div class="w3-center w3-container w3-section w3-large w3-text-black w3-display-bottommiddle" style="width:100%">
+		                                            <span class="w3-badge demo w3-border-black w3-border w3-transparent w3-hover-black" onclick="currentDiv(1)"></span>
+		                                            <span class="w3-badge demo w3-border-black w3-border w3-transparent w3-hover-black" onclick="currentDiv(2)"></span>
+		                                        </div>
+		                                    </div>
+		                                    <script>
+		                                        var myIndex = 0;
+		                                        carousel();
+
+		                                        function carousel() {
+		                                          var i;
+		                                          var x = document.getElementsByClassName("mySlides");
+		                                          var dots = document.getElementsByClassName("demo");
+
+		                                          for (i = 0; i < x.length; i++) {
+		                                             x[i].style.display = "none";  
+		                                          }
+		                                          for (i = 0; i < dots.length; i++) {
+		                                             dots[i].className = dots[i].className.replace(" w3-black", "");
+		                                          }
+		                                          myIndex++;
+		                                          if (myIndex > x.length) {myIndex = 1}  
+		                                          x[myIndex-1].style.display = "block";  
+		                                          dots[myIndex-1].className += " w3-black";
+		                                          setTimeout(carousel, 7000); // Change image every 7 seconds
+		                                        }
+		                                    </script>
+		                                </div>
+		                            </center>
+		                        </div>
+		                        <div class="col span_2_of_2" style="text-align:center; padding: 10px; margin-left: 139px;text-align:center; padding: 10px; margin-left: 139px;">
+		                            <div>
+		                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/are_you_brave_enough_white.jpg" style="margin-left: -30px; margin-top: -10px; width: 450px;" class="desktop" alt="Are you Brave Enough?"><br> 
+		                            
+		                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/are_you_brave_enough_white.jpg" style="margin-left: -150px; margin-top: -140px; width: 400px; margin-bottom: 50px;" class="mobile tablet" alt="Are you Brave Enough?"><br> 
+		                            </div>
+		                            <div class="values_sec" style="margin-left: 100px; margin-top: 0px;">
+		                                <div id="preloaderoverlay">
+		                                    <div id="preloader">
+		                                        <img src="//content.jellybelly.com/beanboozled/images/fbload.gif" alt="Loading" />
+		                                    </div>
+		                                </div>
+		                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/arrow2_1_4.png" style="transform: rotate(60deg);" class="rot" alt=""/>
+		                                <img class="values" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled4thspinner-1.png" alt="Bean Boozled 5th Edition Spinner">
+		                                <input aria-label="Spin the Beanboozled Challenge online spinner" type="button" value="Spin" class="spin" style="background:#F00; box-shadow: 0px 0px 0px 0px !important;" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'BB-Spinner' });" />
+		                            </div>
+		                            <div class="video_sec" style="margin-top: 10px;">
+		                                <p><img src="//content.jellybelly.com/beanboozled/images/title-top.jpg" width="400" height="71" alt="Is it Yuck or Yum? There's Only One Way to Find Out" /></p>
+		                                <div class="videoholder" style="width: 400px; height: 255px;">
+		                                    <img style="position:absolute; left:0; top:0;" src="//content.jellybelly.com/beanboozled/images/blankscreen.jpg" width="400" height="255" id="placeholder" alt="" />
+		                                    <div id="video_frame"></div>
+		                                    <div id="captionshow" style="display:none;">
+		                                        <div>
+		                                            <a href="javascript:void(0);" id="spagain"><img src="//content.jellybelly.com/beanboozled/images/spinagain.png" width="242" height="53" alt="" /></a><br />
+		                                            <img src="//content.jellybelly.com/beanboozled/images/or-video.png" width="222" height="30" alt="" />
+		                                            <a id="fullvideo" href="javascript:void(0)" onclick="">
+		                                                <img src="//content.jellybelly.com/beanboozled/images/fullvideo.png" width="386" height="95" alt="BeanBoozled Reaction Videos" />
+		                                            </a>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                                <h3>
+		                                    <img src="" alt=""><br>
+		                                    <a href="javascript:void(0);" rel=""></a>
+		                                </h3>
+		                            </div>
+		                        </div>
+		                        <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="mobile" style="width: 400px;" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
+		                        <div class="jelly_selectors mobile" style="margin-left: 0px;">
+		                            <h2 class="visually-hidden">
+		                              Beanboozled beans and flavors
+		                            </h2>
+		                            <center>
+		                                <ul>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Birthday Cake flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Dirty Dishwater flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Dirty Dishwater</span><span>Birthday Cake</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Toasted Marshmallow flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Stink Bug flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Stink Bug</span><span>Toasted Marshmallow</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Stinky Socks flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Tutti-Fruitti flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Stinky Socks</span><span>Tutti-Fruitti</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Spoiled Milk flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Coconut flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Spoiled Milk</span><span>Coconut</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Toothpaste flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Berry Blue flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Toothpaste</span><span>Berry Blue</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Rotten Egg flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Buttered Popcorn flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Rotten Egg</span><span>Buttered Popcorn</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Canned Dog Food flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Chocolate Pudding flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Canned<br> Dog Food</span><span>Chocolate<br> Pudding</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Barf flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Peach flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Barf</span><span>Peach</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Booger flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Juicy Pear flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Booger</span><span>Juicy Pear</span>
+		                                    </li>
+		                                    <li>
+		                                        <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Dead Fish flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Strawberry Banana Smoothie flavor">
+		                                        <div class="clear"></div>
+		                                        <span>Dead Fish</span><span>Strawberry Banana Smoothie</span>
+		                                    </li>
+		                                </ul>
+		                            </center>
+		                        </div>
+		                    </div>  
+		                </div>
+		                <div class="" style="width:400px; text-align: center; margin-left: -60px;">
+		                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/bbz_app_slider_resize.jpg" usemap="#image-map" class=" mobile" style="width:100%; margin-left: 60px;" alt="Game On! Download the Free BeanBoozled App">
+		                    <map name="image-map">
+		                        <area target="_blank" alt="Beanboozled application on Google Play" title="" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled" coords="220,315,348,353" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Google-Play' });">
+		                        <area target="_blank" alt="Beanboozled application on Apple Store" title="" href="https://itunes.apple.com/us/app/jelly-belly-beanboozled/id1174483761" coords="221,362,348,400" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Apple-Store' });">
+		                    </map>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="jb-footer-dpzone">
+		            <div class="bottom_links">
+		                <center>
+		                    <ul>
+		                        <li>
+		                            <img src="//content.jellybelly.com/beanboozled/images/bottom_link_img1.jpg" alt="">
+		                            <a href="/beanboozled-jelly-beans/c/341"  onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'Buy-Online' });">BUY ONLINE</a>
+		                        </li>
+		                        <li>
+		                            <img src="//content.jellybelly.com/beanboozled/images/bottom_link_img2.jpg" alt="">
+		                            <a href="/store-locator"  onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'Find-A-Store' });">FIND A STORE</a>
+		                        </li>
+		                        <li>
+		                            <img src="//content.jellybelly.com/beanboozled/images/bottom_link_img4.jpg" alt="">
+		                            <a onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'Youtube' });" href="https://www.youtube.com/playlist?list=PLzD03nf9DCMd9wb6Pu3FBmpKsbYOopiAh" target="_blank">SEE MORE VIDEOS</a>
+		                        </li>
+		                    </ul>
+		                </center>
+		           </div>
+		        </div>
+		        <div style="margin: 10px">    
+		            <ul style="font-size: 12px;">
+		                <li>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</li>
+		                <li>Google Play and the Google Play logo are trademarks of Google Inc.</li>
+		            </ul>
+		        </div>
+		    {% endif %}
+		    {% if pageContext.categoryId == 890 or pageContext.categoryId == 513 %}  
+		        <!-- CSS -->
+		        <style>
+		            img.highlight {
+		                position: absolute;
+		                right: 65px;
+		                top: -24px;
+		                z-index: 1;
+		                width: 137px;
+		            }
+		            #main-wrapper-ff {
+		                display: flex;
+		                justify-content: center;
+		                width: auto;
+		                margin: 0 auto;
+		                background-image:
+		                    url("https://cdn-tp1.mozu.com/9046-m1/cms/files/a33de06c-2219-40a1-bc97-dda236bae4df");
+		                background-repeat: no-repeat;
+		                background-position: center bottom -11px;
+		                background-size: cover;
+		                padding: 16px;
+		            }
+		            .therm-container {
+		                background-image: url("https://cdn-tp1.mozu.com/9046-m1/cms/files/cd55eb8b-2063-49d1-bad9-6444ec8af2eb?max=800");
+		                background-position: right 148px center;
+		                background-size: contain;
+		                background-repeat: no-repeat;
+		                margin: 160px 0 0 auto;
+		                max-height: 700px;
+		                padding: 0 56px 0 0;
+		            }
+		            .beans-wrapper {
+		                box-sizing: border-box;
+		                display: flex;
+		                flex-direction: column;
+		                justify-content: space-around;
+		                padding: 24px 0 0 0;
+		                height: calc(100% - 76px);
+		            }
+		            .body-wrap {
+		                display:flex;
+		                flex-direction: column;
+		            }
+		            .bean-container {
+		                display: flex;
+		                align-items: center;
+		                position: relative;
+		            }
+		            .bean-container span {
+		                font-family: Arial, sans-serif;
+		                font-weight: bold;
+		                color: white;
+		                line-height: 17px;
+		                font-size: 14px;
+		                margin-left: 8px;
+		                width: 72px;
+		            }
+		            .ff-beans {
+		                max-width: 110px;
+		                width: 100%;
+		                height: auto;
+		                padding: 0 4px;
+		                margin: 0 0 0 auto;
+		                /*filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));*/
+		            }
+		            .ff-logo-container {
+		                max-width: 500px;
+		                margin: 0 auto;
+		            }
+		            #ff-logo {
+		                display: block;
+		                max-width: 500px;
+		            }
+		            .values_sec {
+		                position: relative;
+		                max-width: 100%;
+		            }
+		            .ff-spinner {
+		                display: block;
+		                margin: 0 auto;
+		                max-width: 400px;
+		            }
+		            .rot {
+		                position: absolute;
+		                width: 200px;
+		                top: calc(50% - 40px);
+		                left: 50%;
+		                transform: translate(-50%) rotate(0deg);
+		            }
+		            .tagline {
+		                max-width: 300px;
+		                align-self: center;
+		                margin: 16px 0 0 0;
+		            }
+		            .spin {
+		                margin: 8px auto 0 auto;
+		                align-self: center;
+		                cursor: pointer;
+		                display: block;
+		                background-color: rgb(255, 242, 0);
+		                outline: none;
+		                border-radius: 6px;
+		                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		                font-size: 24px;
+		                border: none;
+		                padding: 8px 16px;
+		                color: rgb(236, 53, 48);
+		            }
+		            .spin:hover {
+		              background-color: rgb(235, 223, 0);
+		            }
+		            .therm-container-mobile {
+		                display: none;
+		            }
+		            .ff-warning-wrap-mobile {
+		                display: none ;
+		            }
+		            .video_sec {
+		                display: flex;
+		                justify-content: center;
+		                margin: 32px 0;
+		            }
+		            .videoholder {
+		                position: relative;
+		                width: 510px;
+		                height: 300px;
+		            }
+		            .after-vid-diag {
+		                position: absolute;
+		                top: 0;
+		                left: 0;
+		                background-color: rgba(89, 0, 0, 0.7);
+		                text-align: center;
+		                padding: 61px 0;
+		            }
+		            #placeholder {
+		                position: absolute;
+		                top: 0;
+		                left: 0;
+		            }
+		            .download-app-wrapper {
+		                display: flex;
+		                flex-direction: column;
+		                background-color: rgb(253, 192, 64);
+		                border-radius: 8px;
+		                padding: 8px 16px 16px 16px;
+		                margin: 0 auto 72px auto;
+		                max-width: 360px;
+		            }
+		            .download-app-container {
+		                display: flex;
+		                justify-content: center;
+		            }
+		            .download-app-wrapper span {
+		                display: block;
+		                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		                font-size: 24px;
+		                color: rgb(236, 53, 48);
+		                text-align: center;
+		            }
+		            .ff-google-play,
+		            .ff-app-store {
+		                margin: 4px 8px 0 0;
+		            }
+		            .ff-app-store {
+		                margin: 4px 0 0 0;
+		            }
+		            .store-icons {
+		                height: 40px; 
+		            }
+		            .ff-warning-wrap {
+		                padding: 0 0 0 16px;
+		            }
+		            .ff-warning {
+		                padding: 360px 0 0 0;
+		                width: auto;
+		                max-width: 250px;
+		            }
+		            
+		            /*------ MEDIA QUERIES ------*/
+		            /* VIEWPORT WIDTH: 1356px */
+		            @media screen and (max-width: 1356px) {
+		                .ff-logo-container {
+		                    max-width: 100%;
+		                    margin: 0 auto;
+		                }
+		                #ff-logo {
+		                    max-width: 100%;
+		                }
+		                .ff-spinner {
+		                    width: 100%;
+		                }
+		            }
+		            /* VIEWPORT WIDTH: 1024px */
+		            @media screen and (max-width: 1024px) {
+		                .therm-container {
+		                    height: 550px;
+		                    padding: 0;
+		                    background-position: right 88px center;
+		                }
+		                .ff-beans {
+		                    max-width: 80px;
+		                    padding: 0 4px 0 0;
+		                    /*filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));*/
+		                }
+		                .body-wrap {
+		                    padding: 0 0 0 16px;
+		                    width: 350px;
+		                }
+		                .ff-logo-container {
+		                    max-width: 350px;
+		                }
+		                #ff-logo {
+		                    max-width: 350px;
+		                }
+		                .ff-spinner {
+		                    width: 300px;
+		                }
+		                .ff-warning-wrap {
+		                    padding: 0;
+		                }
+		                .ff-warning {
+		                    padding: 300px 0 0 0;
+		                    max-width: 200px;
+		                }
+		                .tagline {
+		                    width: 200px;
+		                }
+		            }
+		            /* VIEWPORT WIDTH: 768px */
+		            @media screen and (max-width: 768px) {
+		                #main-wrapper-ff {
+		                    flex-direction: column;
+		                    position: relative;
+		                }
+		                .therm-container {
+		                    display: none;
+		                }
+		                .therm-container-mobile {
+		                    display: block;
+		                    position: relative;
+		                    background-image: url("https://cdn-tp1.mozu.com/9046-m1/cms/files/78561711-5bf2-4dc0-b10a-7cac93e96ae3");
+		                    background-size: contain;
+		                    background-repeat: no-repeat;
+		                }
+		                .beans-wrapper {
+		                    display: flex;
+		                    flex-direction: row;
+		                    justify-content: space-around;
+		                    box-sizing: border-box;
+		                    position: absolute;
+		                    top: 0;
+		                    right: 0;
+		                    padding: 20px 0 0 0;
+		                    width: calc(100% - 56px);
+		                }
+		                .bean-container {
+		                    flex-direction: column;
+		                    
+		                }
+		                .bean-container span{
+		                    text-align: center;
+		                    padding-top: 8px;
+		                }
+		                .ff-beans {
+		                    padding: 0;
+		                }
+		                .body-wrap {
+		                    padding: 0;
+		                    width: 100%;
+		                }
+		                .rot {
+		                    top: calc(50% - 48px);
+		                }
+		                .spin {
+		                    margin: 8px auto 16px auto;
+		                }
+		                .tagline {
+		                    margin-top: 48px;
+		                }
+		                .videoholder {
+		                    position: relative;
+		                    padding-bottom: 56.25%;
+		                    padding-top: 25px;
+		                    height: 0;
+		                    overflow: hidden;
+		                }
+		                .videoholder iframe {
+		                    position: absolute;
+		                    top: 0;
+		                    left: 0;
+		                    width: 100%;
+		                    height: 100%;
+		                }
+		                .ff-warning-wrap {
+		                    display: none;
+		                }
+		                .ff-warning-wrap-mobile {
+		                    display: flex;
+		                    width: auto;
+		                }
+		                .ff-warning {
+		                    padding: 0;
+		                    margin: 0 auto;
+		                    max-width: 250px;
+		                }
+		                .download-app-wrapper {
+		                    margin: 16px auto 72px auto;
+		                }
+		            }
+		            /* VIEWPORT WIDTH: 650px */
+		            @media screen and (max-width: 650px) {
+		                .beans-wrapper {
+		                    padding: 16px 0 0 0;
+		                }
+		                .bean-container span {
+		                    margin: 0;
+		                }
+		                .ff-beans {
+		                    max-width: 55px;
+		                    margin: 0 auto;
+		                }
+		            }
+		            /* VIEWPORT WIDTH: 480px */
+		            @media screen and (max-width: 480px) {
+		                .beans-wrapper {
+		                    padding: 8px 0 0 0;
+		                    right: 16px;
+		                }
+		                .ff-beans {
+		                    max-width: 48px;
+		                }
+		                .bean-container span {
+		                    font-size: 11px;
+		                    width: 56px;
+		                }
+		            }
+		        </style>
+		        <!-- HTML -->
+		        <div id="main-wrapper-ff">
+		            <!-- VIDEO MODAL -->
+		            <div class="holdervideo" style="display: none;">
+		                <div class="holderpop">
+		                    <a href="javascript:void(0);" id="closevideo">Close</a>
+		                    <iframe id="popvideo" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe>
+		                </div>
+		            </div>
+		            <!-- SOUND FILE -->
+		            <audio id="soundeff">
+		                <source src="//content.jellybelly.com/beanboozled/images/wheel.ogg" type="audio/ogg">
+		                <source src="//content.jellybelly.com/beanboozled/images/wheel.mp3" type="audio/mpeg">
+		            </audio>
+		            <div class="andfiremeg" style="display: none;"></div>
+		            <img src="/resources/images/fieryfive/carolina_reaper_yellow_shadow.png" style="display: none;">
+		            <img src="/resources/images/fieryfive/habanero_yellow_shadow.png" style="display: none;">
+		            <img src="/resources/images/fieryfive/cayenne_yellow_shadow.png" style="display: none;">
+		            <img src="/resources/images/fieryfive/jalapeno_yellow_shadow.png" style="display: none;">
+		            <img src="/resources/images/fieryfive/sriracha_yellow_shadow.png" style="display: none;">
+		            <!-- THERMOMETER -->
+		            <div class="therm-container mz-cms-col-4-12">
+		                <div class="beans-wrapper">
+		                    <div class="bean-container">
+		                        <img class="ff-beans reaper" src="/resources/images/fieryfive/carolina_reaper.png" alt="Carolina Reaper" regular="carolina_reaper.png" shadow="carolina_reaper_yellow_shadow.png">
+		                        <span>Carolina Reaper</span>
+		                    </div>
+		                    <div class="bean-container">
+		                        <img class="ff-beans habanero" src="/resources/images/fieryfive/habanero.png" alt="habanero" regular="habanero.png" shadow="habanero_yellow_shadow.png">
+		                        <span>Habanero</span>
+		                    </div>
+		                    <div class="bean-container">
+		                        <img class="ff-beans cayenne" src="/resources/images/fieryfive/cayenne.png" alt="Cayenne" regular="cayenne.png" shadow="cayenne_yellow_shadow.png">
+		                        <span>Cayenne</span>
+		                    </div>
+		                    <div class="bean-container">
+		                        <img class="ff-beans jalapeno" src="/resources/images/fieryfive/jalapeno.png" alt="Jalapeno" regular="jalapeno.png" shadow="jalapeno_yellow_shadow.png">
+		                        <span>Jalape&ntilde;o</span>
+		                    </div>
+		                    <div class="bean-container">
+		                        <img class="ff-beans sriracha" src="/resources/images/fieryfive/sriracha.png" alt="Sriracha" regular="sriracha.png" shadow="sriracha_yellow_shadow.png">
+		                        <span>Sriracha</span>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="body-wrap mz-cms-col-4-12">
+		                <!-- LOGO -->
+		                <div class="ff-logo-container">
+		                    <img id="ff-logo" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/80abdd2f-cff4-4d39-9980-c42f372872f4?max=500" alt="Beanboozled Fiery Five Logo">
+		                </div>
+		                <!-- SPINNER -->
+		                <div class="values_sec">
+		                    <div id="preloaderoverlay">
+		                        <div id="preloader">
+		                            <img src="//content.jellybelly.com/beanboozled/images/fbload.gif" alt="Loading" />
+		                        </div>
+		                    </div>
+		                    <img class="ff-spinner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/71a004ec-5d4d-4de2-a769-52f5ec960661?max=450" alt="" />
+		                    <img class="rot" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d074768d-eeed-4eba-9fbf-a02fd42fe660" alt="" />
+		                    <input type="button" class="spin" value="SPIN!">
+		                </div>
+		                <!-- MOBILE ONLY DIV: THERMOMETER -->
+		                <div class="therm-container-mobile">
+		                    <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/78561711-5bf2-4dc0-b10a-7cac93e96ae3" alt="" style="visibility: hidden; width: 100%;"/>
+		                    <div class="beans-wrapper">
+		                        <div class="bean-container">
+		                            <img   class="ff-beans sriracha" src="/resources/images/fieryfive/sriracha.png" alt="Sriracha" regular="sriracha.png" shadow="sriracha_yellow_shadow.png">
+		                            <span>Sriracha</span>
+		                        </div>
+		                        <div class="bean-container">
+		                            <img   class="ff-beans jalapeno" src="/resources/images/fieryfive/jalapeno.png" alt="Jalapeno" regular="jalapeno.png" shadow="jalapeno_yellow_shadow.png">
+		                            <span>Jalape&ntilde;o</span>
+		                        </div>
+		                        <div class="bean-container">
+		                            <img   class="ff-beans cayenne" src="/resources/images/fieryfive/cayenne.png" alt="Cayenne" regular="cayenne.png" shadow="cayenne_yellow_shadow.png">
+		                            <span>Cayenne</span>
+		                        </div>
+		                        <div class="bean-container">
+		                            <img   class="ff-beans habanero" src="/resources/images/fieryfive/habanero.png" alt="habanero" regular="habanero.png" shadow="habanero_yellow_shadow.png">
+		                            <span>Habanero</span>
+		                        </div>
+		                        <div class="bean-container">
+		                            <img  class="ff-beans reaper" src="/resources/images/fieryfive/carolina_reaper.png" alt="Carolina Reaper" regular="carolina_reaper.png" shadow="carolina_reaper_yellow_shadow.png">
+		                            <span>Carolina Reaper</span>
+		                        </div>
+		                    </div>
+		                </div>
+		                <!-- TAGLINE (HOW HOT CAN YOU HANDLE?) -->
+		                <img class="tagline" src="/resources/images/fieryfive/how_hot_can_you_handle.png" alt="">
+		                <!-- VIDEO @ BOTTOM OF PAGE -->
+		                <div class="video_sec">
+		                    <div class="videoholder" style="display: none;">
+		                        <iframe width="510" height="300" src="https://www.youtube.com/embed/OoiYLCQU80I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		                        <div id="video_frame" style="display: none !important;"></div>
+		                        <div id="captionshow" style="display:none;">
+		                            <div class="after-vid-diag">
+		                                <a href="javascript:void(0);" id="spagain">
+		                                    <img src="//content.jellybelly.com/beanboozled/images/spinagain.png" width="242" height="53" alt="" />
+		                                </a><br />
+		                                <img src="//content.jellybelly.com/beanboozled/images/or-video.png" width="222" height="30" alt="" />
+		                                <a id="fullvideo" href="javascript:void(0)" onclick="">
+		                                    <img src="//content.jellybelly.com/beanboozled/images/fullvideo.png" width="386" height="95" alt="BeanBoozled Reaction Videos" />
+		                                </a>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <!-- MOBILE ONLY DIV: WARNING ILLUSTRATION -->
+		                <div class="ff-warning-wrap-mobile">
+		                    <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?max=500" alt="">
+		                </div>
+		                <!-- DOWNLOAD APP -->
+		                <div class="download-app-wrapper">
+		                    <span>DOWNLOAD THE BEANBOOZLED APP!</span>
+		                    <div class="download-app-container">
+		                        <a class="ff-google-play" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled&hl=en_US">
+		                            <img class="ff-gp-icon store-icons" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/21759cef-ad73-4423-b7ea-f2dc5e7bef71" alt="Get it on Google Play" />
+		                        </a>
+		                        <a class="ff-app-store" href="https://apps.apple.com/us/app/jelly-belly-beanboozled/id1174483761">
+		                            <img class="ff-as-icon store-icons" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/e3177814-810f-49f5-b12b-3b433daf49b6" alt="Download on the App Store" />
+		                        </a>
+		                    </div>
+		                </div>
+		            </div>
+		            <!-- WARNING ILLUSTRATION -->
+		            <div class="ff-warning-wrap mz-cms-col-4-12">
+		                <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?max=500" alt="">
+		            </div>
+		        </div>
+		    {% else %}  
+		        {% if pageContext.isDesktop or pageContext.isTablet %}
+		            {% dropzone zoneId="brand-dicreption-top" scope="page" %}
+		        {% endif %}
+		        {% if pageContext.isEditMode or pageContext.isMobile %}
+		            {% dropzone zoneId="brand-dicreption-top-mobile" scope="page" %}
+		        {% endif %}
+		    {% endif %}
+		</div>
+	</div>
     <div data-mz-category="{{model.categoryId}}" class="mz-l-container">
     <div class="ip-container"><div class="jb-inner-overlay"></div></div> 
         {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
     </div>
     {% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
-    <div class="recommended-prod-head"><h2>Jelly Belly Also Recommends</h2></div>           
+    <div class="recommended-prod-head">Jelly Belly Also Recommends</div>           
     {% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                
                      
 {% endpartial_cache %} 

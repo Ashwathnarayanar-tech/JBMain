@@ -12,7 +12,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         getRenderContext : function(){
             var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
             var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
-            var noshippingTotal = 0; 
+            var noshippingTotal = 0;
             c.model.isNoShipping = false;
             c.model.items.filter(function(v,i){
                 if(noShippingProducts.indexOf(v.product.productCode) >= 0) c.model.isNoShipping =  true;
@@ -21,6 +21,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     noshippingTotal = noshippingTotal+v.total;
                 } 
             });
+
             var total=c.model.discountedTotal;
             var amt = 0;      
             if(!c.model.isNoShipping){
@@ -44,15 +45,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         },
         initialize: function () {
             var me = this;
+
             //setup coupon code text box enter.
             this.listenTo(this.model, 'change:couponCode', this.onEnterCouponCode, this);
             this.codeEntered = !!this.model.get('couponCode');
-            this.$el.on('keypress', 'input', function (e) {
+            /*this.$el.on('keypress', 'input', function (e) {
                 if (e.which === 13) {
                     if (me.codeEntered) {
                         me.handleEnterKey();
                     }
                     return false;
+                }
+            });*/
+
+            $("#coupon-code").keyup(function(event) {
+                if (event.keyCode === 13) {
+                    if (me.codeEntered) {
+                        me.handleEnterKey();
+                    }
                 }
             });
             this.$el.on('paste', 'input', function (e) {
@@ -64,7 +74,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
                 },100);
             });
-            
+
+           
             me.messageView = new ThresholdMessageView({
               el: $('#mz-discount-threshold-messages'),
               model: this.model
@@ -137,42 +148,46 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             "touchstart .minus-prod-qty-cart": "decQty",
             "touchstart .plus-prod-qty-cart": "increseQty", 
             "click .coupon-text":"couponSlide",
-            'click .p-button-mobile':'paypal'
+            'click .p-button-mobile':'paypal',
+            "click .estimateShippingCost":"showShipplingCalculator",
+            "keyup #shippingzipcode":"onEntershippingzipcode"
         },
         removeCoupon: function(e) {
             var self = this,
                 removedCoupon,
                 couponCodes = self.model.get('couponCodes');
 
-            $.each(couponCodes, function(i, o) {
-                self.model.apiRemoveCoupon(o).then(function(res) {
-                    $.cookie('coupon', '', {
-                        path: '/',
-                        expires: 7
+                $.each(couponCodes, function(i, o) {
+                    self.model.apiRemoveCoupon(o).then(function(res) {
+                        $.cookie('coupon', '', {
+                            path: '/',
+                            expires: 7
+                        });
                     });
                 });
-            });
-            $('#cart-checkout').focus();
-        },
-        removeAllCoupon: function() {
-            var self = this,
-                couponCodesLength = self.model.get('couponCodes').length,
-                couponCodes = self.model.get('couponCodes'),
-                i = 0,
-                removeCoupon;
-            if (couponCodesLength > 0 && $.cookie('coupon')) {
-                for (i; i < couponCodesLength; i++) {
-                    if ($.cookie('coupon') !== couponCodes[i]) {
-                        removeCoupon = couponCodes[i];
+                
+                $('#cart-checkout').focus();
+
+            },
+            removeAllCoupon: function() {
+                var self = this,
+                    couponCodesLength = self.model.get('couponCodes').length,
+                    couponCodes = self.model.get('couponCodes'),
+                    i = 0,
+                    removeCoupon;
+                if (couponCodesLength > 0 && $.cookie('coupon')) {
+                    for (i; i < couponCodesLength; i++) {
+                        if ($.cookie('coupon') !== couponCodes[i]) {
+                            removeCoupon = couponCodes[i];
+                        }
+                    }
+                    if (removeCoupon) {
+                        self.model.apiRemoveCoupon(removeCoupon).then(function(res) {
+                            console.log("coupon removed");
+                        });
                     }
                 }
-                if (removeCoupon) {
-                    self.model.apiRemoveCoupon(removeCoupon).then(function(res) {
-                        console.log("coupon removed");
-                    });
-                }
-            }
-        },
+            },
         couponSlide: function(e){
             var coupon = $(document).find('.coupon-code-main');
             if(coupon.is(':visible')){
@@ -184,7 +199,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 $(document).find('#coupon-code').focus();
             }
         },
-        /* testfun: function(e) {
+       /* testfun: function(e) {
                 var cartDetails = this.model.apiModel.data;
                 if (cartDetails && cartDetails.items.length > 0) {
                     if ($(e.currentTarget).val() !== "" && $(e.currentTarget).val().length == 5) {
@@ -193,15 +208,37 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                          $('#estimateShip').attr('disabled','disabled');
                     }
             }
-        },*/ 
+           
+    
+  
+         
+         
+        
+        },*/
+        showShipplingCalculator:function(e){
+            $(".estimateShippingCost").addClass("estimateShippingCost-onshow");
+            $('#estimateShippingCost-entry').removeClass('inactive');
+            $('#estimateShippingCost-entry').addClass('active');
+            $(document.getElementById("shippingzipcode")).focus();
+            $("#estimateShippingCost-success").hide();
+            $('#estimateShippingCost-failure').hide();
+            $('#shippingzipcode-btn').prop('disabled', true);
+            this.shippingcodeEntered = false;
+        },
         render:function(){
-
-            //this.model.checkBOGA();  
+           // window.shippingCalculationEnabled = true;
+           console.log(" Hypr.getThemeSetting('isshippingCalculationEnabled') ===",Hypr.getThemeSetting('isshippingCalculationEnabled'));
+           var isshippingCalculationEnabled = Hypr.getThemeSetting('isshippingCalculationEnabled');
+           if(!window.isshippingCalculationEnabled){
+                window.isshippingCalculationEnabled = isshippingCalculationEnabled;
+           }
+            if(window.isshippingCalculationEnabled){
+                this.model.set('isshippingCalculationEnabled', window.isshippingCalculationEnabled); 
+            } 
             Minicart.MiniCart.updateMiniCart();
             preserveElement(this, ['.p-button'], function() {
                 Backbone.MozuView.prototype.render.call(this);
             });
-
             if(this.model.get('couponCodes').length>1 && $.cookie('coupon')){
                 this.removeAllCoupon(); 
             }else if($.cookie('coupon')==="" && this.model.get('couponCodes').length>0){
@@ -210,7 +247,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 this.removeCoupon();
             } 
             if(this.model.apiModel.data.items.length>0){
-                this.checkInventory(); 
+			this.checkInventory(); 
             } 
             if(this.model.apiModel.data.items.length<1){
                 $(document).find('.p-button').attr('disabled',true);
@@ -220,6 +257,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 $(document).find('.p-button-mobile').attr('disabled',false);
             }
         },
+        
         removeItem: function(e) {
             var $removeButton = $(e.currentTarget),
                 id = $removeButton.data('mz-cart-item');
@@ -236,6 +274,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 window.location.reload();
              }*/
         },
+        
         proceedToCheckout: function () {
             //commenting  for ssl for now...
             //this.model.toOrder();
@@ -243,6 +282,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             this.model.isLoading(true);
             // the rest is done through a regular HTTP POST
         },
+        
+        // coupon changed by amit
         addCoupon: function () {
 			$('.coupon-error-onetime-use').fadeOut();
 			var johnList = []; // Hypr.getThemeSetting('onetimeCoupons').split(',');
@@ -266,7 +307,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 $('.coupon-error').fadeIn().focus();
 			}
 
-        /*		var tempCouponsUsedStr = decodeURIComponent($.cookie("onetimeCoupons") || '');
+/*		var tempCouponsUsedStr = decodeURIComponent($.cookie("onetimeCoupons") || '');
 			var tempCouponsUsed = tempCouponsUsedStr.split(",");
 			var self = this;
 			Api.get('cart').then(function (cart) {
@@ -292,6 +333,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 this.$el.find('#cart-coupon-code').removeClass("active-button");
             }
         },
+        onEntershippingzipcode:function(e){
+            var code = $("#shippingzipcode").val();
+            if (code && !this.shippingcodeEntered) {
+                this.shippingcodeEntered = true;
+                this.$el.find('#shippingzipcode-btn').prop('disabled', false);
+               // this.$el.find('#shippingzipcode-btn').addClass("active-button");
+            }
+            if (!code && this.shippingcodeEntered) {
+                this.shippingcodeEntered = false;
+                this.$el.find('#shippingzipcode-btn').prop('disabled', true);
+               // this.$el.find('#cshippingzipcode-btn').removeClass("active-button");
+            }
+            $('#estimateShippingCost-failure').hide();
+            console.log(" e-----",e.which);
+            if (e.which === 13 && this.shippingcodeEntered) {
+                $("#shippingzipcode-btn").click();
+            }
+        },
         autoUpdate: [
             'couponCode'
         ],
@@ -299,20 +358,21 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             this.addCoupon();
         },
 
-        /*estimateShip: function(e) {
+        estimateShip: function(e) {
                 var self = this;
                 //var stringmethods = Hypr.getThemeSetting('shippingMethods');
                 //var shippingMethods = stringmethods.split(',');
                 e.preventDefault();
                 var zipPat = /^\d{5}(?:[-\s]\d{4})?$/;
-
+                var zip = $('#shippingzipcode').val();
                 $(e.currentTarget).addClass('is-loading');
-                if (zipPat.test($('#shipping-zip').val())) {
+                if (zipPat.test($('#shippingzipcode').val())) {
 
                     $('#ziperror').hide();
+                    self.$el.find('#shippingzipcode-btn').prop('disabled', true);
                     var cartData = this.model.apiModel.data;
 
-                    $.cookie('zip', $('#shipping-zip').val());
+                    $.cookie('zip', $('#shippingzipcode').val());
 
                     if (cartData.isEmpty !== true) {
                         var itemArr = [];
@@ -322,24 +382,26 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             var item = {};
                             item.quantity = obj.quantity;
                             item.shipsByItself = false;
-                            item.unitMeasurements = {
-                                "height": {
-                                    "unit": obj.product.measurements.height.unit,
-                                    "value": obj.product.measurements.height.value
-                                },
-                                "length": {
-                                    "unit": obj.product.measurements.length.unit,
-                                    "value": obj.product.measurements.length.value
-                                },
-                                "weight": {
-                                    "unit": obj.product.measurements.weight.unit,
-                                    "value": obj.product.measurements.weight.value
-                                },
-                                "width": {
-                                    "unit": obj.product.measurements.width.unit,
-                                    "value": obj.product.measurements.width.value
-                                }
-                            };
+                            if(obj.product && obj.product.measurements){
+                                item.unitMeasurements = {
+                                    "height": {
+                                        "unit": obj.product.measurements.height ? obj.product.measurements.height.unit:"",
+                                        "value": obj.product.measurements.height ? obj.product.measurements.height.value :""
+                                    },
+                                    "length": {
+                                        "unit": obj.product.measurements.length ? obj.product.measurements.length.unit:"",
+                                        "value": obj.product.measurements.length ? obj.product.measurements.length.value:""
+                                    },
+                                    "weight": {
+                                        "unit": obj.product.measurements.weight ? obj.product.measurements.weight.unit :"",
+                                        "value": obj.product.measurements.weight ? obj.product.measurements.weight.value:""
+                                    },
+                                    "width": {
+                                        "unit": obj.product.measurements.width ? obj.product.measurements.width.unit :"",
+                                        "value": obj.product.measurements.width ? obj.product.measurements.width.value:""
+                                    }
+                                };
+                            }
                             itemArr.push(item);
                         });
                         var now = new Date();
@@ -356,7 +418,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             "carrierIds": ['ups'],
                             "destinationAddress": {
                                 "countryCode": "US",
-                                "postalOrZipCode": $('#shipping-zip').val()
+                                "postalOrZipCode": $('#shippingzipcode').val()
                             },
 
                             "isDestinationAddressCommercial": true,
@@ -376,10 +438,11 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             url: '/api/commerce/catalog/storefront/shipping/request-rates',
                             iframeTransportUrl: 'https://' + document.location.host + '/receiver?receiverVersion=2'
                         }, responsefiled1).then(function(resp) {
-                            $('#shipping-zip').val("");
+                            $('#shippingzipcode').val("");
                             $('#estimateShip').removeClass('is-loading');
                             $('#estimateShip').attr('disabled', 'disabled');
                             $('#estimateradio').html('');
+                            self.$el.find('#shippingzipcode-btn').prop('disabled', false);
                             for (var i = 0; i < resp.rates[0].shippingRates.length; i++) {
                                 if (resp.rates[0].shippingRates[i].amount !== undefined) {
                                     amount = true;
@@ -401,7 +464,23 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                         return a.amount - b.amount;
                                     }
                                 });
-                                sortedRates = _.map(sortedRates, function(method) {
+                                var shippingGroundAmount = 0;
+                                for(var l=0;l<sortedRates.length;l++){
+                                    if(sortedRates[l].code === "ups_UPS_SUREPOST_LESS_THAN_1LB"){
+                                        shippingGroundAmount = sortedRates[l].amount;
+                                    }
+                                }
+                                if(shippingGroundAmount > 0){
+                                    var str = " SurePost Shipping to <b>"+zip +"</b>(estimate): <b> $"+shippingGroundAmount+"</b>";
+                                    $("#estimateShippingCost-success").show();
+                                    $("#estimateShippingCost-success").html(str);
+                                    $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
+                                    $('#estimateShippingCost-entry').addClass('inactive');
+                                    $('#estimateShippingCost-entry').removeClass('active');
+                                    $('#estimateShippingCost-failure').hide();
+                                    $("#estimateShippingCost-success").focus();
+                                }
+                               /* sortedRates = _.map(sortedRates, function(method) {
                                     if (method.code.indexOf("SUREPOST") > -1)
                                         method.content.name = "UPS SurePost®";
                                     return method;
@@ -416,9 +495,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                             $('#estimateradio').append("<div class='mleft18 '><input type='radio' name='shippingmethod' data-mz-value = 'shippingMethodCode' aria-label= "+ o.code +" data-mz-price = " + o.amount + " value =" + o.code + "/><span style='margin-left:10px;'>" + o.content.name + " - " + "$" + o.amount.toFixed(2) + "</span></div>");
                                         }
                                     }
-                                });
+                                });*/
                             });
-                            $('input[type=radio]').change(function(e) {
+                            /*$('input[type=radio]').change(function(e) {
 
                                 var price = $(this).data('mz-price');
                                 var estimatedPriceWithShipping = 0;
@@ -438,25 +517,39 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                 $('.estimateprice').append("<span class='mleft18 order-total'><span class='estimate-total'>Total With Shipping:</span><span id='mz-carttable-total' class='mz-carttable-total jb-carttotalwithshipping'> $" + estimatedPriceWithShipping + "</span></span>");
                                 
                                 $('[data-mz-value="shippingMethodCode"]').attr('aria-label','Total With Shipping: $'+estimatedPriceWithShipping);
-                            });
+                            });*/
                             /*if($('input[type=radio]').length > 0)
                                 $('input[type=radio]')[0].focus();*/
+
                                 
-           /*         });
+                                
+                   }).catch(function(error) {
+                    console.log("error ---",error);
+                    $('#shippingzipcode').val("");
+                    $("#estimateShippingCost-success").show();
+                    $("#estimateShippingCost-success").html(error && error.message);
+                    $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
+                    $('#estimateShippingCost-entry').addClass('inactive');
+                    $('#estimateShippingCost-entry').removeClass('active');
+                    $('#estimateShippingCost-failure').hide();
+                    $("#estimateShippingCost-success").focus();
+
+                   });
+
                     }
                 } else {
-                    $('#ziperror').show();
-                    $('#estimateradio').html('');
+                    $('#estimateShippingCost-failure').show();
+                    $('#estimateShippingCost-failure').html('Entered Zip code is wrong ');
                     $('#estimateShip').removeClass('is-loading');
+                    $("#estimateShippingCost-failure").focus();
 
-                    return;
+                    return false;
                 }
-        },*/
-        checkInventory: function() {
+        },
+            checkInventory: function() {
             var error = 0,
             items = this.model.apiModel.data.items,
             productCodes = [],locatioCodes = [items[0].fulfillmentLocationCode];
-           
             _.each(items, function(item) {
                 productCodes.push(item.product.productCode);
             });
@@ -498,7 +591,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         addToCart:function(e){
             var productCode = $(e.currentTarget).attr('data-mz-prcode'),self = this,//addProduct = true,
             $target = $(e.currentTarget);
-            $('.mz-l-pagewrapper').addClass('is-loading');
+         
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-wish').val();
             var count = parseInt($quantity,10);
             var items = window.cartView.model.get('items').models;
@@ -511,36 +604,69 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //     }
             // }
            // if(addProduct){
-                Api.get('product', productCode).then(function(sdkProduct) {
-                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                    if(PRODUCT.get('purchasableState').isPurchasable){
-                        var variantOpt = sdkProduct.data.options;
-                        if(variantOpt !== undefined && variantOpt.length>0){  
-                            var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                            var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                            if(newValue != "Select gift amount" && newValue !== ''){
-                                var option = PRODUCT.get('options').get(ID);
-                                var oldValue = option.get('value');
-                                if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                                    option.set('value', newValue);
-                                }
-                                setTimeout(function(){
-                                    self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                                },2000);
-                            }else{
-                               $('.mz-l-pagewrapper').removeClass('is-loading');
-                            }
-                        }else{
-                            self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                        }
-                    }else{
-                        self.outOfStock(e,productCode,PRODUCT);
-                    }
-                });
+                
             // }else{
             //     $('.mz-l-pagewrapper').removeClass('is-loading');
             // }
+            //api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(items.length>0){
+                     for(var j=0;j<items.length;j++){
+                         var cartitemCode=items[j].get('product.productCode');
+                         var cartitemQty=items[j].get('quantity'); 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show().focus();
+                        $('.maximum-message').focus();
+                         return false;
+                     }else{
+                        $('.mz-l-pagewrapper').addClass('is-loading');
+                        self.additemstoCart(productCode,$target,count,e);
+                        return false;
+                     }
+                 }else{
+                    $('.mz-l-pagewrapper').addClass('is-loading');
+                    self.additemstoCart(productCode,$target,count,e);
+                     return false;
+                     
+                 }
+             //});   
         }, 
+        additemstoCart:function(productCode,$target,count,e){
+            var self=this;
+            Api.get('product', productCode).then(function(sdkProduct) {
+                var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                if(PRODUCT.get('purchasableState').isPurchasable){
+                    var variantOpt = sdkProduct.data.options;
+                    if(variantOpt !== undefined && variantOpt.length>0){  
+                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                        if(newValue != "Select gift amount" && newValue !== ''){
+                            var option = PRODUCT.get('options').get(ID);
+                            var oldValue = option.get('value');
+                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                                option.set('value', newValue);
+                            }
+                            setTimeout(function(){
+                                self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                            },2000);
+                        }else{
+                           $('.mz-l-pagewrapper').removeClass('is-loading');
+                        }
+                    }else{
+                        self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                    }
+                }else{
+                    self.outOfStock(e,productCode,PRODUCT);
+                }
+            });
+        },
         addToCartAndUpdateMiniCart:function(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             PRODUCT.addToCart(1); 
@@ -673,8 +799,33 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         render:function(){
             Backbone.MozuView.prototype.render.apply(this);
         }
-    });    
- 
+    }); 
+    function loopInMax(){
+        var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+        var firstInput = window.firstInput = window.inputs.first();
+        var lastInput = window.lastInput = window.inputs.last(); 
+        
+        // if current element is last, get focus to first element on tab press.
+        window.lastInput.on('keydown', function (e) {
+           if ((e.which === 9 && !e.shiftKey)) {
+               e.preventDefault();
+               window.firstInput.focus(); 
+           }
+        });
+        
+        // if current element is first, get focus to last element on tab+shift press.
+        window.firstInput.on('keydown', function (e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                window.lastInput.focus();  
+            }
+        }); 
+    } 
+    $(document).on('click', '.maximumProduct .close-icon',function(){
+        $('.maximumProduct').hide();
+        $(document).find('.add-to-cart-btn-plp').focus();
+         //trigger.focus();
+     });
     $(document).ready(function () {
         $(document).on('keydown','#keep-shopping-button',function(e) {
            if(e.keyCode == 13) {
@@ -832,18 +983,51 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
          * ADD CARAOUSEL in mobile view
          **/
         $(document).on('click', '.jb-add-to-cart,.jb-add-to-cart-cur', function(e) {  
-            //e.preventDefault();  
-            $('.mz-l-pagewrapper').addClass('is-loading');
-            $(document).find('.RTI-overlay').addClass('active');
-            $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+            //e.preventDefault(); 
             var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
             $('[data-mz-message-bar]').hide();
-            $('#mybuyspagezone3').addClass('is-loading');  
-            
             // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
-            
             var count = parseInt($quantity,10);
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show().focus();
+                        $('.maximum-message').focus();
+                        loopInMax();
+                         return false;
+                     }else{
+                        $('.mz-l-pagewrapper').addClass('is-loading');
+                        $(document).find('.RTI-overlay').addClass('active');
+                        $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+                        $('#mybuyspagezone3').addClass('is-loading');  
+                        additemstoCart(productCode,$target,count);
+                        return false;
+                     }
+                 }else{
+                    $('.mz-l-pagewrapper').addClass('is-loading');
+                    $(document).find('.RTI-overlay').addClass('active');
+                    $('[data-mz-productlist],[data-mz-facets]').addClass('is-loading');
+                    $('#mybuyspagezone3').addClass('is-loading');  
+                    additemstoCart(productCode,$target,count);
+                     return false;
+                     
+                 }
+             });   
+            
+          });
+          function additemstoCart(productCode,$target,count){
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;
@@ -866,8 +1050,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
             });
-          });
-	
+          }
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             var myMata = PRODUCT;
@@ -1171,3 +1354,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         });
     });
 });
+
+
+
+
+
+

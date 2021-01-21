@@ -355,7 +355,37 @@
             var self = this;
             PRODUCT.set({'quantity':count});
             $(document).find('.RTI-overlay').addClass('active');
-            PRODUCT.addToCart(1);
+            //PRODUCT.addToCart(1);
+            var productCode=PRODUCT.get('productCode');
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show();
+                        $('.maximum-message').focus();
+                        loopInMax();
+                         return false;
+                     }else{
+                        PRODUCT.addToCart(1);
+                        return false;
+                     }
+                 }else{
+                    
+                    PRODUCT.addToCart(1);
+                     return false;
+                     
+                 }
+             });    
             PRODUCT.on('addedtocart', function(attr) {
                 $(document).find('.RTI-overlay').removeClass('active');
 				brontoObj.build(Api);  
@@ -772,7 +802,38 @@
                     }
                      setTimeout(function(){
                         PRODUCT.set({'quantity':pid.qty });
-                        PRODUCT.addToCart();
+                        //PRODUCT.addToCart();
+                        var productCode=PRODUCT.get('productCode');
+                        var prdqty=PRODUCT.get('quantity');
+                        Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                            var flag=false;
+                             if(cartitem.items.length>0){
+                                 for(var j=0;j<cartitem.items.length;j++){
+                                     var cartitemCode=cartitem.items[j].product.productCode;
+                                     var cartitemQty=cartitem.items[j].quantity; 
+                                     var totalQty=prdqty+cartitemQty;
+                                     if(cartitemCode==productCode && totalQty>25){
+                                         flag=true;
+                                         // alert('Maximum quantity that can be purchased is 25');
+                                     }
+                                 }
+                                 if(flag){
+                                     //alert('Maximum quantity that can be purchased is 25');
+                                     $('.maximumProduct').show();
+                        $('.maximum-message').focus();
+                                     loopInMax();
+                                     return false;
+                                 }else{
+                                    PRODUCT.addToCart();
+                                    return false;
+                                 }
+                             }else{
+                                
+                                PRODUCT.addToCart();
+                                 return false;
+                                 
+                             }
+                         });    
                             PRODUCT.on('addedtocart', function(attr) {
                             productAdded++;
                             PRODUCT = ''; 
@@ -1005,6 +1066,12 @@
         finishEditCard: function () {
             var self = this;  
             var operation = this.doModelAction('saveCard');
+            $( ".mz-accountpaymentmethods-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+                
+            });
             if (operation && !operation.isError) {
                 operation.otherwise(function() {
                     self.editing.card = true;
@@ -1168,7 +1235,14 @@
         finishEditContact: function () {
             var self = this,
                 isAddressValidationEnabled = HyprLiveContext.locals.siteContext.generalSettings.isAddressValidationEnabled;
+            
             var operation = this.doModelAction('saveContact', { forceIsValid: isAddressValidationEnabled }); // hack in advance of doing real validation in the myaccount page, tells the model to add isValidated: true
+            $( ".mz-accountaddressbook-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+
+            });
             if (operation) {
                 operation.otherwise(function() {
                     self.editing.contact = true;
@@ -1403,6 +1477,32 @@
     });
     
     */
+   $(document).on('click', '.maximumProduct .close-icon',function(){
+    $('.maximumProduct').hide();
+    $(document).find('.add-to-cart-btn-plp').focus();
+     //trigger.focus();
+ });
+   function loopInMax(){
+    var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+    var firstInput = window.firstInput = window.inputs.first();
+    var lastInput = window.lastInput = window.inputs.last(); 
+    
+    // if current element is last, get focus to first element on tab press.
+    window.lastInput.on('keydown', function (e) {
+       if ((e.which === 9 && !e.shiftKey)) {
+           e.preventDefault();
+           window.firstInput.focus(); 
+       }
+    });
+    
+    // if current element is first, get focus to last element on tab+shift press.
+    window.firstInput.on('keydown', function (e) {
+        if ((e.which === 9 && e.shiftKey)) {
+            e.preventDefault();
+            window.lastInput.focus();  
+        }
+    }); 
+} 
     $(document).ready(function () {
         
         var targetFocusEl = window.targetFocusEl;
@@ -1567,6 +1667,11 @@
                 e.preventDefault();
             }
         });
+        $(document).on('click', '.maximumProduct .close-icon',function(){
+            $('.maximumProduct').hide();
+            $(document).find('.add-to-cart-btn-plp').focus();
+             //trigger.focus();
+         });
         
         /*var $myAccountNav = $('.mz-scrollnav-list');
         if($myAccountNav.length > 0) {

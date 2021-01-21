@@ -474,7 +474,23 @@ All this is done for any sub-level being entered.
     opacity: 1;
     left: 0
 }
-
+.tzOverlay-main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0%;
+	opacity: 0.6;
+	filter: alpha(opacity=60);	
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    -webkit-transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -ms-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    z-index: 999999;
+}
 #preloader {
     position: fixed !important;
 }
@@ -495,6 +511,23 @@ All this is done for any sub-level being entered.
     border-right: none !important;
 }
 
+.tzOverlay-main {
+width: 100%;
+height: 100%;
+position: fixed;
+background: #fff;
+top: 0;
+left: 0%;
+opacity: 0.6;
+filter: alpha(opacity=60);
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+-webkit-transition: opacity 0.2s ease-out;
+-moz-transition: opacity 0.2s ease-out;
+-ms-transition: opacity 0.2s ease-out;
+-o-transition: opacity 0.2s ease-out;
+transition: opacity 0.2s ease-out;
+z-index: 999999;
+}
 div.jbloader {
   position: absolute;
   top: 0;
@@ -1015,7 +1048,106 @@ body #cdawrap:hover #cda-remove {
     stroke-dashoffset: 0;
   }
 }
-
+// Checkout Input field
+.mz-checkout,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation{ 
+    .mz-l-formfieldgroup-cell{ 
+        position: relative; 
+        label, input {
+            transition: all 0.2s;
+            touch-action: manipulation;
+        }
+        label{
+            font-size: 16px !important;
+            text-align: left;
+           .is-required{
+            color:#004e99 !important;
+           }
+        }
+        input{
+            color: #000 !important;
+            font-size: 16px !important;
+            &:focus{
+                border-color:#004e99 !important;
+            }
+        }
+     select{
+         background-color: #fff !important;
+        &:focus{
+            border-color:#004e99 !important;
+        } 
+     }
+        input:placeholder-shown + label {
+            cursor: text;
+            max-width: 62%;
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform-origin: left bottom;
+            transform: translate(0,1.5rem) scale(1.5);
+            font-size: 12px !important;
+            position: absolute;
+            left: 10px;
+            top: -7px;
+            color: #000 !important;
+           
+        }
+        ::-webkit-input-placeholder {
+            opacity: 0;
+            transition: inherit;
+         }
+         :-moz-placeholder { 
+            opacity: 0;
+            transition: inherit;
+         }
+         
+         ::-moz-placeholder { 
+            opacity: 0;
+            transition: inherit;
+         }
+          
+         :-ms-input-placeholder {  
+            opacity: 0;
+            transition: inherit;
+         }
+        input:focus::-webkit-input-placeholder {
+            opacity: 0;
+        } 
+        input:not(:placeholder-shown){
+            background-color: #fff !important;
+        }
+        input:not(:placeholder-shown) + label, 
+        input:focus + label {
+            transform: translate(0, 0) scale(1);
+            cursor: pointer;
+            position: absolute;
+            font-size: 16px !important;
+            left: 10px;
+            top: -13px;
+            background: #fff !important;
+            padding: 0 6px;
+            width: auto!important;
+            min-width: auto !important;
+            color: #000 !important;
+            letter-spacing: 0.2px;
+        }
+        &.select-box{
+            label{
+                position: absolute;
+                left: 11px;
+                font-size: 16px !important;
+                top: -13px;
+                background: #fff;
+                padding: 0 6px;
+                width: auto!important;
+                min-width: auto !important;
+            }
+            .down-caret-ma-cardType,.up-caret-ma-cardType,.down-caret-ma-month,.up-caret-ma-month,.up-caret-ma-year,.down-caret-ma-year{
+                top: 13px;
+            }
+            
+        }
+    }
+}
 .jb-inner-overlay{
   position: absolute;
   top: 0;
@@ -1029,7 +1161,56 @@ body #cdawrap:hover #cda-remove {
   border: 0px solid #f1f1f1;
   border-radius: 5px;
 }
-.is-loading  .jb-inner-overlay {
+.loader-checkout{
+    background: url('../../resources/images/2.gif') no-repeat;
+    background-size: contain;
+    display:none;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 0;right:0;bottom:0;
+    left: 0;
+    margin: auto auto;
+    z-index:9;
+}
+.maximumProduct{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display:none;
+    .maximum-inner-content{
+        width: 45%;
+    margin: 0 auto;
+    margin-top: 17%;
+    padding: 3%;
+    //box-shadow: 0 2px 4px 0 rgb(0 0 0/50%);
+    background-color: white;
+    position: relative;
+        .close-icon{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url(../../resources/images/close-icon-popup.svg);
+            top: 16px;
+            background-repeat: no-repeat;
+            right: 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+        .maximum-message{
+
+        }
+    }
+}
+.is-loading  .jb-inner-overlay,.is-loading .loader-checkout {
     display: block;
 }
 .jb-career-iframe, .jb-faq-iframe {
@@ -1133,6 +1314,9 @@ body #cdawrap:hover #cda-remove {
 }
 //Content widget
 @media only screen and (min-width: 1px) and (max-width: 767px) {
+    .maximumProduct .maximum-inner-content{
+        width: 74%;
+    }
     .mz-drop-zone{
         blockquote {
             margin: 0 0 0 10px !important;
@@ -1713,6 +1897,9 @@ body #cdawrap:hover #cda-remove {
 }
 
 @media only screen and (min-width : 768px) and (max-width : 979px) {
+    .maximumProduct .maximum-inner-content{
+        width: 70%;
+    }
     .bean-recipe-row  {
         width: 96%;
         ul {
@@ -1737,6 +1924,23 @@ div#mz-drop-zone-checkout-faq .mz-cms-content {
     }
   }
 }
+
+
+
+//ingredient matrix styles
+
+.ingredient-matrix-container {
+	padding: 5px 5px;
+}
+
+
+.ingredient-matrix-container {
+	max-width: 700px;
+	text-align: center;
+	margin: 10% auto;
+    margin-top: 0px;
+}
+
 
 .grid-container {
   display: grid;
@@ -1793,3 +1997,8 @@ div#mz-drop-zone-checkout-faq .mz-cms-content {
 		text-align: left;
 	}
 }
+
+
+
+
+

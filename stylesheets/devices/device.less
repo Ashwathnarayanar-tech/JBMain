@@ -1,6 +1,7 @@
 /* 
 	For Mobile Devices (Portrait & Landscape)  
 */
+// code is changed by Amit on 15-jun-15 for gourmet text not visible issue 
 @media print{  
     .mz-confirmation {
         .print-receipt, .jb-socialize, .mz-pageheader-desktop, .jb-footer-dpzone, .mz-pageheader-mobile {
@@ -782,7 +783,21 @@
         }
     }
 }
-
+.customer-testimonial {
+   article {
+       section {
+           p {
+               width: 75%;
+               padding-left:45px;
+           }
+           .comment-image {
+                img {
+                    height: 100px !important;
+                }
+            }
+       }
+   }
+}
 .social-media-links {
     .social-article {
         #get-connected-inner-container {
@@ -1016,12 +1031,12 @@
             }
             img {
                 float: left;
- 
-            } 
+
+            }
             ul {
                 float: left;
                 margin: 0;
-                padding: 0; 
+                padding: 0;
             }
         }
         .welcome-center-image {
@@ -1136,18 +1151,18 @@
                     width: 100%;
                     height: auto;
                     .candy-details {
-                        float: none;
-                        width: 90%;
+                        float: none; 
+                        width: 90%; 
                         margin-left: 5%;
                     }
                     img {
                         max-width: 100%;
-                    }
+                    } 
                     figure {
                         text-align: center;
                         width: 100%;
                         float: none;
-                    }
+                    } 
                 }
             }
             }
@@ -1162,7 +1177,7 @@
     .mz-l-pagecontent {
         padding: 0 3% 0 3% !important;
     }
-    .jb-feature-brands {
+    .jb-feature-brands { 
         float: none;
         width: 93%;
         padding: 0;
@@ -1334,12 +1349,12 @@
             margin: 3px 0 5px;
         }
         .cyclistDetails {
-            float: none; 
+            float: none;
             width: 90%;
         }
         .cyclist-profile {
             float: none;
-            width: 90%; 
+            width: 90%;
             margin-top: 2%;
             figure {
                 img {
@@ -1410,7 +1425,7 @@
 
 /* ORDER CONFIRMATION */
 
-body.mz-confirmation {
+/*body.mz-confirmation {
     .mz-l-container {
 
         margin: 5% 0%;
@@ -1473,8 +1488,6 @@ body.mz-confirmation {
     table, thead, tbody, th, td, tr {
 		display: block;
 	}
-
-	/* Hide table headers (but not display: none;, for accessibility) */
 	thead tr {
 		position: absolute;
 		top: -9999px;
@@ -1482,7 +1495,6 @@ body.mz-confirmation {
 		border: none;
 	}
 	td {
-		/* Behave  like a "row" */
 		border: none;
 		position: relative;
 		padding: 0;
@@ -1599,7 +1611,7 @@ body.mz-confirmation {
            margin-left: 0;
         }
     }
-}
+}*/
 //CHECKOUT PAGE
 
 .mz-checkout  {
@@ -1639,7 +1651,6 @@ body.mz-confirmation {
         }
         .mz-formstep  {
             .mz-formstep-header {
-
                 label {
                    position: relative;
                    top: 0px;
@@ -1664,60 +1675,6 @@ body.mz-confirmation {
         }
 
         .mz-formstep  {
-            .mz-formstep-header {
-
-                /*.checkout-icons {
-                    top: -5px;
-                    left: 99px;
-                }
-                label {
-                   position: relative;
-                   top: 12px;
-                }
-                .step-no {
-                    padding-top: 15px;
-                    padding-bottom: 20px;
-                    label {
-                        top: 0;
-                    }
-                }
-                .step-completed {
-                    top: 19px;
-                    background-position: 0 -116px;
-                }*/
-            }
-             .mz-formstep-summary {
-                 padding: 20px 20px;
-             } 
-            .mz-formstep-fields {
-                padding: 10px 0 0 0px;
-                width: 100%;
-                .mz-l-formfieldgroup-row {
-                    width: 100%;
-                    .saved-cads-tooltip {
-                        right: 5px !important;
-                    }
-                    .mz-l-formfieldgroup-cell {
-                        padding-right: 0;
-                        input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select{
-                            width: 99%;
-                            font-size: 16px;
-                            height: 40px;
-                        }
-                    }
-                }
-                .mz-l-formfieldgroup-row.save-credit-card-info {
-                    margin-top: 8%;
-                }
-            }
-            .mz-formstep-next {
-                padding-right:0;
-                text-align: center;
-                button {
-                    width: 99%;
-                    padding: 7px 0;
-                }
-            }
             &.is-complete {
                 .mz-formstep-header {
                     .step-no {
@@ -1831,6 +1788,17 @@ body.mz-confirmation {
         margin-top: 74px;   
     }
 
+    //overlay dialogue pop up offer
+    .jb-l-overlay-popup{
+        display: none;
+        .jb-discount-offer{
+            display: none;
+            #jb-dicount-offer-close{
+                display: none;
+            }
+        }
+    }
+
     .jb-reccomended-product-dropzone{
         h2{
             padding: 2px;
@@ -1894,7 +1862,18 @@ body.mz-confirmation {
     .jb-social-links-desktop{
         display: none !important;
     }
-     
+    .jb-social-sprite{
+        background: url('../resources/images/preHead_icons.png') no-repeat top center;
+        width: 32px;
+        height: 32px;
+    }
+     .jb-tour-sprite {
+        background: url('../resources/images/icons/pre_icons.png') no-repeat top center;
+        width: 32px;
+        height: 25px;
+        display: inline-block;
+        margin-left: 5px;
+    }
      .jb-social-links-mobile{
         display: block !important;
         border-radius: 0px;
@@ -1996,10 +1975,52 @@ body.mz-confirmation {
         display: inline-block;
         font-size: 15px;
         }
-      }
-    }
-  }
-}
+        .jb-pin{
+            background: url("../resources/images/icons/footer-pinit.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        .jb-fb{
+            background: url("../resources/images/icons/footer-fb.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        .jb-utube{
+            background: url("../resources/images/icons/footer-youtube.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        .jb-plus{
+            background: url("../resources/images/icons/gplus.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        .jb-insta{
+            background: url("../resources/images/icons/footer-instagram.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        .jb-link{
+            background: url("../resources/images/icons/footer-inkedin.png") 0 0px no-repeat;
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-size: contain;
+        }
+        }
+        }
+        }
+        }
     .slides {
         img {
             max-width: 100%;
@@ -2444,7 +2465,15 @@ body.mz-confirmation {
         height:auto !important;
 }
 	}
-
+	#Bongoform {
+      text-align: center;
+    }
+    .BongoSubmit {
+      float: none;
+      margin-left: 0;
+      text-align: center;
+      right:0px;
+    }
     //NO search result 
     .mz-noresults{
         .mz-l-pagewrapper {
@@ -2652,6 +2681,18 @@ body.mz-confirmation {
       color:#017cab;
 
     }
+    .jb-social-sprite{
+        background: url('../resources/images/preHead_icons.png') no-repeat top center;
+        width: 32px;
+        height: 32px;
+    }
+     .jb-tour-sprite {
+        background: url('../resources/images/icons/pre_icons.png') no-repeat top center;
+        width: 32px;
+        height: 25px;
+        display: inline-block;
+        margin-left: 5px;
+    }
 
 .jb-social-links-mobile{
         display: block !important;
@@ -2752,10 +2793,52 @@ body.mz-confirmation {
         display: inline-block;
         font-size: 15px;
         }
-      }
-    }
-  }
-}
+        .jb-pin{
+        .jb-social-sprite;
+        background-position: 0px -384px;
+        &:hover{
+        background-position: 0px -416px;
+        }
+        }
+        .jb-fb{
+        .jb-social-sprite;
+        background-position: 0px -128px;
+        &:hover{
+        background-position: 0px -160px;
+        }
+        }
+        .jb-utube{
+        .jb-social-sprite;
+        background-position: 0px -320px;
+        &:hover{
+        background-position: 0px -352px;
+        }
+        }
+        .jb-plus{
+        .jb-social-sprite;
+        background-position: 0px -192px;
+        &:hover{
+        background-position: 0px -224px;
+        }
+        }
+        .jb-insta{
+        .jb-social-sprite;
+        background-position: 0px -448px;
+        &:hover{
+        background-position: 0px -480px;
+        }
+        }
+        .jb-link{
+        .jb-social-sprite;
+        background-position: 0px -513px;
+        &:hover{
+        background-position: 0px -545px;
+        }
+        }
+        }
+        }
+        }
+        }
     .mz-pagingcontrols {
         .jb-result-details {
            width: 70%;
@@ -2951,38 +3034,7 @@ body.mz-confirmation {
 
             }
         }
-    }
-    .mz-checkout .mz-checkoutform .mz-formstep.is-incomplete .mz-formstep-header .step-no label {
-        top: 1px !important;
-    }
-    .mz-checkout {
-        .mz-checkoutform {
-            .mz-formstep.is-complete , .mz-formstep.is-incomplete{
-                .mz-formstep-header {
-                    .checkout-icons {
-                        top: 12px;
-                        left: 10px;
-                    }
-                    label {
-                       position: relative;
-                       top: -2px;
-                       left: 3%;
-                    }
-                    .step-no {
-                        padding-top: 15px;
-                        padding-bottom: 20px;
-                        label {
-                            top: -8px;
-                        }
-                    }
-                    .step-completed {
-                        top: 19px;
-                        background-position: 0 -116px;
-                    }
-                }
-            }
-        }
-    }
+    }    
     .mz-ourproduct {
         #shop-our-product-brands-listing {
             .jb-ourproducts-brands-listing {
@@ -3194,6 +3246,105 @@ body.mz-confirmation {
     }
 } 
 
+
+
+//slot machine CSS
+
+//mobile
+@media only screen and (max-width: 737px) {
+	#slot-machine-reel-window{
+		display: inline-block;
+		width: 230px !important;
+		height: 38px;
+		overflow-x: hidden !important;
+		overflow-y: hidden !important;
+		padding-left: 0px;
+	}
+	#slot-machine-spacer{
+		display:inline-block;
+		width: 10px;
+		margin: 10px 2px 5px 2px;
+		vertical-align: top;
+		font-weight: bold;
+	}
+	#slot-machine-result{
+		display: inline-block;
+		width: 45px !important;
+		margin: 0 auto !important;
+	}
+	#text-result {
+		size: 2;
+		font-weight: bold;
+	}
+}
+
+//tablet
+@media only screen and (min-width: 738px) and (max-width: 960px) {
+	#slot-machine-reels{
+
+	}
+	#slot-machine-reel-window{
+		width: 533px;
+		height: 88px;
+		margin: 0 auto;
+		background-color:fff;
+		overflow-y: hidden;
+		position: relative;
+		display: inline-block;
+	}
+	#slot-machine-spacer{
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top:25px;
+		padding-left: 10px;
+		padding-right:10px;
+		vertical-align: top;
+		line-height:1;
+		font-size:2em;
+		color: #000;
+	}
+	#slot-machine-result{
+		display: inline-block;
+		width: 105px !important;
+		margin: 0 auto !important;
+	}
+	#text-result {
+		size: 6.8;
+	}
+}
+
+//desktop
+@media only screen and (min-width: 961px) {
+	#slot-machine-reels{
+
+	}
+	#slot-machine-reel-window{
+		width: 620px;
+		height: 100px;
+		margin: 0 auto;
+		background-color:fff;
+		overflow-y: hidden;
+		position: relative;
+		display: inline-block;
+	}
+	#slot-machine-spacer{
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top:0px;
+		padding-left: 10px;
+		padding-right:10px;
+		vertical-align: top;
+		line-height:1;
+		font-size:90px;
+		color: #000;
+	}
+	#text-result {
+		size: 6.8;
+	}
+} 
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .mz-pageheader-desktop{
         width: 976px;
@@ -3271,3 +3422,70 @@ body.mz-confirmation {
         }
     }     
 }
+
+.ingredient-matrix-container{
+
+	.result-item-section-heading {
+		display: none;	
+	}
+
+	.result-item {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 30px 0px;
+	}
+
+	.result-item-image-thumb {
+		width: 40%;
+		padding: 5px 5px;
+	}
+	
+	.result-item-name-link {
+		width: 60%;
+		padding: 10px 5px;
+	}
+	
+	.result-item-allergen-info-fields {
+		width: 100%;
+		display: flex;
+		padding: 5px 20px;
+	}
+	
+	.result-item-allergen-info {
+		flex-grow: 1;
+	}
+	
+	
+	
+	@media only screen and (min-width: 576px) {
+		.result-item-section-heading{
+			display: flex; 
+			width: 100%;
+		}
+		.result-item {
+			display: flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			margin: 20px 0px;
+		}
+		.result-item-image-thumb {
+			width: 20%;
+
+		}		
+		.result-item-name-link {
+			width: 30%
+		}		
+		.result-item-allergen-info-fields {
+			width: 50%;
+			display: flex;
+			padding: 5px 0px;
+		}		
+		.result-item-allergen-info {
+			flex-grow: 1;
+		}	
+	}
+}
+
+
+

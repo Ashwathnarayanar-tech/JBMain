@@ -1,7 +1,29 @@
 ﻿{% if pageContext.pageType == "cart" %} 
-    <div class="coupon-code-section">    
+{% if  model.isshippingCalculationEnabled %} 
+    <div class="coupon-code-section">     
         <div class="mz-l-formfieldgroup-cell">  
-            <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code<span><img src="../../../resources/images/couponarrow.png" alt=""></span></div>
+            <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code </div>
+        </div>
+        <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %} Ab-coupon-code-main" >
+            <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
+                <input type="text" id="coupon-code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
+                {% if model.couponCodes.length> 0 %}
+                    <button type="button"  class="mz-button remove-coupon" role="button" aria-label="{{ labels.remove }}">{{ labels.remove }}</button>       
+                {% else %}
+                    <button type="button" id="cart-coupon-code" class="mz-button" data-mz-action="addCoupon" role="button" aria-label="{{ labels.apply }}" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+                {% endif %}    
+            </div> 
+            <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" role="contentinfo">
+                <span><b>Note:</b> Shipping-related coupons must be entered during checkout.</span>
+            </div> 
+            <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
+            <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
+        </div>
+    </div>
+{% else %}
+    <div class="coupon-code-section">     
+        <div class="mz-l-formfieldgroup-cell">  
+            <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code<span><img src="../../../resources/images/couponarrow.png"></span></div>
         </div>
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %}">
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
@@ -12,13 +34,14 @@
                     <button type="button" id="cart-coupon-code" class="mz-button" data-mz-action="addCoupon" role="button" aria-label="{{ labels.apply }}" {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
                 {% endif %}    
             </div>  
-             <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" >
+             <div class="mz-l-formfieldgroup-cell" id="shipping-coupons-note" tabindex="0" role="contentinfo">
                 <span><b>Note:</b> Shipping-related coupons must be entered during checkout.</span>
             </div>
             <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
             <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
         </div>
     </div>
+{% endif %} 
 {% else %}
         <div class="mz-l-formfieldgroup-cell" style="text-align: left;"> 
            <label class="checkbox-outer-label"><input id="cart-coupon-checkbox" type="checkbox" aria-label="Enter coupon"> Enter Coupon <span class="checkmark-style"></span></label>
@@ -36,3 +59,5 @@
         <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
         <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
 {% endif %}
+
+

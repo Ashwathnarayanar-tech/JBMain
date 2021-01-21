@@ -1,61 +1,68 @@
 ﻿<div class="mz-contactselector">
     {% block contact-selector %}
-    {% for contact in model.contacts %}
-    {% if contact.isDefaultShipping %} 
-        <label class="mz-contactselector-contact">
-            <span class="mz-contactselector-inputwrapper">
-                <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.id == contact.id or model.contactId == contact.id" %} checked="checked" {% endif %}>
-            </span>
-            <span class="mz-contactselector-summarywrapper">
-                <div class="mz-addresssummary">
-                    <p style="margin: 0px;"><b>Default Shipping Address</b></p>
-                    {% include "modules/common/address-summary" with model=contact %}        
-                </div>
-            </span>  
-        </label>
-    {% endif %}
-    {% endfor %}
-    
-    {% for contact in model.contacts %}
-    {% if not contact.isDefaultShipping %} 
-        <label class="mz-contactselector-contact">
-            <span class="mz-contactselector-inputwrapper">
-                <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.id == contact.id or model.contactId == contact.id" %} checked="checked" {% endif %}>
-            </span>
-            <span class="mz-contactselector-summarywrapper">
-                <div class="mz-addresssummary">
-                    {% include "modules/common/address-summary" with model=contact %}        
-                </div>
-            </span>  
-        </label>
-    {% endif %}
-    {% endfor %}
-    
-  <div class="clearfix"></div> 
-  {% if model.contactId == "new" or model.contactId == 0 %}
-    <div class="mz-contactselector-contact mz-contactselector-new">
-        <span class="mz-contactselector-inputwrapper">
-            <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" 
-                data-mz-enternewcontact checked="checked">
-        </span>
-        <span class="mz-contactselector-summarywrapper">
-            {% block enter-new-form %}
-            {% include "modules/common/address-form" with model=editingContact %}
-            {% endblock enter-new-form %}
-        </span>
-    </div>
-  {% else %}
-    <label class="mz-contactselector-contact mz-contactselector-new" style="min-height: 55px;">
-        <span class="mz-contactselector-inputwrapper" >
-            <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
-        </span>
-        <span class="mz-contactselector-summarywrapper"  style="width: auto;">
-            <div class="mz-addresssummary">
-                <span>{{ labels.enterNewAddress }}</span>
+        {% if model.contactId == "new" or model.contactId == 0 %}
+            <div class="mz-contactselector-contact mz-contactselector-new {% if model.contactId == 0 %}hide-incheckout{% endif %}">
+                <span class="mz-contactselector-summarywrapper">
+                    {% block enter-new-form %}
+                        {% include "modules/common/address-form" with model=editingContact %}
+                    {% endblock enter-new-form %}
+                </span>
             </div>
-        </span>
-    </label>
-  {% endif %}
-    <div class="clearfix"></div>
+            {% if model.contactId == "new" %}  
+                <div class="dummi-shipping">
+                    <button class="dummi-procudeto-useaddress-method" data-mz-action="confirmValidationBypass" style="display:none;">Use this Address</button>
+                    <button class="dummi-procudeto-shipping-method">Continue to Shipping Method</button>
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if model.contactId != "new" %}
+            <label class="mz-contactselector-contact mz-contactselector-new no-form">
+                <span class="mz-contactselector-inputwrapper" >
+                    <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
+                </span>
+                <span class="mz-contactselector-summarywrapper"  style="width: auto;">
+                    <div class="mz-addresssummary">
+                        <span>{{ labels.enterNewAddress }}</span>
+                    </div>
+                </span>
+            </label>
+        {% endif %}
+        <div class="clearfix"></div>
+        {% for contact in model.contacts %}
+            {% if contact.isDefaultShipping %}
+                <p class="default-address-text"><b>Default Shipping Address</b></p>
+                <span class="data-contact">
+                    <label class="mz-contactselector-contact {% if model.id == contact.id or model.contactId == contact.id" %} default-addr{% endif %}">
+                        <span class="mz-contactselector-inputwrapper">
+                            <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.id == contact.id or model.contactId == contact.id" %} checked="checked" {% endif %}>    
+                            <span class="custom-radio"></span>
+                        </span> 
+                        <span class="mz-contactselector-summarywrapper">
+                            <div class="mz-addresssummary">
+                                {% include "modules/common/address-summary" with model=contact %}        
+                            </div>
+                        </span>  
+                    </label>
+                </span>
+            {% endif %}
+        {% endfor %}
+        {% for contact in model.contacts %}
+            {% if not contact.isDefaultShipping %}  
+                <span class="data-contact">
+                    <label class="mz-contactselector-contact">
+                        <span class="mz-contactselector-inputwrapper">
+                            <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.id == contact.id or model.contactId == contact.id" %} checked="checked" {% endif %}>
+                            <span class="custom-radio"></span>
+                        </span>
+                        <span class="mz-contactselector-summarywrapper">
+                            <div class="mz-addresssummary">
+                                {% include "modules/common/address-summary" with model=contact %}        
+                            </div>
+                        </span>  
+                    </label>
+                </span>
+            {% endif %}
+        {% endfor %} 
+        <div class="clearfix"></div> 
     {% endblock contact-selector %}
 </div>

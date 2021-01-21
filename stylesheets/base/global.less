@@ -91,9 +91,9 @@ html.js.fontface.wf-active body {
 
 /* Inputs -------------------*/
 
-// Form controls 
+// Form controls
 // -------------------------
- 
+
 // Shared size and type resets
 select,
 textarea,
@@ -227,6 +227,23 @@ select[size] {
 
 /* Start of  loader  */
 
+.tzOverlay-main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0%;
+ opacity: 0.6;
+ filter: alpha(opacity=60); 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    -webkit-transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -ms-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    z-index: 999999;
+}
 #preloader {
     position: fixed !important;
 }
@@ -442,13 +459,13 @@ select::-ms-expand {
 .jb-out-of-stock,.notify-me-plp-rti-popup {
     width: 110px;
     background-color: #ffffff;
-    color: #000000;
+    color: #cc0108;
     display: inline-block;
     text-decoration: none;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    border: 1px solid #000000;
+    border: 1px solid #cc0108;
     margin: 0 auto;
     text-align: center;
     cursor: pointer;
@@ -456,7 +473,7 @@ select::-ms-expand {
     padding: 8.5px 0;
     font-size: 16px;
     &:hover { 
-      background-color: #000000;
+      background-color: #cc0108;
       color: #ffffff;
     }
 }
@@ -844,7 +861,7 @@ select::-ms-expand {
       padding-left: 26%;
       text-align: left;
     }
-  } 
+  }
 }
 
 
@@ -874,6 +891,7 @@ select::-ms-expand {
 }
 
 
+
 /* Check Box Style */
 
 .checkbox-outer-label {
@@ -881,7 +899,7 @@ select::-ms-expand {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-  font-size: 22px; 
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -900,13 +918,13 @@ select::-ms-expand {
 
 /* Create a custom checkbox */
 .checkmark-style {
-  position: absolute;
+  position: absolute; 
   top: 0;
   left: 0;
   height: 19px;
   width: 19px;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #000; 
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -933,22 +951,22 @@ select::-ms-expand {
 /* Style the checkmark-style/indicator */
 .checkbox-outer-label .checkmark-style:after {
   left: 6px;
-  top: 2px;
+  top: 2px; 
   width: 5px;
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);  
   transform: rotate(45deg);
 }
 
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
-  .mz-checkout {
+/*  .mz-checkout {
     #page-wrapper {
       #page-content {
         .mz-l-container {
-          #checkout-form {
+          #checkout-form { 
             .mz-l-column {
               #step-shipping-address {
                 .mz-formstep-body {
@@ -988,11 +1006,16 @@ select::-ms-expand {
         }
       }
     }
-  }
+  }*/
 }
 
 .mz-checkout-digitalcredit-row {
   .mz-checkout-digitalcredit-cell-enable {
+    .checkbox-outer-label{
+      .checkmark-style{
+          top:6px;
+      }
+  }
     span {
       margin-top: -9px;
       margin-left: 27%;
@@ -1199,7 +1222,6 @@ select::-ms-expand {
 a.skipto {
   color: #000000;
 }
-
 .sr-only
   {
     position:absolute;
@@ -1210,6 +1232,170 @@ a.skipto {
     overflow:hidden;
   }
 
-.sign-up-btn-footer-disable:focus, .sign-up-btn-footer:focus { 
-  border: 2px solid white !important; 
-}
+
+  .Ab-card-slot-parent{
+    width: 95%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  margin-top: 30px;
+  }
+
+  .Ab-card-slot{
+  width: 23%;
+  float: left;
+  margin: 1% 0.75%;
+  }
+
+  .Ab-image-container{
+    text-align: center;
+    max-width: 90%;
+    margin: 20px auto 25px;
+  }
+  .Ab-card-image {
+    width: 96%;
+  }
+  .Ab-card-contents{
+    font-size: 22px;
+  color: black;
+  overflow: hidden;
+  margin: 16px auto;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  background-color:#fbf0f0;
+  margin-top:-40%;
+  border-radius:9px
+  }
+
+  .Ab-card-title{
+    margin: 0px;
+    padding: 40%  22% 6% 22%;
+    font-size: 24px;
+  }
+ .Ab-card1Title{
+  padding: 40%  30% 6% 25%;
+ }
+ .Ab-card5Title{
+ padding: 40%  30% 6% 25%;
+ }
+ .Ab-card-title-marginBottom{
+   margin-bottom:11%;
+ }
+  .Ab-card-text{
+    font-size: 16px;
+    text-align: center;
+    color: #111111;
+    padding: 0px 20% 7% 20%;
+    margin: 0;
+    height: 80px;
+  }
+
+  .Ab-brand-button-container{
+    width: 100%;
+    height: 60px;
+  }
+
+  .Ab-brand-button-container a{
+    font-size: 18px;
+  text-decoration: none;
+  background: #004e99;
+  color: white;
+  padding: 2% 0;
+  border: 1px solid #004e99;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  }
+
+  @media only screen and (min-width: 1px) and (max-width: 767px)  and (orientation: portrait) {
+    .Ab-card-slot{
+      width: 96%;
+      float: left;
+      margin: 2%;
+      }
+      .Ab-card-title-marginBottom{
+        margin-bottom:0%;
+      }
+      .Ab-card-text{
+        height: 70px;
+      }
+  }
+  @media only screen and (min-width: 1px) and (max-width: 767px)  and (orientation: landscape) {
+    .Ab-card-slot{
+      width: 96%;
+      float: left;
+      margin: 2%;
+      }
+      .Ab-card-title-marginBottom{
+        margin-bottom:0%;
+      }
+      .Ab-card-text{
+        height: 50px;
+      }
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+    .Ab-card-text{
+      height: 115px;
+    }
+    .Ab-card-title{
+      padding: 40%  13% 6% 13%;
+    }
+    .Ab-card1Title{
+      padding: 40%  16% 6% 16%;
+     }
+     .Ab-card5Title{
+     padding: 40%  30% 6% 25%;
+     }
+    .Ab-card-title-marginBottom{
+      margin-bottom:15%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait){
+    .Ab-card-text{
+      height: 135px;
+      padding:0px 10% 7% 10%;
+    }
+    .Ab-card1Title{
+      padding: 40%  10% 6% 15%;
+     }
+     .Ab-card5Title{
+     padding: 40%  15% 6% 15%;
+     }
+     .Ab-card-title{
+      padding: 40%  1% 6% 1%;
+    }
+    .Ab-brand-button-container a{
+      width: 80%;
+    }
+    .Ab-card-title-marginBottom{
+      margin-bottom:20%;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait){
+    .Ab-card-text{
+      height: 135px;
+      padding:0px 10% 7% 10%;
+    }
+    .Ab-card1Title{
+      padding: 40%  20% 6% 20% !important;
+     }
+     .Ab-card5Title{
+     padding: 40%  15% 6% 15% !important;
+     }
+     .Ab-card-title{
+      padding: 40% 10% 6% 10%;
+    }
+    .Ab-brand-button-container a{
+      width: 80%;
+    }
+    .Ab-card-title-marginBottom{
+      margin-bottom:14%;
+    }
+  }

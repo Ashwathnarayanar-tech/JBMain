@@ -58,10 +58,10 @@
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
-                            <label for="confirm-password">*Confirm Password:</label>
+                            <label for="email">*Confirm Password:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                            <input id="confirm-password" type="password" class="mz-signup-confirmpassword" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
+                            <input type="password" class="mz-signup-confirmpassword" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">

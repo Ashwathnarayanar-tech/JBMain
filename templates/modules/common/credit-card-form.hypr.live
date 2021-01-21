@@ -1,13 +1,14 @@
 {% block credit-card-form %}
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-type"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.cardType }}:</label>
+           
         </div>
-        <div class="mz-l-formfieldgroup-cell">
+        <div class="mz-l-formfieldgroup-cell select-box">
+         <label for="mz-payment-credit-card-type">{{ labels.cardType }}<span class="is-required" aria-label="mandatory field"> *</span></label>
 			<select id="mz-payment-credit-card-type" aria-describedBy="err_1" data-mz-value="{{ cardcontext }}paymentOrCardType" 
             class="{% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %}readonlytext{% endif %} my-acc-saved-add"
              {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %} disabled {% endif %}> 
-				<option aria-label="select card type" value=""></option>
+				<option aria-label="select card type" value="">Select Card Type</option>
 				{% if siteContext.checkoutSettings.supportedCards.amex %}
 				<option value="AMEX" {% if model.paymentOrCardType == "AMEX" %}selected="selected"{% endif %}>American Express</option>
 				{% endif %}
@@ -23,41 +24,54 @@
 			</select>
             <img width="13" class="down-caret-ma-cardType" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-cardType" src="/resources/images/icons/up_caret.png" />
+            
             <span class="mz-validationmessage" id="err_1" data-mz-validationmessage-for="{{ cardcontext }}paymentOrCardType"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-number"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.cardNumber }}:</label>
+           
         </div>
-        <div class="mz-l-formfieldgroup-cell">
-        
-            <input hh="{{model.id}}"type="tel" name="credit-card-number" id="mz-payment-credit-card-number" aria-describedBy="err_2" 
-                data-mz-value="{{ cardcontext }}cardNumberPartOrMask" value="{{ model.cardNumberPartOrMask }}" maxlength="16" 
-                {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %} readonly {% endif %} 
-                class="{% if model.contactId and pageContext.pageType == 'checkout' or model.id and pageContext.pageType=='my_account' %}readonlytext{% endif %}">  <!-- ADA OK -->  
-            
-            
-            <span style="top: 43px;" id="err_2" class="mz-validationmessage" data-mz-validationmessage-for="{{ cardcontext }}cardNumberPartOrMask"></span>
+        <div class="mz-l-formfieldgroup-cell checkout-card-name">
+            <input type="text" placeholder="credit-card-name" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
+             <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+            <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-credit-card-name"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.nameOnCard }}:</label>
+            
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+        
+            <input hh="{{model.id}}"type="tel" placeholder="0000-0000-0000-0000" name="credit-card-number" id="mz-payment-credit-card-number" aria-describedBy="err_2" 
+                data-mz-value="{{ cardcontext }}cardNumberPartOrMask" value="{{ model.cardNumberPartOrMask }}" maxlength="16" 
+                {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated or model.id and pageContext.pageType=='my_account' %} readonly {% endif %} 
+                class="{% if model.contactId and pageContext.pageType == 'checkout' or model.id and pageContext.pageType=='my_account' %}readonlytext{% endif %}">  <!-- ADA OK -->  
+            
+            <label for="mz-payment-credit-card-number">{{ labels.cardNumber }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+            <span style="top: 43px;" id="err_2" class="mz-validationmessage" data-mz-validationmessage-for="{{ cardcontext }}cardNumberPartOrMask"></span>
+        </div>
+    </div>
+    {% comment %} <div class="mz-l-formfieldgroup-row">
+        <div class="mz-l-formfieldgroup-cell">
+            <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
         </div>
         <div class="mz-l-formfieldgroup-cell checkout-card-name">
             <input type="text" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
             <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
         </div>
-    </div>
+    </div> {% endcomment %}
 	
     <div class="mz-l-formfieldgroup-row">
         <div class="mz-l-formfieldgroup-cell">
-            <label for="mz-payment-expiration-month"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.expires }}:</label>
+           
         </div>
-        <div class="mz-l-formfieldgroup-cell checkout-card-expmonth">
+        <div class="mz-l-formfieldgroup-cell checkout-card-expmonth select-box">
+         <label for="mz-payment-expiration-month">{{ labels.expires }}<span class="is-required" aria-label="mandatory field"> *</span></label>
+           
             <select aria-label="Expiring Month" aria-describedBy="err_4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add month" id="mz-payment-expiration-month" name="expiration-month" data-mz-value="{{ cardcontext }}expireMonth" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} disabled {% endif %} >
-                <option aria-label="select expiring month" value="select expiring month" ></option>
+                <option aria-label="select expiring month" default value="select expiring month" >Month</option>
                 <option {% if model.expireMonth == "01" %}selected="selected"{% endif %} value="01">01 - {{ labels.january }}</option>
                 <option {% if model.expireMonth == "02" %}selected="selected"{% endif %} value="02">02 - {{ labels.february }}</option>
                 <option {% if model.expireMonth == "03" %}selected="selected"{% endif %} value="03">03 - {{ labels.march }}</option>
@@ -74,7 +88,7 @@
             <img width="13" class="down-caret-ma-month" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-month" src="/resources/images/icons/up_caret.png" />
             <select aria-label="Expiring Year" aria-describedBy="err_4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add year" name="mz-payment-expiration-year" data-mz-value="{{ cardcontext }}expireYear" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated' %} disabled {% endif %}>
-                <option aria-label="select expiring year" value="select expiring year"></option>  
+                <option aria-label="select expiring year" default value="select expiring year"> Year</option>  
                 {% with now|split("-")[0] as year %}
                     {% for a in [0,1,2,3,4,5,6,7,8,9,10,11,12] %}
                         <option {% if model.expireYear == year|add(a) %}selected="selected"{% endif %} value="{{ year|add(a) }}">{{ year|add(a) }}</option>
@@ -83,17 +97,19 @@
             </select>
             <img width="13" class="down-caret-ma-year" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-year" src="/resources/images/icons/up_caret.png" />
+             
             <span class="mz-validationmessage" id="err_4" data-mz-validationmessage-for="{{ cardcontext }}expireYear"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row my-account-cvv">
         <div class="mz-l-formfieldgroup-cell payment-label">
-            <label for="mz-payment-security-code"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.securityCode }}:</label>
+            
         </div>
         <div class="mz-l-formfieldgroup-cell">
-            <input type="tel" name="security-code" id="mz-payment-security-code"  aria-describedBy="err_5" class="cvvcodeinput" max="9999"  data-mz-value="{{ cardcontext }}cvv" title="Payment method security code" value="{{ model.cvv }}"><!-- ADA OK -->
+            <input type="tel" placeholder="Enter CVV" name="security-code" id="mz-payment-security-code"  aria-describedBy="err_5" class="cvvcodeinput" max="9999" maxlength="4" data-mz-value="{{ cardcontext }}cvv"  pattern="\d*" title="Payment method security code" value="{{ model.cvv }}"><!-- ADA OK -->
+            <label for="mz-payment-security-code">{{ labels.securityCode }}<span class="is-required" aria-label="mandatory field"> *</span></label>
             <span class="cvv-info">
-				<a id="toolTipStock" class= "shop-tip" href="javascript:void(0)" data-cart-details="" role="button" aria-describedby="cvv-tip">What is this?</a>
+				<a id="toolTipStock" class= "shop-tip" href="javascript:void(0)" data-cart-details="" role="button" aria-describedby="cvv-tip"><span class="hide-for-other">What is CVV</span>?</a>
 				<div class="cvv-info-details" id="cvv-tip" role="tooltip">
 					<img src="/resources/images/cvv-info-2.png" alt="Visa card image"/>
 					<p class="card-type">Discover, Mastercard, Visa</p>
@@ -103,11 +119,13 @@
 					<p class="card-no">4 Digit Card Verification Number</p>
 				</div>
 			</span>
+            
             <span style="top: 43px;" class="mz-validationmessage" id="err_5" data-mz-validationmessage-for="{{ cardcontext }}cvv"></span>
         </div>
     </div>
     
 {% endblock credit-card-form %}
+
 
 
 

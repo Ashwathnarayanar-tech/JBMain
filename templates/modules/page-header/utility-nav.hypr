@@ -1,13 +1,13 @@
-<nav class="mz-utilitynav" aria-label="Customer service number, account access and shopping cart">
-    <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Customer Service"> 1-800-522-3267 </a></p></div>
+<nav class="mz-utilitynav">
+    <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Customer Service"aria-label="Questions ? Call our Toll free number - 18005223267 "> 1-800-522-3267 </a></p></div>
     <div class="mz-utilitynav-content">
-        <img class="user-icon" alt="" src="data:image/png;base64,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" />
+        <img class="user-icon" alt="user icon" src="data:image/png;base64,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" />
         <!-- <img src="/../resources/images/Newusericon.png" alt="user icon" class="user-icon">    -->
         {% if not user.isAnonymous %} 
-            <span tabindex="0" aria-expanded="false" class="user-popover popover-label" role="application" aria-label="My Account popover">
+            <span tabindex="0" aria-expanded="false" class="user-popover popover-label" role="menu" aria-label="My Account popover">
                 {{ user.email }}
             </span> 
-            <div class="popover-content myaccount" tabindex="0">
+            <div class="popover-content myaccount">
                 <ul class="list-cointainer">
                     <li class="listItem"> 
                         <a href="/myaccount" class="mz-utilitynav-link" aria-label="my profile">My Profile</a>
@@ -17,33 +17,33 @@
                     </li>
                     {% if pageContext.isDesktop or pageContext.isTablet %}
                     <li class="listItem sweetRewards">
-                        <section class="zinrelo-container" tabindex="0" role="contnent-info">
+                        <section class="zinrelo-container">
                             <p class="zrl-available-text">Your Rewards Points:</p> 
                             <p id="zrl-points"></p>
                         </section> 
                     </li>
                     {% endif %}
                     <li class="listItem">
-                       <a href="/logout" data-mz-action="logout" class="mz-utilitynav-link" aria-label="{{ labels.logOut }}">{{ labels.logOut }}</a>
+                       <a href="/logout" data-mz-action="logout" class="mz-utilitynav-link" role="navigation" aria-label="{{ labels.logOut }}">{{ labels.logOut }}</a>
                     </li>
                 </ul> 
             </div>
         {% else %} 
-            <span tabindex="0" aria-expanded="false" class="login-popover popover-label" role="button">
-                Log In or Register
+            <span tabindex="0" aria-expanded="false" class="login-popover popover-label" aria-label="login and signup popover" role="menu">
+                Log In or Register 
             </span>
-            <div class="popover-content login" tabindex="0">
+            <div class="popover-content login">
                 <ul class="list-cointainer">
                     <li class="listItem">
-                        <a href="/user/login" data-placement="bottom" class="mz-utilitynav-link" >{{ labels.logIn }}</a>
+                        <a href="/user/login" data-placement="bottom" class="mz-utilitynav-link" aria-label="Log in to your Jelly Belly account">{{ labels.logIn }}</a>
                     </li>
                     <li class="listItem">
-                       <a href="/user/signup" data-placement="bottom" class="mz-utilitynav-link" >Register</a>
+                       <a href="/user/signup" data-placement="bottom" class="mz-utilitynav-link" aria-label="Sign up for a Jelly Belly Candy account">Register</a>
                     </li>
                     <li class="listItem">
-                       <a href="/order-status"  class="mz-utilitynav-link order-anonlink" >{{ labels.orderStatus }}</a>
+                       <a href="/order-status"  class="mz-utilitynav-link order-anonlink" aria-label="Check your order status">{{ labels.orderStatus }}</a>
                     </li>
-                    <li class="listItem sweetRewards-guest" tabindex="0" >
+                    <li class="listItem sweetRewards-guest" aria-label="Sweet Rewards Join Now!">
                        <a href="/jelly-belly-sweet-rewards" title="sweet rewards">
                            <span class="span-1">Sweet Rewards</span></br>
                            <span class="span-2">Join Now!</span> 
@@ -56,17 +56,17 @@
     </div>
     {% if pageContext.isDesktop or pageContext.isTablet %}
         <div class="mini-cart-header"> 
-            <a tabindex="0" class="mz-utilitynav-link-cart position-adjust" href="/cart" role="button" title="Open mini-cart modal">
-                <span class="shoping-cart"><img class="cart-icon" alt="" src="data:image/png;base64,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" />  </span> 
+            <a tabindex="0" class="mz-utilitynav-link-cart position-adjust" href="/cart" role="navigation" aria-label="Cart Items" title="Items in cart">
+                <span class="shoping-cart"><img class="cart-icon" alt="cart icon" src="data:image/png;base64,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" />  </span> 
                 <!-- <img src="/../resources/images/Newcarticon.png" alt="cart icon" class="cart-icon"> -->
                 <span class="cart-count-text">Cart <span class="showHidePipe"> | </span><span class="cartcount" data-mz-role="cartmonitor"></span> Item(s)</span><span id="mini-cart-text" data-mz-text="carttext"></span> 
                 {% require_script "modules/cart-monitor" %}
             </a>
         </div>
     {% else %}
-        <div class="mini-cart-header"> 
-            <a tabindex="-1" class="mz-Mob-utilitynav-link-cart position-adjust" href="/cart" title="Items in cart" role="button">
-                <span class="shoping-cart"><img src="/../resources/images/Newcarticon.png" alt="" class="cart-icon">  </span> 
+        <div class="mini-cart-header" tabindex="0"> 
+            <a class="mz-Mob-utilitynav-link-cart position-adjust" href="/cart" role="navigation" aria-label="Cart Items" title="Items in cart">
+                <span class="shoping-cart"><img src="/../resources/images/Newcarticon.png" alt="cart icon" class="cart-icon">  </span> 
                 <span class="cartcount" data-mz-role="cartmonitor"></span>   
                 {% comment %}
                 <span class="cart-count-text">Cart | <span class="cartcount" data-mz-role="cartmonitor"></span> Item(s)</span><span id="mini-cart-text" data-mz-text="carttext"></span> 
@@ -77,4 +77,4 @@
     {% endif %}
 </nav>
 {% require_script "modules/minicart" %}
-<div class="jb-minicart-popup" data-mz-minicart="" tabindex="-1"></div>
+<div class="jb-minicart-popup" data-mz-minicart=""  tabindex="0"></div>

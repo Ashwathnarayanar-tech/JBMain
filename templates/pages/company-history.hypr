@@ -19,10 +19,10 @@
 {% block body-content %}
 <section>
     <h1 class="mz-pagetitle">Company History</h1>
-    <div class="slider-history" id="company-slider-history" role="region" aria-label="Company History">
+    <div class="slider-history" id="company-slider-history">
         <div class="company-sliders-history">
             <div class="view-port"> 
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/cf1b49b4-e792-4b80-a281-b0bdfc5c42a2" alt="Gustav Goelitz in front of his store in Belleville, Illinois, in 1869.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/cf1b49b4-e792-4b80-a281-b0bdfc5c42a2" alt="Gustav Goelitz">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/03ed889d-8762-4d57-8a56-4bc3dfb99d2e" alt="">
                     <div class="description" tabindex="-1">
@@ -32,9 +32,9 @@
                 </div>
             </div>           
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6cecea1c-f2d5-4c8a-beeb-4af4c206dd0b" alt="Gustav Goelitz's son with horse drawn cart of candy confections.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6cecea1c-f2d5-4c8a-beeb-4af4c206dd0b" alt="Gustav's Son">
                 <div class="view-port-logo" >
-                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/67a06313-ef1e-4646-881c-4b140eadc8ed" alt="" >
+                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/67a06313-ef1e-4646-881c-4b140eadc8ed" alt="">
                     <div class="description" tabindex="-1">
                         <h2 class="view-port-date">1894</h2>
                         <p class="view-port-description">Gustav's sons continue the family candy making tradition.</p>
@@ -42,7 +42,7 @@
                 </div>
             </div>            
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6b56953b-1213-421a-a78d-68cc5743cc0e" alt="Package of Gustav Goelitz Butter Sweet Candy Corn.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6b56953b-1213-421a-a78d-68cc5743cc0e" alt="Gustav Goelitz Candy Corn">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/20b4f25e-2b55-40af-95b7-603340ffbe68" alt="">
                     <div class="description" tabindex="-1">
@@ -52,7 +52,7 @@
                 </div>
             </div>            
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/4fc10f05-8154-4376-a170-064d3363f146" alt="Mint Wafers introduced in the 1940's.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/4fc10f05-8154-4376-a170-064d3363f146" alt="Mint Wafers">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/67f4119a-2e5c-44f6-92d7-9e7150557bd8" alt="">
                     <div class="description" tabindex="-1">
@@ -62,7 +62,7 @@
                 </div>
             </div>            
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/05d89878-d4cc-4b60-ac47-31c773bec1b0" alt="Multi-candy package of 1960's jelly beans including tangerine slices and spice drops.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/05d89878-d4cc-4b60-ac47-31c773bec1b0" alt="1960's Jelly Beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/aea8fb74-7108-4ccf-8428-f507064f7f70" alt="">
                     <div class="description" tabindex="-1">
@@ -72,7 +72,7 @@
                 </div>
             </div>            
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/5d49e058-a788-4dfb-ad85-3f4596d8ec20" alt="Package of Mini jelly Beans which were infused for the first time with flavor in the center.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/5d49e058-a788-4dfb-ad85-3f4596d8ec20" alt="1965 Mini Jelly Beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/5bbffb66-e46e-4d47-8407-26d3e5d128d6" alt="">
                     <div class="description" tabindex="-1">
@@ -82,7 +82,7 @@
                 </div>
             </div>           
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/dbd0ea9a-0fba-4709-87c9-cbd7934ab89d" alt="California Governor Ronald Reagan in his office.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/dbd0ea9a-0fba-4709-87c9-cbd7934ab89d" alt="California Governor Ronald Reagan">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/d5b9b2c4-041d-4c11-a55f-db8accdab9de" alt="">
                     <div class="description" tabindex="-1">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/df877bec-bad8-4351-9ae4-3facd28106f2" alt="Arrangement of Chocolate Dutch Mints.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/df877bec-bad8-4351-9ae4-3facd28106f2" alt="Chocolate Dutch Mints">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/05d4cc80-991e-4da0-9db4-b0c0ef1de4cf" alt="">
                     <div class="description" tabindex="-1">
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/be11bd25-ee5c-4f03-af6f-3245526fb6b1" alt="Arrangement of the first eight flavors of Jelly Belly jelly beans: Root Beer, Green Apple, Licorice, Cream Soda, Lemon, Tangerine, Very Cherry, and Grape.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/be11bd25-ee5c-4f03-af6f-3245526fb6b1" alt="Jelly Beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7f899156-bc82-4bbe-840a-6dcad84e1f6b" alt="">
                     <div class="description" tabindex="-1">
@@ -112,7 +112,7 @@
                 </div>
             </div>           
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/0b07d018-063f-4529-8b01-04512de42f7b" alt="Display of Forty Official Flavors and Colors">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/0b07d018-063f-4529-8b01-04512de42f7b" alt="The Forty Official Flavors and Colors">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/144cfdf0-abfb-4829-8004-b297c6de1a80" alt="">
                     <div class="description" tabindex="-1">
@@ -122,7 +122,7 @@
                 </div>
             </div>     
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/e53e391c-4650-4d65-92d5-254339a1f7e2" alt="Jelly Belly bean art of President Ronald Reagan and wife Nancy.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/e53e391c-4650-4d65-92d5-254339a1f7e2" alt="President Ronald Reagan">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/553029ea-1b19-4a07-8970-bce2dbd78d4b" alt="">
                     <div class="description" tabindex="-1">
@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/922fa8b1-9630-4c22-9840-efe45812a61f" alt="President Ronald Reagan's personal jar of Jelly Belly beans.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/922fa8b1-9630-4c22-9840-efe45812a61f" alt="President Ronald Reagan personal jar of Jelly Belly beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/ac35667d-bbf1-413f-aa73-35b44fa21287" alt="">
                     <div class="description" tabindex="-1">
@@ -142,7 +142,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/a879c34a-70f6-4dff-84b8-9914d42ef30e" alt="Figure of Mr. Jelly Belly costume character.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/a879c34a-70f6-4dff-84b8-9914d42ef30e" alt="Mr. Jelly Belly">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/fbfddf6f-93a4-4a67-ace5-4d1c02b77ae4" alt="">
                     <div class="description" tabindex="-1">
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/41284bd0-29cc-4d1c-809d-72fa1a0bf79f" alt="Groundbreaking event for new headquarters in Fairfield, California including Mr. Jelly Belly, employees and citizens. Sign states: Solano Business Park, 10 Acre Site, Future Home of Herman Goelitz Candy Company, Makers of Jelly Belly.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/41284bd0-29cc-4d1c-809d-72fa1a0bf79f" alt="Mr. Jelly Belly in front of new company Headquarters">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/e8cf12d0-f054-441a-bc0f-25961fa37c54" alt="">
                     <div class="description" tabindex="-1">
@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6eefd077-8938-4b10-9770-1fb5336061d9" alt="Butter Popcorn jelly beans display.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/6eefd077-8938-4b10-9770-1fb5336061d9" alt="Jelly Belly Butter Popcorn">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/b3b57cc6-1e9a-4d36-a022-8686c90a5c0a" alt="">
                     <div class="description" tabindex="-1">
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/9118b799-96b3-4d82-93a0-ae44d6e73173" alt="Jelly Belly Sours display.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/9118b799-96b3-4d82-93a0-ae44d6e73173" alt="Jelly Belly Sours Candy">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/4a81f6db-8c3d-4951-a999-9a34d91d0d89" alt="">
                     <div class="description" tabindex="-1">
@@ -182,7 +182,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/8ec6681b-7d1d-43f5-a285-8a2050885d9b" alt="Close up of bean stamped with official Jelly Belly Logo">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/8ec6681b-7d1d-43f5-a285-8a2050885d9b" alt="Orange Jelly Bean stamped with Jelly Belly Logo">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/3026d23b-ceb1-430b-a9da-eb6b956c384d" alt="">
                     <div class="description" tabindex="-1">
@@ -192,7 +192,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/30fb728e-3f80-4715-8a70-7308e8a3c5bf" alt="Package of Harry Potter Bertie Bott's Every Flavour Beans® Candy">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/30fb728e-3f80-4715-8a70-7308e8a3c5bf" alt="Bertie Bott's Every Flavour Beans® Candy">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/9e4da84a-b256-4540-8467-f0006db91723" alt="">
                     <div class="description" tabindex="-1">
@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/b38ec3d3-24fd-48a7-be2f-2fc8fca319f4" alt="Jelly Belly factory tour train and warehouse in Pleasant Prairie, Wisconsin">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/b38ec3d3-24fd-48a7-be2f-2fc8fca319f4" alt="Jelly Belly tours in Pleasant Prairie, Wisconsin">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7cfcb6c6-7caf-479a-8e57-2a1c296e881e" alt="">
                     <div class="description" tabindex="-1">
@@ -212,7 +212,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/1a39884d-0621-4c7d-ac7e-543125a25655" alt="Front of Jelly Belly Candy Company Visitor Center in Fairfield, California.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/1a39884d-0621-4c7d-ac7e-543125a25655" alt="Jelly Belly Candy Company">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/7cfcb6c6-7caf-479a-8e57-2a1c296e881e" alt="">
                     <div class="description" tabindex="-1">
@@ -222,7 +222,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/14099a34-abc0-4786-85a2-cce495bb8ebc" alt="Packages of Jelly Belly Sport Beans with water bottle, gym bag and towel.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/14099a34-abc0-4786-85a2-cce495bb8ebc" alt="Jelly Belly Sport Beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/d175db8f-ddb1-4ee9-bb56-07e8ebd83c2b" alt="">
                     <div class="description" tabindex="-1">
@@ -232,7 +232,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/531e4277-885c-467a-b5c2-ab624a876618" alt="Packages of BeanBoozled jelly beans.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/531e4277-885c-467a-b5c2-ab624a876618" alt="BeanBoozled jelly beans">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/fa02c803-c16d-4e75-86d7-404f81521107" alt="">
                     <div class="description" tabindex="-1" > 
@@ -242,7 +242,7 @@
                 </div>
             </div>
             <div class="view-port">
-                <img class="view-port-slide" tabindex="0" src="//cdn-tp1.mozu.com/9046-m1/cms/files/85842f5c-dbed-486c-8528-fe249595adeb" alt="Arrangement of Jelly Belly Jelly Bean Chocolate Dips with fruit decorations.">
+                <img class="view-port-slide" src="//cdn-tp1.mozu.com/9046-m1/cms/files/85842f5c-dbed-486c-8528-fe249595adeb" alt="Jelly Belly Jelly Bean Chocolate Dips">
                 <div class="view-port-logo" >
                     <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/f6b442aa-51be-48d6-b5bf-636417e42e3d" alt="">
                     <div class="description" tabindex="-1">

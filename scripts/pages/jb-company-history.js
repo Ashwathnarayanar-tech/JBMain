@@ -22,14 +22,13 @@ require(["modules/jquery-mozu","shim!vendor/owl.carousel[jquery=jQuery]>jQuery"]
                     items:1
                 }
             }, 
-            enableResizeTime: 500,
-            onInitialized: initializationCallback
+            enableResizeTime: 500
         });
-        
+            
         $(document).find('.mz-company-history').on('keydown','.mz-breadcrumb-link[title="Home"]',function(e){
             if(e.which == 9 && !e.shiftKey){
                 e.preventDefault();    
-                //handel_courosel();       
+                handel_courosel();       
             }
         });
             
@@ -59,14 +58,12 @@ require(["modules/jquery-mozu","shim!vendor/owl.carousel[jquery=jQuery]>jQuery"]
         
         // company history ADA code starts
         function handel_courosel(){
-          
             var sliderinput = $(document).find('.company-sliders-history').find('.owl-prev,.owl-next,.owl-dot');
             var count = 0;
             sliderinput.each(function(){
                 $(this).attr('tabindex',"0");
-                $(this).attr('role', 'button');
                 if($(this).hasClass('owl-dot')){
-                    $(this).attr('aria-label', "Go to slide "+(count+1));
+                    $(this).attr('aria-label', "slide "+(count+1));
                     count++;
                 }else if($(this).hasClass('owl-prev')){
                     $(this).attr('aria-label', "Go to the previous slide");    
@@ -76,31 +73,5 @@ require(["modules/jquery-mozu","shim!vendor/owl.carousel[jquery=jQuery]>jQuery"]
             });
             sliderinput.first().focus();
         }
-        
-        function hideNonActiveSlides(){
-          var slides = $(document).find('.owl-item');
-          slides.each(function(){
-            var viewPort = $(this).find('.view-port');
-            if(!$(this).hasClass('active'))
-              viewPort.hide();
-            else
-              viewPort.show();
-          });
-        }
-        
-        function initializationCallback() { 
-          setTimeout(function(){ 
-            handel_courosel();
-            hideNonActiveSlides();
-          }, 2000); 
-        }
-        
-        $('.owl-next,.owl-prev,.owl-dot').click(function(e){ 
-          setTimeout(function(){ 
-            hideNonActiveSlides(); 
-            $(document).find('div.active img.view-port-slide').focus();
-          }, 1000);
-            
-          });
     });
 });

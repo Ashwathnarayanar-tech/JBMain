@@ -123,11 +123,6 @@ require([
             me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             me.removeClass('add-to-wishlist');
             me.addClass('added-to-wishlist');
-            if (require.mozuData('pagecontext').pageType === 'product')
-              $('#add-to-cart').focus();
-            else if (require.mozuData('pagecontext').pageType === 'category' || location.pathname.indexOf('search-results') > -1) {
-              $("button[data-mz-prcode='"+productCode+"']").focus();
-            }
           });
 
           me.addClass('added-to-wishlist');

@@ -9,7 +9,7 @@
                     border-radius: 12px;border: 1px solid #ccc;
                 {% endif %}
                 margin: 5px;">
-            <div class="athlet-desc" tabindex="0"  style="display:inline-block;float: left;width: {% if Model.config.imageFileId %}72%{% else %} 100%{% endif %};text-align: left;">
+            <div class="athlet-desc" tabindex="0" role="contentinfo" style="display:inline-block;float: left;width: {% if Model.config.imageFileId %}72%{% else %} 100%{% endif %};text-align: left;">
                         {{Model.config.content|safe}}
                 <div style="clear:both;"></div>
             </div>                
@@ -19,7 +19,7 @@
                         <img class="imgSrcValue" src="{{Model.config.imageFileId}}" width="245" border="0">
                     </figure>
                     {% if Model.config.quote %}
-                    <p style="text-align: center;" tabindex="0" > {{Model.config.quote}} </p>
+                    <p style="text-align: center;" tabindex="0" role="contentinfo"> {{Model.config.quote}} </p>
                     {% endif %}
                 </div>
             {% endif %}
@@ -27,3 +27,7 @@
         </div>
         <div style="clear:both;"></div>
     </div>
+
+
+
+
