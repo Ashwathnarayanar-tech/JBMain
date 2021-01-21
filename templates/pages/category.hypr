@@ -2,9 +2,7 @@
 {% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
 {% block body-content %}
  {% preload_json model "Category" %}
-
-{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
-	<h1 class="mz-pagetitle" tabindex="0">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
+ <h1 class="mz-pagetitle" tabindex="0">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
 	<div class="categorytops">
 		<div class="brand-dicreption-top" >
 		    <style>
@@ -879,6 +877,9 @@
 		    {% endif %}
 		</div>
 	</div>
+{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+	
+	
     <div data-mz-category="{{model.categoryId}}" class="mz-l-container">
     <div class="ip-container"><div class="jb-inner-overlay"></div></div> 
         {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}

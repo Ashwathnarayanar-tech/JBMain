@@ -5,7 +5,6 @@ define(['modules/jquery-mozu',
     function($, CollectionViewFactory) {
 
     $(document).ready(function() {
-        
         // Shop online button function
         $(document).find('.button-dark[title="Shop Online"]').on('click',function(e){
             e.preventDefault();
@@ -63,7 +62,6 @@ define(['modules/jquery-mozu',
             $(document).find('.brand-dicreption-bottom').find('.brand-dec-bottom').removeClass('active');
             $(document).find('.brand-dicreption-bottom').find('.shot-decreption').find('p').first().focus();   
         });
-
         // sub category cur.
         var owl2 = $(document).find('.sub-cat-list');
         var navigation = $(window).width() > 1024?false:true;
@@ -129,7 +127,6 @@ define(['modules/jquery-mozu',
                 } 
             });   
         }
-        //$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').attr('tabindex','0');
         // event to trigger browser resize.
         if($(window).width() > 767){
             if($(window).width() > 1440){ 

@@ -1826,9 +1826,7 @@ define([
           
         });
         
-
     } 
-   
     $(document).ready(function(){
         // custom function.
         console.log("Custom");
@@ -1840,7 +1838,6 @@ define([
             custom.customObject.os();
             custom.customObject.autoload();
         },1000);
-        
         function initilizeBrandSec(){
             // flavor guide issue.
             var category = flavour_Guides1;
@@ -1848,7 +1845,8 @@ define([
             var data= require.mozuData('facetedproducts') ;
             $(category).each(function (index, data) {
                 if(data.category == catCode){
-                    $(document).find('#flavor-List').append(Hypr.getTemplate('pages/flavor-guides-item').render({
+                    
+                    $(document).find('#flavor-List').html(Hypr.getTemplate('pages/flavor-guides-item').render({
                         model : data,
                         index: index
                     }));

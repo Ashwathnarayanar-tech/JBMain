@@ -1,8 +1,6 @@
- 
 {% comment %}
 {% preload_json Model "facetedproducts" %}
 {% endcomment %}   
-
 <script type="text/json" id="data-mz-preload-facetedproducts"> 
 { 
 	"facets": {% json model.facets %}, 
@@ -19,6 +17,7 @@
 	"currentSort": "{{ model.currentSort }}"  
 } 
 </script>
+
 <div class="mz-mobile">
     <ul class="tz-mobrefine-slot">
         <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">{{ labels.refine }}</a></li>

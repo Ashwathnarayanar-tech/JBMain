@@ -69,12 +69,21 @@ require([
             var $optionEl = $(e.currentTarget);
             var newValue = $optionEl.val();
             var ax = $optionEl.parent().parent().find('.jb-add-to-cart');
+            var ay = $(document).find('#add-to-cart-scroll');
             if(newValue != "Select Gift Card Amount"){
                 ax.text("Add to Cart");
                 ax.removeClass('gift-prize-select');
+                ay.text("Add to Cart");
+                ay.removeClass('gift-prize-select');
+                ay.removeAttr("disabled");
+                ay.removeClass("is-disabled");
+                ay.attr("data-mz-action","addToCart");
+                ay.attr("data-jb-price",newValue);
             }else{ 
                 ax.text("Shop Gift Card");
                 ax.addClass('gift-prize-select');
+                ay.addClass('gift-prize-select');
+                ay.text("Shop Gift Card");
             }
             
         });
@@ -98,8 +107,9 @@ require([
                 for(i=0;i<$(document).find('.down-caret-quantity-myacc-add').length;i++){
                     $($('.down-caret-quantity-myacc-add')[i]).show();
                 }
-                caretUp.removeClass('up-caret-quantity-myacc-add');
-                caretDown.removeClass('down-caret-quantity-myacc-add');
+                caretUp.css('display','none');
+                // caretUp.removeClass('up-caret-quantity-myacc-add');
+                // caretDown.removeClass('down-caret-quantity-myacc-add');
             });
         });
         
