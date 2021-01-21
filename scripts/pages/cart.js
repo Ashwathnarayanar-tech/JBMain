@@ -466,12 +466,12 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                 });
                                 var shippingGroundAmount = 0;
                                 for(var l=0;l<sortedRates.length;l++){
-                                    if(sortedRates[l].code === "ups_UPS_GROUND"){
+                                    if(sortedRates[l].code === "ups_UPS_SUREPOST_LESS_THAN_1LB"){
                                         shippingGroundAmount = sortedRates[l].amount;
                                     }
                                 }
                                 if(shippingGroundAmount > 0){
-                                    var str = " Ground Shipping to <b>"+zip +"</b>(estimate): <b> $"+shippingGroundAmount+"</b>";
+                                    var str = " SurePost Shipping to <b>"+zip +"</b>(estimate): <b> $"+shippingGroundAmount+"</b>";
                                     $("#estimateShippingCost-success").show();
                                     $("#estimateShippingCost-success").html(str);
                                     $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
