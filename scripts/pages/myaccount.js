@@ -1734,7 +1734,14 @@
                 }
             }
         });
-        
+        $(document).on('click','.myaccount-close', function() {
+            $('.mobile-popupmenu-myaccount').hide();
+        });
+        $(document).on('keypress','.myaccount-close', function(e) {
+            if(e.keyCode == 13 || e.keyCode == 32) {
+                $('.mobile-popupmenu-myaccount').hide();
+            }
+        });
         $(document).on('click','.selected-menu-mobile.mz-mobile', function() {
             $('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile.active').focus();
             scrollNavLinksFocus();

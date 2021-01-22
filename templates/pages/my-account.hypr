@@ -87,6 +87,7 @@
     <div class="clearfix"></div>
     <div class="mobile-popupmenu-myaccount mz-mobile">
     {% comment %}<div  style="height:60px; background-color:#fff"></div> {% endcomment %}
+    <span class="myaccount-close" aria-label="close Icon"></span>
     <div class="mobile-menu">
     <a class="mz-scrollnav-link-mobile" forID="account-loyalty-program" href="#account-loyalty-program">
         SWEET REWARDS
