@@ -206,6 +206,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             
         },
         onOptionChange: function (e) {
+            //write here if shabnam raise defect
             return this.configure($(e.currentTarget));
         },
         configure: function ($optionEl) {
@@ -700,8 +701,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage').imageUrl + '?max=150',
+                    img = product.get('mainImage') ? product.get('mainImage').imageUrl + '?max=150': "/cms/files/missing.gif?max=150",
                     qty = product.get('quantity');
+
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);
             } else {
                 product.trigger("error", { message: Hypr.getLabel('unexpectedError') });
