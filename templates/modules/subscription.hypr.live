@@ -31,7 +31,7 @@
 				</div>
 				{% if model.isMobile %}
 				<div class="button-sec-gotIt" tabindex="0">
-						<button class="gotIt"  tabindex="0" role="button" data-mz-action="closePopup1" aria-label="Got it close popup">Got It</button>
+						<button class="gotIt"  tabindex="0" role="button" data-mz-action="closePopup" aria-label="Got it close popup">Got It</button>
 					</div>
 				{% endif %}
 			</div>
@@ -720,64 +720,6 @@
 			<div class="summary-accordian">
 				<span class="list-item-count" tabindex="0">{{model.SubScriptionItemsList.length}} items</span><span class="listTotal">{{model.total|currency}}</span><span class="head-text">Subscription List <span class="arraow-icon {% if model.isMobileShowSummary %}down{% else %}up{% endif %}"></span></span>
 			</div>
-			<section class="subscription">
-	            <div class="expanded-section"> 
-	                <div class="formGroup howofter">
-	                    <span class="how-often-label-sub">
-	                        <label for="howOften" tabindex="0">How Often? Every</label>
-	                    </span>
-	                    <div class="how-often-input-sub">
-	                        <select class="how-often-val" name="howOften">
-	                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
-	                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
-	                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
-	                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
-	                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
-	                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
-	                        </select>
-	                        <div class="clear"></div>
-	                    </div>
-	                    <div class="weekormonth">
-	                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
-	                    </div>                  
-	                </div>
-	                <div class="formGroup interval">
-	                    <span class="when-sub">
-	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
-	                    </span>
-	                    <div class="datepicker-cointainer">
-	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
-	                        </input>
-	                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
-	                    </div>
-	                </div>
-	                <div class="formGroup howling">
-	                    <span class="for-how-long-label-sub">
-	                        <label for="howlong" tabindex="0">For How Long?</label>
-	                    </span>
-	                    <div class="how-long-input-sub" tabindex="0">
-	                        <select class="how-long-val" name="howlong">
-	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
-	                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
-	                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
-	                        </select>
-	                        <div class="clear"></div>
-	                    </div>              
-	                </div>
-	            </div>
-	        </section>
-			<div class="itemListTotal-bottom">
-				<span class="label-total" tabindex="0">Sub Total</span>
-				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
-			</div>
 			<div class="summaryListItems">
 				<div class="headeritems">
 					<span class="headertital" tabindex="0">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
@@ -845,11 +787,65 @@
 						<span class="noitemsfound">No items added to the list</span>
 					{% endif %}
 				</div>
-				<div class="itemListTotal">
-					<span class="label-total">Sub Total</span>
-					<span class="label-total-val">{{model.total|currency}}</span>
-				</div>
-			</div>        
+			</div> 
+			<section class="subscription">
+	            <div class="expanded-section"> 
+	                <div class="formGroup howofter">
+	                    <span class="how-often-label-sub">
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
+	                    </span>
+	                    <div class="how-often-input-sub">
+	                        <select class="how-often-val" name="howOften">
+	                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+	                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>
+	                    <div class="weekormonth">
+	                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+	                    </div>                  
+	                </div>
+	                <div class="formGroup interval">
+	                    <span class="when-sub">
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+	                    </span>
+	                    <div class="datepicker-cointainer">
+	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+	                        </input>
+	                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+	                    </div>
+	                </div>
+	                <div class="formGroup howling">
+	                    <span class="for-how-long-label-sub">
+	                        <label for="howlong" tabindex="0">For How Long?</label>
+	                    </span>
+	                    <div class="how-long-input-sub" tabindex="0">
+	                        <select class="how-long-val" name="howlong">
+	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+	                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>              
+	                </div>
+	            </div>
+	        </section>
+			<div class="itemListTotal-bottom">
+				<span class="label-total" tabindex="0">Sub Total</span>
+				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
+			</div>       
 			{% if model.remaingAmount > 0 %}
 				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
 					<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
@@ -866,64 +862,6 @@
 			{% if model.isTablet and model.isPotreate %}
 				<div class="summary-accordian">
 					<span class="list-item-count">{{model.SubScriptionItemsList.length}} items</span><span class="listTotal">{{model.total|currency}}</span><span class="head-text">Subscription List <span class="arraow-icon {% if model.isMobileShowSummary %}down{% else %}up{% endif %}"></span></span>
-				</div>
-				<section class="subscription">
-		            <div class="expanded-section"> 
-		                <div class="formGroup howofter">
-		                    <span class="how-often-label-sub">
-		                        <label for="howOften" tabindex="0">How Often? Every</label>
-		                    </span>
-		                    <div class="how-often-input-sub">
-		                        <select class="how-often-val" name="howOften">
-		                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
-		                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
-		                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
-		                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
-		                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
-		                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
-		                        </select>
-		                        <div class="clear"></div>
-		                    </div>
-		                    <div class="weekormonth">
-		                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
-		                    </div>                  
-		                </div>
-		                <div class="formGroup interval">
-		                    <span class="when-sub">
-		                        <label for="interval-startdate" tabindex="0">When? Starting</label>
-		                    </span>
-		                    <div class="datepicker-cointainer">
-		                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
-		                        </input>
-		                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
-		                    </div>
-		                </div>
-		                <div class="formGroup howling">
-		                    <span class="for-how-long-label-sub">
-		                        <label for="howlong" tabindex="0">For How Long?</label>
-		                    </span>
-		                    <div class="how-long-input-sub" tabindex="0">
-		                        <select class="how-long-val" name="howlong">
-		                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
-		                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
-		                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
-		                        </select>
-		                        <div class="clear"></div>
-		                    </div>              
-		                </div>
-		            </div>
-		        </section>
-				<div class="itemListTotal-bottom">
-					<span class="label-total">Sub Total</span>
-					<span class="label-total-val">{{model.total|currency}}</span>
 				</div>
 				<div class="summaryListItems">
 					<div class="headeritems">
@@ -991,11 +929,65 @@
 							<span class="noitemsfound">No items added to the list</span>
 						{% endif %}
 					</div>
-					<div class="itemListTotal">
-						<span class="label-total">Sub Total</span>
-						<span class="label-total-val">{{model.total|currency}}</span>
-					</div>
-				</div>        
+				</div> 
+				<section class="subscription">
+		            <div class="expanded-section"> 
+		                <div class="formGroup howofter">
+		                    <span class="how-often-label-sub">
+		                        <label for="howOften" tabindex="0">How Often? Every</label>
+		                    </span>
+		                    <div class="how-often-input-sub">
+		                        <select class="how-often-val" name="howOften">
+		                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+		                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+		                        </select>
+		                        <div class="clear"></div>
+		                    </div>
+		                    <div class="weekormonth">
+		                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+		                    </div>                  
+		                </div>
+		                <div class="formGroup interval">
+		                    <span class="when-sub">
+		                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+		                    </span>
+		                    <div class="datepicker-cointainer">
+		                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+		                        </input>
+		                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+		                    </div>
+		                </div>
+		                <div class="formGroup howling">
+		                    <span class="for-how-long-label-sub">
+		                        <label for="howlong" tabindex="0">For How Long?</label>
+		                    </span>
+		                    <div class="how-long-input-sub" tabindex="0">
+		                        <select class="how-long-val" name="howlong">
+		                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+		                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+		                        </select>
+		                        <div class="clear"></div>
+		                    </div>              
+		                </div>
+		            </div>
+		        </section>
+				<div class="itemListTotal-bottom">
+					<span class="label-total">Sub Total</span>
+					<span class="label-total-val">{{model.total|currency}}</span>
+				</div>       
 				{% if model.remaingAmount > 0 %}
 					<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
 						<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>

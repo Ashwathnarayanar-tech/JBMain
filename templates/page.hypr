@@ -27,7 +27,7 @@
 		<meta name="keywords" content="{{ PageContext.MetaKeywords }}">
 		 {% endblock meta-candytags %}
 		<meta name="correlationId" content="{{ pageContext.correlationId }}">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 /">
         {% endblock meta-tags %}
 
         {% if PageContext.Title == 'main' %}
