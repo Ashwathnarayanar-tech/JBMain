@@ -1447,7 +1447,7 @@ define([
                     window.loadAll = false;  
                 }   
                 //var remainingCount = (data.totalCount-lastpage)>500?500:(data.totalCount-parseInt(lastpage,10));
-                $(document).find('#load-all').html('Show All ('+data.totalCount+')');
+                $(document).find('#load-all').html('Show All ('+data.totalCount+')'); 
                 $(document).find('div[data-mz-productlist]').removeClass('is-loading'); 
                 setTimeout(function(){  
                     //$(document).find('.gridder-list[data-griddercontent="#'+(itemtofocus-(window.defaultpagesize-1))+'"]').find('a').first().focus();
@@ -1463,6 +1463,8 @@ define([
                 window.updatecatfilter();    
             }else{ 
                 setTimeout(function(){
+                    $(document).find('#load-all').html('Show All ('+data.totalCount+')');
+                     
                     $('#preloader').fadeOut();  
                     $('#preloaderoverlay').delay(350).fadeOut('slow'); 
                     custom.customObject.os();
@@ -1473,6 +1475,7 @@ define([
                     }else{
                         $(document).find('.clear-all-outer-btn').removeClass('active');    
                     }
+
                 },1000);
                 _$body.html($(response.body).find(".mz-l-container").children());  
                 var data1= require.mozuData('facetedproducts') ;  
@@ -1504,15 +1507,16 @@ define([
                 $(document).find('.tz-mobileSelected-filter').removeClass('active');
                 $(document).find('.mz-refine-search').removeClass('active'); 
             }
-            
+            var data2= require.mozuData('facetedproducts') ; 
+            var getFacetsvalues =  _.flatten(_.pluck(data2.facets, 'values'));
+            var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
+
+            $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
             if (url) _dispatcher.replace(url);
                 
             _$body.removeClass('mz-loading'); 
             
         }
-        
-        
- 
         function initRecProd(){
             $(document).find('.recommended-product').show();
         } 
@@ -1950,6 +1954,11 @@ define([
             }
         }
         initilizeBrandSec();
+        var data2= require.mozuData('facetedproducts') ; 
+        var getFacetsvalues =  _.flatten(_.pluck(data2.facets, 'values'));
+        var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
+
+        $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
         //pagination mobile
         var pageValue = window.pageValue = 0;
         var pageFlag = window.pageFlag = true;
@@ -2021,14 +2030,24 @@ define([
         });
             
         var width= $(window).width();
-        
         //mobile  
+        var fixedsortBy = $('.mobileuxFilter').offset().top;
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop() > $(".brand-dicreption-top").offset().top+$(".brand-dicreption-top").height()) {
+                $('.mobileuxFilter').addClass("active");
+            } else {
+                $('.mobileuxFilter').removeClass("active");
+            }
+        });
         $(document).on('click','[jb-mobSort]',function (e) {
+            $(document.body).animate({scrollTop: $('.mobileuxFilter').offset().top-200}, '500');
+            $("body").append("<div class='open-sortoverlay'></div>");
+            $('html,body').addClass("sortoverlayhidden");
+            $('.mobileuxFilter').addClass("showsortbydropdown");
             $('.mz-pagesort-mobile').slideDown('slow');
             $('.jb-mobile-sort').focus();
             loopmobilesort();
-        });  
-        
+        });          
         // loop in mobile sort
         function loopmobilesort(){ 
             window.sortinputs = $(document).find('.jb-mobile-sort').find('.jb-mobile-sort-cancel,[data-mz-value="sortMob"]').filter(':visible');   

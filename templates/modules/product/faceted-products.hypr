@@ -18,20 +18,26 @@
 } 
 </script>
 
-<div class="mz-mobile">
+<div class="mz-mobile mobileuxFilter">
     <ul class="tz-mobrefine-slot">
-        <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">{{ labels.refine }}</a></li>
+        <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">FILTER <span class="nooffilters">(0)</span></a></li>
         <li jb-mobSort data-jb-current-sort="{{model.currentSort}}">
             <a href="javascript:void(0)" >
                 <label>
                     <span role="button">
-                        {{ labels.sortBy }}  
+                        {% if not model.currentSort %}SORT BY{% else %} {{model.currentSort}}  {% endif %}
                     </span>
                 </label>
             </a>
         </li>
     </ul>
-</div> 
+    <div data-mz-mobile-page-sort class="mz-mobile mz-pagesort-mobile">
+        {% include "modules/common/page-sort-mobile" %}
+    </div>
+</div>
+
+
+
 <div class="mz-l-paginatedlist" id="shop-all">
     <div class="jb-pagecontrols mz-desktop" >
         <div data-mz-pagingcontrols class="mz-pagingcontrols mz-desktop">
@@ -89,7 +95,5 @@
 		{% include "modules/product/faceting-formNew" %}
 	{% endif %}
 </div> 
-<div data-mz-mobile-page-sort class="mz-mobile mz-pagesort-mobile">
-    {% include "modules/common/page-sort-mobile" %}
-</div>
+
 {% require_script "modules/add-to-cart-plp" %}  

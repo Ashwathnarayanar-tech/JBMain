@@ -151,7 +151,7 @@
                     </figure>
                 {% endif %}
                 <div class="product-name">
-                    <h5 tabindex="0" role="contentinfo"><span itemprop="name">{{ model.content.productName|safe }}</span></h1>
+                    <h5 tabindex="0" role="contentinfo"><span itemprop="name">{{ model.content.productName|safe }}</span></h5>
                     <span tabindex="0" role="contentinfo" aria-label="product SKU" class="mz-sku">SKU-{{ model.productCode|safe }}</span>
                 </div>
             </div> 
@@ -377,6 +377,7 @@
     </div>
     <div class="mobile-scroll-section scroll-header">
         <div class="top-section">
+            <h5 tabindex="0" role="contentinfo"><span itemprop="name">{{ model.content.productName|safe }}</span></h5>
             <div class="action-section">
                 <div class="price-qty-container">
                     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
