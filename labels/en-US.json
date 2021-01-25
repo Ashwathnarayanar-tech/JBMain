@@ -2,7 +2,7 @@
   "dateFormat": "F j, Y",
   "logOut": "Log Out",
   "logIn": "Log In",
-  "logIn2": "Sign in to your Jelly Belly Account to:",
+  "logIn2": "Log In To Your Account",
   "anonOrderNumberMissing": "The order number you provided was not found. Please validate the order number and try again or contact customer service.",
   "anonAuthError": "Sorry, the information you provided did not match our records. Please check the information that you provided and try again or contact the customer service department.",
   "signUp": "Sign up for a Jelly Belly Account to:",

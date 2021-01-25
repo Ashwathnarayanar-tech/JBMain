@@ -20,18 +20,36 @@
         p { 
             text-align: left;
         }
-        ul{
-            li{
-                text-align:left;
-                a{
-                    text-decoration:none;
-                    color: #004e99;
-                    &:hover{
-                        color: #003a72;
+        .login-innercontent{
+            background-color: rgba(210, 231, 255, 0.5);
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            h4{
+                color:#9b9b9b;
+                margin: 0px 0 10px;
+            }
+            ul{
+                padding:0;
+                margin: 0;
+                li{
+                    text-align:left;
+                    display: inline-block;
+                    width: 49%;
+                    font-size: 14px;
+                    vertical-align: top;
+                    color:#004e99;
+                    padding: 0 0 8px;
+                    a{
+                        text-decoration:none;
+                        color: #004e99;
+                        &:hover{
+                            color: #003a72;
+                        }
                     }
                 }
             }
         }
+
         .mz-loginform {
             .mz-l-formfieldgroup {
                 float: left;
@@ -161,6 +179,16 @@
                 .mz-l-formfieldgroup-row {
                     display: block;
                     padding: 5px 0 0 0;
+                    &.signup-links{
+                        text-align: center;
+                       .signmodel{
+                            padding: 10px;
+                            border: 1px solid #004e99;
+                            color: #004e99;
+                            display: block;
+                            text-decoration: none;
+                       } 
+                    }
                     &.checkbox{
                         padding:15px 0 0;
                     }
@@ -168,9 +196,11 @@
                 .order-status-link{
                     display: none;
                 }
-                .mz-l-formfieldgroup-cell {
+                .mz-l-formfieldgroup-cell { 
                     display: block;
                     padding: 0 0px 5px 0;
+                   
+                   
                     &.zero-cellspace {
                         padding-bottom: 0;
                         input {
@@ -231,6 +261,7 @@
                         font-size: 14px;
                         font-weight: 600;
                         text-decoration: none;
+                        text-align: right;
                         &:hover {
                             text-decoration: underline;
                         }
@@ -962,23 +993,32 @@ input:-ms-input-placeholder {
                             margin-left: 0px;
                         }
                         &.forgot-links{
-                            display: inline-block;
-                            width: 48%;
+                            // display: inline-block;
+                            // width: 48%;
                         }
                         &.signup-links{
-                            display: inline-block;
-                            width: 48%;
-                            text-align: right;
+                            text-align: center;
+                            // display: inline-block;
+                            // width: 48%;
+                            // text-align: right;
+                            .signmodel{
+                                padding: 10px;
+                                border: 1px solid #004e99;
+                               color: #004e99;
+                                display: block;
+                                text-decoration: none;
+                            }
                         }
                         &.order-status-link{
                             display:block;
                             text-align: center;
-                                .mz-order-status{
-                                display: block;
-                                color: #003a72;
+                            .orderstatus{
                                 font-size: 14px;
-                                font-weight: 600;
-                                text-decoration: none;
+                            }
+                            .mz-order-status{
+                                color: #004e99;
+                                font-size: 14px;
+                                
                                 text-transform: capitalize;
                             }
                         }
