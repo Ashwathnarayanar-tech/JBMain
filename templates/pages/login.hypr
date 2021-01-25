@@ -53,12 +53,12 @@
                      <div class="mz-l-formfieldgroup-row forgot-links">
                         <div class="mz-l-formfieldgroup-cell"></div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <a href="/user/forgotpassword" class="mz-forgot" data-mz-action="launchforgotpassword">{{ labels.forgotPassword }}</a>
+                            <a href="/user/forgotpassword" class="mz-forgot" data-mz-action="launchforgotpassword">Forgot Password ?</a>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <label class="checkbox-outer-label">
-                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> I Agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
                         <span class="checkmark-style"></span></label>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
