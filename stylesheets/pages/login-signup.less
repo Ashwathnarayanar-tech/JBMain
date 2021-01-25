@@ -23,7 +23,7 @@
         .login-innercontent{
             background-color: rgba(210, 231, 255, 0.5);
             padding: 10px 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             h4{
                 color:#9b9b9b;
                 margin: 0px 0 10px;
@@ -39,6 +39,7 @@
                     vertical-align: top;
                     color:#004e99;
                     padding: 0 0 8px;
+                    font-weight: 600;
                     a{
                         text-decoration:none;
                         color: #004e99;
@@ -81,6 +82,12 @@
                                 color: #fff;
                                 cursor: not-allowed;
                             }
+                        }
+                    }
+                    .checkbox-outer-label{
+                        width: 83%;
+                        a{
+                            color:#004e99;
                         }
                     }
                 }
@@ -260,10 +267,11 @@
                         color: #003a72;
                         font-size: 14px;
                         font-weight: 600;
-                        text-decoration: none;
+                        text-decoration: underline;
+                        //text-decoration: none;
                         text-align: right;
                         &:hover {
-                            text-decoration: underline;
+                           // text-decoration: underline;
                         }
                     }
                     label {
@@ -1012,6 +1020,7 @@ input:-ms-input-placeholder {
                         &.order-status-link{
                             display:block;
                             text-align: center;
+                            margin-top: 30px;
                             .orderstatus{
                                 font-size: 14px;
                             }
