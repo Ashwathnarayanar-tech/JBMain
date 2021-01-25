@@ -1682,7 +1682,7 @@
         
         
         var scrollNavLinksFocus = function() {
-            var trapFocusInputs = $(document).find('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile').filter(':visible');   
+            var trapFocusInputs = $(document).find('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile,.myaccount-close').filter(':visible');   
             var trapFocusFirstinput = trapFocusInputs.first();
             var trapFocusLastinput = trapFocusInputs.last(); 
             
