@@ -166,7 +166,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     });
                 });
                 
-                $('#cart-checkout').focus();
+                //$('#cart-checkout').focus();
+                $('.coupon-code-main').find('button').focus();
 
             },
             removeAllCoupon: function() {
@@ -301,7 +302,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 					self.render();
 				});
 				$.cookie("coupon", addedCoupon , { path: '/', expires: 7 });
-				$('#cart-checkout').focus();
+                //$('#cart-checkout').focus();
+                $('.coupon-code-main').find('button').focus();
             } 
             else {
                 $('.coupon-error').fadeIn().focus();
