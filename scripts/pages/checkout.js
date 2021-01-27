@@ -470,12 +470,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                      scrollTop: $("#step-payment-info").offset().top
                  }, 500);
             }  
-<<<<<<< HEAD
-            window.setSubscriptionData();
-            this.dateSelector();
-            window.checkoutViews.orderSummary.setnoFreeshippingProducts();
-=======
->>>>>>> parent of f79bb786 (Merged from checkout redesign to Flexi)
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
