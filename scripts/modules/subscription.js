@@ -768,7 +768,7 @@ define([
                 qtyArray.push(v.selectedData.Qty);
             });
             this.model.set('searchQuery', query);
-            if(query.length >= 3){
+            if(e && e.which === 13){
                 var body = {
                     "funName" : "search",
                     "query" : query

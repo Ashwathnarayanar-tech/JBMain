@@ -479,7 +479,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                  }, 500);
             }  
             window.setSubscriptionData();
-            this.dateSelector(); 
+            this.dateSelector();
+            window.checkoutViews.orderSummary.setnoFreeshippingProducts();
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
@@ -861,7 +862,15 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         onOrderCreditChanged: function (order, scope) {
             this.render();
         },
-        
+        setnoFreeshippingProducts:function(){
+            var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(',');
+            this.model.get('items').filter(function(v,i){
+            v.product.isHasnoFreeshipping = noShippingProducts.indexOf(v.product.productCode) >= 0 ? true : false; 
+            console.log(" v product --- set no freeshipping ");
+        }); 
+        console.log(" this.modle.item",this.model.get('items'));
+        this.render();
+        },
         // override loading button changing at inappropriate times
         handleLoadingChange: function () { }
     });
