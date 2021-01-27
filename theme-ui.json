@@ -39,22 +39,6 @@
         },
         {
           "xtype": "checkbox",
-          "name": "heatsensitive",
-          "fieldLabel": "Allow Heat Sensitive"
-        },
-        {
-              "xtype": "textfield",
-              "name": "shipping_date",
-              "fieldLabel": "Shipping Blockout Dates",
-              "allowBlank": true,
-              "forceSelection": true,
-              "queryMode": "local",
-              "width": "500px",
-              "grow": true,
-              "growMin": 300
-        },
-        {
-          "xtype": "checkbox",
           "name": "allowWishlist",
           "fieldLabel": "Allow Wishlist"
         },

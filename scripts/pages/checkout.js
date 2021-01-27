@@ -126,9 +126,9 @@ function getNextShipDate(n, d, hs, m) {
 require(["modules/jquery-mozu", "underscore", "hyprlive","modules/api",
 "modules/backbone-mozu", "modules/models-checkout", "modules/views-messages",
 "modules/cart-monitor", 'hyprlivecontext', 'modules/editable-view',
-'modules/preserve-element-through-render','modules/xpressPaypal', "modules/models-cart", 'vendor/jquery.mask', "vendor/jquery-ui.min"],
+'modules/preserve-element-through-render','modules/xpressPaypal', 'vendor/jquery.mask'],
 function ($, _, Hypr,api, Backbone, CheckoutModels, messageViewFactory, 
-CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) {
+CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
     var isAddresTypeChanged = false;
     
     var CheckoutStepView = EditableView.extend({
@@ -149,10 +149,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             var me = this;
             me.editing.savedCard = false;
             _.defer(function () {
-                me.model.next(); 
+                me.model.next();
             });
         },
-        choose: function () { 
+        choose: function () {
             var me = this;
             me.model.choose.apply(me.model, arguments);
         },
@@ -197,13 +197,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 
 
             EditableView.prototype.render.apply(this, arguments);
-            // Removing other payment methods when subscription is created 
-            if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                $('.mz-fromstep-direct-payment,#coupon-code-field,.mz-checkout-digitalcredit,.paypal-trigger').hide();
-
-            }else{
-                $('.mz-fromstep-direct-payment,#coupon-code-field,.mz-checkout-digitalcredit,.paypal-trigger').show();
-            }
             if($('.error-msg').html() !== ''){
                 if(self.model){
                      $('.digitalcrediterror-msg').hide();
@@ -230,7 +223,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                         self.model.set('errorsetdigitlcredit',''); 
                          $('.digitalcrediterror-msg').hide();
                           $('.digitalcrediterror-msg').css('display','none'); 
-                    }  
+                    }   
                 },10000); 
             }
             
@@ -362,8 +355,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             
             if(window.byPassFlag) {
                 setTimeout(function() {
-                    //Shruthi
-                $(document).find('.mz-checkoutform-shippingaddress').focus();
+                    $(document).find('.mz-checkoutform-shippingaddress').focus();
                 }, 700);
                 window.byPassFlag = false;
             }
@@ -478,9 +470,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                      scrollTop: $("#step-payment-info").offset().top
                  }, 500);
             }  
+<<<<<<< HEAD
             window.setSubscriptionData();
             this.dateSelector();
             window.checkoutViews.orderSummary.setnoFreeshippingProducts();
+=======
+>>>>>>> parent of f79bb786 (Merged from checkout redesign to Flexi)
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
@@ -607,212 +602,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         },
         resize: _.debounce(function () {
             this.$('.mz-panel-wrap').animate({'height': this.$('.mz-inner-panel').outerHeight() });
-        },200),
-       dateSelector: function() {
-            var finaldate;
-            var heat;
-            var finalDate;
-            var me = this;
-            if (this.isHeatSensitive()) {
-                finaldate = this.heatSensitvieDatePicker();
-                finalDate = finaldate.replace(/-/g, '/');
-                heat = true;
-            } else {
-                finaldate = this.datePicker();
-                finalDate = finaldate.replace(/-/g, '/');
-                heat = false;
-            } 
-
-            // Date Picker 
-            $('#interval-startdate').datepicker({
-                beforeShowDay: heatSensitive,
-                minDate: '0',
-                maxDate: '+6m',
-                dateFormat: "mm-dd-yy",
-                autoclose:true,
-                onSelect: function(dateText, inst) {
-                    var date = $(this).datepicker('getDate'),
-                        day = date.getDate(),
-                        month = date.getMonth() + 1,
-                        year = date.getFullYear();
-                    var shipdate = ('0' + month).slice(-2) + '-' + ('0' + day).slice(-2) + '-' + year;
-
-                    window.shipdate = shipdate;
-                    var subscriptionData = me.model.get('subscriptionData');
-                    if(subscriptionData && subscriptionData.Data){
-                        subscriptionData.Data.when = shipdate;
-                        me.model.set('subscriptionData', subscriptionData); 
-                    }
-
-                    $('#interval-startdate').datepicker("setDate", shipdate);
-                    $('#interval-startdate').val(shipdate);
-                    data = {
-                        'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
-                        'weeks' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?true:false, 
-                        'months' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?false:true,
-                        'when' :$(document).find('.subscription').find('#interval-startdate').val(),
-                        'howLong' : $(document).find('.subscription').find('.how-long-val').val()
-                    };
-                    $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
-                    //$('.estimateddate').text(shipdate);  
-                    //me.render(); 
-                },
-                beforeShow: function () { 
-                    $(document).find('body').removeClass('smooth-scroll');
-                    $(document).find('#ui-datepicker-div').show();
-                },onClose:function(){
-                    $(document).find('body').addClass('smooth-scroll');
-                    $(document).find('#ui-datepicker-div').hide();
-                }
-            });
-
-            //if (window.shipdate && !window.isPreviouslyStarted) {
-            var selectedDate = window.shipdate;
-            if (window.shipdate == finaldate) {
-                if(this.isHeatSensitive()) {
-                    var currentHeatDate = new Date(window.shipdate);
-                    if( heatSensitive(currentHeatDate)[0] === true ) {
-                        $('#interval-startdate').val(window.shipdate);
-                    } else {
-                        $('#interval-startdate').datepicker("setDate", finaldate);
-                        $('#interval-startdate').val(finaldate);
-                        window.shipdate = finaldate;
-                    }
-                } else {
-                    $('#interval-startdate').datepicker("setDate", window.shipdate);
-                    if(me.model.get("scheduleInfo")) {
-                        $('#interval-startdate').val(me.model.get("scheduleInfo").startDate);
-                    }
-                }
-            } else {
-               /* $('#interval-startdate').datepicker("setDate", finaldate);
-                $('#interval-startdate').val(finaldate);*/
-                var date = selectedDate ? selectedDate : finaldate;
-                $('#interval-startdate').datepicker("setDate", date);
-                $('#interval-startdate').val(date);
-                var subscriptionData = me.model.get('subscriptionData');
-                if(subscriptionData && subscriptionData.Data){
-                    subscriptionData.Data.when = date;
-                    me.model.set('subscriptionData', subscriptionData); 
-                }
-            }
-
-            function heatSensitive(date) {
-                var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-                var blackoutdates = restDates.split(',');
-                var day;
-                var m = date.getMonth();
-                var d = date.getDate();
-                var y = date.getFullYear();
-
-                var dd = new Date();
-                var mm = dd.getMonth();
-                var ddd = dd.getDate();
-                var yy = dd.getFullYear();
-
-                var shipdate = new Date(finalDate);
-                var currentDate = ('0' + (mm + 1)).slice(-2) + "/" + ('0' + ddd).slice(-2) + "/" + yy;
-                var compareDate = ('0' + (m + 1)).slice(-2) + '/' + ('0' + d).slice(-2) + '/' + y;
-                if (heat) {
-                    for (var i = 0; i < blackoutdates.length; i++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
-                            return [false];
-                        }
-                    }
-                    day = date.getDay();
-                    if (day === 3 || day === 4 || day === 5 || day === 6 || day === 0) {
-                        return [false];
-                    } else {
-                        return [true];
-                    }
-                } else {
-                    for (var j = 0; j < blackoutdates.length; j++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
-                            return [false];
-                        }
-                    }
-                    day = date.getDay();
-                    if (day === 6 || day === 0) {
-                        return [false];
-                    } else {
-                        return [true];
-                    }
-                }
-            }
-        },
-        datePicker: function() {
-            var date = new Date();
-            var businessdays = 2;
-            var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
-            var day, month, year, fulldate, currentDate, comparedate;
-            while (businessdays) {
-                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
-                day = date.getDay();
-                month = date.getMonth();
-                year = date.getFullYear();
-                currentDate = date.getDate();
-                fulldate = ('0' + (month + 1)).slice(-2) + '-' + ('0' + currentDate).slice(-2) + '-' + year;
-                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
-
-
-                if (day === 0 || day === 6 || blackoutdates.indexOf(comparedate) !== -1 || new Date() > comparedate) {
-                    date.setFullYear(year, month, currentDate);
-                } else {
-                    businessdays--;
-                }
-            }
-            date.setFullYear(year, month, (date.getDate()));
-            var finaldate = ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + '-' + date.getFullYear();
-            $('.earliest-date span').text(finaldate);
-            //$('#interval-startdate').datepicker("setDate",final);
-            return finaldate;
-        },
-        heatSensitvieDatePicker: function() {
-            var date = new Date();
-            var businessdays = 2;
-            var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
-            var day, month, year, currentDate, comparedate;
-            while (businessdays) {
-                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
-                day = date.getDay();
-                month = date.getMonth();
-                year = date.getFullYear();
-                currentDate = date.getDate();
-                // fulldate= ('0'+(month+1)).slice(-2)+ '-' + ('0'+currentDate).slice(-2) + '-' + year;
-                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
-
-                if (day === 0 || day === 6 || day === 3 || day === 4 || day === 5 || blackoutdates.indexOf(comparedate) !== -1) {
-                    date.setFullYear(year, month, (currentDate));
-                } else {
-                    businessdays--;
-                }
-            }
-            date.setFullYear(year, month, (currentDate));
-            var finaldate = ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + '-' + date.getFullYear();
-            $('.earliest-date span').text(finaldate);
-            return finaldate;
-        },
-        isHeatSensitive: function() {
-            var heatSensitiveEnabled = Hypr.getThemeSetting('heatsensitive') ? Hypr.getThemeSetting('heatsensitive') : true;
-            var isHeatSensitivePrd = false;
-            if (heatSensitiveEnabled) {
-                console.log(" this.model ---",window.order.attributes.items);
-                var  items = window.order.attributes.items ?  window.order.attributes.items : [] ;
-                for (var i = 0; i < items.length; i++) {
-                    var item = items[i].product;
-                    var properties = item.properties;
-                    for(var j=0;j<properties.length;j++){
-                        if(properties[j].attributeFQN === "tenant~IsHeatSensitive" && !isHeatSensitivePrd){
-                            isHeatSensitivePrd = properties[j].values[0].value;
-                        }
-                    }
-                }
-            } 
-            console.log("isHeatSensitivePrd ---- ",isHeatSensitivePrd);
-            return isHeatSensitivePrd;
-        }
+        },200)
     });
 
     var OrderSummaryView = Backbone.MozuView.extend({
@@ -834,7 +624,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             window.couponCode.removeCouponCheckout($(e.currentTarget).attr('coupon'));
             /*api.action('order','remove-coupon',{id:require.mozuData("checkout").id,couponCode:$(e.currentTarget).attr('coupon')}).then(function(){
                 self.model.refresh();  
-            });*/ 
+            });*/
         },
         removeCouponOnKeypress: function(e) {
             var self = this;
@@ -844,19 +634,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             }
         },
         editCart: function () {
-            if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
-                var schedule = {
-                    "howOften": $(document).find('.subscription').find('.how-often-val').val(),
-                    "weeks": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? true : false,
-                    "years": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? false : true,
-                    "howLong": $(document).find('.subscription').find('.how-long-val').val(),
-                    "when": $(document).find('.subscription').find('#interval-startdate').val()
-                };
-                $.cookie("subscriptionData", JSON.stringify(schedule), { path: '/'});
-                window.location = "/subscription";
-            }else{
-                window.location = "/cart";
-            }
+            window.location = "/cart";
         },
         
         onOrderCreditChanged: function (order, scope) {
@@ -1002,8 +780,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             this.model.bypass(); 
         },
         resetbypassbtn: function(){
-           
-            $('.data-contact').siblings('.savedaddressError').html('');
             this.model.resetbypass(); 
             setTimeout(function(){
                 var $errEl = $('#step-shipping-address').find('.mz-validationmessage').filter(':visible');
@@ -1015,10 +791,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                     } else{
                         $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
                     }
+                    
                 }
-            
             }, 700);
-           
         }    
     });
 
@@ -1381,7 +1156,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 $('.mz-l-formfieldgroup-address').show();
 
             }
-        
         },
         updateCardType: function(e){
             var card = $(e.target).val();
@@ -1454,9 +1228,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 			this.prepareOrder();
 		},
         validateaddressform: function(e){  
-           // if(this.model.get('billingContact.phoneNumbers.home')){this.model.set('billingContact.phoneNumbers.home', this.model.get('billingContact.phoneNumbers.home').(/[^0-9replace]+/g, "")); }
+            if(this.model.get('billingContact.phoneNumbers.home')){this.model.set('billingContact.phoneNumbers.home', this.model.get('billingContact.phoneNumbers.home').replace(/[^0-9]+/g, "")); }
             if(!this.model.get('billingContact.address.addressType')){this.model.set('billingContact.address.addressType',"Residential");}
-           if(window.paymentinfo.model.get('paymentType')!== undefined){
             if(window.paymentinfo.model.get('paymentType').toLowerCase() === "storecredit" && window.checkoutViews.parentView.model.get('amountRemainingForPayment')>0){
                 $('.store-credit-message').focus();
                 if(!$('.mz-payment-select-saved-payments').is(':checked')){
@@ -1465,8 +1238,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 }
                 return false;
             }
-           }
-            
             
             if(!require.mozuData('user').isAnonymous){ 
                 window.paymentinfo.model.attributes.billingContact.attributes.email = require.mozuData('user').email;
@@ -1522,9 +1293,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             if(!(window.paymentinfo.model.validate(attr))){
                  //CVV Validation
                  var regcvv=/^[0-9]{3,4}$/;
-                 if($('#submitorder-cpp-checkbox').is(':checked')){
-                    $('#submitorder-cpp-checkbox').attr('checked',false);
-                 }
                  if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
                      $('[data-mz-validationmessage-for="card.cvv"]').text('Error: Please enter your card’s complete CVV (Security Code)');
                       $('[data-mz-value="card.cvv"]').focus();
@@ -1562,7 +1330,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                                 if($errEl.first().prev().is('input') || $errEl.first().prev().is('select'))
                                     $errEl.first().prev().attr('aria-invalid', true).focus();
                                 else
-                                    $errEl.first().attr('aria-invalid',true).focus();
+                                    $errEl.first().prevAll('input').attr('aria-invalid',true).focus();
                             }
                         }, 700);
                         if($('.mz-l-formfieldgroup-address').is(':visible')) {
@@ -2549,350 +2317,19 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         console.log(e);
         $(e.target).siblings('input').focus();
     });
-    
-    $(document).on('change','.how-long-val,.how-often-val',function(e){
-        subData="";data="";
-         //subData = JSON.parse($.cookie("subscriptionData"));
-         data = {
-            'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
-            'weeks' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?true:false, 
-            'months' : $(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"?false:true,
-            'when' :$(document).find('.subscription').find('#interval-startdate').val(),
-            'howLong' : $(document).find('.subscription').find('.how-long-val').val()
-        };
-        $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
-    });
-    
-    $(document).on('click','.span-tabs',function(e){
-        subData="";data="";
-         //subData = JSON.parse($.cookie("subscriptionData"));
-         data = {
-            'howOften' : $(document).find('.subscription').find('.how-often-val').val(),
-            'weeks' : $(e.target).attr('data-mz-value') == "weeks" ? true : false, 
-            'months' : $(e.target).attr('data-mz-value') == "weeks" ? false : true,
-            'when' : $(document).find('.subscription').find('#interval-startdate').val(),
-            'howLong' : $(document).find('.subscription').find('.how-long-val').val()
-        };
-        $.cookie("subscriptionData", JSON.stringify(data), { path: '/'});
-    });
     $(document).ready(function () {
-        var setSubscriptionData = window.setSubscriptionData = function(){
-            var myObj = {
-                'howOften' : 1,
-                'weeks' : true, 
-                'months' : false,
-                'when' : "",
-                'howLong' : "until i cancel"
-            };
-            if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                var myval = JSON.parse($.cookie("subscriptionData"));
-                myObj = {
-                    'howOften' : myval.howOften,
-                    'weeks' : myval.weeks,
-                    'months' : myval.months,
-                    'when' : myval.when, 
-                    'howLong' : myval.howLong
-                };
-                // if($(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
-                //     window.shipdate = $(document).find('.subscription').find('#interval-startdate').val();
-                // }else{
-                     window.shipdate = myval.when;
-                // }
-            //   if($(document).find('.subscription').find('.span-tabs.active').text()!==""){
-            //      if($(document).find('.subscription').find('.span-tabs.active').text()=="Weeks"){
-            //         myObj.weeks=true;
-            //      }else{
-            //          myObj.weeks=false;
-            //      }
-            //   }
-            }
-            // if($(document).find('.subscription').find('.how-often-val').val()>1){
-            //     $(document).find('.subscription').find('.how-often-val').val($(document).find('.subscription').find('.how-often-val').val());
-            // }else{
-                 $(document).find('.subscription').find('.how-often-val').val(myObj.howOften);
-            // }
-           
-            if(myObj.weeks){
-                $(document).find('.subscription').find('.span-tabs.week').addClass('active');
-                $(document).find('.subscription').find('.span-tabs.months').removeClass('active');
-            }else{
-                $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
-                $(document).find('.subscription').find('.span-tabs.months').addClass('active');
-            }
-            // if( $(document).find('.subscription').find('#interval-startdate').val()!== myObj.when){
-            //     $(document).find('.subscription').find('#interval-startdate').val($(document).find('.subscription').find('#interval-startdate').val());
-            // }else{
-                $(document).find('.subscription').find('#interval-startdate').val(myObj.when);
-            // }
-            // if($(document).find('.subscription').find('.how-long-val').val()!==myObj.howLong){
-            //     $(document).find('.subscription').find('.how-long-val').val($(document).find('.subscription').find('.how-long-val').val());
-            // }else{
-                 $(document).find('.subscription').find('.how-long-val').val(myObj.howLong);
-            // }
-            
-            if(window.location.search.indexOf("chktSub=true") != -1 || (typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true')){
-                $(document).find('.subscription').addClass('active');
-                $(document).find('.place-subscrition-btn').addClass('active');
-                $(document).find('.place-order-btn').removeClass('active');   
-                $('.mz-pagetitle span').html('Subscription Checkout');
-                $('.mz-pagetitle span').addClass('subcheckouttitle');
-            }
-        };
-
-        $(document).on('click', '.span-tabs', function(e){
-            if($(e.target).hasClass('week')){
-                $(document).find('.subscription').find('.span-tabs.week').addClass('active');
-                $(document).find('.subscription').find('.span-tabs.months').removeClass('active');
-            }else{
-                $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
-                $(document).find('.subscription').find('.span-tabs.months').addClass('active');
-            }    
-        });
-
-        $(document).on('click', '.place-subscrition-btn', function(){
-            $('.place-subscrition-btn').prop('disabled',true);
-            var billincontact = checkoutModel.toJSON().billingInfo.billingContact;
-            var card =  checkoutModel.toJSON().billingInfo.card;
-            var attr = {
-                billingContact:{ 
-                    address:{  
-                        address1:billincontact.address.address1,
-                        cityOrTown:billincontact.address.cityOrTown,
-                        countryCode:billincontact.address.countryCode,
-                        postalOrZipCode:billincontact.address.postalOrZipCode,
-                        stateOrProvince:billincontact.address.stateOrProvince
-                        },
-                    email:billincontact.email,
-                    firstName:billincontact.firstName,
-                    lastNameOrSurname:billincontact.lastNameOrSurname, 
-                    phoneNumbers:{home: null}
-                },
-                card:{
-                    cardNumberPartOrMask:card.cardNumberPartOrMask,
-                    expireMonth:card.expireMonth,
-                    expireYear:card.expireYear,
-                    nameOnCard:card.nameOnCard,
-                    paymentOrCardType:card.paymentOrCardType,
-                    cvv:card.cvv
-                    
-                }
-                
-            };
-if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
-                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.home;
-            }else{
-                attr.billingContact.phoneNumbers.home = null;
-            }
-            var flag = false;
-            if(!(window.paymentinfo.model.validate(attr))){
-                 //CVV Validation
-                 var regcvv=/^[0-9]{3,4}$/;
-                 if($('#submitorder-cpp-checkbox').is(':checked')){
-                    $('#submitorder-cpp-checkbox').attr('checked',false);
-                 }
-                 if(card.cvv && card.cvv.toString().indexOf('*')==-1 && !regcvv.test(card.cvv)){
-                     $('[data-mz-validationmessage-for="card.cvv"]').text('Not in proper format');
-                      $('[data-mz-value="card.cvv"]').focus();
-                      $('.place-subscrition-btn').prop('disabled',false);
-                  return false;
-                 }
-                //  if($('[data-mz-value="card.isCardInfoSaved"]').is(':checked')){
-                  
-                //     checkoutModel.saveCustomerCard(); 
-                //  }
-                 $('#completePaymment').click();
-                //  subscritpionFunction.subscribe();
-                if($('.is-showing.mz-errors').length > 0){
-                    $('.is-showing.mz-errors').first().focus();
-                    //$('.place-subscrition-btn').prop('disabled',false);
-                }
-            }else if(window.paymentinfo.model.validate(attr)){
-                var k = window.paymentinfo.model.validate(attr);
-                var counter = 0;var totalcounter = 0;
-                $.each(k,function(k,v){
-                    totalcounter++;
-                    if("savedPaymentMethodId" == k || k == "billingContact.address.addressType" || k == "billingContact.address.countryCode"){
-                        counter++;
-                    }
-                });
-                if(totalcounter <= counter){
-                    $('#bcompletePaymment').click();
-                }else{
-                    // form validation errors focus
-                    var $errEl;
-                    if($('.payment-form-section')) {
-                        if($('#submitorder-cpp-checkbox').is(':checked')){
-                            $('#submitorder-cpp-checkbox').attr('checked',false);
-                         }
-                        window.scrollTo(0, $('.payment-form-section').offset().top);
-                        setTimeout(function() {
-                            $errEl = $('.payment-form-section,.saved-payment-methods').find('.mz-validationmessage').filter(':visible');
-                            if($errEl.length > 0) {
-                                $errEl.prev().attr('aria-invalid',true);
-                                //$errEl.first().prev().focus();
-                                if( $('.mz-l-formfieldgroup-cell .is-invalid').length==1){
-                                    $('.mz-l-formfieldgroup-cell .is-invalid').focus(); 
-                                } else{
-                                    $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
-                                }
-                                
-                            }
-                            // if($errEl.first().prev().length > 0) {
-                            //     if($errEl.first().prev().is('input') || $errEl.first().prev().is('select'))
-                            //         $errEl.first().prev().attr('aria-invalid', true).focus();
-                            //     else
-                            //         $errEl.first().prevAll('input').attr('aria-invalid',true).focus();
-                            // }
-                        }, 700);
-                        
-                        if($('.mz-l-formfieldgroup-address').is(':visible')) {
-                            $errEl = $('.mz-l-formfieldgroup-address').find('.mz-validationmessage').filter(':visible');
-                            // $errEl.prev().attr('aria-invalid',true);
-                            // $errEl.first().prev().focus();
-                            if($errEl.length > 0) {
-                                $errEl.prev().attr('aria-invalid',true);
-                                //$errEl.first().prev().focus();
-                                if( $('.mz-l-formfieldgroup-cell .is-invalid').length==1){
-                                    $('.mz-l-formfieldgroup-cell .is-invalid').focus(); 
-                                } else{
-                                    $('.mz-l-formfieldgroup-cell .is-invalid').first().focus(); 
-                                }
-                                
-                            }
-                        }
-                    }
-                }  
-            }
-            // global errors focus
-            setTimeout(function() {
-                if($('.mz-messagebar').find('.is-showing.mz-errors').filter(':visible').length > 0) {
-                    $('.mz-messagebar').find('.is-showing.mz-errors').focus();
-                }
-            }, 500);
-            // step 4 msg focus 
-        });
-
-
-        var subscritpionFunction = {
-            generateSubscriptionId: function(accn, length) {
-                return accn + Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
-            },
-            subscribe: function() {
-                $("#page-content").addClass("is-loading");
-                var urlParams = this.getUrlParams(window.location.href);
-                var editSubsId = urlParams.subId ? urlParams.subId :"";  
-                var subscriptionId = (editSubsId) ? editSubsId : this.generateSubscriptionId(window.order.attributes.customerAccountId, 7);
-                var userId = require.mozuData("user").userId;
-                var createdDate = new Date().toISOString();
-                var modifiedDate = new Date().toISOString();
-                var order = {};
-                order.customerId = userId; 
-                order.subscriptionId = subscriptionId;
-                order.modifiedDate = modifiedDate;
-                order.subscribedStatus = "Active"; 
-                order.lastOrderDate = null;
-                order.estimationInfo=$('.expected-data').text();
-                try{
-                    order.nextOrderDate = new Date($(document).find('.subscription').find('#interval-startdate').val()).toISOString();
-                } catch(err){
-                    order.nextOrderDate = "";
-                }
-                order.lastCheckDate = null;
-                order.order =  window.order.attributes;
-                order.schedule = {
-                    "frequency": $(document).find('.subscription').find('.how-often-val').val(),
-                    "frequencyType": $(document).find('.subscription').find('.span-tabs.week').hasClass('active') ? "Weeks" : "Months",
-                    "endType": $(document).find('.subscription').find('.how-long-val').val(),
-                    "startDate": $(document).find('.subscription').find('#interval-startdate').val()
-                };
-                order.completedOrders = [];
-                order.nickname = require.mozuData('user').firstName;
-                try {
-                      if(editSubsId){
-                        var me = this;
-                        api.request('POST', '/svc/getSubscription',{method:"GET",subscriptionId:editSubsId}).then(function(res) {
-                            if (!res.error &&  res.res.subscriptionId !== undefined) {
-                                var existingorder = res.res;
-                                existingorder.modifiedDate = modifiedDate;
-                                existingorder.subscribedStatus = "Active"; 
-                                existingorder.nextOrderDate = order.nextOrderDate;
-                                existingorder.order = order.order;
-                                existingorder.schedule = order.schedule;
-                                existingorder.estimationInfo=$('.expected-data').text();
-                                me.updateSubscription(existingorder,editSubsId);
-                            }   
-                        }, function(er) {
-                            // fail condition
-                            console.log("Data error " + er);
-                        });
-                      }
-                      else if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                        this.createSubscription(order,subscriptionId,createdDate,modifiedDate);
-                      }
-                } catch (error) {
-                    console.error(error);
-                }
-            },
-            createSubscription: function(order,subscriptionId,createdDate,modifiedDate){
-                var cartModel = new CartModels.Cart();
-                order.createdDate = createdDate;           
-                api.request('post','/svc/getSubscription',{method:"CREATE",data:order} ).then(function(res) {
-                    if (res) {
-                        console.log(res);
-                        cartModel.apiEmpty();
-                        $.cookie("subscriptionCreated", '', {path: '/', expires: -1});
-                        $.cookie("scheduleInfo", '', {path: '/', expires: -1});
-                        $.cookie("subscriptionEdit",'',{path: '/',expires: -1});
-                    }
-                    setTimeout(function() {
-                        $(".overlay-for-complete-page").removeClass("overlay-shown");
-                        $("#page-content").removeClass("is-loading");
-                        window.location.href = "/subscription-confirmation?subscription=" + subscriptionId;
-                    }, 300);
-                });
-            },
-            updateSubscription: function(order,subscriptionId){
-                var cartModel = new CartModels.Cart();         
-                api.request('post','/svc/getSubscription',{method:"UPDATE",data:order}).then(function(res) {
-                    if (res) {
-                        console.log(res);
-                        cartModel.apiEmpty();
-                        $.cookie("subscriptionCreated", '', {path: '/', expires: -1});
-                        $.cookie("scheduleInfo", '', {path: '/', expires: -1});
-                        $.cookie("subscriptionEdit",'',{path: '/',expires: -1});
-                    }
-                    setTimeout(function() {
-                        $(".overlay-for-complete-page").removeClass("overlay-shown");
-                        $("#page-content").removeClass("is-loading");
-                        window.location.href = "/subscription-confirmation?subscription=" + subscriptionId;
-                    }, 300);
-                });
-            },
-        getUrlParams:function(url){
-            var result = {};
-            var params = window.location.search;
-            params = params.substr(1);
-            var queryParamArray = params.split('&');
-            queryParamArray.forEach(function(queryParam) {
-                var item = queryParam.split('=');
-                result[item[0]] = decodeURIComponent(item[1]);
-            });
-            console.log(result);
-            return result;
-        } 
-        };
-
+        
         // navigate through ordersummary
-        // $(document).on('keydown', '.summary-item', function(e){
-        //     if ((e.which === 9 && e.shiftKey)) {
-        //         e.preventDefault();
-        //         $(e.target).prev('.summary-item').focus();
-        //     }
-        //     if((e.which === 9 && !e.shiftKey)){
-        //         e.preventDefault();
-        //         $(e.target).next('.summary-item').focus();
-        //     }
-        // });
+        $(document).on('keydown', '.summary-item', function(e){
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                $(e.target).prev('.summary-item').focus();
+            }
+            if((e.which === 9 && !e.shiftKey)){
+                e.preventDefault();
+                $(e.target).next('.summary-item').focus();
+            }
+        });
 
         // coupon code field functanality
         $(document).on('click', '.coupondata', function(e){
@@ -3064,18 +2501,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     e.preventDefault();   
                 }
             }
-        }); 
-        $(document).on('keypress', '.span-tabs', function(e) {
-            if(e.keyCode === 13 || e.keyCode === 27){
-                if($(e.target).hasClass('week')){
-                    $(document).find('.subscription').find('.span-tabs.week').addClass('active');
-                    $(document).find('.subscription').find('.span-tabs.months').removeClass('active');
-                }else{
-                    $(document).find('.subscription').find('.span-tabs.week').removeClass('active');
-                    $(document).find('.subscription').find('.span-tabs.months').addClass('active');
-                }    
-            }
-        });   
+        });
         $("#checkoutmodal").on('click',function(){
             window.location.replace("/cart"); 
             // $(this).children(".wrapper_email").toggle(); 
@@ -3145,13 +2571,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
       
         checkoutModel.on('complete', function() {
             CartMonitor.setCount(0);
-            if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                subscritpionFunction.subscribe();
-            }
-            else{
-                window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";
-            }
-            
+            window.location = "/checkout/" + checkoutModel.get('id') + "/confirmation";
         });
 
         $('input[name="shippingphone"]').mask("(999) 999-9999");
@@ -3196,8 +2616,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
             $('#checkoutmodal .top-sec .checkout_login.form-content').css('height',$('#checkoutmodal .top-sec .proceed_guest.form-content').innerHeight()-10+'px');
         }
             // shipping method keyboard interactions
-       /// $(document).on('keydown', 'input[data-mz-shipping-method]', function(e) {
-        $(document).on('keypress', '.method-label', function(e) {
+        $(document).on('keydown', 'input[data-mz-shipping-method]', function(e) {
             if(e.keyCode == 40 || e.keyCode == 39) {
                 e.preventDefault();	
                 if($(this).parents('div').next().find('input[data-mz-shipping-method]')) {
@@ -3210,8 +2629,8 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                     $(this).parents('div').prev().find('input[data-mz-shipping-method]').focus();
                 }
             }
-            if(e.keyCode == 13 || e.keyCode == 32 || e.keyCode == 27) {
-                $(this).find('input').trigger('click');
+            if(e.keyCode == 13 || e.keyCode == 32) {
+                $(this).trigger('click');
                 e.preventDefault();
             }
         });
@@ -3232,26 +2651,20 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                          return false;
                         }
                     });
-        // $(document).on('click','#copyshipping',function(e){
-        //     setTimeout(function(){
-        //         $('#copyshipping').focus();
-        //     }, 700);
-        //     /*if(!($(this).parents().hasClass('paypal-next'))){
-        //         $(this).focus(); 
-        //         //$("html, body").animate({scrollTop:  $(e.target)[0].offsetTop }, 300);
-        //     }*/
-        // });
-        $(document).on('keydown','.copy-address',function(e) { //keypress for copy from shipping button
+        $(document).on('click','#copyshipping',function(e){
+            setTimeout(function(){
+                $('#copyshipping').focus();
+            }, 700);
+            /*if(!($(this).parents().hasClass('paypal-next'))){
+                $(this).focus(); 
+                //$("html, body").animate({scrollTop:  $(e.target)[0].offsetTop }, 300);
+            }*/
+        });
+        $(document).on('keypress','#copyshipping',function(e) { //keypress for copy from shipping button
             if(e.keyCode == 32 || e.keyCode == 13) {
                 e.preventDefault();
-                $(this).find('input').trigger('click');
-                if($(this).find('input').is(':checked')){
-                    $('#step-review').find('.mz-formstep-desc').focus();
-                }   
-               else{
-                   $(document).find('#bcompanyname').focus();
-               }
-                // $(this).focus();'
+                $(this).trigger('click');
+                $(this).focus();
          /*
                 if($('.mz-l-formfieldgroup-address').find('.mz-addressform-companyname').filter(':visible').length > 0) {
                     $(this).focus();
@@ -3264,17 +2677,13 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 }*/
                 
                 
-            }else{
-                $(document).find('#bcompanyname').focus();
             }
         });
         $(document).on('change','#submitorder-cpp-checkbox', function() {
             if (this.checked) {
             $('.place-order-btn').prop('disabled',false);
-            $('.place-subscrition-btn').prop('disabled',false);
             }else{
             $('.place-order-btn').prop('disabled',true);
-            $('.place-subscrition-btn').prop('disabled',true);
             }
         });
 
@@ -3283,7 +2692,6 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
         // });
         // To make the paypal success to come to checkout page
         $(document).on('click', '.place-order-btn', function(e){
-            $('.place-order-btn').prop('disabled',true);
             if( window.paymentinfo.model.get('paymentType') === "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') === "PayPalExpress2"){
                 $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
             }
@@ -3300,8 +2708,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 }
             }
         });
-
-        $(document).on('keydown','.inpit-select', function(e) { //keypress for payment type option opening
+        /*$(document).on('keydown','.inpit-select', function(e) { //keypress for payment type option opening
             //var allowEsc = window.allowEsc = false;
             if($(this).hasClass('inactive')) {
                 if(e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 32) {
@@ -3344,71 +2751,24 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 
                 
             }
-        });
-        $(document).on('keydown','.no-form .mz-contactselector-summarywrapper span,.mz-contactselector-contact', function(e) {
-        if($(e.currentTarget).hasClass('mz-contactselector-contact')){
-            if(e.keyCode == 13) {
-                $(e.currentTarget).parents('.data-contact').find('input').trigger('click');
+        });*/
+        
+        /*$(document).on('keydown','.select-li', function(e) { //keypress for payment type option selection
+            if(e.keyCode == 9 || e.keyCode == 13 || e.keyCode == 32) {
+                e.preventDefault();
+                $(this).trigger('click');
+                //$(this).parent().prev().focus();
+                window.paymentTypeFlag = true;
             }
-        }else{
-            if(e.keyCode == 13) {
-                $(e.currentTarget).parents('.mz-contactselector-new.no-form').find('input').trigger('click');
+            else if(e.keyCode == 40) {
+                e.preventDefault();
+                if($(this).next().length > 0)
+                    $(this).next().focus();
             }
-        }
-            
-        });
-        $(document).on('keydown','.how-often-val,.how-long-val', function(e) {
-            if(e.keyCode == 13) {
-                $(e.currentTarget).trigger('click');
-            }
-        });
-        $(document).on('keydown','.select-li', function(e) { //keypress for payment type option selection
-            if(e.key=="Tab" && !e.shiftKey){
-                if(e.keyCode == 9 || e.keyCode == 13 || e.keyCode == 32) {
-                    e.preventDefault();
-                // $(this).trigger('click');
-                    if(typeof $.cookie("subscriptionCreated") !== 'undefined' && $.cookie("subscriptionCreated") == 'true'){
-                        if($('.card-item.active input.mz-payment-select-saved-payments').is(':checked')){
-                            $(document).find('.copy-address').siblings('.mz-l-stack-sectiontitle').focus();
-                        }else{
-                            $(document).find('label[for=mz-payment-credit-card-name]').focus();
-                        }
-                    
-                    } 
-                    else{
-                        if($(e.currentTarget).hasClass('paypal-trigger')){
-                            $(document).find('label[for=mz-payment-credit-card-name]').focus();
-                        }else{
-                            $(this).next().focus();
-                        }
-                    
-                    }
-                    //$(this).parent().prev().focus();
-                    window.paymentTypeFlag = true;
-                }
-                else if(e.keyCode == 40) {
-                    e.preventDefault();
-                    if($(this).next().length > 0)
-                        $(this).next().focus();
-                }
-                else if(e.keyCode == 38) { 
-                    e.preventDefault();
-                    if($(this).prev().length > 0)
-                        $(this).prev().focus();
-                }
-            } else {
-                if($(e.target).hasClass('paypal-trigger')){
-                    $(e.target.previousElementSibling).focus();
-                }else{
-                    $(document).find('.tital-sec-head h4').focus();
-                }
-                // else if($(document).find('.mz-checkout-digitalcredit-cell-amt-to-apply').length>0){
-                //     $(document).find('.mz-checkout-digitalcredit-cell-amt-to-apply').focus();
-                // }else if($(document).find('#sweet-rewards-worksheet').length>0){
-                //     $(document).find('#sweet-rewards-worksheet').focus();
-                // }else{
-                //     $(document).find('.mz-checkout-digitalcredit-enter-code').focus();
-                // }
+            else if(e.keyCode == 38) {
+                e.preventDefault();
+                if($(this).prev().length > 0)
+                    $(this).prev().focus();
             }
         });
 
@@ -3418,7 +2778,7 @@ if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
                 $('.inpit-select').addClass('inactive'); 
                 $('.inpit-select').removeClass('active'); 
             }
-        });
+        });*/
         
         $(document).on('click','.mz-shipmethod',function(e){
             setTimeout(function(){

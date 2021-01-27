@@ -4,7 +4,7 @@
     <img tabindex="0" role="button" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ model.mainImage.imageUrl }}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
     <div class="mz-desktop image-enlarge">
       <img tabindex="0" role="button" class="mz-zoom-icon" src="/resources/images/zoom_icon.png" alt="Enlarge image icon" width="22" />   
-      <figcaption role="button" tabindex="0">Click on image to enlarge</figcaption> 
+      <figcaption >Click on image to enlarge</figcaption> 
     </div>    
 </figure>       
 <figure class="mz-productimages-thumbs">   

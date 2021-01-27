@@ -2,13 +2,12 @@
 
 define(['modules/jquery-mozu', 'underscore', 'modules/backbone-mozu','hyprlive','shim!vendor/jquery.quickview'], 
 function ($, _, Backbone, Hypr, ModalWindow) {
+
     var ProductListView = Backbone.MozuView.extend({
             templateName: 'modules/product/product-list-tiled',
             additionalEvents: {
                 "change [plp-giftcart-prize-change-action]": "onOptionChange"
-                
             },
-          
             getRenderContext: function () {
                 var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
                 this.cornerLabel(c);

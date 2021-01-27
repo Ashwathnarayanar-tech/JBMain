@@ -233,26 +233,6 @@
                                             </ul>
                                         </div>
                                     </div>
-									<div class="subitem">
-                                        <div tabindex="0" role="application" class="item-name-list" aria-label="BeanBoozled Fiery Five category">
-                                            <a  href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five">
-                                                <div class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8a7ff24e-e9bf-47fc-ae51-41b011b26915" width="62" height="31" alt="BeanBoozled Fiery Five"></div>
-                                                <div class="namespan-container">
-                                                    <span class="name-span">BeanBoozled Fiery Five</span>
-                                                    <span aria-label="BeanBoozled Fiery Five" class="explore-text">Explore ></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="micromenu">
-                                            <ul class="micromenu-cointainer">
-                                                <li class="micromenu-item">
-                                                    <a href="/beanboozled-fiery-five/c/890#shop-all" aria-label="shop all">
-                                                        Shop All
-                                                    </a>
-                                                </li>
-                                            </ui>
-                                        </div>
-                                    </div>
                                     <div class="subitem"> 
                                         <div tabindex="0" role="application" class="item-name-list" aria-label="Belly Flops category">
                                             <a href="/belly-flops-/c/343" aria-label="Belly Flops">
@@ -1043,11 +1023,6 @@
                                             <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
                                         </a>
                                     </div>
-									<div class="subitem">
-                                        <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
-                                            <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
-                                        </a>
-                                    </div>
                                     {% comment %}
                                     <div class="subitem">
                                         <a href="/c/715#flavor-List" aria-label="BeanBoozled&reg; Minion Edition">
@@ -1738,26 +1713,6 @@
                                                     </a> 
                                                 </li>
                                             </ul>
-                                        </div>
-                                    </div>
-									<div class="subitem">
-                                        <div tabindex="0" role="application" class="item-name-list" aria-label="BeanBoozled Fiery Five category">
-                                            <a  href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five">
-                                                <div class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8a7ff24e-e9bf-47fc-ae51-41b011b26915" width="62" height="33" alt="BeanBoozled Fiery Five"></div>
-                                                <div class="namespan-container">
-                                                    <span class="name-span">BeanBoolzed Fiery Five</span>
-                                                    <span aria-label="BeanBoozled Fiery Five" class="explore-text">Explore ></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="micromenu">
-                                            <ul class="micromenu-cointainer">
-                                                <li class="micromenu-item">
-                                                    <a href="/beanboozled-fiery-five/c/890#shop-all" aria-label="shop all">
-                                                        Shop All
-                                                    </a>
-                                                </li>
-                                            </ui>
                                         </div>
                                     </div>
                                     <div class="subitem"> 
@@ -2533,11 +2488,6 @@
                                     <div class="subitem">
                                         <a href="/c/341#flavor-List" aria-label="BeanBoozled&reg; 5th Edition">
                                             <div class="namespan-container"><span class="name-span">BeanBoozled&reg; 5th Edition </span></div>
-                                        </a>
-                                    </div>
-									<div class="subitem">
-                                        <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
-                                            <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
                                         </a>
                                     </div>
                                     {% comment %}

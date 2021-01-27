@@ -1,4 +1,4 @@
-{% if pageContext.isDesktop or pageContext.isTablet %}<h3 class="mz-l-stack-sectiontitle">{{ labels.returns }}</h3>{% endif %}
+<h3 class="mz-l-stack-sectiontitle">{{ labels.returns }}</h3>
 <div class="mz-orderhistory-section mz-l-paginatedlist">
   {% if model.items %}
     

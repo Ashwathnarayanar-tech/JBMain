@@ -16,37 +16,12 @@ define([
         });
         var MiniCartView = Backbone.MozuView.extend({
             templateName: "modules/page-header/softcart",
-            additionalEvents: {
-                "submit #minicartform": "redirectTosubCheckout",
-                "click .view-cart-btn":"cartRedirection"
-            },
             initialize: function () { 
                 var me = this;
                 me.messageView = new ThresholdMessageView({
                   el: $('#mz-discount-threshold-messages'),
                   model: this.model
                 });
-            },
-            redirectTosubCheckout: function(e){
-                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
-                    e.preventDefault();
-                    var cartModel = new CartModels.Cart(), self = this;
-                    try{
-                        cartModel.apiGet().then(function(cart) {
-                            console.log('cart',cart); 
-                            cartModel.apiCheckout().then(function(cartId) {
-                                console.log('cartId',cartId);
-                                window.location.href = "/checkout/" + cartId.data.id + "?chktSub=true";
-                            }, function(err) {
-                                console.warn(err);
-                            });
-                        }, function(err) {
-                            console.log("cart error" + err);
-                        });
-                    }catch (err) { 
-                        console.warn(err);
-                    }
-                }
             },
             getRenderContext: function () {
                 var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
@@ -89,7 +64,7 @@ define([
                         c.model.remainingfreeshippinng=0; 
                     }
                 }
-                c.model.hasHeatSensitive = false;
+				c.model.hasHeatSensitive = false;
 				if(Hypr.getThemeSetting('showHeatSensitiveText')) {
 					_.each(c.model.items, function(item) {
 						_.each(item.product.categories, function(category) {
@@ -407,7 +382,7 @@ define([
                             });
                         }
                     }
-                },500); 
+                },500);
             },   
             showMiniCart: function($target){
                 checkMy = true;
@@ -442,29 +417,7 @@ define([
                 this.model.apiGet();
               }
             },
-            clearCart: function(){
-                this.model.apiEmpty();
-                this.updateMiniCart();
-            },
             showCartval: function() {
-            },
-            cartRedirection:function(){
-                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
-                   // $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
-                    //setTimeout(function(){$(document).find('a.view-cart-btn').attr('href', window.location.origin+"/subscription");},2000);
-                    window.location.href ="/subscription";
-                } 
-                else{
-                    window.location.href ="/cart";
-                }
-            },
-            setCartPagepath:function(){
-                if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true'){
-                     $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/subscription");
-                 } 
-                 else{
-                    $(document).find('a.mz-utilitynav-link-cart').attr('href', window.location.origin+"/cart");
-                 }
             }
         });
         var cartModel = window.cartModel = new CartModels.Cart(),
@@ -477,13 +430,6 @@ define([
         if(require.mozuData("pagecontext").pageType != "checkout") {
           cartModel.apiGet();
         }
- 
-        // $(document).on('submit','#minicartform', function(e){
-        //     if(if(typeof $.cookie("subscriptionCreated") !== "undefined" && $.cookie('subscriptionCreated') == 'true')){
-        //         e.preventDefault();
-        //         return false;
-        //     }            
-        // }); 
         var myDomElement = null; 
         $(document).mousemove(function(e) {
             // console.log($(e.target));
@@ -541,9 +487,6 @@ define([
                         } else {
                          $(document).find('.popover-content.login').hide();
                         }
-                    setTimeout(function(){
-                        miniCartView.setCartPagepath();
-                    },1000);
                 },
                 mouseleave: function (e) {
                     setTimeout(function(){
@@ -597,19 +540,9 @@ define([
         //  miniCartView.render();
        
     window.miniCartView = miniCartView;  
+              
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
-        $(document).on('click', '.mz-utilitynav-link-cart', function(e){
-            if($('.jb-minicart-popup').css('display') !== 'block'){
-                miniCartView.cartRedirection();
-            }
 
-            setTimeout(function(){
-                miniCartView.setCartPagepath();
-            },1000);
-        });
-        $(document).on('click', '.mz-Mob-utilitynav-link-cart', function(e){
-            miniCartView.cartRedirection();
-        });
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
             $(".jb-mobile-minicart-popup").hide();
         });

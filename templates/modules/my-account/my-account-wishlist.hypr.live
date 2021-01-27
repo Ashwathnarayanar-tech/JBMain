@@ -1,4 +1,4 @@
-{% if pageContext.isDesktop or pageContext.isTablet %}<h3 class="mz-l-stack-sectiontitle">MY WISHLIST</h3>{% endif %}
+<h3 class="mz-l-stack-sectiontitle">MY WISHLIST</h3>
 
 <div class="mz-accountwishlist-list">
     {% if model.items.length > 0 %}

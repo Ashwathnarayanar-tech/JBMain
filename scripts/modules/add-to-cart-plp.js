@@ -8,16 +8,6 @@ require([
     $(document).ready(function(){    
         var trigger;
         
-        $(document).find('.popup').on('click', '.close-icon, .button-no', function(e){
-            $(e.target).parents('.popup').removeClass('active');
-            $('.jb-add-to-cart ').focus();
-        });
-        $(document).find('.popup').on('keypress', '.close-icon, .button-no', function(e) {
-            if(e.keyCode === 27 || e.keyCode === 13){
-                $(e.target).parents('.popup').removeClass('active');
-                $('.jb-add-to-cart ').focus();
-            }
-        });   
         $(document).on('click', '.jb-add-to-cart', function(e) {
             e.preventDefault();
             trigger = e.target;
@@ -45,135 +35,34 @@ require([
                         loopInMax();
                         return false;
                     }else{
-                        flexiaddtoCart(e);
-                        return false
+                        $(document).find('[data-mz-productlist]').addClass('is-loading');
+                        $(document).find('[data-mz-facets]').addClass('is-loading');
+                        $target.addClass('is-loading'); 
+                        additemstoCart(productCode,$target,count);
+                        return false;
                     }
                 }else{
-                    flexiaddtoCart(e);
+                    $(document).find('[data-mz-productlist]').addClass('is-loading');
+                    $(document).find('[data-mz-facets]').addClass('is-loading');
+                    $target.addClass('is-loading'); 
+                    additemstoCart(productCode,$target,count);
                     return false;
                     
                 }
             });         
             
-           
-         
-        }); 
-        function flexiaddtoCart(){
-            if($.cookie("subscriptionCreated") !== "true"){
-                $(document).find('[data-mz-productlist]').addClass('is-loading');
-                $(document).find('[data-mz-facets]').addClass('is-loading');
-                var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
-                $(document).find('[data-mz-message-bar]').hide();             
-                $target.addClass('is-loading');            
-                var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-                var count = parseInt($quantity);            
-                Api.get('product', productCode).then(function(sdkProduct) {
-                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                    var variantOpt = sdkProduct.data.options;                    
-                    if(variantOpt !== undefined && variantOpt.length>0){  
-                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                        if(newValue != "Select gift amount" && newValue !== ''){
-                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
-                                ID = "Tenant~gift-card-prices";
-                            }
-                            var option = PRODUCT.get('options').get(ID);
-                            var oldValue = option.get('value');
-                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                                option.set('value', newValue);
-                            }
-                            setTimeout(function(){
-                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                            },2000);
-                        }else{
-                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                            $target.removeClass('is-loading');
-                        }
-                    }else{
-                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                    }
-                });
-                setTimeout(function(){ 
-                     $target.focus(); 
-                },6200); 
-            }else{
-                $(document).find('.popup').addClass('active');
-                var $target1 = $(e.currentTarget), productCode1 = $target1.data("mz-prcode");
-                var $quantity1 = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-                $(document).find('.popup').find('.button-yes').attr('productCode',productCode1);
-                $(document).find('.popup').find('.button-yes').attr('quantity',$quantity1);
-                $(document).find('.popup .popup-body .message').focus();
-                var inputs = window.inputs = $(document).find('.popup-body').find('button,[tabindex="0"],a,input');
-            var firstInput = window.firstInput = window.inputs.first();
-            var lastInput = window.lastInput = window.inputs.last(); 
-            
-            // if current element is last, get focus to first element on tab press.
-            window.lastInput.on('keydown', function (e) {
-               if ((e.which === 9 && !e.shiftKey)) {
-                   e.preventDefault();
-                   window.firstInput.focus(); 
-               }
-            });
-            
-            // if current element is first, get focus to last element on tab+shift press.
-            window.firstInput.on('keydown', function (e) {
-                if ((e.which === 9 && e.shiftKey)) {
-                    e.preventDefault();
-                    window.lastInput.focus();  
-                }
-            }); 
-            }
-        }
-        $(document).find('.popup').on('click', '.button-yes', function(e){
-            MiniCart.MiniCart.clearCart();
             setTimeout(function(){ 
-                $.cookie("subscriptionCreated", false, { path: '/'});
-                $(document).find('[data-mz-productlist]').addClass('is-loading');
-                $(document).find('[data-mz-facets]').addClass('is-loading');
-                var $target = $(e.target), productCode = $target.attr("productCode");
-                $(document).find('[data-mz-message-bar]').hide();             
-                $target.addClass('is-loading');            
-                var $quantity = $(e.target).attr('quantity');
-                var count = parseInt($quantity);            
-                Api.get('product', productCode).then(function(sdkProduct) {
-                    $(e.target).parents('.popup').removeClass('active');
-                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                    var variantOpt = sdkProduct.data.options;                    
-                    if(variantOpt !== undefined && variantOpt.length>0){  
-                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                        if(newValue != "Select gift amount" && newValue !== ''){
-                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
-                                ID = "Tenant~gift-card-prices";
-                            }
-                            var option = PRODUCT.get('options').get(ID);
-                            var oldValue = option.get('value');
-                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                                option.set('value', newValue);
-                            }
-                            setTimeout(function(){
-                                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                            },2000);
-                        }else{
-                            showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                            $target.removeClass('is-loading');
-                        }
-                    }else{
-                        addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                    }
-                });
-                setTimeout(function(){ 
-                     $target.focus(); 
-                },6200); 
-            },2000);  
-        });
+                // $target.focus(); 
+            },6200); 
+        }); 
         
         $(document).on('keypress', '.jb-add-to-cart', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {
                 e.preventDefault();
                 $(this).click();
             }
-        });        
+        });
+        
         
         //Gift card option change functionality - set variation product code whle changing the option for product, and set it as main product.
         $('[data-mz-productlist]').on('change','[plp-giftcart-prize-change-action]',function(e){
@@ -188,8 +77,61 @@ require([
                 ax.addClass('gift-prize-select');
             }
             
-        });        
+        });
+
+        $('[data-mz-productlist]').on('click','[plp-giftcart-prize-change-action]',function(e){
+            var caretDown = $(this).parent().find('.down-caret-quantity-myacc-add');
+            var caretUp = $(this).parent().find('.up-caret-quantity-myacc-add');
+            
+            if(caretDown.length == 1 && caretDown.css('display') == 'none'){
+                caretDown.css('display','block');
+                caretUp.css('display','none');
+            }
+            else {
+                caretUp.css('display','block');
+                caretDown.css('display','none');
+            }
+            $('[plp-giftcart-prize-change-action]').focusout(function(){
+                for(var i=0;i<$(document).find('.up-caret-quantity-myacc-add').length;i++){
+                    $($('.up-caret-quantity-sort')[i]).hide();
+                }
+                for(i=0;i<$(document).find('.down-caret-quantity-myacc-add').length;i++){
+                    $($('.down-caret-quantity-myacc-add')[i]).show();
+                }
+                caretUp.css('display','none');
+                // caretUp.removeClass('up-caret-quantity-myacc-add');
+                // caretDown.removeClass('down-caret-quantity-myacc-add');
+            });
+        });
         
+        function additemstoCart(productCode,$target,count){
+            Api.get('product', productCode).then(function(sdkProduct) {
+                var PRODUCT = new ProductModels.Product(sdkProduct.data);
+                var variantOpt = sdkProduct.data.options;                    
+                if(variantOpt !== undefined && variantOpt.length>0){  
+                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                    if(newValue != "Select gift amount" && newValue !== ''){
+                        if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                            ID = "Tenant~gift-card-prices";
+                        }
+                        var option = PRODUCT.get('options').get(ID);
+                        var oldValue = option.get('value');
+                        if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
+                            option.set('value', newValue);
+                        }
+                        setTimeout(function(){
+                                addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                        },2000);
+                    }else{
+                        showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
+                        $target.removeClass('is-loading');
+                    }
+                }else{
+                    addToCartAndUpdateMiniCart(PRODUCT,count,$target);
+                }
+            });
+        }
         function showErrorMessage(msg){
             $('[data-mz-message-bar]').empty();
             var emsg = '<div class="mz-messagebar" data-mz-message-bar="">'+
@@ -205,7 +147,8 @@ require([
                 $('[data-mz-message-bar]').hide();
             },6000);
             $('.jb-inner-overlay').remove();
-        }        
+        }
+        
         
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
@@ -231,7 +174,6 @@ require([
                 $target.removeClass('is-loading');
                 $(document).find('.Add-to-cart-popup').removeClass("active");
                 $(document).find('body').removeClass("noScroll");
-                
             });
         }
 

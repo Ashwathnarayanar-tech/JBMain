@@ -19,9 +19,6 @@
                         }
                     }
                 }
-                .no-pointer{
-                    cursor:default;
-                }
                 .checkbox-outer-label{
                     .checkmark-style{
                         width: 25px;
@@ -44,7 +41,7 @@
                     right: 0;
                     bottom: 0;
                     left: 0; 
-                    background: rgba(0,0,0,0.8); 
+                    background: rgba(0,0,0,0.8);
                     z-index: 99999;
                     display: none;
                     -webkit-transition: opacity 400ms ease-in;
@@ -118,12 +115,12 @@
                                     text-decoration: none; 
                                     font-weight: 400;
                                     font-size: 20px;
-                                    &:before{
+                                    &:before{ 
                                         position: absolute;
                                         content: '<';
                                         width: 14px;
                                         height: 14px;
-                                        top: 1px;
+                                        top: 1px; 
                                         left: -17px;
                                         border-radius: 4px;
                                         cursor: pointer;
@@ -190,9 +187,6 @@
                                     .mz-formstep-header{
                                         padding: 60px 0 45px;
                                     }
-                                    .no-form{
-                                        display: none!important;
-                                    }
                                 }
                             }
                             .hide-shippingAddress{
@@ -214,14 +208,14 @@
                                             display: none;
                                         } 
                             			.content{
-                            				.main_content{ 
+                            				.main_content{
                             					width: 80%;
 											    padding: 41px 0;
 											    border-bottom: solid 0.5px #4a4a4a;
                             					.checkout_login.form-content{
                             						width: 44%;
     												display: inline-block;
-    												vertical-align: top;
+                                                    vertical-align: top;
                                                     position:relative;
     												.content-tab-sys-labels{
     													.guest-login.labelmodel{
@@ -261,7 +255,7 @@
 																    padding: 10px 20px;
 																    font-size: 18px;
 																    color: #4a4a4a;
-																    width: 100%;
+                                                                    width: 100%;
                                                                     margin-bottom: 20px;
                                                                     box-shadow: none;
 																}
@@ -299,11 +293,15 @@
                                                                     border-color: rgba(0, 0, 0, 0.25);
                                                                     background-color: rgba(0, 0, 0, 0.25);
                                                                     color: #fff;
+                                                                   
+                                                                   // margin-top: ~"calc(100% - 40px)";
+                                                                    //position: absolute;
+
                                                                 }
 		    												}
 		    												.checkbox-outer-label{
 		    													text-align: left;
-	    													    margin: 14px 0px;
+                                                                margin: 14px 0px;
                                                                 padding-left: 40px;
 		    													span.text{
 																    font-size: 12px;
@@ -384,7 +382,7 @@
 																	    padding: 10px 20px;
 																	    font-size: 18px;
 																	    color: #4a4a4a;
-																	    width: 100%;
+                                                                        width: 100%;
                                                                         margin-bottom: 20px;
                                                                         box-shadow: none;
 																	}
@@ -404,7 +402,7 @@
                                                                         }
 																		.checkbox-outer-label{
 																			font-size: 12px;
-																		    margin: 16px 0;
+                                                                            margin: 16px 0;
                                                                             padding-left: 40px;
                                                                             @media only screen and (min-width : 1px) and (max-width : 767px){
                                                                                 font-size: 14px;
@@ -437,7 +435,7 @@
 			    												}
 			    												.checkbox-outer-label{
 			    													text-align: left;
-		    													    margin: 14px 0px;
+                                                                    margin: 14px 0px;
                                                                     a{ 
                                                                         color: #004e99;  
                                                                      }
@@ -445,7 +443,7 @@
 																	    font-size: 12px;
 																	    color: #4a4a4a;
 																	    text-align: left;
-																	    line-height: 0.5;
+                                                                        line-height: 0.5;
                                                                         vertical-align: top;
                                                                         a{ 
                                                                             color: #004e99;  
@@ -485,7 +483,7 @@
                                     	display: none;
                                     }
                                     &.guestData.active{
-                                    	display: block;
+                                        display: block;
                                         padding: 39px 0 19px;
                                     }
                                     span{
@@ -598,24 +596,6 @@
                                         border: none;
                                         cursor: pointer;
                                     }
-                                    .no-form{
-                                        // position: absolute;
-                                        // top: -100px;
-                                        // right: 4%;
-                                        // min-height: 0;
-                                        // height: 0;
-                                        .mz-contactselector-inputwrapper{
-                                            visibility: hidden;
-                                            display: none;
-                                        }
-                                        .mz-contactselector-summarywrapper{
-                                            width: auto;
-                                            font-size: 16px; 
-                                            text-align: right;
-                                            color: #004e99;
-                                            float:right;
-                                        }
-                                    }
                                 }
                                 .mz-formstep-body{
                                     border-bottom: solid 1px #cfcfcf;
@@ -655,7 +635,7 @@
                                                 vertical-align: top;
                                                 float:left; 
                                                 .mz-contactselector-contact{
-                                                    border-radius: 4px;
+                                                    border-radius: 4px; 
                                                     border: solid 1px #cfcfcf;
                                                     background-color: #fff;
                                                     padding: 13px;
@@ -839,6 +819,7 @@
                                                 &:last-child{
                                                     margin-bottom: 20px;
                                                 }
+                                               
                                                 label{
                                                     font-size: 18px;
                                                     color: #000000;
@@ -900,6 +881,7 @@
                                             color: #ffffff;
                                             padding: 8px 36px;  
                                             width: 49%; 
+                                            
                                         }
                                     }
                                 }
@@ -1508,7 +1490,7 @@
                                                                         position: relative;
                                                                         display: none;
                                                                         .cvvcodeinput{
-                                                                            width: 25%;
+                                                                            width: 20%;
                                                                             border-radius: 4px;
                                                                             box-shadow: inset 0 1px 3px 0 #b9d5f0;
                                                                             border: solid 1px #004e99;
@@ -1747,17 +1729,6 @@
                                                             background-color: #f3f3f3;
                                                             margin-bottom: 5px;
                                                             font-size: 18px; 
-                                                            &::-webkit-input-placeholder { 
-                                                                font-size: 18px;
-                                                            }
-                                                            
-                                                            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                                                                font-size: 18px;
-                                                            }
-                                                            
-                                                            &::placeholder {
-                                                                font-size: 18px; 
-                                                            }
                                                         }
                                                         &.visa:after{
                                                             background-image: url(../../resources/images/visa.png);
@@ -1915,7 +1886,7 @@
                                                 font-size: 16px;
                                                 font-weight: bold;
                                                 color: #4a4a4a;
-                                                border-bottom: 0;
+                                                border-bottom: 0; 
                                                 margin: 10px 0 0px 0;
                                             }
                                             .copy-address{
@@ -2100,7 +2071,7 @@
                             			.checkbox-outer-label{
 										    font-size: 16px;
 										    font-weight: 500;
-										    color: #4a4a4a;
+                                            color: #4a4a4a;
                                             padding-left: 40px; 
 										    .checkmark-style{
                                                 //border-radius: 0;
@@ -2189,7 +2160,7 @@
                                     }
                             		.mz-formstep-next{
                                         margin-top: 57px; 
-                            			.place-order-btn, .place-subscrition-btn{
+                            			.place-order-btn{
                             				border-radius: 4px;
 										    background-color: #e7131a;
 										    font-size: 18px;
@@ -2197,18 +2168,14 @@
 										    text-align: center;
 										    color: #ffffff;
                                             padding: 10px 10px;
-					      width: 49%;
-                                            display: none;
+                                            width: 49%;
                                             &:hover{
                                                 background-color: #cc0108;
                                                 border-color: #cc0108;
                                                 color: white;
                                             }	
-                                            &.active{
-                                                display: block;
-                                            }
                             			}
-                            			.place-order-btn[disabled], .place-subscrition-btn[disabled]{
+                            			.place-order-btn[disabled]{
 											border-color: rgba(0, 0, 0, 0.25);
                                             background-color: rgba(0, 0, 0, 0.25);
                                             color: #fff;	
@@ -2227,7 +2194,7 @@
                         vertical-align: top; 
                         float: right;
                         .gray-data-sec{
-                            background-color: rgba(0, 0, 0, 0.03); 
+                            background-color: rgba(0, 0, 0, 0.03);
                             padding: 10px 49px;
                             .mz-formstep.mz-checkoutform-ordersummary{
                                 margin:0; 
@@ -2307,7 +2274,7 @@
                                                         .mz-item-rowtotal.is-saleprice{
                                                             font-size: 12px;
                                                             font-weight: 500;
-                                                            color: #000000;    
+                                                            color: #000000;  
                                                             float: right;  
                                                         }
                                                         .mz-item-rowtotal.is-crossedout{
@@ -2378,7 +2345,7 @@
                                                             font-size: 18px;
                                                             font-weight: bold;
                                                             color: #000000;
-                                                            width:47%; 
+                                                            width:48%;
                                                         }
                                                         .value{
                                                             font-size: 18px;
@@ -2392,7 +2359,7 @@
                                             }
                                         }
                                     }
-                                }    
+                                }  
                             } 
                             .coupon-code-row.mz-l-formfieldgroup-row { 
                                 border-top: solid 1px #cfcfcf;
@@ -2403,13 +2370,14 @@
                                         color: #4a4a4a;
                                         margin: 10px 0;
                                         display: block;
+                                       
                                     }
-                                        .arrow{
-                                            display: inline-block;
-                                            width: 6px; 
-                                            border-left: 2px solid #4a4a4a;
-                                            border-top: 2px solid #4a4a4a;
-                                            height: 6px;
+                                    .arrow{
+                                        display: inline-block;
+                                        width: 6px; 
+                                        border-left: 2px solid #4a4a4a;
+                                        border-top: 2px solid #4a4a4a;
+                                        height: 6px;
                                         transform: rotate(222deg);
                                         margin-right: 8px;
                                         margin-bottom: 1.1px;
@@ -2475,173 +2443,6 @@
                                     }   
                                 }
                             }
-                        } 
-                        .mz-checkoutform-paywith-rewards{
-                            .subscription{
-                                border-radius: 6px;
-                                background-color: rgba(210, 231, 255, 0.5);
-                                margin: 14px 49px;
-                                display: none;
-                                &.active{
-                                    display: block;
-                                }
-                                .expanded-section{
-                                    padding: 20px 18px; 
-                                    .formGroup{
-                                        display: inline-block;
-                                        vertical-align: top;
-                                        position: relative;
-                                        margin-bottom: 0px;
-                                        span{
-                                            display: block;
-                                            label{
-                                                font-size: 14px;
-                                                font-weight: bold;
-                                                line-height: 1.5;
-                                                color: #1c2e36;
-                                                margin-bottom: 4px;
-                                                display: inline-block;
-                                            }
-                                        }
-                                        .line{
-                                            width: 1px;
-                                            height: 35px;
-                                            position: absolute;
-                                            background-color: #004e99;
-                                            right: 11px;
-                                            bottom: 0;
-                                        }
-                                        .how-often-input-sub{
-                                            display: inline-block;
-                                            width: 24%;
-                                            position: relative;
-                                            .how-often-val{
-                                                width: 100%;
-                                                height: 39px;
-                                                border-radius: 4px;
-                                                padding: 0 20px;
-                                                font-weight: bold;
-                                            }
-                                            &:after{
-                                                content: "";
-                                                background: url('../../resources/images/icons/facet-close.png') no-repeat;
-                                                background-size: contain;
-                                                width:12px;
-                                                height:14px;
-                                                position: absolute;
-                                                right: 12px;
-                                                top: 17px;
-										    }
-                                        }
-                                        .weekormonth{
-                                            display: inline-block;
-                                            width: 68%;
-                                            text-align: center;
-                                            margin-left: 5%;
-                                            .span-tabs{
-                                                display: inline-block;
-                                                font-size: 18px;
-                                                font-weight: bold;
-                                                line-height: 1.33;
-                                                letter-spacing: normal;
-                                                color: #000;
-                                                padding: 7px 22px;  
-                                                background-color: #fff; 
-                                                border: 1px solid #004e99;
-                                                width: 29%;
-                                                cursor: pointer;
-                                                &.week{                                                     
-                                                    border-bottom-left-radius: 4px;
-                                                    border-top-left-radius: 4px;
-                                                }
-                                                &.months{
-                                                   border-radius: 0 3px 3px 0;
-                                                }
-                                                &.year{
-                                                    border-bottom-right-radius: 4px;
-                                                    border-top-right-radius: 4px;  
-                                                    border-left: 0px;  
-                                                }
-                                                &.active{
-                                                    background-color: #004e99;   
-                                                    color: #ffffff; 
-                                                }
-                                            }
-                                        }
-                                        .datepicker-cointainer{
-                                            position: relative;
-                                            #interval-startdate{
-                                                width: 83%;
-                                                height: 30px;
-                                                border-radius: 4px;
-                                                font-weight: bold;
-                                            }
-                                            label.mz-small{
-                                                position: absolute;
-                                                right: 33px;
-                                                top: 9px;
-                                            }
-                                        }
-                                        .how-long-input-sub{
-                                            position: relative;
-                                            .how-long-val{
-                                                width: 96%;
-                                                height: 39px;
-                                                border-radius: 4px;
-                                                padding: 0 10px; 
-                                                font-weight: bold;  
-                                            }
-                                            &:after{
-                                                content: "";
-                                                background: url('../../resources/images/icons/facet-close.png') no-repeat;
-                                                background-size: contain;
-                                                width:12px;
-                                                height:14px;
-                                                position: absolute;
-                                                right: 18px;
-                                                top: 17px;
-										    }
-                                        }
-                                        .subscribe-now{
-                                            border-radius: 4px;
-                                            border: solid 1px #004e99;
-                                            background-color: #004e99;
-                                            font-size: 21px;
-                                            font-weight: bold;
-                                            text-align: center;
-                                            color: #ffffff;
-                                            padding: 6px 22px 6px 51px;
-                                            position: relative;
-                                            vertical-align: top;
-                                            &:hover{
-                                                border: solid 1px #003a72;
-                                                background-color: #003a72;
-                                            }
-                                            &:after{
-                                                content: "";
-                                                position: absolute;
-                                                background-image: url(../../resources/images/sub-icon.svg);
-                                                left: 20px;
-                                                background-size: 75%;
-                                                width: 30px;
-                                                height: 30px;
-                                                background-repeat: no-repeat;
-                                            }
-                                        }
-
-                                        &.howofter{
-                                            width: 100%;
-                                            padding-bottom: 26px;
-                                        }
-                                        &.interval{
-                                            width: 49%;
-                                        }
-                                        &.howling{
-                                            width: 49%;
-                                        }
-                                    }
-                                }
-                            }
                         }
                         .mz-l-formfieldgroup{
                             padding: 0 49px;   
@@ -2660,7 +2461,7 @@
                                         width: 94%;
                                         height: 115px;
                                         padding: 0;
-                                        padding: 10px;   
+                                        padding: 10px;
                                     }
                                     .text-length{
                                         font-size: 12px;
@@ -2756,7 +2557,6 @@
 		.mz-l-pagewrapper{
 			.mz-l-pagecontent{ 
 				.mz-l-container{ 
-                
 					.checkout-header{ 
 						.header-wraper{ 
                             padding:0 11px;
@@ -2768,7 +2568,7 @@
 							    		width: 75px;	
 							    	}
 							    }
-                            }
+							}
 							.links-sec{
 								width: 49.5%;
 								.contact-num{
@@ -2781,9 +2581,6 @@
 						}
 					}
 					.div-cointainer{ 
-                        .ind-req{
-                            padding-left:10px;
-                        }
 						.mz-checkoutform.mz-l-2column-right#checkout-form{ 
 							.mz-l-column{
 								padding: 0 3%;
@@ -2800,7 +2597,7 @@
 							    				.main_content{
 							    					width: 80%; 
 							    					.checkout_login.form-content{
-							    						width: 100%;
+                                                        width: 100%;
                                                         height: 100% !important;
 							    						.mz-l-formfieldgroup{ 
 							    							.mz-l-formfieldgroup-row{ 
@@ -2843,9 +2640,7 @@
 							    			}
 							    		}
 							    	}
-                                }
-                                
-                              
+							    }
 								.mz-fromstep-direct-payment{ 
 								    padding: 10px 0;
 								   	.heading-text{
@@ -2872,21 +2667,12 @@
 										font-size: 25px;
 									}
 									.mz-formstep-body{ 
-                                       
 										.mz-formstep-fields.mz-l-formfieldgroup{ 
-                                            .mz-l-formfieldgroup-row{
-                                                width: 98%;
-                                            }
 											.mz-contactselector{ 
 												.data-contact{
 													width: 100%;
-                                                }
-                                                .dummi-procudeto-shipping-method,.dummi-procudeto-useaddress-method{
-                                                    width: 98%;
-                                                    padding: 8px 0;
-                                                }
-                                            }
-                                           
+												}
+											}
 											.mz-contactselector{ 
 												.mz-contactselector-contact.mz-contactselector-new{ 
 													.mz-contactselector-summarywrapper{ 
@@ -2896,12 +2682,7 @@
 													}
 												}
 											}
-                                        }
-                                        .mz-formstep-next{
-                                            #continuetoshipping, #bypassButton{
-                                                width: 94%;
-                                            }
-                                        } 
+										}
 										.mz-formstep-summary.mz-addresssummary{
 											padding: 15px 18px 25px;
 										}
@@ -2915,9 +2696,8 @@
 										.mz-formstep-fields.mz-l-formfieldgroup{
 											padding: 0 0 0 16px;
     										width: 97%;
-    										.method-info,.estimated-date{
-                                                width: 100%;
-                                                text-align:left;
+    										.method-info{
+											    width: 100%;
     										}
     										.method-item{ 
     											.method-label{ 
@@ -2939,7 +2719,7 @@
     														font-size: 12px;
     													}
     													.estimated-arrival{
-														    width: 56%;
+														    width: 59%;
 														    font-size: 12px;	
     													}
     												}
@@ -3008,7 +2788,7 @@
 																.select-li{
 																	width: 30%;
 																	.mz-paymenttype-label{
-																		font-size: 18px;
+																		font-size: 16px;
 																	}
 																}
 															}
@@ -3078,62 +2858,7 @@
 							    		}
 							    	}
 							    }
-                            }
-                             .mz-checkoutform-paywith-rewards .subscription {
-                                 width: 91%;
-                                 margin:14px auto;
-                                .expanded-section{
-                                   width: 94% !important;
-                                   padding: 20px 13px;
-                                    .formGroup{
-                                        width:100%;
-                                        .how-often-input-sub{
-                                            width: 24%;
-                                            select{
-                                                font-size: 14px;
-                                            }
-                                        }
-                                        .weekormonth{
-                                            width:68%;
-                                            text-align:right;
-                                            margin:0;
-                                            span{
-                                                font-size: 14px !important;
-                                                padding: 7px 10px !important;
-                                            }
-                                        }
-                                        span label{
-                                            font-size: 14px;
-                                        }
-                                        .datepicker-cointainer{
-                                            #interval-startdate{
-                                                font-size: 13px;
-                                            }
-                                            label.mz-small{
-                                                right: 26px;
-                                                top:7px;
-                                            }
-                                        }
-                                        .how-long-input-sub{
-                                            .how-long-val{
-                                                padding:0 3px;
-                                                font-size: 13.5px;
-                                                width:88%; 
-                                            }
-                                            &:after{
-                                                right: 32px;
-                                                top: 18px;
-                                                width: 10px;
-                                                height: 6px;
-                                            }
-                                        }
-                                        
-                                    }
-                                
-                                   
-                                }
-                             }
-                            
+							}
 							.mz-l-formfieldgroup,#mz-drop-zone-checkout-faq{
 								padding: 0 14px;
 							}
@@ -3172,17 +2897,9 @@
                             padding: 0 10px;
 							.mz-pagetitle{
 								line-height: 0.5; 
-							    width: 39%;
+							    width: 36%;
 								.heading{
-                                    display: flex;
-                                    align-items: center;
-                                span{
-                                    font-size: 14px;
-                                    line-height: 13px;
-                                    &.subcheckouttitle{
-                                        font-size: 12px;
-                                    }
-                                    }
+									font-size: 14px;
                                     &:before{
                                         content: "";
                                         display: inline-block;
@@ -3191,11 +2908,11 @@
                                         background-image: url(../../resources/images/lock.png);
                                         background-size: 100%;
                                         background-repeat: no-repeat;   
-                                        margin-right: 6px;
+                                        margin-right: 8px;
                                     }	
 								}
 								.continueshopping{
-									height: auto;
+                                    height: auto;
                                     line-height: 18px;
                                     position: relative;
                                     padding-left: 12px;
@@ -3225,17 +2942,17 @@
 							}
 							a.logoicon{
 								display: inline-block;
-								width: 26%;
+								width: 27%;
                                 margin: 0 auto;
                                 text-align: center;
 								img{
-									width: 68%;
+									width: 65%;
                                     margin: 0 auto;
 								}
 							}
 							.links-sec{
                                 vertical-align: middle;
-                                width: 32%; 
+                                width: 34%; 
 								.contact-num{
 									.mz-tollfree-content{ 
 									    font-size: 14px;
@@ -3284,7 +3001,6 @@
 							    .mz-fromstep.login-signup{ 
 							    	.logedinuserdata{
 							    		width: 100%;
-							    		font-size: 14px;
                                         font-weight:400;
                                         &.guestData.active{ 
                                             padding: 21px 0 15px;
@@ -3295,6 +3011,7 @@
                                             }
                                         }
                                     }
+                                    
 							    }
 							    .mz-fromstep.popupmodal{ 
 							    	#checkoutmodal{ 
@@ -3306,7 +3023,7 @@
                                                     border-bottom: none;
                                                     padding-bottom: 20px;
 							    					.checkout_login.form-content{
-							    						width: 100%;
+                                                        width: 100%;
                                                         height: 100% !important;
                                                         .login_submit{
                                                             .mz-l-formfieldgroup{
@@ -3395,7 +3112,7 @@
 							    	}
 							    }
 							    .mz-fromstep-direct-payment{
-							    	width: 100%;
+                                    width: 100%;
                                     padding: 0; 
                                     .heading-text{
                                         margin: 12px 0 15px 0;
@@ -3450,13 +3167,7 @@
                                             float:right;
                                             margin-top:8px;
                                         }
-                                        .no-form{
-                                            .mz-contactselector-summarywrapper{
-                                                width: auto;
-                                                float:left;
-                                            }
-                                        }
-                                    }
+							    	}
 							    	.mz-formstep-body{
 						    		    width: 100%; 
                                         padding: 0 0 30px 0;
@@ -3468,7 +3179,7 @@
                                             .address-info{
                                                 margin: 7px 0 18px;
                                                 &.enternew{
-                                                    margin-top: 0px;
+                                                    margin-top: 40px;
                                                 }
                                             }
 						    		    	.mz-contactselector{ 
@@ -3519,13 +3230,13 @@
                                                     background-color: #fff;
                                                     width: 100%;
                                                     left: 0;
-                                                    z-index:99;
+                                                    z-index:9;
                                                     box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.25);
-                                                    .dummi-procudeto-shipping-method,.dummi-procudeto-useaddress-method{   
-                                                        width: 92%;
+                                                    .dummi-procudeto-shipping-method{   
+                                                        width: 96%;
                                                         display: block; 
-                                                        margin: 1.334% auto;
-                                                        //margin-bottom: 25px;
+                                                        margin: 0 auto;
+                                                        margin-bottom: 25px;
                                                     }
                                                 }
 						    		    	}
@@ -3582,7 +3293,7 @@
 							    	}
 							    	&.is-complete{
 							    		.mz-formstep-body{
-							    			padding-top: 0;
+                                            padding-top: 0;
                                             padding-bottom: 30px;
 							    		}
 							    	}
@@ -3593,6 +3304,7 @@
                                        // border-top: solid 1px #cfcfcf;
                                       .mz-formstep-header{
                                         border-bottom: 0px;
+                                       
                                       }
                                       &.hide-shippingAddress{
                                         .mz-formstep-header{
@@ -3614,7 +3326,7 @@
                                         width: 100%;
                                         padding: 11px 0 13px;
                                         margin: 0;
-							    		.step-no{
+							    		.step-no{ 
 							    			label{
 							    				width : 5%;
 							    			}
@@ -3626,7 +3338,7 @@
 							    	}
 							    	.mz-formstep-body{
 							    		width: 100%;
-    									padding: 0;
+                                        padding: 0;
                                         border: 0px;
     									.mz-formstep-summary{
     										padding: 0 0 0 6px;
@@ -3640,7 +3352,7 @@
                                                 font-size: 12px;
                                             }
     										.method-info{
-    											width: 100%;
+                                                width: 100%;
                                                 margin: 0;
                                                 font-size: 18px;
     										}
@@ -3669,7 +3381,7 @@
     														display: block;
 														    width: 97%;
 														    margin: 4px 0;
-    													}
+    													} 
     													.estimated-arrival{
     														display: block;
 														    width: 92%;
@@ -3742,7 +3454,7 @@
     												width:100%;
     												.first-section{ 
     													.sweet-rewards-headder{
-    														width: 100%;
+                                                            width: 100%;
                                                             margin-top:0; 
     													}
     													.sweet-rewards-points{
@@ -3752,7 +3464,7 @@
     													.btn-section{ 
     														margin-bottom: 0;
     														.mz-button{
-    															margin-bottom: 8px;
+                                                                margin-bottom: 8px;
                                                                 width: 48%;
                                                                 padding: 12px 0;
                                                                 margin-right: 0.5%;
@@ -3846,7 +3558,7 @@
 							    				.tital-sec-head{ 
 							    					.mz-l-stack-sectiontitle{
 						    						    margin: 10px 0;
-    													padding: 10px 0 0 3px;
+                                                        padding: 10px 0 0 3px;
                                                         font-size: 18px;
     												}
 							    				}
@@ -3893,7 +3605,8 @@
 							    								}
 							    							}
 							    						}
-							    					}
+                                                    }
+                                                    
 							    					&.payment-form-section{ 
 							    						.mz-l-formfieldgroup-row{
 							    							width: 100%;
@@ -3911,7 +3624,8 @@
 							    							}
 							    						}
 							    					}
-							    				}
+                                                }
+                                                
 							    				.mz-l-formfieldgroup.mz-l-formfieldgroup-address{ 
 							    					.mz-l-formfieldgroup-row{
                                                         &.mz-addressform-addresstype{
@@ -3945,11 +3659,11 @@
                                             padding: 4%;
                                             z-index: 9;
                                             box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.25);
-                                            .place-order-btn,.place-subscrition-btn{
+                                            .place-order-btn{
                                                 width: 100%;
                                                 border-color:#e7131a; 
                                             }	
-									    }	
+                                        }
 									}
 							    }
 							}
@@ -4029,141 +3743,14 @@
 						    #mz-drop-zone-checkout-faq{
 							    padding: 5px 10px;
 							    margin-bottom: 0; 
-                            }
-                            .mz-checkoutform-paywith-rewards .subscription {
-                                margin: 14px 9px;
-                                .expanded-section .formGroup{
-                                     .how-long-input-sub .how-long-val{
-                                         width: 99%;
-                                     }
-                                    .weekormonth .span-tabs{
-                                        width:50%;
-                                    }
-                                    .how-long-input-sub::after{
-                                        right: 16px;
-                                    }
-                                    .datepicker-cointainer{
-                                        #interval-startdate{
-                                            height: 39px;
-                                        }
-                                        label.mz-small{
-                                            top: 7px;
-                                        }
-                                    }
-                                } 
-                               
-                            }
+						    }
 						}
 					}
-                }
-                 
+				}
 			}
 		}
 	}
 }
-//Ipad Portrait
-@media only screen  and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
-    .mz-checkout{
-        .mz-l-pagewrapper{
-            .mz-l-pagecontent{
-                .mz-l-container{
-                    .div-cointainer{
-                        .mz-checkoutform.mz-l-2column-right#checkout-form .mz-l-column{
-                            .mz-formstep.mz-checkoutform-shippingaddress{
-                                .mz-formstep-body{
-                                    .mz-formstep-fields.mz-l-formfieldgroup{
-                                        .mz-contactselector {
-                                            .mz-contactselector-contact.mz-contactselector-new.no-form{
-                                                top: -132px; 
-                                                right: -2%; 
-                                            }
-                                        }
-                                    }
-                                }
-                            } 
-                           .mz-formstep.mz-checkoutform-paymentinfo{
-                                .mz-formstep-body {
-                                    .mz-formstep-fields .mz-l-stack-section{
-                                        .mz-l-formfieldgroup {
-                                            .mz-l-formfieldgroup-row.paymenttypes-choosing {
-                                                .payment-type-select {
-                                                    .select-ul .select-li{
-                                                        width: 40%; 
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                } 
-                            }
-                        }
-                        #checkout-rightcol.mz-l-column-2{ 
-                            .mz-checkoutform-paywith-rewards .subscription {
-                                width: 91%; 
-                                margin:14px auto;
-                            .expanded-section{
-                                width: 94% !important;
-                                padding: 20px 13px;
-                                .formGroup{
-                                    width:100%;
-                                    .how-often-input-sub{
-                                        width: 24%;
-                                        select{
-                                            font-size: 14px;
-                                        }
-                                    }
-                                    .weekormonth{
-                                        width:68%;
-                                        text-align:right;
-                                        margin:0;
-                                        span{
-                                            font-size: 14px !important;
-                                            padding: 7px 10px !important;
-                                        }
-                                    }
-                                    span label{
-                                        font-size: 14px;
-                                    }
-                                    .datepicker-cointainer{
-                                        #interval-startdate{
-                                            font-size: 13px;
-                                        }
-                                        label.mz-small{
-                                            right: 16px;
-                                            top:8px;
-                                        }
-                                    }
-                                    .how-long-input-sub{
-                                        .how-long-val{
-                                            padding:0 3px;
-                                            font-size: 12.5px;
-                                            width:88%; 
-                                        }
-                                        &:after{
-                                            right: 18%;
-                                            top: 18px;
-                                            width: 10px;
-                                            height: 6px;
-                                        }
-                                    }
-                                    
-                                }
-                            
-                                
-                            }
-                            }
-                        }
-                    }
-                    .checkout-header .header-wraper .mz-pagetitle span{
-                        font-size:27px;
-                    }
-                }   
-            } 
-        } 
-    }
-        
-}
-
 //larger screen
 @media only screen and (min-width: 1680px){
     .mz-checkout{

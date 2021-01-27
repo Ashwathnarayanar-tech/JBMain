@@ -1,4 +1,4 @@
-{% if pageContext.isDesktop or pageContext.isTablet %}<h3 class="mz-l-stack-sectiontitle">{{ labels.accountQuickOrder }}</h3>{% endif %}
+<h3 class="mz-l-stack-sectiontitle">{{ labels.accountQuickOrder }}</h3>
 <div >
     {% if model.items %}
         <div data-mz-quick-orderlist class="quick-order-list">

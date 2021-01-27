@@ -192,11 +192,6 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 			$('#brmerchantLogo,.invitation-navigation-element').trigger('click'); 
 			$('.Take-Survey').attr('disabled',true);
 		});
-		$(document).on('keydown','.print-receipt', function(e) {
-            if(e.keyCode == 13) {
-                $(e.currentTarget).find('a').trigger('click');
-            }
-        });
 	$(document).ready(function () {
 		// if($(window).width() < 768){ 
         //     $('.mz-signup-password').focusin(function(){

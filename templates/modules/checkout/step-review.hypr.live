@@ -10,7 +10,7 @@
     {% endif %}
     <div class="mz-l-formfieldgroup-row">
         <label class="checkbox-outer-label">
-            <input id="submitorder-cpp-checkbox" type="checkbox" aria-label="By clicking place order, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Place Order, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+            <input id="submitorder-cpp-checkbox" type="checkbox" aria-label="By clicking place order, I agree to the policies outlined in the Terms of Use and Privacy Policy." {% if model.agreeToTerms %} checked="checked"{% endif %}> By clicking Place Order, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
             <span class="checkmark-style"></span>
         </label> 
     </div> 
@@ -69,8 +69,7 @@
         {% endif %}
     {% endcomment %}
     <div class="mz-formstep-next">
-        <button type="button" class="place-subscrition-btn" disabled="disabled">{{ labels.placeOrder }}</button>
-        <button type="button" class="place-order-btn active" disabled="disabled">{{ labels.placeOrder }}</button>
+        <button type="button" class="place-order-btn" disabled="disabled">{{ labels.placeOrder }}</button>
         <button type="button" class="brontocart-place-order mz-button mz-button-large" data-mz-action="submit">{{ labels.placeOrder }}</button>
     </div>
 </div>

@@ -1,21 +1,9 @@
-﻿define([
-    'modules/backbone-mozu', 
-    'hyprlive', 
-    'hyprlivecontext', 
-    'modules/jquery-mozu', 
-    'underscore', 
-    'modules/models-customer', 
-    'modules/views-paging', 
-    'modules/editable-view',
-    'modules/api',
-    'modules/models-product',
-    'modules/models-cart',
-    'modules/cart-monitor',
-    'modules/minicart',"vendor/jquery.mask"], 
-    function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView,
-    Api,ProductModels, CartModels, CartMonitor,MiniCart) {
+﻿define(['modules/backbone-mozu', 'hyprlive', 'hyprlivecontext', 'modules/jquery-mozu', 'underscore', 'modules/models-customer', 'modules/views-paging', 'modules/editable-view','modules/api','modules/models-product',
+'modules/models-cart',
+'modules/cart-monitor',
+'modules/minicart',"vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart) {
 
-    var AccountSettingsView = EditableView.extend({
+     var AccountSettingsView = EditableView.extend({
         templateName: 'modules/my-account/my-account-settings',
         autoUpdate: [
             'firstName',
@@ -62,6 +50,7 @@
             this.render();
             var x = document.getElementsByClassName('mz-accountsettings-email')[0];
             x.focus();
+            
         },
         cancelEdit: function() {
             this.editing = false;
@@ -174,49 +163,7 @@
         //    this.render();
         //}
     });
-      $(document).find('.popup').on('click', '.button-yes', function(e){
-            MiniCart.MiniCart.clearCart();
-            setTimeout(function(){ 
-                $.cookie("subscriptionCreated", false, { path: '/'});
-                $(document).find('[data-mz-productlist]').addClass('is-loading');
-                $(document).find('[data-mz-facets]').addClass('is-loading');
-                var $target = $(e.target), productCode = $target.attr("productCode");
-                $(document).find('[data-mz-message-bar]').hide();             
-                $target.addClass('is-loading');            
-                var $quantity = $(e.target).attr('quantity');
-                var count = parseInt($quantity);            
-                Api.get('product', productCode).then(function(sdkProduct) {
-                    $(e.target).parents('.popup').removeClass('active');
-                    var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                    var variantOpt = sdkProduct.data.options;                    
-                    if(variantOpt !== undefined && variantOpt.length>0){  
-                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                        if(newValue != "Select gift amount" && newValue !== ''){
-                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
-                                ID = "Tenant~gift-card-prices";
-                            }
-                            var option = PRODUCT.get('options').get(ID);
-                            var oldValue = option.get('value');
-                            if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
-                                option.set('value', newValue);
-                            }
-                            setTimeout(function(){
-                                window.WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                            },2000);
-                        }else{
-                            window.WishListView.showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                            $target.removeClass('is-loading');
-                        }
-                    }else{
-                        window.WishListView.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
-                    }
-                });
-                setTimeout(function(){ 
-                     $target.focus(); 
-                },1000); 
-            },200);  
-        });
+    
     var WishListView = EditableView.extend({
         templateName: 'modules/my-account/my-account-wishlist',
         addItemToCart: function (e) {
@@ -233,9 +180,9 @@
                 //         document.getElementById('x-account-wishlist').focus();
                 //     }, 6000);
                 // });
-                if($.cookie("subscriptionCreated") !== "true"){
-                    var count = Item[0].quantity;
-                    Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
+                
+                var count = Item[0].quantity;
+                Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;  
                     if(variantOpt !== undefined && variantOpt.length>0){
@@ -286,18 +233,6 @@
                         }
                     }
                 });
-                }else{
-                    $(document).find('.popup').removeClass('inactive');
-                    $(document).find('.popup').addClass('active');
-                     $target = $(e.currentTarget);
-                    var productCode = Item[0].product.productCode;
-                    var $quantity = Item[0].quantity;
-                    $(document).find('.popup').find('.button-yes').attr('productCode',productCode);
-                    $(document).find('.popup').find('.button-yes').attr('quantity',$quantity);
-                    $(document).find('.popup').find('.button-yes').attr('isOrder', false);
-                    $(document).find('.popup').find('.button-yes').attr('isWishlist', true);
-                    $(document).find('.popup').find('.button-yes').attr('addAll', false);
-                }
             }
         },
         notifymedilog : function(){
@@ -642,71 +577,36 @@
             var productId = e.currentTarget.getAttribute('quickOrderProductCodeQuantityChanger');
             var orderId = $(e.currentTarget).parents('[orderid]').attr('orderid');
             var variantCode;
-            if($(e.currentTarget).attr('variationcode')){
-                variantCode = $(e.currentTarget).attr('variationcode');
-                if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)> 24 ){
-                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
+                if($(e.currentTarget).attr('variationcode')){
+                    variantCode = $(e.currentTarget).attr('variationcode');
+                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)> 24 ){
+                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
+                    }else{
+                        $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val())+1);
+                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                        if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)>1 ){
+                            $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                        }
+                    }
                 }else{
-                    $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val())+1);
-                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[variationcode="'+variantCode+'"][OrderProductId="'+productId+'"]').val(),10)>1 ){
-                        $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][variationcode="'+variantCode+'"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)> 24 ){
+                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
+                    }else{
+                        $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val())+1);
+                        $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                        if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)>1 ){
+                            $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
+                        }
                     }
                 }
-            }else{
-                if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)> 24 ){
-                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', true);
-                }else{
-                    $('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val()===""?1:parseInt($('[orderid="'+orderId+'"] .quick-order-history [OrderProductId="'+productId+'"]').val())+1);
-                    $('[orderid="'+orderId+'"] [data-mz-action="increaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                    if(parseInt($('[orderid="'+orderId+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]').val(),10)>1 ){
-                        $('[orderid="'+orderId+'"] [data-mz-action="decreaseQuickOrderQuantity"][quickorderproductcodequantitychanger="'+productId+'"]').prop('disabled', false);
-                    }
-                }
-            }
-        },
+               
+            },
         addInlineItemToCart: function(e){
-            var productId,orderNumber;
-            if($.cookie("subscriptionCreated") !== "true"){
-                productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
-                var quantityElement;
-                //var variantCode = e.currentTarget.getAttribute('variationCode');
-                if(e.currentTarget.getAttribute('variationCode')){
-                    quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[variationCode="'+e.currentTarget.getAttribute('variationCode')+'"][OrderProductId="'+productId+'"]');
-                }else{
-                    quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]');
-                }
-                
-                var productCodes = [];
-                var product = {
-                    productCode:productId,
-                    qty:quantityElement[0].value
-                };
-                if(e.currentTarget.getAttribute('variationCode')){
-                    product.variantcode = e.currentTarget.getAttribute('variationCode');
-                }
-                productCodes.push(product);
-                this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
-                window.targetFocusEl = e.target;
-            }else{
-                productId = e.currentTarget.getAttribute('quickOrderProductCode');
-                orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
-                $(document).find('.popup').removeClass('inactive');
-                $(document).find('.popup').addClass('active');
-                $(document).find('.popup').find('.button-yes').attr('isOrder', true);
-                $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
-                $(document).find('.popup').find('.button-yes').attr('addAll', false);
-                $(document).find('.popup').find('.button-yes').attr('orderId', orderNumber);
-                $(document).find('.popup').find('.button-yes').attr('productId', productId);
-            }
-        },
-        removerProductandAddtocart: function(orderNumber,productId,e){
-            var self = this;
-            MiniCart.MiniCart.clearCart();
+            var productId = e.currentTarget.getAttribute('quickOrderProductCode');
+            var orderNumber = $(e.currentTarget).parents('[orderid]').attr('orderid');
             var quantityElement;
             //var variantCode = e.currentTarget.getAttribute('variationCode');
-            if(e && e.currentTarget &&  e.currentTarget.getAttribute('variationCode')){
+            if(e.currentTarget.getAttribute('variationCode')){
                 quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[variationCode="'+e.currentTarget.getAttribute('variationCode')+'"][OrderProductId="'+productId+'"]');
             }else{
                 quantityElement = $('[orderid="'+orderNumber+'"] .quick-order-history .quantity-field[OrderProductId="'+productId+'"]');
@@ -717,115 +617,59 @@
                 productCode:productId,
                 qty:quantityElement[0].value
             };
-            if(e && e.currentTarget && e.currentTarget.getAttribute('variationCode')){
+            if(e.currentTarget.getAttribute('variationCode')){
                 product.variantcode = e.currentTarget.getAttribute('variationCode');
             }
             productCodes.push(product);
             this.makeQuickOrder(productCodes,orderNumber,orderNumber); 
             window.targetFocusEl = e.target;
-        },
+        }, 
         addAllToCart: function(e){
             var el = e;
             var orderId = e.currentTarget.getAttribute('orderToAdd');
-            if($.cookie("subscriptionCreated") !== "true"){
-                $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
-                var products = [];
-                var locationCodes = [];
-                var locCode;
-                var productCodes = [];
-                var prodCode;
-                //var productQuantity = [];
-                 
-                //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
-                var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
-                $(orderItems).each(function(key,val){
-                    var product = {
-                      productcode:val.getAttribute('orderproductid'),
-                      quantity: parseInt(val.value)
-                    };
-                    if(val.getAttribute('variationcode')){
-                        product.variantcode = val.getAttribute('variationcode');
-                    }
+            $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
+            var products = [];
+            var locationCodes = [];
+            var locCode;
+            var productCodes = [];
+            var prodCode;
+            //var productQuantity = [];
+             
+            //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
+            var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
+            $(orderItems).each(function(key,val){
+                var product = {
+                  productcode:val.getAttribute('orderproductid'),
+                  quantity: parseInt(val.value)
+                };
+                if(val.getAttribute('variationcode')){
+                    product.variantcode = val.getAttribute('variationcode');
+                }
 
-                    products.push(product);
+                products.push(product);
 
-                    locCode = val.getAttribute('prodLocationCode');
-                    prodCode = val.getAttribute('orderproductid');
+                locCode = val.getAttribute('prodLocationCode');
+                prodCode = val.getAttribute('orderproductid');
 
-                    locationCodes.push(locCode);
-                    productCodes.push(prodCode);
+                locationCodes.push(locCode);
+                productCodes.push(prodCode);
+            });
+
+            var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
+            var itemNames = [];
+
+            itemNamesElement.each(function(key, val){
+                itemNames.push({
+                    productCode: $(val).find('div').text().trim(),
+                    productName: $(val).find('a').text().trim()
                 });
-
-                var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
-                var itemNames = [];
-
-                itemNamesElement.each(function(key, val){
-                    itemNames.push({
-                        productCode: $(val).find('div').text().trim(),
-                        productName: $(val).find('a').text().trim()
-                    });
-                });
-                /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
-                $(orderQuantity).each(function(key,val){
-                    productQuantity.push(val.value);
-                });*/
-                this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
-                window.targetFocusEl = e.target;
-            }else{
-                $(document).find('.popup').removeClass('inactive');
-                $(document).find('.popup').addClass('active');
-                $(document).find('.popup').find('.button-yes').attr('isOrder', true);
-                $(document).find('.popup').find('.button-yes').attr('isWishlist', false);
-                $(document).find('.popup').find('.button-yes').attr('addAll', true);
-                $(document).find('.popup').find('.button-yes').attr('orderId', orderId);
-                $(document).find('.popup').find('.button-yes').attr('productId', "");   
-            }
-        },
-        removerProductandAddalltoCart: function(orderId,e){
-                $('[data-mz-action="addAllToCart"][orderToAdd="'+orderId+'"]').addClass('active');
-                var products = [];
-                var locationCodes = [];
-                var locCode;
-                var productCodes = [];
-                var prodCode;
-                //var productQuantity = [];
-                 
-                //var orderItems = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderProductCode]');
-                var orderItems = $('.mz-orderlisting-items[orderid="'+orderId+'"]').find('.quantity-field');
-                $(orderItems).each(function(key,val){
-                    var product = {
-                      productcode:val.getAttribute('orderproductid'),
-                      quantity: parseInt(val.value)
-                    };
-                    if(val.getAttribute('variationcode')){
-                        product.variantcode = val.getAttribute('variationcode');
-                    }
-
-                    products.push(product);
-
-                    locCode = val.getAttribute('prodLocationCode');
-                    prodCode = val.getAttribute('orderproductid');
-
-                    locationCodes.push(locCode);
-                    productCodes.push(prodCode);
-                });
-
-                var itemNamesElement = $("[orderid='"+orderId+"']").find('.mz-itemlisting-details');
-                var itemNames = [];
-
-                itemNamesElement.each(function(key, val){
-                    itemNames.push({
-                        productCode: $(val).find('div').text().trim(),
-                        productName: $(val).find('a').text().trim()
-                    });
-                });
-                /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
-                $(orderQuantity).each(function(key,val){
-                    productQuantity.push(val.value);
-                });*/
-                var el=e;
-                this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
-                window.targetFocusEl = e && e.target;    
+            });
+            /*var orderQuantity = $('[data-mz-QuickOrder][QorderId="'+orderId+'"]').find('[quickOrderQuantity]');
+            $(orderQuantity).each(function(key,val){
+                productQuantity.push(val.value);
+            });*/
+            this.makeQuickBulkOrder(el, products, orderId, locationCodes, productCodes, itemNames);
+            window.targetFocusEl = e.target;
         },
         makeQuickBulkOrder: function(el, products,orderId,locationCodes,productCodes,itemNames){
 
@@ -931,7 +775,7 @@
                 MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
             });
         },
-        makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
+          makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
             var errorArray = [], self = this, productAdded = 0,time = 1500;
             $('.order-history-overlay').show();
 
@@ -996,7 +840,6 @@
                             if(productAdded  === products.length ){
                                 self.showMessages(errorArray, productAdded,orderId);
                             }
-                            $(document).find('.popup').removeClass('active');
                         });
                         PRODUCT.on('error',function(err){
                             productAdded++;
@@ -1009,7 +852,6 @@
                             if(productAdded  === products.length ){
                                 self.showMessages(errorArray, productAdded,orderId);
                             }
-                            $(document).find('.popup').removeClass('active');
                             
                         }); 
                      },2000);
@@ -1036,6 +878,7 @@
                 time+=1000;
             });
         },
+        
         showMessages: function(errorArray, productAdded,orderId){
             //show All error messges
             $('#account-messages').hide();
@@ -1477,873 +1320,13 @@
             }
         }
     });
-
-     var MySubscriptionListView = Backbone.MozuView.extend({
-        templateName: 'modules/my-account/my-account-subscriptionList',
-        additionalEvents: {
-            "click .subscription-list-header": "toggleShow",
-           // "touchstart .subscription-list-header": "toggleShow",
-            "click .mz-more-order":"loadMoreSubscriptions"
-        },
-        toggleShow:function(e){
-            
-            if(window.subId){
-                //$(window.currentSubEle).removeClass('active');
-                this.changeToggleStatus(window.subId,false);
-            }
-            var subId = window.subId = $(e.currentTarget).attr('data-subscription-id'),active=true,me=this;
-
-            if(window.mySubscription !== undefined){
-                var id = window.mySubscription.model.attributes.subscriptionId;
-                $(".subscriptionViewDetails[data-subscription-id='"+subId+"']").removeClass('active');
-                $("#"+id).removeClass("active");
-            }
-
-            if($(e.currentTarget).hasClass('active')){
-                $(e.currentTarget).removeClass('active');
-                $(e.currentTarget).siblings('.subscription-list-body').slideUp();
-                if(window.mySubscription){
-                    window.mySubscription.model.set({'open':false});
-                    window.mySubscription.render();
-                }
-                active=false;
-                this.changeToggleStatus(subId,false);
-                setTimeout(function(){
-                    $(e.currentTarget).focus();
-                },200);
-            }else{
-                try {
-                    var _this=this,existingEntityDataView=[],
-                    subscriptionModel = Backbone.MozuModel.extend({});
-                  
-                        $('.subscription-list-header').siblings('.subscription-list-body').slideUp();
-                        $(e.currentTarget).addClass('active');
-                        $(e.currentTarget).siblings('.subscription-list-body').slideDown();
-                        setTimeout(function(){
-                            _this.changeToggleStatus(subId,true);
-                        },200);
-                     Api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subId}).then(function(res) {
-                        if (!res.error &&  res.res.subscriptionId !== undefined) {
-                            if(res.res && res.res.order && res.res.order.billingInfo){
-                                var card = res.res.order.billingInfo.card;
-                                var lastFour = "";
-                                var cardType = card.paymentOrCardType;
-                                if(card.cardNumberPartOrMask){
-                                     lastFour = card.cardNumberPartOrMask.substr(card.cardNumberPartOrMask.length - 4);
-                                }
-                                res.res.order.billingInfo.card.lastFour = lastFour;
-                                if(res.res.order.billingInfo.paymentType === "PayPalExpress2"){
-                                    cardType = "PayPal Express";
-                                }
-                                res.res.order.billingInfo.card.cardType = cardType;
-                            }
-                            
-                            if(res.res && res.res.order){
-                                 //order = res.res.order;
-                                var fulfillmentInfo = res.res.order.fulfillmentInfo;
-                                res.res.order.estimationInfo  =shippingestimation(fulfillmentInfo,res.res.order);
-                                console.log(res.res.order.estimationInfo);
-                            }
-                            
-                            existingEntityDataView = JSON.parse(JSON.stringify(res.res));
-                            existingEntityDataView.open = true;
-                            window.existingEntityDataView = existingEntityDataView;
-                            }
-                            
-                        var mySubscription = window.mySubscription =  new MySubscriptionView({
-                            el: $(".subscriptionViewDetails[data-subscription-id='"+subId+"']"),
-                            model: new subscriptionModel(existingEntityDataView)
-                        }); 
-                        mySubscription.render();
-                        setTimeout(function(){
-                            console.log("herer in deliveries ");
-                            window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
-                            window.mySubscription.render();
-                            setTimeout(function(){
-                                $(window).scrollTop($('.details-top').offset().top-150);
-                            },300);
-                        },1000);
-                    }, function(er) {
-                        // fail condition
-                        console.log("Data error " + er);
-                    });
-                
-                } catch (err) {
-                    console.log(err);
-                }
-            }
-            
-        },
-        changeStatus:function(subId,status){
-            console.log("this.model ",this.model);
-             for(var i=0;i<this.model.get('orderDetails').length;i++){
-                if(this.model.get('orderDetails')[i].subscriptionId === subId ){
-                    this.model.get('orderDetails')[i].subscribedStatus = status;
-                    this.model.get('orderDetails')[i].open = true;
-                }
-            }
-            this.render();
-            var subscriptionModel = Backbone.MozuModel.extend({});
-            window.existingEntityDataView.subscribedStatus = status;
-            var mySubscription = window.mySubscription =  new MySubscriptionView({
-                el: $(".subscriptionViewDetails[data-subscription-id='"+subId+"']"),
-                model: new subscriptionModel(window.existingEntityDataView)
-            }); 
-            mySubscription.render();
-            setTimeout(function(){
-                window.mySubscription.deliveries(window.mySubscription.model.attributes,1);
-                mySubscription.render();
-            },1500);
-            
-        },
-        changeToggleStatus:function(subId,status){
-            console.log("this.model ",this.model);
-             for(var i=0;i<this.model.get('orderDetails').length;i++){
-                if(this.model.get('orderDetails')[i].subscriptionId === subId ){
-                    this.model.get('orderDetails')[i].open = status;
-                }
-            }
-            this.render();
-        },
-        loadMoreSubscriptions:function(){
-             console.log("this.model ",this.model);
-             var modelPagesize = this.model.get("page");
-             var page = modelPagesize+1;
-             var pageSize = this.model.get("pageSize");
-             var me = this;
-             var existingOrders = this.model.get("orderDetails");
-             var totalOrders = this.model.get("totalOrders");
-             
-             if((pageSize*modelPagesize) < totalOrders){
-                 Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:pageSize,page:page,sortDirection:"DESC"}).then(function(res) {
-                    console.log(res.res);
-                     if (!res.error) {
-                        var response = res.res;
-                        for (var i =0 ; i<response.kiboOrderTemplates.length;i++)
-                        {
-                            var localObj = response.kiboOrderTemplates[i];
-                            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId,nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
-                            existingOrders.push(obj);
-                        }
-                        existingOrders.totalReceivedOrders = response.page*response.pageSize;
-                        console.log("existingOrders ------",existingOrders.totalReceivedOrders);
-                        window.mySubscriptionList.model.set("orderDetails",existingOrders);
-                        window.mySubscriptionList.model.set("page",response.page);
-                        window.mySubscriptionList.model.set("pageSize",response.pageSize);
-                        window.mySubscriptionList.model.set("totalOrders",response.totalOrders);
-                        window.mySubscriptionList.model.set("totalReceivedOrders",existingOrders.totalReceivedOrders);
-                        window.mySubscriptionList.render();
-
-                    }
-                 });
-             }
-        },
-         render:function() {
-            Backbone.MozuView.prototype.render.apply(this);
-            $(".subscriptionstitle").show();
-        }
-    });
-
-    var MySubscriptionView = Backbone.MozuView.extend({
-        templateName: 'modules/my-account/my-account-subscription',
-        initialize: function() {
-            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
-            var orderDetails = [], deliveries,totalDeliveries;
-            var k = this.model.attributes; 
-            if(k != "undefined") {
-                orderDetails = this.getNextShippmentDate(k);
-                if(k.schedule.endType!==null && k.schedule.endType.toLowerCase() !== "until i cancel"){
-                    deliveries = []; 
-                    totalDeliveries = parseInt(k.schedule.endType.split(' ')[0],10);
-                    if(isNaN(totalDeliveries)){
-                      totalDeliveries = 12;
-                       if(k.completedOrders.length >=totalDeliveries)
-                        totalDeliveries = k.completedOrders.length+1;
-                    }
-                   
-                    for(var i=0;i<totalDeliveries;i++){
-                       deliveries.push(i+1);
-                    }
-                    k.schedule.noOfDeliveries = deliveries;
-                }else{
-                    deliveries = [];
-                    totalDeliveries = 12;
-                    for(var j=0;j<totalDeliveries;j++){
-                       deliveries.push(j+1);
-                    }
-                    k.schedule.noOfDeliveries = deliveries;
-                }
-                k.schedule.delivered = k.completedOrders.length;
-               // k.schedule.delivered = 2;
-                var date = new Date(k.schedule.startDate.split('T')[0]),
-                    day = date.getDate()>9?date.getDate():"0"+date.getDate(),
-                    month = months[date.getMonth()],
-                    year = date.getFullYear();
-                k.schedule.startDate = month+" "+day+", "+year;
-            }    
-        },
-        additionalEvents: {
-            "keydown .popup":"closeModal"
-        },
-        getRenderContext:function(){
-            var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
-              this.getNextShippmentDate(c.model);
-            return c;
-        },   
-        getNextShippmentDate:function(subscriptionObj){
-            var self = this,k=subscriptionObj;
-                if(k.subscribedStatus==="Active"){
-                    /*var noOfDeliveries = parseInt(k.schedule.endType.split(' ')[0],10),
-                        frequency = k.schedule.frequency,
-                        frequencyType = k.schedule.frequencyType,
-                        startDate = new Date(k.schedule.startDate.split('T')[0]),
-                        modifiedDate = new Date(k.modifiedDate.split('T')[0]),
-                        days = frequencyType==="Weeks"?(frequency*7):(frequency*30),
-                        finaldate;
-
-                        if(modifiedDate>startDate){
-                            if (self.isHeatSensitive(k.order.items)) {
-                                k.schedule.nextShippment = self.heatSensitvieDatePicker(modifiedDate,days-1);
-                            } else {
-                                k.schedule.nextShippment = self.datePicker(modifiedDate,days-1);
-                            }
-                        }else{
-                            if (self.isHeatSensitive(k.order.items)) {
-                                k.schedule.nextShippment = self.heatSensitvieDatePicker(startDate,days-1);
-                            } else {
-                                k.schedule.nextShippment = self.datePicker(startDate,days-1);
-                            }
-                        }*/
-                        if(subscriptionObj.nextOrderDate){
-                            var date = new Date(subscriptionObj.nextOrderDate);
-                            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
-                            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
-                            console.log("finaldate =====",finaldate);
-                            k.schedule.nextShippment = finaldate;
-                        }
-                        else{
-                            k.schedule.nextShippment = "";
-                        }
-                }else{
-                    k.schedule.nextShippment = k.subscribedStatus==="Paused"?"Unpause to Resume": k.subscribedStatus==="Cancelled"?"N/A":"All Items Sent!";
-                }
-        },
-        isHeatSensitive: function(items) {
-            if (Hypr.getThemeSetting('heatsensitive')) {
-                var itemsLength = items.length;
-                var i = 0;
-                for (i; i < itemsLength; i++) {
-                    if (items[i].product.properties.length > 0) {
-                        var j = 0;
-                        var proLength = items[i].product.properties.length;
-                        for (j; j < proLength; j++) {
-                            if (items[i].product.properties[j].attributeFQN === "tenant~isheatsensitive" || items[i].product.properties[j].attributeFQN === "tenant~IsHeatSensitive") {
-                                if (items[i].product.properties[j].values[0].value) {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                }
-                return false;
-            } else {
-                return false;
-            }
-        },
-        heatSensitvieDatePicker:function(startDate,businessdays){ 
-            var date = new Date(startDate),self=this;
-            var restDates = Hypr.getThemeSetting('BlockOutDates');
-            var blackoutdates = restDates.length>0?restDates.split(','):[];
-            var day, month, year, currentDate, comparedate;
-            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
-            if(blackoutdates.length > 0) {
-                blackoutdates = blackoutdates.map(function(d) {
-                   return self.formatDate(d);
-                });
-            }
-            while (businessdays) {
-                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
-                day = date.getDay();
-                month = date.getMonth();
-                year = date.getFullYear();
-                currentDate = date.getDate();
-               
-                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
-                if (day === 0 || day === 6 || day === 3 || day === 4 || day === 5 || blackoutdates.indexOf(comparedate) !== -1) {
-                    date.setFullYear(year, month, (currentDate));
-                    if(businessdays>1){
-                        businessdays--;
-                    }
-                } else {
-                    businessdays--;
-                }
-            }
-            date.setFullYear(year, month, (currentDate));
-            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
-            return finaldate;
-        },
-        datePicker: function(startDate,businessdays){
-            var date = new Date(startDate),self=this;
-            //var businessdays = 2;
-            var restDates = Hypr.getThemeSetting('BlockOutDates');
-            var blackoutdates = restDates.length>0?restDates.split(','):[];
-            var day, month, year, fulldate, currentDate, comparedate;
-            var months = ["January", "February","March","April", "May","June","July","August","September","October","November","December"];
-            if(blackoutdates.length > 0) {
-                blackoutdates = blackoutdates.map(function(d) {
-                   return self.formatDate(d);
-                });
-            }
-            while (businessdays) {
-                date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
-                day = date.getDay();
-                month = date.getMonth();
-                year = date.getFullYear();
-                currentDate = date.getDate();
-                fulldate = ('0' + (month + 1)).slice(-2) + '-' + ('0' + currentDate).slice(-2) + '-' + year;
-                comparedate = ('0' + (month + 1)).slice(-2) + '/' + ('0' + currentDate).slice(-2) + '/' + year;
-
-
-                if(day === 0 || day === 6 || blackoutdates.indexOf(comparedate) !== -1 || new Date() > comparedate) {
-                    date.setFullYear(year, month, (currentDate + 1));
-                    if(businessdays>1){
-                        businessdays--;
-                    }
-                }else{
-                    businessdays--;
-                }
-            }
-            date.setFullYear(year, month, (date.getDate()));
-            var finaldate =  months[date.getMonth()]+' '+('0' + date.getDate()).slice(-2)+', '+date.getFullYear();
-            return finaldate;
-        },
-        formatDate: function(date) {
-            var sdate = new Date(date);
-            return ('0'+(sdate.getMonth()+1)).slice(-2)+ '/' + ('0'+sdate.getDate()).slice(-2) + '/' + sdate.getFullYear();
-        },
-        toggleOrderSummary:function(e){
-            var subId = $(e.currentTarget).attr('data-subscription-id'),me=this,active=true;
-            if($(e.currentTarget).parents('.subscription-order-details').hasClass('showmore')){
-                $(e.currentTarget).parents('.subscription-order-details').removeClass('showmore');
-                active=false;
-            }else{
-                $(e.currentTarget).parents('.subscription-order-details').addClass('showmore');
-            }
-
-            if(this.model.attributes.subscriptionId===subId && active){
-                this.model.attributes.show = true;
-            }else{
-                this.model.attributes.show = false;
-            }
-            setTimeout(function(){
-                me.render();  
-                if($(e.currentTarget).parents('.subscription-order-details').hasClass('showmore')){
-                    $('.address-container .subscription-shipping').attr('aria-hidden', false);
-                    $('.subscription-product-details').attr('aria-hidden', false);
-                    $('.address-container .subscription-shipping').focus();
-                    active=false;
-                }else{
-                    $('.address-container .subscription-shipping').attr('aria-hidden', true);
-                    $('.subscription-product-details').attr('aria-hidden', true);
-                    $(e.currentTarget).focus();
-                }  
-            },300);
-        },
-        deliveries:function(currentSub,currentpage){
-            var subId = this.model.attributes.subscriptionId;
-            var width = $(document).width(),
-            pageWidth = width>767?49:41,
-            noOfDeliveries = currentSub.schedule.noOfDeliveries.length,
-            deliveriesWidth = $(document).find('.subscription-delivery-details[data-subscription-id="'+subId+'"] ul').outerWidth(),
-            page = Math.floor(deliveriesWidth/pageWidth);
-            currentSub.currentPage = currentpage;
-            currentSub.pages = Math.ceil(noOfDeliveries/page);
-            currentSub.startDelivery = currentpage>1?(currentpage-1)*page:0;
-            currentSub.endDeliivery = currentpage*page;
-           /* console.log(" deliveriesWidth ----",deliveriesWidth);
-            console.log("currentSub.startDelivery ----",currentSub.startDelivery,currentSub.endDeliivery);
-            console.log(" this.model.attributes ----",this.model.attributes);*/
-        },
-        nextDelivery:function(e){
-            var nextPage = parseInt($(e.currentTarget).attr('index'),10)+1,
-                subId = $(e.currentTarget).attr('data-subscription-id'),me=this;
-                if(this.model.attributes.subscriptionId===subId){
-                    me.deliveries(this.model.attributes,nextPage);
-                }
-            setTimeout(function(){
-                me.render();    
-            },200);
-        },
-        previousDelivery:function(e){
-            var prevPage = parseInt($(e.currentTarget).attr('index'),10)-1,
-                subId = $(e.currentTarget).attr('data-subscription-id'),me=this;
-                if(this.model.attributes.subscriptionId===subId){
-                    me.deliveries(this.model.attributes,prevPage);
-                }
-            setTimeout(function(){
-                me.render();    
-            },200);
-        },
-        popup:function(e){
-            var popupData,orderId = $(e.currentTarget).attr('data-order-id');
-            if($(e.currentTarget).attr('data-action')==="pause"){
-                popupData = {
-                    "isEnabled" : true,
-                    "aria-label":"Pause Subscription Modal",
-                    "message" : "If you <strong>Pause your Subscription,</strong> all pending deliveries will be cancelled until you Unpause it. Are you sure?",
-                    "adamessage" : "If you Pause your Subscription, all pending deliveries will be cancelled until you Unpause it. Are you sure?",
-                    "buttons" : [
-                        {
-                            "buttonLabel" : "No",
-                            "action" : "closePopup",
-                            "class" : "no"   
-                        },
-                        {
-                            "buttonLabel" : "Yes, Pause",
-                            "action" : "pauseSubcription",
-                            "class" : "yes",
-                            "orderId": orderId
-                        }
-                    ]
-                };
-            }else if($(e.currentTarget).attr('data-action')==="cancel"){
-                popupData = {
-                    "isEnabled" : true,
-                    "aria-label":"Cancel Subscription Modal",
-                    "message" : "If you <strong>Cancel your Subscription</strong> and then change your mind, you will have to start over. Are you sure?",
-                    "adamessage" : "If you Cancel your Subscription and then change your mind, you will have to start over. Are you sure?",
-                    "buttons" : [
-                        {
-                            "buttonLabel" : "No",
-                            "action" : "closePopup",
-                            "class" : "no"   
-                        },
-                        {
-                            "buttonLabel" : "Yes, Cancel",
-                            "action" : "cancelSubcription",
-                            "class" : "yes",
-                            "orderId": orderId
-                        }
-                    ]
-                };
-            }else if($(e.currentTarget).attr('data-action')==="unpause"){
-                popupData = {
-                    "isEnabled" : true,
-                    "aria-label":"Unpause Subscription Modal",
-                    "message" : "Are you sure you want to <strong>Unpause your Subscription?</strong>",
-                    "adamessage" : "Are you sure you want to Unpause your Subscription?",
-                    "buttons" : [
-                        {
-                            "buttonLabel" : "No",
-                            "action" : "closePopup",
-                            "class" : "no"   
-                        },
-                        {
-                            "buttonLabel" : "Yes, Unpause",
-                            "action" : "unPauseSubcription",
-                            "class" : "yes",
-                            "orderId": orderId
-                        }
-                    ]
-                };
-            }
-            else if($(e.currentTarget).attr('data-action')==="edit"){
-                var me = this;
-                var obj = me.model.attributes;
-               /*  var self = this;
-                this.model.get('subscriptionData').Data.qty = $(document).find('.quantity-sub').val();
-                this.model.get('subscriptionData').Data.howOften = $(document).find('.how-often-val').val();
-                this.model.get('subscriptionData').Data.weeks = $(document).find('.span-tabs.week').hasClass("active");
-                this.model.get('subscriptionData').Data.months = $(document).find('.span-tabs.months').hasClass("active");
-                this.model.get('subscriptionData').Data.when = $(document).find('#interval-startdate').val();
-                this.model.get('subscriptionData').Data.howLong = $(document).find('.how-long-val').val();
-                // $.cookie("subscriptionCreated", true);
-                $.cookie("subscriptionData", JSON.stringify(this.model.get('subscriptionData').Data));*/
-                window.location.href = window.location.origin+"/subscription?subscriptionId="+obj.subscriptionId;  
-            }
-            this.model.set('popupData',popupData);
-            this.render();
-            this.loopInPopups();
-            setTimeout(function(){
-                $(document).find('.subscriptionpopup-myAccount .popup-body .message').focus();
-            },500);
-        },
-        closePopup:function(e,type){
-            var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
-                subId =$(document).find('.popup-body .button-yes').attr('data-subscription');
-            this.model.get('popupData').isEnabled = false;
-            this.render();  
-            if(type){
-                if(type === "unpause"){
-                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
-                }else if(type === "pause"){
-                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
-                }else if(type === "cancel"){
-                    $(document).find('.subscription-list-header.active').focus();
-                }
-            }else{
-                if(button === "unPauseSubcription"){
-                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
-                }else if(button === "pauseSubcription"){
-                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
-                }else if(button === "cancelSubcription"){
-                    $(document).find('.subscription-actions [data-action="cancel"][data-order-id="'+subId+'"]').focus();
-                }
-            }
-        },
-        pauseSubcription: function(e) {
-            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
-            var me = this,paused = window.paused = true,
-            customerId = me.model.get("customerId");
-            if(window.paused) {
-               $(".overlay-for-complete-page").hide();
-                var counter = 1,postData;
-                while(counter){
-                    if(me.model.attributes.subscriptionId == window.currentAction){
-                        me.model.attributes.subscribedStatus = "Paused";
-                        me.model.attributes.modifiedDate = new Date().toISOString();
-                        postData =  me.model.attributes;
-                        counter = 0;
-                        window.paused = false;
-                    }else{ 
-                        counter++;
-                    } 
-                }
-                try {
-                    Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
-                        $(".overlay-for-complete-page").hide();
-                        me.closePopup(e,"unpause");
-                       window.mySubscriptionList.changeStatus(postData.subscriptionId,"Paused");
-                       me.render();
-                    }).then(function(er) {
-                        $(".overlay-for-complete-page").hide();
-                        me.closePopup(e,"pause");
-                    });
-                } catch(error) {
-                    console.error(error);
-                    $(".overlay-for-complete-page").hide();
-                    me.closePopup(e,"pause");
-                }
-            }else {
-                me.closePopup(e,"pause");
-            }
-        },
-        unPauseSubcription: function(e) {
-            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
-            var me = this,unpaused = window.unpaused = true,
-            customerId = me.model.get("customerId");
-            if(window.unpaused) {
-                $(".overlay-for-complete-page").hide();
-                var counter = 1,postData;
-                while(counter && window.unpaused){
-                    if(me.model.attributes.subscriptionId == window.currentAction){
-                        me.model.attributes.subscribedStatus = "Active";
-                        me.model.attributes.modifiedDate = new Date().toISOString();
-                        postData =  me.model.attributes;
-                        counter = 0;
-                        window.unpaused = false;
-                    }else{
-                        counter++;
-                    } 
-                }
-                
-                try {
-                    Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
-                        $(".overlay-for-complete-page").hide();
-                        me.closePopup(e,"pause");
-                        window.mySubscriptionList.changeStatus(postData.subscriptionId,"Active");
-                        me.render();
-                    }).then(function(er) {
-                        console.log(er);
-                        $(".overlay-for-complete-page").hide();
-                        me.closePopup(e,"unpause");
-                    });
-                } catch(error) {
-                    console.error(error);
-                    $(".overlay-for-complete-page").hide();
-                    me.closePopup(e,"unpause");
-                }
-            }
-            else {
-                me.closePopup(e,"unpause");
-            }
-        },
-        cancelSubcription: function(e) {
-            var currentAction = window.currentAction = $(e.target).attr('data-subscription');
-            var me = this,cancel = window.cancel = true,
-                customerId = me.model.get("customerId"),postData;
-                if(window.cancel) {
-                   $(".overlay-for-complete-page").hide();
-                    window.cancel = false; 
-                    var obj = me.model.attributes;
-                        if(obj.subscriptionId == window.currentAction) { 
-                            obj.subscribedStatus = "Cancelled";
-                            obj.modifiedDate = new Date().toISOString();
-                            postData = obj;
-                            postData.subscriptionId = obj.subscriptionId;
-                        }
-                    try {
-                        //need to test against multiple accounts
-                        Api.request('POST', 'svc/getSubscription',{method:"UPDATE",data:postData}).then(function(res) {
-                            $(".overlay-for-complete-page").hide();
-                            me.closePopup(e,"cancel");
-                            //me.render();
-                            window.mySubscriptionList.changeStatus(postData.subscriptionId,"Cancelled");
-                        }).then(function(er) {
-                            console.log(er);
-                            $(".overlay-for-complete-page").hide();
-                            me.closePopup(e,"cancel");
-                        });
-                    } catch(error) {
-                        console.error(error);
-                        $(".overlay-for-complete-page").hide();
-                        me.closePopup(e,"cancel");
-                    }
-                }
-                else {
-                    me.closePopup(e,"cancel");
-                }
-        },
-        closeModal:function(e){
-            var button = $(document).find('.popup-body .button-yes').attr('data-mz-action'),
-                subId =$(document).find('.popup-body .button-yes').attr('data-subscription');
-            if (e.which === 27 ) {
-                this.model.get('popupData').isEnabled = false;
-                this.render(); 
-                if(button === "unPauseSubcription"){
-                    $(document).find('.subscription-actions [data-action="unpause"][data-order-id="'+subId+'"]').focus();
-                }else if(button === "pauseSubcription"){
-                    $(document).find('.subscription-actions [data-action="pause"][data-order-id="'+subId+'"]').focus();
-                }else if(button === "cancelSubcription"){
-                    $(document).find('.subscription-actions [data-action="cancel"][data-order-id="'+subId+'"]').focus();
-                }
-           }
-        },
-        loopInPopups:function(ele){
-            if(ele){
-                window.inputs = $(document).find("."+ele).find('button,[tabindex="0"],a,input');
-            }
-            else
-            window.inputs = $(document).find('.subscriptionpopup-myAccount .popup-body').find('button,[tabindex="0"],a,input');
-            
-            window.firstInput = window.inputs.first();
-            window.lastInput = window.inputs.last(); 
-            
-            // if current element is last, get focus to first element on tab press.
-            window.lastInput.on('keydown', function (e) {
-               if ((e.which === 9 && !e.shiftKey)) {
-                   e.preventDefault();
-                   window.firstInput.focus(); 
-               }
-            });
-            
-            // if current element is first, get focus to last element on tab+shift press.
-            window.firstInput.on('keydown', function (e) {
-                if ((e.which === 9 && e.shiftKey)) {
-                    e.preventDefault();
-                    window.lastInput.focus();  
-                }
-            }); 
-            console.log("window.inputs----",window.inputs);
-            console.log("window.lastInput----",window.lastInput);
-        },
-        render:function() {
-            Backbone.MozuView.prototype.render.apply(this);
-        }
-    });
-
-    var getMethod = function(name) {
-        // Helper function. Returns an object containing information about that shipping method
-        //
-        // method: Kibo id for shipping method
-        // regularShipDays: Days of the week when this shipping method can be used - 0,1,2,3,4,5,6
-            // 0 = Sunday, 1 = Monday ... 6 = Saturday
-        // hsShipDays: Days of the week when this shipping method can be used on orders containing heat sensitive items
-            // 0 = Sunday, 1 = Monday ... 6 = Saturday
-        // arrivalBegin and arrivalEnd: A range indicating the expected arrival (in days) of an order after ship date
-        //		Note: should be same for specific delivery methods
     
-        var shipMethods = [{
-                "method": "ups_UPS_GROUND", 
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2],
-                "arrivalBegin": 4,
-                "arrivalEnd" : 7
-            },
-            {
-                "method": "ups_UPS_SUREPOST_LESS_THAN_1LB",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2,3,4,5],
-                "arrivalBegin": 6,
-                "arrivalEnd" : 9
-            },
-            {
-                "method": "ups_UPS_SUREPOST_1LB_OR_GREATER",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2,3,4,5],
-                "arrivalBegin": 6,
-                "arrivalEnd" : 9
-            },
-            {
-                "method": "ups_UPS_THREE_DAY_SELECT",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2],
-                "arrivalBegin": 3,
-                "arrivalEnd" : 3
-            },
-            {
-                "method": "ups_UPS_SECOND_DAY_AIR",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2],
-                "arrivalBegin": 2,
-                "arrivalEnd" : 2
-            },
-            {
-                "method": "ups_UPS_NEXT_DAY_AIR_SAVER",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2],
-                "arrivalBegin": 1,
-                "arrivalEnd" : 1
-            },
-            {
-                "method": "ups_UPS_NEXT_DAY_AIR",
-                "regularShipDays": [1,2,3,4,5],
-                "hsShipDays": [1,2],
-                "arrivalBegin": 1,
-                "arrivalEnd" : 1
-            }
-        ];
-        //return shipMethods.find(function(method){return method.method === name;});
-        
-        for (var i = 0; i < shipMethods.length; i++) {
-                if (shipMethods[i].method === name)
-                    return shipMethods[i];
-        }
-    
-    //	shipMethods.forEach(function(method){
-    //		if (method.method === name)
-    //			shipMethod = method;
-    //	});
-    //	return shipMethod;
-    };
-    
-    var checkMethod = function(day, method, hs) {
-        // given a date, shipping method id, and whether order is heat-sensitive, returns true or false
-        // for whether the order can be shipped on the date
-        var meth = getMethod(method);
-        if (hs) { 
-            return meth.hsShipDays.indexOf(day) > -1 ? true:false;
-        }else{ 
-            return meth.regularShipDays.indexOf(day) > -1 ? true:false;
-        }
-    };
-    
-    var getArrival2 = function(d, start, days) {
-        // given a shipdate d, a start index (should be 0), and the number of days from the shipdate, returns the first
-        // eligible business day
-        if (start === days)
-            return d;
-        
-        var d2 = new Date(d);
-        var dd = d.getDate();
-        d2.setDate(dd + 1);
-    
-        var s = (start);
-        // we'll assume orders can only arrive on Monday - Friday, or 1,2,3,4,5
-        if ([1,2,3,4,5].indexOf(d2.getDay()) > -1) {
-            s=s+1;
-        }
-        return getArrival2(d2, s, days);
-    };
-    
-    var getNextShipDate = function(n, d, hs, m) {
-        // given a date n, a 12PM deadline d, a heat sensitive boolean, and a shipping method id, finds the first
-        // eligible business day on which an order can ship (according to the shipping method definition)
-        if (n.getTime() < d.getTime() && checkMethod(d.getDay(), m, hs)) {
-            return d;
-        }
-        else {
-            var d2 = new Date(d);
-            var cd = d.getDate();
-            d2.setDate(cd + 1);
-            return getNextShipDate(n, d2, hs, m);
-        }
-    };
-
-    var shippingestimation = function(shippingmethod,order){
-        var testDate = new Date();
-        var deadline = new Date(testDate.getTime());
-        deadline.setHours(12);
-        deadline.setMinutes(0);
-        deadline.setSeconds(0);
-        deadline.setMilliseconds(0);
-        var heatsensitive =hasHeatSensitiveItemsByCategory(order) || false; // document.getElementById('heatsensitive').value;
-        var state;		
-        // error handling in case there is not a state available yet on the order
-        try {
-            //var order = require.mozuData('order');
-            var fulfillmentInfo = order.fulfillmentInfo;
-            state = fulfillmentInfo.fulfillmentContact.address.stateOrProvince;
-        } catch(e) { 
-            state = "ZZ";
-        }
-        var mdef = getMethod(shippingmethod.shippingMethodCode);
-        var shipDate = getNextShipDate(testDate, deadline, heatsensitive, mdef.method);
-        var a1 = getArrival2(shipDate, 0, mdef.arrivalBegin);
-        var a2 = getArrival2(shipDate, 0, mdef.arrivalEnd);
-        var estimation = "", estimationDate="";
-        if(state == 'AK' || state == 'HI' || state == 'AA'|| state == 'AP' || state == 'AE'){
-            if (mdef.method === "ups_UPS_NEXT_DAY_AIR" || mdef.method === "ups_UPS_SECOND_DAY_AIR" || mdef.method === "ups_UPS_NEXT_DAY_AIR_SAVER" || mdef.method === "ups_UPS_THREE_DAY_SELECT") {
-                estimation = "Expected Arrival Date: "+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                $(document).find('.shippingAKHI').hide();
-            }else{
-                estimation = "Up to 6 Weeks";
-                estimationDate = "Up to 6 Weeks";
-                $(document).find('.shippingAKHI').show();
-            }
-        }else if (mdef.method === "ups_UPS_GROUND") {
-            estimation = "4 to 7 business days from ship date";
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }else if (mdef.method === "ups_UPS_SUREPOST_LESS_THAN_1LB") {
-            estimation = "6 to 9 business days from ship date";
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }else if (mdef.method === "ups_UPS_SUREPOST_1LB_OR_GREATER") {
-            estimation = "6 to 9 business days from ship date";
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }else if (mdef.method === "ups_UPS_THREE_DAY_SELECT") {
-            estimation = a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }else if (mdef.method === "ups_UPS_SECOND_DAY_AIR") {
-            estimation = a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }else if (mdef.method === "ups_UPS_NEXT_DAY_AIR_SAVER") {
-            estimation = a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            estimationDate = shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }
-        return {"estimation": estimation,"estimationDate" : estimationDate};  
-    };
-    var hasHeatSensitiveItemsByCategory = function(order) {
-        var items = order &&  order.items ? order.items : [];
-    
-        var result = _.find(items, function(item) {
-            return _.find(item.product.categories, function(category){
-                return category.id == Hypr.getThemeSetting('heatSensitiveCategoryId');
-            });
-        });
-        if (result === undefined)
-                return false;
-            else
-                return true;
-    };
-
     // switch to appropriate tabpanel
     var tabNavigator = function($el){
         $('.mz-scrollnav-link').attr('aria-selected',false);
         if(($el).hasClass('active')){
             $el.attr('aria-selected',true);
             var myView = $el.attr('forid');
-            $(".subscriptionstitle").hide();
             var $elSelected = $('#account-panels').find('#x-'+myView);
                 // focus to first list item if available
             if(myView == "account-orderhistory" || myView == "account-returnhistory"){
@@ -2354,31 +1337,11 @@
                 else
                     $elSelected.focus();
             }
-            else {
-                if(myView == "account-subscription") {
-                    $elSelected.prev(".subscriptionstitle").show();
-                    $elSelected.prev(".subscriptionstitle").focus();
-                } else {
-
-                    $elSelected.attr('tabindex','0').focus();
-                }
-            }
+            else
+                $elSelected.attr('tabindex','0').focus();
         }
     };
 
-    var formatGetListData = function(response){
-        var result = {customerId:response.customerId,page:response.page,pageSize:response.pageSize,totalPages:response.totalPages, totalOrders:response.totalOrders };
-        var orderDetails = [];
-        for (var i =0 ; i<response.kiboOrderTemplates.length;i++)
-        {
-            var localObj = response.kiboOrderTemplates[i];
-            var obj = {customerId:localObj.customerId,subscriptionId:localObj.subscriptionId,nickname:localObj.nickname,subscribedStatus:localObj.subscribedStatus,order:{total:localObj.order.total}};
-            orderDetails.push(obj);
-        }
-        result.orderDetails = orderDetails;
-        result.totalReceivedOrders = result.page*result.pageSize;
-        return result;
-    };
     
   /*  
     var QuickOrderHistoryView = Backbone.MozuView.extend({
@@ -2541,29 +1504,6 @@
     }); 
 } 
     $(document).ready(function () {
-
-        // flexi function
-        $(document).find('.popup').on('click', '.close-icon, .button-no', function(){
-            $(document).find('.popup').removeClass('active');
-        });
-
-        $(document).find('.popup').on('click', '.button-yes', function(){
-            $(document).find('.popup').removeClass('active');
-
-            var isOrder = $(document).find('.popup').find('.button-yes').attr('isOrder');
-            var isWishlist = $(document).find('.popup').find('.button-yes').attr('isWishlist');
-            var addAll = $(document).find('.popup').find('.button-yes').attr('addAll');
-            var orderId = $(document).find('.popup').find('.button-yes').attr('orderId');
-            var productId = $(document).find('.popup').find('.button-yes').attr('productid');
-            var count = $(document).find('.popup').find('.button-yes').attr('quantity');
-            if(isOrder == "true" && addAll == "false"){
-                window.accountViews.orderHistory.removerProductandAddtocart(orderId, productId);
-            }else if(isOrder == "true" && addAll == "true"){
-               window.accountViews.orderHistory.removerProductandAddalltoCart(orderId); 
-            }else if(isWishlist){
-                productId = $(document).find('.popup').find('.button-yes').attr('productcode');
-            }   
-        });
         
         var targetFocusEl = window.targetFocusEl;
         
@@ -2652,7 +1592,7 @@
                 if(resp.items.length > 20)resp.items.pop();
                 resp.totalCount = resp.totalCount-1;
                 var wishlist = Backbone.MozuModel.extend({});
-                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = window.WishListView = new WishListView({
+                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
                     el: $wishListEl,
                     model: new wishlist(resp),
                     messagesEl: $messagesEl
@@ -2661,29 +1601,6 @@
             });
         }else{
             _.invoke(window.accountViews, 'render');    
-        }
-        var customerId = require.mozuData("user").userId,existingEntityData = [],
-        subscriptionModel = Backbone.MozuModel.extend({}); 
-        try {
-            Api.request('POST', 'svc/getSubscription',{method:"GETLIST",pageSize:10,page:1,sortDirection:"DESC"}).then(function(res) {
-                console.log(res.res);
-                 if (!res.error) {
-                    existingEntityData = formatGetListData(res.res);
-                }
-                
-                /*var mySubscription = new MySubscriptionView({
-                    el: $(".mz-accountsubscription"),
-                    model: new subscriptionModel(existingEntityData)
-                }); 
-                mySubscription.render();  */
-                   var mySubscriptionList = window.mySubscriptionList =  new MySubscriptionListView({
-                    el: $(".mz-accountsubscriptionlist"),
-                    model: new subscriptionModel(existingEntityData)
-                }); 
-                mySubscriptionList.render();
-             });
-        } catch (e) {
-            console.error(e);
         }
         
         // if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({

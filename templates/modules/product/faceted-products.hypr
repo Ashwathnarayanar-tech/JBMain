@@ -31,11 +31,13 @@
             </a>
         </li>
     </ul>
-</div> 
-{% comment %}
-    {% dropzone zoneId="category-info" scope="page" %}
-{% endcomment %}
-<h2 class="sr-only">Shop Online</h2>
+    <div data-mz-mobile-page-sort class="mz-mobile mz-pagesort-mobile">
+        {% include "modules/common/page-sort-mobile" %}
+    </div>
+</div>
+
+
+
 <div class="mz-l-paginatedlist" id="shop-all">
     <div class="jb-pagecontrols mz-desktop" >
         <div data-mz-pagingcontrols class="mz-pagingcontrols mz-desktop">
@@ -78,21 +80,7 @@
             <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
             <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 
         {% endif %} 
-    </div>  
-    <div class="popup">
-        <div class="popup-body">
-            <span tabindex="0" class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
-            <div class="popup-content">
-                <p class="message" tabindex="0" role="text" aria-lable="You have already started building a Subscription. Do you want to remove the subscription products and add this product to the cart?">
-                    <strong> You have already started building a Subscription.</strong> <br> Do you want to remove the subscription products and add this product to the cart?
-                </p>
-                <div class="button-section">                    
-                    <button class="button button-no" >No</button>
-                    <button class="button button-yes" >Yes! Subscribe</button>
-                </div>
-            </div>
-        </div>
-    </div>               
+    </div>                
 </div>
 <div class="brand-dicreption-bottom">
     {% if pageContext.isDesktop or pageContext.isTablet %}
