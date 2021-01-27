@@ -17,17 +17,19 @@
                     <div class="mz-l-formfieldgroup">
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="ordernum">{{ labels.orderNumber }}</label>
+                            
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="ordernum" value="" type="text" data-mz-order-number /> 
+                                <input name="ordernum" placeholder="order number" value="" type="text" data-mz-order-number /> 
+                                <label for="ordernum">{{ labels.orderNumber }}</label>
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="verifywith">{{ labels.verifyWith }}</label>
+                               
                             </div>
-                            <div class="mz-l-formfieldgroup-cell">
+                            <div class="mz-l-formfieldgroup-cell select-box">
+                             <label for="verifywith">{{ labels.verifyWith }}</label>
                                 <select data-mz-verify-with data-mz-action="phoneformat">
                                     {% if themeSettings.zipCodeEnabled %}<option value="zipCode">{{ labels.billingPostalCode }}</option>{% endif %}
                                     {% if themeSettings.phoneNumberEnabled %}<option value="phoneNumber">{{ labels.billingPhoneNumber }}</option>{% endif %}
@@ -35,14 +37,16 @@
                                 </select>
                                 <img width="13" class="down-caret-order-status" src="/resources/images/icons/down_caret.png">
                                 <img width="13" class="up-caret-order-status" src="/resources/images/icons/up_caret.png">
+                                
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="verification">{{ labels.verification }}</label>
+                               
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="verification" value="" class="onlyverification" type="text" data-mz-verification />
+                                <input placeholder="verification" name="verification" value="" class="onlyverification" type="text" data-mz-verification />
+                                 <label for="verification">{{ labels.verification }}</label>
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
