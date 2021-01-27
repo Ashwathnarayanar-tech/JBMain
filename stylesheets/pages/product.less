@@ -28,7 +28,7 @@
                             color: #1c2e36;
                         }  
                         .mz-productdetail-shortdesc{
-                                padding: 10px 0 15px;
+                            padding: 10px 0 15px;
                             border-bottom: 1px solid #cfcfcf;
                             margin: 0;
                             span {
@@ -416,6 +416,294 @@
                                     vertical-align: top;
                                 }
                             }
+                            .subscription{
+                                background-color: rgba(210, 231, 255, 0.5);
+                                padding: 20px;
+                                background-image: url(../../resources/images/sub-backgroundImage.svg);
+                                background-repeat: no-repeat;
+                                background-position: 100% 0px;
+                                margin-bottom: 20px;
+                                .section-head{
+                                    .subscribe-input.checkbox-outer-label{
+                                        width: 20%;
+                                        height: 25px;
+                                        vertical-align: middle;
+                                        border-right: 1px solid #004e99;
+                                        display: inline-block;
+                                        padding-left: 34px;
+                                        .subscribe-input{
+                                            left: 0;
+                                            width: 20px;
+                                            height: 20px;
+                                            z-index: 999;
+                                        }
+                                        .checkmark-style{
+                                            border-radius: 2px;
+                                            border: 1px solid #004e99;
+                                            width: 25px;
+                                            height: 25px;
+                                            &:after{
+                                                width: 10px;
+                                                height: 15px;
+                                            }
+                                        }
+                                        .label-input{
+                                            font-size: 18px;
+                                            font-weight: bold; 
+                                            color: #004e99;
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                    .text-content-sub{
+                                        display: inline-block;
+                                        width: 64%;
+                                        vertical-align: top;
+                                        padding-left: 10px;
+                                        .text-place{
+                                            margin: 0;
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                            line-height: 0.88;
+                                            color: #004e99;
+                                        }
+                                    }
+                                }
+                                .expanded-section{
+                                    padding: 0 5%;
+                                    display: none;
+                                    padding-top: 20px;
+                                    &.active{
+                                        display: block;
+                                    }
+                                    .formGroup{
+                                        display: inline-block;
+                                        vertical-align: top;
+                                        position: relative;
+                                        margin-bottom: 15px;
+                                        span{
+                                            display: block;
+                                            label{
+                                                font-size: 16px;
+                                                font-weight: bold;
+                                                line-height: 1.5;
+                                                color: #1c2e36;
+                                                margin-bottom: 4px;
+                                                display: inline-block;
+                                            }
+                                        }
+                                        .qty-input-box-sub{
+                                            position: relative;
+                                            margin: 0 auto;
+                                            display: inline-block;
+                                            vertical-align: middle;
+                                            .quantity-sub{
+                                                border:solid 0.6px #8d8d8d;
+                                                width: 55px;
+                                                padding: 8.5px 30px 8.5px 1px;
+                                                margin: 0; 
+                                                border-radius: 4px;
+                                                -moz-border-radius: 4px;
+                                                -webkit-border-radius: 4px;
+                                                font-weight: bold;
+                                                text-align: center;
+                                            }
+                                            .spinner{
+                                                background-color: whitesmoke;
+                                                background-repeat: no-repeat;
+                                                background-position: center;
+                                                background-size: 30%;
+                                                position: absolute;
+                                                cursor: pointer;
+                                                background-color: whitesmoke;
+                                                width: 30px;
+                                                height: 18px;
+                                                &.decrement{
+                                                    right: 1px;
+                                                    top: 18px;
+                                                    border-top: 0.6px solid #cfcfcf; 
+                                                    border-bottom-right-radius: 4px;
+                                                    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAAXNSR0IArs4c6QAAABRJREFUCB1jtLGx8WUgAJgIyIOlAUiMAQXyTmaGAAAAAElFTkSuQmCC");
+                                                    &:hover {
+                                                        background-image: url("data:image/png;base64,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YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTktMDctMThUMTk6Mzk6MDMrMDU6MzAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTktMDctMThUMTk6Mzk6MDMrMDU6MzAiIHhtcDpNb2RpZnlEYXRlPSIyMDE5LTA3LTE4VDE5OjM5OjAzKzA1OjMwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmE5OTUyZDBlLTFlNmItNDNjYi1iMDgyLWIxODk2Mzk3MTMwZSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmRkMGYyM2VhLWE4NDMtZmM0OS04ODVhLWQ1NzBhZjRkN2M3MiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjdkZjEzNjdkLTNkOWUtNDZiYy04ZmExLWNlNjVmOTRlNDViYSIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJEaXNwbGF5Ij4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo3ZGYxMzY3ZC0zZDllLTQ2YmMtOGZhMS1jZTY1Zjk0ZTQ1YmEiIHN0RXZ0OndoZW49IjIwMTktMDctMThUMTk6Mzk6MDMrMDU6MzAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDphOTk1MmQwZS0xZTZiLTQzY2ItYjA4Mi1iMTg5NjM5NzEzMGUiIHN0RXZ0OndoZW49IjIwMTktMDctMThUMTk6Mzk6MDMrMDU6MzAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoSNrsYAAAAqSURBVDiNY/z//z8DNQATVUwZNYi+BjEy+M2kSvwPPq9RL4xGs8hINggAjbEIAlZwVNUAAAAASUVORK5CYII=");
+                                                    }
+                                                }
+                                                &.increment {
+                                                    right: 1px; 
+                                                    top: 1px; 
+                                                    border-bottom: 0.6px solid #cfcfcf; 
+                                                    border-top-right-radius: 4px;
+                                                    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAKRJREFUWAnt2MEJxDAMRNH11uUWttptwYWlg8kcPiGCn6vEoDwLTLI+0LP3/t1FnXP+dz1N/ds0va3HoZ86EaWVDgKuR8BBS0qjnCFM6YCDlpRGOUOY0gEHLY2UXs0XB8oEhI2Udmjg5KsIpSsmoElpALGKGCm9qlcrmppLyt9iBeSrWkbutEM/tUNKKx0EXI+Ag5aURjlDmNIBBy0pjXKGsJHSF8spCVlrlwEvAAAAAElFTkSuQmCC");
+                                                    &:hover {
+                                                        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAElJREFUOBFjZMAH/Gb+AEqzw5XIy3IwTPb6CecjMZiQ2BQxRw0iHHxUCyNGBr+Z/wnbR1gF1Vw0+AxixOv70SwCCp7BF2tUcxEAhDoKCFpooaAAAAAASUVORK5CYII=");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .line{
+                                            width: 1px;
+                                            height: 35px;
+                                            position: absolute;
+                                            background-color: #004e99;
+                                            right: 15%;
+                                            bottom: 0;
+                                        }
+                                        .how-often-input-sub{
+                                            display: inline-block;
+                                            width: 25%;
+                                            position: relative;
+                                            .how-often-val{
+                                                width: 92%;
+                                                height: 39px;
+                                                border-radius: 4px;
+                                                padding: 0 10px 0 35px;
+                                                font-weight: bold;
+                                                position: relative;
+                                                background:#fff 90% center url('../../resources/images/icons/facet-close.png') no-repeat;
+                                                background-size: 12px;
+                                              
+                                            }
+                                            /*&:after{
+                                                content: "";
+                                                background: url('../../resources/images/icons/facet-close.png') no-repeat;
+                                                background-size: contain;
+                                                width:12px;
+                                                height:14px;
+                                                position: absolute;
+                                                right: 12px;
+                                                top: 17px;
+                                                
+                                            }*/
+                                        }
+                                        .weekormonth{
+                                            display: inline-block;
+                                            width: 68%;
+                                            text-align: center;
+                                            .span-tabs{
+                                                display: inline-block;
+                                                font-size: 18px;
+                                                font-weight: bold;
+                                                line-height: 1.33;
+                                                letter-spacing: normal;
+                                                color: #000;
+                                                padding: 7px 26px;
+                                                background-color: #fff; 
+                                                border: 1px solid #004e99;
+                                                cursor: pointer;
+                                                &.week{                                                     
+                                                    border-bottom-left-radius: 4px;
+                                                    border-top-left-radius: 4px;
+                                                }
+                                                &.months{
+                                                    border-bottom-right-radius: 4px;
+                                                    border-top-right-radius: 4px;  
+                                                    border-left: 0px;  
+                                                }
+                                                &.active{
+                                                    background-color: #004e99;   
+                                                    color: #ffffff; 
+                                                }
+                                            }
+                                        }
+                                        .datepicker-cointainer{
+                                            position: relative;
+                                            #interval-startdate{
+                                                width: 88%;
+                                                height: 30px;
+                                                border-radius: 4px;
+                                                font-weight: bold;
+                                            }
+                                            label.mz-small{
+                                                position: absolute;
+                                                right: 33px;
+                                                top: 9px;
+                                            }
+                                        }
+                                        .how-long-input-sub{
+                                            position: relative;
+                                            .how-long-val{
+                                                width: 96%;
+                                                height: 39px;
+                                                border-radius: 4px;
+                                                padding: 0 10px; 
+                                                font-weight: bold;  
+                                                background: #fff 95% center url('../../resources/images/icons/facet-close.png') no-repeat;                                                
+                                                background-size: 12px;
+                                            }
+                                            // &:after{
+                                            //     background: url('../../resources/images/icons/facet-close.png') no-repeat;
+                                            //     background-size: contain;
+                                            //     width:12px;
+                                            //     height:14px;
+                                            //     content: "";
+                                            //     position: absolute;
+                                            //     top:17px;
+                                            //     right:17px;
+                                            // }
+                                        }
+                                        .subscribe-now{
+                                            border-radius: 4px;
+                                            border: solid 1px #004e99;
+                                            background-color: #004e99;
+                                            font-size: 21px;
+                                            font-weight: bold;
+                                            text-align: center;
+                                            color: #ffffff;
+                                            padding: 1% 2% 1% 10%;
+                                            position: relative;
+                                            vertical-align: top;
+                                            width: 43.5%;
+                                            &:hover{
+                                                border: solid 1px #003a72;
+                                                background-color: #003a72;
+                                            }
+                                            &:after{
+                                                content: "";
+                                                position: absolute;
+                                                background-image: url(../../resources/images/sub-icon.svg);
+                                                left: 20px;
+                                                background-size: 75%;
+                                                width: 30px;
+                                                height: 30px;
+                                                background-repeat: no-repeat;
+                                            }
+                                        }
+                                        .subscrib-multi{
+                                            display: inline-block;
+                                            width: 51%;
+                                            text-align: center;
+                                            .text-info{
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                                color: rgba(0, 0, 0, 0.5);
+                                            }
+                                            .subscription-list{
+                                                font-size: 21px;
+                                                font-weight: bold;
+                                                text-align: center;
+                                                color: #004e99;
+                                                line-height: 0; 
+                                            }
+                                        }
+                                        &.qty{
+                                            width: 26%;
+                                        }
+                                        &.howofter{
+                                            width: 72%;
+                                        }
+                                        &.interval{
+                                            width: 46%;
+                                        }
+                                        &.howling{
+                                            width: 45%;
+                                            margin-left:2%
+                                        }
+                                        &.btnsec{
+                                            margin-top: 20px;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
                         } 
                         .free-shipping-section{
                             margin: 8px 0 8px;
@@ -427,7 +715,7 @@
                                     width: 80%;
                                 }
                             }
-                            #free-shipping-tip{
+                            #free-shipping-tip{ 
                                 display: inline-block;
                                 color: rgb(0, 0, 0);
                                 .free-shipping-text{
@@ -445,6 +733,274 @@
                                             text-decoration: underline;
                                             cursor: pointer;
                                         }
+                                    }
+                                }
+                            }
+                        }
+                        .popup{
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(0, 0, 0, 0.8);
+                            z-index: 999;
+                            -webkit-transition: opacity 400ms ease-in;
+                            -moz-transition: opacity 400ms ease-in;
+                            transition: opacity 400ms ease-in;
+                            .popup-body{
+                                width: 45%;
+                                margin: 0 auto;
+                                margin-top: 17%;
+                                padding: 3%;
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                                background-color: #ffffff;
+                                position: relative;
+                               
+                                .close-icon{
+                                    position: absolute;
+                                    width: 20px;
+                                    height: 20px;
+                                    background-image: url(../../resources/images/close-icon-popup.svg);
+                                    top: 16px;
+                                    background-repeat: no-repeat;
+                                    right: 10px;
+                                    cursor: pointer;
+                                    background-color: transparent;
+                                    border: none;
+                                }
+                                .popup-content{
+                                    .message{
+                                        font-size: 18px;
+                                        color: #000000;
+                                        margin-bottom: 40px;
+                                        display: block;
+                                        strong{
+                                            font-weight: bold;
+                                        }
+                                    }
+                                    .button-section{
+                                        text-align: right;
+                                        .button{
+                                            font-size: 18px;
+                                            border-radius: 4px;
+                                            border: solid 1px #004e99;
+                                            font-weight: bold;
+                                            text-align: center;
+                                            padding: 7px 0;
+                                            &.button-yes{
+                                                background-color: #004e99;
+                                                color: #fff;
+                                                 width:25%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    border: solid 1px #003a72;
+                                                }
+                                               
+                                            }
+                                            &.button-no{
+                                                background-color: #fff;
+                                                color: #004e99;
+                                                 width:25%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    color: #fff;
+                                                    border: solid 1px #003a72;
+                                                }
+                                               
+                                            }
+                                            &.button-Proceed{
+                                                background-color: #004e99;
+                                                color: #fff;
+                                                width:40%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    border: solid 1px #003a72;
+                                                }
+                                            }
+                                            &.button-Back-To-Subscription{
+                                                background-color: #fff;
+                                                color: #004e99;
+                                                width:40%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    color: #fff;
+                                                    border: solid 1px #003a72;
+                                                }
+                                            }
+                                            &.button-Get-Started{
+                                                background-color: #004e99;
+                                                color: #fff;
+                                                width:30%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    border: solid 1px #003a72;
+                                                }
+                                               
+                                            }
+                                            &.button-cancel{
+                                                background-color: #fff;
+                                                color: #004e99;
+                                                 width:30%;
+                                                &:hover{
+                                                    background-color: #003a72;
+                                                    color: #fff;
+                                                    border: solid 1px #003a72;
+                                                }
+                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .loginSignupPopupsub{
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(0, 0, 0, 0.8);
+                            z-index: 9999;
+                            -webkit-transition: opacity 400ms ease-in;
+                            -moz-transition: opacity 400ms ease-in;
+                            transition: opacity 400ms ease-in;
+                            overflow-y: auto;
+                            .popupBody{
+                                width: 30%;
+                                margin: 0 auto;
+                                margin-top: 4%;
+                                padding: 1%;
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                                background-color: #ffffff;
+                                position: relative;
+                                &.signupheight{
+                                    //height: 94%;
+                                    
+                                    margin-top: 2%;
+                                }
+                                .closepopup{
+                                    width: 20px;
+                                    display: block;
+                                    height: 20px;
+                                    position: absolute;
+                                    right: 14px;
+                                    cursor: pointer;
+                                    .close-img{
+                                        width: 100%;
+                                    }
+                                }
+                                .logoicon{
+                                    width: 100%;
+                                    margin: 0 auto;
+                                    text-align: center;
+                                    img{
+                                        width: 16%;
+                                    }
+                                    .popuptext{
+                                        font-weight: bold;
+                                        color: #004e99;
+                                        font-size:18px;
+                                        padding: 5px;
+                                    }
+                        
+                                }
+                                .tabSec-actio{
+                                    text-align: center;
+                                    margin: 15px 0;
+                                    .tabitem{
+                                        font-size: 16px;
+                                        padding: 8px 10px;
+                                        width: 38%;
+                                        display: inline-block;
+                                        cursor: pointer;
+                                        border: 1px solid #154E99;
+                                        text-align: center;
+                                        color: #154E99;
+                                        &:first-child{
+                                            border-top-left-radius: 4px;
+                                            border-bottom-left-radius: 4px;
+                                        }
+                                        &:last-child{
+                                            border-top-right-radius: 4px;
+                                            border-bottom-right-radius: 4px;
+                                        }
+                                        &.active{
+                                            background-color: #154E99;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                                .tabs{
+                                    .tab-item{
+                                        display: none;
+                                        &.active{
+                                            display: block;
+                                            &.signup-form {
+                                                margin-bottom:20px; 
+                                            }
+                                        }
+                                    }
+                                    .signup-error-msg,.mz-popover-message{
+                                        font-size: 14px;
+                                        color:  rgb(233, 0, 15);
+                                        a{
+                                            color:  rgb(233, 0, 15);
+                                            text-decoration:underline;
+                                        }
+                                    }
+                                   
+                                    .mz-l-formfieldgroup{
+                                        margin: 0 auto;
+                                        width: 86%;
+                                        .mz-l-formfieldgroup-row{
+                                            .checkbox-outer-label{
+                                                margin: 8px 0;
+                                            }
+                                            .mz-l-formfieldgroup-cell{
+                                                display: block;
+                                                text-align: left;
+                                                padding: 5px 0; 
+                                                &:first-child{
+                                                    padding-bottom: 0;
+                                                }
+                                                &:last-child{
+                                                    padding-top: 0;
+                                                } 
+                                                label,.required{ 
+                                                    display: block; 
+                                                    font-size: 14px;
+                                                    font-weight: bold;
+                                                    text-align: left;
+                                                }
+                                                input{
+                                                    padding: 8px;
+                                                    width: 100%;
+                                                    border-radius: 4px;
+                                                    margin: 0;
+                                                }  
+                                                .mz-button.mz-signup-register, .cpp-loginpopup{
+                                                    width: 100%;
+                                                    text-align: center;
+                                                    font-size: 18px;
+                                                    background-color: #154e99;
+                                                    border: 1px solid #154e99;
+                                                    color: #fff;
+                                                    &:disabled{
+                                                        background-color: #eee;
+                                                        border: 1px solid #eee;
+                                                    }
+                                                }
+                                                .mz-button.mz-signup-register{
+                                                    margin-bottom: 10px;
+                                                }
+                                                .loginError, .error-user{
+                                                    font-size: 14px;
+                                                    color:  rgb(233, 0, 15);
+                                                }
+                                            }
+                                        }
+                                       
                                     }
                                 }
                             }
@@ -1227,8 +1783,59 @@
                                         width: 43%;
                                     }
                                 }
+                                .subscription{
+                                    padding: 10px;
+                                    .section-head{
+                                        .subscribe-input.checkbox-outer-label{
+                                            width: 28%;
+                                            .label-input{
+                                                font-size: 16px;   
+                                            }
+                                        }
+                                        .text-content-sub{
+                                            width: 50%;
+                                            .text-place{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                    .expanded-section{
+                                        padding: 0px;
+                                        padding-top: 20px;
+                                        .formGroup{
+                                            &.qty{
+                                                width: 100%;
+                                                .line{
+                                                    display: none;
+                                                }
+                                            }
+                                            &.howofter{
+                                                width: 100%;
+                                            }
+                                            &.btnsec{
+                                                .subscribe-now{
+                                                    font-size: 18px;
+                                                    padding: 6px 12px 6px 40px;
+                                                    width:100%;
+                                                    &:after{
+                                                        top: 3px;
+                                                        left: 10px;
+                                                    }
+                                                }
+                                                .subscrib-multi{
+                                                    width: 100%;
+                                                    .text-info{
+                                                        font-size: 12px;
+                                                    }
+                                                    .subscription-list{
+                                                        font-size: 16px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             } 
-
                             .free-shipping-section{
                                 margin: 8px 0 8px;
                                 .truck-div{
@@ -1251,6 +1858,27 @@
                                             font-size: 14px;
                                         }
                                     }
+                                }
+                            }
+                            .popup{ 
+                                .popup-body{
+                                    margin-top: 40%;
+                                    width: 68%;
+                                    .popup-content{ 
+                                        .button-section{ 
+                                            .button{
+                                                padding: 7px 0;
+                                                &.button-yes{
+                                                    width: 27%; 
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .loginSignupPopupsub{
+                                .popupBody{
+                                    width: 50%;
                                 }
                             }
                         }
@@ -1696,7 +2324,69 @@
                                         background-position: 30px 9px;
                                     }
                                 }
+                                .subscription{
+                                    padding: 10px;
+                                    .section-head{
+                                        .subscribe-input.checkbox-outer-label{
+                                            width: 26%;
+                                            .label-input{
+                                                font-size: 16px;   
+                                            }
+                                        }
+                                        .text-content-sub{
+                                            width: 50%;
+                                            .text-place{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                    .expanded-section{
+                                        padding: 0px;
+                                        padding-top: 20px;
+                                        .formGroup{
+                                            .weekormonth{
+                                                width:64%;
+                                                text-align:right;
+                                                margin-left:2%;
+                                            }
+                                            &.qty{
+                                                width: 100%;
+                                                .line{
+                                                    display: none;
+                                                }
+                                            }
+                                            &.howofter{
+                                                width: 100%;
+                                            }
+                                            &.btnsec{
+                                                .subscribe-now{
+                                                    font-size: 18px;
+                                                    padding: 6px 12px 6px 40px;
+                                                    width:100%;
+                                                    &:after{
+                                                        top: 3px;
+                                                        left: 10px;
+                                                    }
+                                                }
+                                                .subscrib-multi{
+                                                    width: 100%;
+                                                    .text-info{
+                                                        font-size: 12px;
+                                                    }
+                                                    .subscription-list{
+                                                        font-size: 16px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             } 
+                            .loginSignupPopupsub{
+                                .popupBody{
+                                    width: 40%;
+                                }
+                            }
                         }
                     }
                     .description-section{ 
@@ -1810,9 +2500,17 @@
         }
     } 
 }
-
 @media only screen  and (min-width: 320px) and (max-width: 767px){
     .mz-product{
+        &.openPopup{
+           overflow: hidden; 
+            .mz-l-pagewrapper .mz-l-pagecontent .mz-l-container .mz-productdetail-wrap .mz-productdetail{
+                overflow: hidden;
+           }
+           .mz-l-pagewrapper .mz-l-pagecontent .mz-l-container{
+               z-index: 9999;
+           }
+        }
         .mz-l-pagewrapper{
             .mz-l-pagecontent{
                 .mz-l-container{
@@ -1821,6 +2519,11 @@
                         width: 100%;
                         margin-left: 0;
                         .mz-productdetail{
+                            margin-left:0px;
+                            box-sizing: border-box;
+                            width: 100%;
+                            padding-left: 20px;
+                            padding-right: 20px;
                             .mz-pagetitle{
                                 font-size: 22px;
                                 line-height: normal;
@@ -2014,6 +2717,103 @@
                                         width: 100%;
                                     }
                                 }
+                                .subscription{
+                                    padding: 10px;
+                                    .section-head{
+                                        .subscribe-input.checkbox-outer-label{
+                                            width: 90%;
+                                            border: none;
+                                            margin: 10px 0; 
+                                            .label-input{
+                                                font-size: 18px;
+                                            }
+                                        }
+                                        .text-content-sub{ 
+                                            padding: 0;
+                                            width: 100%;
+                                        }
+                                    }
+                                    .expanded-section{
+                                        padding: 10px 0;
+                                        .formGroup.qty{
+                                            width: 100%;
+                                            .line{
+                                                display: none;
+                                            }
+                                        }
+                                        .formGroup.btnsec{
+                                            .subscribe-now{
+                                                display: block;
+                                                margin: 0 auto;
+                                                width: 98%;
+                                                padding:7px 22px 6px 32px;
+                                                &:after{
+                                                    left: 20%;
+                                                }
+                                            }
+                                            .subscrib-multi{
+                                                width: 100%;
+                                                margin: 10px 0;
+                                            }
+                                        }
+                                        .formGroup.howofter{
+                                            width: 100%;
+                                            .weekormonth{
+                                                margin-left: 3%;
+                                                width:65%;
+                                                .span-tabs{
+                                                    padding:7px 0;
+                                                    width: 48.3%;
+                                                    font-size: 15px;
+                                                }
+                                            }
+                                        }
+                                        .formGroup.howling{
+                                            width: 50%;
+                                            .how-long-input-sub{
+                                                .how-long-val{
+                                                    font-size: 14.9px;
+                                                    width: 100%;
+                                                }
+                                                &:after{
+                                                    right: 17px;
+                                                }
+                                            }
+                                        }
+                                        .formGroup .how-often-input-sub{
+                                            width:30%;
+                                            .how-often-val{
+                                                padding:0 10px 0 30px; 
+                                            }
+                                            &:after{
+                                                right:15px;
+                                            }
+                                        }
+                                        .formGroup .datepicker-cointainer{
+                                            label.mz-small{
+                                               right: 10px;
+                                            }
+                                       }
+                                       .formGroup .how-long-input-sub .how-long-val{
+                                           width: 100%;;
+                                       }
+                                       .formGroup.btnsec{
+                                           margin-top: 0px;
+                                           padding-top: 10%;
+                                           border-top: solid 1px #d2e7ff;
+                                       }
+                                       .formGroup span label{
+                                           font-size: 12px;
+                                       }
+                                       .formGroup .qty-input-box-sub .quantity-sub{
+                                           padding:8.5px 30px 9.5px 1px;
+                                           font-size: 14.9px;;
+                                       }
+                                       .formGroup .datepicker-cointainer #interval-startdate{
+                                           font-size: 14.9px;
+                                       }
+                                    }
+                                }
                             } 
                             .free-shipping-section{
                                 text-align: center;
@@ -2037,6 +2837,39 @@
                                             font-size: 16px;
                                         }
                                     }
+                                }
+                            }
+                            .popup{
+                                z-index: 999999;
+                                .popup-body{
+                                    width: 90%;
+                                    margin-top: 55%;
+                                    padding-top: 67px;
+                                    border-radius: 4px;
+                                    .popup-content{ 
+                                        .message{
+                                            font-size: 14px;
+                                        }
+                                        .button-section{  
+                                            .button{
+                                                font-size: 14.2px;
+                                                padding: 7px 0;
+                                                width: 49% !important; 
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .loginSignupPopupsub{ 
+                                .popupBody{
+                                    width: 90%;
+                                   .logoicon .popuptext{
+                                       font-size: 14px;
+                                   }
+                                   .tabSec-actio .tabitem{
+                                       padding:8px 2%;
+                                       width: 40%;
+                                   }
                                 }
                             }
                         }

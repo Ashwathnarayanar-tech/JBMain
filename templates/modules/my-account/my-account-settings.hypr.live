@@ -1,7 +1,8 @@
 
 <div class="mz-accountsettings-details">
     <div class="mz-accountsettings-user">
-        <h3 class="mz-l-stack-sectiontitle">{{ labels.accountSettings }}</h3>
+       {% if pageContext.isDesktop or pageContext.isTablet %} <h3 class="mz-l-stack-sectiontitle">{{ labels.accountSettings }}</h3>
+       {% endif %}
         <div>
             <ul>
                 <li>

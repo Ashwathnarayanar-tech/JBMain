@@ -59,7 +59,7 @@
                                 </a>
                             </div>
                             <div class="mz-productlisting-info">
-                                <div class="productTitle"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a></div>
+                                <div class="productTitle"><h3 style="font-size: 16px;"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a></h3></div>
                                 <div class="priceSection"> 
                                     <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
                                         {% if prod.options and prod.options.length > 0 %}

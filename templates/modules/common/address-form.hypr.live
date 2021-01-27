@@ -46,10 +46,15 @@
           
         </div>
         <div class="mz-l-formfieldgroup-cell">
+<<<<<<< HEAD
          
             <input type="text" placeholder="address-line" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
             <label for="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}">{{ labels.address1 }}<span class="is-required" aria-label="mandatory field">*</span></label>
             <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_err_address3{% endif %}" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
+=======
+            <input type="text" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
+            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
+>>>>>>> Flexi
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address2">

@@ -1,0 +1,132 @@
+<div class="subscriptionConfirmation">
+	<div class="subscriptionConfirmationSection">
+		<div class="subscriptionConfirmationTopSection">
+			<h1 class="mz-pagetitle" tabindex="0"> <img src="../../resources/images/tick-circle.svg"  class="tick-circle"/> {{ labels.subscriptionConfirmation }} </h1>
+	    	<div class="subscriptionConfirmationSubTopSection">
+	    		<p tabindex="0" >{{ labels.subscriptionText|string_format(model.subscriptionId)|safe}}</p>
+	        	<p tabindex="0" >{{ labels.emailConfirmation}}</p>
+	        </div>
+		</div>
+		<div class="button-section" tabindex="0">
+            <a href="/" tabindex="0" class="continue-shopping">Continue Shopping</a>
+            <a href="javaScript:void(0)" tabindex="0" class="Take-Survey">Take a Survey!</a> 
+            <div class="print-receipt" tabindex="0"><a role="button" aria-label="print receipt" onclick="printform();">Print Receipt</a></div>
+            <script>
+                
+            </script>
+        </div>
+	</div>
+	<div class="subscriptionDetailSection">
+		<div class="subscriptionDetailTopSection">
+			<h2 class="mz-pagetitle" tabindex="0"> <img src="../../resources/images/subscription_detail.svg"  class="subscription_detail_svg" /> {{ labels.subscriptionDetails }} </h2>
+		</div>
+
+		<div class="subscriptionDetailBottomSection">
+			<ul>
+					<li>
+						<div class="subscriptionDetailBottomSubSection">
+							<p tabindex="0" >{{ labels.howOften }}</p>
+							{% if model.schedule.frequency === 1 %}
+								<p class="subscriptionDetailBottomSubSectionValue" tabindex="0" >{{model.schedule.frequency}} - {{ labels.week }}</p>
+							{% else %}
+								<p class="subscriptionDetailBottomSubSectionValue" tabindex="0" >{{model.schedule.frequency}} - {{model.schedule.frequencyType}}</p>
+							{% endif %}
+						</div>
+					</li>
+					<li> 
+					  <div class="separator"> </div>
+					</li>
+					<li>
+						<div class="subscriptionDetailBottomSubSection">
+							<p tabindex="0" >{{ labels.whenStarting }}</p>
+							<p class="subscriptionDetailBottomSubSectionValue" tabindex="0" >{{ model.schedule.startDate | date("m-d-Y") }}</p>
+						</div>
+					</li>
+					<li> 
+					  <div class="separator mobileView"> </div>
+					</li>  
+					<li>
+						<div class="subscriptionDetailBottomSubSection subscriptionDetailBottomSubSectionHowLong">
+							<p tabindex="0" >{{ labels.forHowLong }}</p>
+							<p class="subscriptionDetailBottomSubSectionValue forhowlong" tabindex="0" >{{ model.schedule.endType }}</p>
+						</div>
+					</li>
+					
+			</ul>
+		</div>
+	</div>
+	<div class="customerSubscriptionDetailSection">
+		<div class="customerSubscriptionSubDetailSection">
+			<div class="customerBillingDetailSection">
+				<div class="">
+					<h2 class="mz-pagetitle-sub" tabindex="0">{{ labels.billingInformation }} </h1>
+					<div>
+						<p tabindex="0" >{{model.order.billingInfo.billingContact.firstName}} {{model.order.billingInfo.billingContact.lastNameOrSurname}}</p>
+						<p tabindex="0" >{{model.order.billingInfo.billingContact.address.address1}}</p>
+						<p tabindex="0" >{{model.order.billingInfo.billingContact.address.cityOrTown}},{{model.order.billingInfo.billingContact.address.stateOrProvince}} {{model.order.billingInfo.billingContact.address.postalOrZipCode}},{{model.order.billingInfo.billingContact.address.countryCode}}</p>
+						 {% if model.order.billingInfo.billingContact.phoneNumbers !== null %}
+							<p tabindex="0" >{{model.order.billingInfo.billingContact.phoneNumbers.home}}</p>
+						{% endif %}
+					</div> 
+				</div>
+			</div>
+			<div class="shippingShippingDetailSection">
+				<div>
+					<h2 class="mz-pagetitle-sub" tabindex="0">{{ labels.shippingInformation }} </h1>
+					<div>
+						<p tabindex="0" >{{model.order.fulfillmentInfo.fulfillmentContact.firstName}} {{model.order.fulfillmentInfo.fulfillmentContact.lastNameOrSurname}}</p>
+						<p tabindex="0" >{{model.order.fulfillmentInfo.fulfillmentContact.address.address1}}</p>
+						<p tabindex="0" >{{model.order.fulfillmentInfo.fulfillmentContact.address.cityOrTown}},{{model.order.fulfillmentInfo.fulfillmentContact.address.stateOrProvince}} {{model.order.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode}},{{model.order.fulfillmentInfo.fulfillmentContact.address.countryCode}}</p>
+						<p tabindex="0" >{{model.order.fulfillmentInfo.fulfillmentContact.phoneNumbers.home}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="customerPaymentDetailSection">
+				<div>
+					<h2 class="mz-pagetitle-sub" tabindex="0">{{ labels.paymentInformation }} </h1>
+					<div>
+						<p tabindex="0" >{{model.order.billingInfo.card.cardType}} Card </p>
+						{% if model.order.billingInfo.card.lastFour !="" %}
+							<p tabindex="0" > Number ending with {{ model.order.billingInfo.card.lastFour }} </p>
+						{% endif %}
+					</div> 
+				</div>
+				<div class="shippingMethodSection">
+					<h2 class="mz-pagetitle-sub" tabindex="0">{{ labels.shippingMethod }} </h1>
+					<div>
+						<p tabindex="0" >{{model.order.fulfillmentInfo.shippingMethodName}}</p>
+						<p tabindex="0"  class="estimation-info"></p>
+
+					</div> 
+				</div>
+			</div> 
+		</div>
+	</div>
+	<div class="subscription-order-detail-section">
+		<div class="subscription-order-detail-sub-section">
+			
+                <h4 class="mz-l-stack-sectiontitle" tabindex="0">{{ labels.subscriptionorderSummary }} </h4>
+                {% include "modules/subscription-order-details" %}
+                {% if model.order.shopperNotes.comments %}
+                <div class="mz-ordercomments" tabindex="0" >
+                    <h5 class="mz-ordercomments-header">{{ labels.comments }}</h5>
+                    <p class="mz-ordercomments-body" tabindex="0" >{{ model.order.shopperNotes.comments|safe }}</p>
+                </div>
+                {% endif %}
+                {% if model.order.shopperNotes.giftMessage %}
+                <div class="mz-ordercomments giftmessage" tabindex="0" >
+                    <h5 class="mz-ordercomments-header">{{ labels.giftMessage }}</h5>
+                    <p class="mz-ordercomments-body" tabindex="0" >{{ model.order.shopperNotes.giftMessage }}</p>
+                </div>
+                {% endif %}
+				<div class = "logconf">
+    				{% if pageContext.pageType == "subscription-confirmation" %}  
+    					{% if user.isAuthenticated %}
+    					<div style="float: right; margin: 10px;"><a href="/logout">Logout</a></div>
+    					{% endif %}
+    					<div style="float: right; margin: 10px;"><a href="/">Continue shopping</a></div>
+    				{% endif %}
+				</div>
+            </div>
+       </div>    
+</div>

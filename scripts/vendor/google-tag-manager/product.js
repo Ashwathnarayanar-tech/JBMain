@@ -26,7 +26,7 @@ require(["modules/jquery-mozu", "modules/api"],
       window.dataLayer.push({
         'event': 'addToCart',
         'ecommerce': {
-          'currencyCode': '',
+          'currencyCode': '', 
           'add': {
             'products': [{
               'name': product.content.productName,

@@ -1,6 +1,5 @@
 {% if item.discountTotal > 0 %}
-<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount or item.discountTotal %}is-saleprice{% endif %}" tabindex="0" aria-label="discounted total: {{ item.discountedTotal|currency }}">{{ item.discountedTotal|currency }}</span>
-<span class="mz-item-rowtotal is-crossedout" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}>
+<span class="mz-item-rowtotal is-crossedout" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %} aria-label="{{ item.subtotal|currency }}" >
 	{{ item.subtotal|currency }}</span>
 	    {% comment %}
             {% for productDiscount in item.productDiscounts %}
@@ -12,10 +11,10 @@
                 <span class="mz-item-discountamt"> -{{ productDiscount.impact|currency }}</span>
                 {% endif %}
                 </div>
-            {% endfor %} 
+            {% endfor %}
         {% endcomment %}
+		<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label=" {{ item.discountedTotal|currency }}">{{ item.discountedTotal|currency }}</span>
 {% else %}
-	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
+	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="{{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
 {% endif %}
-
 

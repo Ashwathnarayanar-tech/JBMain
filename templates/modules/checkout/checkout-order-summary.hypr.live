@@ -1,6 +1,6 @@
 <div class="mz-ordersummary-checkout">
-    <h3 class="mz-formstep-header">
-        {{ labels.orderSummary }}
+    <h3 class="mz-formstep-header" >
+       <span tabindex="0" > {{ labels.orderSummary }}</span>
         <button class="mz-button mz-button-small" data-mz-action="editCart">{{ labels.editCart }}</button>
     </h3>
 

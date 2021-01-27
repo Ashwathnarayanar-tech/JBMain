@@ -1,0 +1,1141 @@
+{% if model.isFirstPopup %}
+	<div class="first-popup" >
+		<div class="popup-body">
+		
+			<div class="popup-content" tabindex="0">
+				<div class="head-sec" > 
+					<h2 class="content-text" tabindex="0">Subscription Setup Page</h2>
+				</div>
+				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopup" aria-label="close popup"></button>
+				<div class="body-sec">
+					<ul class="item-list">  
+						<li class="list-item first" >
+							<img class="list-image" alt="You'll see your Subscription products here (and only here)" src="../../resources/images/popup-image-3.svg" />
+							<span class="text-content-popup" tabindex="0">
+								You'll see your Subscription products here <strong>(and only here)</strong>
+							</span>
+						</li> 	   
+						<li class="list-item  second" >
+							<img class="list-image" alt="When you are ready, click Create Subscription " src="../../resources/images/popup-image-2.svg" />
+							<span class="text-content-popup" tabindex="0">
+								When you are ready, click <strong>Create Subscription</strong>
+							</span> 
+						</li> 
+						<li class="list-item third" >
+							<img class="list-image" alt="We'll take you through a Special Checkout to confirm and start your Subscription" src="../../resources/images/popup-image-1.svg" />							
+							<span class="text-content-popup" tabindex="0">
+								We'll take you through a <strong>Special Checkout</strong> to confirm and start your Subscription
+							</span>
+						</li> 
+					</ul>
+				</div>
+				{% if model.isMobile %}
+				<div class="button-sec-gotIt" tabindex="0">
+						<button class="gotIt"  tabindex="0" role="button" data-mz-action="closePopup1" aria-label="Got it close popup">Got It</button>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% if model.popupData.isEnabled %}
+    <div class="popup">
+        <div class="popup-body">
+            <div class="popup-content">
+                <p class="message" tabindex="0"  role="text" aria-label = "{{model.popupData.adamessage}}">
+                    {{model.popupData.message|safe}}
+                </p>
+				<button class="close-icon" tabindex="0" role="button" data-mz-action="closePopupdynamic" aria-label="close popup"></button>
+                <div class="button-section">
+                    {% for item in model.popupData.buttons %}
+                        <button class="button button-{{item.class}}" data-mz-action="{{item.action}}">{{item.buttonLabel}}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> 
+    </div>
+{% endif %}
+<div class="subscription-content ">
+	{% if model.headBar %}
+		<div class="top-bar" tabindex="0"> 
+			<ul class="bar-list">
+				<li class="bar-item" >
+					<img class="list-image" alt="number one" src="../../resources/images/number-1.svg" />
+					<span class="list-content" tabindex="0" >You'll see your Subscription products here (and only here)</span>
+				</li>
+				<li class="bar-item">
+					<img class="list-image" alt="number one" src="../../resources/images/number-3.svg" />
+					<span class="list-content" tabindex="0" >When you are ready, click Create Subscription</span>
+				</li>
+				<li class="bar-item">
+					<img class="list-image" alt="number one" src="../../resources/images/number-2.svg" />
+					<span class="list-content" tabindex="0" >We'll take you through a special Checkout to confirm and start your Subscription</span>
+				</li>
+			</ul>
+			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
+		</div> 
+	{% endif %}
+	<div class="header">
+		<h2 class="page-tital" tabindex="0">Subscription Setup Page</h2>
+		<span class="search-box-cointainer">
+			<input class="searchBoxSub" aria-label="select all items" type="text" placeholder="Search by Product Name, SKU Code etc." value="{{model.searchQuery}}" />
+			<span class="search-icon"></span>
+			{% if model.isSearchenabled %}
+				{% if model.isDesktop %}
+					<div class="suggetion-list" tabindex="0">
+						{% if model.searchResult.length > 0 %}
+						<div class="suggetion-head" tabindex="0">
+							<span class="head-li itemId" tabindex="0">ITEM #</span>
+							<span class="head-li description" tabindex="0">DESCRIPTION</span>
+							<span class="head-li price" tabindex="0">PRICE</span>
+							<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span></span>
+							<span class="head-li quantity" tabindex="0">QUANTITY</span>					
+						</div>
+						{% endif %}
+						<div class="suggetion-item-list" tabindex="0">
+							{% if model.searchResult.length > 0 %}
+								{% for item in model.searchResult %}
+									<div class="suggetion-item" tabindex="0">
+										<span class="item-li sku-input" tabindex="0">
+											<span class="input-cointainer checkbox-outer-label">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+												<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+											</span>
+											<span class="sku-cointianer" tabindex="0" aria-label="product code is {{item.productCode}}">{{item.productCode}}</span>
+										</span>
+										<span class="item-li description-image" tabindex="0">
+											<span class="image-cointainer">
+												<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
+											</span>
+											<span class="discription-text" tabindex="0">
+												{{item.name|safe}}
+												{% if not item.purchasableState.isPurchasable %}
+													<span class="outofstock" tabindex="0">Out Of Stock</span>
+													<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+												{% endif %}
+											</span>
+										</span> 
+										<span class="item-li price">
+											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+												<span class="salsesprice" tabindex="0" aria-label="item sales price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+												<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+											{% else %}
+												<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+											{% endif %}
+										</span>
+										<span class="item-li heat-sensitive">
+											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+												<span class="heat-tickmark" tabindex="0" aria-label="item {{item.name|safe}} is heat sensitive"></span>
+											{% endif %}
+										</span>
+										<span class="item-li quantity" >
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
+											<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+											<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+											<div class="clear"></div>
+										</span>
+									</div>
+								{% endfor %}
+							{% else %}
+								<span tabindex="0">No result found</span>
+							{% endif %}
+						</div> 
+					</div> 
+				{% else %}
+					{% if model.isMobile %}
+						<div class="suggetion-list" tabindex="0">
+							<div class="suggetion-item-list" tabindex="0">
+								{% if model.searchResult.length > 0 %}
+									{% for item in model.searchResult %}
+										<div class="suggetion-item" tabindex="0"> 
+											<span class="item-li description-image" tabindex="0">
+												<span class="image-cointainer">
+													<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
+												</span>
+												<span class="discription-text" tabindex="0">
+													{{item.name|safe}}
+													{% if not item.purchasableState.isPurchasable %}
+														<span class="outofstock" tabindex="0">Out Of Stock</span>
+														<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+													{% endif %}
+												</span>
+											</span>
+											<span class="item-li sku-input">
+												<span class="input-cointainer checkbox-outer-label">
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+													<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+												</span>
+												<span class="checkBoxInfo"> Add </span>
+											</span>
+											<span class="item-li heat-sensitive">
+												{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+													<span class="heat-tickmark" tabindex="0" aria-label="item {{item.name|safe}} is heat sensitive">Heat-sensitive</span>
+												{% endif %}
+											</span>
+											<span class="item-li skuCode">
+												<span class="sku-cointianer" tabindex="0"><span class="label">ITEM #</span>{{item.productCode}}</span>
+											</span>
+											<span class="item-li price">
+												<span class="label">PRICE</span>
+												{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+													<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.salePrice|currency}}</span>
+												{% else %}
+													<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+												{% endif %}
+											</span>			 							
+											<span class="item-li quantity" >
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
+												<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+												<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+												<div class="clear"></div>
+											</span>
+										</div>
+									{% endfor %}
+								{% else %}
+									<span>No result found</span>
+								{% endif %}
+							</div>
+						</div>
+					{% else %}
+						{% if model.isTablet and model.isPotreate %}
+							<div class="suggetion-list" tabindex="0">
+								<div class="suggetion-item-list" tabindex="0">
+									{% if model.searchResult.length > 0 %}
+										{% for item in model.searchResult %}
+											<div class="suggetion-item" tabindex="0"> 
+												<span class="item-li description-image" tabindex="0">
+													<span class="image-cointainer">
+														<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
+													</span>
+													<span class="discription-text" tabindex="0">
+														{{item.name|safe}}
+														{% if not item.purchasableState.isPurchasable %}
+															<span class="outofstock" tabindex="0">Out Of Stock</span>
+															<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+														{% endif %}
+													</span>
+												</span>
+												<span class="item-li sku-input">
+													<span class="input-cointainer checkbox-outer-label">
+														<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+														<span class="checkBoxInfo"> Add </span>
+													</span>
+												</span>
+												<span class="item-li heat-sensitive">
+													{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+														<span class="heat-tickmark" tabindex="0" aria-label="item {{item.name|safe}} is heat sensitive">Heat-sensitive</span>
+													{% endif %}
+												</span>
+												<span class="item-li skuCode">
+													<span class="sku-cointianer" tabindex="0"><span class="label">ITEM #</span>{{item.productCode}}</span>
+												</span>
+												<span class="item-li price">
+													<span class="label">PRICE</span>
+													{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+														<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.salePrice|currency}}</span>
+													{% else %}
+														<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+													{% endif %}
+												</span>			 							
+												<span class="item-li quantity" >
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %} data-mz-value="quantity" min="1" max="25" >
+													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+													<div class="clear"></div>
+												</span>
+											</div>
+										{% endfor %}
+									{% else %}
+										<span>No result found</span>
+									{% endif %}
+								</div>
+							</div>
+						{% else %}
+							<div class="suggetion-list" tabindex="0">
+								<div class="suggetion-head" tabindex="0">
+									<span class="head-li itemId" tabindex="0">ITEM #</span>
+									<span class="head-li description" tabindex="0">DESCRIPTION</span>
+									<span class="head-li price" tabindex="0">PRICE</span>
+									<span class="head-li heatsensitive" tabindex="0">HEAT-SENSITIVE <span class="heatIcon" > i </span> </span>
+									<span class="head-li quantity" tabindex="0">QUANTITY</span>					
+								</div>
+								<div class="suggetion-item-list" tabindex="0">
+									{% if model.searchResult.length > 0 %}
+										{% for item in model.searchResult %}
+											<div class="suggetion-item" tabindex="0">
+												<span class="item-li sku-input" tabindex="0">
+													<span class="input-cointainer checkbox-outer-label">
+														<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+														<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+													</span>
+													<span class="sku-cointianer" tabindex="0" aria-label="product code is {{item.productCode}}">{{item.productCode}}</span>
+												</span>
+												<span class="item-li description-image">
+													<span class="image-cointainer">
+														<img class="image-tag" src="{{item.image.imageUrl}}?max=80" alt="image for {{item.name|safe}}">
+													</span>
+													<span class="discription-text" tabindex="0">
+														{{item.name|safe}}
+														{% if not item.purchasableState.isPurchasable %}
+															<span class="outofstock" tabindex="0">Out Of Stock</span>
+															<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+														{% endif %}
+													</span>
+												</span> 
+												<span class="item-li price">
+													{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+														<span class="salsesprice" tabindex="0" aria-label="item sales price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+														<span class="price strike" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+													{% else %}
+														<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+													{% endif %}
+												</span>
+												<span class="item-li heat-sensitive">
+													{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+														<span class="heat-tickmark" tabindex="0" aria-label="item {{item.name|safe}} is heat sensitive"></span>
+													{% endif %}
+												</span>
+												<span class="item-li quantity" >
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value={% if item.selectedData.Qty > 0 %}"{{item.selectedData.Qty}}"{% else %}"1"{% endif %}  data-mz-value="quantity" min="1" max="25" >
+													<span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+													<span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+													<div class="clear"></div>
+												</span>
+											</div>
+										{% endfor %}
+									{% else %}
+										<span tabindex="0">No result found</span>
+									{% endif %}
+								</div> 
+							</div>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			{% endif %}
+		</span>
+	</div>
+	<div class="cat-prodList">
+		{% if model.isDesktop %}
+			<div class="side-bar">
+				<div class="side-head">
+					<span class="head-text" tabindex="0">Explore by <strong>Category</strong></span>
+				</div>
+				<div class="side-list">
+					{% for item in model.categoryList %}
+						<span tabindex="0" data-mz-attr="{{item.Category.categoryCode}}" class="list-item side-bar-item {% if item.isActive %}active{% endif %}">{{item.Category.content.name|safe}}</span>
+					{% endfor %}	
+				</div>
+			</div><div class="product-list" tabindex="0">
+			{% for catItem in model.categoryList %}	
+				{% if catItem.isActive %}
+					<div class="product-head">
+						<span class="head-li itemId checkbox-outer-label">
+							<input type="checkbox" name="selectitem" data-mz-action="selectthecatrgory" data-mz-catCode="{{catItem.Category.categoryCode}}" class="add-to-list-checkbox" {% if catItem.isAllSelected %}checked="checked"{% endif %}/>
+		        			<span class="checkmark-style" data-mz-attribute="{{item.productCode}}"></span> 
+							ITEM #
+						</span>
+						<span class="head-li description" >DESCRIPTION</span>
+						<span class="head-li price">PRICE</span>
+						<span class="head-li heatsensitive">HEAT-SENSITIVE  <span class="heatIcon"> i </span> </span>
+						<span class="head-li quantity">QUANTITY</span>					
+					</div>
+					{% for item in catItem.Items %}
+						<div class="product-item-list">
+							<div class="product-item">
+								<span class="item-li sku-input">
+									<span class="input-cointainer checkbox-outer-label">
+										<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+	                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+	                    			</span>
+	                    			<span tabindex="0" aria-label="product code {{item.productCode}}" class="sku-cointianer">{{item.productCode}}</span>
+								</span>
+								<span class="item-li description-image">
+									<span class="image-cointainer">
+										<img class="image-tag" alt="product image for {{item.name|safe}}" src="{{item.image.imageUrl}}?max=80" >
+	                    			</span>
+	                    			<span class="discription-text" tabindex="0">
+	                    				{{item.name|safe}}
+	                    				{% if not item.purchasableState.isPurchasable %}
+	                    					<span class="outofstock" tabindex="0">Out Of Stock</span>
+	                    					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+	                    				{% endif %}
+	                    			</span>
+								</span> 
+								<span class="item-li price">
+									{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+										<span class="salsesprice" tabindex="0" aria-label="price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+										<span class="price strike" tabindex="0" aria-label="price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+									{% else %}
+										<span class="price" tabindex="0" aria-label="price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+									{% endif %}
+								</span>
+								<span class="item-li heat-sensitive">
+									{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+										<span class="heat-tickmark" tabindex="0" aria-label="this product is heat sensitive"></span>
+									{% endif %}
+								</span>
+								<span class="item-li quantity">
+									<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="0" name="quantity-sub"  data-mz-productCode="{{item.productCode}}" data-mz-value="quantity" min="1" max="25" >
+		                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+		                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+		                            <div class="clear"></div>
+								</span>						
+							</div>
+						</div>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% else %}
+			{% if model.isMobile %}
+				<div class="product-list" tabindex="0">
+					{% for catItem in model.categoryList %}
+						<div class="accordian-headitem" data-mz-attr="{{catItem.Category.categoryCode}}">
+							<span tabindex="0" aria-expanded="{% if catItem.isActive  %} true {% else %} false {% endif %}" data-mz-attr="{{catItem.Category.categoryCode}}" class="list-item side-bar-item {% if catItem.isActive %}active{% endif %}">{{catItem.Category.content.name|safe}}</span>
+							<span class="accordian-icon {% if catItem.isActive %}minus{% else %}plues{% endif %}" data-mz-attr="{{catItem.Category.categoryCode}}"></span>
+						</div>	 
+						{% if catItem.isActive %}
+							{% for item in catItem.Items %}		
+								<div class="product-item-list">
+									<div class="product-item">
+										<span class="item-li description-image">
+											<span class="image-cointainer">
+												<img class="image-tag" alt="product image {{item.name|safe}}" src="{{item.image.imageUrl}}?max=80" >
+		                        			</span>
+		                        			<span class="discription-text" tabindex="0">
+		                        				{{item.name|safe}}
+		                        				{% if not item.purchasableState.isPurchasable %}
+		                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+		                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+		                        				{% endif %}
+		                        			</span>
+										</span>
+										<span class="item-li sku-input">
+											<span class="input-cointainer checkbox-outer-label">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+		                        				<span class="checkBoxInfo"> Add </span>
+											</span>
+										</span>
+										<span class="item-li heat-sensitive">
+											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+												<span class="heat-tickmark" tabindex="0" aria-label="this product is heat sensitive">Heat-sensitive</span>
+											{% endif %}
+										</span>
+										<span class="item-li skuCode">
+											<span class="sku-cointianer" tabindex="0"><span class="label" tabindex="0">ITEM #</span>{{item.productCode}}</span>
+										</span>
+										<span class="item-li price">
+											<span class="label" tabindex="0">PRICE</span>
+											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+												<span class="salsesprice" tabindex="0">{{item.price.salePrice|currency}}</span>
+											{% else %}
+												<span class="price" tabindex="0">{{item.price.price|currency}}</span>
+											{% endif %}
+										</span>			 							
+										<span class="item-li quantity">
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+				                            <div class="clear"></div>
+										</span>					
+									</div>
+								</div>
+							{% endfor %}
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% else %}
+				{% if model.isTablet and model.isPotreate %}
+					<div class="product-list" tabindex="0">
+						{% for catItem in model.categoryList %}
+							<div class="accordian-headitem" data-mz-attr="{{catItem.Category.categoryCode}}">
+								<span tabindex="0" aria-expanded="{% if catItem.isActive %} true {% else %}false{% endif %}" data-mz-attr="{{catItem.Category.categoryCode}}" class="list-item side-bar-item {% if catItem.isActive %}active{% endif %}">{{catItem.Category.content.name|safe}}</span>
+								<span class="accordian-icon {% if catItem.isActive %}minus{% else %}plues{% endif %}"></span>
+							</div>	 
+							{% if catItem.isActive %}
+								{% for item in catItem.Items %}		
+									<div class="product-item-list">
+										<div class="product-item">
+											<span class="item-li description-image">
+												<span class="image-cointainer">
+													<img class="image-tag" alt="item image {{item.name|safe}}" src="{{item.image.imageUrl}}?max=80" >
+			                        			</span>
+			                        			<span class="discription-text" tabindex="0">
+			                        				{{item.name|safe}}
+			                        				{% if not item.purchasableState.isPurchasable %}
+			                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+			                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+			                        				{% endif %}
+			                        			</span>
+											</span>
+											<span class="item-li sku-input">
+												<span class="input-cointainer checkbox-outer-label">
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+													<span class="checkBoxInfo"> Add </span>
+			                        			</span>
+											</span>
+											<span class="item-li heat-sensitive">
+												{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+													<span class="heat-tickmark" tabindex="0">Heat-sensitive</span>
+												{% endif %}
+											</span>
+											<span class="item-li skuCode">
+												<span class="sku-cointianer" tabindex="0"><span class="label">ITEM #</span>{{item.productCode}}</span>
+											</span>
+											<span class="item-li price">
+												<span class="label" tabindex="0">PRICE</span>
+												{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+													<span class="salsesprice" tabindex="0">{{item.price.salePrice|currency}}</span>
+												{% else %}
+													<span class="price" tabindex="0">{{item.price.price|currency}}</span>
+												{% endif %}
+											</span>			 							
+											<span class="item-li quantity">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" >
+					                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+					                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+					                            <div class="clear"></div>
+											</span>					
+										</div>
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% else %}
+					<div class="side-bar">
+						<div class="side-head">
+							<span class="head-text" tabindex="0">Explore by <strong>Category</strong></span>
+						</div>
+						<div class="side-list">
+							{% for item in model.categoryList %}
+								<span tabindex="0" data-mz-attr="{{item.Category.categoryCode}}" class="list-item side-bar-item {% if item.isActive %}active{% endif %}">{{item.Category.content.name|safe}}</span>
+							{% endfor %}	
+						</div>
+					</div><div class="product-list" tabindex="0">
+					{% for catItem in model.categoryList %}	
+						{% if catItem.isActive %}
+							<div class="product-head">
+								<span class="head-li itemId checkbox-outer-label">
+									<input type="checkbox" name="selectitem" data-mz-action="selectthecatrgory" data-mz-catCode="{{catItem.Category.categoryCode}}" class="add-to-list-checkbox" {% if catItem.isAllSelected %}checked="checked"{% endif %}/>
+				        			<span class="checkmark-style" data-mz-attribute="{{item.productCode}}"></span> 
+									ITEM #
+								</span>
+								<span class="head-li description">DESCRIPTION</span>
+								<span class="head-li price">PRICE</span>
+								<span class="head-li heatsensitive">HEAT-SENSITIVE <span class="heatIcon"> i </span>  </span>
+								<span class="head-li quantity">QUANTITY</span>					
+							</div>
+							{% for item in catItem.Items %}
+								<div class="product-item-list">
+									<div class="product-item">
+										<span class="item-li sku-input">
+											<span class="input-cointainer checkbox-outer-label">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+			                    			</span>
+			                    			<span class="sku-cointianer" tabindex="0">{{item.productCode}}</span>
+										</span>
+										<span class="item-li description-image">
+											<span class="image-cointainer">
+												<img class="image-tag" alt="image for {{item.name|safe}}" src="{{item.image.imageUrl}}?max=80" >
+			                    			</span>
+			                    			<span class="discription-text" tabindex="0">
+			                    				{{item.name|safe}}
+			                    				{% if not item.purchasableState.isPurchasable %}
+			                    					<span class="outofstock" tabindex="0">Out Of Stock</span>
+			                    					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+			                    				{% endif %}
+			                    			</span>
+										</span> 
+										<span class="item-li price">
+											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+												<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+												<span class="price strike" tabindex="0" aria-label="item stricked price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+											{% else %}
+												<span class="price" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+											{% endif %}
+										</span>
+										<span class="item-li heat-sensitive">
+											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+												<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product"></span>
+											{% endif %}
+										</span>
+										<span class="item-li quantity">
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}"  data-mz-value="quantity" min="1" max="25" >
+				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+				                            <div class="clear"></div>
+										</span>						
+									</div>
+								</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+	</div>
+</div><div class="summary-list ">
+	{% if model.isDesktop %}
+		<div class="headeritems">
+			<span class="headertital" tabindex="0">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount" tabindex="0">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
+			{% if model.SubScriptionItemsList.length > 0 %}
+			<span class="clearList" tabindex="0" role="button">Clear List</span>
+			{% endif %}
+		</div>
+		<div class="summaryListItems">
+			<div class="listitemhead">
+				<span class="head-item dicreption">DESCRIPTION</span>
+				<span class="head-item qty">QTY</span>
+				<span class="head-item heat-sensitive">HEAT-SENSITIVE</span>
+				<span class="head-item price">PRICE</span>
+			</div>
+			<div class="listitemlist">
+				{% if model.SubScriptionItemsList.length > 0 %}
+					<div class="item-list-data">
+						{% for item in model.SubScriptionItemsList %}
+							<div class="list-item">
+								<span class="item-li decreption" tabindex="0">{{item.name|safe}}</span>
+								<span class="item-li quantity" >
+									<input aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0"  data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25"  data-mz-clearList="true">
+		                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub" data-mz-clearList="true"></span>
+		                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub" data-mz-clearList="true"></span>
+		                            <div class="clear"></div>
+								</span>
+								<span class="item-li heat-sensitive">
+									{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+										<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product"></span>
+									{% endif %}
+								</span>
+								<span class="item-li price">
+									{% comment %}
+									{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+										<span class="salsesprice" tabindex="0" aria-label="item price {{item.price.salePrice|currency}}">{{item.price.salePrice|currency}}</span>
+										<span class="price strike" tabindex="0" aria-label="item price stricked {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+									{% else %}
+										<span class="price" tabindex="0" aria-label="item price {{item.price.price|currency}}">{{item.price.price|currency}}</span>
+									{% endif %}
+									{% endcomment %}
+									<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
+								</span>
+								<span class="item-li removeItem" tabindex="0" aria-label="remove from the list" mz-data-attr="{{item.productCode}}">
+									<img class="mz-calendar-icon" src="../../resources/images/removeItem.svg" ></img>
+								</span>
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<span class="noitemsfound" tabindex="0">No items added to the list</span>
+				{% endif %}
+			</div>
+			<div class="itemListTotal">
+				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
+				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
+				<div class="note"  >
+					Prices may vary per delivery based on pricing changes and/or active promotions
+				</div>
+			</div>
+			<section class="subscription">
+	            <div class="expanded-section">
+	                <div class="formGroup howofter">
+	                    <span class="how-often-label-sub">
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
+	                    </span>
+	                    <div class="how-often-input-sub">
+	                        <select class="how-often-val" name="howOften">
+	                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+	                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>
+	                    <div class="weekormonth">
+	                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+	                    </div>                  
+	                </div>
+	                <div class="formGroup interval">
+	                    <span class="when-sub">
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+	                    </span>
+	                    <div class="datepicker-cointainer">
+	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+	                        </input>
+	                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+	                    </div>
+	                </div>
+	                <div class="formGroup howling">
+	                    <span class="for-how-long-label-sub">
+	                        <label for="howlong" tabindex="0">For How Long?</label>
+	                    </span>
+	                    <div class="how-long-input-sub" tabindex="0">
+	                        <select class="how-long-val" name="howlong">
+	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+	                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>              
+	                </div>
+	            </div>
+	        </section>
+	        <div class="itemListTotal-bottom">
+				<span class="label-total" tabindex="0" aria-labelledby="Subtotal (per delivery)">Subtotal</span>
+				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
+				<div class="note" tabindex="0">
+			Prices may vary per delivery based on pricing changes and/or active promotions
+			</div>
+			</div>
+			
+			{% if model.remaingAmount > 0 %}
+				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+					<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
+				</a>
+			{% else %}
+				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+					<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
+				</a>
+			{% endif %}
+			<div class="button-sec">
+				<button class="create-subscription {% if model.SubScriptionItemsList.length > 0 %} active {% endif %}" {% if model.SubScriptionItemsList.length == 0 %} disabled {% endif %}>CREATE SUBSCRIPTION</button>
+			</div> 
+		</div>
+	{% else %}
+		{% if model.isMobile %}
+			<div class="summary-accordian">
+				<span class="list-item-count" tabindex="0">{{model.SubScriptionItemsList.length}} items</span><span class="listTotal">{{model.total|currency}}</span><span class="head-text">Subscription List <span class="arraow-icon {% if model.isMobileShowSummary %}down{% else %}up{% endif %}"></span></span>
+			</div>
+			<section class="subscription">
+	            <div class="expanded-section"> 
+	                <div class="formGroup howofter">
+	                    <span class="how-often-label-sub">
+	                        <label for="howOften" tabindex="0">How Often? Every</label>
+	                    </span>
+	                    <div class="how-often-input-sub">
+	                        <select class="how-often-val" name="howOften">
+	                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+	                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+	                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>
+	                    <div class="weekormonth">
+	                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+	                    </div>                  
+	                </div>
+	                <div class="formGroup interval">
+	                    <span class="when-sub">
+	                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+	                    </span>
+	                    <div class="datepicker-cointainer">
+	                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+	                        </input>
+	                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+	                    </div>
+	                </div>
+	                <div class="formGroup howling">
+	                    <span class="for-how-long-label-sub">
+	                        <label for="howlong" tabindex="0">For How Long?</label>
+	                    </span>
+	                    <div class="how-long-input-sub" tabindex="0">
+	                        <select class="how-long-val" name="howlong">
+	                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+	                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+	                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+	                        </select>
+	                        <div class="clear"></div>
+	                    </div>              
+	                </div>
+	            </div>
+	        </section>
+			<div class="itemListTotal-bottom">
+				<span class="label-total" tabindex="0">Sub Total</span>
+				<span class="label-total-val" tabindex="0">{{model.total|currency}}</span>
+			</div>
+			<div class="summaryListItems">
+				<div class="headeritems">
+					<span class="headertital" tabindex="0">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
+						{% if model.SubScriptionItemsList.length > 0 %}
+					<span class="clearList" tabindex="0" role="0">Clear List</span>
+					{% endif %}
+				</div>
+				<div class="listitemlist"> 
+					{% if model.SubScriptionItemsList.length > 0 %}
+						<div class="item-list-data">
+							{% for item in model.SubScriptionItemsList %}
+								<div class="product-item-list"> 
+									<div class="product-item">
+										<span class="item-li description-image">
+											<span class="image-cointainer">
+												<img class="image-tag" alt="image for {{item.name|safe}}" src="{{item.image.imageUrl}}?max=80" >
+		                        			</span>
+		                        			<span class="discription-text" tabindex="0">
+		                        				{{item.name|safe}}
+		                        				{% if not item.purchasableState.isPurchasable %}
+		                        					<span class="outofstock" tabindex="0">Out Of Stock</span>
+		                        					<button href="javascript:void(0);" class="jb-out-of-stock notify-me-plp-rti jb-out-of-stock-cur" data-mz-location-code="US01" data-mz-product-code="{{item.productCode}}" role="button" aria-label="Notify me"> Notify Me </button>
+		                        				{% endif %}
+		                        			</span>
+										</span>
+										<span class="item-li sku-input" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
+											<span class="input-cointainer checkbox-outer-label">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+		                        			</span>
+										</span>
+										<span class="item-li removeItem" tabindex="0" role="button" aria-label="remove this item" mz-data-attr="{{item.productCode}}">
+											<img class="mz-calendar-icon" src="../../resources/images/removeItem.svg" ></img>
+										</span>
+										<span class="item-li heat-sensitive">
+											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+												<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product">Heat-sensitive</span>
+											{% endif %}
+										</span>
+										<span class="item-li skuCode">
+											<span class="sku-cointianer"><span class="label">ITEM #</span>{{item.productCode}}</span>
+										</span>
+										<span class="item-li price">
+											<span class="label">PRICE</span>
+											{% comment %}
+											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+												<span class="salsesprice">{{item.price.salePrice|currency}}</span>
+											{% else %}
+												<span class="price">{{item.price.price|currency}}</span>
+											{% endif %}
+											{% endcomment %}
+											<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
+										</span>			 							
+										<span class="item-li quantity">
+											<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
+				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+				                            <div class="clear"></div>
+										</span>					
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					{% else %}
+						<span class="noitemsfound">No items added to the list</span>
+					{% endif %}
+				</div>
+				<div class="itemListTotal">
+					<span class="label-total">Sub Total</span>
+					<span class="label-total-val">{{model.total|currency}}</span>
+				</div>
+			</div>        
+			{% if model.remaingAmount > 0 %}
+				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+					<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
+				</a>
+			{% else %}
+				<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+					<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
+				</a>
+			{% endif %}
+			<div class="button-sec">
+				<button class="create-subscription {% if model.SubScriptionItemsList.length > 0 %} active {% endif %}" {% if model.SubScriptionItemsList.length == 0 %} disabled {% endif %}>CREATE SUBSCRIPTION</button>
+			</div>
+		{% else %}
+			{% if model.isTablet and model.isPotreate %}
+				<div class="summary-accordian">
+					<span class="list-item-count">{{model.SubScriptionItemsList.length}} items</span><span class="listTotal">{{model.total|currency}}</span><span class="head-text">Subscription List <span class="arraow-icon {% if model.isMobileShowSummary %}down{% else %}up{% endif %}"></span></span>
+				</div>
+				<section class="subscription">
+		            <div class="expanded-section"> 
+		                <div class="formGroup howofter">
+		                    <span class="how-often-label-sub">
+		                        <label for="howOften" tabindex="0">How Often? Every</label>
+		                    </span>
+		                    <div class="how-often-input-sub">
+		                        <select class="how-often-val" name="howOften">
+		                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+		                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+		                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+		                        </select>
+		                        <div class="clear"></div>
+		                    </div>
+		                    <div class="weekormonth">
+		                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+		                    </div>                  
+		                </div>
+		                <div class="formGroup interval">
+		                    <span class="when-sub">
+		                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+		                    </span>
+		                    <div class="datepicker-cointainer">
+		                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+		                        </input>
+		                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+		                    </div>
+		                </div>
+		                <div class="formGroup howling">
+		                    <span class="for-how-long-label-sub">
+		                        <label for="howlong" tabindex="0">For How Long?</label>
+		                    </span>
+		                    <div class="how-long-input-sub" tabindex="0">
+		                        <select class="how-long-val" name="howlong">
+		                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+		                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+		                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+		                        </select>
+		                        <div class="clear"></div>
+		                    </div>              
+		                </div>
+		            </div>
+		        </section>
+				<div class="itemListTotal-bottom">
+					<span class="label-total">Sub Total</span>
+					<span class="label-total-val">{{model.total|currency}}</span>
+				</div>
+				<div class="summaryListItems">
+					<div class="headeritems">
+						<span class="headertital">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
+							{% if model.SubScriptionItemsList.length > 0 %}
+						<span class="clearList">Clear List</span>
+						{% endif %}
+					</div>
+					<div class="listitemlist"> 
+						{% if model.SubScriptionItemsList.length > 0 %}
+							<div class="item-list-data">
+								{% for item in model.SubScriptionItemsList %}
+									<div class="product-item-list"> 
+										<div class="product-item">
+											<span class="item-li description-image">
+												<span class="image-cointainer">
+													<img class="image-tag" src="{{item.image.imageUrl}}?max=80" >
+			                        			</span>
+			                        			<span class="discription-text">
+			                        				{{item.name|safe}}
+			                        				{% if not item.purchasableState.isPurchasable %}
+			                        					<span class="outofstock">Out Of Stock</span>
+			                        				{% endif %}
+			                        			</span>
+											</span>
+											<span class="item-li sku-input" tabindex="0" aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}">
+												<span class="input-cointainer checkbox-outer-label">
+													<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
+				                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+			                        			</span>
+											</span>
+											<span class="item-li removeItem" mz-data-attr="{{item.productCode}}">
+												<img class="mz-calendar-icon" src="../../resources/images/removeItem.svg" ></img>
+											</span>
+											<span class="item-li heat-sensitive">
+												{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+													<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product">Heat-sensitive</span>
+												{% endif %}
+											</span>
+											<span class="item-li skuCode">
+												<span class="sku-cointianer"><span class="label">ITEM #</span>{{item.productCode}}</span>
+											</span>
+											<span class="item-li price">
+												<span class="label">PRICE</span>
+												{% comment %}
+												{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+													<span class="salsesprice">{{item.price.salePrice|currency}}</span>
+												{% else %}
+													<span class="price">{{item.price.price|currency}}</span>
+												{% endif %}
+												{% endcomment %}
+												<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
+											</span>			 							
+											<span class="item-li quantity">
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
+					                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub"></span>
+					                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub"></span>
+					                            <div class="clear"></div>
+											</span>					
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						{% else %}
+							<span class="noitemsfound">No items added to the list</span>
+						{% endif %}
+					</div>
+					<div class="itemListTotal">
+						<span class="label-total">Sub Total</span>
+						<span class="label-total-val">{{model.total|currency}}</span>
+					</div>
+				</div>        
+				{% if model.remaingAmount > 0 %}
+					<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+						<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
+					</a>
+				{% else %}
+					<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+						<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
+					</a>
+				{% endif %}
+				<div class="button-sec">
+					<button class="create-subscription {% if model.SubScriptionItemsList.length > 0 %} active {% endif %}" {% if model.SubScriptionItemsList.length == 0 %} disabled {% endif %}>CREATE SUBSCRIPTION</button>
+				</div>
+			{% else %}
+				<div class="headeritems">
+					<span class="headertital">Subscription List {% if model.SubScriptionItemsList.length > 0 %}<span class="itemcount">({{model.SubScriptionItemsList.length}} items)</span>{% endif %}</span>
+						{% if model.SubScriptionItemsList.length > 0 %}
+					<span class="clearList">Clear List</span>
+					{% endif %}
+				</div>
+				<div class="summaryListItems">
+					<div class="listitemhead">
+						<span class="head-item dicreption">DESCRIPTION</span>
+						<span class="head-item qty">QTY</span>
+						<span class="head-item heat-sensitive">HEAT-SENSITIVE</span>
+						<span class="head-item price">PRICE</span>
+					</div>
+					<div class="listitemlist">
+						{% if model.SubScriptionItemsList.length > 0 %}
+							<div class="item-list-data">
+								{% for item in model.SubScriptionItemsList %}
+									<div class="list-item">
+										<span class="item-li decreption">{{item.name|safe}}</span>
+										<span class="item-li quantity" >
+											<input aria-label ="item Quantity {% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}" {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} class="quantity-sub" tabindex="0" name="quantity-sub" data-mz-productCode="{{item.productCode}}" value="{% if item.selectedData.Qty > 0 %}{{item.selectedData.Qty}}{% else %}1{% endif %}"  data-mz-value="quantity" min="1" max="25" data-mz-clearList="true">
+				                            <span data-mz-productCode="{{item.productCode}}" class="increment spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlusSub" data-mz-clearList="true"></span>
+				                            <span data-mz-productCode="{{item.productCode}}" class="decrement spinner {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinusSub" data-mz-clearList="true"></span>
+				                            <div class="clear"></div>
+										</span>
+										<span class="item-li heat-sensitive">
+											{% if item.IsHeatSensitive.values and item.IsHeatSensitive.values[0].value %}
+												<span class="heat-tickmark" tabindex="0" aria-label="this item is heat sensitive product"></span>
+											{% endif %}
+										</span>
+										<span class="item-li price">
+											{% comment %}
+											{% if item.price.salePrice && item.price.salePrice <  item.price.price %}
+												<span class="salsesprice">{{item.price.salePrice|currency}}</span>
+												<span class="price strike">{{item.price.price|currency}}</span>
+											{% else %}
+												<span class="price">{{item.price.price|currency}}</span>
+											{% endif %}
+											{% endcomment %}
+											<span class="price" tabindex="0" aria-label="item price {{item.total|currency}}">{{item.total|currency}}</span>
+										</span>
+										<span class="item-li removeItem" mz-data-attr="{{item.productCode}}">
+											<img class="mz-calendar-icon" src="../../resources/images/removeItem.svg" ></img>
+										</span>
+									</div>
+								{% endfor %}
+							</div>
+						{% else %}
+							<span class="noitemsfound">No items added to the list</span>
+						{% endif %}
+					</div>
+					<div class="itemListTotal">
+						<span class="label-total">Sub Total</span>
+						<span class="label-total-val">{{model.total|currency}}</span>
+					</div>
+					<section class="subscription">
+			            <div class="expanded-section">
+			                <div class="formGroup howofter">
+			                    <span class="how-often-label-sub">
+			                        <label for="howOften" tabindex="0">How Often? Every</label>
+			                    </span>
+			                    <div class="how-often-input-sub">
+			                        <select class="how-often-val" name="howOften">
+			                            <option {% if model.subscriptionData.Data.howOften == 1 %}selected{% endif %} value="1">1</option>
+			                            <option {% if model.subscriptionData.Data.howOften == 2 %}selected{% endif %} value="2">2</option>
+			                            <option {% if model.subscriptionData.Data.howOften == 3 %}selected{% endif %} value="3">3</option>
+			                            <option {% if model.subscriptionData.Data.howOften == 4 %}selected{% endif %} value="4">4</option>
+			                            <option {% if model.subscriptionData.Data.howOften == 5 %}selected{% endif %} value="5">5</option> 
+			                            <option {% if model.subscriptionData.Data.howOften == 6 %}selected{% endif %} value="6">6</option>
+			                        </select>
+			                        <div class="clear"></div>
+			                    </div>
+			                    <div class="weekormonth">
+			                        <span class="span-tabs week {% if model.subscriptionData.Data.weeks %}active{% endif %}" tabindex="0" role="button" data-mz-value="weeks">Weeks</span><span class="span-tabs year {% if model.subscriptionData.Data.years %}active{% endif %}" tabindex="0" role="button" data-mz-value="months">Months</span>
+			                    </div>                  
+			                </div>
+			                <div class="formGroup interval">
+			                    <span class="when-sub">
+			                        <label for="interval-startdate" tabindex="0">When? Starting</label>
+			                    </span>
+			                    <div class="datepicker-cointainer">
+			                        <input type="text" value="{{ model.subscriptionData.Data.when }}" name="startDate" id="interval-startdate" class="mz-large" readonly="true">
+			                        </input>
+			                        <label class="mz-small" for="interval-startdate"><img class="mz-calendar-icon" src="../../resources/images/calendaricon1.svg" ></img></label>            
+			                    </div>
+			                </div>
+			                <div class="formGroup howling">
+			                    <span class="for-how-long-label-sub">
+			                        <label for="howlong" tabindex="0">For How Long?</label>
+			                    </span>
+			                    <div class="how-long-input-sub" tabindex="0">
+			                        <select class="how-long-val" name="howlong">
+			                            <option {% if model.subscriptionData.Data.howLong == "until i cancel" %}selected{% endif %} value="until i cancel">Until I Cancel</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "3 Deliveries" %}selected{% endif %} value="3 Deliveries">3 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "4 Deliveries" %}selected{% endif %} value="4 Deliveries">4 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "5 Deliveries" %}selected{% endif %} value="5 Deliveries">5 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "6 Deliveries" %}selected{% endif %} value="6 Deliveries">6 Deliveries</option> 
+			                            <option {% if model.subscriptionData.Data.howLong == "7 Deliveries" %}selected{% endif %} value="7 Deliveries">7 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "8 Deliveries" %}selected{% endif %} value="8 Deliveries">8 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "9 Deliveries" %}selected{% endif %} value="9 Deliveries">9 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "10 Deliveries" %}selected{% endif %} value="10 Deliveries">10 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "11 Deliveries" %}selected{% endif %} value="11 Deliveries">11 Deliveries</option>
+			                            <option {% if model.subscriptionData.Data.howLong == "12 Deliveries" %}selected{% endif %} value="12 Deliveries">12 Deliveries</option>
+			                        </select>
+			                        <div class="clear"></div>
+			                    </div>              
+			                </div>
+			            </div>
+			        </section>
+			        <div class="itemListTotal-bottom">
+						<span class="label-total">Sub Total</span>
+						<span class="label-total-val">{{model.total|currency}}</span>
+					</div>
+					{% if model.remaingAmount > 0 %}
+						<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+							<span class="freeshippingmsg">You'll are only {{model.remaingAmount}} away from <span class="green">FREE Ground Shipping.</span></span>
+						</a>
+					{% else %}
+						<a href="/shipping-info#Free Ground Shipping" title="shipping information" target="_blank">
+							<span class="freeshippingmsg">Congratulations,  you qualify for <span class="green">FREE Ground Shipping! </span> Click for Details.</span>
+						</a>
+					{% endif %}
+					<div class="button-sec">
+						<button class="create-subscription {% if model.SubScriptionItemsList.length > 0 %} active {% endif %}" {% if model.SubScriptionItemsList.length == 0 %} disabled {% endif %}>CREATE SUBSCRIPTION</button>
+					</div> 
+				</div>	
+			{% endif %}
+		{% endif %} 
+	{% endif %}
+</div>

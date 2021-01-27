@@ -11,15 +11,30 @@
       </li>
     </ul>
   </div>
-  <h3 class="mz-formstep-header">
+  <h3 class="mz-formstep-header" >
     <span class="step-no"><label>1.</label></span>
-    <label>{{ labels.shippingInformation }}</label> 
+    <label  tabindex="0" role="text" class="no-pointer" aria-label="Step 1 {{ labels.shippingInformation }}">{{ labels.shippingInformation }}</label> 
     <span class="step-completed"></span>
+    
     {% if model.requiresFulfillmentInfo || model.requiresDigitalFulfillmentContact %}
       <button id="shippingaddress-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping information" data-mz-action="edit" >
         {{ labels.edit }}
       </button>
     {% endif %}
+      {% if model.contactId != "new" && model.stepStatus!=="complete"%} 
+            <label tabindex="0" aria-labelledby="Enter New Address" class="mz-contactselector-contact mz-contactselector-new no-form" style="display:inline-block;">
+                <span class="mz-contactselector-inputwrapper">
+                    <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact >
+                </span>
+                <div class="mz-contactselector-summarywrapper" >
+                    <div class="mz-addresssummary">
+                        <span  >{{ labels.enterNewAddress }}</span>
+                    </div>
+                </div>
+            </label>
+        {% endif %}
+       
+        {% comment %} {% endif %} {% endcomment %}
   </h3>
   <div class="mz-formstep-body">
     {% if not model.address.candidateValidatedAddresses %}

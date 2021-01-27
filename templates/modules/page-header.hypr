@@ -4,6 +4,7 @@
             {% block search-box %}
                 <div class="jb-serach-box-with-label">
                     {% include "modules/page-header/search-box" %}
+                    <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Customer Service"aria-label="Questions ? Call our Toll free number - 18005223267 "> 1-800-522-3267 </a></p></div>
                 </div>
             {% endblock search-box %}
             {% block utility-nav %}
@@ -51,7 +52,10 @@
             {% block utility-nav %}
                 {% include "modules/page-header/utility-nav" %}
             {% endblock utility-nav %} 
+            <div class="mobile-contactnum clearfix">
             <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
+            <div class="subscription-content"><a href="/subscription">Subscription Order</a></div>
+            </div>
         </header> 
         {% block site-nav %}
             <div class="nav-cointainer" id="megaMenu">
@@ -169,3 +173,19 @@
     {% endif %}
    
 {% endif %}
+
+
+<div class="subscriptionPopup Inactive" role="dialog">
+        <div class="popup-body" role="document">
+            <span tabindex="0" class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
+            <div class="popup-content">
+                <p class="message" tabindex="0" role="text"  aria-label="You have already started building a Subscription. Do you want to remove the subscription products and add this product to the cart?">
+                    <strong> You have already started building a Subscription.</strong> <br> Do you want to remove the subscription products and add this product to the cart?
+                </p>
+                <div class="button-section">                    
+                    <button class="button button-no" >No</button>
+                    <button class="button button-yes" >Yes! Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div> 

@@ -143,6 +143,12 @@
     {% if pagecontext.cmsContext.template.path == "login" or pagecontext.cmsContext.template.path == "forgot-password" or pagecontext.cmsContext.template.path == "signup"  or pagecontext.cmsContext.template.path =="Reset-Password"%}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
     {% endif %}
+    {% if pagecontext.cmsContext.template.path == "pages-subscription" %}
+      {{ "/stylesheets/pages/subscription.less"|stylesheet_tag:"default" }}
+    {% endif %}
+    {% if pagecontext.cmsContext.template.path == "pages-subscription-confirmation" %}
+      {{ "/stylesheets/pages/subscription-confirmation.less"|stylesheet_tag:"default" }}
+    {% endif %}
   {% endblock stylesheets %}
   
   {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" and pagecontext.isMobile %}

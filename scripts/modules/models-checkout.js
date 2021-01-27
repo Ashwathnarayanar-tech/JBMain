@@ -214,6 +214,21 @@
                     }else{
                         return false;
                     }
+                }else{
+                    $('.data-contact').siblings('.savedaddressError').html('').removeClass('mz-validationmessage');
+                    var $errEl = $('#step-shipping-address').find('.mz-validationmessage').filter(':visible');
+                    if($errEl.length <= 0) {
+                        if($('.data-contact [data-mz-value="contactId"]').val()!==""){
+                            if(!$('.data-contact [data-mz-value="contactId"]').is(':checked')){
+                                $('.data-contact').first().before("<span class='mz-validationmessage savedaddressError' role='alert' tabindex='0'>Please select the address</span>");
+                                $('.data-contact').siblings('.savedaddressError').focus();
+                                return false;
+                            }else{
+                                $('.data-contact').siblings('.savedaddressError').html('').removeClass('mz-validationmessage');   
+                            }  
+                        }  
+                    }           
+                   
                 }
 
                 var parent = this.parent,
@@ -1464,7 +1479,9 @@
                         }
                     });
                 }
-
+                if(error.message && error.message.indexOf("Validation Error: Auth and Capture was declined")>=0){
+                    error.message = '<p style="display: inline-block;font-weight: bold;margin: 0px;">Payment Authorization Declined: Please correct your card number, expiration date and/or CVV (security code)</p>';
+                }
 
                 order.isLoading(false);
                 if (!error || !error.items || error.items.length === 0) {
@@ -1578,6 +1595,8 @@
                         return customer.apiModel.addContact(orderContact).then(function(contactResult) {
                                 orderContact.id = contactResult.data.id;
                                 return contactResult;
+                            }).catch(function(error){
+                                console.log(" error ---",error);
                             });
                     }];
                 var contactInfoContactName = contactInfo.get(contactName);
@@ -1790,19 +1809,16 @@
                 }
 
                 //save contacts
-                //if((window.location.href).split('?')[1] !== 'cl=returningUser'){
-                    if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
-                        if (!isSameBillingShippingAddress && !isSavingCreditCard) {
-                            if (requiresFulfillmentInfo) process.push(this.addShippingContact);
-                            if (requiresBillingInfo) process.push(this.addBillingContact);
-                        } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
-                            process.push(this.addShippingAndBillingContact);
-                        } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
-                            process.push(this.addShippingContact);
-                        }
+                if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
+                    if (!isSameBillingShippingAddress && !isSavingCreditCard) {
+                        if (requiresFulfillmentInfo) process.push(this.addShippingContact);
+                        if (requiresBillingInfo) process.push(this.addBillingContact);
+                    } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
+                        process.push(this.addShippingAndBillingContact);
+                    } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
+                        process.push(this.addShippingContact);
                     }
-               // }
-                
+                }
 
                 process.push(/*this.finalPaymentReconcile, */this.apiCheckout);
 

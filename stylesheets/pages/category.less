@@ -1690,6 +1690,124 @@
                             }
                         }
                     }
+                    .popup{
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        z-index: 999;
+                        -webkit-transition: opacity 400ms ease-in;
+                        -moz-transition: opacity 400ms ease-in;
+                        transition: opacity 400ms ease-in;
+                        display: none;
+                        &.active{
+                            display: block;
+                        }
+                        .popup-body{
+                            width: 45%;
+                            margin: 0 auto;
+                            margin-top: 17%;
+                            padding: 3%;
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                            background-color: #ffffff;
+                            position: relative;
+                            .close-icon{
+                                position: absolute;
+                                width: 20px;
+                                height: 20px;
+                                background-image: url(../../resources/images/close-icon-popup.svg);
+                                top: 16px;
+                                background-repeat: no-repeat;
+                                right: 10px;
+                                cursor: pointer;
+                            }
+                            .popup-content{
+                                .message{
+                                    font-size: 18px;
+                                    color: #000000;
+                                    margin-bottom: 40px;
+                                    display: block;
+                                    strong{
+                                        font-weight: bold;
+                                    }
+                                }
+                                .button-section{
+                                    text-align: right;
+                                    .button{
+                                        font-size: 18px;
+                                        border-radius: 4px;
+                                        border: solid 1px #004e99;
+                                        font-weight: bold;
+                                        text-align: center;
+                                        padding: 7px 0;
+                                        &.button-yes{
+                                            background-color: #004e99;
+                                            color: #fff;
+                                             width:25%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                border: solid 1px #003a72;
+                                            }
+                                           
+                                        }
+                                        &.button-no{
+                                            background-color: #fff;
+                                            color: #004e99;
+                                             width:15%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                color: #fff;
+                                                border: solid 1px #003a72;
+                                            }
+                                           
+                                        }
+                                        &.button-Proceed{
+                                            background-color: #004e99;
+                                            color: #fff;
+                                            width:35%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                border: solid 1px #003a72;
+                                            }
+                                        }
+                                        &.button-Back-To-Subscription{
+                                            background-color: #fff;
+                                            color: #004e99;
+                                            width:35%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                color: #fff;
+                                                border: solid 1px #003a72;
+                                            }
+                                        }
+                                        &.button-Get-Started{
+                                            background-color: #004e99;
+                                            color: #fff;
+                                             width:25%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                border: solid 1px #003a72;
+                                            }
+                                           
+                                        }
+                                        &.button-cancel{
+                                            background-color: #fff;
+                                            color: #004e99;
+                                             width:25%;
+                                            &:hover{
+                                                background-color: #003a72;
+                                                color: #fff;
+                                                border: solid 1px #003a72;
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1895,7 +2013,26 @@
     .mz-category,.mz-searchresults{ 
         .mz-l-pagewrapper{ 
             .mz-l-pagecontent{ 
-                .mz-l-container,.categorytops{  
+                .mz-l-container{  
+                    .popup{
+                        z-index: 999999;
+                        .popup-body{
+                            width: 68%;
+                            margin-top: 40%;
+                            .popup-content{ 
+                                // .message{
+                                //     font-size: 14px;
+                                // }
+                                .button-section{  
+                                    .button{
+                                        //font-size: 14.2px;
+                                        padding: 7px 0;
+                                        width: 40% !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
                     .brand-dicreption-top{ 
                         .mz-drop-zone{ 
                             .mz-cms-row{ 
@@ -2040,6 +2177,9 @@
                                 }
                             }
                         }
+                        .popup .popup-body{
+                            width: 75%;
+                        }
                     }
                 }
             }
@@ -2054,7 +2194,7 @@
                 &.topZero{
                     margin-top: 101px !important;  
                 }
-                .tz-mobrefine-slot {
+                 .tz-mobrefine-slot {
                     background-color: whitesmoke;
                     width: 100%;
                     margin: 10px 0 0px;
@@ -2148,7 +2288,34 @@
                         }
                     }
                 } 
+<<<<<<< HEAD
                 .mz-l-container,.categorytops{ 
+=======
+                .mz-l-container{ 
+                    .mz-l-paginatedlist{
+                        .popup{
+                            z-index: 999999;
+                            .popup-body{
+                                width: 90%;
+                                margin-top: 55%;
+                                padding-top: 67px;
+                                border-radius: 4px;
+                                .popup-content{ 
+                                    .message{
+                                        font-size: 14px;
+                                    }
+                                    .button-section{  
+                                        .button{
+                                            font-size: 14.2px;
+                                            padding: 7px 0;
+                                            width: 49% !important; 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+>>>>>>> Flexi
                     .brand-dicreption-top{
                         .mz-drop-zone{
                             .mz-cms-row{

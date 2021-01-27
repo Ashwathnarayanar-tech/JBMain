@@ -1,8 +1,8 @@
-<textarea id="order-comments" class="mz-checkoutform-comments-field" mz-checkoutform-comments-field-tag name="comments" cols="43" maxlength="300" data-mz-value="shopperNotes.giftMessage" >{{ model.shopperNotes.giftMessage }}</textarea><br>
+<textarea role="textbox" contenteditable="true" id="order-comments" aria-labelledby="gift-comments" class="mz-checkoutform-comments-field" mz-checkoutform-comments-field-tag name="comments" cols="43" maxlength="300" data-mz-value="shopperNotes.giftMessage" >{{ model.shopperNotes.giftMessage }}</textarea>
 <span class="text-length">Length: <span id="comments-character-count">0</span> (300 characters, or 10 lines limit)</span>  
-<span id="comments-display" style="display: {% if model.shopperNotes.giftMessage.length > 0 %}block{% else %}none{% endif %};">
-    <br>This is approximately how your message will appear on the notecard:
-    <p>    
+<span tabindex="0" id="comments-display" style="display: {% if model.shopperNotes.giftMessage.length > 0 %}block{% else %}none{% endif %};">
+   <div tabindex="0" >This is approximately how your message will appear on the notecard:</div>
+    <p tabindex="0">
         <span id="line0"></span><br>
         <span id="line1"></span><br>
         <span id="line2"></span><br>

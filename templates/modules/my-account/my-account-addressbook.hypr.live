@@ -1,4 +1,4 @@
-<h3 class="mz-l-stack-sectiontitle">{{ labels.addressBook }} {% if model.hasSavedContacts %}<a href="javascript:;" class="add-new" data-mz-action="beginAddContact">{{ labels.addNewContact }}</a>{%endif%}</h3>
+<h3 class="mz-l-stack-sectiontitle">{% if pageContext.isDesktop or pageContext.isTablet %}{{ labels.addressBook }}{% endif %} {% if model.hasSavedContacts %}<a href="javascript:;" class="add-new" data-mz-action="beginAddContact">{{ labels.addNewContact }}</a>{%endif%}</h3>
 
 {% if model.hasSavedContacts %}
     <ul class="mz-accountaddressbook-list">

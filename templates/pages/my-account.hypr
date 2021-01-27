@@ -10,11 +10,11 @@
 {% preload_json model "customer" %}
 
 <div class="mz-l-container">
-
-        <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
-        <a class="selected-menu-mobile mz-mobile"></a> 
-        <p class="mz-description">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
-        <div class="clearfix"></div>
+    <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
+    <span class="mz-description">Welcome to your account. You'll use your account to manage orders, access information and more.</span>
+     <a class="selected-menu-mobile mz-mobile"></a> 
+    
+    <div class="clearfix"></div>
 
     <div class="mz-l-sidebar mz-myaccount-nav">
         {% include "modules/my-account/my-account-nav" with navtarget="body" %}
@@ -61,6 +61,12 @@
                 {% include "modules/my-account/my-account-wishlist" with model=model.wishlist %}
             </div>
         {% endif %}
+        {% if pageContext.isDesktop or pageContext.isTablet %}
+            <h3 tabindex="0" class="subscriptionstitle" style="display:none;">MY SUBSCRIPTIONS</h3>
+        {% endif %}
+        <div class="mz-l-stack-section mz-accountsubscriptionlist" id="x-account-subscription" style="display:none;">
+        
+        </div>
         
         <div class="mz-l-stack-section mz-accountaddressbook" id="x-account-addressbook" role="tabpanel" arialabelledby="addressbook-panel" style="display:none;">
             {% include "modules/my-account/my-account-addressbook" %}
@@ -76,10 +82,24 @@
         
         <div class="mz-l-stack-section mz-accounthelp" id="x-account-help" role="tabpanel" arialabelledby="help-panel" {% if themeSettings.editingHelp%}style="display:block;"{%else%}style="display:none;"{%endif%}>
             {% include "pages/my-account-help" %}
-        </div>
+        </div> 
 
 		<div class="mz-l-stack-section mz-loyalty-program" id="x-account-loyalty-program" role="tabpanel" arialabelledby="sweetrewards-panel" style="display:none;">
             {% include "modules/my-account/my-account-loyalty-program" %}
+        </div>
+        <div class="popup inactive">
+            <div class="popup-body">
+                <span class="close-icon" role="button" data-mz-action="closePopup" aria-label="close popup"></span>
+                <div class="popup-content">
+                    <p class="message" tabindex="0" role="text" aria-lable="You have already started building a Subscription.Do you want to remove the subscription products and add this product to the cart?">
+                        <strong> You have already started building a Subscription.</strong><br> Do you want to remove the subscription products and add this product to the cart?
+                    </p>
+                    <div class="button-section">                    
+                        <button class="button button-no" >No</button>
+                        <button class="button button-yes" >Yes</button>
+                    </div>
+                </div> 
+            </div>
         </div>
 
     </div>
@@ -115,7 +135,9 @@
                     {{ labels.accountMyWishlist }}
                 </a>
             {% endif %}
-            
+                 <a class="mz-scrollnav-link-mobile" forID="account-subscription" href="#account-subscription">
+                    {{ labels.mysubscription }}
+                </a>
                 <a class="mz-scrollnav-link-mobile" forID="account-addressbook" href="#account-addressbook">
                     {{ labels.addressBook }}
                 </a>

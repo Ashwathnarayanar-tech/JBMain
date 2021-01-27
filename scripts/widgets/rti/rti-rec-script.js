@@ -109,7 +109,9 @@ $('.recommended-product-container').each(function(){
         "touchstart a.wishlist-button": "addToWishlist",
         "click .jb-add-to-cart-cur" : "generateclick",   
         "click .jb-add-to-cart" : "generateclick"
+
       },
+     
       generateclick: function(e){     
         generateClickEvent($(e.target).attr('data-mz-prcode'),$(e.target).attr('attr-widget'),$(e.target).attr('attr-slot'),window.BNData); 
       },   

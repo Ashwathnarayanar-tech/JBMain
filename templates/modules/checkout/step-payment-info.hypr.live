@@ -1,6 +1,6 @@
-<h3 class="mz-formstep-header">
+<h3 class="mz-formstep-header" >
     <span class="step-no"><label>{% if model.requiresFulfillmentInfo %}3. {% else %}2. {% endif %}</label></span>
-    <label>{{ labels.paymentInformation }}</label>
+    <label role="text" tabindex="0" class="no-pointer" aria-label="Step 3 {{ labels.paymentInformation }}">{{ labels.paymentInformation }}</label>
     <span class="step-completed"></span>
     {% if model.isExternalCheckoutFlowComplete %}
         <button type="button" id="paymentinfo-edit" class="mz-button mz-button-small mz-formstep-edit paymentType-edit" data-mz-action="cancelExternalCheckout">{{ labels.edit }}</button>
@@ -99,12 +99,11 @@
         {% if model.savedPaymentMethods %}
             <div class="mz-l-formfieldgroup-row saved-payment-methods">
                 <div class="mz-l-formfieldgroup-cell">
-                    <label>Saved Payment Methods</label>
+                    <label tabindex="0">Saved Payment Methods</label>
                 </div>
                 <div class="card-list">
                     {% for card in model.savedPaymentMethods %}
-                   
-                        <label class="card-item  {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} active {% endif %}">
+                        <label tabindex="0" class="card-item  {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} active {% endif %}">
                             <span class="input-Cointainer">
                                 <input name="savedPaymentMethods" value="{{ card.id }}" aria-label="{{ card.cardType }} {{ card.cardNumberPartOrMask }}" class="mz-payment-select-saved-payments" type="radio" data-mz-value="savedPaymentMethodId" {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} checked="checked" {% endif %}>
                                 <span class="customradio"></span>
@@ -130,9 +129,9 @@
         {% endif %}
             <div class="tital-sec-head">
             {% if model.savedPaymentMethods %}
-             <h4 class="mz-l-stack-sectiontitle">Alternate Payment Method</h4>
+             <h4 class="mz-l-stack-sectiontitle" tabindex="0">Alternate Payment Method</h4>
             {% else %}
-                <h4 class="mz-l-stack-sectiontitle">Payment Method</h4>
+                <h4 class="mz-l-stack-sectiontitle" tabindex="0">Payment Method</h4>
             {% endif %}
             </div>
             <div class="mz-l-formfieldgroup">
@@ -219,18 +218,17 @@
         </div>
         {% if model.paymentType == "CreditCard" and model.paymentType != "PayPalExpress2" and model.paymentType != 'select payment type' %}
         <div class="mz-l-stack-section">
-            <h4 class="mz-l-stack-sectiontitle">{{ labels.billingAddress }}</h4>
-            {% comment %} {% if model.requiresFulfillmentInfo %} {% endcomment %}
+            <h4 class="mz-l-stack-sectiontitle" tabindex="0">{{ labels.billingAddress }}</h4>
+            {% if model.requiresFulfillmentInfo %}
                 {% comment %}
                     <p tabindex="0" role="contentinfo">If your Billing Information is same as the Shipping Information, click the "Copy from Shipping" button</p>
                     aria-label="{% if model.isSameBillingShippingAddress %}Same as Shipping Address{% else %}copy from shipping{% endif %}" role="button"
                 {% endcomment %}
-                {% if model.requiresFulfillmentInfo%}
-                <div class="copy-address">
+                <div class="copy-address" tabindex="0" aria-labelledby="issameshipping">
                     <label>
-                        <input type="checkbox" data-mz-value="isSameBillingShippingAddress" value="true" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
+                        <input type="checkbox" tabindex="-1" id="issameshipping" data-mz-value="isSameBillingShippingAddress" value="true" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
                         {% if model.isSameBillingShippingAddress %}Same as Shipping Address{% else %}Copy from Shipping{% endif %}
-                        <span id="copyshipping"></span>
+                        <span id="copyshipping" ></span>
                     </label>
                 </div>
                 {% endif %}

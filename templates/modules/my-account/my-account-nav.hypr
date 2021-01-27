@@ -48,7 +48,11 @@
             </a>
         </li>
         {% endif %}
-        
+        <li class="mz-scrollnav-item">
+            <a class="mz-scrollnav-link" forID="account-subscription" id="subscription-panel" aria-controls="x-account-subscription" aria-selected="false" role="tab" href="#account-subscription" tabindex="0">
+                 {{ labels.mysubscription }}
+            </a>
+        </li>
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-addressbook" id="addressbook-panel" aria-controls="x-account-addressbook" aria-selected="false" role="tab" href="#account-addressbook" tabindex="0">
                 {{ labels.addressBook }}
