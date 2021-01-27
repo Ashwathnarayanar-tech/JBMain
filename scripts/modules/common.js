@@ -797,7 +797,9 @@ require([
         /////////////////////////// end Bronto code end
     
         $(document).on("blur", ".guest-email, #email", function(e) { 
-            window.brontoCart.emailAddress = $(this).val(); 
+            if(window.brontoCart && window.brontoCart.emailAddress) {
+                window.brontoCart.emailAddress = $(this).val(); 
+            }
             });
         
         $(document).on("click", ".brontocart-shipping-info, .brontocart-ship-method, .brontocart-billing, .brontocart-place-order", function(e) {

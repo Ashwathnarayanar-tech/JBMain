@@ -2033,20 +2033,28 @@ define([
         //mobile  
         var fixedsortBy = $('.mobileuxFilter').offset().top;
         $(window).on("scroll", function () {
-            if ($(window).scrollTop() > $(".brand-dicreption-top").offset().top+$(".brand-dicreption-top").height()) {
+            if ($(window).scrollTop() > $(".brand-dicreption-top").height()) {
                 $('.mobileuxFilter').addClass("active");
             } else {
                 $('.mobileuxFilter').removeClass("active");
             }
         });
         $(document).on('click','[jb-mobSort]',function (e) {
-            $(document.body).animate({scrollTop: $('.mobileuxFilter').offset().top-200}, '500');
-            $("body").append("<div class='open-sortoverlay'></div>");
-            $('html,body').addClass("sortoverlayhidden");
-            $('.mobileuxFilter').addClass("showsortbydropdown");
-            $('.mz-pagesort-mobile').slideDown('slow');
-            $('.jb-mobile-sort').focus();
-            loopmobilesort();
+            if($(".showsortpopup").hasClass("showsortpopup")) {
+                $('.open-sortoverlay').remove();
+                $('.mobileuxFilter').removeClass("showsortbydropdown");
+                $('.mz-pagesort-mobile').hide();
+                $(document).find('[jb-mobsort]').find('a').focus(); 
+                $('.mz-pagesort-mobile').removeClass('showsortpopup');
+            } else {
+                $(document.body).animate({scrollTop: $('.mobileuxFilter').offset().top-200}, '500');
+                $("body").append("<div class='open-sortoverlay'></div>");
+                $('.mobileuxFilter').addClass("showsortbydropdown");
+                $('.mz-pagesort-mobile').slideDown('slow');
+                $('.mz-pagesort-mobile').addClass('showsortpopup');
+                $('.jb-mobile-sort').focus();
+                loopmobilesort();
+            }
         });          
         // loop in mobile sort
         function loopmobilesort(){ 
@@ -2119,6 +2127,11 @@ define([
             });
             $(document).on('click','.tz-mobRefine', function(e) {
                 e.preventDefault(); 
+                $('.open-sortoverlay').remove();
+                $('.mobileuxFilter').removeClass("showsortbydropdown");
+                $('.mz-pagesort-mobile').hide();
+                $(document).find('[jb-mobsort]').find('a').focus(); 
+                $('.mz-pagesort-mobile').removeClass('showsortpopup');
                 $('#tz-refinePopup').slideDown('slow');
                 $('html').addClass('overlay');
                 $('#tz-mobilePopmenu').addClass('visible');

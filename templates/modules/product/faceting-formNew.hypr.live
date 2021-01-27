@@ -1,4 +1,8 @@
-<a href="javascript:void(0);" class="facets-header" aria-label="Filters" aria-expanded="false" role="button" tabindex="0"><div class="container-filter"><span class="filter-icon"></span> Filter By</div></a> 
+<a href="javascript:void(0);" class="facets-header" aria-label="Filters" aria-expanded="false" role="button" tabindex="0"><div class="container-filter">FILTER</div></a>
+<span class="mz-refine-search"><span class="reloadsymbole"></span><a class="mz-reset-filter" role="button" tabindex="0" aria-label="Reset Filter"
+data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" "clear" %}" data-mz-action="clearFacets">Reset</a></span>
+</span> 
+{% comment %}
 <div class="tz-mobileSelected-filter">
     <label role="contentinfo" tabindex="0" title="Selected Filters">Selected Filters: </label> 
     {% for facet in model.facets %}
@@ -35,14 +39,14 @@
         {% endif %}  
     {% endfor %} 
 </div>
-{% comment %}
+
 <hr>  
 {% endcomment %}
 <div data-mz-facets-mobile class="mz-l-sidebar">
     <section class="mz-facetingform-new">
         {% for facet in model.facets %}
             {% if facet.values and facet.facetType != "Hierarchy" and facet.values.length >0 %}
-                <div class="mz-l-sidebaritem-new" {% if facet.label == "Flavors" or facet.label == "Brand" %} style="display:none;" {% endif %}>
+                <div class="mz-l-sidebaritem-new selected" {% if facet.label == "Flavors" or facet.label == "Brand" %} style="display:none;" {% endif %}>
                     {% if forloop.first %}
                         <h4 tabindex="0" role="button" aria-label="{% if facet.label == "RatingForFacet" %}Rating{%else%}{{ facet.label }}{%endif%}" aria-expanded="false"  tabindex="0">{% if facet.label == "RatingForFacet" %}Rating{%else%}{{ facet.label }}{%endif%}<span class="mz-open-facet"></span></h4>
                         <ul class="mz-facetingform-facet mz-facetingform-facet-hierarchy rating-ul {% if facet.label == "Color" %} color {% endif %}" data-mz-action-"loadCustomScroll" >
@@ -198,6 +202,4 @@
 <span class="button-data"> 
 <span tabindex="0" role="button" aria-label="apply" class="tzPopup-Done"><span class="donetext">apply</span></span>
 {% comment %}<span tabindex="0" role="button" aria-label="cancel" class="cancel-btn-container"><span class="tzPopup-cancel">Cancel</span>{% endcomment %}
-<span class="mz-refine-search"><span class="reloadsymbole"></span><a class="mz-reset-filter" role="button" tabindex="0" aria-label="Reset Filter"
-        data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" "clear" %}" data-mz-action="clearFacets">Reset</a></span>
-        </span>
+

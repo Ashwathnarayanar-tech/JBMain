@@ -2419,9 +2419,7 @@
                     width: 100%;
                     text-align: left;
                     border-bottom: 1px solid rgba(221, 221, 221, 0.26);
-                    font-weight: bold;
-                    padding: 8px 0px;
-                    padding-left: 20px;
+                    padding: 8px 30px;
                     .jb-selection-tick{
                         width: 7px;
                         height: 14px;
@@ -2439,8 +2437,7 @@
                     }
                 }
                 li.selected{
-                    background-color: #e5f2f8;
-                    color: #004e99;
+                    font-weight: bold;
                 }
             }
         }
@@ -2500,28 +2497,44 @@
                 }
             }
         }
-    } 
-    body.sortoverlayhidden,html.sortoverlayhidden  {
-        overflow: hidden;
-        .open-sortoverlay {
-            width: 100%;
-            height: 100%;
-            background: red;
-            position: absolute;
-            z-index: 99999;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            right: 0;
-            opacity: 0.5;
+    }
+    .open-sortoverlay {
+        width: 100%;
+        height: 100%;
+        background: red;
+        position: fixed;
+        z-index: 997;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        right: 0;
+        opacity: 0.5;
+        background: rgba(0, 0, 0, 0.84);
+    }
+    .is-loading .jb-inner-overlay {
+        display: inline-block;
+        z-index: 9999999;
+    }
+    .mz-l-sidebaritem-new {
+        &.selected {
+            ul {
+                display: inline-block;
+            }
         }
     }
     .showsortbydropdown {
-        z-index: 99999999;
+        z-index: 998;
         position: relative;
+    }
+    .mobileuxFilter {
         &.active {
             position: fixed;
+            top: 110px;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 998;
         }
     }
 }
