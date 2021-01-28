@@ -1707,6 +1707,7 @@
         
        // var myObj = navigator();
         $(document).find('.mz-scrollnav-link.active').trigger('click');
+        $('.myaccount-close').focus();
         $(document).on('click','.mz-scrollnav-link, .mz-scrollnav-link-mobile', function(){
             tabNavigator($(this));
         });
@@ -1750,6 +1751,12 @@
         $(document).on('keypress','.selected-menu-mobile.mz-mobile', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {
                 $('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile.active').focus();
+                scrollNavLinksFocus();
+            }
+        });
+        $(document).on('keydown','.mz-scrollnav-link-mobile[forid="logout"]', function(e) {
+            if(e.which === 9 && e.key=="Tab") {
+                $('.myaccount-close').focus();
                 scrollNavLinksFocus();
             }
         });

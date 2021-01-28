@@ -35,9 +35,32 @@
                 $('#account-panels .mz-l-stack-section').hide();
                 $('#x-'+nav).show();
                 $('div.mobile-popupmenu-myaccount').slideUp();
+                trapFocus();
                 hideAllErrorMessages();
             });
-            
+            function trapFocus(){
+                $('.myaccount-close').focus();
+                    var trapFocusInputs = $(document).find('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile,.myaccount-close').filter(':visible');   
+                    var trapFocusFirstinput = trapFocusInputs.first();
+                    var trapFocusLastinput = trapFocusInputs.last(); 
+                    
+                     // if current element is last, get focus to first element on tab press.
+                    trapFocusLastinput.on('keydown', function (e) {
+                       if ((e.which === 9 && !e.shiftKey)) {
+                           e.preventDefault();
+                           trapFocusFirstinput.focus(); 
+                       }
+                    });
+                    
+                    // if current element is first, get focus to last element on tab+shift press.
+                    trapFocusFirstinput.on('keydown', function (e) {
+                        if ((e.which === 9 && e.shiftKey)) {
+                            e.preventDefault();
+                            trapFocusLastinput.focus();  
+                        }
+                    });      
+              
+            }
             if(window.location.hash.length > 0){
                 $('#x-'+window.location.hash.substring(1,window.location.hash.length)).show();
                 $('[forID="'+window.location.hash.substring(1,window.location.hash.length)+'"]').addClass('active');
