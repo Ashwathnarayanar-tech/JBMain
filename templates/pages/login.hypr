@@ -14,14 +14,14 @@
     <div> 
     {% if user.isAuthenticated %}
     		<div class="login-already-signed">
-    			<h1>You're already signed in.</h1> 
+    			<h1 tabindex="0">You're already signed in.</h1> 
     			<h4>You may <a href="/shop">continue shopping</a> or <a href="/myaccount">access your account.</a></h4>
     		</div>
     {% else %}
         <div class="mz-l-column login-signup-section">
-            <h1 class="mz-pagetitle">{{ labels.logIn2 }}</h1>
+            <h1 class="mz-pagetitle" tabindex="0">{{ labels.logIn2 }}</h1>
             <div class="login-innercontent">
-                <h4>Welcome Back!</h4>
+                <h4 tabindex="0">Welcome Back!</h4>
                 <ul>
                     <li tabindex='0' role="contentinfo">Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
                      <li tabindex='0' role="contentinfo">Save Addresses and Credit Cards</li> 
@@ -58,7 +58,7 @@
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <label class="checkbox-outer-label">
-                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> I Agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> I Agree to the policies outlined in the <br/><a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
                         <span class="checkmark-style"></span></label>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -72,7 +72,7 @@
                     </div>
                    
                     <div class="mz-l-formfieldgroup-row signup-links">
-                        <div class="mz-l-formfieldgroup-cell"><span>Don't Have an Account?</span></div>
+                        <div class="mz-l-formfieldgroup-cell" tabindex="0"><span>Don't Have an Account?</span></div>
                         <div class="mz-l-formfieldgroup-cell">
                             <a href="/user/signup" class="signmodel"  >{{ labels.signUpLink }}</a> 
                         </div>

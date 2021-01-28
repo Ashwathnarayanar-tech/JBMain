@@ -17,7 +17,7 @@
     		</div>
     	{% else %}
             <div class="login-signup-section">
-        		<h1 class="mz-pagetitle">{{ labels.signUp }}</h1>
+        		<h1 class="mz-pagetitle" tabindex="0">{{ labels.signUp }}</h1>
                 <div class="login-innercontent">
         		<ul>
                     <li tabindex='0' role="contentinfo" >Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
@@ -32,7 +32,7 @@
                         <div class="mz-l-formfieldgroup">
 													<div class="mz-l-formfieldgroup-row">
 															<div class="mz-l-formfieldgroup-cell">
-																<p>* indicates a required field</p>
+																<p tabindex="0">* indicates a required field</p>
 															</div>
 													</div>
 						
