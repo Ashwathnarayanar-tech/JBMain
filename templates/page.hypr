@@ -4818,7 +4818,7 @@
    <div class="maximumProduct"  role="alert">
     <div class="maximum-inner-content" tabindex="0">
     <div class="maximum-message" tabindex="0">Maximum quantity that can be purchased is 25</div>
-    <span class="close-icon" tabindex="0" role="text" aria-label="Close icon"></span>
+    <span class="close-icon" tabindex="0" role="button" aria-label="Close icon"></span>
     <div>
   </div>
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" and pagecontext.isMobile %}
