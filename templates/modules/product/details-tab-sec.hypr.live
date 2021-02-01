@@ -204,9 +204,9 @@
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
                                 <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                                    Shop Gift Card
+                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn  gift-prize-select" 
+                                 data-mz-action="addToCart" >
+                                    Add to Cart
                                 </button>
                             {% else %}
                                 <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
@@ -414,9 +414,9 @@
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
                                 <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                                class="silpa mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                                    SHOP GIFT CARD
+                                class="silpa mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn gift-prize-select" 
+                                 data-mz-action="addToCart" >
+                                     Add to Cart
                                 </button>
                             {% else %}
                                 <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
