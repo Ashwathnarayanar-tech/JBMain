@@ -1048,8 +1048,22 @@ body #cdawrap:hover #cda-remove {
     stroke-dashoffset: 0;
   }
 }
+// Required fields global change
+.mz-l-formfieldgroup-row{
+    .checkbox-outer-label{
+        .text{
+            font-weight: bold;
+            span{
+                font-weight: 400;
+            }
+            a{
+                color:#004e99;
+            }
+        }
+    }
+}
 // Checkout Input field
-.mz-checkout,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation,.order-status-section{ 
+.mz-checkout,.atw-dialog,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation,.order-status-section{ 
     .mz-l-formfieldgroup-cell{ 
         position: relative; 
         label, input {
@@ -1068,6 +1082,7 @@ body #cdawrap:hover #cda-remove {
             font-size: 14px !important;
             &:focus{
                 border-color:#004e99 !important;
+                background-color: #fff !important;
             }
         }
      select{
@@ -1122,7 +1137,7 @@ body #cdawrap:hover #cda-remove {
             position: absolute;
             font-size: 14px !important;
             left: 10px;
-            top: -13px;
+            top: -10px;
             background: #fff !important;
             padding: 0 6px;
             width: auto!important;
@@ -1135,7 +1150,7 @@ body #cdawrap:hover #cda-remove {
                 position: absolute;
                 left: 11px;
                 font-size: 14px !important;
-                top: -13px;
+                top: -10px;
                 background: #fff;
                 padding: 0 6px;
                 width: auto!important;

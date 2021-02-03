@@ -106,7 +106,7 @@
                         <button id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
                         class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn  gift-prize-select" 
                          data-mz-action="addToCart" >
-                            Add to Cart
+                           Shop Gift Card
                         </button>
                     {% else %}
                         <span role="contentinfo" tabindex="0" style="display:block; color:#fff">Out of Stock</span>

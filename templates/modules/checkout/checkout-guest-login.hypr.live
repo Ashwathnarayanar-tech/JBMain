@@ -81,7 +81,7 @@
                     <div class="mz-l-formfieldgroup-cell">
                         <div class="mz-l-formfieldgroup-row">
                             <label class="checkbox-outer-label">   
-                            <input id="guestregester-cpp-checkbox" type="checkbox" aria-label="By clicking {{ labels.register }}, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span class="text">By clicking {{ labels.register }}, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                            <input id="guestregester-cpp-checkbox" type="checkbox" aria-label="By clicking {{ labels.register }}, I agree to the policies outlined in the Terms of Use and Privacy Policy. Required"> <span class="text">By clicking {{ labels.register }}, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
                             <span class="checkmark-style"></span></label> 
                         </div>  
                         <button disabled="disabled" class="mz-button mz-signup-register active-button" id="signup-submit">{{ labels.register }}</button>
