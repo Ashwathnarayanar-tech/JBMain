@@ -223,6 +223,9 @@
                                                                         float: right;
                                                                         margin-top: 0px;
                                                                         margin-right: 7px;
+                                                                        @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                            right: 5px;
+                                                                        }
                                                                     }
                                                                 }  
                                                                 &[aria-expanded="true"]{
@@ -2223,7 +2226,7 @@
                                 }
                             }
                             .brand-buttons{
-                                margin: 0;
+                                margin: 0 !important;
                                 .button-dark{
                                     display: block;
                                     width: 65%;

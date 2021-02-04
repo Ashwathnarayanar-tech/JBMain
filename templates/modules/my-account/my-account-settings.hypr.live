@@ -22,11 +22,14 @@
                 </li>
                 {% if editing %}
                 <li>
-                    <div class="mz-accountsettings-section mz-accountsettings-email-edit">
-                          <p class="mz-accountsettings-label mz-account-settings-label-email">*{{ labels.emailAddress }}</p>
+                    <div class="mz-accountsettings-section mz-accountsettings-email-edit ">
+                          
                           {% if editing %}
+                          <div class="mz-l-formfieldgroup-cell">
                               <input class="mz-accountsettings-email" type="email" placeholder="{{ labels.emailAddress }}" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
+                              <label class="mz-accountsettings-label mz-account-settings-label-email">{{ labels.emailAddress }}<span class="is-required" aria-label="mandatory field">*</span></label>
                               <span class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
+                         </div>
                           {% else %}
                               <div class="mz-accountsettings-displayemail">{{ model.emailAddress|default(model.userName) }}</div>
                           {% endif %}
@@ -35,12 +38,16 @@
                 </li> 
                 <li>
                     <div class="edit-user-settings">
-                            <p><label for="accountSettingsFirstName"><span aria-label="mandatory field">*</span>First Name</label></p>
-                            <input class="mz-accountsettings-firstname" type="text" placeholder="{{ labels.firstName }}" data-mz-value="firstName" value="{{ model.firstName }}" required id="accountSettingsFirstName"/>    
-                            <span class="mz-validationmessage" data-mz-validationmessage-for="firstName"></span>
-                            <p><label for="accountSettingsLastName"><span aria-label="mandatory field">*</span>Last Name</label></p>
+                            <div class="mz-l-formfieldgroup-cell">
+                                <input class="mz-accountsettings-firstname" type="text" placeholder="{{ labels.firstName }}" data-mz-value="firstName" value="{{ model.firstName }}" required id="accountSettingsFirstName"/>    
+                                <label for="accountSettingsFirstName">First Name <span class="is-required" aria-label="mandatory field">*</span></label></p>
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="firstName"></span>
+                            </div>
+                             <div class="mz-l-formfieldgroup-cell">
                             <input class="mz-accountsettings-lastname" type="text" placeholder="{{ labels.lastName }}" data-mz-value="lastName" value="{{ model.lastName }}" required id="accountSettingsLastName"/>
+                             <label for="accountSettingsLastName">Last Name <span class="is-required" aria-label="mandatory field">*</span></label>
                             <span class="mz-validationmessage" data-mz-validationmessage-for="lastName"></span>
+                            </div>
                             <p class="required-label">*Required field</p>
 
                             <button class="mz-button mz-button-small mz-accountsettings-namedone" data-mz-action="finishEdit">{{ labels.save }}</button>
