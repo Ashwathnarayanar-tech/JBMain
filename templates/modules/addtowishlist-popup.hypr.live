@@ -11,25 +11,27 @@
                         <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
+                                   
                                 </div>  
                                 <div class="mz-l-formfieldgroup-cell">
                                     <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
+                                     <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
                                     <span class="error-user" id="useremailerror"></span> 
                                 </div> 
                             </div>
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }}:</label>   
+                                      
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">
                                     <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                     <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }}:</label>
                                     <span class="loginError" id="loginerror"></span> 
                                 </div>
                             </div>
                     <div class="mz-l-formfieldgroup-row">
                         <label class="checkbox-outer-label" tabindex="0">
-                        <input id="wishlist-cpp-checkbox" tabindex="-1" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                        <input id="wishlist-cpp-checkbox" tabindex="-1" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"><span class="text"> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> <span>(Required)</span></span>
                          <span class="checkmark-style" ></span>  
                         </label>
                     </div> 

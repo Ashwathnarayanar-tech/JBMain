@@ -104,9 +104,9 @@
                 {% else %}
                     {% if model.options and model.options.length > 0 %}
                         <button id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                        {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                            Shop Gift Card
+                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn  gift-prize-select" 
+                         data-mz-action="addToCart" >
+                           Shop Gift Card
                         </button>
                     {% else %}
                         <span role="contentinfo" tabindex="0" style="display:block; color:#fff">Out of Stock</span>

@@ -30,8 +30,8 @@
                             <div class="mz-l-formfieldgroup-cell noposition">
                                 <div class="mz-l-formfieldgroup-row margin-btm">
                                     <label class="checkbox-outer-label" tabindex="0">   
-                                    <input tabindex="0" id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span class="text">By clicking Login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy*.</span></a> 
-                                    <span class="checkmark-style" tabindex="0" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."></span></label> 
+                                    <input tabindex="0" id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy.Required"> <span class="text">By clicking Login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
+                                    <span class="checkmark-style" tabindex="0" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"></span></label> 
                                 </div>
                                 <input type="submit" role="button" disabled="disabled" tabindex="0" class="checkout-login-btn mz-button mz-button-large cpp-loginpopup active-button brontocart-login-email {% block addbutton-class %}{% endblock %}" id="addbutton" value="Log In">
                             </div>   
@@ -73,8 +73,8 @@
                                 </div>
                                 <div class="mz-l-formfieldgroup-row margin-btm">
                                     <label class="checkbox-outer-label">  
-                                        <input id="guestmail-cpp-checkbox" tabindex="0" type="checkbox" aria-label="By clicking Continue as Guest, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Continue as Guest, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy*.</span></a> 
-                                        <span class="checkmark-style" tabindex="0" aria-label="By clicking Continue as Guest, I agree to the policies outlined in the Terms of Use and Privacy Policy."></span>
+                                        <input id="guestmail-cpp-checkbox" tabindex="0" type="checkbox" aria-label="By clicking Continue as Guest, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"> <span class="text">By clicking Continue as Guest, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
+                                        <span class="checkmark-style" tabindex="0" aria-label="By clicking Continue as Guest, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"></span>
                                     </label> 
                                 </div>
                                 <input role="button" tabindex="0" class="mz-button mz-button-large active-button brontocart-guest-email cpp-guest" id="guest_addbutton" disabled="disabled"  type="submit" value="Continue as Guest">
@@ -152,14 +152,14 @@ display: block;
                                     <div class="mz-l-formfieldgroup-cell">
                                         <label class="mz-inline checkbox-outer-label" style="color:#707070"> 
                                             <input type="checkbox" id="accept" name="special-offers" {% if model.acceptsMarketing %}checked="checked" {% endif %}data-mz-value="acceptsMarketing" class="mz-checkout-optin" /> {{ labels.optIn|string_format(siteContext.generalSettings.websiteName) }}
-                                            <span class="checkmark-style"></span>
+                                            <span class="checkmark-style" aria-label="{{ labels.optIn|string_format(siteContext.generalSettings.websiteName) }}"></span>
                                         </label>
 
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
                                     <label class="checkbox-outer-label">  
-                                    <input id="guestmail-cpp-checkbox" type="checkbox" aria-label="By clicking continue as guest, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking continue as guest, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                    <input id="guestmail-cpp-checkbox" type="checkbox" aria-label="By clicking continue as guest, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"> <span class="text">By clicking continue as guest, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span</span> 
                                     <span class="checkmark-style"></span></label> 
                                 </div>
                                 <input role="button" aria-label="continue as guest button" tabindex="0" class="mz-button mz-button-large active-button brontocart-guest-email cpp-guest" id="guest_addbutton" disabled="disabled"  type="submit" value="continue as guest">
@@ -200,7 +200,7 @@ display: block;
                                 <label style="color: #707070" class="required_fields">*Required</label>
                                 <div class="mz-l-formfieldgroup-row">
                                     <label class="checkbox-outer-label">  
-                                    <input id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                    <input id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"> <span class="text">By clicking login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
                                     <span class="checkmark-style"></span></label> 
                                 </div>
                                 <!-- <a href="#" class="mz-button mz-button-large" id="addbutton" data-mz-action="loginCheckout" disabled>{{ labels.next }}</a>--> 

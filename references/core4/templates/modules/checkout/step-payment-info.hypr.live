@@ -151,13 +151,13 @@
             <div class="mz-l-formfieldgroup">
                 <div class="mz-l-formfieldgroup-row">
                     <div class="mz-l-formfieldgroup-cell">
-                        <label for="billing-email">
-                            {{ labels.email }}<span class="is-required"> *</span>:
-                        </label>
                     </div>
                     <div class="mz-l-formfieldgroup-cell">
                         <input type="text" id="billing-email" name="billing-email" data-mz-value="billingContact.email" value="{{ model.billingContact.email }}">
-                            <span class="mz-validationmessage" data-mz-validationmessage-for="billingContact.email"></span>
+                         <label for="billing-email">
+                            {{ labels.email }}<span class="is-required"> *</span>:
+                        </label>
+                        <span class="mz-validationmessage" data-mz-validationmessage-for="billingContact.email"></span>
                         </div>
                 </div>
                 <div class="mz-l-formfieldgroup-row">

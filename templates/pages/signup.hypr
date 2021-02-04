@@ -32,7 +32,7 @@
                         <div class="mz-l-formfieldgroup">
 													<div class="mz-l-formfieldgroup-row">
 															<div class="mz-l-formfieldgroup-cell">
-																<p tabindex="0">* indicates a required field</p>
+																<p tabindex="0">* Indicates a required field</p>
 															</div>
 													</div>
 						
@@ -96,7 +96,7 @@
                             {% endcomment %}
                             <div class="mz-l-formfieldgroup-row">
                                 <label class="checkbox-outer-label"> 
-                                <input id="signup-cpp-checkbox" type="checkbox" aria-label="By clicking Register, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Register, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                <input id="signup-cpp-checkbox" type="checkbox" aria-label="By clicking Register, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"> <span class="text">By clicking Register, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>(Required)</span> </span>
                                 <span class="checkmark-style"></span></label> 
                             </div>
                             <div class="mz-l-formfieldgroup-row">

@@ -114,8 +114,14 @@
                                             axis: 'y'
                                         });
                                         
-                                        if(require.mozuData('pagecontext').pageType === 'product')
+                                        if(require.mozuData('pagecontext').pageType === 'product'){
                                             self.$el.find('p').focus();
+                                            if(this.model.models[0].get('message').indexOf('variationProductCode')){
+                                                $(document).find('.myacc-add-form-sel').css('border-color','#762f2d ');
+                                            }else{
+                                                $(document).find('.myacc-add-form-sel').removeAttr('style');
+                                            }
+                                        }
                                         else if(self.$el.find('.mz-errors').find('p').length === 1)
                                             self.$el.find('.mz-errors').find('p').focus();
                                         else

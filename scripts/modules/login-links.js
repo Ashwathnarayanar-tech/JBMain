@@ -238,7 +238,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         displayMessage: function (msg) {
             this.setLoading(false);
             if(msg === "Missing or invalid parameter: password Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character"){
-                msg = "Error: Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character";
+                msg = "Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character";
             }
             if(msg == "Error:Missing or invalid parameter: EmailAddress EmailAddress already associated with a login"){ 
                 this.$parent.find('[data-mz-role="popover-message"]').html('<span tabindex="0" class="mz-validationmessage" aria-label="Error: Thanks for trying to register, but there is already an account with that email address. Please visit the Forgot Password page to update your password or Contact Us for additional assistance." style="display: inline;">Thanks for trying to register, but there is already an account with that email address. Please visit the <a href="/user/forgotpassword" title="forgot password">Forgot Password</a> page to update your password or <a href="/contact-us" title="contact us">Contact Us</a> for additional assistance.</span>');  

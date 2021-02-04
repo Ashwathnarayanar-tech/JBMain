@@ -99,7 +99,7 @@
                         }
                     }
                     .checkbox-outer-label{
-                        width: 83%;
+                        width: 87%;
                         .checkmark-style{
                             top: 5px;
                         }
@@ -186,6 +186,16 @@
             .checkbox-outer-label{
                 text-align: left; 
                 padding-bottom: 15px;
+                span.text{
+                   // max-width:calc(~"100% - 119px");
+                   // max-width: 281px;
+                    overflow-wrap: break-word; 
+                    display:block;
+                    span{
+                        padding-left: 3px;
+                    }
+                }
+
                 a{
                     color:#004e99;
                 }
@@ -994,10 +1004,16 @@ input:-ms-input-placeholder {
                 display: block;
             }
         }
-        .login-signup-section{  
+        .login-signup-section{
             width: 90%;
             margin: 0 auto;
-            
+            .signup-form{
+                .checkbox-outer-label{
+                    span.text{
+                        max-width: 281px;
+                    }
+                }
+            }
             .mz-loginform, .signup-form, .forgot-pwd-form {
                 max-width: 100%;
                 margin: 15px auto;
