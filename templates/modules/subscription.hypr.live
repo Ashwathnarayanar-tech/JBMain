@@ -56,7 +56,25 @@
     </div>
 {% endif %}
 <div class="subscription-content ">
-	{% if model.headBar %}
+	{% if model.headBar  &&  model.isMobile %}
+		<div class="top-bar" tabindex="0"> 
+			<ul class="bar-list">
+				<li class="bar-item" >
+					<img class="list-image" alt="number one" src="../../resources/images/number-1.svg" />
+					<span class="list-content" tabindex="0" >Find products and check the boxes to add your products</span>
+				</li>
+				<li class="bar-item">
+					<img class="list-image" alt="number one" src="../../resources/images/number-3.svg" />
+					<span class="list-content" tabindex="0" >Scroll down to review your Subscription List and Pick your cadence (how often)</span>
+				</li>
+				<li class="bar-item">
+					<img class="list-image" alt="number one" src="../../resources/images/number-2.svg" />
+					<span class="list-content" tabindex="0" >Create your Subscription and get your candy!</span>
+				</li>
+			</ul>
+			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
+		</div>
+	{% else %}
 		<div class="top-bar" tabindex="0"> 
 			<ul class="bar-list">
 				<li class="bar-item" >
@@ -73,7 +91,7 @@
 				</li>
 			</ul>
 			<span class="close-icon" tabindex="0"  data-mz-action="removeBar" aria-label="close popup" ></span>
-		</div> 
+		</div>
 	{% endif %}
 	<div class="header">
 		<h2 class="page-tital" tabindex="0">Subscription Setup Page</h2>

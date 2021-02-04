@@ -15,6 +15,7 @@ define([
         templateName: "modules/subscription",
         additionalEvents: {
             "keyup .searchBoxSub" : "search",
+            "click .search-icon":"search",
             "click .search-box-cointainer":"enableSearch",
             "click .side-bar-item" : "changeCatList",
             "click .accordian-headitem" : "changeCategory",
@@ -760,7 +761,8 @@ define([
         search : _.debounce(function (e){
             itemClick = "search";
             var self = this;
-            var query = $(e.target).val();
+            //var query = $(e.target).val();
+            var query = $(".searchBoxSub").val();
             var addedproductIds = [], qtyArray = [];
             var itemsinsublist = this.model.get('SubScriptionItemsList');
             itemsinsublist.filter(function(v,i){
@@ -768,37 +770,45 @@ define([
                 qtyArray.push(v.selectedData.Qty);
             });
             this.model.set('searchQuery', query);
-            if(e && e.which === 13){
+            console.log(" query --- ",query,$(".searchBoxSub").val());
+            console.log(" e && e.which --",e && e.which);
+            if(e && e.which === 13 || e && e.which ===1){
                 var body = {
                     "funName" : "search",
                     "query" : query
                 };
                 api.request('post', "svc/subscriptionpage", body).then(function(result){
                     var mySearch = [];
-                   // console.log("result", result);
-                    result.filter(function(v,i){
+                    console.log("result", result);
+                    if(result){
+                        result.filter(function(v,i){
                         var heatObj = {};
-                        v.suggestion.properties.filter(function(a,b){
-                            if(a.attributeFQN == "tenant~IsHeatSensitive"){
-                                heatObj = a;
-                            }
-                        });
-                        var temp = {
-                            "name" : v.suggestion.content.productName,
-                            "productCode" : v.suggestion.productCode,
-                            "image" : v.suggestion.content.productImages[0],
-                            "price" : v.suggestion.price,
-                            "purchasableState" : v.suggestion.purchasableState,
-                            "inventoryInfo" : v.suggestion.inventoryInfo,
-                            "IsHeatSensitive" : heatObj,
-                            "isSelected" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? true : false,
-                            "total" : (addedproductIds.indexOf(v.suggestion.productCode) > -1) ? v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.salePrice : qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.price : v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? 1*v.suggestion.price.salePrice : 1*v.suggestion.price.price,
-                            "selectedData" : {
-                                "Qty" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)] : 1
-                            }
-                        };
-                        mySearch.push(temp);
+                        if(v.suggestion && v.suggestion.properties){
+                             v.suggestion.properties.filter(function(a,b){
+                                if(a.attributeFQN == "tenant~IsHeatSensitive"){
+                                    heatObj = a;
+                                }
+                            });
+                        }
+                       if(v.suggestion.price){
+                            var temp = {
+                                "name" : v.suggestion.content.productName,
+                                "productCode" : v.suggestion.productCode,
+                                "image" : v.suggestion.content.productImages[0],
+                                "price" : v.suggestion.price,
+                                "purchasableState" : v.suggestion.purchasableState,
+                                "inventoryInfo" : v.suggestion.inventoryInfo,
+                                "IsHeatSensitive" : heatObj,
+                                "isSelected" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? true : false,
+                                "total" : (addedproductIds.indexOf(v.suggestion.productCode) > -1) ? v.suggestion.price && v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.salePrice : qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.price : v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? 1*v.suggestion.price.salePrice : 1*v.suggestion.price.price,
+                                "selectedData" : {
+                                    "Qty" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)] : 1
+                                }
+                            };
+                            mySearch.push(temp);
+                        }
                     });
+                }
                     self.model.set('isSearchenabled', true);
                     self.model.set('searchResult', mySearch); 
                     self.render();  
