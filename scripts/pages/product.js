@@ -701,7 +701,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage') ? product.get('mainImage').imageUrl + '?max=150': "/cms/files/missing.gif?max=150",
+                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"/cms/files/missing.gif?max=150",
                     qty = product.get('quantity');
 
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);

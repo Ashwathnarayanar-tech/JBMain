@@ -137,7 +137,7 @@
             <!-- Img tag has been moved to product.js file for conditional rendering -->
         </div>
         <div id="free-shipping-tip">
-            <div class="free-shipping-text" tabinddx="0" role="contentinfo" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
+            <div class="free-shipping-text" tabindex="0" role="contentinfo" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
                 <b>
                     <span class="free-text">
                     </span>
