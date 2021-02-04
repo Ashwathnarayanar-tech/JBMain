@@ -1287,7 +1287,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 html: "<div style='padding: 20px;'><strong>For arrival on or before Christmas - 12/25/2015</strong><br /><ul><li>UPS SurePost - Place order by 12 PM PT on 12/14/2015</li><br /><li>UPS Ground - Place order by 12 PM PT on 12/15/2015</li><br /><li>UPS Three-Day Select - Place order by 12 PM PT on 12/18/2015</li><br /><li>UPS Second Day Air - Place order by 12 PM PT on 12/21/2015</li><br /><li>UPS Next Day Air Saver - Place order by 12 PM PT on 12/22/2015</li></ul></div>",
                 overlayClose: true,
                 onComplete: function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background: "#ffffff"

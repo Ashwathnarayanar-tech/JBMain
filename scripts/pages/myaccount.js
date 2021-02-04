@@ -268,7 +268,7 @@
                 html :"<div id='notify-me-dialog' tabindex='0' style='padding: 30px 15px;' role='dialog' aria-labelledby='Noiify me sign up dialog'><form><span>Enter your email address to be notified when this item is back in stock.</span><br><input class='notify-me-field' aria-describedBy='' aria-invalid='false' tabindex='0' style='margin-top: 10px;' id='notify-me-email' type='text' aria-label='Enter email address text field' value='"+require.mozuData('user').email+"'><a tabindex='0' href='javascript:void(0);' style='background: #39A857;text-decoration: none; color: #ffffff; padding: 3px; margin-left: 5px; cursor: pointer;' role='button' aria-label='notify me' id='notify-me-button' data-mz-location-code = '"+location+"' data-mz-product-code='" +code+ "'>Notify Me</a></form><span class='notify-error' id='notify-error' style='font-size:13px;color:red;display:none;'>Error: Please enter valid mail address.</span></div>", //"/resources/intl/geolocate.html",
                 overlayClose : true,
                 onComplete : function () {
-                    $('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
+                    $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                     $('#cboxClose').show();
                     $('#cboxLoadedContent').css({
                        background : "#ffffff" 

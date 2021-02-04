@@ -13,7 +13,7 @@
 
 <div class="notify-me-modal">
 	<div class="notify-me-body" tabindex="-1" role="dialog" aria-modal="true" aria-label="Notify me Modal">
-		<span class="close" tabindex="0" role="button"><img src="../../resources/images/icons/close-search.png" alt="close"/></span>
+		<span class="close" tabindex="0" role="button"><img src="../../resources/images/closemarkglobal.svg" alt="close"/></span>
 		<h1 class="screen-reader-only-text">
 			Notify Me
 		</h1>
