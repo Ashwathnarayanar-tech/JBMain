@@ -11,8 +11,9 @@
   <p tabindex="0" role="contentinfo" id="notify-success">{{ labels.notifyWidgetSuccess }}</p>
   {% else %}
   <div class="notify-header"><label for="mz-instock-request-email">{{ labels.notifyWidgetHeader }}</label></div>
-  <div>
+  <div class="mz-l-formfieldgroup-cell">
     <input type="text" placeholder="Enter your Email Address" data-mz-role="email" value="{{ user.email }}" class="mz-instock-request-email" id="mz-instock-request-email" onkeypress="this.value=removeSpaces(this.value)" onblur="this.value=removeSpaces(this.value)"/>
+   <label for="mz-instock-request-email">Enter your Email Address </label>
     <button data-mz-action="widgetNotifyUserAction" id="button" class="notify-me-pdp">{{ labels.notifyWidgetButton }}</button>
     <span class="mz-validationmessage" tabindex="-1" data-mz-validationmessage-for="email"></span>
   </div>

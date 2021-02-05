@@ -1063,7 +1063,7 @@ body #cdawrap:hover #cda-remove {
     }
 }
 // Checkout Input field
-.mz-checkout,.atw-dialog,.notify-me-modal,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation,.order-status-section{ 
+.mz-checkout,.mz-instock-request,.atw-dialog,.notify-me-modal,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation,.order-status-section{ 
     .mz-l-formfieldgroup-cell{ 
         position: relative; 
         label, input {
@@ -1075,11 +1075,15 @@ body #cdawrap:hover #cda-remove {
             text-align: left;
            .is-required{
             color:#004e99 !important;
+            vertical-align: middle;
            }
         }
         input{
             color: #000 !important;
             font-size: 14px !important;
+            border-radius: 2px !important;
+            border: solid 1px #dddddd !important;
+            background-color: #ffffff !important;
             &:focus{
                 border-color:#004e99 !important;
                 background-color: #fff !important;
@@ -1137,7 +1141,7 @@ body #cdawrap:hover #cda-remove {
             position: absolute;
             font-size: 14px !important;
             left: 10px;
-            top: -9px;
+            top: -12px;
             background: #fff !important;
             padding: 0 3px 0 0 !important;
             width: auto!important;
