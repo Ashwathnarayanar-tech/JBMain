@@ -18,11 +18,12 @@
   }
 </style>
 
-<div class="mz-productlisting" data-mz-product="{{ model.productCode }}">    
+{% with model.properties|findwhere('attributeFQN','tenant~gift-picture') as data %}
+  {% set_var licensedStatus=data %} 
+{% endwith %}
+{% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
+<div class="mz-productlisting {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}{% if licensedStatus === 'LICENSED_REDUCED' %}withsale-new-label{% else %}withsale-new-label{% endif %}{% else %}{% if prodState %}{% for state in prodState.values %}{% if state.value == 'COMINGSOON' or state.value == 'NEW' %}withsale-new-label{% endif %}{% endfor %}{% endif %}{% endif %}" data-mz-product="{{ model.productCode }}">    
   <!-- Sets the variable to determine whether or not a product is licensed -->
-  {% with model.properties|findwhere('attributeFQN','tenant~gift-picture') as data %}
-    {% set_var licensedStatus=data %} 
-  {% endwith %}
   {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
     {% if licensedStatus === "LICENSED_REDUCED" %}
       <p class="product-sale-new-label mz-reduced">Reduced</p>
@@ -30,15 +31,13 @@
       <p class="product-sale-new-label" attr-value="">Sale</p>
     {% endif %} 
   {% else %} 
-    {% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
-      {% if prodState %}
-        {% for state in prodState.values %}
-          {% if state.value == "COMINGSOON" or state.value == "NEW" %}
-            <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+    {% if prodState %}
+      {% for state in prodState.values %}
+        {% if state.value == "COMINGSOON" or state.value == "NEW" %}
+          <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   {% endif %}    
   <div class="mz-productlisting-image">
     <!-- The code below lazy-loads images that do not appear above the fold for each device type   -->
@@ -114,48 +113,9 @@
       <p class="jb-product-description multiline">{{ model.content.productShortDescription|safe }}  </p> 
       <a class="mz-quick-see-more" href="{{model.url}}">See more...</a>
     </div>
-    <div class="clear"></div>         
-    <div class="jb-quickviewdetails">
-      <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
-        {% if model.options and model.options.length > 0 %}
-          {% for option in model.options %}
-            {% if option.attributeDetail.inputType == "List" %}
-              <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices" {% if option.isMultiValue %}multiple{% endif %} class="" data-mz-product-option="{{ option.attributeFQN }}">
-                {% if not option.isMultiValue %}
-                  <option>Select Gift Card Amount</option>
-                {% endif %}
-                {% for value in option.values %}
-                  <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %} value="{{value.value}}">
-                    $ {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}
-                  </option>
-                {% endfor %}
-              </select>
-              <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;" width="13">
-              <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none;" width="13">
-            {% endif %}  
-          {% endfor %}
-        {% else %}
-        {% if model.price.price%}
-          
-          <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
-        {%endif%}
-          {% if model.price.salePrice and model.price.price > model.price.salePrice %}
-            {% if licensedStatus === "LICENSED_REDUCED" %}
-              <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
-            {% else %}
-              <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
-              <span class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
-            {% endif %}
-          {% endif %}
-        {% endif %}
-      </div>
-      <div class="qty">
-        <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
+    <div class="clear"></div> 
 
-        <span tabindex="0" aria-label="Increase quantity of {{model.content.productName|safe}} by one" class="increment spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
-        <span tabindex="0" aria-label="Decrease quantity of {{model.content.productName|safe}} by one" class="dicrement spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
-        <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
-      </div>
+    <div class="jb-quickviewdetails">
       <div class="jb-sli_reviews">
         <style>
           img[src*='star-'] { width: 15px; height: 15px; display: inline-block; vertical-align: top; margin-right: 1px; }
@@ -265,6 +225,48 @@
           </p>
         </span>
       </div>
+      <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
+        {% if model.options and model.options.length > 0 %}
+          {% for option in model.options %}
+            {% if option.attributeDetail.inputType == "List" %}
+              <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices" {% if option.isMultiValue %}multiple{% endif %} class="" data-mz-product-option="{{ option.attributeFQN }}">
+                {% if not option.isMultiValue %}
+                  <option>Select Gift Card Amount</option>
+                {% endif %}
+                {% for value in option.values %}
+                  <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %} value="{{value.value}}">
+                    $ {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}
+                  </option>
+                {% endfor %}
+              </select>
+              <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;" width="13">
+              <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none;" width="13">
+            {% endif %}  
+          {% endfor %}
+        {% else %}
+        {% if model.price.price%}
+          
+          <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
+        {%endif%}
+          {% if model.price.salePrice and model.price.price > model.price.salePrice %}
+            {% if licensedStatus === "LICENSED_REDUCED" %}
+              <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
+            {% else %}
+              <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
+              <span class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="cardMobCTAcontainer">
+      <div class="qty">
+        <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
+
+        <span tabindex="0" aria-label="Increase quantity of {{model.content.productName|safe}} by one" class="increment spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
+        <span tabindex="0" aria-label="Decrease quantity of {{model.content.productName|safe}} by one" class="dicrement spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
+        <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+      </div>
+      
       <div class="jb-buy-product quickview-jb">
         {% if  model.purchasableState.isPurchasable %}
           <button href="javascript:void(0);" role="button" data-mz-prcode="{{ model.productCode }}"  data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.productCode }}" class="jb-add-to-cart jb-tealium-trigger add-to-cart-btn-plp" type="submit" >Add to Cart </button>
@@ -286,6 +288,7 @@
           </div>
         {% endif %}
       </div>
+    </div>
       <div class="clear"></div>
       <div class="jb-information">
         <p class="jb-prodcutinfo"> Product Info</p>
@@ -295,3 +298,4 @@
     </div>
   </div>
 </div>
+{% endwith %}
