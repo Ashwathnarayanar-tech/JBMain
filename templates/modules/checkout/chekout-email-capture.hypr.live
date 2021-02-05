@@ -99,11 +99,12 @@ line-height: 1.5;
 display: block;
 }
 </style>
+
 <div id="email-dialog" class="wrapper_email payment-section" tabindex="-1" role="region"> 
     <div class="content">
       {% block back-to-cart %}
         <div class="close-icon">
-            <a tabindex="0" aria-label="close modal" href="/cart" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a> 
+            <a tabindex="0" aria-label="close modal" href="/cart" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/closemarkglobal.svg?max=100" alt="close"></a> 
         </div>  
       {% endblock back-to-cart %}
         <div class="header">

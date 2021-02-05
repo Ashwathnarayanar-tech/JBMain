@@ -1,8 +1,9 @@
+
 <div class="atw-modal" role="dialog" aria-modal="true">
     <div id="email-dialog" class="atw-dialog" tabindex="-1" role="region" aria-label="Please login to add the product to wishlist"> 
         <div class="content">
             <div class="close-icon">
-                <a tabindex="0" aria-label="close modal" href="javascript:void(0)" role="button" aria-label="Click here to exit from Login Modal"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a> 
+                <a tabindex="0" aria-label="close modal" href="javascript:void(0)" role="button" aria-label="Click here to exit from Login Modal"><img class="close-img" src="../../resources/images/closemarkglobal.svg?max=100" alt="close"></a> 
             </div>  
             <div class="atw-login-label">Login</div>
             <div class="main_content">

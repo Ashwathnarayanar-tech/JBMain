@@ -76,7 +76,7 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
                 fixed: true,
                 trapFocus: false,
                 onComplete: function(){
-                    $('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
+                    $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                     $('#cboxClose').fadeIn();
                     $('#cboxClose').focus().addClass('zomm-image');
                     self.zoomFocus();

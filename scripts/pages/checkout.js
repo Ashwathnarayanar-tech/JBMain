@@ -2410,7 +2410,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 overlayClose : true,
                 trapFocus: false,
                 onComplete : function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background : "#ffffff"

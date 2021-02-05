@@ -163,19 +163,19 @@
         <div class="jb-stars-rating" tabindex="0" aria-label="star rating" >         
           {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
             {% if not rate %}
-              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png">
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
             {% endif %}
             {% for rating in rate.values %}
             {% if rating.value == 0 %} 
-              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png"
-              ><img src="/resources/images/icons/star-empty.png">
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
             {% endif %}
             {% if rating.value >= 0.5 and rating.value < 1.0 %} 
               <img src="/resources/images/icons/star-half.png"  alt="Average product rating of one-half star"

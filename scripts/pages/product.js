@@ -701,7 +701,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage') ? product.get('mainImage').imageUrl + '?max=150': "/cms/files/missing.gif?max=150",
+                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"/cms/files/missing.gif?max=150",
                     qty = product.get('quantity');
 
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);
@@ -1029,7 +1029,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
 
         $(document).on('click', ".open-video", function(e) {
             productImagesView.showVideo(e.target.getAttribute('data-mz-video-id'));
-            $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup-black.png")' });
+            $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
         });
         
         $(document).on('keypress', ".mz-productimages-main", function(e) {
@@ -1103,7 +1103,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 trapFocus: false,
                 
                 onComplete : function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background : "#ffffff"
@@ -1128,7 +1128,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 overlayClose: true,
                 trapFocus: false,
                 onComplete: function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background: "#ffffff"
