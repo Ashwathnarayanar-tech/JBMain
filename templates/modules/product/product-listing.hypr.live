@@ -225,6 +225,7 @@
           </p>
         </span>
       </div>
+
       <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
         {% if model.options and model.options.length > 0 %}
           {% for option in model.options %}
@@ -259,15 +260,14 @@
         {% endif %}
       </div>
       <div class="cardMobCTAcontainer">
-      <div class="qty">
+      <div class="jb-buy-product quickview-jb">
+        <div class="qty">
         <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
 
         <span tabindex="0" aria-label="Increase quantity of {{model.content.productName|safe}} by one" class="increment spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
         <span tabindex="0" aria-label="Decrease quantity of {{model.content.productName|safe}} by one" class="dicrement spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
         <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
       </div>
-      
-      <div class="jb-buy-product quickview-jb">
         {% if  model.purchasableState.isPurchasable %}
           <button href="javascript:void(0);" role="button" data-mz-prcode="{{ model.productCode }}"  data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.productCode }}" class="jb-add-to-cart jb-tealium-trigger add-to-cart-btn-plp" type="submit" >Add to Cart </button>
         {% else %}   
