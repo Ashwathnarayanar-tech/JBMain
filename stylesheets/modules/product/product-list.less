@@ -456,6 +456,7 @@
                             width: 150px;
                             height: 150px;
                         }
+
                     }
                     .jb-product-min-details{ 
                         text-align: left;
@@ -578,6 +579,14 @@
                                     display: inline-block;
                                     margin-top: 5px;
                                 }
+
+                                .jb-buy-product .jb-out-of-stock {
+                                    float: right;
+                                    width: 45%;
+                                    display: inline-block;
+                                    margin-top: 6px;
+                                    padding: 8px 0px;
+                                }
                                 .add-to-wishlist-c {
                                     display: inline-block;
                                     float: left;
@@ -612,6 +621,7 @@
                             }
                         }
                     }
+                    
                 }
             }
         }
@@ -628,6 +638,38 @@
                 &:nth-child(5n+5){
                     margin: 0 1%;
                     margin-bottom: 1%;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1px) and (max-width: 400px) {
+    .mz-productlist .mz-productlist-grid .mz-productlist-item{
+        .mz-productlisting{ 
+            .mz-productlisting-image{ 
+                width: 120px;
+                a img {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+            .jb-product-min-details{ 
+                .mz-productlisting-info{ 
+                    width: ~"calc(100% - 130px)";
+                }
+                .jb-quickviewdetails{ 
+                    .jb-sli_reviews{
+                        width: ~"calc(100% - 130px)";
+                        .jb-stars-rating {
+                            width: 80px;       
+                        }
+                    }
+                    .jb-product-prize {
+                        width: ~"calc(100% - 130px)";
+                        .jb-quickprice.strikeprice {
+                            margin-left: 0px;
+                        } 
+                    }
                 }
             }
         }
