@@ -123,6 +123,7 @@
                 <div class="mz-l-stack-section payment-method">
                     <h4 class="mz-l-stack-sectiontitle">Payment Information</h4>
                     {% for payment in model.payments %}
+                   <div style="display:none;"> {% dump payment %}</div>
                         {% if payment.status != "Voided" and payment.status != "Declined" %}
                             {% if payment.billingInfo.paymentType == "CreditCard" %}
                                 <p class="sub-label  {% if payment.billingInfo.paymentType == "StoreCredit" %} extramargin {% endif %}">Credit Card</p>

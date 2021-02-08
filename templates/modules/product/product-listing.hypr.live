@@ -246,14 +246,14 @@
         {% else %}
         {% if model.price.price%}
           
-          <a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</a>
+          <span tabindex="0" role="contentinfo" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</span>
         {%endif%}
           {% if model.price.salePrice and model.price.price > model.price.salePrice %}
             {% if licensedStatus === "LICENSED_REDUCED" %}
-              <a role="contentinfo" href="javascript:void(0);" class="jb-quickcsale">{{model.price.salePrice|currency}}</a>
+              <span tabindex="0" role="contentinfo" class="jb-quickcsale">{{model.price.salePrice|currency}}</span>
             {% else %}
-              <a href="javascript:void(0);" class="jb-quickcsale"> {{model.price.salePrice|currency}}</a>
-              <span class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+              <span tabindex="0" class="jb-quickcsale"> {{model.price.salePrice|currency}}</span>
+              <span tabindex="0" class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
             {% endif %}
           {% endif %}
         {% endif %}
