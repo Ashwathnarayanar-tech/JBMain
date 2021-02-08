@@ -3,6 +3,7 @@
 data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" "clear" %}" data-mz-action="clearFacets">Reset</a></span>
 </span> 
 {% comment %}
+{% endcomment %}
 <div class="tz-mobileSelected-filter">
     <label role="contentinfo" tabindex="0" title="Selected Filters">Selected Filters: </label> 
     {% for facet in model.facets %}
@@ -41,7 +42,7 @@ data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" 
 </div>
 
 <hr>  
-{% endcomment %}
+
 <div data-mz-facets-mobile class="mz-l-sidebar">
     <section class="mz-facetingform-new">
         {% for facet in model.facets %}

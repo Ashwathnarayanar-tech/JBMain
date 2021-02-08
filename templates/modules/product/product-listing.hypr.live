@@ -260,6 +260,7 @@
         {% endif %}
       </div>
       <div class="cardMobCTAcontainer">
+        
       <div class="jb-buy-product quickview-jb">
         <div class="qty">
         <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>

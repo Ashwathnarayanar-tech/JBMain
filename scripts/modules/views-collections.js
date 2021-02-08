@@ -1407,6 +1407,9 @@ define([
             var url = response.canonicalUrl;
             var $oattr;
             var info_url;
+            if($('body').hasClass(".openeachfilter")) {
+                $("#tz-refinePopup").css("display","inline-block");
+            } 
             if(loadMore) {
                 $oattr = $(response.body).find("ul#mz-productlist-list > li");
                 var str = '';
@@ -1513,7 +1516,7 @@ define([
 
             $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
             if (url) _dispatcher.replace(url);
-                
+               
             _$body.removeClass('mz-loading'); 
             
         }
@@ -2724,6 +2727,15 @@ define([
                         $(document).find('.tz-mobileSelected-filter').removeClass('active');
                         $(document).find('.mz-refine-search').removeClass('active'); 
                     }
+                }
+                $(".tzPopup-Done").trigger("click");
+                $("body").addClass("openeachfilter");
+                
+            } else {
+                if(ele.parents('li').hasClass('mz-facetform-selected') && ele.html() !== '') {
+                    $(".remove-filter-one[attr-filter='"+ele.attr('data-mz-facet-value-mobile')+"']").trigger("click");
+                    $(".tzPopup-Done").trigger("click");
+                    $("body").addClass("openeachfilter");
                 }
             }
         },
