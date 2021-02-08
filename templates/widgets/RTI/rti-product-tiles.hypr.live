@@ -91,11 +91,11 @@
                                                 {% endif %}  
                                             {% endfor %}
                                         {% else %} 
-                                            {%if prod.price.price%}<a role="contentinfo" href="javascript:void(0);" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
-                                            strikeprice {% endif %}">{{prod.price.price|currency}}</a>{%endif%}
+                                            {%if prod.price.price%}<span tabindex="0" role="contentinfo" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
+                                            strikeprice {% endif %}">{{prod.price.price|currency}}</span>{%endif%}
                                             {% if prod.price.price !=  prod.price.salePrice %} 
-                                            {%if prod.price.salePrice%}<a href="javascript:void(0);" class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</a>
-                                                <span class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+                                            {%if prod.price.salePrice%}<span tabindex="0" class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</span>
+                                                <span tabindex="0" class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
                                             {%endif%}   
                                             {% endif %} 
                                         {% endif %}    

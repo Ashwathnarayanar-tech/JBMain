@@ -1093,7 +1093,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         ],
         renderOnChange: [
             'billingContact.address.countryCode',
-           //'paymentType', 
+             'paymentType', 
             'isSameBillingShippingAddress',
             'usingSavedCard',
             'savedPaymentMethodId'
@@ -2687,6 +2687,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }
                 //Added this code for store credit as mz-formstep-next button is credit card validation
                 else if( window.paymentinfo.model.get('paymentType')==="StoreCredit" && window.paymentinfo.model.get('card').get('cvv')===undefined){
+                    $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                }
+                //Added by shruthi as  gift card product not able to place through Gift card
+                else if(window.checkoutViews.parentView.model.get('amountRemainingForPayment')===0){
                     $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
                 }
                 else{
