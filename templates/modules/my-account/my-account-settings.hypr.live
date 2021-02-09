@@ -8,10 +8,10 @@
                     <label>Email Address:</label>
                     <span >{{ model.emailAddress|default(model.userName) }}</span>
                 </li>
-                <li style="display: none;">
+                <li style="display: none;" >
                     <label></label>
                     <span>
-                        <a title="Email preference center" aria-label="Email Preference Center - opens in new tab" href="/jelly-belly-email-preference-center?ve_action=unsub&Email={{model.emailAddress}}&FirstName={{ model.firstName}}&LastName={{ model.lastName}}" target="_blank" >
+                        <a title="Email preference center" aria-label="Email Preference Center - opens in new tab" href="/jelly-belly-email-preference-center?ve_action=unsub&Email={{model.emailAddress}}&FirstName={{ model.firstName}}&LastName={{ model.lastName}}" target="_blank" style="display: none;">
                             Email Preference Center
                         </a>
                     </span>
