@@ -1,9 +1,10 @@
 ﻿{% if pageContext.pageType == "cart" %} 
 {% if  model.isshippingCalculationEnabled %} 
     <div class="coupon-code-section">     
+        {% comment %} Commented by shruthi as placeholder & label text  is added  
         <div class="mz-l-formfieldgroup-cell">  
             <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code </div>
-        </div>
+        </div> {% endcomment %}
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %} Ab-coupon-code-main" >
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
                 <input type="text" id="coupon-code" placeholder="Enter Coupon Code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
@@ -22,7 +23,8 @@
         </div>
     </div>
 {% else %}
-    <div class="coupon-code-section">     
+    <div class="coupon-code-section">   
+    {% comment %} Not required to comment here as the UI differs {% endcomment %}
         <div class="mz-l-formfieldgroup-cell">  
             <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code<span><img src="../../../resources/images/couponarrow.png"></span></div>
         </div>

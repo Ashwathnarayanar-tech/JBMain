@@ -189,17 +189,17 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
                 }
             },
-        // couponSlide: function(e){
-        //     var coupon = $(document).find('.coupon-code-main');
-        //     if(coupon.is(':visible')){
-        //         coupon.slideUp();     
-        //         $(e.currentTarget).find('span img').removeClass('arrow'); 
-        //     }else{
-        //         coupon.slideDown();
-        //         $(e.currentTarget).find('span img').addClass('arrow');
-        //         $(document).find('#coupon-code').focus();
-        //     }
-        // },
+        couponSlide: function(e){
+            var coupon = $(document).find('.coupon-code-main');
+            if(coupon.is(':visible')){
+                coupon.slideUp();     
+                $(e.currentTarget).find('span img').removeClass('arrow'); 
+            }else{
+                coupon.slideDown();
+                $(e.currentTarget).find('span img').addClass('arrow');
+                $(document).find('#coupon-code').focus();
+            }
+        },
        /* testfun: function(e) {
                 var cartDetails = this.model.apiModel.data;
                 if (cartDetails && cartDetails.items.length > 0) {
