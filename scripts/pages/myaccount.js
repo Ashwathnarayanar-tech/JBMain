@@ -1,7 +1,7 @@
 ﻿define(['modules/backbone-mozu', 'hyprlive', 'hyprlivecontext', 'modules/jquery-mozu', 'underscore', 'modules/models-customer', 'modules/views-paging', 'modules/editable-view','modules/api','modules/models-product',
 'modules/models-cart',
 'modules/cart-monitor',
-'modules/minicart',"vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart) {
+'modules/minicart',"modules/models-faceting","vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart,FacetModels) {
 
      var AccountSettingsView = EditableView.extend({
         templateName: 'modules/my-account/my-account-settings',
@@ -488,20 +488,40 @@
             var self = this, focusitem = self.model.get('items').length; 
             var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items?startIndex="+this.model.get('items').length+"&pageSize=11&sortBy=createDate desc";
             Api.request('GET',url).then(function(resp) {
-                if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
-                    self.model.set('showWishlistLoadMore',false);
-                }
-                if(resp.items.length > 10)resp.items.pop();
-                if(50 - self.model.get('items').length < 10){
-                    resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
-                }
-                var length = self.model.get('items').length;
-                self.model.set('totalCount',(length + resp.items.length));
-                for(var i = 0; i < resp.items.length; i++){
-                    self.model.get('items').push(resp.items[i]);
-                } 
-                self.render();
-                setTimeout(function(){$($(document).find('.mz-table').find('.item-tr')[focusitem]).find('.itemlisting-title').focus();},1500);    
+                var totalItems = resp.items,
+                productCodes = [];
+                _.each(totalItems, function(item) {
+                    productCodes.push(item.product.productCode);
+                });
+                Api.request('POST','api/commerce/catalog/storefront/products/locationinventory',{"locationCodes": ["US01"],"productCodes": productCodes}).then(function(response){
+                        for(var k=0;k<totalItems.length;k++){
+                            for(var l=0;l<response.items.length;l++){
+                                if (totalItems[k].product.productCode === response.items[l].productCode){
+                                     _.extend(totalItems[k], {
+                                        wishliststockavailability: true});
+                                }
+                            }
+                            if(k == totalItems.length-1) {
+                                resp.items = totalItems;
+                                if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
+                                    self.model.set('showWishlistLoadMore',false);
+                                }
+                                if(resp.items.length > 10)resp.items.pop();
+                                if(50 - self.model.get('items').length < 10){
+                                    resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
+                                }
+                                var length = self.model.get('items').length;
+                                self.model.set('totalCount',(length + resp.items.length));
+                                for(var i = 0; i < resp.items.length; i++){
+                                    self.model.get('items').push(resp.items[i]);
+                                } 
+                                self.render();
+                            }
+                        }
+                    },function(err){
+                        console.log(err);  
+                    });
+                    
             });  
         }
     });
@@ -1584,20 +1604,44 @@
         if (Hypr.getThemeSetting('allowWishlist')){
             var url = "api/commerce/wishlists/"+accountModel.get('wishlist').get('id')+"/items?startIndex=0&pageSize=21&sortBy=createDate desc"; 
             Api.request('GET',url).then(function(resp) {
-                resp.showWishlistLoadMore = true;
-                if(resp.items.length < 21){
-                    resp.showWishlistLoadMore = false;
-                }
-                resp.WishlistId = accountModel.get('wishlist').get('id'); 
-                if(resp.items.length > 20)resp.items.pop();
-                resp.totalCount = resp.totalCount-1;
-                var wishlist = Backbone.MozuModel.extend({});
-                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
-                    el: $wishListEl,
-                    model: new wishlist(resp),
-                    messagesEl: $messagesEl
+
+                
+                var totalItems = resp.items,
+                productCodes = [];
+                _.each(totalItems, function(item) {
+                    productCodes.push(item.product.productCode);
                 });
-                _.invoke(window.accountViews, 'render');
+                Api.request('POST','api/commerce/catalog/storefront/products/locationinventory?pageSize=500',{"productCodes": productCodes,"locationCodes": ["US01"]}).then(function(response){
+                    for(var i=0;i<totalItems.length;i++){
+                        for(var j=0;j<response.items.length;j++){
+                            if (totalItems[i].product.productCode === response.items[j].productCode){
+                                 _.extend(totalItems[i], {
+                                    wishliststockavailability: true});
+                            }
+                        }
+                        if(i == totalItems.length-1) {
+                            resp.showWishlistLoadMore = true;
+                            
+                            resp.WishlistId = accountModel.get('wishlist').get('id');
+                            resp.items = totalItems;
+                            if(resp.items.length < 21){
+                                resp.showWishlistLoadMore = false;
+                            }
+                            if(resp.items.length > 20)resp.items.pop();
+                            resp.totalCount = resp.totalCount-1;
+                            var wishlist = Backbone.MozuModel.extend({});
+                            if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
+                                el: $wishListEl,
+                                model: new wishlist(resp),
+                                messagesEl: $messagesEl
+                            });
+                            _.invoke(window.accountViews, 'render');
+                        }
+                    }
+                },function(err){
+                    console.log(err);  
+                }); 
+                
             });
         }else{
             _.invoke(window.accountViews, 'render');    

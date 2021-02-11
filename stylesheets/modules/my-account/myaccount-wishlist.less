@@ -88,6 +88,15 @@
                             background: #CC0108;
                             border-color: #CC0108; 
                           }
+                          &.notifymebtn {
+                            background: #ffffff;
+                            border-color: #CC0108;
+                            color: #CC0108;
+                            &:hover {
+                                color: #fff;
+                                background: #CC0108;
+                            }
+                          }
                         }
                         .disabled{
                             height: 20px;
@@ -171,15 +180,16 @@
                 }
             } 
             .remove-all{
+                clear: both;
                 font-size: 12px;
                 color: #1878a5;
-                right: 0;
+                float: right;
                 cursor: pointer;
-                position: absolute;
-                right: 0;
-                top: 23px;
-                background: #fff;
+                position: relative;
+                top: 0;
+                background: white;
                 border: 0px;
+                display: block;
                 &:hover{
                     text-decoration: underline;
                 }

@@ -871,7 +871,7 @@
                                 }
                                 .add-to-cart-wish{
                                     width: 94%;
-                                    background-color: #e7131a;
+                                    background-color: #CC0108;
                                     color: white;
                                     display: inline-block;
                                     text-decoration: none;
@@ -879,9 +879,34 @@
                                     border-radius: 4px;
                                     -moz-border-radius: 4px;
                                     -webkit-border-radius: 4px;
-                                    border: 1px solid #e7131a;
+                                    border: 1px solid #CC0108;
                                     margin: 0 auto;
                                     padding: 7px 0;
+                                    &:hover {
+                                        background: #CC0108;
+                                        border-color: #CC0108;
+                                    }
+                                    &.jb-out-of-stock-wish{
+                                        cursor: pointer;
+                                        width: 94%;
+                                        background-color: white;
+                                        color: #CC0108;
+                                        display: inline-block;
+                                        text-decoration: none;
+                                        font-size: 18px;
+                                        border-radius: 4px;
+                                        -moz-border-radius: 4px;
+                                        -webkit-border-radius: 4px;
+                                        border: 1px solid #CC0108; 
+                                        margin: 0 auto;
+                                        text-transform: capitalize;
+                                        text-align: center;
+                                        padding: 7px 0;
+                                        &:hover {
+                                            color: #fff;
+                                            background: #CC0108;
+                                        }
+                                    }
                                 }
                             }
                         }

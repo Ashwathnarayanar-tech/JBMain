@@ -1,8 +1,8 @@
 // Changes made by Amit on 3- july for empty cart and coupon code at line no 74-116
 define(['modules/backbone-mozu', 'underscore', 'hyprlive', 'modules/jquery-mozu', 'modules/models-cart', 
         'modules/cart-monitor','modules/minicart', 'modules/api' , 'modules/preserve-element-through-render',
-        'modules/models-product','modules/xpressPaypal', "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"], 
-function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveElement,ProductModels,paypal) {
+        'modules/models-product','modules/xpressPaypal', "modules/models-faceting", "shim!vendor/owl.carousel[jquery=jQuery]>jQuery"], 
+function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveElement,ProductModels,paypal,FacetModels) {
 		
     var ThresholdMessageView = Backbone.MozuView.extend({
       templateName: 'modules/cart/cart-discount-threshold-messages'
@@ -879,14 +879,32 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         if(require.mozuData('user').isAuthenticated){
             var wishlistView;
             Api.get('wishlist').then(function(response){
-                var QOModel = Backbone.MozuModel.extend({});
-                wishlistView = new WishlistView({
-                    el: $('.wishlist-section'),
-                    model: new QOModel(response.data.items[0])
+                var productCodeUrl1= "";
+                $.each(response.data.items[0].items, function (index, value)  
+                {  
+                    // Get value in alert +value.product.productCode+'+or+'
+                    if(response.data.items[0].items.length == index+1) {
+                        productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                    } else {
+                        if(response.data.items[0].items.length > 1) {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode+'+or+';
+                        } else {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                        }
+                    }
                 });
-                window.wishlistView  = wishlistView;
-                wishlistView.render();
-                wishlistowl();
+                Api.request('get','/api/commerce/catalog/storefront/products/?filter=('+productCodeUrl1+')&pageSize=1000',{}).then(function (response) {
+                    var facetModel = new FacetModels.FacetedProductCollection(response);
+                    var wishlistView = new WishlistView({
+                        el: $('.wishlist-section'),
+                        model: facetModel
+                    });
+                    window.wishlistView  = wishlistView;
+                    wishlistView.render();
+                    wishlistowl();
+                }, function (error) {
+                    console.log(error);
+                });
             },function(err){  
                 console.log(err);   
             });

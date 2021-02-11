@@ -4,6 +4,10 @@
         <div class="itemlisting-thumb">
             <img class="itemlisting-thumb-img" src="{{ model.product.imageUrl }}?max=80" />
         </div>
+    {% else %}
+        <div class="itemlisting-thumb">
+            <img class="itemlisting-thumb-img" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=80" />
+        </div>
     {% endif %}
 </td>
 <td>
@@ -12,14 +16,19 @@
 </td>
 <td class="wish-list-total" role="contentinfo" tabindex="0">
 {% if model.product.price.salePrice %}
-    {{ model.product.price.salePrice|currency }}
+    {% if model.product.price.salePrice != model.product.price.price %}
+        <strike>{{ model.product.price.price|currency }}</strike>
+        {{ model.product.price.salePrice|currency }}
+    {% else %}
+        {{ model.product.price.salePrice|currency }}
+    {% endif %}
 {% else %}
     {{ model.product.price.price|currency }}
 {% endif %}    
 </td>
 <td class="wish-list-buttons">
     <div class="action-calss"> 
-        <a href="p/{{model.product.productCode}}" data-mz-item-id="{{ model.id }}" class="action-addToCart"> Buy
+        <a href="javascript:;" data-mz-item-id="{{ model.id }}" data-mz-action="addItemToCart" class="action-addToCart {% if model.wishliststockavailability %} {% else %} notifymebtn {% endif %}"> {% if model.wishliststockavailability %}Add To Cart {% else %} Notify Me {% endif %}
         </a>
         <a class="action-remove" href="javascript:;" data-mz-action="finishRemoveItem" data-mz-item-id="{{ model.id }}" role="button" aria-label="remove item">remove</a>
     </div>
