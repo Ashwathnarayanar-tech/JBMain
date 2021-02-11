@@ -1,8 +1,5 @@
 {% block credit-card-form %}
     <div class="mz-l-formfieldgroup-row">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
         <div class="mz-l-formfieldgroup-cell select-box">
          <label for="mz-payment-credit-card-type">{{ labels.cardType }}<span class="is-required" aria-label="mandatory field"> *</span></label>
 			<select id="mz-payment-credit-card-type" aria-describedBy="err_1" data-mz-value="{{ cardcontext }}paymentOrCardType" 
@@ -29,9 +26,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+       
         <div class="mz-l-formfieldgroup-cell checkout-card-name">
             <input type="text" placeholder="credit-card-name" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
              <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
@@ -39,9 +34,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row">
-        <div class="mz-l-formfieldgroup-cell">
-            
-        </div>
+      
         <div class="mz-l-formfieldgroup-cell">
         
             <input hh="{{model.id}}"type="tel" placeholder="0000-0000-0000-0000" name="credit-card-number" id="mz-payment-credit-card-number" aria-describedBy="err_2" 
@@ -64,9 +57,7 @@
     </div> {% endcomment %}
 	
     <div class="mz-l-formfieldgroup-row">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+       
         <div class="mz-l-formfieldgroup-cell checkout-card-expmonth select-box">
          <label for="mz-payment-expiration-month">{{ labels.expires }}<span class="is-required" aria-label="mandatory field"> *</span></label>
            
@@ -102,9 +93,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row my-account-cvv">
-        <div class="mz-l-formfieldgroup-cell payment-label">
-               
-        </div>
+       
         <div class="mz-l-formfieldgroup-cell">
             <input type="tel" placeholder="Enter CVV" name="security-code" id="mz-payment-security-code"  aria-describedBy="err_5" class="cvvcodeinput" max="9999" maxlength="4" data-mz-value="{{ cardcontext }}cvv"  pattern="\d*" title="Payment method security code" value="{{ model.cvv }}"><!-- ADA OK -->
             <label for="mz-payment-security-code">Enter CVV <span class="is-required" aria-label="mandatory field"> *</span></label>

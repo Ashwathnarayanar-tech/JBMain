@@ -1,8 +1,5 @@
 {% block address-form %}
-    <div class="mz-l-formfieldgroup-row mz-addressform-companyname"> 
-        <div class="mz-l-formfieldgroup-cell">
-          
-        </div>
+    <div class="mz-l-formfieldgroup-row mz-addressform-companyname">
         <div class="mz-l-formfieldgroup-cell">
         
             <input type="text" placeholder="companyname" name="companyname" id="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}" data-mz-value="{{ addresscontext }}companyOrOrganization"  value="{{ model.companyOrOrganization }}" autofocus><!-- ADA OK -->
@@ -11,9 +8,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-firstname">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+      
         <div class="mz-l-formfieldgroup-cell">
        
             <input type="text" placeholder="firstname" name="firstname" id="{% if addresscontext == "billingContact." %}bfirstname{% else %}firstname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_1{% else %}err_firstname1{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}firstName" value="{{ model.firstName }}"><!-- ADA OK -->
@@ -22,9 +17,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-lastname">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+       
         <div class="mz-l-formfieldgroup-cell">
         
             <input type="text" placeholder="lastname" name="lastname" id="{% if addresscontext == "billingContact." %}blastname{% else %}lastname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_2{% else %}err_lastname2{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}lastNameOrSurname" value="{{ model.lastNameOrSurname }}"><!-- ADA OK -->
@@ -42,9 +35,7 @@
         </div>
     </div> {% endcomment %}
     <div class="mz-l-formfieldgroup-row mz-addressform-address1">
-        <div class="mz-l-formfieldgroup-cell">
-          
-        </div>
+        
         <div class="mz-l-formfieldgroup-cell">
          
             <input type="text" placeholder="address-line" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
@@ -53,9 +44,7 @@
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address2">
-         <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+        
         <div class="mz-l-formfieldgroup-cell">
        
             <input type="text" placeholder="addressline2" name="address-line-2" id="{% if addresscontext == "billingContact." %}baddress-line-2{% else %}address-line-2{% endif %}" data-mz-value="{{ addresscontext }}address.address2" value="{{ model.address.address2 }}"><!-- ADA OK -->
@@ -64,9 +53,7 @@
         </div>
     </div>
         <div class="mz-l-formfieldgroup-row mz-addressform-city">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+      
         <div class="mz-l-formfieldgroup-cell">
         
             <input type="text" placeholder="city" name="city" id= "{% if addresscontext == "billingContact." %}bcity{% else %}city{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_4{% else %}err_city4{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.cityOrTown" value="{{ model.address.cityOrTown }}" maxlength="30"><!-- ADA OK -->
@@ -83,11 +70,12 @@
              {% endcomment %}
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-state" >
+         {% comment %}
         <div class="mz-l-formfieldgroup-cell">
-           {% comment %}
+          
             <label for="{% if addresscontext == "billingContact." %}bstateprov{% else %}stateprov{% endif %}">{{ labels.state }}<span class="is-required" aria-label="mandatory field">*</span></label>
-         {% endcomment %}
-        </div>
+        
+        </div> {% endcomment %}
         <div class="mz-l-formfieldgroup-cell select-box">
          <label for="{% if addresscontext == "billingContact." %}bstateprov{% else %}stateprov{% endif %}">{{ labels.state }}<span class="is-required" aria-label="mandatory field">*</span></label>
             <select class="myacc-add-form-sel" name="state-or-province" id="{% if addresscontext == "billingContact." %}bstateprov{% else %}stateprov{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_5{% else %}err_state5{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.stateOrProvince" aria-label="mandatory field - State">
@@ -103,9 +91,7 @@
         </div>
     </div>
    <div class="mz-l-formfieldgroup-row mz-addressform-zip">
-        <div class="mz-l-formfieldgroup-cell">
-          
-        </div>
+       
         <div class="mz-l-formfieldgroup-cell">
          
             <input placeholder="postalCode" type="tel" name="postal-code" id="{% if addresscontext == "billingContact." %}bpostal-code{% else %}postal-code{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_6{% else %}err_6{% endif %}" aria-invalid="false" value="{{ model.address.postalOrZipCode }}" data-mz-value="{{ addresscontext }}address.postalOrZipCode" ><!-- ADA OK --> 
@@ -114,9 +100,7 @@
         </div>
     </div>
     <div {% if model.address.CountryCode != "UK" %}style="display: none"{% endif %} class="mz-l-formfieldgroup-row mz-addressform-postaltown">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
+      
         <div class="mz-l-formfieldgroup-cell">
           
             <input placeholder="town" type="text" name="postal-town" id="{% if addresscontext == "billingContact." %}bpostal-town{% else %}postal-town{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_7{% else %}err_7{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.postalOrZipCode" value="{{ model.address.postalOrZipCode }}" pattern="\d*" ><!-- ADA OK -->
@@ -126,11 +110,12 @@
     </div>
     {% if themeSettings.showAddressTypeDropdown %}
         <div class="mz-l-formfieldgroup-row mz-addressform-addresstype">
+               {% comment %}
             <div class="mz-l-formfieldgroup-cell">
-            {% comment %}
+         
                 <label for="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}">{{ labels.addressType }}<span class="is-required" aria-label="mandatory field">*</span></label>
-              {% endcomment %}
-            </div>
+              
+            </div>{% endcomment %}
             <div class="mz-l-formfieldgroup-cell select-box">
              <label for="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}">{{ labels.addressType }}<span class="is-required" aria-label="mandatory field">*</span></label>
                 <select class="myacc-add-form-sel" name="address-type" id="{% if addresscontext == "billingContact." %}baddresstype{% else %}addresstype{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_9{% else %}err_9{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.addressType" aria-label="mandatory field - Address type">
@@ -148,11 +133,8 @@
         </div>
     {% endif %}
     <div class="mz-l-formfieldgroup-row mz-addressform-phone">
-        <div class="mz-l-formfieldgroup-cell">
-           
-        </div>
-        <div class="mz-l-formfieldgroup-cell">
        
+        <div class="mz-l-formfieldgroup-cell">
              <input placeholder="phone" type="tel" name="shippingphone" id="{% if addresscontext == "billingContact." %}bshippingphone{% else %}shippingphone{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_8{% else %}err_8{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}phoneNumbers.home" value="{{ model.phoneNumbers.home }}"
                maxlength="14" title="Don't worry about a format, we will do that for you. Please provide 10-digit phone number." > 
               <label  for="{% if addresscontext == "billingContact." %}bshippingphone{% else %}shippingphone{% endif %}">{{ labels.phone }}<span class="is-required" aria-label="mandatory field">*</span></label>

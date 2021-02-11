@@ -206,24 +206,25 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND" ){
                 xhr.message = Hypr.getThemeSetting('resetPasswordMessage');//Hypr.getLabel('resetPasswordMessage');
             }
-            if(xhr.message.indexOf('Login as')>-1 && xhr.message.indexOf('failed. Please try again.')>-1  ){
-                if($('[data-mz-login-email]').val().length>0 || $('[data-mz-login-password]').val().length>0){
-                    if( !patt.test($('[data-mz-login-email]').val())){
-                         xhr.message = Hypr.getThemeSetting('validEmialSignUp');  
-                    }else if(patt.test($('[data-mz-login-email]').val()) && $('[data-mz-login-password]').val().length===0 ){
-                        xhr.message = Hypr.getThemeSetting('passwordMissing');  
-                        }
-                        else{
-                            var emailId = xhr.message.substring(xhr.message.indexOf('Login as') +('Login as').length ,xhr.message.indexOf('failed. Please try again.'));
-                            xhr.message = Hypr.getLabel('loginFailedMessage',emailId);    
-                        }
+            if(xhr.message){
+                if(xhr.message.indexOf('Login as')>-1 && xhr.message.indexOf('failed. Please try again.')>-1  ){
+                    if($('[data-mz-login-email]').val().length>0 || $('[data-mz-login-password]').val().length>0){
+                        if( !patt.test($('[data-mz-login-email]').val())){
+                            xhr.message = Hypr.getThemeSetting('validEmialSignUp');  
+                        }else if(patt.test($('[data-mz-login-email]').val()) && $('[data-mz-login-password]').val().length===0 ){
+                            xhr.message = Hypr.getThemeSetting('passwordMissing');  
+                            }
+                            else{
+                                var emailId = xhr.message.substring(xhr.message.indexOf('Login as') +('Login as').length ,xhr.message.indexOf('failed. Please try again.'));
+                                xhr.message = Hypr.getLabel('loginFailedMessage',emailId);    
+                            }
+                            
                         
                     
-                 
-                }else {   
-                     xhr.message = Hypr.getThemeSetting('missingcredentials');  
+                    }else {   
+                        xhr.message = Hypr.getThemeSetting('missingcredentials');  
+                    }
                 }
-                  
             }
             if(xhr.message === "Missing or invalid parameter: resetPasswordInfo UserName or EmailAddress must be provided"){
                 this.displayMessage(Hypr.getThemeSetting('validEmialSignUp'));
@@ -232,7 +233,8 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else if(xhr.message === "Login failed. Please specify a user."){
                 this.displayMessage("Error:"+xhr.message || (xhr && xhr.responseJSON && xhr.responseJSON.message) || Hypr.getLabel('unexpectedError')); 
             }else{
-                this.displayMessage(("Error:"+xhr.message) || (xhr && xhr.responseJSON && xhr.responseJSON.message) || Hypr.getLabel('unexpectedError'));     
+                var ordermsg=xhr.message?xhr.message:xhr;// Added by shruthi as in UAT order status page where getting only xhr not xhr.message
+                this.displayMessage(("Error:"+ordermsg) || (xhr && xhr.responseJSON && xhr.responseJSON.message) || Hypr.getLabel('unexpectedError'));     
             }
         },
         displayMessage: function (msg) {
