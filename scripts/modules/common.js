@@ -1298,6 +1298,14 @@ require([
 		require(['modules/browser-info']);
 		require(['modules/regional-scheme/geodetect2']);
     require(['modules/add-to-cart-modal']);
-		//require(['modules/regional-scheme/geodetect2']);
+        //require(['modules/regional-scheme/geodetect2']);
+        
+        $("#wishlist-cpp-checkbox").on("change", function() {
+            if (this.checked) {
+                $('.wishlist-login-btn').prop('disabled',false);
+            }else{
+                $('.wishlist-login-btn').prop('disabled',true);
+            } 
+        }); 
     });
 });
