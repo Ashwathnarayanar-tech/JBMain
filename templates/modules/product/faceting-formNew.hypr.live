@@ -1,11 +1,10 @@
-
 <a href="javascript:void(0);" class="facets-header" aria-label="Filters" aria-expanded="false" role="button" tabindex="0"><div class="container-filter">FILTER</div></a>
 <span class="mz-refine-search"><span class="reloadsymbole"></span><a class="mz-reset-filter" role="button" tabindex="0" aria-label="Reset Filter"
 data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" "clear" %}" data-mz-action="clearFacets">Reset</a></span>
 </span> 
 {% comment %}
 {% endcomment %}
-<div class="tz-mobileSelected-filter" style="display: none; visibility:hidden">
+<div class="tz-mobileSelected-filter" style="">
     <label role="contentinfo" tabindex="0" title="Selected Filters">Selected Filters: </label> 
     {% for facet in model.facets %}
         {% if facet.isFaceted %}
@@ -118,7 +117,7 @@ data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" 
                             <li role="button" aria-pressed="true" aria-label="{{ fval.label|title}}" tabindex="0" class="item-name li_price {% if fval.isApplied %} mz-facetform-selected {% endif %}">  
                                 <span class="checkbox-style"></span>
                                 <span  data-mz-url="{% make_url "facet" fval %}" class="mz1-facetingform-value" data-mz-facet-value 
-                                 data-mz-facet="{{ facet.field }}" data-mz-facet-value-mobile="{{ fval.value }}" data-mz-facet-titel-mobile="{{ fval.label|title}}">
+                                 data-mz-facet="{{ facet.field }}" data-mz-facet-value-mobile="{{ fval.value }}" data-mz-facet-titel-mobile="{{ fval.label|title}}"><label tabindex="-1" class="mz-facetingform-valuelabel" for="{{facet.field|slugify }}_{{ fval.value|slugify }}">
                                     {% if fval.label != "Over 40" %}
                                         ${{fval.rangeQueryValueStart}} to ${{fval.rangeQueryValueEnd}} 
                                     {% else %}
@@ -126,7 +125,7 @@ data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" 
                                         Over ${{fval.rangeQueryValueStart}}  
                                     {% endif %}
                                     {% endif %}
-                                    <label tabindex="-1" class="mz-facetingform-valuelabel" for="{{facet.field|slugify }}_{{ fval.value|slugify }}"> ({{fval.count}})</label>
+                                     </label>
                                 </span>
                             </li>
                         {% else %}
@@ -143,8 +142,8 @@ data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" 
                         {%else %}
                             <li role="button" aria-label="{{ fval.label|title}}" tabindex="0" class="item-name {{ facet.label|lower }} {% if fval.isApplied %} mz-facetform-selected {% endif %}">
                                 <span class="checkbox-style"></span>
-                                <span  data-mz-url="{% make_url "facet" fval %}" data-mz-facet-value  class="mz1-facetingform-value"  data-mz-facet="{{ facet.field }}" data-mz-facet-value-mobile="{{ fval.value }}" data-mz-facet-titel-mobile="{{ fval.label|title}}">{{ fval.label }}
-                                    <label tabindex="-1" class="mz-facetingform-valuelabel" for="{{facet.field|slugify }}_{{ fval.value|slugify }}"> ({{fval.count}})</label>
+                                <span  data-mz-url="{% make_url "facet" fval %}" data-mz-facet-value  class="mz1-facetingform-value"  data-mz-facet="{{ facet.field }}" data-mz-facet-value-mobile="{{ fval.value }}" data-mz-facet-titel-mobile="{{ fval.label|title}}"><label tabindex="-1" class="mz-facetingform-valuelabel" for="{{facet.field|slugify }}_{{ fval.value|slugify }}">{{ fval.label }}
+                                     </label>
                                 </span>
                             </li>
                         {% endif %}    

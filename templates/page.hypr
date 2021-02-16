@@ -4764,6 +4764,7 @@
                       {% dropzone "rti-blank-page" scope="template" %}
                     {% endif %}
 				{% endblock body-content %}
+        <div class="globalOverlay"></div>
             </div>
             
       </div>

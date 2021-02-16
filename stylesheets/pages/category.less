@@ -1,3 +1,26 @@
+.globalOverlay {
+    display:none;
+}
+.openoverlay {
+    .globalOverlay {
+        position: fixed;
+        height: 100vh;
+        z-index: 9999999999;
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0.7;
+        display: inline-block;
+        background-color: rgb(0,0,0); /* Black fallback color */
+        background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        opacity: 0.1;
+    }
+}
 .mz-searchresults.mz-category {
     .mz-l-paginatedlist {
         .load-more-prod{
@@ -6,7 +29,6 @@
             }
         }     
     } 
-    
     .mz-facetingform{ 
         .mz-l-sidebaritem{ 
             .mz-facetingform-shop{
@@ -2529,22 +2551,24 @@
         position: fixed;
         z-index: 999;
         top: 0;
-        width: 94%;
+        width: 100%;
         background-color: white;
-        padding: 3%;
+        padding: 0%;
         overflow-y: auto;
-        height: 100%;
+        /*height: 100%;*/
+        height: 100vh;
         #tz-mobilePopmenu{            
             position: relative;
-            height: 620px;
+            min-height: 620px;
+            height: 100vh;
             .tzPopup-exit{
                 float: right;
                 background-image: url(../../resources/images/icons/close-search.png);
                 width: 20px;
                 height: 20px;
                 position: absolute;
-                right: 10px;
-                top: 10px;
+                right: 15px;
+                top: 14px;
                 background-size: 100%;
                 cursor: pointer;
                 background-size: 100%;
@@ -2561,7 +2585,7 @@
                             text-align: left;                                        
                             font-size: 18px; 
                             position: relative;
-                            padding-left: 20px;
+                            padding-left: 15px;
                             color: #000;
                             .filter-icon{
                                 background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAAAAXNSR0IArs4c6QAABGpJREFUeAHtmttrE0EUh8/Z2BQRtC2IIN5eCi34oHmoiCIWRVG0N7FeKqUFk0BFUJAiilDBB/FBBaHSFkVBVAza2kRtbRFURFERBMHmLxBfpEhB00vGczaZmrbRZJPd7KaZhWRmzs6emfPxm8tOgtDQ5YEpuAIC1gHAYvoUzoXwDRDaoM/fh1DT9ZUiryic6GdHioIsbRp9LZ99q7DKAkkV5zRA/FxYgSeJVkCEQVxPcquwTCiuumAk+AUqa37QZLmrsKKX0eI96Pe38xwB0Oe7Bpp2Ut4qoDQAnvJmjtc1HfRI8B1U7h0jZeyYts3nDOJ9KC5tgs49UxzmXxBcGgm9hYqa35TbzsV5fN0hCM0QaNQhcJwzQbAlHHwDFbUTAGIbF+fdhXgLPL5W6FwbTYxtLgi+Gw6+pmESpWFSnVg57/OIPdDn9UK1vomaEU5yEFxlJPSKYCDB2DrjiXwtIHYShDbaLvBOcs6FcyyzDbU9F0BEz84251n5Ki2R/10V/60IGWk4+IIm0IVU3CxN+ZXiJYJwKlWfU4NgD+HgMFTsXUS5TakcOuq+hhfgse9MOn1KDwR7CoeGSBlLKLcxHcf218FzBOF8uv1IHwR7DAcHSRlllNuQbgP21NPaod930UjbxkCw53BogGAspVyVkYZyVxdPEITLRttLvWok8yjoHb6u5zoI4U922x4bLYuaOEanTRm9TWcGgiPVYXR30z7jqD2BJ7SKQJs/9JISbiZYDWUzB8HNxGDcIBithlo1szLiFG2SWmizdCcbt7HX8Ew98C5tvY8VcTtTF1k+N0nHbIezhcB9yE4RMooOocGnboZxRJosTxHHAcUBPoE2o63sFCF70IFReq1tIa73pMnaFOmoAOvNgsB9NUcRMur9D1wQGb1Lk0ejNJmeIvyi07Ra6PUOmenbHEXIHvFBh6e8iSavh9JkaoowBhruMhsC99FcEOyxo3oSlolDpDVTxi67jF8/ScA7odf3UhrMTM0dGok983UVwXcYpqV1S6I54/wCrIJHvg8ZP5/iQfMVIRvs9k/QEPkoi9mltExbCIH7Zh0I9h6FCCf5cFkLAlCB0FWgifF8UAP30VpFqKER1wGqoREjIdTQiIFQiogPDaUIOUeofYQkofYRMRJqslSKiBOIJWrVkDiiaouto1CKiCtCKEXESGiaWj51Ei6XAhGTxISaLHUQi9xKETqINS1KEToI/ikQYFLPO/zL2qM6Pfj8OKWyHgTCc4eLQe+e9SDcJQfpp7qQ02FYDyLQOA7FJfvot9AnToZhPQiOnmG4SxucDCM3ICSMVStJGfjUicrIHQiO/truCKxa0UBzxjOnwcgtCAlj9Yp6yg44CUbuQUzDWFnnJBj2gJAwytz1NGcMOkEZ9oHg6G+1/obSojpaTWzfdNkLYhqGu5YmUFP/JWdUZfaDkDDKimpomAwnDYD/TWfx5QwQEoa75F8wuizmYPEfRYz2PtD4CyQMxFFSyHvq4XGynTbqymj9P5jWAf3omHpGAAAAAElFTkSuQmCC");
@@ -2579,7 +2603,7 @@
                     .mz-reset-filter {
                         float: right;
                         margin-right: 50px;
-                        padding: 10px 10px;
+                        padding: 14px 10px;
                         text-transform: uppercase;
                         color: #004e99;
                         font-weight: bold;
@@ -2603,8 +2627,10 @@
                     }
                     .mz-l-sidebar{
                         .mz-facetingform-new{
-                            height: 425px;
+                            min-height: 425px;
+                            height: 80vh;
                             overflow-y: auto;
+                            padding: 0px 10px;
                             .mz-l-sidebaritem-new{
                                 h4{
                                     font-size: 18px; 
@@ -2617,7 +2643,7 @@
                                     background-size: 24px;
                                     background-repeat: no-repeat;
                                     background-position-y: 50%;
-                                    background-position-x: 96%;
+                                    background-position-x: right;
                                 }
                                 &.selected{
                                     h4{
@@ -2751,10 +2777,11 @@
                         display: block;
                         margin: 0px 0;
                         position: absolute;
-                        bottom: 0;
+                        bottom: 10px;
                         width: 100%;
                         text-align: center;
                         background-color: #fff;
+                        height: 41px;
                         .tzPopup-Done,.closefacetpopup{
                             text-align: center;
                             text-transform: uppercase;
