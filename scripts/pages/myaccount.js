@@ -300,7 +300,12 @@
                         };                       
 
                         Api.create('instockrequest',obj ).then(function (xhr) {
-                            $("#notify-me-dialog").fadeOut(500, function () { $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>").fadeIn(500); });
+                            $('#notify-me-button').next('.errormsgpopup').remove();
+                            $("#notify-me-dialog").fadeOut(500, function () { 
+                                $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>"); 
+                                 $(document).find('#cboxLoadedContent').css({'height':'80px'});
+                                $("#notify-me-dialog").fadeIn(500);
+                            });
                             setTimeout(function(){self.notifymedilog(); $("#notify-me-dialog").find('.success-msg').focus(); }, 1200);
                         }, function (xhr) {
                             $('[data-mz-message-bar]').hide();
@@ -489,38 +494,49 @@
             var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items?startIndex="+this.model.get('items').length+"&pageSize=11&sortBy=createDate desc";
             Api.request('GET',url).then(function(resp) {
                 var totalItems = resp.items,
-                productCodes = [];
-                _.each(totalItems, function(item) {
-                    productCodes.push(item.product.productCode);
+                productCodeUrl1= "";
+                $.each(resp.items, function (index, value)  
+                {  
+                    // Get value in alert +value.product.productCode+'+or+'
+                    if(resp.items.length == index+1) {
+                        productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                    } else {
+                        if(resp.items.length > 1) {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode+'+or+';
+                        } else {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                        }
+                    }
                 });
-                Api.request('POST','api/commerce/catalog/storefront/products/locationinventory',{"locationCodes": ["US01"],"productCodes": productCodes}).then(function(response){
-                        for(var k=0;k<totalItems.length;k++){
-                            for(var l=0;l<response.items.length;l++){
-                                if (totalItems[k].product.productCode === response.items[l].productCode){
-                                     _.extend(totalItems[k], {
-                                        wishliststockavailability: true});
-                                }
-                            }
-                            if(k == totalItems.length-1) {
-                                resp.items = totalItems;
-                                if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
-                                    self.model.set('showWishlistLoadMore',false);
-                                }
-                                if(resp.items.length > 10)resp.items.pop();
-                                if(50 - self.model.get('items').length < 10){
-                                    resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
-                                }
-                                var length = self.model.get('items').length;
-                                self.model.set('totalCount',(length + resp.items.length));
-                                for(var i = 0; i < resp.items.length; i++){
-                                    self.model.get('items').push(resp.items[i]);
-                                } 
-                                self.render();
+                Api.request('get','/api/commerce/catalog/storefront/products/?filter=('+productCodeUrl1+')&pageSize=1000&responseFields=items(productCode,purchasableState)',{}).then(function (response) {
+                    var getproducts = response.items;
+                    for(var k=0;k<totalItems.length;k++){
+                        for(var l=0;l<getproducts.length;l++){
+                            if (totalItems[k].product.productCode === getproducts[l].productCode && getproducts[l].purchasableState.isPurchasable ){
+                                 _.extend(totalItems[k], {
+                                    wishliststockavailability: true});
                             }
                         }
-                    },function(err){
-                        console.log(err);  
-                    });
+                        if(k == totalItems.length-1) {
+                            resp.items = totalItems;
+                            if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
+                                self.model.set('showWishlistLoadMore',false);
+                            }
+                            if(resp.items.length > 10)resp.items.pop();
+                            if(50 - self.model.get('items').length < 10){
+                                resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
+                            }
+                            var length = self.model.get('items').length;
+                            self.model.set('totalCount',(length + resp.items.length));
+                            for(var i = 0; i < resp.items.length; i++){
+                                self.model.get('items').push(resp.items[i]);
+                            } 
+                            self.render();
+                        }
+                    }
+                }, function (error) {
+                    console.log(error);
+                });
                     
             });  
         }
@@ -1607,14 +1623,29 @@
 
                 
                 var totalItems = resp.items,
-                productCodes = [];
-                _.each(totalItems, function(item) {
-                    productCodes.push(item.product.productCode);
+                // productCodes = [];
+                // _.each(totalItems, function(item) {
+                //     productCodes.push(item.product.productCode);
+                // });
+                productCodeUrl1= "";
+                $.each(resp.items, function (index, value)  
+                {  
+                    // Get value in alert +value.product.productCode+'+or+'
+                    if(resp.items.length == index+1) {
+                        productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                    } else {
+                        if(resp.items.length > 1) {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode+'+or+';
+                        } else {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                        }
+                    }
                 });
-                Api.request('POST','api/commerce/catalog/storefront/products/locationinventory?pageSize=500',{"productCodes": productCodes,"locationCodes": ["US01"]}).then(function(response){
+                Api.request('get','/api/commerce/catalog/storefront/products/?filter=('+productCodeUrl1+')&pageSize=1000&responseFields=items(productCode,purchasableState)',{}).then(function (response) {
+                    var getproducts = response.items;
                     for(var i=0;i<totalItems.length;i++){
-                        for(var j=0;j<response.items.length;j++){
-                            if (totalItems[i].product.productCode === response.items[j].productCode){
+                        for(var j=0;j<getproducts.length;j++){
+                            if (totalItems[i].product.productCode === getproducts[j].productCode && getproducts[j].purchasableState.isPurchasable ){
                                  _.extend(totalItems[i], {
                                     wishliststockavailability: true});
                             }
@@ -1638,8 +1669,8 @@
                             _.invoke(window.accountViews, 'render');
                         }
                     }
-                },function(err){
-                    console.log(err);  
+                }, function (error) {
+                    console.log(error);
                 }); 
                 
             });

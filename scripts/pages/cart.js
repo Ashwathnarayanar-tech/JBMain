@@ -1331,6 +1331,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                         productCode: e.target.getAttribute('data-mz-product-code'), 
                         locationCode: location
                     }).then(function (xhr) { 
+                        $('#notify-me-button').next('.errormsgpopup').remove();
                         $("#notify-me-dialog").fadeOut(500, function () { 
                             $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>"); 
                              $(document).find('#cboxLoadedContent').css({'height':'80px'});
