@@ -1144,11 +1144,122 @@
                                     border-bottom: solid 1px #cfcfcf;
                                     width: 80%;
                                     .mz-formstep-fields{
+                                        .coupon-code-row.mz-l-formfieldgroup-row { 
+                                            border: solid 1px #cfcfcf;
+                                            padding:10px;
+                                            .mz-l-formfieldgroup-cell{
+                                                label{
+                                                    font-size: 16px; 
+                                                    color: #4a4a4a;
+                                                    margin: 0;
+                                                    display: block;
+                                                }
+                                                .arrow{
+                                                    width: 6px; 
+                                                    border-left: 2px solid #4a4a4a;
+                                                    border-top: 2px solid #4a4a4a;
+                                                    height: 6px;
+                                                    transform: rotate(222deg);
+                                                    margin-right: 8px;
+                                                    margin-bottom: 1.1px;
+                                                    float: right;
+                                                    @media only screen and (min-width : 1px) and (max-width : 767px){
+                                                       width:8px;
+                                                       height:8px;
+                                                    }
+                                                    
+                                                }
+                                                #coupon-code{
+                                                    border-radius: 4px;
+                                                    border: solid 1px #dddddd;
+                                                    background-color: #ffffff;
+                                                    padding: 10px 0;
+                                                    width: 60%; 
+                                                    padding-left: 8px;
+                                                }                                   
+                                                .mz-button, .remove-coupon-checkout{
+                                                    border-radius: 4px;
+                                                    border: solid 1px #e7131a;
+                                                    background: transparent;
+                                                    font-size: 18px;
+                                                    color: #e7131a;
+                                                    padding: 7px 25px;
+                                                    display: inline-block;
+                                                    cursor: pointer;
+                                                    &:hover{
+                                                        background-color: #cc0108;
+                                                        border-color: #cc0108;
+                                                        color: white;
+                                                    }
+                                                }
+                                                .mz-button[disabled]{
+                                                    border-color: rgba(0, 0, 0, 0.25);
+                                                    background-color: rgba(0, 0, 0, 0.25);
+                                                    color: #fff;
+                                                }
+                                                .error-msg{
+                                                    color: #e7131a;
+                                                    font-size: 14px;
+                                                    display: block;   
+                                                }
+                                                .coupon-error{
+                                                    color: #e7131a;
+                                                    font-size: 14px;
+                                                    display: none;
+                                                }
+                                                &.field-sec{
+                                                    display: none; 
+                                                }
+                                            } 
+                                            &.active{
+                                                .mz-l-formfieldgroup-cell{
+                                                    &.field-sec{
+                                                        display: block;
+                                                        padding-top: 10px; 
+                                                    }
+                                                    //label{
+                                                        .arrow{  
+                                                            transform: rotate(46deg);
+                                                            margin-bottom: 0px;
+                                                        }
+                                                    //}
+                                                }   
+                                            }
+                                        }
                                         .mz-checkout-digitalcredit.mz-l-stack-section{
+                                            &.active{
+                                                .store-credit-input-sec{
+                                                    display:block;
+                                                }
+                                                .arrow{  
+                                                    transform: rotate(46deg);
+                                                    margin-bottom: 0px;
+                                                }
+                                            }
+                                            .digitalcredit-inner-content{
+                                                border: 1px solid #ddd;
+                                                padding: 10px;
+                                                .arrow{
+                                                    width: 6px; 
+                                                    border-left: 2px solid #4a4a4a;
+                                                    border-top: 2px solid #4a4a4a;
+                                                    height: 6px;
+                                                    transform: rotate(222deg);
+                                                    margin-right: 8px;
+                                                    margin-bottom: 1.1px;
+                                                    float: right;
+                                                    @media only screen and (min-width : 1px) and (max-width : 767px){
+                                                       width:8px;
+                                                       height:8px;
+                                                    }
+                                                    
+                                                }
+                                            }
                                             .store-credit-input-sec{
                                                 padding:0;
                                                 margin-top: 15px;
                                                 margin-bottom: 25px;
+                                                display:none;
                                                 .mz-l-stack-sectiontitle{
                                                     font-size: 18px;
                                                     font-weight: normal;
@@ -2394,88 +2505,7 @@
                                     }
                                 }  
                             } 
-                            .coupon-code-row.mz-l-formfieldgroup-row { 
-                                border-top: solid 1px #cfcfcf;
-                                padding:0px 0 10px;
-                                .mz-l-formfieldgroup-cell{
-                                    label{
-                                        font-size: 16px; 
-                                        color: #4a4a4a;
-                                        margin: 10px 0;
-                                        display: block;
-                                       
-                                    }
-                                    .arrow{
-                                        display: inline-block;
-                                        width: 6px; 
-                                        border-left: 2px solid #4a4a4a;
-                                        border-top: 2px solid #4a4a4a;
-                                        height: 6px;
-                                        transform: rotate(222deg);
-                                        margin-right: 8px;
-                                        margin-bottom: 1.1px;
-                                        @media only screen and (min-width : 1px) and (max-width : 767px){
-                                           width:8px;
-                                           height:8px;
-                                        }
-                                        
-                                    }
-                                    #coupon-code{
-                                        border-radius: 4px;
-                                        border: solid 1px #dddddd;
-                                        background-color: #ffffff;
-                                        padding: 10px 0;
-                                        width: 60%; 
-                                        padding-left: 8px;
-                                    }                                   
-                                    .mz-button, .remove-coupon-checkout{
-                                        border-radius: 4px;
-                                        border: solid 1px #e7131a;
-                                        background: transparent;
-                                        font-size: 18px;
-                                        color: #e7131a;
-                                        padding: 7px 25px;
-                                        display: inline-block;
-                                        cursor: pointer;
-                                        &:hover{
-                                            background-color: #cc0108;
-                                            border-color: #cc0108;
-                                            color: white;
-                                        }
-                                    }
-                                    .mz-button[disabled]{
-                                        border-color: rgba(0, 0, 0, 0.25);
-                                        background-color: rgba(0, 0, 0, 0.25);
-                                        color: #fff;
-                                    }
-                                    .error-msg{
-                                        color: #e7131a;
-                                        font-size: 14px;
-                                        display: block;   
-                                    }
-                                    .coupon-error{
-                                        color: #e7131a;
-                                        font-size: 14px;
-                                        display: none;
-                                    }
-                                    &.field-sec{
-                                        display: none; 
-                                    }
-                                } 
-                                &.active{
-                                    .mz-l-formfieldgroup-cell{
-                                        &.field-sec{
-                                            display: block; 
-                                        }
-                                        //label{
-                                            .arrow{  
-                                                transform: rotate(132deg);
-                                                margin-bottom: 0px;
-                                            }
-                                        //}
-                                    }   
-                                }
-                            }
+                            
                         }
                         .mz-l-formfieldgroup{
                             padding: 0 49px;   
@@ -3466,6 +3496,17 @@
 							    		width: 100%;
 							    		padding: 0;
 							    		.mz-formstep-fields{ 
+                                            .coupon-code-row.mz-l-formfieldgroup-row{
+                                                padding: 10px 5px;
+                                                .mz-l-formfieldgroup-cell.field-sec{
+                                                    #coupon-code{
+                                                        width: 66%;
+                                                    }
+                                                    .mz-button{
+                                                        padding: 8px 25px;
+                                                    }
+                                                }
+                                            }
 							    			.mz-checkout-digitalcredit.mz-l-stack-section{ 
 							    				.store-credit-input-sec{
 						    					    padding: 0; 
@@ -3749,17 +3790,7 @@
 					    	    		}
 					    	    	}
 					    	    }
-					    	    .coupon-code-row.mz-l-formfieldgroup-row{
-					    		    padding: 10px 5px;
-                                    .mz-l-formfieldgroup-cell.field-sec{
-                                        #coupon-code{
-                                            width: 66%;
-                                        }
-                                        .mz-button{
-                                            padding: 8px 25px;
-                                        }
-                                    }
-						    	}
+					    	    
 						    }
 						    .mz-l-formfieldgroup{
                                 width: 100%;

@@ -154,9 +154,6 @@
                     <div class="mz-formstep mz-checkoutform-ordersummary" id="order-summary">
                         {% include "modules/checkout/checkout-order-summary" %}
                     </div>
-                    <div class="coupon-code-row mz-l-formfieldgroup-row {% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
-                        {% include "modules/checkout/coupon-code-field" %}
-                    </div>  
                 </div> 
                 <div class="mz-formstep mz-checkoutform-paywith-rewards" id="pay-with-rewards-worksheet">
                     {% include "modules/checkout/pay-with-rewards" %}

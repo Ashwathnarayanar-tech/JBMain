@@ -2318,8 +2318,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         });
 
         // coupon code field functanality
-        $(document).on('click', '.coupondata', function(e){
-            $(e.target).parents('#coupon-code-field').toggleClass('active'); 
+        $(document).on('click', '.payment-accordion', function(e){
+            $(e.target).parents('.accordion-pay').toggleClass('active'); 
         });
 
         // FAQ accordian function
@@ -2673,7 +2673,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
         });
 
-        // $(document).on('click', '.place-order-btn', function(e){
+        // $(document).on('click', f'.place-order-btn', function(e){
         //     $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').click();
         // });
         // To make the paypal success to come to checkout page

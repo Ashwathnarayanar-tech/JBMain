@@ -1,9 +1,8 @@
 ﻿<div class="mz-l-formfieldgroup-cell" tabindex="0" role="contentinfo">
   
-    <label for="coupon-code" class="coupondata">        
-       <span class="arrow"></span>
+    <label for="coupon-code" class="coupondata payment-accordion">   
         Enter Coupon Code
-        
+        <span class="arrow"></span>
     </label>  
 </div> 
 

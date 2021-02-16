@@ -1,4 +1,11 @@
-<div class="mz-checkout-digitalcredit mz-l-stack-section">
+<div class="mz-checkout-digitalcredit mz-l-stack-section accordion-pay">
+<div class="digitalcredit-inner-content">
+    <div class="mz-l-formfieldgroup-cell" tabindex="0" role="contentinfo">
+        <label for="digital-credit-code" class="coupondata payment-accordion">  
+            Enter {{ labels.digitalCredits }}
+             <span class="arrow"></span>
+        </label>  
+    </div>
     <div class="store-credit-input-sec">
         <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4>
         {% comment %}
@@ -25,6 +32,7 @@
                 {% include "modules/common/message-bar" with model=model.messages %}
             </span>
         </div> 
+    </div>
     </div>
     {% if user.isAuthenticated %}
         <div id="sweet-rewards-worksheet">
