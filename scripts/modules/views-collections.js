@@ -1404,6 +1404,7 @@ define([
         var promodel ,flag,lastpage,loadMore = false, loadAll = window.loadAll = false;
         var defaultpagesize = window.defaultpagesize = 20;        
         function updateUi(response) {
+            $('.open-sortoverlay').remove();
             $("body").removeClass('openoverlay'); 
             $(".closefacetpopup span").html("SHOW "+$(".jb-result-details").attr("data-total-results")+" RESULTS");
             var url = response.canonicalUrl;
@@ -2055,7 +2056,12 @@ define([
         var fixedsortBy = $('.mobileuxFilter').offset().top;
         $(window).on("scroll", function () {
             if ($(window).scrollTop() > $(".brand-dicreption-top").height()) {
-                $('.mobileuxFilter').addClass("active");
+                if($(".progress-bar").is(":visible")) {
+                    $('.mobileuxFilter').addClass("active");
+                } else {
+                    $('.mobileuxFilter').addClass("active");
+                    $('.mobileuxFilter').addClass("noprogressbar");
+                }
             } else {
                 $('.mobileuxFilter').removeClass("active");
             }
@@ -2141,6 +2147,9 @@ define([
                     $('#tz-mobilePopmenu').removeClass('transitioning');
                 }, 200); 
                 $('.tz-mobRefine').focus();
+            });
+            $(document).on("click",'.closefacetpopup',function(e) {
+                $(".tzPopup-exit").trigger('click');
             });
             $(document).on("keypress",'.cancel-btn-container',function(e) {
                 if ( e.which == 13 ) {
@@ -2686,8 +2695,6 @@ define([
         },
         mobileaccordianfun: function(ele){
             if(!ele.parents('.mz-l-sidebaritem-new').hasClass("selected")){ 
-                $(".mz-l-sidebaritem-new ul").slideUp();    
-                $(".mz-l-sidebaritem-new").removeClass("selected");
                 ele.parent().find(".mz-facetingform-facet").slideDown();
                 ele.parents('.mz-l-sidebaritem-new').addClass("selected");
                 ele.parents('.mz-l-sidebaritem-new').find('.item-name').filter(':visible').first().focus();

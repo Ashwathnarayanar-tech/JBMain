@@ -4,7 +4,7 @@ data-mz-facet-value href="javascript:void(0);" data-mz-url="{% make_url "facet" 
 </span> 
 {% comment %}
 {% endcomment %}
-<div class="tz-mobileSelected-filter" style="">
+<div class="tz-mobileSelected-filter" style="visibility: none;display:none" tabindex="-1">
     <label role="contentinfo" tabindex="0" title="Selected Filters">Selected Filters: </label> 
     {% for facet in model.facets %}
         {% if facet.isFaceted %}

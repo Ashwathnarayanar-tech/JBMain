@@ -2559,8 +2559,8 @@
         height: 100vh;
         #tz-mobilePopmenu{            
             position: relative;
-            min-height: 620px;
-            height: 100vh;
+            height: 620px;
+            min-height: 90vh;
             .tzPopup-exit{
                 float: right;
                 background-image: url(../../resources/images/icons/close-search.png);
@@ -2644,16 +2644,18 @@
                                     background-repeat: no-repeat;
                                     background-position-y: 50%;
                                     background-position-x: right;
+                                    text-transform: uppercase;
                                 }
                                 &.selected{
                                     h4{
                                         background-image: url(../../resources/images/icons/minus_qty.png);
-                                        border-bottom: 1px solid #CFCFCF;
+                                        border-bottom: none;
                                     }
                                 }
                                 .mz-facetingform-facet{
                                     padding: 0;
                                     list-style-type: none;
+                                    margin-top: 0px;
                                     .item-name{
                                         display: inline-block; 
                                         margin: 10px 0 10px 10px;
@@ -2776,7 +2778,7 @@
                     .button-data{
                         display: block;
                         margin: 0px 0;
-                        position: absolute;
+                        position: fixed;
                         bottom: 10px;
                         width: 100%;
                         text-align: center;
