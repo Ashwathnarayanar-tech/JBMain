@@ -14,7 +14,7 @@
     <a class="itemlisting-title" href="p/{{model.product.productCode}}">
     {{ model.product.name|safe }}</a>
 </td>
-<td class="wish-list-total" role="contentinfo" tabindex="0">
+<td class="wish-list-total" tabindex="0">
 {% if model.product.price.salePrice %}
     {% if model.product.price.salePrice != model.product.price.price %}
         <strike>{{ model.product.price.price|currency }}</strike>

@@ -380,7 +380,6 @@
                         </span>
                         <div class="mz-l-formfieldgroup-cell inactive" id="estimateShippingCost-entry">
                             <input type="number" placeholder="Enter your zip code" id="shippingzipcode" tabindex="0" name="shippingzipcode"  aria-label="Enter shipping zip code"  placeholder="Enter your zip code " value="{{ model.shippingzipcode }}"/>
-                            <label for="shippingzipcode">Enter your zip code</label>
                             <button type="button" id="shippingzipcode-btn" class="mz-button" data-mz-action="estimateShip" role="button" aria-label="Calculate" {% if not model.shippingzipcode %}  {% endif %} disabled="disabled"> Calculate </button>   
                         </div>
                         <div id="estimateShippingCost-success" tabindex="0">

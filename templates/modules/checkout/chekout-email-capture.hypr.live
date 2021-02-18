@@ -177,21 +177,19 @@ display: block;
                     <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                 
+                                <label for="email"><span class="is-required" aria-label="mandatory field"> *</span> {{ labels.emailAddress }} (required):</label>
                             </div>  
                             <div class="mz-l-formfieldgroup-cell">
                                 <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
-                                <label for="email"><span class="is-required" aria-label="mandatory field"> *</span> {{ labels.emailAddress }} (required):</label>
                                 <span class="error-user" id="useremailerror"></span> 
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                  
+                                <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }} (required):</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell zero-cellspace">
                                 <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
-                                 <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }} (required):</label>
                                 <span class="loginError" id="loginerror"></span> 
                             </div>
                         </div> 
