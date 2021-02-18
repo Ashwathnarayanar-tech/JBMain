@@ -41,7 +41,7 @@
                                                                 height: auto; 
                                                                 font-weight: bold;
                                                                 color: #5E5454;">
-                                                        {% if not option.isMultiValue %}<option>Select gift amount</option>{% endif %}
+                                                        {% if not option.isMultiValue %}<option>Select Gift Card Amount</option>{% endif %}
                                                         {% for value in option.values %}
                                                         <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
                                                             value="{{value.value}}">$

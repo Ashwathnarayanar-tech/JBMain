@@ -1,14 +1,12 @@
 ﻿{% if pageContext.pageType == "cart" %} 
 {% if  model.isshippingCalculationEnabled %} 
     <div class="coupon-code-section">     
-        {% comment %} Commented by shruthi as placeholder & label text  is added  
         <div class="mz-l-formfieldgroup-cell">  
             <div  tabindex="0" {% if model.couponCodes.length > 0 %}class="show-coupon-symbol"{% else %}class="coupon-text" {% endif %} role="button">Enter Coupon Code </div>
-        </div> {% endcomment %}
+        </div>
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %} Ab-coupon-code-main" >
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
                 <input type="text" id="coupon-code" placeholder="Enter Coupon Code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
-                <label for="coupon-code">Enter Coupon Code</label>
                 {% if model.couponCodes.length> 0 %}
                     <button type="button"  class="mz-button remove-coupon" role="button" aria-label="{{ labels.remove }}">{{ labels.remove }}</button>       
                 {% else %}
@@ -31,7 +29,6 @@
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %}">
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
                 <input type="text" placeholder="Enter Coupon Code" id="coupon-code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
-                <label for="coupon-code">Enter Coupon Code</label>
                 {% if model.couponCodes.length> 0 %}
                     <button type="button"  class="mz-button remove-coupon" role="button" aria-label="{{ labels.remove }}">{{ labels.remove }}</button>       
                 {% else %}

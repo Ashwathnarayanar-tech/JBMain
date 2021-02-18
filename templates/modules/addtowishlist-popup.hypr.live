@@ -13,20 +13,21 @@
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
                                    
+                                     <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
                                 </div>  
                                 <div class="mz-l-formfieldgroup-cell">
                                     <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
-                                     <label for="email">Email<span class="is-required" aria-label="mandatory field"> *</span></label>
                                     <span class="error-user" id="useremailerror"></span> 
                                 </div> 
                             </div>
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
                                       
+                                     <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }}:</label>
+                                    <span class="loginError" id="loginerror"></span> 
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">
                                     <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
-                                     <label for="password">{{ labels.password }}<span class="is-required" aria-label="mandatory field"> *</span></label>
                                     <span class="loginError" id="loginerror"></span>
                                 </div>
                             </div>

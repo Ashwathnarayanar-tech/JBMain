@@ -1,4 +1,4 @@
-<form id="searchbox" class="mz-searchbox mz-l-formfieldgroup-cell" action="/search">
+<form id="searchbox" class="mz-searchbox" action="/search">
 	<span id="search-instructions" class="sr-only">When typing in this field, a list of search results will appear and be automatically updated as you type.</span>
 	<input aria-describedby="search-instructions" placeholder="{{ labels.search }}" type="search" class="mz-searchbox-field" value="{{pageContext.search.query}}" autocomplete="off" name="query" data-mz-role="searchquery" title="Search query field" aria-label="search" oninput="this.value=this.value.toLowerCase()"/>
  
