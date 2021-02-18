@@ -1402,7 +1402,7 @@ require([
 		var catCode = require.mozuData('pagecontext').categoryCode;
 		$(category).each(function (index, data) {
 			if(data.category == catCode){
-				$(document).find('#flavor-List').append(Hypr.getTemplate('pages/flavor-guides-item').render({
+				$(document).find('#flavor-List').html(Hypr.getTemplate('pages/flavor-guides-item').render({
 					model : data,
 					index: index
 				}));
