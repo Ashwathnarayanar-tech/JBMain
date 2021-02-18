@@ -1110,7 +1110,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             //"click .inpit-select": "showDropdown",   
             "click .btn_validatepaypal": "validateaddressform", 
             "change input[name='savedPaymentMethods']" : "changesavedcard",
-            //"keypress Error: Please add your Phone Number[id='paymentType']": "keypressForMobile",
+            //"keypress [id='paymentType']": "keypressForMobile",
             //"change [id='paymentType']": "setFocusforOption",
             "keydown [name='credit-card-number']":"creditcardformat",
             //"keydown [name='postal-code']":"zipcodeFormating",
@@ -1909,12 +1909,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				var ra = 0;
 				var ip = window.pwrInitialPoints;
                 var rpv = window.pwrRedeemedPointsValue;
-
 				_.each(window.pwrRewards, function (r) {
 					ra = ra + r.discount;
                     ip = ip - r.points;
 				});
-				
 				//window.pwrDisplayPoints = ip;
 				window.pwrRedemptionAmount = ra;
 				window.checkoutViews.orderSummary.setRewardAmount(ra);
@@ -1936,11 +1934,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     self.render();
 				}).then(function() {
                     $('.sweet-rewards-header').focus();
-                }, function(e) { 
-                    $('#sweet-rewards-error').html("<b>An error occurred while redeeming your rewards. Please contact Customer Service for assistance.");
-                    $('#redemption-spinner').hide();
-                }
-
+                    }, function(e) { 
+                        $('#sweet-rewards-error').html("<b>An error occurred while redeeming your rewards. Please contact Customer Service for assistance.");
+                        $('#redemption-spinner').hide();
+                    }
                 );
 		}
     });
@@ -2521,7 +2518,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                         model: checkoutModel.get('fulfillmentInfo')
                     }),
                     paymentInfo: new BillingInfoView({
-                        el: $('#step-payment-info'),
+                        el: $('.paymentinfonewel'),
                         model: checkoutModel.get('billingInfo')
                     })
                 },
@@ -2673,7 +2670,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
         });
 
-        // $(document).on('click', f'.place-order-btn', function(e){
+        // $(document).on('click', '.place-order-btn', function(e){
         //     $(document).find('.mz-formstep.mz-checkoutform-paymentinfo').find('.mz-formstep-next .btn_validatepaypal').click();
         // });
         // To make the paypal success to come to checkout page

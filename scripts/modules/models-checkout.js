@@ -1401,7 +1401,7 @@
                     return deferred.promise;
                 }
                 this.isLoading(true);
-                return this.apiAddCoupon(this.get('couponCode')).then(function() {
+                return window.checkoutViews.parentView.model.addCoupon(this.get('couponCode')).then(function() {
                     me.get('billingInfo').trigger('sync');
                     me.set('couponCode', '');
 

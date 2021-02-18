@@ -1,3 +1,5 @@
+{% comment %} JB-1734 {% endcomment %}
+
 <h3 class="mz-formstep-header">
     <span class="step-no"><label>{% if model.requiresFulfillmentInfo %}3. {% else %}2. {% endif %}</label></span>
     <label>{{ labels.paymentInformation }}</label>
@@ -9,7 +11,10 @@
     {% endif %}
 </h3>
 <div class="mz-formstep-body">
-    <div class="mz-formstep-summary mz-l-stack" tabindex="0">
+  <div class="coupon-code-row mz-l-formfieldgroup-row{% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
+                {% include "modules/checkout/coupon-code-field" %}
+</div> 
+    <div class="mz-formstep-summary mz-l-stack paymentinfonewel" tabindex="0">
     
         {% if model.activeStoreCredits and model.activeStoreCredits.length > 0 %}
             <div class="mz-l-stack-section mz-checkout-payment">
@@ -95,10 +100,7 @@
     </style>
 
     <div class="mz-formstep-fields mz-l-stack payment-cc-section">
-    {% comment %} JB-1734 {% endcomment %}
-        <div class="coupon-code-row mz-l-formfieldgroup-row accordion-pay{% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
-                        {% include "modules/checkout/coupon-code-field" %}
-        </div> 
+    
         {% include "modules/checkout/checkout-digital-credit" %}
         {% if model.nonStoreCreditTotal > 0 %}
         {% if model.savedPaymentMethods %}
