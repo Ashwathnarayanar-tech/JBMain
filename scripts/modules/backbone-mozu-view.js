@@ -38,6 +38,7 @@
             Backbone.View.apply(this, arguments);
             this.template = Hypr.getTemplate(conf.templateName || this.templateName);
             this.listenTo(this.model, "sync", this.render);
+            this.listenTo(this.model, "render", this.render);
             this.listenTo(this.model, "loadingchange", this.handleLoadingChange);
             if (this.model.handlesMessages && conf.messagesEl) {
                 this.messageView = messageViewFactory({
@@ -60,6 +61,21 @@
                     this.listenTo(model, 'change:' + prop, this.enqueueRender, this);
                 }, this);
             }
+
+            if(conf.requiredBehaviors || this.requiredBehaviors){
+                var behaviors = this.model.requiredBehaviors || [];
+
+                _.each(this.requiredBehaviors, function (behavior) {
+                    if (behaviors.indexOf(behavior) == -1) { behaviors.push(behavior); }
+                });
+
+                _.each(conf.requiredBehaviors, function (behavior) {
+                    if (behaviors.indexOf(behavior) == -1) { behaviors.push(behavior); }
+                });
+
+                this.model.requiredBehaviors = behaviors;   
+            }
+
             Backbone.Validation.bind(this);
             Backbone.MozuView.trigger('create', this);
 
@@ -127,18 +143,34 @@
              * Renders the template into the element specified at the `el` property, using the JSON representation of the `model` and whatever else is added by {@link MozuView#getRenderContext}.
              */
             render: function (options) {
+                if (this.model.requiredBehaviors && this.requireBehaviorsToRender) {
+                    var userBehaviors = require.mozuData('user').behaviors || [];
+                    var match = _.intersection(userBehaviors, this.model.requiredBehaviors);
+                    if (this.model.requiredBehaviorsType == "AllOf") {
+                        if (match.length !== this.requiredBehaviors.length) {
+                            return;
+                        } 
+                    }
+                    if(match.length < 1) {
+                        return;
+                    }
+                }
                 var thenFocus = this.el && document.activeElement && document.activeElement.type !== "radio" && document.activeElement.type !== "checkbox" && $.contains(this.el, document.activeElement) && {
                     'id': document.activeElement.id,
                     'mzvalue': document.activeElement.getAttribute('data-mz-value'),
                     'mzFocusBookmark': document.activeElement.getAttribute('data-mz-focus-bookmark'),
                     'value': document.activeElement.value
                 };
+
                 this.storeDropzones();
+
                 Backbone.Validation.unbind(this);
                 this.undelegateEvents();
                 var newHtml = this.template.render(this.getRenderContext());
                 this.$el.html(newHtml);
+
                 this.retrieveDropzones();
+
                 this.delegateEvents();
                 Backbone.Validation.bind(this);
                 if (thenFocus) {
@@ -168,6 +200,17 @@
                 this.$('.mz-drop-zone').each(function() {
                     if (dropzones[this.id]) $(this).replaceWith(dropzones[this.id]);
                 });
+            },
+
+            removeInner: function () {
+                this._removeInnerElements();
+                this.stopListening();
+                return this;
+            },
+
+            _removeInnerElements: function () {
+                this.$el.off();
+                this.$el.empty();
             }
 
             /**
@@ -207,4 +250,3 @@
         }
     });
 });
-

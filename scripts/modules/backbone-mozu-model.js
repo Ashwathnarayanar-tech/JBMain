@@ -7,7 +7,8 @@
     "modules/backbone-mozu-validation"], function ($, _, api, Backbone, MessageModels) {
 
 
-        var Model = Backbone.Model,
+        var $window = $(window),
+            Model = Backbone.Model,
            Collection = Backbone.Collection;
 
         // Detects dot notation in named properties and deepens a flat object to respect those property names.
@@ -31,7 +32,7 @@
             'delete': 'del'
         };
 
-        var MozuModel = Backbone.MozuModel = Backbone.Model.extend(_.extend({}, Backbone.Validation.mixin,
+        var modelProto = _.extend({}, Backbone.Validation.mixin,
 
             /** @lends MozuModel.prototype */
         {
@@ -41,16 +42,6 @@
              * @param {object} json A JSON representation of the model to preload into the MozuModel. If you create a new MozuModel with no arguments, its attributes will be blank.
              * @augments external:Backbone.Model
              */
-            constructor: function (conf) {
-                this.helpers = (this.helpers || []).concat(['isLoading', 'isValid']);
-                Backbone.Model.apply(this, arguments);
-                if (this.mozuType) this.initApiModel(conf);
-                if (this.handlesMessages) {
-                    this.initMessages();
-                } else {
-                    this.passErrors();
-                }
-            },
 
 
             /**
@@ -194,12 +185,25 @@
              * @example
              * // sets the value of Customer.EditingContact.FirstName
              * customerModel.set('editingContact.firstName');
-             * @param {string} propName The name, or dot-separated path, of the property to return.
+             * @param {string} key The name, or dot-separated path, of the property to return.
              * @returns {Object} Returns the value of the named attribute, and `undefined` if it was never set.
              */
-            set: function (key, val, options) {
-                var attr, attrs, unset, changes, silent, changing, prev, current;
+            set: function(key, val, options) {
+                var attr, attrs, unset, changes, silent, changing, prev, current, syncRemovedKeys, containsPrice;
                 if (!key && key !== 0) return this;
+
+                containsPrice = new RegExp('price', 'i');
+
+                // Remove any properties from the current model
+                // where there are properties no longer present in the latest api model.
+                // This is to fix an issue when sale price is only on certain configurations or volume price bands,
+                // so that the sale price does not persist.
+                syncRemovedKeys = function (currentModel, attrKey) {
+                    _.each(_.difference(_.keys(currentModel[attrKey].toJSON()), _.keys(attrs[attrKey])), function (keyName) {
+                        changes.push(keyName);
+                        currentModel[attrKey].unset(keyName);
+                    });
+                };
 
                 // Handle both `"key", value` and `{key: value}` -style arguments.
                 if (typeof key === 'object') {
@@ -241,7 +245,7 @@
                     // Inject in the relational lookup
                     val = this.setRelation(attr, val, options);
 
-                    if (this.dataTypes && attr in this.dataTypes) {
+                    if (this.dataTypes && attr in this.dataTypes && (val !== null || !containsPrice.test(attr))) {
                         val = this.dataTypes[attr](val);
                     }
 
@@ -256,6 +260,10 @@
                         delete current[attr];
                     } else {
                         current[attr] = val;
+                    }
+
+                    if (current[attr] instanceof Backbone.Model && containsPrice.test(attr)) {
+                        syncRemovedKeys(current, attr);
                     }
                 }
 
@@ -392,11 +400,20 @@
              * Called whenever an API request begins. You may call this manually to trigger a `loadingchange` event, which {@link MozuView} automatically listens to and displays loading state in the DOM.
              * Added to the list of {@link MozuModel#helpers } automatically, to provide a boolean `model.isLoading` inside HyprLive templates.
              * @returns {boolean} True if the model is currently loading.
-             * @param {boolean} flag Set this to true to trigger a `loadingchange` event.
+             * @param {boolean} yes Set this to true to trigger a `loadingchange` event.
              */
-            isLoading: function (yes, opts) {
+            isLoading: function(yes, opts) {
                 if (arguments.length === 0) return !!this._isLoading;
                 this._isLoading = yes;
+                // firefox bfcache fix
+                if (yes) {
+                    this._cleanup = this._cleanup || _.bind(this.isLoading, this, false);
+                    this._isWatchingUnload = true;
+                    $window.on('beforeunload', this._cleanup);
+                } else if (this._isWatchingUnload) {
+                    delete this._isWatchingUnload;
+                    $window.off('beforeunload', this._cleanup);
+                }
                 if (!opts || !opts.silent) this.trigger('loadingchange', yes);
             },
             getHelpers: function () {
@@ -406,7 +423,7 @@
             /**
              * Calls the provided callback immediately if `isLoading` is false, or queues it to be called the next time `isLoading` becomes false.
              * Good for queueing user actions while waiting for an API request to complete.
-             * @param {function} callback The function to be called when the `isLoading` is false.
+             * @param {function} cb The callback function to be called when the `isLoading` is false.
              */
             whenReady: function(cb) {
                 var me = this,
@@ -420,7 +437,7 @@
                 };
                 me.on('loadingchange', handler);
             },
-
+ 
             /**
              * Convert the data in this model to a plain JavaScript object that could be passed to `JSON.stringify`.
              * MozuModel extends the Backbone.Model#toJSON method with two configuration options.
@@ -432,8 +449,8 @@
             toJSON: function (options) {
                 var attrs = _.clone(this.attributes);
                 if (options && options.helpers) {
-                    _.each(this.getHelpers(), function (helper) {
-                        attrs[helper] = this[helper]();
+                    _.each(this.getHelpers(), function (helper) { 
+                            attrs[helper] = this[helper]();
                     }, this);
                     if (this.hasMessages) attrs.messages = this.messages.toJSON();
                     if (this.validation) attrs.isValid = this.isValid(options.forceValidation);
@@ -446,8 +463,58 @@
                 });
 
                 return (options && options.ensureCopy) ? JSON.parse(JSON.stringify(attrs)) : attrs;
+            },
+
+            hasRequiredBehavior: function(behaviorId){
+                var userBehaviors = require.mozuData('user').behaviors || [];
+                if (userBehaviors.includes(1014)) return true;
+                var requiredBehaviors = this.requiredBehaviors || [];
+
+                if (behaviorId) {
+                    requiredBehaviors = [behaviorId];
+                }
+
+                if (requiredBehaviors.length) {
+                    var match = _.intersection(userBehaviors, requiredBehaviors);
+                    if (this.requiredBehaviorsType === "AllOf") {
+                        if (match.length !== this.requiredBehaviors.length) {
+                            return false;
+                        }
+                    }
+                    if (match.length < 1) {
+                        return false;
+                    }
+                }
+                return true;
             }
-        }), {
+
+
+
+        });
+
+        // we have to attach the constructor to the prototype via direct assignment,
+        // because iterative extend methods don't work on the 'constructor' property
+        // in IE8
+
+        modelProto.constructor = function(conf) {
+            this.helpers = (this.helpers || []).concat(['isLoading', 'isValid']);
+
+            //if (this.requiredBehaviors) {
+                this.helpers = (this.helpers || []).concat(['hasRequiredBehavior']);
+            //}
+
+
+            Backbone.Model.apply(this, arguments);
+            if (this.mozuType) this.initApiModel(conf);
+            if (this.handlesMessages) {
+                this.initMessages();
+            } else {
+                this.passErrors();
+            }
+        };
+
+
+        var MozuModel = Backbone.MozuModel = Backbone.Model.extend(modelProto, {
             /**
              * Create a mozuModel from any preloaded JSON present for this type.
              * @example
@@ -463,12 +530,14 @@
              * @memberof MozuModel
              * @static
              */
-            fromCurrent: function () {
-                return new this(require.mozuData(this.prototype.mozuType), { silent: true, parse: true });
+            fromCurrent: function (overRide) {
+                var mozuType = this.prototype.mozuType;
+                if (overRide) mozuType = overRide;
+                return new this(require.mozuData(mozuType), { silent: true, parse: true });
             },
             DataTypes: {
                 "Int": function (val) {
-                    val = parseInt(val);
+                    val = parseInt(val, 10);
                     return isNaN(val) ? 0 : val;
                 },
                 "Float": function (val) {
@@ -550,5 +619,8 @@
         };
         return Backbone;
 });
+
+
+
 
 
