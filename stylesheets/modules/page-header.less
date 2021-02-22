@@ -676,7 +676,7 @@ body{
             }
             .mini-cart-header{
                 width: 170px;
-                display: inline-block;
+               float:right;
                 vertical-align: top;
                 line-height: 1.7;
                 .mz-utilitynav-link-cart,.mz-Mob-utilitynav-link-cart{
@@ -1531,12 +1531,13 @@ body{
                 }
             }
             .page-header.desktop{
-                display: none;
+                display: block;
+                margin-top:50px;
             }
             .mz-l-pagecontent{
                 margin-top: 75px;
                 &.zerotag-mobile{
-                    margin-top: 135px;
+                    margin-top: 0px;
                 }
             }
             .page-header.mobile{ 
@@ -1714,7 +1715,6 @@ body{
                 }
             }
             .nav-cointainer{
-                position: fixed;
                 bottom: 0;
                 z-index: 999;
                 background-color: #fff;

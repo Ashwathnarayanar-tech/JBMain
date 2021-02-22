@@ -32,9 +32,8 @@
         <section>
             {% dropzone "checkout-notification-dropzone" scope="template" %}
         </section>
-        <div class="checkout-header">
-            <div class="header-wraper {% if pageContext.isDesktop or pageContext.isTablet %}desktop{% else %}mobile{% endif %}">
-                {% if pageContext.isDesktop or pageContext.isTablet %}
+        <div class="checkout-header" tabindex="0">
+            <div class="header-wraper desktop isDesktop">
                     <h1 class="mz-pagetitle">
                         <a href="/"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a>
                         <span>{{ labels.checkout }}</span>
@@ -44,7 +43,8 @@
                         <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                         
                     </div>
-                {% else %}
+            </div> 
+            <div class="header-wraper mobile isMobile">
                     <span class="mz-pagetitle">
                         <label class="heading">{{ labels.checkout }}</label>
                         <div class="continueshopping"><a href="/">Continue Shopping</a></div>
@@ -53,7 +53,6 @@
                     <div class="links-sec">
                         <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                     </div>  
-                {% endif %}
             </div> 
         </div> 
         <style>

@@ -1,4 +1,4 @@
-<h3 class="mz-l-stack-sectiontitle">{{ labels.returns }}</h3>
+<h3 class="mz-l-stack-sectiontitle isDesktop">{{ labels.returns }}</h3>
 <div class="mz-orderhistory-section mz-l-paginatedlist">
   {% if model.items %}
     

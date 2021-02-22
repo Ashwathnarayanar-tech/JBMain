@@ -15,14 +15,12 @@
                     <li class="listItem">
                        <a href="/order-status" data-mz-action="anon-order"  class="mz-utilitynav-link order-anonlink" title="Check your order status" aria-label="Check your order status">{{ labels.orderStatus }}</a>
                     </li>
-                    {% if pageContext.isDesktop or pageContext.isTablet %}
-                    <li class="listItem sweetRewards">
+                    <li class="listItem sweetRewards isDesktop">
                         <section class="zinrelo-container">
                             <p class="zrl-available-text">Your Rewards Points:</p> 
                             <p id="zrl-points"></p>
                         </section> 
                     </li>
-                    {% endif %}
                     <li class="listItem">
                        <a href="/logout" data-mz-action="logout" class="mz-utilitynav-link" role="navigation" aria-label="{{ labels.logOut }}">{{ labels.logOut }}</a>
                     </li>
@@ -54,18 +52,16 @@
         {% endif %}  
         <span class="arrow-down"></span>
     </div>
-    {% if pageContext.isDesktop or pageContext.isTablet %}
-        <div class="mini-cart-header"> 
-            <a tabindex="0" class="mz-utilitynav-link-cart position-adjust" href="/cart" role="navigation" aria-label="Cart Items" title="Items in cart">
+        <div class="mini-cart-header isDesktop"> 
+            <a tabindex="0" class="mz-utilitynav-link-cart position-adjust"  role="navigation" aria-label="Cart Items" title="Items in cart">
                 <span class="shoping-cart"><img class="cart-icon" alt="cart icon" src="data:image/png;base64,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" />  </span> 
                 <!-- <img src="/../resources/images/Newcarticon.png" alt="cart icon" class="cart-icon"> -->
                 <span class="cart-count-text">Cart <span class="showHidePipe"> | </span><span class="cartcount" data-mz-role="cartmonitor"></span> Item(s)</span><span id="mini-cart-text" data-mz-text="carttext"></span> 
                 {% require_script "modules/cart-monitor" %}
             </a>
         </div>
-    {% else %}
-        <div class="mini-cart-header" tabindex="0"> 
-            <a class="mz-Mob-utilitynav-link-cart position-adjust" href="/cart" role="navigation" aria-label="Cart Items" title="Items in cart">
+        <div class="mini-cart-header isMobile" tabindex="0"> 
+            <a class="mz-Mob-utilitynav-link-cart position-adjust"  role="navigation" aria-label="Cart Items" title="Items in cart">
                 <span class="shoping-cart"><img src="/../resources/images/Newcarticon.png" alt="cart icon" class="cart-icon">  </span> 
                 <span class="cartcount" data-mz-role="cartmonitor"></span>   
                 {% comment %}
@@ -74,7 +70,6 @@
                 {% require_script "modules/cart-monitor" %}
             </a>
         </div>
-    {% endif %}
 </nav>
 {% require_script "modules/minicart" %}
 <div class="jb-minicart-popup" data-mz-minicart=""  tabindex="0"></div>

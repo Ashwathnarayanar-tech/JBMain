@@ -37,7 +37,6 @@
   }
 </style>
 
-{% if pagecontext.isDesktop %}
 
   <div class="jb-socialize">
         <div>
@@ -51,7 +50,17 @@
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
             data-src="{% make_url "image" "/resources/images/new-logo-images/jb_logo_web_footer_revised.png" %} alt="footer-logo" nopin = "nopin" />
         </div>
-    <div role="dialog" aria-modal="true" aria-label="client details" class="modal">
+        <div class="jb-social-links-mobile">
+          <div class="jb-center-logo">
+            <img class="jb-center-logo-img new-lazy-load" 
+            role="button"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  
+            aria-label="Jelly Belly logo (opens client details modal)"
+            data-src="{% make_url "image" "/resources/images/new-logo-images/jb_logo_web_footer_mobile_revised.png" %} alt="footer-logo" width="200" height="110" nopin="nopin" />
+        </div>
+
+      </div>
+      <div role="dialog" aria-modal="true" aria-label="client details" class="modal">
         <button id="close-popup" class="close">Close</button>
         <h2 class="cd-title" tabindex="0"> Client Details</h2 class="cd-details">
 
@@ -63,43 +72,7 @@
           </dl>
         </div>
 
-    </div>
+      </div>
 
     
   </div>
-
-
-{% else %}
-
-  <div class="jb-socialize">
-    
-    <div>
-      {% dropzone zoneId="evrgreen-footer-buttons" scope="site" %}
-    </div>
-    <div class="jb-social-links-mobile">
-        <div class="jb-center-logo">
-            <img class="jb-center-logo-img new-lazy-load" 
-            role="button"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  
-            aria-label="Jelly Belly logo (opens client details modal)"
-            data-src="{% make_url "image" "/resources/images/new-logo-images/jb_logo_web_footer_mobile_revised.png" %} alt="footer-logo" width="200" height="110" nopin="nopin" />
-        </div>
-
-    </div>
-     
-    <div role="dialog" aria-modal="true" aria-label="client details" class="modal">
-        <button id="close-popup" class="close">Close</button>
-        <h2 class="cd-title" tabindex="0"> Client Details</h2>
-
-        <div class="jb-userdetails">
-          <dl>
-            <div id="osview3" tabindex="0"> </div>
-            <div id="osview" tabindex="0"></div>
-            <div id="osview2" tabindex="0"> </div>
-          </dl>
-        </div>
-
-    </div>
-  </div>
-
-{% endif %}

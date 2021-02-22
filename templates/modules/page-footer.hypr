@@ -181,17 +181,8 @@
                 </a>
               </div>
     				</div>
-					{% if pageContext.isTablet %}
-						<div style="width: 100%; margin-left: auto; margin-right: auto;clear:both"> 
-              <span class="sweet-rewards-label">Sweet Rewards</span>
-							<a style="display: block;text-align: center;" href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
-								<img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/b4c9d78e-047f-49fb-874b-e6bfe0e76985" style="max-width:100%" alt="Jelly Belly International Sites"></img>
-							</a>
-						</div>
-					{% endif %}					
-					
-					{% if pageContext.isMobile %}
-						<div style="width: 100%; margin-left: auto; margin-right: auto; clear:both;"> 
+			
+						<div class="pageFooterSweetRewards isMobile"> 
               <span class="sweet-rewards-label">Sweet Rewards</span>
 							<center>
 							<a href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
@@ -200,18 +191,15 @@
 							</a>
 							</center>
 						</div>
-					{% endif %}
-
-					
-					{% if pageContext.isDesktop %}
-						<div style="clear:both;"> 
-              <span class="sweet-rewards-label">Sweet Rewards</span>
-							<a href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
+				
+						<div class="pageFooterSweetRewards isDesktop"> 
+              <span class="sweet-rewards-label"  role="button">Sweet Rewards</span>
+							<a class="sweetRewardsanchor" href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
 								<img class="new-lazy-load footer-bottom-flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-desktop-4.png" style="max-width:100%" alt="Jelly Belly International Sites"></img>
 							</a>
 							<br>
 						</div>
-					{% endif %} 
+			
 					
  
                    <div class="clearfix"></div>
