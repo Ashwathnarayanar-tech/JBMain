@@ -143,10 +143,12 @@
                     <div class="mz-formstep mz-checkoutform-shippingmethod {% if user.isAnonymous %} hide-shippingAddress {% endif %}" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
                         {% include "modules/checkout/step-shipping-method" %}
                     </div>
+                    {% comment %} <div class="newcoupon-payment"> {% endcomment %}
+                   
                     <div class="mz-formstep mz-checkoutform-paymentinfo {% if user.isAnonymous %} hide-shippingAddress {% endif %}" id="step-payment-info">
-                        
-                        {% include "modules/checkout/step-payment-info" %}
+                            {% include "modules/checkout/step-payment-info" %}
                     </div>
+                    {% comment %} </div> {% endcomment %}
                     <div class="mz-formstep mz-checkoutform-review" id="step-review">
                         {% include "modules/checkout/step-review" %}
                     </div>
@@ -155,6 +157,9 @@
                     <div class="mz-formstep mz-checkoutform-ordersummary" id="order-summary">
                         {% include "modules/checkout/checkout-order-summary" %}
                     </div>
+                    <div class="accordion-pay coupon-code-row mz-l-formfieldgroup-row{% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
+                            {% include "modules/checkout/coupon-code-field" %}
+                    </div> 
                 </div> 
                 <div class="mz-formstep mz-checkoutform-paywith-rewards" id="pay-with-rewards-worksheet">
                     {% include "modules/checkout/pay-with-rewards" %}
