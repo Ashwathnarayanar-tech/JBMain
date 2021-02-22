@@ -1,4 +1,3 @@
-{% if pagecontext.isMobile or pagecontext.isTablet %}
 <div class="jb-custom-overlay overlay-slidedown"> 
     <nav class="mz-sitenav-mobile mz-mobile">
         {% comment %}
@@ -972,4 +971,4 @@
         </div> 
     </nav> 
 </div>
-{% endif %}
+

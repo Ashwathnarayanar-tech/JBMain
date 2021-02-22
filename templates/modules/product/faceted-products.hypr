@@ -83,12 +83,12 @@
     </div>                
 </div>
 <div class="brand-dicreption-bottom">
-    {% if pageContext.isDesktop or pageContext.isTablet %}
+    <div class ="isDesktop">
         {% dropzone zoneId="brand-dicreption-bottom" scope="page" %}
-    {% endif %}
-    {% if pageContext.isEditMode or pageContext.isMobile %}
+    </div>
+    <div class="isMobile">
         {% dropzone zoneId="brand-dicreption-bottom-mobile" scope="page" %}
-    {% endif %}
+    </div>
 </div>
 <div class="tz-Facets mz-mobile">
 	{% if Model.Facets %}

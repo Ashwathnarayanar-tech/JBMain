@@ -868,12 +868,12 @@
 		            </div>
 		        </div>
 		    {% else %}  
-		        {% if pageContext.isDesktop or pageContext.isTablet %}
+		       	<div class="isDesktop">
 		            {% dropzone zoneId="brand-dicreption-top" scope="page" %}
-		        {% endif %}
-		        {% if pageContext.isEditMode or pageContext.isMobile %}
+		        </div>
+		        <div class="isMobile">
 		            {% dropzone zoneId="brand-dicreption-top-mobile" scope="page" %}
-		        {% endif %}
+		        </div>
 		    {% endif %}
 		</div>
 	</div>

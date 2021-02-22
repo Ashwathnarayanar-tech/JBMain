@@ -58,7 +58,7 @@
   <div class="card-slot">
 	   <div class="card-container" id="card-1">
 			    <a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category" tabindex="0">
-				       <img class="card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
+				       <img class="card-image tab-image new-lazy-load " src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
 			     </a>
            <div class="card-contents">
 				<h2 class="card-title"><a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category" style="color: #000;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
@@ -73,7 +73,7 @@
 	<div class="card-slot">
 		<div class="card-container" id="card-2">
 			<a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter" width="309" height="247">
+				<img class="card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter" width="309" height="247">
 			</a>
       <div class="card-contents">
 				<h2 class="card-title"><a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter category" style="color: #000;text-decoration: none"><strong>Harry Potter<sup>™</sup></strong></a></h2>
@@ -88,7 +88,7 @@
 	<div class="card-slot">
 		<div class="card-container" id="card-3">
 			<a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
+				<img class="card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
 			</a>
       <div class="card-contents">
 				<h2 class="card-title"><a href="/beanboozled-/c/341" aria-label="BeanBoozled Jelly Beans category" style="color: #000;text-decoration: none"><strong>BeanBoozled Jelly Beans</strong></a></h2>
@@ -161,7 +161,7 @@
  <div class="Ab-card-slot" id="Ab-card1">
 		<div class="Ab-image-container" > 
 			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Jelly Belly Jelly Beans" tabindex="0">
-				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
 			</a>
 		</div> 
 		<div class="Ab-card-contents">
@@ -175,7 +175,7 @@
 	 <div class="Ab-card-slot" id="Ab-card2">
 		<div class="Ab-image-container" > 
 			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Harry Potter" tabindex="0">
-				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter" width="309" height="247">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter" width="309" height="247">
 			</a>
 		</div> 
 		<div class="Ab-card-contents" style="background-color:#fff5e1">
@@ -189,7 +189,7 @@
 	 <div class="Ab-card-slot" id="Ab-card3">
 		<div class="Ab-image-container" > 
 			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Bean Boozled Jelly Beans" tabindex="0">
-				<img class="Ab-card-image tab-image new-lazy-load" src="{% if pageContext.isDesktop %}{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}{% else %}{{ blankimg }}{% endif %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
+				<img class="Ab-card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
 			</a>
 		</div> 
 		<div class="Ab-card-contents" style="background-color:#efe7fc">
