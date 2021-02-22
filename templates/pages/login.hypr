@@ -35,19 +35,19 @@
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
                            
+                             <label for="emailaddress">{{ labels.email }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
                             <input name="email" id="emailaddress" placeholder="email" value="{{model.email|default:user.email}}" type="email" data-mz-login-email />
-                             <label for="emailaddress">{{ labels.email }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
                             
+                            <label for="password">{{ labels.password }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
                             <input placeholder="password" id="password" name="password"  type="password" data-mz-login-password/>
-                            <label for="password">{{ labels.password }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                     </div>
                      <div class="mz-l-formfieldgroup-row forgot-links">

@@ -9,7 +9,6 @@ require([
  'widgets/rti/recommended-products'
 ],
 function($, Hypr, HyprLiveContext, _, api,Backbone, ProductModels, RecommendedProducts) {
-
 // rtiOptions will contain variables used by the
 //whole page. They can be set in every widget editor, but only the first
 //one on the page is the one that we'll listen to for these variables.
@@ -25,6 +24,7 @@ var rtiOptions = {
   includeSiteId: firstConfig.includeSiteId || false,
   includeTenantId: firstConfig.includeTenantId || false
 };
+
 
 var pageContext = require.mozuData('pagecontext');
 var siteContext = require.mozuData('sitecontext');
@@ -108,8 +108,33 @@ $('.recommended-product-container').each(function(){
         "click a.wishlist-button": "addToWishlist",  
         "touchstart a.wishlist-button": "addToWishlist",
         "click .jb-add-to-cart-cur" : "generateclick",   
-        "click .jb-add-to-cart" : "generateclick"
+        "click .jb-add-to-cart" : "generateclick",
+        "change [plp-giftcart-prize-change-action]" : "onselectchange",
+        "click [plp-giftcart-prize-change-action]" : "onselectclick",
+        "touchstart [plp-giftcart-prize-change-action]" : "onselectclick"
       },
+      onselectclick : function(e) {
+            $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').hide();
+            $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').show();
+            $(e.currentTarget).focusout(function(){
+                $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').show();
+                $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').hide();
+            });
+      },
+      onselectchange: function(e){
+            var $optionEl = $(e.currentTarget);
+            var newValue = $optionEl.val();
+            var ax = $(e.currentTarget).closest(".mz-productlisting").find(".jb-add-to-cart-cur");
+            $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').show();
+            $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').hide();
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+                ax.removeClass('gift-prize-select');
+            }else{ 
+                ax.text("Shop Gift Card");
+                ax.addClass('gift-prize-select');
+            }
+      },     
       generateclick: function(e){     
         generateClickEvent($(e.target).attr('data-mz-prcode'),$(e.target).attr('attr-widget'),$(e.target).attr('attr-slot'),window.BNData); 
       },   

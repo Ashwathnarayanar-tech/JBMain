@@ -59,7 +59,7 @@
                                 </a>
                             </div>
                             <div class="mz-productlisting-info">
-                                <div class="productTitle"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a></div>
+                                <div class="productTitle"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}"><h2 class="prod-title-heading">{{prod.content.productName|truncatewords(10)|safe}}</h2></a></div>
                                 <div class="priceSection"> 
                                     <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
                                         {% if prod.options and prod.options.length > 0 %}
@@ -67,20 +67,7 @@
                                                 {% if option.attributeDetail.inputType == "List" %}
                                                     <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices"
                                                         {% if option.isMultiValue %}multiple{% endif %} 
-                                                        class="" data-mz-product-option="{{ option.attributeFQN }}"
-                                                        style="         display: inline-block;
-                                                                        zoom: 1;
-                                                                        margin: 0 1px;
-                                                                        padding: 2px 2px;
-                                                                        font-size: 12px;
-                                                                        font-family: Trebuchet MS,Verdana,sans-serif;
-                                                                        width: 135px;
-                                                                        text-align: center;
-                                                                        border: 1px solid #ccc;
-                                                                        border-radius: 3px;
-                                                                        height: auto; 
-                                                                        font-weight: bold;
-                                                                        color: #5E5454;">
+                                                        class="" data-mz-product-option="{{ option.attributeFQN }}">
                                                         {% if not option.isMultiValue %}<option>Select Gift Card Amount</option>{% endif %}
                                                         {% for value in option.values %}
                                                         <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
@@ -88,13 +75,15 @@
                                                             {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
                                                         {% endfor %}
                                                     </select>
+                                                    <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;width:13px;">
+                                                    <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none; width:13px;" >
                                                 {% endif %}  
                                             {% endfor %}
                                         {% else %} 
                                             {%if prod.price.price%}<span tabindex="0" role="contentinfo" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
                                             strikeprice {% endif %}">{{prod.price.price|currency}}</span>{%endif%}
                                             {% if prod.price.price !=  prod.price.salePrice %} 
-                                            {%if prod.price.salePrice%}<span tabindex="0" class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</span>
+                                            {%if prod.price.salePrice%}<span tabindex="0" class="jb-quickcsale"> {{prod.price.salePrice|currency}}</span>
                                                 <span tabindex="0" class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
                                             {%endif%}   
                                             {% endif %} 
@@ -114,13 +103,11 @@
                                     {% endfor %} 
                                 </div>   
                                 <div class="mz-productdetail-conversion-controls">
-                                    {% if prod.price.price > 0 %}
                                         <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
                                             <input type="text" class="quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1"/> 
                                             <span class="increment spinner" aria-label="Increases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
                                             <span class="dicrement spinner" aria-label="Decreases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
                                         </div>  
-                                    {% endif %}
                                   <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
                                 </div>
                                 <div class="jb-buy-product quickview-jb">
@@ -132,7 +119,7 @@
                                                 {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
                                                 data-jb-pid="{{ prod.productCode }}" 
                                                 class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >
-                                                shop gift card
+                                                Shop Gift Card
                                             </button>
                                         {% else %}
                                             <button class="jb-out-of-stock-cur notify-me-plp-rti" data-mz-product-code="{{ prod.productCode }}" data-mz-location-code="{{ prod.inventoryInfo.onlineLocationCode }}" style="cursor: pointer;"> Notify Me </button>

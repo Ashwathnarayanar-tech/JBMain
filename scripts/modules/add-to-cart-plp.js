@@ -69,6 +69,8 @@ require([
             var $optionEl = $(e.currentTarget);
             var newValue = $optionEl.val();
             var ax = $optionEl.parent().parent().find('.jb-add-to-cart');
+            $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').show();
+            $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').hide();
             if(newValue != "Select Gift Card Amount"){
                 ax.text("Add to Cart");
                 ax.removeClass('gift-prize-select');
@@ -93,7 +95,7 @@ require([
             }
             $('[plp-giftcart-prize-change-action]').focusout(function(){
                 for(var i=0;i<$(document).find('.up-caret-quantity-myacc-add').length;i++){
-                    $($('.up-caret-quantity-sort')[i]).hide();
+                    $($('.up-caret-quantity-myacc-add')[i]).hide();
                 }
                 for(i=0;i<$(document).find('.down-caret-quantity-myacc-add').length;i++){
                     $($('.down-caret-quantity-myacc-add')[i]).show();
@@ -111,7 +113,7 @@ require([
                 if(variantOpt !== undefined && variantOpt.length>0){  
                     var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
                     var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                    if(newValue != "Select gift amount" && newValue !== ''){
+                    if(newValue != "Select Gift Card Amount" && newValue !== ''){
                         if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
                             ID = "Tenant~gift-card-prices";
                         }
