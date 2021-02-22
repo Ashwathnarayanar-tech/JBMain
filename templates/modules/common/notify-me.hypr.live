@@ -20,8 +20,10 @@
 			<div class="notify-me-section">
 				<span tabindex="0">Enter your email address to be notified  when this item is back in stock.</span>
 				<div class="email-section mz-l-formfieldgroup-cell">
-					<input type="text" class="notify-me-email" class="notify-me-email" value="" tabindex="0" aria-label="Enter email address" aria-describedby="notify-error" placeholder="Enter your Email Address"/>
+					{% comment %}
 					<label for="notify-me-email">Enter your Email Address</label>
+					{% endcomment %}
+					<input type="text" class="notify-me-email" class="notify-me-email" value="" tabindex="0" aria-label="Enter email address" aria-describedby="notify-error" placeholder="Enter your Email Address"/>
 					<button class="notify-me-button">Notify Me</button>
 				</div>
 				<span id="notify-error" class="error" tabindex="0"></span>

@@ -25,7 +25,7 @@ require(["modules/jquery-mozu"],
 
 //    window.addEventListener('beforeunload', function() {
       getImpressionList();
-      console.log(impressions);
+      //console.log(impressions);
       dataLayer.push({
         'ecommerce': {
           'impressions': impressions,

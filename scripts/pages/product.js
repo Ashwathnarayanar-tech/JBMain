@@ -226,6 +226,20 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
+            var ax = $(document).find('#add-to-cart-scroll');
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+                ax.removeClass('gift-prize-select');
+                ax.removeAttr("disabled");
+                ax.removeClass("is-disabled");
+                ax.attr("data-mz-action","addToCart");
+                ax.attr("data-jb-price",newValue);
+                $(".scroll-section .mz-productoptions-option.myacc-add-form-sel").val(newValue);
+            }else{ 
+                ax.addClass('gift-prize-select');
+                ax.text("Shop Gift Card");
+                $(".scroll-section .mz-productoptions-option.myacc-add-form-sel").val(newValue);
+            }
         },
         addToCart: function (e) {
             var productCode=this.model.get('productCode'),self=this;
