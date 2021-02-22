@@ -32,9 +32,8 @@
         <section>
             {% dropzone "checkout-notification-dropzone" scope="template" %}
         </section>
-        <div class="checkout-header">
-            <div class="header-wraper {% if pageContext.isDesktop or pageContext.isTablet %}desktop{% else %}mobile{% endif %}">
-                {% if pageContext.isDesktop or pageContext.isTablet %}
+        <div class="checkout-header" tabindex="0">
+            <div class="header-wraper desktop isDesktop">
                     <h1 class="mz-pagetitle">
                         <a href="/"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a>
                         <span>{{ labels.checkout }}</span>
@@ -44,7 +43,8 @@
                         <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                         
                     </div>
-                {% else %}
+            </div> 
+            <div class="header-wraper mobile isMobile">
                     <span class="mz-pagetitle">
                         <label class="heading">{{ labels.checkout }}</label>
                         <div class="continueshopping"><a href="/">Continue Shopping</a></div>
@@ -53,7 +53,6 @@
                     <div class="links-sec">
                         <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="javascript:;" class="number" title="Toll Free Number" role="contentinfo" aria-label=" Questions ? toll free number - 18005223267"> 1-800-522-3267 </a></p></div>
                     </div>  
-                {% endif %}
             </div> 
         </div> 
         <style>
@@ -143,9 +142,12 @@
                     <div class="mz-formstep mz-checkoutform-shippingmethod {% if user.isAnonymous %} hide-shippingAddress {% endif %}" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
                         {% include "modules/checkout/step-shipping-method" %}
                     </div>
+                    {% comment %} <div class="newcoupon-payment"> {% endcomment %}
+                   
                     <div class="mz-formstep mz-checkoutform-paymentinfo {% if user.isAnonymous %} hide-shippingAddress {% endif %}" id="step-payment-info">
-                        {% include "modules/checkout/step-payment-info" %}
+                            {% include "modules/checkout/step-payment-info" %}
                     </div>
+                    {% comment %} </div> {% endcomment %}
                     <div class="mz-formstep mz-checkoutform-review" id="step-review">
                         {% include "modules/checkout/step-review" %}
                     </div>
@@ -154,6 +156,9 @@
                     <div class="mz-formstep mz-checkoutform-ordersummary" id="order-summary">
                         {% include "modules/checkout/checkout-order-summary" %}
                     </div>
+                    <div class="accordion-pay coupon-code-row mz-l-formfieldgroup-row{% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
+                            {% include "modules/checkout/coupon-code-field" %}
+                    </div> 
                 </div> 
                 <div class="mz-formstep mz-checkoutform-paywith-rewards" id="pay-with-rewards-worksheet">
                     {% include "modules/checkout/pay-with-rewards" %}

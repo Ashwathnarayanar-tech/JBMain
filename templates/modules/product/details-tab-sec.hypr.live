@@ -1,5 +1,4 @@
-
-{% if pageContext.isDesktop or pageContext.isTablet %}
+{% if model.pageContext.isDesktop or model.pageContext.isTablet %}
     <div class="accordian-prod"> 
         {% if themeSettings.showHeatSensitiveText %}
             {% with model.categories|findwhere("categoryId", themeSettings.heatSensitiveCategoryId) as category %}

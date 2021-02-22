@@ -496,6 +496,14 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         }); 
     }
+    var productDetail = Backbone.MozuView.extend({
+        templateName: 'modules/product/details-tab-sec',
+         render:function() {
+             console.log(" this--- render details-tab-sec",this);
+            Backbone.MozuView.prototype.render.apply(this);
+        }
+    });
+    
     function getExistingNotifications() {
         return ($.cookie('mozustocknotify') || '').split(',');
     }
@@ -774,7 +782,19 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             el: $('.related-section'),
             model: product
         });
- 
+        var pageModel = window.getDeviceMode();
+        product.set('pageContext', pageModel);
+        var productdetailView =  new productDetail({
+            el: $('.description-section'),
+            model: product
+        });
+
+        $(window).on('resize orientationchange', function(){
+            console.log(" event resize Product ");
+           var pageModel = window.getDeviceMode();
+           product.set('pageContext', pageModel);
+           productdetailView.render();
+          });
         window.productView = productView;
         window.productImagesView = productImagesView;
         Api.request('GET', '/svc/related_products_UX?sku='+ require.mozuData("product").productCode).then(function(res) { 
@@ -784,6 +804,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             productView.render();  
             productImagesView.render();
             releatedProducts.render();
+            productdetailView.render();
             thumbnailCarousel();
             if($(window).width()>767){
                 relatedProductsCarousel();
@@ -793,6 +814,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             productView.render();
             productImagesView.render();
             releatedProducts.render();
+            productdetailView.render();
             console.log('handling the error');
             thumbnailCarousel();
             if($(window).width()>767){

@@ -1,3 +1,5 @@
+{% comment %} JB-1734 {% endcomment %}
+
 <h3 class="mz-formstep-header">
     <span class="step-no"><label>{% if model.requiresFulfillmentInfo %}3. {% else %}2. {% endif %}</label></span>
     <label>{{ labels.paymentInformation }}</label>
@@ -9,6 +11,7 @@
     {% endif %}
 </h3>
 <div class="mz-formstep-body">
+
     <div class="mz-formstep-summary mz-l-stack" tabindex="0">
     
         {% if model.activeStoreCredits and model.activeStoreCredits.length > 0 %}
@@ -95,10 +98,20 @@
     </style>
 
     <div class="mz-formstep-fields mz-l-stack payment-cc-section">
-    {% comment %} JB-1734 {% endcomment %}
-        <div class="coupon-code-row mz-l-formfieldgroup-row accordion-pay{% if model.couponCodes.length > 0 %}active{% endif %}" id="coupon-code-field">
-                        {% include "modules/checkout/coupon-code-field" %}
-        </div> 
+        <div class="accordion-pay coupon-code-row mz-l-formfieldgroup-row" >
+            <div class="mz-l-formfieldgroup-cell" tabindex="0" role="contentinfo">
+                <label for="coupon-code" class="coupondata payment-accordion">   
+                    Enter Coupon Code
+                <span class="arrow"></span>
+                </label>  
+            </div> 
+            <div class="mz-l-formfieldgroup-cell field-sec">
+                <input type="text" id="coupon-codepayment" data-mz-action="couponCodepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
+                <button class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+                <span class="error-msg setpaymentcouponerr" tabindex="-1" role="contentinfo"></span> 
+                <div class="coupon-error" tabindex="-1" role="contentinfo">Error: You cannot apply more than one coupon code. </div>        
+            </div>      
+         </div> 
         {% include "modules/checkout/checkout-digital-credit" %}
         {% if model.nonStoreCreditTotal > 0 %}
         {% if model.savedPaymentMethods %}
@@ -299,6 +312,7 @@
         {% endif %}
     </div>
     {% endif %}
+ 
 </div>
 
 

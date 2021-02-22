@@ -1,4 +1,4 @@
-<h3 class="mz-l-stack-sectiontitle">{{ labels.accountQuickOrder }}</h3>
+<h3 class="mz-l-stack-sectiontitle isDesktop">{{ labels.accountQuickOrder }}</h3>
 <div >
     {% if model.items %}
         <div data-mz-quick-orderlist class="quick-order-list">

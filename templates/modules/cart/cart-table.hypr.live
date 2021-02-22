@@ -6,13 +6,13 @@
         <div class="oos-error"></div>
         <div id="heat-warning"></div>
         <div id="no-free-shipping-warning"></div>
-    	{% if pageContext.isDesktop or pageContext.isTablet %}
+    	{% if model.pageContext.isDesktop or model.pageContext.isTablet %}
 	    <div class="cart-header-top">
 	        <h1 class="mz-cartpagetitle" tabindex="0">{{ labels.cart }}<span class="count">{% if model.count>1 %} ({{ model.count }} items){% else %} ({{ model.count }} item) {% endif %}</span></h1>
 	        <div class="continue-shopping"><a href="/" ><i class="arrow"></i>continue shopping</a></div> 
 	    </div>
 	{% endif %}
-        {% if pageContext.isMobile %}
+        {% if model.pageContext.isMobile %}
             <div class="mobile-cart-header">
                 <div class="total-count-section">   
                     <div class="title-section"  tabindex="0"><h1 class="mz-cartpagetitle">{{ labels.cart }}<span class="count">{% if model.count>1 %} ({{ model.count }} items) {% else %} ({{ model.count }} item){% endif%}</span></h1></div>
@@ -39,7 +39,7 @@
         {% endif %}
         <div class="clearfix"></div>  
     </div> 
-    {% if pageContext.isDesktop or pageContext.isTablet %}
+    {% if model.pageContext.isDesktop or model.pageContext.isTablet %}
         <table class="item-table desktop-cart-table">
             <thead>
               <tr>
@@ -142,7 +142,7 @@
             </tbody>
         </table>
     {% endif %}  
-    {% if  pageContext.isMobile %}
+    {% if  model.pageContext.isMobile %}
     <div class="mobile-cart-table">
         {% if not model.isEmpty %}
             {% for item in model.items %}  
@@ -226,7 +226,7 @@
         {% endif %}    
     </div>
     {% endif %}    
-    {% if pageContext.isDesktop or pageContext.isTablet %}
+    {% if model.pageContext.isDesktop or model.pageContext.isTablet %}
     <div class="table-bottom">
         <div class="continue-shopping"><a href="/"><i class="arrow"></i>continue shopping</a></div> 
         <div class="title-section" tabindex="0">

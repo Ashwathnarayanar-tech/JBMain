@@ -845,8 +845,12 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 			location.href='/online-candy-store';  
 			}
 		});
-        var cartModel = window.cartModel = CartModels.Cart.fromCurrent(),
-        cartView = new CartView({
+        var cartModel = window.cartModel = CartModels.Cart.fromCurrent();
+        var pageModel = window.getDeviceMode();
+        window.currentMode = window.getcurrentMode(pageModel);
+        cartModel.attributes.pageContext = pageModel;
+        console.log("cart model ---",cartModel);
+        var cartView = new CartView({
             el: $('#cart'),
             model: cartModel,
             messagesEl: $('[data-mz-message-bar]')
@@ -1384,6 +1388,14 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 return false;
             } 
         });
+
+        $(window).on('resize orientationchange', function(){
+            console.log(" event resize");
+           // getScreenOrientation();
+           var pageModel = window.getDeviceMode();
+           window.cartView.model.set('pageContext',pageModel);
+           window.cartView.render();
+          });
     });
 });
 

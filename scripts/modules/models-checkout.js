@@ -486,7 +486,9 @@
            
             /*helpers: ['acceptsMarketing', 'savedPaymentMethods', 'availableStoreCredits', 'applyingCredit', 'maxCreditAmountToApply',
               'activeStoreCredits', 'nonStoreCreditTotal', 'activePayments', 'hasSavedCardPayment', 'availableDigitalCredits', 'digitalCreditPaymentTotal', 'isAnonymousShopper', 'visaCheckoutFlowComplete'],
-            */    acceptsMarketing: function() {
+            */   
+           
+            acceptsMarketing: function() {
                     return this.getOrder().get('acceptsMarketing');
             },
             isExternalCheckoutFlowComplete: function () {
@@ -1385,7 +1387,7 @@
                     this.refresh();
                 }
             },
-            addCoupon: function() {
+            addCoupon: function () {
                 var me = this;
                 var code = this.get('couponCode');
                 var orderDiscounts = me.get('orderDiscounts');
@@ -1393,7 +1395,7 @@
                     // to maintain promise api
                     var deferred = api.defer();
                     deferred.reject();
-                    deferred.promise.otherwise(function() {
+                    deferred.promise.otherwise(function () {
                         me.trigger('error', {
                             message: Hypr.getLabel('promoCodeAlreadyUsed', code)
                         });
@@ -1401,7 +1403,8 @@
                     return deferred.promise;
                 }
                 this.isLoading(true);
-                return this.apiAddCoupon(this.get('couponCode')).then(function() {
+                return this.apiAddCoupon(this.get('couponCode')).then(function () {
+
                     me.get('billingInfo').trigger('sync');
                     me.set('couponCode', '');
 
@@ -1438,6 +1441,8 @@
                         if(!(me.get('suggestedDiscounts').length && autoAddSuggestedDiscount)){
                             me.set('seterror' , "coupon");
                             me.set('errormessagecoupon' , Hypr.getLabel('promoCodeError', code));
+                            $('.setpaymentcouponerr').html(Hypr.getLabel('promoCodeError', code));
+                            $('.accordion-pay.coupon-code-row').addClass('active');
                         } 
                     }
                     else if (me.get('total') === 0) {
