@@ -18,11 +18,12 @@
 		    {% if pageContext.categoryId == 341 %}
 		        <div class="brand-dicreption">
 		            <div class="a-spot-cointainer">
-		                {% if pageContext.isMobile %}
+		                <div class="isMobile">
 		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
-		                {% else %}
+		                </div>
+						<div class="isDesktop">
 		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
-		                {% endif %}
+		                </div>
 		            </div>
 		            <div class="flavor-sec">
 		                <div class="flavor-List" id="flavor-List"></div>
