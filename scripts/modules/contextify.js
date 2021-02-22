@@ -3,6 +3,7 @@ define(['modules/jquery-mozu',
         'shim!vendor/jquery.hoverIntent[jquery=jQuery]>jQuery'], function ($,api) {
     $(document).ready(function () {
         // mega new menu functions 
+       window.invokeContextify = function invokeContextify(){
         var myDomElement = null; 
         $(document).mousemove(function(e) {
             myDomElement = $(e.target);
@@ -389,6 +390,8 @@ define(['modules/jquery-mozu',
          var s = api.context.site;
          var filepath="//cdn-sb.mozu.com/"+t+"-"+s+"/cms/"+s+"/files/";
          var imagediv;
+        };
+        window.invokeContextify();
     });
     var navigation_link_activated;
     

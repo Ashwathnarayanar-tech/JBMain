@@ -1,5 +1,4 @@
-<div class="storecredit-account">
-<h3 class="mz-l-stack-sectiontitle">{{labels.giftCards}}</h3>
+<h3 class="mz-l-stack-sectiontitle isDesktop">{{labels.giftCards}}</h3>
 
 <h4 class="mz-subtitle"> {{themeSettings.GiftcardHeadline}}</h4>
 <p class="mz-subtitle-para" tabindex="0" role="contentinfo">{{themeSettings.giftcardbalMessage|string_format(model.totalCreditAmount|currency)|safe}} </p> 

@@ -161,7 +161,7 @@
                         <span class="head-text producttotal">ITEM TOTAL</span>
                     </div>
                     <div class="item-list">
-                        {% if pageContext.isDesktop or pageContext.isTablet %}
+                        <div class="isDesktop">
                             {% for item in model.items %}
                                 <div class="summary-item"  tabindex="0" role="contentinfo">
                                     <span class="item-name">
@@ -218,7 +218,8 @@
                                     
                                 </div>
                             {% endfor %}
-                        {% else %}
+                         </div>
+                         <div class="isMobile">
                             {% for item in model.items %}
                                 <div class="summary-item"  tabindex="0" role="contentinfo">
                                     <span class="item-img first-sec">
@@ -282,7 +283,7 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                        {% endif %}
+                        </div>
                     </div>
                     <div class="summary-data-total">
                         <span tabindex="0" role="contentinfo" class="summary-subtotal">

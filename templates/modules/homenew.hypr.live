@@ -1,11 +1,11 @@
    
 <div>
-	{% if pageContext.isDesktop or pageContext.isTablet %}
+  <div class="isDesktop">
         {% dropzone "home-header" scope="page" %}
-    {% endif  %}
-	{% if pageContext.isEditMode or pageContext.isMobile %}
+   </div>
+   <div class ="isMobile">
     	{% dropzone "home-header-mob" scope="page" %}
-	{% endif %}
+	</div>
 </div>
  
 <div class="card-slot-parent">
