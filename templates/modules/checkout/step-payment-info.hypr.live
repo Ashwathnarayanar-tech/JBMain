@@ -106,11 +106,16 @@
                 </label>  
             </div> 
             <div class="mz-l-formfieldgroup-cell field-sec">
-                <input type="text" id="coupon-codepayment" data-mz-action="couponCodepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
-                <button class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+                <input type="text" id="coupon-codepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
+                <button class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}data-mz-action="couponCodepayment">{{ labels.apply }}</button>
                 <span class="error-msg setpaymentcouponerr" tabindex="-1" role="contentinfo"></span> 
                 <div class="coupon-error" tabindex="-1" role="contentinfo">Error: You cannot apply more than one coupon code. </div>        
-            </div>      
+            </div>   
+              <div class="mz-l-formfieldgroup-cell field-sec removeCouponpayment" style="display:none;">
+           <input type="text" id="coupon-code" name="coupon-code" value="{{ model.couponCodes|first }}" data-mz-value="couponCode" autocomplete="new-coupon" />
+            <div class="remove-coupon-checkout" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div> 
+                <div class="coupon-error" tabindex="-1" role="contentinfo">Error: You cannot apply more than one coupon code. </div>        
+            </div>    
          </div> 
         {% include "modules/checkout/checkout-digital-credit" %}
         {% if model.nonStoreCreditTotal > 0 %}

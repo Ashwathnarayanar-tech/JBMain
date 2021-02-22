@@ -1433,17 +1433,22 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             //         return false;
             //     }
             // });
-            // this.$el.on('paste', 'input', function (e) {
-            //     setTimeout(function(){
-            //         if($('#coupon-code').val() !==""){
-            //             me.$el.find('button').prop('disabled', false);
-            //             $('.coupon-error').fadeOut();
-            //         }
-            //     },100);
-            // }); 
+             this.$el.on('paste', 'input', function (e) {
+                setTimeout(function(){
+                    if($('#coupon-code').val() !==""){
+                       $(e).siblings('.mz-button').prop('disabled', false);
+                        $('.coupon-error').fadeOut();
+                    }
+                },100);
+            }); 
         },
         couponCodepayment:function(e){
-            window.couponCode.addCoupon(e);
+            $('#coupon-code').val($('#coupon-codepayment').val());
+            $('#coupon-code').trigger('change');
+            setTimeout(function(){
+                window.couponCode.addCoupon(e);
+            },2000);
+          
         },
         onEnterCouponCode: function (model, code) {
             if ($.trim(code) && !this.codeEntered) {
@@ -2057,6 +2062,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     this.model.addCoupon().ensure(function() {
                         self.$el.removeClass('is-loading');
                         self.render();
+                        $('.accordion-pay.coupon-code-row').addClass('active');
+                        if(self.model.get('couponCodes').length>0){
+                            $(document).find('.removeCouponpayment').show();
+                            
+                        }else{
+                            $(document).find('.removeCouponpayment').hide();
+                        }
                         if($('.error-msg').text().length > 0){
                             //$('.error-msg').focus();  
                             $('.setpaymentcouponerr').focus(); 
