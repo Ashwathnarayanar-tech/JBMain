@@ -470,6 +470,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                      scrollTop: $("#step-payment-info").offset().top
                  }, 500);
             }  
+            //To show Remove button if coupon is applied 
+            if(window.couponCode.model.toJSON().couponCodes.length>0){
+                $('.accordion-pay.coupon-code-row').addClass('active');
+                $(document).find('#remove-coupon-payment').css('display','inline-block');
+                $(document).find('#coupon-codepayment-btn').hide();
+                $('#coupon-codepayment').val($('#coupon-code').val());
+                
+            }else{
+                $(document).find('#remove-coupon-payment').hide();
+                $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+            }     
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
@@ -1433,17 +1444,25 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             //         return false;
             //     }
             // });
-            // this.$el.on('paste', 'input', function (e) {
-            //     setTimeout(function(){
-            //         if($('#coupon-code').val() !==""){
-            //             me.$el.find('button').prop('disabled', false);
-            //             $('.coupon-error').fadeOut();
-            //         }
-            //     },100);
-            // }); 
+             this.$el.on('paste', 'input', function (e) {
+                setTimeout(function(){
+                    if($('#coupon-code').val() !==""){
+                       $(e).siblings('.mz-button').prop('disabled', false);
+                        $('.coupon-error').fadeOut();
+                    }
+                },100);
+            }); 
         },
         couponCodepayment:function(e){
-            window.couponCode.addCoupon(e);
+            $('#coupon-code').val($('#coupon-codepayment').val());
+            $('#coupon-code').trigger('change');
+            setTimeout(function(){
+                window.couponCode.addCoupon(e);
+            },2000);
+          
+        },
+        removecodecoupon:function(){
+            window.couponCode.removeCouponCheckout();
         },
         onEnterCouponCode: function (model, code) {
             if ($.trim(code) && !this.codeEntered) {
@@ -2057,9 +2076,22 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     this.model.addCoupon().ensure(function() {
                         self.$el.removeClass('is-loading');
                         self.render();
+                        $('.accordion-pay.coupon-code-row').addClass('active');
                         if($('.error-msg').text().length > 0){
-                            //$('.error-msg').focus();  
+                            //$('.error-msg').focus(); 
+                            $(document).find('#remove-coupon-payment').hide();
+                            $(document).find('#coupon-codepayment-btn').css('display','inline-block'); 
                             $('.setpaymentcouponerr').focus(); 
+                            
+                        }else{
+                            if(self.model.get('couponCodes').length>0){
+                                $(document).find('#remove-coupon-payment').show();
+                                $(document).find('#coupon-codepayment-btn').hide();
+                                
+                            }else{
+                                $(document).find('#remove-coupon-payment').hide();
+                                $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+                            }
                         }
                     });  
                     $.cookie("coupon", addedCoupon , { path: '/', expires: 7 });
@@ -2069,18 +2101,20 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         handleEnterKey: function () {
             $('[data-mz-action="addCoupon"]').trigger('click');
         },
-             removeCouponCheckout:function(){
-                var self=this,
-                    couponCode =this.model.get('couponCodes'); 
-                if(couponCode && couponCode.length>0){
-                    $.each(couponCode,function(i,v){
-                        self.model.apiRemoveCoupon(v).then(function (res) {
-                            $.cookie("coupon",'',{ path: '/', expires: 7 });
-                            window.checkoutViews.steps.shippingInfo.next();
-                        });    
-                    });    
-                }
-                self.model.unset('couponCodes');
+        removeCouponCheckout:function(){
+        var self=this,
+            couponCode =this.model.get('couponCodes'); 
+        if(couponCode && couponCode.length>0){
+            $.each(couponCode,function(i,v){
+                self.model.apiRemoveCoupon(v).then(function (res) {
+                    $.cookie("coupon",'',{ path: '/', expires: 7 });
+                    window.checkoutViews.steps.shippingInfo.next();
+                    $('.accordion-pay.coupon-code-row').addClass('active');
+                });    
+            });    
+        }
+        self.model.unset('couponCodes');
+       
         },
         removeAllCouponCheckout:function(){
             var self=this,CartData = this.model.apiModel.data;
@@ -2108,7 +2142,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     this.model.set('digitalCreditCode','');
                     this.model.set('errormessage',''); 
                 }   
-            Backbone.MozuView.prototype.render.apply(this);     
+            Backbone.MozuView.prototype.render.apply(this);
+           
         }
     });
     

@@ -22,7 +22,7 @@ require([
         //if(newMode !=window.currentMode){
             window.currentMode = newMode;
            // updateHeader(pageModel);
-            updateNewHeader();
+           updateMenus();
         //}
      }
 
@@ -41,6 +41,9 @@ require([
     function updateHeader(obj){
         window.pageHeader.model.set("pageContext",obj);
         window.pageHeader.render();
+       updateMenus();
+    }
+    function updateMenus(){
         setTimeout(function(){
             window.invokeContextify();
             var newminiCartView = new window.MiniCartView({
@@ -50,11 +53,6 @@ require([
             setTimeout(function(){
                 newminiCartView.render();
             },500);
-        },1000);
-    }
-    function updateNewHeader(){
-        setTimeout(function(){
-            window.invokeContextify();
         },1000);
     }
     generateheader();

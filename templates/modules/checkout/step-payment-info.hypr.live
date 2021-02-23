@@ -100,17 +100,19 @@
     <div class="mz-formstep-fields mz-l-stack payment-cc-section">
         <div class="accordion-pay coupon-code-row mz-l-formfieldgroup-row" >
             <div class="mz-l-formfieldgroup-cell" tabindex="0" role="contentinfo">
-                <label for="coupon-code" class="coupondata payment-accordion">   
+                <label for="coupon-codepayment" class="coupondata payment-accordion">   
                     Enter Coupon Code
                 <span class="arrow"></span>
                 </label>  
             </div> 
             <div class="mz-l-formfieldgroup-cell field-sec">
-                <input type="text" id="coupon-codepayment" data-mz-action="couponCodepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
-                <button class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
+                <input type="text" id="coupon-codepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
+                <button id="coupon-codepayment-btn"class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}data-mz-action="couponCodepayment">{{ labels.apply }}</button>
+                 <div style="display:none;"data-mz-action="removecodecoupon" class="remove-coupon-checkout" id="remove-coupon-payment" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div> 
                 <span class="error-msg setpaymentcouponerr" tabindex="-1" role="contentinfo"></span> 
                 <div class="coupon-error" tabindex="-1" role="contentinfo">Error: You cannot apply more than one coupon code. </div>        
-            </div>      
+            </div>   
+               
          </div> 
         {% include "modules/checkout/checkout-digital-credit" %}
         {% if model.nonStoreCreditTotal > 0 %}

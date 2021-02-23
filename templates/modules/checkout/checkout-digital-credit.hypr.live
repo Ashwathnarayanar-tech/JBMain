@@ -7,7 +7,7 @@
         </label>  
     </div>
     <div class="store-credit-input-sec">
-        <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4>
+        {% comment %} <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4> {% endcomment %}
         {% comment %}
             <div class="mz-l-formfieldgroup-cell">
                 <label for="digital-credit-code">{{ labels.digitalCreditCode }}: </label>

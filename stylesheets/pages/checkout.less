@@ -1153,12 +1153,13 @@
                                             display: block;
                                         }
                                         .arrow{
-                                            width: 6px; 
-                                            border-left: 2px solid #4a4a4a;
-                                            border-top: 2px solid #4a4a4a;
-                                            height: 6px;
+                                            width: 7px; 
+                                            border-left: 2.1px solid #000;
+                                            border-top: 2.1px solid #000;
+                                            height: 7px;
                                             transform: rotate(222deg);
                                             margin-right: 8px;
+                                            margin-top: 7px;
                                             margin-bottom: 1.1px;
                                             float: right;
                                             @media only screen and (min-width : 1px) and (max-width : 767px){
@@ -1167,26 +1168,30 @@
                                             }
                                             
                                         }
-                                        #coupon-code{
+                                        #coupon-codepayment{
                                             border-radius: 4px;
                                             border: solid 1px #dddddd;
                                             background-color: #ffffff;
-                                            padding: 10px 0;
-                                            width: 60%; 
-                                            padding-left: 8px;
+                                            padding: 0 14px;
+                                            width: 65.5%;
+                                            box-sizing: border-box;
+                                            vertical-align: top;
+                                            font-weight: 500;
+                                            height: 38px;
+                                            margin-right:8px;
                                         }                                   
                                         .mz-button, .remove-coupon-checkout{
                                             border-radius: 4px;
-                                            border: solid 1px #e7131a;
+                                            border: solid 1px #004e99;
                                             background: transparent;
                                             font-size: 18px;
-                                            color: #e7131a;
+                                            color: #004e99;
                                             padding: 7px 25px;
                                             display: inline-block;
                                             cursor: pointer;
                                             &:hover{
-                                                background-color: #cc0108;
-                                                border-color: #cc0108;
+                                                background-color: #004e99;
+                                                border-color: #004e99;
                                                 color: white;
                                             }
                                         }
@@ -1248,13 +1253,14 @@
                                                     font-size:18px !important;
                                                 }
                                                 .arrow{
-                                                    width: 6px; 
-                                                    border-left: 2px solid #4a4a4a;
-                                                    border-top: 2px solid #4a4a4a;
-                                                    height: 6px;
+                                                    width: 7px; 
+                                                    border-left: 2px solid #000;
+                                                    border-top: 2px solid #000;
+                                                    height: 7px;
                                                     transform: rotate(222deg);
                                                     margin-right: 8px;
                                                     margin-bottom: 1.1px;
+                                                    margin-top:7px;
                                                     float: right;
                                                     @media only screen and (min-width : 1px) and (max-width : 767px){
                                                        width:8px;
@@ -1276,15 +1282,17 @@
                                                 }
                                                 .mz-l-formfieldgroup-cell{
                                                     .mz-checkout-digitalcredit-enter-code{
-                                                        width: 28%;
+                                                        width: 65.5%;
                                                         border-radius: 4px;
                                                         border: solid 1px #cfcfcf;
                                                         background-color: #ffffff;
-                                                        padding: 10px 5px;
-                                                        font-size: 18px;
+                                                        padding: 9px 5px;
+                                                        font-size: 12px;
                                                         font-weight: normal; 
-                                                        margin-right: 5px;
+                                                        margin-right: 8px;
+                                                        box-sizing: border-box;
                                                         margin-bottom: 0px;
+                                                        height: 38px;
                                                     }
                                                     .digitalcrediterror-msg, #storecredit-messages{
                                                         color: #e7131a;
@@ -3579,11 +3587,15 @@
                                     .coupon-code-row.mz-l-formfieldgroup-row{
                                         padding: 10px 5px;
                                         .mz-l-formfieldgroup-cell.field-sec{
-                                            #coupon-code{
-                                                width: 66%;
+                                            #coupon-codepayment{
+                                                width: 69%;
+                                                margin-right:0;
                                             }
-                                            .mz-button{
-                                                padding: 8px 25px;
+                                            .mz-button,.remove-coupon-checkout{
+                                                padding: 6px 0;
+                                                width: 29%;
+                                                float:right;
+                                                text-align:center;
                                             }
                                         }
                                     }
@@ -3591,7 +3603,10 @@
 							    		width: 100%;
 							    		padding: 0;
 							    		.mz-formstep-fields{ 
-							    			.mz-checkout-digitalcredit.mz-l-stack-section{ 
+							    			.mz-checkout-digitalcredit.mz-l-stack-section{
+                                                .digitalcredit-inner-content{
+                                                    padding: 10px 5px;
+                                                } 
 							    				.store-credit-input-sec{
 						    					    padding: 0; 
 						    					    .mz-l-formfieldgroup-cell{ 
