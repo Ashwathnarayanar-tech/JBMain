@@ -3,9 +3,8 @@
       <div class="mz-cms-col-6-12" id="footer-signup">
         <div class="footer-info-text" tabindex="0">Enter your information to receive<br /> exclusive discounts, news and offers: </div>     
           <div class="footer-email-box mz-l-formfieldgroup-cell">
-						
-			<input placeholder="Enter email address" id="footer-email-signup" name="footer-email-signup" type="text" tabindex="0">
 			<label for="footer-email-signup">Email signup</label>
+			<input placeholder="Enter email address" id="footer-email-signup" name="footer-email-signup" type="text" tabindex="0">
 			<div class="submit-footer-container">  
 			  <span id="signup-message-top" style="display:none;color:#fff;font-size:12px;" tabindex="0"></span>
 		  	</div>

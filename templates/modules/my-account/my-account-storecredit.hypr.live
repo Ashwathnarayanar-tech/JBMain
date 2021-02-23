@@ -5,16 +5,15 @@
 
 <section class="mz-subtitle-para" tabindex="0" role="contentinfo">{{themeSettings.giftcardMessage|safe}}</section>
 
- <p tabinderx="0">Enter your gift card / store credit code, then click "Apply"</p>
+ <section class="mz-subtitle-para" tabindex="0" role="contentinfo"><p tabinderx="0"><label for="accountStoreCreditInput">Enter your gift card / store credit code, then click "Apply"</label></p></section>
 <div class="mz-accountstorecredit-form mz-l-formfieldgroup-cell">
   <input aria-describedby="giftcard-messages" aria-invalid="false" type="text" placeholder="{{ labels.enterDigitalCredit }}" class="mz-accountstorecredit-input" data-mz-entering-credit id="accountStoreCreditInput"/>
-  <label for="accountStoreCreditInput">Enter your gift card / store credit code</label>
   <button class="mz-button mz-button-small mz-accountstorecredit-add" data-mz-action="addStoreCredit">Apply</button>
       <div id="giftcard-messages">
             {% include "modules/common/message-bar" with model=model.messages %}
       </div>
 </div>
-</div>
+
 
 <div class="mz-accountstorecredit-table">
   {% if model.credits %}
