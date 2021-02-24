@@ -20,7 +20,7 @@
                                 <label for="ordernum">{{ labels.orderNumber }}</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="ordernum" id="ordernum" placeholder="order number" value="" type="text" data-mz-order-number /> 
+                                <input name="ordernum" id="ordernum" placeholder="Order number" value="" type="text" data-mz-order-number /> 
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
@@ -45,7 +45,7 @@
                                  <label for="verification">{{ labels.verification }}</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input placeholder="verification" id="verification" name="verification" value="" class="onlyverification" type="text" data-mz-verification />
+                                <input placeholder="Verification" id="verification" name="verification" value="" class="onlyverification" type="text" data-mz-verification />
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">

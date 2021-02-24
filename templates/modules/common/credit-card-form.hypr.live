@@ -29,7 +29,8 @@
        
         <div class="mz-l-formfieldgroup-cell checkout-card-name">
              <label for="mz-payment-credit-card-name">{{ labels.nameOnCard }}<span class="is-required" aria-label="mandatory field"> *</span></label>
-            <input type="text" placeholder="credit-card-name" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
+             
+            <input type="text" placeholder="Credit card name" name="credit-card-name" id="mz-payment-credit-card-name" aria-describedBy="err_3" data-mz-value="{{ cardcontext }}nameOnCard" value="{{ model.nameOnCard }}" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} readonly {% endif %} class="{% if model.contactId and pageContext.pageType == 'checkout' %}readonlytext{% endif %}"><!-- ADA OK -->
             <span style="top: 43px;" class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="{{ cardcontext }}nameOnCard"></span>
         </div>
     </div>

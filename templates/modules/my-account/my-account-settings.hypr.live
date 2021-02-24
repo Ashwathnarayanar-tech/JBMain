@@ -27,7 +27,7 @@
                           {% if editing %}
                           <div class="mz-l-formfieldgroup-cell">
                               <label class="mz-accountsettings-label mz-account-settings-label-email">{{ labels.emailAddress }}<span class="is-required" aria-label="mandatory field">*</span></label>
-                              <input class="mz-accountsettings-email" type="email" placeholder="{{ labels.emailAddress }}" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
+                              <input class="mz-accountsettings-email" type="email" placeholder="Email address" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
                               <span class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
                          </div>
                           {% else %}
@@ -40,12 +40,12 @@
                     <div class="edit-user-settings">
                             <div class="mz-l-formfieldgroup-cell">
                                 <label for="accountSettingsFirstName">First Name <span class="is-required" aria-label="mandatory field">*</span></label></p>
-                                <input class="mz-accountsettings-firstname" type="text" placeholder="{{ labels.firstName }}" data-mz-value="firstName" value="{{ model.firstName }}" required id="accountSettingsFirstName"/>    
+                                <input class="mz-accountsettings-firstname" type="text" placeholder="First name" data-mz-value="firstName" value="{{ model.firstName }}" required id="accountSettingsFirstName"/>    
                                 <span class="mz-validationmessage" data-mz-validationmessage-for="firstName"></span>
                             </div>
                              <div class="mz-l-formfieldgroup-cell">
                              <label for="accountSettingsLastName">Last Name <span class="is-required" aria-label="mandatory field">*</span></label>
-                            <input class="mz-accountsettings-lastname" type="text" placeholder="{{ labels.lastName }}" data-mz-value="lastName" value="{{ model.lastName }}" required id="accountSettingsLastName"/>
+                            <input class="mz-accountsettings-lastname" type="text" placeholder="Last name" data-mz-value="lastName" value="{{ model.lastName }}" required id="accountSettingsLastName"/>
                             <span class="mz-validationmessage" data-mz-validationmessage-for="lastName"></span>
                             </div>
                             <p class="required-label">*Required field</p>

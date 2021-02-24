@@ -16,7 +16,7 @@
                                      <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
                                 </div>  
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
+                                    <input aria-describedby="useremailerror" name="email" id="email" placeholder="Email" type="email" class="user-email"/>
                                     <span class="error-user" id="useremailerror"></span> 
                                 </div> 
                             </div>
@@ -27,7 +27,7 @@
                                     <span class="loginError" id="loginerror"></span> 
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">
-                                    <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                    <input for="password" name="password" id="password" placeholder="Password"  type="password" class="user-password" aria-describedby="loginerror"/>
                                     <span class="loginError" id="loginerror"></span>
                                 </div>
                             </div>

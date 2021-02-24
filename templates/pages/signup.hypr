@@ -43,7 +43,7 @@
                                     <label for="firstname">First Name<span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input placeholder="firstname" id="firstname" required type="text" class="mz-signup-firstname" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
+                                    <input placeholder="First name" id="firstname" required type="text" class="mz-signup-firstname" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row">
@@ -52,7 +52,7 @@
                                     <label for="lastname">Last Name <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input placeholder="Last Name" id="lastname" required type="text" class="mz-signup-lastname" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
+                                    <input placeholder="Last name" id="lastname" required type="text" class="mz-signup-lastname" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row">
@@ -61,7 +61,7 @@
                                     <label for="email">Email Address <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell"> 
-                                    <input placeholder="email" id="email" required type="email" class="mz-signup-email" data-mz-signup-emailaddress />
+                                    <input placeholder="Email" id="email" required type="email" class="mz-signup-email" data-mz-signup-emailaddress />
                                 </div>
                             </div>
                             <div class="mz-l-formfieldgroup-row password-row">
@@ -84,7 +84,7 @@
                                     <label for="confirmpassword">Confirm Password <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                                    <input placeholder="confirm password " id="confirmpassword" required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
+                                    <input placeholder="Confirm password " id="confirmpassword" required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
                                 </div>
                             </div>
                             {% comment %}

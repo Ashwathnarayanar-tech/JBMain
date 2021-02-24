@@ -24,7 +24,7 @@
                             <label for="firstname">*First Name:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="text" class="mz-signup-firstname" placeholder="{{ labels.firstName }}" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
+                            <input type="text" class="mz-signup-firstname" placeholder="First name" data-mz-signup-firstname id="firstname"/> <!-- ADA -->
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row half-width-second-block">
@@ -32,7 +32,7 @@
                             <label for="lastname">*Last Name:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="text" class="mz-signup-lastname" placeholder="{{ labels.lastName }}" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
+                            <input type="text" class="mz-signup-lastname" placeholder="Last name" data-mz-signup-lastname id="lastname"/> <!-- ADA -->
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -40,7 +40,7 @@
                             <label for="email">*Email Address:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="email" id="email" class="mz-signup-email" placeholder="{{ labels.emailAddress }}" data-mz-signup-emailaddress />
+                            <input type="email" id="email" class="mz-signup-email" placeholder="Email" data-mz-signup-emailaddress />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row password-row">
@@ -49,7 +49,7 @@
                             <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="password" aria-describedby="password-requirements" id="password" class="mz-signup-password" placeholder="{{ labels.password }}" data-mz-signup-password />
+                            <input type="password" aria-describedby="password-requirements" id="password" class="mz-signup-password" placeholder="Password" data-mz-signup-password />
                         </div>
                         <div class="pwd-message">
                             <div class="arrow-left"></div>
@@ -61,7 +61,7 @@
                             <label for="email">*Confirm Password:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                            <input type="password" class="mz-signup-confirmpassword" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
+                            <input type="password" class="mz-signup-confirmpassword" placeholder="Confirm password" data-mz-signup-confirmpassword />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">

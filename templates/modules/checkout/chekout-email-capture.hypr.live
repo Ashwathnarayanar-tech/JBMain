@@ -10,15 +10,15 @@
                     <div class="mz-l-formfieldgroup">  
                         <div class="mz-l-formfieldgroup-row"> 
                             <div class="mz-l-formfieldgroup-cell">
-                                <input aria-describedby="useremailerror"  name="email" id="email" placeholder="Enter Email Address*" type="email" class="user-email"/>
                                  <label for="email">Enter Email Address*</label>
+                                <input aria-describedby="useremailerror"  name="email" id="email" placeholder="Enter email address" type="email" class="user-email"/>
                                 <span class="error-user" id="useremailerror"></span>    
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell zero-cellspace">
-                                <input name="password" id="password" placeholder="Enter Password*"  type="password" class="user-password" aria-describedby="loginerror"/>
                                  <label for="password">Enter Password*</label>
+                                <input name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
                                 <span class="loginError" id="loginerror"></span> 
                             </div>
                         </div> 
@@ -51,8 +51,8 @@
                     <div class="mz-l-formfieldgroup">
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <input aria-describedby="guestemailerror" name="email" id="guest_email" placeholder="Enter Email Address*"  type="email" class="guest-email"/>   
                                 <label for="guest_email">Enter Email Address*</label>
+                                <input aria-describedby="guestemailerror" name="email" id="guest_email" placeholder="Enter email address"  type="email" class="guest-email"/>   
                                 <span class="error-guest" id="guestemailerror"></span>
                             </div> 
                         </div> 
@@ -137,10 +137,10 @@ display: block;
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
                                
+                                 <label for="guestemail"><span class="is-required" aria-label="mandatory field"> </span>{{ labels.emailAddress }} (required): </label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input aria-describedby="guestemailerror" name="email" id="guestemail" placeholder="Enter email"  type="email" class="guest-email"/>
-                                 <label for="guestemail"><span class="is-required" aria-label="mandatory field"> </span>{{ labels.emailAddress }} (required): </label>
+                                <input aria-describedby="guestemailerror" name="email" id="guestemail" placeholder="Email"  type="email" class="guest-email"/>
                                 <span class="error-guest" id="guestemailerror"></span>
                             </div> 
                         </div> 
@@ -180,7 +180,7 @@ display: block;
                                 <label for="email"><span class="is-required" aria-label="mandatory field"> *</span> {{ labels.emailAddress }} (required):</label>
                             </div>  
                             <div class="mz-l-formfieldgroup-cell">
-                                <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
+                                <input aria-describedby="useremailerror" name="email" id="email" placeholder="Email" type="email" class="user-email"/>
                                 <span class="error-user" id="useremailerror"></span> 
                             </div>
                         </div>
@@ -189,7 +189,7 @@ display: block;
                                 <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }} (required):</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell zero-cellspace">
-                                <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                <input for="password" name="password" id="password" placeholder="Password"  type="password" class="user-password" aria-describedby="loginerror"/>
                                 <span class="loginError" id="loginerror"></span> 
                             </div>
                         </div> 
