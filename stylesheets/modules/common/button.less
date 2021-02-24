@@ -1,11 +1,11 @@
 ﻿@keyframes loadingthrob {
-    from { background-color: #eee; }
-     to { background-color: #e3e3e3; }
+    from { background-color: #abafb3; }
+     to { background-color: #004e99; }
 }
 
 @-webkit-keyframes loadingthrob {
-    from { background-color: #eee; }
-     to { background-color: #e3e3e3; }
+    from { background-color: #abafb3; }
+     to { background-color: #004e99; }
 }
 
 
@@ -44,8 +44,12 @@
 
 .is-loading .mz-button, .mz-button.is-loading {
     background-position: 50% 50%;
-    border-color: #eee;
-    color: transparent;
+    border-color: #004e99;
+    color: #ccc;
     animation: loadingthrob 1s linear 0s alternate infinite;
     -webkit-animation: loadingthrob 1s linear 0s alternate infinite;
+    &[data-mz-action="cancelEdit"] {
+        animation: none;
+        -webkit-animation: none;
+    }
 }

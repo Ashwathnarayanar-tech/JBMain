@@ -251,7 +251,8 @@ define(["modules/jquery-mozu",
                 }
             });
         },
-        addToWishlist: function() {
+        addToWishlist: function(e) {
+            console.log(e.currentTarget);
             var me = this;
             this.whenReady(function() {
                 if (!me.validate()) {
@@ -260,6 +261,7 @@ define(["modules/jquery-mozu",
                         quantity: me.get("quantity")
                     }).then(function(item) {
                         me.trigger('addedtowishlist', item);
+
                     });
                 }
             });

@@ -13,7 +13,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             "change [data-mz-product-option]": "onOptionChange",
             "blur [data-mz-product-option]": "onOptionChange",
             "click .more-info":"scrollToProductDetails",
-            "click .sweet-rewards-pdp":"sweetRewards"
+            "click .sweet-rewards-pdp":"sweetRewards",
+            "click .mz-productdetail-addtowishlist" : "addToWishlist"
         },
         qtyPlus: function(e,cqty){
             var me = this,qty;
@@ -276,9 +277,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });         
             
         },
-        /*addToWishlist: function () {
-            this.model.addToWishlist();
-        },*/
+        addToWishlist: function (e) {
+            console.log("dilps");
+            this.model.addToWishlist(e);
+        },
         checkLocalStores: function (e) { 
             var me = this;
             e.preventDefault();

@@ -84,7 +84,7 @@
                                     <label for="confirmpassword">Confirm Password <span class="is-required" aria-label="mandatory field">*</span></label>
                                 </div>
                                 <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                                    <input placeholder="confirmpassword " id="confirmpassword" required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
+                                    <input placeholder="confirm password " id="confirmpassword" required type="password" class="mz-signup-confirmpassword" data-mz-signup-confirmpassword />
                                 </div>
                             </div>
                             {% comment %}

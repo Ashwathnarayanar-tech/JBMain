@@ -58,8 +58,8 @@
                         <span class="passwordError"></span>
                     </div>
                     <div class="form-group confirmpassword mz-l-formfieldgroup-cell">
-                        <label class="form-label" for="cpassword">Confirm Password*</label>
-                        <input placeholder="cpassword" id="cpassword" type="password" name="cpassword" class="forminput" />
+                        <label class="form-label" for="cpassword">Confirm  Password*</label>
+                        <input placeholder="confirm password" id="cpassword" type="password" name="cpassword" class="forminput" />
                         <span class="cpasswordError"></span>
                     </div>
                     <div class="form-group">
