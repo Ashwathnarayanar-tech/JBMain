@@ -1064,6 +1064,9 @@ body #cdawrap:hover #cda-remove {
 }
 // Checkout Input field
 .mz-checkout,.atw-dialog,.notify-me-modal,.login-signup-section,.mz-myaccount,.mz-footer-row,.mz-confirmation,.order-status-section{ 
+    button:disabled {
+    	background-color : #ccc !important;
+    }
     .mz-l-formfieldgroup-cell{ 
         position: relative;
         label{
@@ -1074,16 +1077,21 @@ body #cdawrap:hover #cda-remove {
            }
         }
         input{
+        	font: -webkit-control;
             color: #000 !important;
-            font-size: 14px !important;
+            font-size: 16px !important;
             background-color: #fff !important;
+            font-family: merel, sans-serif !important;
             &:focus{
                 border-color:#004e99 !important;
                 background-color: #fff !important;
             }
         }
      select{
+     	font: -webkit-control;
          background-color: #fff !important;
+         font-size: 16px !important;
+         font-family: merel, sans-serif !important;
         &:focus{
             border-color:#004e99 !important;
         } 
@@ -1091,23 +1099,33 @@ body #cdawrap:hover #cda-remove {
         ::-webkit-input-placeholder {
             opacity: 1;
             transition: inherit;
+            color: #4A4A4A !important;
+            font-size: 14px !important;
          }
          :-moz-placeholder { 
             opacity: 1;
             transition: inherit;
+            color: #4A4A4A !important;
+            font-size: 14px !important;
          }
          
          ::-moz-placeholder { 
             opacity: 1;
             transition: inherit;
+            color: #4A4A4A !important;
+            font-size: 14px !important;
          }
           
          :-ms-input-placeholder {  
             opacity: 1;
             transition: inherit;
+            color: #4A4A4A !important;
+            font-size: 14px !important;
          }
         input:focus::-webkit-input-placeholder {
             opacity: 1;
+            font-size: 14px !important;
+            color: #4A4A4A !important;
         } 
         input:not(:placeholder-shown){
             background-color: #fff !important;
