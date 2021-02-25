@@ -155,6 +155,20 @@
                 {% endwith %}
             {% endif %} 
         </span>
+        {% if model.billingInfo and model.billingInfo.digitalCreditPaymentTotal %}
+          <span class="mz-ordersummary-digitalcreditpayment" tabindex="0" role="contentinfo">
+           
+              <span class="mz-ordersummary-totalname mz-ordersummary-totalname label">{{ labels.digitalCreditTotal }}</span>
+              <span class="mz-ordersummary-totalvalue mz-ordersummary-totalvalue value">{{ labels.digitalCreditSubtractFromOrderPrefix }}{{ model.billingInfo.digitalCreditPaymentTotal|currency }}{{ labels.digitalCreditSubtractFromOrderSuffix }}</span>
+            
+          </span>
+          <span class="mz-ordersummary-grandtotal" tabindex="0" role="contentinfo">
+               
+                    <span class="mz-ordersummary-totalname mz-ordersummary-totalname label">{{ labels.remainingBalance }}:</span>
+                    <span class="mz-ordersummary-totalvalue mz-ordersummary-totalvalue value">{{ model.billingInfo.nonStoreCreditTotal|currency }}</span>
+               
+            </span>
+       {% endif %}
     </div>
 </div>
 

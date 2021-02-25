@@ -620,24 +620,24 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             this.listenTo(this.model.get('billingInfo'), 'orderPayment', this.onOrderCreditChanged, this);
 			this.model.set("pwrAmount", 0);
         },
-        additionalEvents: {
-            "click .remove-coupon": "removeCoupon",
-            "keypress .remove-coupon": "removeCouponOnKeypress"
-        },   
-        removeCoupon:function(e){
-            var self = this;
-            window.couponCode.removeCouponCheckout($(e.currentTarget).attr('coupon'));
-            /*api.action('order','remove-coupon',{id:require.mozuData("checkout").id,couponCode:$(e.currentTarget).attr('coupon')}).then(function(){
-                self.model.refresh();  
-            });*/
-        },
-        removeCouponOnKeypress: function(e) {
-            var self = this;
-            if(e.keyCode == 13 || e.keyCode == 32) {
-                window.couponCode.removeCouponCheckout($(e.currentTarget).attr('coupon'));
-                e.preventDefault();
-            }
-        },
+        // additionalEvents: {
+        //     "click .remove-coupon": "removeCoupon",
+        //     "keypress .remove-coupon": "removeCouponOnKeypress"
+        // },   
+        // removeCoupon:function(e){
+        //     var self = this;
+        //     window.couponCode.removeCouponCheckout($(e.currentTarget).attr('coupon'));
+        //     /*api.action('order','remove-coupon',{id:require.mozuData("checkout").id,couponCode:$(e.currentTarget).attr('coupon')}).then(function(){
+        //         self.model.refresh();  
+        //     });*/
+        // },
+        // removeCouponOnKeypress: function(e) {
+        //     var self = this;
+        //     if(e.keyCode == 13 || e.keyCode == 32) {
+        //         window.couponCode.removeCouponCheckout($(e.currentTarget).attr('coupon'));
+        //         e.preventDefault();
+        //     }
+        // },
         editCart: function () {
             window.location = "/cart";
         },
@@ -1075,7 +1075,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         templateName: 'modules/checkout/step-payment-info',
         autoUpdate: [ 
             'savedPaymentMethodId',
-            //'paymentType',
+            'paymentType',
             'card.paymentOrCardType',
             'card.cardNumberPartOrMask',
             'card.nameOnCard',
@@ -1467,12 +1467,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         onEnterCouponCode: function (model, code) {
             if ($.trim(code) && !this.codeEntered) {
                 this.codeEntered = true; 
-                this.$el.find('button').prop('disabled', false);
+                this.$el.find('button#coupon-codepayment-btn').prop('disabled', false);
                  $('.coupon-error').fadeOut();
             }
             if (!$.trim(code) && this.codeEntered) {
                 this.codeEntered = false;
-                this.$el.find('button').prop('disabled', true);
+                this.$el.find('button#coupon-codepayment-btn').prop('disabled', true);
             }
             $('#coupon-code').val($.trim(code));
         },
