@@ -279,13 +279,13 @@
                     <div class="mz-l-formfieldgroup">
                         <div class="mz-l-formfieldgroup-row billing-email">
                             <div class="mz-l-formfieldgroup-cell">
-                               
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input type="email" placeholder="{{ labels.billingContact }}" id="billing-email" name="billing-email" aria-describedBy="err_1" data-mz-value="billingContact.email" value="{{ model.billingContact.email }}"/><!-- ADA OK -->
-                                 <label for="billing-email">
+                               <label for="billing-email">
                                     {{ labels.billingContact }} {{ labels.email }}<span class="is-required"> *</span>
                                 </label>
+                                <input type="email" placeholder="{{ labels.billingContact }}" id="billing-email" name="billing-email" aria-describedBy="err_1" data-mz-value="billingContact.email" value="{{ model.billingContact.email }}"/><!-- ADA OK -->
+                                 
                                 <span class="mz-validationmessage" id="err_1" role="contentinfo" data-mz-validationmessage-for="billingContact.email"></span>
                             </div>
                         </div>
