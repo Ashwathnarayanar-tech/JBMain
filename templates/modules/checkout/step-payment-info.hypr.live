@@ -279,8 +279,10 @@
                     <div class="mz-l-formfieldgroup">
                         <div class="mz-l-formfieldgroup-row billing-email">
                             <div class="mz-l-formfieldgroup-cell">
+
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
+                            
                                <label for="billing-email">
                                     {{ labels.billingContact }} {{ labels.email }}<span class="is-required"> *</span>
                                 </label>
