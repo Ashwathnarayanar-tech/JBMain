@@ -155,6 +155,8 @@
                 width: 45%;
                 vertical-align: top;
                 position: relative;
+                padding-right: 15px;
+                box-sizing: border-box;
                 .mz-l-formfieldgroup-cell{
                     position: relative;
                     display: block;
@@ -167,8 +169,8 @@
                     }
                    
                     input{
-
-                        width: 86%;
+                        box-sizing: border-box;
+                        width: 100%;
                         padding: 0px 10px;
                         border-color: #dddddd;
                         margin-bottom: 0;
@@ -184,7 +186,7 @@
                         }
                     }
                      select {
-                            width: 90.5%;
+                            width: 100%;
                             padding: 10px;
                             border: 1px solid #cfcfcf;
                             height: 38px;
@@ -238,12 +240,15 @@
 @media only screen and (min-width: 768px) and (max-width: 979px){
     .mz-myaccount-panels .mz-accountaddressbook .mz-accountaddressbook-form .mz-l-formfieldgroup-row .mz-l-formfieldgroup-cell{
         margin-top: 10px;
+
         input{
+            width: 100%;
             margin-bottom: 10px !important;
+            box-sizing: border-box;
         }
     }
     .mz-myaccount-panels .mz-accountaddressbook .mz-accountaddressbook-form .mz-l-formfieldgroup-row .mz-l-formfieldgroup-cell select {
-        width: 90%;
+        width: 100%;
     }
     .mz-myaccount-panels .mz-accountaddressbook .mz-accountaddressbook-form .mz-l-formfieldgroup-row{
         margin-left: 0px;

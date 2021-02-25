@@ -148,10 +148,13 @@
             .mz-l-formfieldgroup-row{
                 display: inline-block;
                 width: 49%;
+                padding-right: 15px;
                 vertical-align: top;
                 position: relative;
+                box-sizing: border-box;
                 .mz-l-formfieldgroup-cell{
                     display: block;
+                    padding-right: 0px;
                     label{
                         text-align: left;
                     }
@@ -273,6 +276,7 @@
             }
             .mz-contactselector-new {
                 width: 100% !important;
+                min-height: auto;
                 .mz-contactselector-inputwrapper {
                     vertical-align: top;
                     display: inline-block;
@@ -448,6 +452,9 @@
 @media only screen and (min-width: 768px) and (max-width: 977px){
     .mz-l-formfieldgroup-row{
         width: 100% !important;
+        .mz-l-formfieldgroup-cell {
+            padding-right: 0px;
+        }
     }
     .mz-accountpaymentmethods-list {
         padding: 0px 0px 0px 22px!important;
@@ -506,11 +513,16 @@
                             position: relative;
                             top: -14px;
                             padding: 4px 0;
+                            float: left;
+
                         }
         			}
         			.mz-contactselector-new{
         			    .mz-contactselector-summarywrapper{
-        			        width: 70%;
+        			        width: ~"calc(100% - 10%)";
+                            display: inline-block;
+                            float: left;
+                            box-sizing: border-box;
         			    }    
         			} 
         		}
