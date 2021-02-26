@@ -111,8 +111,10 @@ require([
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;                    
                 if(variantOpt !== undefined && variantOpt.length>0){  
-                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                 //var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                  //  var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                  var ID=$target.parents('.mz-productlisting ').find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                  var newValue=$target.parents('.mz-productlisting ').find('[plp-giftcart-prize-change-action]')[0].value;
                     if(newValue != "Select Gift Card Amount" && newValue !== ''){
                         if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
                             ID = "Tenant~gift-card-prices";
