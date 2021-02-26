@@ -2057,6 +2057,7 @@ define([
         $(window).on("scroll", function () {
             if ($(window).scrollTop() > $(".brand-dicreption-top").height()) {
                 if($(".progress-bar").is(":visible")) {
+                    $('.mobileuxFilter').removeClass("noprogressbar");
                     $('.mobileuxFilter').addClass("active");
                 } else {
                     $('.mobileuxFilter').addClass("active");
