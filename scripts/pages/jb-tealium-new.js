@@ -19,9 +19,13 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 	//      pixelimg.src = "//content.jellybelly.com/pixel/pixel.aspx?order_id=ERROR&step=JQUERY_UNDEFINED";
 	//   }
 
-	var apiContext = JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML);
-	var pageContext = JSON.parse(document.getElementById('data-mz-preload-pagecontext').innerHTML);
-	var userContext = JSON.parse(document.getElementById('data-mz-preload-user').innerHTML);
+	// var apiContext = JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML);
+	// var pageContext = JSON.parse(document.getElementById('data-mz-preload-pagecontext').innerHTML);
+	// var userContext = JSON.parse(document.getElementById('data-mz-preload-user').innerHTML);
+	
+	var apiContext = require.mozuData("apicontext");
+	var pageContext = require.mozuData("pagecontext");
+	var userContext = require.mozuData("user");
 	
 	if(!userContext.isAnonymous) {
 		utag_data.customer_email = userContext.email;

@@ -224,51 +224,56 @@ require([
             $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);
             $(document).find('.Add-to-cart-popup').addClass("active");
             $(document).find('body').addClass("noScroll");
-            var owl = $(document).find('.rec-prod-list-popup');    
-            owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
-            owl.find('.owl-stage-outer').children().unwrap();
-            $(document).find('#rec-prod-list-popup').html('');
-            $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
-                $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
-            });
-            owl.owlCarousel({  
-                loop: true, 
-                margin: 14,
-                dots: false,
-                autoPlay: false,  
-                pagination: false,   
-                nav: true,     
-                navText:false,
-                slideBy: 1,
-                items: 1,
-                center: false,
-                stagePadding : 50,
-                responsive: {    
-                    0: {
-                        items: 1
-                    },
-                    400: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    800: {
-                        items: 3  
-                    }, 
-                    1025: {
-                        items: 3
-                    },
-                    1200:{
-                        items: 3
-                    },
-                    1440: {
-                        items: 3
-                    }
-                } 
-            });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
-            loopInAddTocart(); 
+            if(require.mozuData('pagecontext').url.indexOf('search-results')<0){
+                var owl = $(document).find('.rec-prod-list-popup');    
+                owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+                owl.find('.owl-stage-outer').children().unwrap();
+                $(document).find('#rec-prod-list-popup').html('');
+                $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
+                    $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
+                });
+                owl.owlCarousel({  
+                    loop: true, 
+                    margin: 14,
+                    dots: false,
+                    autoPlay: false,  
+                    pagination: false,   
+                    nav: true,     
+                    navText:false,
+                    slideBy: 1,
+                    items: 1,
+                    center: false,
+                    stagePadding : 50,
+                    responsive: {    
+                        0: {
+                            items: 1
+                        },
+                        400: {
+                            items: 1
+                        },
+                        600: {
+                            items: 3
+                        },
+                        800: {
+                            items: 3  
+                        }, 
+                        1025: {
+                            items: 3
+                        },
+                        1200:{
+                            items: 3
+                        },
+                        1440: {
+                            items: 3
+                        }
+                    } 
+                });
+                $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+                loopInAddTocart(); 
+            }else{
+                $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
+                $(document).find('#addtocart-popup-rec-prod-sec .head-rec-prod-list').hide();
+            }
         } 
         
         $(document).on('click', '.cross-close-popup',function(){

@@ -37,7 +37,7 @@
 </div>
 
 
-
+<h2 class="sr-only" tabindex="-1" id="shopping-section">Shop Online</h2>
 <div class="mz-l-paginatedlist" id="shop-all">
     <div class="jb-pagecontrols mz-desktop" >
         <div data-mz-pagingcontrols class="mz-pagingcontrols mz-desktop">

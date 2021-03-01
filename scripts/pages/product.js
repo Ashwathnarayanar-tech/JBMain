@@ -278,7 +278,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             
         },
         addToWishlist: function (e) {
-            console.log("dilps");
+       
             this.model.addToWishlist(e);
         },
         checkLocalStores: function (e) { 

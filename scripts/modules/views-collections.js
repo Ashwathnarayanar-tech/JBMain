@@ -1854,10 +1854,6 @@ define([
         
     } 
     $(document).ready(function(){
-        // custom function.
-        console.log("Custom");
-        console.log(custom.customObject);
-        console.log("Custom");
         setTimeout(function(){
             $('#preloader').fadeOut();  
             $('#preloaderoverlay').delay(350).fadeOut('slow'); 
@@ -1977,7 +1973,7 @@ define([
         }
         initilizeBrandSec();
         var data2= require.mozuData('facetedproducts') ; 
-        var getFacetsvalues =  _.flatten(_.pluck(data2.facets, 'values'));
+        var getFacetsvalues = data2 && data2.facets ? _.flatten(_.pluck(data2.facets, 'values')) : [];
         var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
 
         $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
@@ -2055,7 +2051,7 @@ define([
         //mobile  
         var fixedsortBy = $('.mobileuxFilter').offset().top;
         $(window).on("scroll", function () {
-            if ($(window).scrollTop() > $(".brand-dicreption-top").height()) {
+            if ($(window).scrollTop() > $(".mz-l-paginatedlist").offset().top - 100) {
                 if($(".progress-bar").is(":visible")) {
                     $('.mobileuxFilter').removeClass("noprogressbar");
                     $('.mobileuxFilter').addClass("active");
