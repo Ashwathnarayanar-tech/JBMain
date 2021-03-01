@@ -1105,7 +1105,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         ],
         renderOnChange: [
             'billingContact.address.countryCode',
-             'paymentType', 
+            'paymentType', 
             'isSameBillingShippingAddress',
             'usingSavedCard',
             'savedPaymentMethodId'
@@ -1115,7 +1115,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             "change [data-mz-digital-credit-amount]": "applyDigitalCredit",
             "change [data-mz-digital-add-remainder-to-customer]": "addRemainderToCustomer",
             "paste #digital-credit-code":"onPasteStoreCreaditEnable",
-            "change [name='paymentType']": "resetPaymentData", 
+            //"change [name='paymentType']": "resetPaymentData", 
             "click [paymentType-edit]":"cancelExternalCheckout",
             "click .select-li": "updatePaymentType", 
             "keydown .select-li": "kyupdatepayment",
@@ -1207,7 +1207,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
             if(!c.model.paymentType){
                 c.model.paymentType = "CreditCard";      
-            } 
+            }
+            if(c.model.paymentWorkflow==="PayPalExpress2"){
+                c.model.paymentType = "PayPalExpress2";
+            }
             return c; 
         },
         kyupdatepayment: function(e){
@@ -1435,15 +1438,15 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 this.render();
         }, this);
         this.listenTo(this.model, 'change:couponCodePayment', this.onEnterCouponCode, this);
-        // this.codeEntered = !!this.model.get('couponCode');
-            // this.$el.on('keypress', 'input', function (e) {
-            //     if (e.which === 13) {
-            //         if (self.codeEntered) {
-            //             self.handleEnterKey();
-            //         }
-            //         return false;
-            //     }
-            // });
+        this.codeEnteredCoupon = !!this.model.get('couponCodePayment');
+            this.$el.on('keypress', 'input#coupon-codepayment', function (e) {
+                if (e.which === 13) {
+                    if (self.codeEnteredCoupon) {
+                        self.handleEnterKeyCoupon();
+                    }
+                    return false;
+                }
+            });
              this.$el.on('paste', 'input', function (e) {
                 setTimeout(function(){
                     if($('#coupon-code').val() !==""){
@@ -1452,6 +1455,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     }
                 },100);
             }); 
+        },
+        handleEnterKeyCoupon: function () {
+            $('[data-mz-action="couponCodepayment"]').trigger('click');
         },
         couponCodepayment:function(e){
             $('#coupon-code').val($('#coupon-codepayment').val());
@@ -1465,13 +1471,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             window.couponCode.removeCouponCheckout();
         },
         onEnterCouponCode: function (model, code) {
-            if ($.trim(code) && !this.codeEntered) {
-                this.codeEntered = true; 
+            if ($.trim(code)) {
+              //  this.codeEnteredCoupon = false; 
                 this.$el.find('button#coupon-codepayment-btn').prop('disabled', false);
                  $('.coupon-error').fadeOut();
             }
-            if (!$.trim(code) && this.codeEntered) {
-                this.codeEntered = false;
+            if (!$.trim(code)) {
+               // this.codeEnteredCoupon = true;
                 this.$el.find('button#coupon-codepayment-btn').prop('disabled', true);
             }
             $('#coupon-code').val($.trim(code));
@@ -2079,20 +2085,21 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                         $('.accordion-pay.coupon-code-row').addClass('active');
                         if($('.error-msg').text().length > 0){
                             //$('.error-msg').focus(); 
-                            $(document).find('#remove-coupon-payment').hide();
-                            $(document).find('#coupon-codepayment-btn').css('display','inline-block'); 
+                            // $(document).find('#remove-coupon-payment').hide();
+                            // $(document).find('#coupon-codepayment-btn').css('display','inline-block'); 
                             $('.setpaymentcouponerr').focus(); 
-                            
-                        }else{
-                            if(self.model.get('couponCodes').length>0){
-                                $(document).find('#remove-coupon-payment').show();
-                                $(document).find('#coupon-codepayment-btn').hide();
-                                
-                            }else{
-                                $(document).find('#remove-coupon-payment').hide();
-                                $(document).find('#coupon-codepayment-btn').css('display','inline-block');
-                            }
                         }
+                            
+                        // }else{
+                        //     if(self.model.get('couponCodes').length>0){
+                        //         $(document).find('#remove-coupon-payment').show();
+                        //         $(document).find('#coupon-codepayment-btn').hide();
+                                
+                        //     }else{
+                        //         $(document).find('#remove-coupon-payment').hide();
+                        //         $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+                        //     }
+                        // }
                     });  
                     $.cookie("coupon", addedCoupon , { path: '/', expires: 7 });
                 }
@@ -2141,6 +2148,14 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                      $('.digitalcrediterror-msg').css('display','none');  
                     this.model.set('digitalCreditCode','');
                     this.model.set('errormessage',''); 
+                    if(this.model.get('couponCodes').length>0){
+                        $(document).find('#remove-coupon-payment').show();
+                        $(document).find('#coupon-codepayment-btn').hide();
+                        
+                    }else{
+                        $(document).find('#remove-coupon-payment').hide();
+                        $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+                    }
                 }   
             Backbone.MozuView.prototype.render.apply(this);
            
@@ -2375,6 +2390,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
     $('#checkoutmodal label[for]').on('click',function(e){
         console.log(e);
         $(e.target).siblings('input').focus();
+    }); 
+    
+        // coupon code field functionality ADA
+    $(document).on('keypress', '.accordion-pay', function(e){
+        if(e.keyCode == 13 || e.keyCode == 32) {
+            $(e.currentTarget).toggleClass('active');
+        }
     });
     $(document).ready(function () {
         
@@ -2390,11 +2412,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
         });
 
-        // coupon code field functanality
+        // coupon code field functionality
         $(document).on('click', '.payment-accordion', function(e){
             $(e.target).parents('.accordion-pay').toggleClass('active'); 
         });
-
+       
         // FAQ accordian function
         $(document).on('click', '#mz-drop-zone-checkout-faq h2', function(){
             $(document).find('#mz-drop-zone-checkout-faq').toggleClass('active');

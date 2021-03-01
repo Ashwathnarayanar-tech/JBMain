@@ -106,7 +106,7 @@
                 </label>  
             </div> 
             <div class="mz-l-formfieldgroup-cell field-sec">
-                <input type="text" id="coupon-codepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
+                <input placeholder="Enter Coupon Code" type="text" id="coupon-codepayment" name="coupon-code" value="" data-mz-value="couponCodePayment" autocomplete="new-coupon" />
                 <button id="coupon-codepayment-btn"class="mz-button"  {% if not model.couponCode %} disabled="disabled" {% endif %}data-mz-action="couponCodepayment">{{ labels.apply }}</button>
                  <div style="display:none;"data-mz-action="removecodecoupon" class="remove-coupon-checkout" id="remove-coupon-payment" tabindex="0" role="button" aria-label="Remove Coupon" autocomplete="off">Remove</div> 
                 <span class="error-msg setpaymentcouponerr" tabindex="-1" role="contentinfo"></span> 
