@@ -92,7 +92,7 @@
                             </a>
                         </li>  
                         <li class="head-list-item store-locator" attr-menuname="store-locator" data-attr="store-locator">
-                            <a href="/store-locator" aria-expanded="false" aria-label="Store Locator"> 
+                            <a href="/store-locator" class="{% if pagecontext.cmsContext.page.path == "store-locator" %}active{% endif %}" aria-expanded="false" aria-label="Store Locator"> 
                                 <img src="/../resources/images/store-icon.png" alt="user icon" class="user-icon store-locator">   
                                 <span class="mz-sitenav-link" >Store Locator</span>  
                             </a>

@@ -211,7 +211,7 @@
 
     {% block open-body-tag %}
     
-    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %}">
+    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %} {% if pagecontext.cmsContext.page.path == "store-locator" %}storeLocatorpage{% endif %}">
     {% endblock open-body-tag %}
 
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" %}

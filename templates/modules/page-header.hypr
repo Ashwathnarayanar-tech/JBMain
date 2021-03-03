@@ -29,7 +29,7 @@
                                 <span><a attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" href="#" aria-expanded="false" aria-label="Visit Us">Visit Us</a>  </span>
                             </li>  
                             <li class="head-list-item-li" data-attr="store-locator">
-                                <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>  </span>
+                                <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator {% if pagecontext.cmsContext.page.path == "store-locator" %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>  </span>
                             </li> 
                             {% endpartial_cache %}     
                         </ul> 
@@ -89,8 +89,8 @@
                                 <span class="mz-sitenav-link" >Visit Us</span>  
                             </a>
                         </li>  
-                        <li class="head-list-item store-locator" attr-menuname="store-locator" data-attr="store-locator">
-                            <a href="/store-locator" aria-expanded="false" aria-label="Store Locator"> 
+                        <li class="head-list-item store-locator " attr-menuname="store-locator" data-attr="store-locator">
+                            <a href="/store-locator" class="{% if pagecontext.cmsContext.page.path == "store-locator" %}active{% endif %}" aria-expanded="false" aria-label="Store Locator"> 
                                 <img src="/../resources/images/store-icon.png" alt="user icon" class="user-icon store-locator">   
                                 <span class="mz-sitenav-link" >Store Locator</span>  
                             </a>
