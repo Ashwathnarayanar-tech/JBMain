@@ -1,7 +1,7 @@
 ﻿<div class="mz-contactselector {% block module-classes %}{% endblock module-classes %}">
     {% block contact-selector %}
     {% for contact in model.contacts %}
-    <label class="mz-contactselector-contact">
+    <label class="mz-contactselector-contact" tabindex="0">
         <span class="mz-contactselector-inputwrapper">
             <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="{{ contact.id }}" {% if model.contactId == contact.id %} checked="checked" {% endif %}>
         </span>
@@ -13,7 +13,7 @@
     </label>
   {% endfor %}
   {% if model.contactId == "new" %}
-  <div class="mz-contactselector-contact mz-contactselector-new">
+  <div class="mz-contactselector-contact mz-contactselector-new" tabindex="0">
         <span class="mz-contactselector-inputwrapper">
             <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact checked="checked">
         </span>
@@ -24,7 +24,7 @@
         </span>
     </div>
     {% else %}
-    <label class="mz-contactselector-contact mz-contactselector-new">
+    <label class="mz-contactselector-contact mz-contactselector-new" tabindex="0">
         <span class="mz-contactselector-inputwrapper">
             <input type="radio" data-mz-value="{{ contactcontext }}contactId" name="contactId" value="new" data-mz-enternewcontact>
         </span>

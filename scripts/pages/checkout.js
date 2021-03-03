@@ -206,7 +206,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     
 										$('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');
-                },10000); 
+                },3000); 
             }
             
             if($('.digitalcrediterror-msg').html() !== ''){   
@@ -220,7 +220,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                          $('.digitalcrediterror-msg').hide();
                           $('.digitalcrediterror-msg').css('display','none'); 
                     }  
-                },10000); 
+                },3000); 
             }
             
             this.resize();
@@ -281,7 +281,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     $("#comments-character-count").css({ color: "#000000",  "font-weight": "normal" });
                 }
                 
-                $("#comments-character-count").html("Length: " + $("#order-comments").val().length + " characters. (300 characters or 10 lines limit)");
+                $("#comments-character-count").html($("#order-comments").val().length);
                 
                 for(i = 0; i < 10; i++){
                     $("#line" + i).css({ background: "#cccccc"}).html(comment[i]);
@@ -584,7 +584,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     }
                 });
             });
-            if($.cookie('isPoBoxSelected') == "true")c.model.address.addressType = "POBox";
             return c;
         },
         beginAddContact: function () {
@@ -670,12 +669,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         templateName: 'modules/checkout/step-shipping-method', 
         getRenderContext: function () {
                 var c = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
-                var getcurrentState = window.checkoutViews.steps.shippingAddress.model.attributes.address.attributes.stateOrProvince;
-            var getShippingstates = Hypr.getThemeSetting('usStates');
-            var validateState = getShippingstates.filter(function(item){return item.abbreviation == getcurrentState;});
-                if(validateState.length === 0) {
-                    c.model.availableShippingMethods = [];
-                }
                 if(c.model.availableShippingMethods){
                     c.model.availableShippingMethods = _.map(c.model.availableShippingMethods, function(method) { 
                         if(method.shippingMethodCode.indexOf("SUREPOST") > -1)
@@ -715,7 +708,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         }, 
 		showHeatSensitiveModal: function(e) {
 			//his.model.updateShippingMethod(e);
-			var maxWidth = "40%", maxHeight = "60%";
+			var maxWidth = "40%", maxHeight = "40%";
 			if(require.mozuData('pagecontext').isMobile) {
 				maxWidth="80%";
 				maxHeight="80%";
@@ -723,10 +716,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 			var method = e.target.getAttribute('value') || "unknown";
 			
 			var self = this;
-			var modalText = "<div style='width: 95%; text-align: center; padding: 10px;'><h1 id='heat-sensitive-confirmation' tabindex='-1' style='font-size: 16px; margin: 2px;'>Heat Sensitive item(s)</h1><p>The Heat-Sensitive item(s) on your order may melt if you don’t choose UPS Second Day Air or UPS Next Day Air Saver. Are you willing to take responsibility for that possibility?</p>";
+			var modalText = "<div style='width: 95%; text-align: center; padding: 10px;'><p>The Heat-Sensitive item(s) on your order may melt if you don’t choose UPS Second Day Air or UPS Next Day Air Saver. Are you willing to take responsibility for that possibility?</p>";
 			
-			modalText += "<button id='hs-yes' class='mz-button' style='background: #177d23; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>YES, I’ll take my chances</button><br>";
-			modalText += "<button id='hs-no' class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</button>";
+			modalText += "<div id='hs-yes' class='mz-button' style='background: #177d23; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>YES, I’ll take my chances</div><br>";
+			modalText += "<div id='hs-no' class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</div>";
 			modalText += "<p><b>Note:</b> Orders with Heat-Sensitive items may not ship immediately.</p>";
 			modalText += "</div>"; 
 			
@@ -740,17 +733,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     html : modalText,
                     overlayClose : false,
                     trapFocus: false,
-										onLoad: function (){
-											$('#colorbox').attr("aria-modal",true).attr("aria-labelledby","heat-sensitive-confirmation");
-										},
                     onComplete : function () {
                         //$('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
                         //$('#cboxClose').fadeIn();
                         $('#cboxLoadedContent').css({
                             background : "#ffffff"
                         });
-                        // $('#cboxClose').focus();
-												$('#heat-sensitive-confirmation').focus();
+                        $('#cboxClose').focus();
                         focusLoop();
 						$('#hs-yes').click(function(e){ 
 							var timenow = new Date();
@@ -769,9 +758,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 							$(".mz_date_value2").hide();
 							$.colorbox.close(); 
 						});
-					},
-					onClosed: function() {
-						$('input[value="'+window.lastShippingMethod.value+'"]').focus();
 					}
 				});
 			}
@@ -809,31 +795,31 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				// console.log(shipDate.toString(), a1.toString(), a2.toString());
                 if(state == 'AK' || state == 'HI' || state == 'AA'|| state == 'AP' || state == 'AE'){
                     if (mdef.method === "ups_UPS_NEXT_DAY_AIR" || mdef.method === "ups_UPS_SECOND_DAY_AIR" || mdef.method === "ups_UPS_NEXT_DAY_AIR_SAVER" || mdef.method === "ups_UPS_THREE_DAY_SELECT") {
-							$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Expected Arrival Date: </dt><dd>'+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</dd></dl>');
+							$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Expected Arrival Date: '+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</span>');
 							$('.mz_date_value2').show(); 
 							$(document).find('.shippingAKHI').hide();
                     }else{
-							$('.mz_date_value2').html('<dl><dd style="font-weight: bold">Up to 6 Weeks</dd></dl>'); 
+							$('.mz_date_value2').html('<span style="font-weight: bold">Up to 6 Weeks</span>'); 
 							$('.mz_date_value2').show();
 							$(document).find('.shippingAKHI').show();
                     }
 				}else if (mdef.method === "ups_UPS_GROUND") {
-					$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })  + '</dd><dt>Standard Ground: </dt><dd>4 to 7 business days from ship date</dd></dl>');
+					$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })  + '<br>Standard Ground: 4 to 7 business days from ship date</span>');
 					$('.mz_date_value2').show();
                 }else if (mdef.method === "ups_UPS_SUREPOST_LESS_THAN_1LB") {
-									$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Arrival: </dt><dd>6 to 9 business days from ship date</dd></dl>');
+									$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Arrival: 6 to 9 business days from ship date</span>');
 									$('.mz_date_value2').show();
                 }else if (mdef.method === "ups_UPS_SUREPOST_1LB_OR_GREATER") {
-									$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Arrival: </dt><dd>6 to 9 business days from ship date</dd></dl>');
+									$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Arrival: 6 to 9 business days from ship date</span>');
 									$('.mz_date_value2').show();
                 }else if (mdef.method === "ups_UPS_THREE_DAY_SELECT") {
-									$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Expected Arrival Date: </dt><dd>'+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</dd></dl>');
+									$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Expected Arrival Date: '+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</span>');
 									$('.mz_date_value2').show();
                 }else if (mdef.method === "ups_UPS_SECOND_DAY_AIR") {
-									$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Expected Arrival Date: </dt><dd>'+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</dd></dl>');
+									$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Expected Arrival Date: '+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</span>');
 									$('.mz_date_value2').show();
                 }else if (mdef.method === "ups_UPS_NEXT_DAY_AIR_SAVER") {
-									$('.mz_date_value2').html('<dl><dt style="font-weight: bold">Ship Date: </dt><dd>' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '</dd><dt>Expected Arrival Date: </dt><dd>'+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</dd></dl>');
+									$('.mz_date_value2').html('<span style="font-weight: bold">Ship Date: ' + shipDate.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + '<br>Expected Arrival Date: '+a1.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })+'</span>');
 									$('.mz_date_value2').show();
                 }
 			}
@@ -1020,11 +1006,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				console.log(e);
 				$.cookie('isNewCustomer', true, { path: '/'});
 				});
-
-            if(billincontact.phoneNumbers && billincontact.phoneNumbers.home ){
-                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.home;
+   
+            if(billincontact.phoneNumbers && billincontact.phoneNumbers.get('home') && billincontact.phoneNumbers.get('home').trim().length===14){
+                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.get('home');
             }else{
-                attr.billingContact.phoneNumbers.home = null;
+                attr.billingContact.phoneNumbers.home = '';
+                billincontact.phoneNumbers.set('home','');
             }
             var flag = false;
             if(!(window.paymentinfo.model.validate(attr))){
@@ -1192,7 +1179,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     $('.error-msg').html(''); 
                     //$('#coupon-code').focus();
                     //$('.digitalcrediterror-msg').html('');   
-                },10000); 
+                },3000); 
             }
             if($('.digitalcrediterror-msg').html() !== ''){   
                 setTimeout(function(){   
@@ -1202,7 +1189,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                         self.model.set('errormessage','');  
                         self.model.set('errorsetdigitlcredit','');  
                     }
-                },10000);
+                },3000);
             }
             preserveElements(this, ['.v-button', '.p-button'], function() {
                 CheckoutStepView.prototype.render.apply(this, arguments);
@@ -1512,7 +1499,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 // $('#sweet-rewards-points').empty().html(window.pwrDisplayPoints - totalRedeemed);
                     
 				for (var i = 0; i < window.pwrRewards.length; i++)	
-                    $('#pwr-rewards-list').append("<div tabindex='0' style='font-weight: normal; margin: 12.5px'>" + (i+1) + ". " + window.pwrRewards[i].points + " - $" + window.pwrRewards[i].discount + "</div>");
+                    $('#pwr-rewards-list').append("<h5 tabindex='0' style='font-weight: normal; margin: 12.5px'>" + (i+1) + ". " + window.pwrRewards[i].points + " - $" + window.pwrRewards[i].discount + "</h5>");
 			},
 			rewardList: JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML).headers["x-vol-tenant"] == '9046' ? [{
 					id: 'reward_3206a',
@@ -1587,10 +1574,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				return e;
 			},
 			redeem: function (e) {
-        var rid = e.currentTarget.getAttribute('reward-id');
+                var rid = e.currentTarget.getAttribute('reward-id');
 				var re = this.lookupReward(rid);
 				window.pwrRewards.push(re);
-        
+                
 				var ra = 0;
 				var ip = window.pwrInitialPoints;
                 var rpv = window.pwrRedeemedPointsValue;
@@ -1979,10 +1966,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         }) ;
     }
     $(document).ready(function () {
-			window.lastShippingMethod = '';
-			$(document).on("click", "input[name*='shippingMethod']", function(e){ 
-					window.lastShippingMethod = e.target;
-			});
             $(document).on('keydown','input,select',function(e){
                 if(e.keyCode === 13){
                     e.preventDefault();
@@ -1993,6 +1976,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     $('.cpp-guest').prop('disabled',false);
                 }else{
                     $('.cpp-guest').prop('disabled',true);
+                }   
+			});
+			$(document).on('change','#guestsignup-cpp-checkbox',function(){
+                if (this.checked) {
+                    $('.cpp-signuppopup').prop('disabled',false);
+                }else{
+                    $('.cpp-signuppopup').prop('disabled',true);
                 }   
 			});
 			$(document).on('change','#guestlogin-cpp-checkbox',function(){

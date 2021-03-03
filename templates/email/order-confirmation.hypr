@@ -428,40 +428,11 @@ width: 200px;
 																		{{ labels.paypalExpress }}
 																		{% endif %}
 																		
-																		{% comment %}
-																		{% dump model.payments %}
-																		
 																		{% with model.payments|findwhere("status", "Collected") as reward %}
 																			{% if reward %}
 																				<p>Store Credit(s) and/or Sweet Rewards were applied</p>
 																				{% endif %}
 																		{% endwith %}
-																		{% endcomment %}
-																		
-																		{% for payment in model.payments %}
-																		  {% if payment.paymentType == "StoreCredit" && payment.status == "Collected" %}
-																		    {% with payment.billingInfo.storeCreditCode|split("-") as pwr %}
-																		      {% if pwr.0 eq "PWR" %}
-																		          <p>Sweet Reward applied: {{ payment.amountCollected|currency }}
-																								<br>
-																								Reward ID: {{ payment.billingInfo.storeCreditCode }}
-																							</p>
-																		      {% endif %}
-																		    {% endwith %}
-																		  {% endif %}
-																			{% comment %}
-																		  {% if payment.paymentType == 'CreditCard' %}
-																				{% if payment.status == 'Authorized' %}
-																					{{ payment.status }}<br>
-																					  Credit Card - {{ payment.amountRequested|currency }}<br><br>
-																				{% endif %}
-																		  {% endif %}
-																			{% endcomment %}
-																		{% endfor %}
-																		
-																		<p>Total</p>
-																		{{ model.total|currency }}
-
 						 												</p><br>
 						 											
 						 											
@@ -612,25 +583,7 @@ width: 200px;
                 <span class="mz-ordersummary-totalname">{{ labels.shippingHandling }}:</span>
                 <span class="mz-ordersummary-totalvalue">{{ model.shippingSubTotal|currency }}</span>
               </td>
-            </tr>
-						
-						{% comment %}
-						{% for payment in model.payments %}
-							{% if payment.paymentType == "StoreCredit" && payment.status == "Collected" %}
-								{% with payment.billingInfo.storeCreditCode|split("-") as pwr %}
-									{% if pwr.0 eq "PWR" %}
-									<tr class="mz-ordersummary-sweetrewards">
-										<td align="right" colspan="4" style="padding-right: 10px;">
-											<span class="mz-ordersummary-sweetrewardsname">Sweet Reward:</span>
-											<span class="mz-ordersummary-totalvalue">{{ payment.amountCollected|currency }}</span>
-										</td>
-									</tr> 
-									{% endif %}
-								{% endwith %}
-							{% endif %}
-						{% endfor %}
-						{% endcomment %}
-						
+            </tr> 
             {% for shippingDiscount in model.shippingDiscounts %}
             <tr class="mz-ordersummary-shippingdiscount" style="padding-right: 10px;">
               <td align="right" colspan="4">
@@ -1065,3 +1018,8 @@ Don't forget to check your Sweet Rewards points!"></a><br>
 <div style="display:none;white-space:nowrap;font:15px courier;line-height:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
 </body>
 </html>
+
+
+
+
+

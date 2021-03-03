@@ -7,8 +7,8 @@
            <div class="">
         <div class="mz-l-formfieldgroup-cell"></div> 
         <div class="mz-l-formfieldgroup-cell mz-primary">
-            <label for="editingcard-is-primary" class="checkbox-outer-label" style="padding-left: 0px;">
-                <input type="checkbox" class="checkbox-primary" id="editingcard-is-primary" {% if model.isDefaultPayMethod %}checked="true"{% endif %} data-mz-value="{{ cardcontext }}isDefaultPayMethod" />
+            <label tabindex="0" for="editingcard-is-primary" class="checkbox-outer-label myaccount-label-editcard" >  
+                <input tabindex="-1"  type="checkbox" class="checkbox-primary" id="editingcard-is-primary" {% if model.isDefaultPayMethod %}checked="true"{% endif %} data-mz-value="{{ cardcontext }}isDefaultPayMethod" />
                 {{ labels.primary }}
                 <span class="checkmark-style"></span>
             </label>
@@ -16,7 +16,7 @@
     </div>
             {% if model.hasSavedContacts %}
                 <div class="mz-l-formfieldgroup-row mz-creditcard-billingaddresses">
-                    <div class="mz-l-formfieldgroup-cell">
+                    <div class="mz-l-formfieldgroup-cell" tabindex="0">
                         <label>{{ labels.selectBillingAddress }} <span class="is-required">*</span></label>
                     </div>
                     <div class="mz-l-formfieldgroup-cell">

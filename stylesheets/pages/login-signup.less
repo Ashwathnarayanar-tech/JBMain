@@ -161,9 +161,6 @@
                 .mz-l-formfieldgroup-row {
                     display: block;
                     padding: 5px 0 0 0;
-                    &.checkbox{
-                        padding:15px 0 0;
-                    }
                 }
                 .order-status-link{
                     display: none;
@@ -721,6 +718,80 @@ input:-ms-input-placeholder {
     }
 } 
 
+//Order status order list page
+.mz-anonymous-account {
+    .mz-l-pagewrapper {
+        /*max-width: 90%;*/
+        .mz-pagetitle {
+            clear: both;
+            margin: 0 auto 2%;
+            width: 100%; 
+        }
+        .mz-l-stack-large .mz-l-stack-section {
+            min-height: auto;
+        }
+        .mz-myaccount-panels{
+            .mz-accountorderhistory{
+                .mz-orderlisting{
+                    .mz-orderlisting-detail{
+                        .mz-orderlisting-heading{
+                            margin: 10px 20px 0;
+                        }
+                        .mz-orderlisting-date{
+                           margin: 10px 20px 0;
+                        }
+                        .add-all-to-cart{
+                            display:none;
+                        }    
+                    }    
+                    .order-status-item-list-heading{ 
+                        margin: 20px;
+                        padding: 0;
+                        border-top: 1px solid #cccccc;
+                        border-bottom: 1px solid #cccccc;
+                        li{
+                            display: inline-block;
+                            list-style-type: none;
+                            color: #c64606;
+                            margin: 10px 0px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            &:nth-child(1){
+                                width:54%;
+                            }
+                            &:nth-child(2){
+                                width: 14%;
+                            }
+                            &:nth-child(3){
+                                width: 10%;
+                            }
+                        }
+                    }
+                }  
+                .mz-orderlisting-items{
+                    .mz-itemlisting{
+                        .inline-add-to-cart{
+                            display:none;
+                        }    
+                        .mz-itemlisting-details{
+                            width: 40%;
+                        }
+                        .quick-order-quantity{
+                            .quantity-field{
+                                margin: 0;
+                            }    
+                        } 
+                    }     
+                }
+                .mz-more-order{
+                    display: none;
+                }    
+            }    
+        } 
+    }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 979px) {
     .mz-signuppage {
         .signup-form {
@@ -807,7 +878,89 @@ input:-ms-input-placeholder {
                 }
             }   
         }
-    }  
+    } 
+    
+    //Order status order list page
+    .mz-anonymous-account {
+        .mz-l-pagewrapper {
+            .mz-myaccount-panels{
+                .mz-accountorderhistory{
+                    .mz-orderlisting{ 
+                        .mz-orderlisting-detail{
+                            .order-list-address-details{
+                                .order-billing-address{
+                                    float: left;
+                                    width: 50%;
+                                    margin: 0;
+                                }  
+                                .order-shipping-address{
+                                    float: left;
+                                    width: 50%;
+                                }
+                            }     
+                        }     
+                        .order-status-item-list-heading{ 
+                            margin: 20px;
+                            padding: 0;
+                            border-top: 1px solid #cccccc;
+                            border-bottom: 1px solid #cccccc;
+                            li{
+                                display: inline-block;
+                                list-style-type: none;
+                                color: #c64606;
+                                margin: 10px 0px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                text-transform: uppercase;
+                                &:nth-child(1){
+                                    width:54%;
+                                }
+                                &:nth-child(2){
+                                    width: 26%;
+                                }
+                                &:nth-child(3){
+                                    width: 10%;
+                                }
+                            }
+                        }
+                        .mz-orderlisting-items{
+                            border-top:none;
+                            margin: 0;
+                            .mz-itemlisting{
+                                .mz-itemlisting-thumb{
+                                    width: 12%;
+                                    float: left;
+                                }   
+                                .mz-itemlisting-details{
+                                    float: left;
+                                    width: 43%;
+                                }
+                                .quick-order-quantity{
+                                    float: left;
+                                    width: auto;
+                                    .quick-order-history-qty{
+                                        width: auto;
+                                        margin: 0;
+                                        .quantity-field{
+                                            margin:0;
+                                        }
+                                    }
+                                }
+                                .inline{
+                                    width: 22%;
+                                    float: left;
+                                    margin-left: 6%;
+                                    &:after{
+                                        content: '';
+                                    }
+                                }
+                            }     
+                        } 
+                    }     
+                }     
+            } 
+        }
+    }    
 }  
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
     .mz-order-status{
@@ -836,6 +989,30 @@ input:-ms-input-placeholder {
             }   
         }
     }  
+    
+    //Order status order list page
+    .mz-anonymous-account {
+        .mz-l-pagewrapper {
+            .mz-myaccount-panels{
+                .mz-accountorderhistory{
+                    .mz-orderlisting{ 
+                        .mz-orderlisting-items{
+                            .mz-itemlisting{
+                                .mz-itemlisting-details{
+                                    float: left;
+                                    width: 41%;
+                                }
+                                
+                                .inline{
+                                    margin-left: 8%;
+                                }
+                            }     
+                        } 
+                    }     
+                }     
+            } 
+        }
+    }    
 }   
 @media only screen and (min-width: 1px) and (max-width: 767px) {
     .mz-loginpage,.mz-signuppage, .mz-password-recovery-page{
@@ -1031,6 +1208,8 @@ input:-ms-input-placeholder {
         }
     }    
 }
+
+
 
 
 

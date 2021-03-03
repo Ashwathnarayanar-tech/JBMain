@@ -2,17 +2,17 @@
     <table class="mz-ordersummary">
         <thead>
             <tr>
-                <th scope="col" class="mz-ordersummary-header-product">{{ labels.description }}</th>
-                <th scope="col" class="mz-ordersummary-header-qty">{{ labels.orderQty }}</th>
-                <th scope="col" class="mz-ordersummary-header-each">{{ labels.each }}</th>
-                <th scope="col" class="mz-ordersummary-header-total">{{ labels.orderPrice}}</th> 
+                <th class="mz-ordersummary-header-product">{{ labels.description }}</th>
+                <th class="mz-ordersummary-header-qty">{{ labels.orderQty }}</th>
+                <th class="mz-ordersummary-header-each">{{ labels.each }}</th>
+                <th class="mz-ordersummary-header-total">{{ labels.orderPrice}}</th> 
             </tr>
         </thead>
         
         {% for item in model.items %}
             <tbody class="mz-ordersummary-lineitems">
-                <tr tabindex="0" class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
-                    <th scope="row" class="mz-ordersummary-item-product">
+                <tr tabindex="0" role="contentinfo" class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
+                    <td class="mz-ordersummary-item-product">
                       {{ item.product.name|safe }}
                       {% for code in themeSettings.noFreeShippingSkuList|split(",") %}  
                           {% if item.product.productCode == code %}
@@ -27,7 +27,7 @@
                         {% endfor %}
                       </dl>
                       {% endif %}
-                    </th>
+                    </td>
                     <td class="mz-ordersummary-item-qty"><span>{{ item.quantity }}</span></td>
                     <td class="mz-ordersummary-item-price">
                         {% include "modules/common/item-price" %}
@@ -36,7 +36,7 @@
                     </td>
                 </tr>
                 {% for productDiscount in item.productDiscounts %}
-                    <tr tabindex="0">
+                    <tr tabindex="0" role="contentinfo">
                         <td colspan="4" style="padding: 2px 5px; text-align: center;border-bottom: 1px solid rgb(228, 228, 228);">    
                                 <div style="border: 1px dashed #ccc; background: #fafafa;font-size: 14px;">
                                     <span style="color: #189218;font-weight: 500;">{{ productDiscount.discount.name }}</span>
@@ -78,7 +78,7 @@
             </tr>
             {% endcomment %}
             
-            <tr class="mz-ordersummary-subtotal" tabindex="0">
+            <tr class="mz-ordersummary-subtotal" tabindex="0" role="contentinfo">
               <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
                 <span class="mz-ordersummary-totalname">{{ labels.subtotal }}:</span>
                 <span class="mz-ordersummary-totalvalue">{{ model.discountedSubtotal|currency }}</span>
@@ -86,7 +86,7 @@
               </td>
             </tr>
             {% if model.taxTotal %}
-            <tr class="mz-ordersummary-tax" tabindex="0">
+            <tr class="mz-ordersummary-tax" tabindex="0" role="contentinfo">
                 <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
                     <span class="mz-ordersummary-totalname">{{ labels.tax }}:</span>
                     <span class="mz-ordersummary-totalvalue">
@@ -99,7 +99,7 @@
                 </td>
             </tr>
             {% endif %}
-            <tr class="mz-ordersummary-shippingtotal" tabindex="0">
+            <tr class="mz-ordersummary-shippingtotal" tabindex="0" role="contentinfo">
               <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
                 <span class="mz-ordersummary-totalname">{{ labels.shippingHandling }}:</span>
                 <span class="mz-ordersummary-totalvalue">
@@ -114,7 +114,7 @@
             </tr>
             {% comment %}
             {% for shippingDiscount in model.shippingDiscounts %}
-            <tr class="mz-ordersummary-shippingdiscount" tabindex="0">
+            <tr class="mz-ordersummary-shippingdiscount" tabindex="0" role="contentinfo">
               <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
                 <span class="mz-ordersummary-totalname">{{ shippingDiscount.discount.discount.name }}:</span>
                 <span class="mz-ordersummary-totalvalue">-{{ shippingDiscount.discount.impact|currency }}</span>
@@ -124,7 +124,7 @@
             {% endfor %}
             {% endcomment %}
             {% if model.handlingAmount %}
-            <tr class="mz-ordersummary-additionalhandling" tabindex="0">
+            <tr class="mz-ordersummary-additionalhandling" tabindex="0" role="contentinfo">
                 <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;">
                     <span class="mz-ordersummary-totalname">{{ labels.additionalHandling }}</span>
                     <span class="mz-ordersummary-totalvalue">{{ model.handlingAmount|currency }}</span>
@@ -136,7 +136,7 @@
             
             {% for discount in model.orderDiscounts %}
                 {% if not discount.excluded %}
-                    <tr tabindex="0" class="mz-ordersummary-discount">
+                    <tr tabindex="0" role="contentinfo" class="mz-ordersummary-discount">
                     
                       <td style="padding: 2px 5px;text-align: center;color: #189218;font-size: 14px;" colspan="4">
                       <div style="border: 1px dashed #ccc; background: #fafafa;" class="remove-discount">
@@ -150,7 +150,7 @@
             {% endfor %}
             {% for discount in model.shippingDiscounts %}
                 {% if not discount.excluded %}
-                    <tr tabindex="0" class="mz-ordersummary-discount">
+                    <tr tabindex="0" role="contentinfo" class="mz-ordersummary-discount">
                     
                       <td style="padding: 2px 5px;text-align: center;color: #189218;font-size: 14px;" colspan="4">
                       <div style="border: 1px dashed #ccc; background: #fafafa;" class="remove-discount">
@@ -164,7 +164,7 @@
             {% endfor %}
             
             {% if model.pwrAmount > 0 %}
-            <tr tabindex="0" class="mz-ordersummary-rewards">
+            <tr tabindex="0" role="contentinfo" class="mz-ordersummary-rewards">
                 <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #000000;border-top: 2px solid #EDEDED; background: #f3d5cc;">
                   <span class="mz-ordersummary-totalname" style="float: left; font-weight: bold; padding-left: 10px;">Rewards redeemed:</span>
                   <span class="mz-ordersummary-totalvalue" style="padding-right: 10px;">-{{ model.pwrAmount|currency }}</span>
@@ -172,7 +172,7 @@
             </tr>
             {% endif %}
             {% if model.adjustment %}
-            <tr tabindex="0" class="mz-ordersummary-rewards">
+            <tr tabindex="0" role="contentinfo" class="mz-ordersummary-rewards">
                 <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #000000;border-top: 2px solid #EDEDED;">
                   <span class="mz-ordersummary-totalname" style="float: left; font-weight: bold; padding-left: 10px;">Rewards (confirmation)</span>
                   <span class="mz-ordersummary-totalvalue" style="padding-right: 34px;">{{ model.adjustment.amount|currency }}</span>
@@ -182,7 +182,7 @@
             
             
             
-            <tr tabindex="0" class="mz-ordersummary-grandtotal">
+            <tr tabindex="0" role="contentinfo" class="mz-ordersummary-grandtotal">
                 <td colspan="4" style="padding: 2px 5px;font-size: 15px;color: #50B80F;border-top: 2px solid #EDEDED;">
                     <span class="mz-ordersummary-totalname">{{ labels.total }}:</span>
                     {% if pageContext.pageType == 'checkout' %}

@@ -66,6 +66,9 @@ define(['modules/jquery-mozu',
             $(document).find('.menu').find('.sunmenu-container').on('click',function(e){
                 megamenufunctions.mobileFunc.showSubmenu($(e.currentTarget));   
             });
+            $(document).find('.menu').find('.sunmenu-container.back-to-home').on('click',function(e){
+                megamenufunctions.mobileFunc.closemenu($(e.currentTarget));   
+            });
             $(document).find('.back-to-main-menu').on('click',function(e){ 
                 megamenufunctions.mobileFunc.backToMainMenu($(e.currentTarget));   
             });
@@ -81,12 +84,14 @@ define(['modules/jquery-mozu',
         $(window).scroll(function(event){
             if($(window).width()<1025 && ($(window).width() > $(window).height())){    
                 didScroll = true;
-            }
+            }else if($(window).width()<1025 && ($(window).width() < $(window).height())){ 
+				hasScrolledWithoutKeypadOpen();
+			} 
         });
         
         setInterval(function() {
             if (didScroll) {
-                hasScrolled();
+                hasScrolled();  
                 didScroll = false;
             }
         }, 250);
@@ -103,15 +108,36 @@ define(['modules/jquery-mozu',
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
                $(".mz-pageheader-mobile").fadeOut(100); 
+            } /*else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    $(".mz-pageheader-mobile").fadeIn(100);
+                }
+            } */
+    
+            lastScrollTop = st;
+        }
+		function hasScrolledWithoutKeypadOpen(){
+			var st = $(this).scrollTop();
+            
+            // Make sure they scroll more than delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+            
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight){
+                // Scroll Down
+               $(".mz-pageheader-mobile").fadeOut(100); 
             } else {
                 // Scroll Up
                 if(st + $(window).height() < $(document).height()) {
                     $(".mz-pageheader-mobile").fadeIn(100);
                 }
-            }
+            } 
     
             lastScrollTop = st;
-        }
+		}
         $( window ).on( "orientationchange", function( event ) {
             if($(window).width()<1025 && ($(window).width() < $(window).height())){  
                 $(".mz-pageheader-mobile").fadeIn(100);
@@ -283,10 +309,7 @@ define(['modules/jquery-mozu',
             }
         });
         $(document).on('touchstart','.close-serch',function(e){
-            setTimeout(function(){
-                $(document).find('.page-header').removeClass('search-active');
-                $(document).find('.mz-searchbox-field').val('');
-            },200);            
+            setTimeout(function(){$(document).find('.page-header').removeClass('search-active');},200);            
         });
 
         // trigger sweet riwards

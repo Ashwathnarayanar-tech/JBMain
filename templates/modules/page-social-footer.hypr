@@ -44,10 +44,7 @@
           {% dropzone zoneId="evrgreen-footer-buttons" scope="site" %}
         </div>
         <div class="jb-center-logo mz-desktop">
-            <img class="jb-center-logo-img toggleModal new-lazy-load" 
-            tabindex="0" 
-            role="button"
-            aria-label="Jelly Belly logo (opens client details modal)"
+            <img class="jb-center-logo-img toggleModal new-lazy-load" tabindex="0"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
             data-src="{% make_url "image" "/resources/images/new-logo-images/jb_logo_web_footer_revised.png" %} alt="footer-logo" nopin = "nopin" />
         </div>
@@ -78,10 +75,7 @@
     </div>
     <div class="jb-social-links-mobile">
         <div class="jb-center-logo">
-            <img class="jb-center-logo-img new-lazy-load" 
-            role="button"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  
-            aria-label="Jelly Belly logo (opens client details modal)"
+            <img class="jb-center-logo-img new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  
             data-src="{% make_url "image" "/resources/images/new-logo-images/jb_logo_web_footer_mobile_revised.png" %} alt="footer-logo" width="200" height="110" nopin="nopin" />
         </div>
 
@@ -103,3 +97,6 @@
   </div>
 
 {% endif %}
+
+
+

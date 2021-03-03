@@ -30,17 +30,6 @@
 <h1 class="mz-pagetitle">{% firstof pageContext.metaTitle PageContext.Title %}</h1>
 <div class="brand-dicreption-top">
 
-  <style>
-    .visually-hidden {
-      position: absolute;
-      left:     -10000px;
-      top:      auto;
-      width:    1px;
-      height:   1px;
-      overflow: hidden;
-    }
-  </style>
-
 {% if pageContext.categoryId == 341 %}
 <div class="brand-dicreption">
     <div class="a-spot-cointainer">
@@ -50,9 +39,7 @@
         <img class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
         {% endif %}
         <!-- <img class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/BBZ-Fiery-Five-Banners-A-spot_coming_soon.jpg" alt="BeanBoozled® Fiery Five"> -->
-    </div>
-    <div style="text-align: center;">
-      <p>Jelly Belly BeanBoozled Jelly Beans - 5th Edition - Two New Flavors! Dare to Compare.</p>
+	
     </div>
     <div class="flavor-sec">
         <div class="flavor-List" id="flavor-List"></div>
@@ -62,7 +49,7 @@
         <a class="button-light" href="/store-locator" tital="find a store">Find a Store</a>
     </div>
     <div class="brand-description">
-        <div class="brand-details" tabindex="0" >
+        <div class="brand-details" tabindex="0" role="contentinfo">
             <p>Jelly Belly BeanBoozled® jelly beans have been delighting adventurous eaters since 2008. These bamboozling beans are meant to take your taste buds on a roller coaster, with colors that look like all your favorite Jelly Belly jelly beans but have unexpected flavors. Compare some of our tastiest and most popular flavors with our craziest ones, but here's the catch — you won't know which ones are which!</p>
             <p>Take the BeanBoozled Challenge for yourself and see if your flavor will be yuck or yum… we dare you!</p>
         </div>
@@ -254,9 +241,12 @@
            
            
             <div class="col span_1_of_2" style="text-align:center; padding: 10px;">
+            
         
-                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="desktop tablet" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!">
-                <p style="font-size: 12px; color: #000000; line-height: 12px;">CAUTION! These jelly beans may look alike but they could not taste more different from each other. Think you can tell them apart? WE DARE YOU!"</p>
+                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="desktop tablet" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
+        
+        
+        
             
              <div class="jelly_selectors desktop tablet" style="margin-left: -40px;">
              
@@ -265,19 +255,16 @@
                     -->
                         <center>
                         
-                        <h2 class="visually-hidden">
-                          Beanboozled beans and flavors
-                        </h2>
                         <ul>
         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Birthday Cake flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Dirty Dishwater flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="Birthday Cake"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="Dirty Dishwater">
                                 <div class="clear"></div>
                                 <span>Dirty Dishwater</span><span>Birthday Cake</span>
                             </li>
                        
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Toasted Marshmallow flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Stink Bug flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Toasted Marshmallow"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Stink Bug">
                                 <div class="clear"></div>
                                 <span>Stink Bug</span><span>Toasted Marshmallow</span>
                             </li>
@@ -285,45 +272,45 @@
                        
                         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Stinky Socks flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Tutti-Fruitti flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Stinky Socks"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Tutti-Fruitti">
                                 <div class="clear"></div>
                                 <span>Stinky Socks</span><span>Tutti-Fruitti</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Spoiled Milk flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Coconut flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="Spoiled Milk"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="Coconut">
                                 <div class="clear"></div>
                                 <span>Spoiled Milk</span><span>Coconut</span>
                             </li>
                         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Toothpaste flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Berry Blue flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Toothpaste"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Berry Blue">
                                 <div class="clear"></div>
                                 <span>Toothpaste</span><span>Berry Blue</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Rotten Egg flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Buttered Popcorn flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Rotten Egg"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Buttered Popcorn">
                                 <div class="clear"></div>
                                 <span>Rotten Egg</span><span>Buttered Popcorn</span>
                             </li>
                          
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Canned Dog Food flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Chocolate Pudding flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Canned Dog Food"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Chocolate Pudding">
                                 <div class="clear"></div>
-                                <span>Canned<br role="presentation"> Dog Food</span><span>Chocolate<br role="presentation"> Pudding</span>
+                                <span>Canned<br> Dog Food</span><span>Chocolate<br> Pudding</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Barf flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Peach flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Barf"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Peach">
                                 <div class="clear"></div>
                                 <span>Barf</span><span>Peach</span>
                             </li>
                            
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Booger flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Juicy Pear flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Booger"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Juicy Pear">
                                 <div class="clear"></div>
                                 <span>Booger</span><span>Juicy Pear</span>
                             </li>
                              <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Dead Fish flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Strawberry Banana Smoothie flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Dead Fish"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Strawberry Banana Smoothie">
                                 <div class="clear"></div>
                                 <span>Dead Fish</span><span>Strawberry Banana Smoothie</span>
                             </li>
@@ -346,11 +333,6 @@
             <area target="_blank" alt="Beanboozled application on Google Play" title="" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled" coords="220,315,348,353" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Google-Play' });">
             <area target="_blank" alt="Beanboozled application on Apple Store" title="" href="https://itunes.apple.com/us/app/jelly-belly-beanboozled/id1174483761" coords="221,362,348,400" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Apple-Store' });">
         </map>
-        <div class="desktop" style="margin-left: 60px; width: 100%;">
-        <p style="font-size: 12px; line-height: 12px; color: #000000;">GAME ON! Download the Free Beanboozled App. 
-        Get it on <a href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled">Google Play</a>. 
-        Download on the <a href="https://itunes.apple.com/us/app/jelly-belly-beanboozled/id1174483761">Apple App Store</a>.</p>
-        </div>
         
                                         <div class="w3-center w3-container w3-section w3-large w3-text-black w3-display-bottommiddle" style="width:100%">
             
@@ -398,11 +380,6 @@
                   <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/are_you_brave_enough_white.jpg" style="margin-left: -30px; margin-top: -10px; width: 450px;" class="desktop" alt="Are you Brave Enough?"><br> 
                 
                 <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/are_you_brave_enough_white.jpg" style="margin-left: -150px; margin-top: -140px; width: 400px; margin-bottom: 50px;" class="mobile tablet" alt="Are you Brave Enough?"><br> 
-                <div>
-                  <p style="color: #000000; font-size: 12px;">
-                    Are you BRAVE ENOUGH?
-                  </p>
-                </div>
                 </div>
               
                <div class="values_sec" style="margin-left: 100px; margin-top: 0px;">
@@ -423,8 +400,8 @@
             
              
              <div class="video_sec" style="margin-top: 10px;">
-                        <p style="line-height: 12px;"><img src="//content.jellybelly.com/beanboozled/images/title-top.jpg" width="400" height="71" alt="Is it Yuck or Yum? There's Only One Way to Find Out" /></p>
-                        <span>Is it Yuck or Yum? There's only one way to find out.</span>
+                        <p><img src="//content.jellybelly.com/beanboozled/images/title-top.jpg" width="400" height="71" alt="Is it Yuck or Yum? There's Only One Way to Find Out" /></p>
+                       
                      <div class="videoholder" style="width: 400px; height: 255px;">
                             <img style="position:absolute; left:0; top:0;" src="//content.jellybelly.com/beanboozled/images/blankscreen.jpg" width="400" height="255" id="placeholder" alt="" />
                             <div id="video_frame"></div><div id="captionshow" style="display:none;"><div><a href="javascript:void(0);" id="spagain"><img src="//content.jellybelly.com/beanboozled/images/spinagain.png" width="242" height="53" alt="" /></a><br /><img src="//content.jellybelly.com/beanboozled/images/or-video.png" width="222" height="30" alt="" /><a id="fullvideo" href="javascript:void(0)" onclick="">
@@ -440,29 +417,25 @@
                 
         </div>
         
-                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="mobile" style="width: 400px;" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!">
-                <p class="mobile" style="font-size: 12px; color: #000000; line-height: 12px; width: 100%;">CAUTION! These jelly beans may look alike but they could not taste more different from each other. Think you can tell them apart? WE DARE YOU!"</p>
+                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="mobile" style="width: 400px;" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
+        
          
         <div class="jelly_selectors mobile" style="margin-left: 0px;">
                     <!--
                         <center><span id="4th_edition" style="font-size: 40px; font-weight: bold;">BeanBoozled&nbsp;<img src="//cdn-tp1.mozu.com/9046-m1/cms/files/8eb488e7-65b5-4d28-b581-d46ea5c4bb35">&nbsp;Available Now!</span></center>
                     -->
-                    <h2 class="visually-hidden">
-                      Beanboozled beans and flavors
-                    </h2>
-                    
                         <center>
                         
                         <ul>
         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Birthday Cake flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="White speckled bean representing Dirty Dishwater flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="Birthday Cake"><img src="//cdn-tp1.mozu.com/9046-11441/cms/files/Birthdaycake-Signature-ns_fg.jpg" alt="Dirty Dishwater">
                                 <div class="clear"></div>
                                 <span>Dirty Dishwater</span><span>Birthday Cake</span>
                             </li>
                        
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Toasted Marshmallow flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Swirl bean representing Stink Bug flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Toasted Marshmallow"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Toasted-Marshmallow-Sig-ns_fg.jpg" alt="Stink Bug">
                                 <div class="clear"></div>
                                 <span>Stink Bug</span><span>Toasted Marshmallow</span>
                             </li>
@@ -470,45 +443,45 @@
                        
                         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Stinky Socks flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Multi colored bean representing Tutti-Fruitti flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Stinky Socks"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Tutti-Fruitti-Signature-ns_fg.jpg" alt="Tutti-Fruitti">
                                 <div class="clear"></div>
                                 <span>Stinky Socks</span><span>Tutti-Fruitti</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Spoiled Milk flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="White  bean representing Coconut flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="Spoiled Milk"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Coconut-Signature-ns_fg.jpg" alt="Coconut">
                                 <div class="clear"></div>
                                 <span>Spoiled Milk</span><span>Coconut</span>
                             </li>
                         
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Toothpaste flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Light blue  bean representing Berry Blue flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Toothpaste"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Berry-Blue-Signature-ns_fg.jpg" alt="Berry Blue">
                                 <div class="clear"></div>
                                 <span>Toothpaste</span><span>Berry Blue</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Rotten Egg flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Yellow and white swirl  bean representing Buttered Popcorn flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Rotten Egg"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Buttered-Popcorn-Signature-ns_fg.jpg" alt="Buttered Popcorn">
                                 <div class="clear"></div>
                                 <span>Rotten Egg</span><span>Buttered Popcorn</span>
                             </li>
                          
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Canned Dog Food flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Dark brown  bean representing Chocolate Pudding flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Canned Dog Food"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Chocolate-Pudding-Signature-ns_fg.jpg" alt="Chocolate Pudding">
                                 <div class="clear"></div>
-                                <span>Canned<br role="presentation"> Dog Food</span><span>Chocolate<br role="presentation"> Pudding</span>
+                                <span>Canned<br> Dog Food</span><span>Chocolate<br> Pudding</span>
                             </li>
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Barf flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Orange and red  bean representing Peach flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Barf"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Peach-Signature-ns_fg.jpg" alt="Peach">
                                 <div class="clear"></div>
                                 <span>Barf</span><span>Peach</span>
                             </li>
                            
                             <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Booger flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Green  bean representing Juicy Pear flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Booger"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Juicy-Pear-Signature-ns_fg.jpg" alt="Juicy Pear">
                                 <div class="clear"></div>
                                 <span>Booger</span><span>Juicy Pear</span>
                             </li>
                              <li>
-                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Dead Fish flavor"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Light orange and red speckled  bean representing Strawberry Banana Smoothie flavor">
+                                <img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Dead Fish"><img src="//cdn-tp1.mozu.com/9046-11441/cms//files/Strawberry-Banana-Smoothie-ns_fg.jpg" alt="Strawberry Banana Smoothie">
                                 <div class="clear"></div>
                                 <span>Dead Fish</span><span>Strawberry Banana Smoothie</span>
                             </li>
@@ -527,18 +500,15 @@
                         <div class="" style="width:400px; text-align: center; margin-left: -60px;">
                               
                               <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/bbz_app_slider_resize.jpg" usemap="#image-map" class=" mobile" style="width:100%; margin-left: 60px;" alt="Game On! Download the Free BeanBoozled App">
-                          
+        
         <map name="image-map">
             <area target="_blank" alt="Beanboozled application on Google Play" title="" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled" coords="220,315,348,353" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Google-Play' });">
             <area target="_blank" alt="Beanboozled application on Apple Store" title="" href="https://itunes.apple.com/us/app/jelly-belly-beanboozled/id1174483761" coords="221,362,348,400" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Apple-Store' });">
         </map>
         
-        
-        
-
-        </div>
+                            </div>
                     
-        </div>
+                            </div>
         
         </div>
          <div class="jb-footer-dpzone">
@@ -980,7 +950,7 @@
     <div class="body-wrap mz-cms-col-4-12">
         <!-- LOGO -->
         <div class="ff-logo-container">
-            <img id="ff-logo" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/80abdd2f-cff4-4d39-9980-c42f372872f4?max=500" alt="Beanboozled Fiery Five Logo">
+            <img id="ff-logo" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/38c0552b-a130-4c00-8246-f447ff8289af?max=500" alt="Beanboozled Fiery Five Logo">
         </div>
         
         <!-- SPINNER -->
@@ -1084,8 +1054,6 @@
     {% endif %}
 {% endif %}
 </div>
-
-
 <div class="mz-mobile">
     <ul class="tz-mobrefine-slot">
         <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">{{ labels.refine }}</a></li>
@@ -1108,7 +1076,6 @@
 {% comment %}
     {% dropzone zoneId="category-info" scope="page" %}
 {% endcomment %}
-<h2 class="sr-only" tabindex="-1" id="shopping-section">Shop Online</h2>
 <div class="mz-l-paginatedlist" id="shop-all">
     <div class="jb-pagecontrols mz-desktop" >
         <div data-mz-pagingcontrols class="mz-pagingcontrols mz-desktop">
@@ -1127,12 +1094,10 @@
         <div class="clearfix"></div>
     </div>
     <div class="selected-facets">
-        {% include "modules/product/selected-facets" %}
+        {% include "modules/product/selected-facets" %}    
     </div>
-    {% if pageContext.isEditMode %}
-
-        <!-- in edit mode -->
-
+	{% if pageContext.isEditMode %}
+		<!-- in edit mode -->
 	{% else %}
 		<style>
 			#mz-drop-zone-main-banner { display: none; }
@@ -1151,22 +1116,15 @@
         </a>
     {% endif %}
     <div data-mz-message-bar class="mz-messagebar"></div>
-    <div data-mz-productlist id="unbxd_results_container">
-        {% include "modules/product/product-list-tiled" %}
+    <div data-mz-productlist>      
+        {% include "modules/product/product-list-tiled" %}   
     </div>
     <div class="load-more-prod text-center">
-        {% if model.pageCount > 1 and model.hasNextPage %}
+        {% if model.pageCount > 1 and model.hasNextPage %}  
             <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
             <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 
-        {% endif %}    
-        {% comment %}
-        <a role='button' aria-label="load more" class="mz-pagenumbers-next custom-br-button loadmore-active" id="load-more">Load More</a>
-        {% if model.pageCount > 1 and model.hasNextPage %}
-            <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
-            <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 
-        {% endif %}
-        {% endcomment %}
-    </div>
+        {% endif %} 
+    </div>                
 </div>
 <div class="brand-dicreption-bottom">
     {% if pageContext.isDesktop or pageContext.isTablet %}

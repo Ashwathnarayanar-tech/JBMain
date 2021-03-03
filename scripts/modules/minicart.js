@@ -26,6 +26,7 @@ define([
             getRenderContext: function () {
                 var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
                 var noshippingTotal = 0;
+                console.log(noShippingProducts); 
                 if(require.mozuData("pagecontext").pageType != "cart") {                    
                     window.cartModel.checkBOGA();
                 }
@@ -62,7 +63,7 @@ define([
                     }else{
                         c.model.remainingfreeshippinng=0; 
                     }
-                  }
+    			}
 				c.model.hasHeatSensitive = false;
 				if(Hypr.getThemeSetting('showHeatSensitiveText')) {
 					_.each(c.model.items, function(item) {
@@ -386,11 +387,11 @@ define([
             showMiniCart: function($target){
                 checkMy = true;
                 this.model.apiGet();
-                if($(window).width() < 668) {
-                    $('.jb-mobile-minicart-popup').fadeToggle('slow', function(){ 
-                        $('.jb-mobile-minicart-popup').attr('tabindex','-1');
-                        $('.jb-mobile-minicart-popup').focus();
-                        $('.jb-mobile-minicart-popup').delay(Hypr.getThemeSetting('mobileAddToCartPopupTimer') * 1000).fadeOut(500, function(){
+                if($(window).width() < 768) {
+                    $('.jb-mobile-minicart-popups').fadeToggle('slow', function(){ 
+                        $('.jb-mobile-minicart-popups').attr('tabindex','-1');
+                        $('.jb-mobile-minicart-popups').focus();
+                        $('.jb-mobile-minicart-popups').delay(Hypr.getThemeSetting('mobileAddToCartPopupTimer') * 1000).fadeOut(500, function(){
                             if($target)
                                 $target.focus();
                         });
@@ -454,7 +455,7 @@ define([
                         $('.jb-minicart-popup').show();
                     }
                 }
-            }, ".mz-utilitynav-link-cart,.jb-minicart-popup,.jb-mobile-minicart-popup");    
+            }, ".mz-utilitynav-link-cart,.jb-minicart-popup");    
             $(document).click(function(e) {
                 if(! ($('.jb-minicart-popup').is(e.target) || $('.mz-utilitynav-link-cart').is(e.target)) ){
                     if($('.jb-minicart-popup').css('display') == 'block'){
@@ -525,9 +526,12 @@ define([
         // $('.jb-mobile-minicart-popup').css({ display: "block" });
 
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
-            $(".jb-mobile-minicart-popup").hide();
+            $(".jb-mobile-minicart-popups").hide();
         });
     });
     
     return { MiniCart:miniCartView };
 });
+
+
+

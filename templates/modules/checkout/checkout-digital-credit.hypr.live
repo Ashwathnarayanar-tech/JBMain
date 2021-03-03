@@ -1,24 +1,24 @@
 <div class="mz-checkout-digitalcredit mz-l-stack-section">
-  <h3 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h3>
+  <h4 class="mz-l-stack-sectiontitle">{{ labels.digitalCredits }}</h4>
   <div class="mz-l-formfieldgroup-cell">
     <label for="digital-credit-code">{{ labels.digitalCreditCode }}: </label>
   </div>
   <div class="mz-l-formfieldgroup-cell">
     
     {% if model.errormessage %}
-        <input aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+        <input aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" aria-label="Gift Card and Store Credit Claim Code." autocomplete="false" /><!-- ADA OK -->
     {% else %}
-        <input aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+        <input aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" aria-label="Gift Card and Store Credit Claim Code." autocomplete="false" /><!-- ADA OK -->
     {% endif %}
     
     <button class="mz-button applyDigitalCredit" data-mz-action="getDigitalCredit" {% if not model.digitalCreditCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
    <span class="note-text">{{ labels.coupncodeNote }}</span> 
     {% if model.errorsetdigitlcredit === "creditcode" %}
-      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" >
+      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
         {{ model.errormessage }} 
       </span> 
     {% else %} 
-      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" >
+      <span id="storecredit-messages-2" class="digitalcrediterror-msg" tabindex="0" role="contentinfo">
       </span>  
     {% endif %}
     <span id="storecredit-messages">
@@ -33,7 +33,7 @@
       
       <div id="pwr-max-statement"></div>
       <div id="redemption-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i></div>
-      <div tabindex="0" style="font-weight: normal; margin: 12.5px;" id="pwr-congrats-statement"></div>
+      <h4 tabindex="0" style="font-weight: normal; margin: 12.5px;" id="pwr-congrats-statement"></h4>
 
       <div id="pwr-rewards-list">
       </div>
@@ -70,8 +70,8 @@
         <tr class="mz-checkout-digitalcredit-row" data-mz-store-credit-code="{{ credit.attributes.code }}" zinrelo-amount="{{ credit.attributes.currentBalance }}">
           <td class="mz-checkout-digitalcredit-cell-enable" tabindex="0" header="apply">
             <label enabled-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}" style="display: none;">APPLIED</label>
-            <label class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
-                <input type="checkbox" data-mz-digital-credit-enable 
+            <label  tabindex="0" class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
+                <input tabindex="-1" type="checkbox" data-mz-digital-credit-enable 
                   {% if credit.attributes.isEnabled %}
                     checked="checked"
                   {% else %}
@@ -92,7 +92,6 @@
                        data-mz-credit-code-source="{{ credit.attributes.code }}" 
                        data-mz-credit-balance="{{ credit.attributes.currentBalance }}" 
                        id="enable{{ credit.attributes.code }}"
-                       aria-label="Apply store credit {{ credit.attributes.code }} with balance of {{ credit.attributes.currentBalance }}"
                         />
                 <span class="checkmark-style"></span>
             </label>
@@ -141,3 +140,4 @@
   </div>
   {% endif %}
 </div>
+

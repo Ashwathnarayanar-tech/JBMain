@@ -1,9 +1,9 @@
-<h3 class="mz-l-stack-sectiontitle">{{labels.giftCards}}</h3>
+<h3 class="mz-l-stack-sectiontitle" tabindex="0">{{labels.giftCards}}</h3>
 
 <h4 class="mz-subtitle"> {{themeSettings.GiftcardHeadline}}</h4>
-<p class="mz-subtitle-para" tabindex="0" >{{themeSettings.giftcardbalMessage|string_format(model.totalCreditAmount|currency)|safe}} </p> 
+<p class="mz-subtitle-para" tabindex="0" role="contentinfo">{{themeSettings.giftcardbalMessage|string_format(model.totalCreditAmount|currency)|safe}} </p> 
 
-<section class="mz-subtitle-para" tabindex="0" >{{themeSettings.giftcardMessage|safe}}</section>
+<section class="mz-subtitle-para" tabindex="0" role="contentinfo">{{themeSettings.giftcardMessage|safe}}</section>
 
 
 <div class="mz-accountstorecredit-form">
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           {% for credit in model.credits %}
-          <tr class="mz-accountstorecredit-row" tabindex="0" >
+          <tr class="mz-accountstorecredit-row" tabindex="0" role="contentinfo">
             <td class="mz-accountstorecredit-cell-storecreditnumber" aria-label="{{ labels.digitalCreditCode }} - {{ credit.code }}">{{ credit.code }}</td>
             <td class="mz-accountstorecredit-cell-creditdate" aria-label="{{ labels.creditDate }} - {{ credit.activationDate|date("F j, Y") }}">{{ credit.activationDate|date("F j, Y") }}</td>
             <td class="mz-accountstorecredit-cell-creditamount" aria-label="{{ labels.creditAmount }} - {{ credit.initialBalance|currency }}">{{ credit.initialBalance|currency }}</td>
@@ -37,7 +37,7 @@
           {% endfor %}
         </tbody>
         <tfoot>
-          <tr class="mz-accountstorecredit-totalrow" tabindex="0" >
+          <tr class="mz-accountstorecredit-totalrow" tabindex="0" role="contentinfo">
             <td class="mz-accountstorecredit-totallabelcell" colspan="3" align="right">
               <span class="mz-accountstorecredit-totallabel">{{ labels.totalCreditBalance }}</span>
             </td>

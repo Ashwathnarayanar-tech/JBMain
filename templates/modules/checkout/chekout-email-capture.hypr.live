@@ -8,11 +8,11 @@ line-height: 1.5;
 display: block;
 }
 </style>
-<div id="email-dialog" class="wrapper_email" tabindex="-1" role="dialog" aria-modal="true" aria-label="Account"> 
+<div id="email-dialog" class="wrapper_email" tabindex="-1" role="region"> 
     <div class="content">
       {% block back-to-cart %}
         <div class="close-icon">
-            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="Close modal and return to shopping cart"></a> 
+            <a tabindex="0" aria-label="close modal" href="/cart" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a> 
         </div>  
       {% endblock back-to-cart %}
         <div class="header">
@@ -23,7 +23,7 @@ display: block;
         <div class="main_content">
             <div class="content-tab-sys">   
               {% block content-heading %}
-                <div class="content-tab-head"><h1>{{ labels.loginmodeltabhead }}</h1></div>  
+                <div class="content-tab-head"><h2>{{ labels.loginmodeltabhead }}</h2></div>  
               {% endblock content-heading %}
               {% block content-tab-heading %}
                 <div class="content-tab-sys-labels"> 
@@ -66,8 +66,8 @@ display: block;
                                     </div>
                                 </div>
                                 <div class="mz-l-formfieldgroup-row">
-                                    <label class="checkbox-outer-label">  
-                                    <input id="guestmail-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                    <label tabindex="0" class="checkbox-outer-label">  
+                                    <input  tabindex="-1"  id="guestmail-cpp-checkbox" type="checkbox" aria-label="By clicking Next, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Next, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
                                     <span class="checkmark-style"></span></label> 
                                 </div>
                                 <input role="button" aria-label="next button" tabindex="0" class="mz-button mz-button-large active-button brontocart-guest-email cpp-guest" id="guest_addbutton" disabled="disabled"  type="submit" value="next">
@@ -125,3 +125,13 @@ display: block;
     </div>  
 </div> 
 {% require_script "pages/checkout" %}
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 ﻿<div class="mz-checkout-payment">
-  <p class="mz-checkout-paymenttitle"><strong>{% if model.amountCollected > 0 %}{{ model.amountCollected|currency }}{% else %}{{ model.amountRequested|currency }}{% endif %}</strong> &mdash; 
+  <h4 class="mz-checkout-paymenttitle"><strong>{% if model.amountCollected > 0 %}{{ model.amountCollected|currency }}{% else %}{{ model.amountRequested|currency }}{% endif %}</strong> &mdash; 
 {% if model.billingInfo.paymentType == "Check" and model.billingInfo.customCreditType != 'ZinreloRedemption' %}{{ labels.checkByMail }}!!! {{ model.billingInfo.paymentType }} {{ model.billingInfo.customCreditType }}{% endif %} 
 {% if model.billingInfo.paymentType == "Check" and model.billingInfo.customCreditType == 'ZinreloRedemption' %}Sweet Rewards redemption {% endif %}
-{% if model.billingInfo.paymentType == "PaypalExpress2" %} {{ labels.payPal }} {% endif %}{% if model.billingInfo.paymentType == "CreditCard" %}{{ labels.creditCard }}{% endif %}{% if model.billingInfo.paymentType == "StoreCredit" %}{% if model.billingInfo.customCreditType == 'ZinreloRedemption' %}Sweet Rewards{% else %}{{ labels.storeCredit }}{% endif %}{% endif %}</p>
+{% if model.billingInfo.paymentType == "PaypalExpress2" %} {{ labels.payPal }} {% endif %}{% if model.billingInfo.paymentType == "CreditCard" %}{{ labels.creditCard }}{% endif %}{% if model.billingInfo.paymentType == "StoreCredit" %}{% if model.billingInfo.customCreditType == 'ZinreloRedemption' %}Sweet Rewards{% else %}{{ labels.storeCredit }}{% endif %}{% endif %}</h4>
 
                 <dl class="mz-propertylist">
                     {% if model.billingInfo and model.billingInfo.billingContact and  model.billingInfo.billingContact.email %}

@@ -41,21 +41,15 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
                 this.apiModel.updateQuantity(this.get("quantity"))
                     .then(function(){
                       self.collection.parent.fetch().then(function(cart){
-                        setTimeout(function(){
-                          if(window.qtyButtonToFocus.length > 0) {
-                            window.cartView.focusQtyButton(window.qtyButtonToFocus);
-                            window.qtyButtonToFocus = '';
-                          }
-                        }, 1500);
                         cart.checkBOGA();
-                        brontoObj.build(api);
+						brontoObj.build(api);
                       });
-            
+
                     }, function() {
                         // Quantity update failed, e.g. due to limited quantity or min. quantity not met. Roll back.
                         self.set("quantity", oldQuantity);
                         self.trigger("quantityupdatefailed", self, oldQuantity);
-            
+
                     });
             }
             //if (this.hasChanged("quantity")) this.apiUpdateQuantity(this.get("quantity"));
@@ -152,7 +146,7 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
             });
         },
         removeItem: function (id) {
-            function combineCategories(catList) {
+			 function combineCategories(catList) {
               var results = [];
               catList.forEach(function(item) {
                 results.push(item.id);
@@ -260,9 +254,9 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
       
       var models = this.get("items").models;
       var result = _.find(models, function(model) {
-        // console.log(model);
+        console.log(model);
 				return _.find(model.apiModel.data.product.categories, function(category){
-        //   console.log(category);
+          console.log(category);
 					return category.id == Hypr.getThemeSetting('heatSensitiveYearRoundId');
 				});
 			});

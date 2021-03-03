@@ -31,14 +31,14 @@
     <div class="content-container">
         <h1 class="mz-pagetitle">{{ labels.orderConfirmation }} </h1>
     
-    	<p tabindex="0" >{{ labels.confirmationText }}</p>
+    	<p tabindex="0" role="contentinfo">{{ labels.confirmationText }}</p>
     
-        <p tabindex="0" >{{ labels.yourOrderNumber|string_format(model.orderNumber)|safe }}</p>
+        <p tabindex="0" role="contentinfo">{{ labels.yourOrderNumber|string_format(model.orderNumber)|safe }}</p>
     
-    	<p class="mz-checkout-paymenttitle">{{ labels.payments }} - <strong>{{ model.total|currency }}</strong></p>
+    	<h4 class="mz-checkout-paymenttitle">{{ labels.payments }} - <strong>{{ model.total|currency }}</strong></h4>
     	
         <div class="mz-l-stack">
-            <div class="mz-l-stack-section billing-section" tabindex="0" >
+            <div class="mz-l-stack-section billing-section" tabindex="0" role="contentinfo">
                 <h4 class="mz-l-stack-sectiontitle">{{ labels.billingInformation }}</h4>
                 {% comment %} <h4 class="mz-l-stack-sectiontitle">{{ labels.payments }}</h4>{% endcomment %}
                 {% for payment in model.payments %}
@@ -48,7 +48,7 @@
                 {% endfor %}
             </div>
             {% if model.hasDirectShip %}
-            <div class="mz-l-stack-section shipping-section" tabindex="0" >
+            <div class="mz-l-stack-section shipping-section" tabindex="0" role="contentinfo">
                 <h4 class="mz-l-stack-sectiontitle">{{ labels.shippingInformation }}</h4>
                 <dl class="mz-propertylist">
                     <dt>{{ labels.shipTo }}</dt>
@@ -76,13 +76,13 @@
                 <h4 class="mz-l-stack-sectiontitle">{{ labels.orderSummary }} </h4>
                 {% include "modules/common/order-summary" %}
                 {% if model.shopperNotes.comments %}
-                <div class="mz-ordercomments" tabindex="0" >
+                <div class="mz-ordercomments" tabindex="0" role="contentinfo">
                     <h5 class="mz-ordercomments-header">{{ labels.comments }}</h5>
                     <p class="mz-ordercomments-body">{{ model.shopperNotes.comments|safe }}</p>
                 </div>
                 {% endif %}
                 {% if model.shopperNotes.giftMessage %}
-                <div class="mz-ordercomments" tabindex="0" >
+                <div class="mz-ordercomments" tabindex="0" role="contentinfo">
                     <h5 class="mz-ordercomments-header">{{ labels.giftMessage }}</h5>
                     <p class="mz-ordercomments-body">{{ model.shopperNotes.giftMessage }}</p>
                 </div>
@@ -185,3 +185,9 @@ item.product.goodsType
 	{% endif %}
 
 {% endblock trailing-scripts %}
+
+
+
+
+
+

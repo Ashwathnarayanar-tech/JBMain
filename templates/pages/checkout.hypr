@@ -77,7 +77,6 @@
                 <div style="float: right; margin: 10px;"><a href="/">Continue shopping</a></div>
             </div>
         {% endif %}
-        <p>* indicates a required field</p>
     </div> 
          <style>
             .example-banner {
@@ -103,7 +102,7 @@
         {% comment %}
        <div class="example-banner"></div>
         {% endcomment %}
-      
+      <!-- <a class="keep-shop" href="/shopmain">Keep Shopping</a> -->
        
     
     
@@ -197,3 +196,24 @@
 <p id="dumporder" style="display:none">{{ model }}</p>
 {% require_script "modules/header-myaccount" %}     
 {% endblock body-content %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

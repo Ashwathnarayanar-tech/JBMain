@@ -29,7 +29,7 @@
             <div class="clear"></div>
         </div>
     </div>
- <p class="inline" tabindex="0" aria-label="price - {{model.total|currency}}" {% if model.product.productType == "Gift Certificate" %} productPrice = "{{model.total}}"  options ="Tenant~gift-card-prices" variationCode="{{model.product.variationProductCode}}"{% endif %} OrderProductId="{{model.product.productCode}}">{{model.total|currency}}</p>
+ <p class="inline" tabindex="0" role="contentinfo" aria-label="price - {{model.total|currency}}" {% if model.product.productType == "Gift Certificate" %} productPrice = "{{model.total}}"  options ="Tenant~gift-card-prices" variationCode="{{model.product.variationProductCode}}"{% endif %} OrderProductId="{{model.product.productCode}}">{{model.total|currency}}</p>
  <a href="javascript:;" role="button" data-mz-action="addInlineItemToCart" {% if model.product.productType == "Gift Certificate" %} options ="Tenant~gift-card-prices" variationCode="{{model.product.variationProductCode}}"{% endif %} class="inline-add-to-cart" quickOrderProductCode="{{model.product.productCode}}" orderNumber="{{model.id}}" >Add to Cart</a> 
   {% endblock item-listing-details %}
   <div class="clearfix"></div>
@@ -42,3 +42,6 @@
   {% endblock item-listing-extras %}
   <div class="order-history-overlay"></div>
 </div>
+
+
+

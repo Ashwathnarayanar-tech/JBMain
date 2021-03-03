@@ -44,9 +44,10 @@ require([
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
             });
-            setTimeout(function(){ 
-                 $target.focus(); 
-            },6200); 
+            // Shruthi commented as this action is not required as we're are not showing minicart after addtocart: JEL-1431
+            // setTimeout(function(){ 
+            //      $target.focus(); 
+            // },6200);  
         }); 
         
         $(document).on('keypress', '.jb-add-to-cart', function(e) {
@@ -81,7 +82,7 @@ require([
             $('[data-mz-message-bar]').append(emsg);
             $('[data-mz-message-bar]').fadeIn();
             $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0});
+            $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
             $('#mz-errors-list').find('li').focus();
             $('.jb-pagecontrols').animate({scrollTop:$('[data-mz-message-bar]').position().top}, 'slow');
             setTimeout(function(){
@@ -161,69 +162,65 @@ require([
             $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);
             $(document).find('.Add-to-cart-popup').addClass("active");
             $(document).find('body').addClass("noScroll");
-            if(require.mozuData('pagecontext').url.indexOf('search-results')<0){
-                var owl = $(document).find('.rec-prod-list-popup');    
-                owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
-                owl.find('.owl-stage-outer').children().unwrap();
-                $(document).find('#rec-prod-list-popup').html('');
-                $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
-                    $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
-                });
-                owl.owlCarousel({  
-                    loop: true, 
-                    margin: 14,
-                    dots: false,
-                    autoPlay: false,  
-                    pagination: false,   
-                    nav: true,     
-                    navText:false,
-                    slideBy: 1,
-                    items: 1,
-                    center: false,
-                    stagePadding : 50,
-                    responsive: {    
-                        0: {
-                            items: 1
-                        },
-                        400: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        800: {
-                            items: 3  
-                        }, 
-                        1025: {
-                            items: 3
-                        },
-                        1200:{
-                            items: 3
-                        },
-                        1440: {
-                            items: 3
-                        }
-                    } 
-                });
-                $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
-                loopInAddTocart(); 
-            }else{
-                $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
-                $(document).find('#addtocart-popup-rec-prod-sec .head-rec-prod-list').hide();
-            }
+            var owl = $(document).find('.rec-prod-list-popup');    
+            owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+            owl.find('.owl-stage-outer').children().unwrap();
+            $(document).find('#rec-prod-list-popup').html('');
+            $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
+                $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
+            });
+            owl.owlCarousel({  
+                loop: true, 
+                margin: 14,
+                dots: false,
+                autoPlay: false,  
+                pagination: false,   
+                //nav: true,     
+                navText:false,
+                slideBy: 1,
+                items: 1,
+                center: false,
+                stagePadding : 50,
+                responsive: {    
+                    0: {
+                        items: 1
+                    },
+                    400: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    800: {
+                        items: 3  
+                    }, 
+                    1025: {
+                        items: 3
+                    },
+                    1200:{
+                        items: 3
+                    },
+                    1440: {
+                        items: 3
+                    }
+                } 
+            });
+                //Shruthi Ada JEL-1431  
+                $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
+            loopInAddTocart(); 
         } 
 
         $(document).on('click', '.cross-close-popup',function(){
             $(document).find('.Add-to-cart-popup').removeClass("active");
             $(document).find('body').removeClass("noScroll");
-            //trigger.focus();
+            trigger.focus();
         });
 
-        // $(document).keyup(function(e) {
-        //     if (e.keyCode === 27 && $('.Add-to-cart-popup').hasClass("active")) {
-        //         $('.cross-close-popup').trigger('click');
-        //     }
-        // });
+        $(document).keyup(function(e) {
+            if ((e.keyCode === 27 ||e.keyCode === 13) && $('.Add-to-cart-popup').hasClass("active") && $(e.target).hasClass('cross-close-popup')) {
+                $('.cross-close-popup').trigger('click');
+            }
+        });
 
         $(document).on('click', '.continue-shoping  ',function(){
             $(document).find('.Add-to-cart-popup').removeClass("active");
@@ -231,3 +228,5 @@ require([
         });
     });
 });
+
+

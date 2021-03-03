@@ -27,8 +27,19 @@ require([
     window.productCode = productCode;
     var me = $(this);
     addToWishList.addWishlistOnAuth(productCode, me);
-  });
+  }); 
+  
+   $(document).on("change","#wishlist-cpp-checkbox",function(){
+       if (this.checked) {
+            $('.wishlist-login-btn').prop('disabled',false);
+            $('.wishlist-login-btn').addClass("active-button");
+        }else{
+            $('.wishlist-login-btn').prop('disabled',true);
+            $('.wishlist-login-btn').removeClass("active-button"); 
+        }
+   });
 
+   
   var wl_re = window.wl_re = true;
   var addToWishList = {
     logKey: function() {
@@ -82,11 +93,15 @@ require([
         $('.user-password').css({
           'border': '1px solid #e9000f'
         });
+        
+        $('.loginError').text(Hypr.getThemeSetting('passwordMissing'));
+        $('.loginError').prev('input').focus();
         validity = false;
       } else {
         $('.user-password').css({
           'border': '1px solid #c2c2c2'
         });
+        $('.loginError').text('');
       }
       return validity;
     },
@@ -123,11 +138,6 @@ require([
             me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             me.removeClass('add-to-wishlist');
             me.addClass('added-to-wishlist');
-            if (require.mozuData('pagecontext').pageType === 'product')
-              $('#add-to-cart').focus();
-            else if (require.mozuData('pagecontext').pageType === 'category' || location.pathname.indexOf('search-results') > -1) {
-              $("button[data-mz-prcode='"+productCode+"']").focus();
-            }
           });
 
           me.addClass('added-to-wishlist');
@@ -188,10 +198,5 @@ require([
   var lastInput = window.lastInput;
   addToWishList.activateloopinginmodal();
 
-  // close add to wishlist login with escape key
-  $(document).keyup(function(e) {
-    if (e.keyCode === 27)
-      $('.atw-modal .close-img').click();
-  });
 
 });

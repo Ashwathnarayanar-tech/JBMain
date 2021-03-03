@@ -23,9 +23,9 @@
                 
                 $('.overlay').hide();
                 if(this.model.length > 0){
-                    if(this.model.models[0].get('name') !== "ADD_CUSTOMER_FAILED" && this.model.models[0].get('name') !== "CARD_NUMBER_UNRECOGNIZED"){
+                    if(this.model.models[0].get('name') !== "ADD_CUSTOMER_FAILED"){
                         if(this.model.models){
-                            if(this.model.models[0].get("errorCode") !== "ITEM_NOT_FOUND" && this.model.models[0].get("errorCode") !== "VALIDATION_CONFLICT" ){ 
+                            if(this.model.models[0].get("errorCode") !== "ITEM_NOT_FOUND" ){ 
                                 //this.model.models[0].set("message",Hypr.getLabel('promoCodeError', code));
                                 if(this.model.models[0].get('message').indexOf('Unable to parse response:') !== -1 || this.model.models[0].get('message') == "Invalid characters are entered." || $('#storecredit-panel').hasClass('active') || $('.mz-scrollnav-link-mobile.active').attr('forid') == 'account-storecredit' || $('#digital-credit-code').length === 1){
                                     
@@ -45,7 +45,7 @@
                                             $(document).find('input[aria-describedby="giftcard-messages"]').attr('aria-invalid','false');
                                         },6000);
                                             
-                                        // if(isAndroid){ 
+                                        // if(isAndroid){
                                         //     $('#accountStoreCreditInput').attr('aria-label', 'Error: '+this.model.models[0].get('message'));
                                         // }
                                         
@@ -119,7 +119,7 @@
                                         else if(self.$el.find('.mz-errors').find('p').length === 1)
                                             self.$el.find('.mz-errors').find('p').focus();
                                         else
-                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();                   
+                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true, 'role':'contentinfo'}).focus();                   
                                        
 
                                         if(window.location.pathname == "/cart"){
@@ -192,57 +192,7 @@
                                 
                                 this.model.models[0].set("message",Hypr.getLabel('promoCodeError', code)); 
                             }
-                            else{
-                                Backbone.MozuView.prototype.render.apply(this, arguments);
-                                $(document).find('#giftcard-messages').css('display','none');
-                                $(document).find('#storecredit-messages').css('display','none');
-                                if(this.model.models[0].get('message').indexOf('does not have enough stock to create this reservation and backorders are not enabled.')>-1){
-                                    var msg = this.model.models[0].get('message').split(':'),
-                                        product = msg[1].substring(0,msg[1].indexOf('does')).trim(),
-                                        sku = product.substring(product.indexOf(' '));
-                                    var finalMsg = Hypr.getLabel('checkoutOos', sku);
-                                    self.$el.find('#error-inventory').text(finalMsg);
-                                }
-                                self.$el.css('display','block'); 
-                                    
-                                    if (this.model.length > 0) {
-                                        this.$el.ScrollTo({
-                                            onlyIfOutside: true,
-                                            offsetTop: offset,  
-                                            offsetLeft: offset * 1.5,
-                                            axis: 'y'
-                                        });
-                                        
-                                        if(require.mozuData('pagecontext').pageType === 'product')
-                                            self.$el.find('p').focus();
-                                        else if(self.$el.find('.mz-errors').find('p').length === 1)
-                                            self.$el.find('.mz-errors').find('p').focus();
-                                        else
-                                            self.$el.find('.mz-errors').attr({'tabindex':'0','aria-invalid': true}).focus();                   
-                                       
-
-                                        if(window.location.pathname == "/cart"){
-                                            setTimeout(function(){ 
-                                                self.$el.css('display','none');
-                                            },12000);
-                                        }
-                                        if(window.location.pathname != "/checkout" && window.location.pathname != "/cart"){
-                                            setTimeout(function(){
-                                                self.$el.css('display','none');
-                                            },8000); 
-                                        }
-                                      
-                                    }
-                                }
                         }
-                    }else if( this.model.models[0].get('name') == "CARD_NUMBER_UNRECOGNIZED"){
-                        $(document).find('#mz-payment-credit-card-number').siblings('.mz-validationmessage').html('Error: '+this.model.models[0].get('message')).attr('aria-invalid','true').show();
-                        setTimeout(function(){ 
-                           $(document).find('#mz-payment-credit-card-number').siblings('.mz-validationmessage').html('').attr('aria-invalid','false').hide();
-                        },6000);
-                        setTimeout(function(){
-                            $(document).find('#mz-payment-credit-card-number').focus();
-                        },1000);
                     }
                 }
             }
@@ -251,3 +201,5 @@
     };
 
 });
+
+

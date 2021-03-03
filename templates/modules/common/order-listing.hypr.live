@@ -14,7 +14,7 @@
                 <span>{{model.status}}</span> 
             </li>
             {% endcomment %} 
-            <li>
+            <li> 
                 <label>Order Total:</label>
                 <span>{{ model.total|currency }}</span>
             </li>
@@ -66,8 +66,8 @@
                 {% for payment in model.payments %}
                     {% if payment.status != "Voided" and payment.status != "Declined" %}
                     <div class="clearfix"></div>
-                    <div class="billinginfo-container" tabindex="0" >
-                    <h4 class="mz-l-stack-sectiontitle"  aria-label="{{ labels.billingInformation }}">{{ labels.billingInformation }}</h4>
+                    <div class="billinginfo-container" tabindex="0" role="contentinfo">
+                    <h4 class="mz-l-stack-sectiontitle" role="contentinfo" aria-label="{{ labels.billingInformation }}">{{ labels.billingInformation }}</h4>
                         {% include "modules/checkout/checkout-payment" with model=payment %}
                     </div>
                     {% endif %}
@@ -76,8 +76,8 @@
         {% endif %}    
         
         {% if model.fulfillmentInfo.fulfillmentContact%}
-            <div class="order-shipping-address" tabindex="0" >
-                <h4 class="mz-l-stack-sectiontitle"  aria-label="{{ labels.shippingInformation }}">{{ labels.shippingInformation }}</h4>
+            <div class="order-shipping-address" tabindex="0" role="contentinfo">
+                <h4 class="mz-l-stack-sectiontitle" role="contentinfo" aria-label="{{ labels.shippingInformation }}">{{ labels.shippingInformation }}</h4>
                 <span class="ship-to-label">{{ labels.shipTo }}</span>
                 <div class="ship-to-content">{% include "modules/common/address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}</div>
                 <span class="ship-to-label">{{ labels.shippingMethod }}</span>
@@ -88,16 +88,18 @@
         
         <h3  orderID="{{model.orderNumber}}" class="mz-orderlisting-heading" 
                     style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};" >YOUR ORDER</h3>
-        <h3 tabindex="0"  orderID="{{model.orderNumber}}" class="mz-orderlisting-date right" 
+        <h3 tabindex="0" role="contentinfo" orderID="{{model.orderNumber}}" class="mz-orderlisting-date right" 
                     style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};" > <span>Order Placed: </span>{{ model.auditInfo.createDate|date("F j, Y") }} </h3> 
         <div orderID="{{model.orderNumber}}" class="clearfix"></div>
-            <a href="javascript:;" data-mz-action="addAllToCart" role="button" aria-label="add all items to cart" title="ADD ALL TO CART" class="add-all-to-cart" ordertoadd="{{model.orderNumber}}">Add All to Cart </a>
-           </div >
+            <div class="add-all-to-cart-section">
+                <a href="javascript:;" data-mz-action="addAllToCart" role="button" aria-label="add all items to cart" title="ADD ALL TO CART" class="add-all-to-cart" ordertoadd="{{model.orderNumber}}">Add All to Cart </a>
+            </div>
+        </div >
     </div>        
         {% endblock order-details %}
             
      
-    <ul  orderID="{{model.orderNumber}}" class="item-list-heading"  style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};"> 
+    <ul  orderID="{{model.orderNumber}}" {% if pagecontext.pageType == "my_anonymous_account" %}class="order-status-item-list-heading"{% else %}class="item-list-heading"{% endif %} style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};"> 
         <li class="item-name">Item</li>
         <li class="item-qty">Quantity</li>
         <li class="item-total">Total</li>
@@ -110,3 +112,12 @@
     {% endblock order-items %}
     </div>
 </div>
+
+
+
+
+
+
+
+
+

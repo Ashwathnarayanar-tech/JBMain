@@ -98,10 +98,45 @@ require([
     'modules/cart-monitor',
     "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
-    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator', "modules/views-collections"
-], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter) {
+    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator',"modules/header-myaccount"
+], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
     $(document).ready(function () {
+        // Shruthi JEL-1433 Qty increase and Decrement
+        $(document).on('keydown','.jb-quickviewdetails .increment',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(!qty){
+                    qty = 0;
+                } 
+                if(qty < 25){
+                    $(this).parents('.qty').find('.quantity').val(qty + 1);
+                }
+            }
+        });
+        $(document).on('keydown','.jb-quickviewdetails .dicrement',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(qty > 1){
+                    $(this).parents('.qty').find('.quantity').val(qty - 1);
+                }
+            }
+        });
+
         // load on scroll
         $(window).scroll(function() {
             var lazyImages = $(document).find('.load-on-scroll');
@@ -117,7 +152,7 @@ require([
                 }
             });
         }); 
-        $(document).on('click','.sweet-rewards-label', function(){
+        $(document).on('click','.sweet-rewards-label, .sweet-rewards-login', function(){
             // if (window.require.mozuData('user').email === '') {
             //     window.location.pathname = '/user/login';
             // } else {
@@ -173,12 +208,12 @@ require([
         // Fiery Five function.
         
 
-        $(document).on('keyup', '.quantity-field-rti, .quantity-field', function(event){
-            if(parseInt($(this).val()) > 25 && require.mozuData('pagecontext').pageType != 'my_account'){
-                $(this).val('');
-                $(this).val(25);
-            }
-        });
+        // $(document).on('keyup', '.quantity-field-rti, .quantity-field', function(event){
+        //     if(parseInt($(this).val()) > 25 && require.mozuData('pagecontext').pageType != 'my_account'){
+        //         $(this).val('');
+        //         $(this).val(1);
+        //     }
+        // });
 
         $(document).on('click','.plus-prod-qty-rti', function(){
             var qty = parseInt($(this).parent().find('input').val());
@@ -389,8 +424,6 @@ require([
                $('.mob-pwd-row').css('display', 'none');          
             });
         }
-
-        require(["modules/add-to-cart-plp", "modules/add-to-wishlist-modal"]);
         
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
@@ -470,7 +503,7 @@ require([
                 dots: false,
                 autoPlay: false,  
                 pagination: false,   
-                nav: false,     
+                //nav: false,     
                 navText:false,
                 slideBy: 1,
                 items: 1,
@@ -500,7 +533,7 @@ require([
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
 
@@ -537,16 +570,14 @@ require([
         });
 
         function showErrorMessage(msg){
-            $('[data-mz-message-bar]').empty();
-            var emsg = '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>'+msg+'</li></ul>';
-            $('[data-mz-message-bar]').append(emsg);
-            $('[data-mz-message-bar]').fadeIn();
-            $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0});
-            $('#mz-errors-list').find('li').focus();
-            $('html, body').animate({scrollTop:$('[data-mz-message-bar]').filter(':visible').offset().top-200}, 'slow');
+            var span = $(document).find('.rec-message-bar span'); 
+                span.text('');
+                span.text(msg);
+            $(document).find('.rec-message-bar').fadeIn();
+            span.focus();
+            $('html, body').animate({scrollTop:span.offset().top-200}, 'slow');
             setTimeout(function(){
-                $('[data-mz-message-bar]').hide();
+               $(document).find('.rec-message-bar').hide();
             },6000);
             $('.jb-inner-overlay').remove();
             // $("html, body").animate({scrollTop:  $(".mz-l-paginatedlist").offset().top }, 1000);
@@ -705,6 +736,13 @@ require([
                     clicked.focus();
                 }
             });
+            $(document).find('.close').on('keyup',function(e) {
+                if (e.keyCode === 13&& $(".notify-me-popup").is(":visible")) {
+                    $(document).find('.notify-me-popup').hide();
+                    modalReset();
+                    clicked.focus();
+                }
+            });
         }
 
         function modalReset(){
@@ -770,11 +808,11 @@ require([
 
         $('.skipto').click(function(e) {
             e.preventDefault();
-            var aTag = $("#page-content");
+            var aTag = $("#maincontent");
             $('html,body').animate({
                 scrollTop: aTag.offset().top - 150
             }, 2000);
-            $(document).find("#page-content").focus();
+            $(document).find("#maincontent").focus();
         });
 
         $(document).on('keypress', '.skipto', function(e) {
@@ -1002,6 +1040,23 @@ require([
             }
         });
 
+        // Footer Desktop Sitemap
+        $("#siteMapToggle").click(function() {
+            $(this).closest("div").parent().find(".datalink").toggle();
+            var tempHtml = $("#siteMapToggle").text();
+            if (tempHtml == "+") {
+                $("#siteMapToggle").html('-');
+                $(".mz-footer-row").css('background-position', '136% 107%');
+                $("html, body").animate({
+                    scrollTop: $(".mz-columnfull").offset().top + 30
+                }, 500);
+            } else {
+                $("#siteMapToggle").html('+');
+                $(".mz-footer-row").css('background-position', '136% 147%');
+            }
+
+        });
+
         // FAQ in multiple pages
         function faqInteraction(e) {
             $('.faq-q').attr('aria-expanded', false);
@@ -1209,13 +1264,6 @@ require([
         var notifyfirstInput =  window.notifyfirstInput;
         var notifylastInput = window.notifylastInput;
 		
-    $(".social-media-icon").hover(function(e){
-       e.target.setAttribute("temp", e.target.getAttribute("src"));
-       e.target.setAttribute("src", e.target.getAttribute("secondary"));
-     },  function(e){ 
-       e.target.setAttribute("src", e.target.getAttribute("temp"));
-       e.target.setAttribute("temp", "");
-   });
         //require(['modules/pepperjam']);
         //if (require.mozuData('pagecontext').pageType === "checkout" ||
         //    require.mozuData('pagecontext').pageType === "my_account") {
@@ -1223,7 +1271,6 @@ require([
         //}
 
 		require(['modules/browser-info']);
-    require(['modules/add-to-cart-modal']);
-		//require(['modules/regional-scheme/geodetect2']);
+		require(['modules/regional-scheme/geodetect2']);
     });
 });

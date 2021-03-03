@@ -84,7 +84,7 @@ define(["underscore", "backbone", 'hyprlive'], function (_, Backbone, Hypr) {
                       val instanceof RegExp ||
                       val instanceof Backbone.Collection)
                     ) {
-                        flatten(val, into, prefix + key + '.', --depth);
+                        flatten(val, into, prefix + key + '.', depth - 1);
                     }
                     else {
                         into[prefix + key] = val;
@@ -148,10 +148,6 @@ define(["underscore", "backbone", 'hyprlive'], function (_, Backbone, Hypr) {
             // the first error message is returned.
             // If the attribute is valid, an empty string is returned.
             var validateAttr = function (model, attr, value, computed) {
-                //validation for phone number
-                // if(attr === "phoneNumbers.home" && typeof value != 'undefined' ){
-                //     return "Please provide phone number";
-                // }
                 // Reduces the array of validators to an error message by
                 // applying all the validators and returning the first error
                 // message, if any.

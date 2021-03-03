@@ -1,10 +1,10 @@
 
 <div class="mz-accountsettings-details">
     <div class="mz-accountsettings-user">
-        <h3 class="mz-l-stack-sectiontitle">{{ labels.accountSettings }}</h3>
+        <h3 class="mz-l-stack-sectiontitle" tabindex="0" role="heading">{{ labels.accountSettings }}</h3>
         <div>
             <ul>
-                <li>
+                <li tabindex="0">
                     <label>Email Address:</label>
                     <span >{{ model.emailAddress|default(model.userName) }}</span>
                 </li>
@@ -16,17 +16,19 @@
                         </a>
                     </span>
                 </li>
-                <li class="grouping">
+                <li class="grouping" tabindex="0">
                     <label>Your Account:</label>
                     <span>{{model.id}}</span>
                 </li>
                 {% if editing %}
                 <li>
                     <div class="mz-accountsettings-section mz-accountsettings-email-edit">
-                          <p class="mz-accountsettings-label mz-account-settings-label-email">*{{ labels.emailAddress }}</p>
+                          <p class="mz-accountsettings-label mz-account-settings-label-email">
+                            <label for="useremail"><span aria-label="mandatory field">*</span>{{ labels.emailAddress }}</label>
+                          </p>
                           {% if editing %}
-                              <input class="mz-accountsettings-email" type="email" placeholder="{{ labels.emailAddress }}" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
-                              <span class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
+                              <input id="useremail" class="mz-accountsettings-email" aria-invalid="true" aria-describedby="err_1" type="email" placeholder="{{ labels.emailAddress }}" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
+                              <span id="err_1" class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
                           {% else %}
                               <div class="mz-accountsettings-displayemail">{{ model.emailAddress|default(model.userName) }}</div>
                           {% endif %}
@@ -48,7 +50,7 @@
                     </div>
                 </li>
                 {% else %}
-                    <li>
+                    <li tabindex="0">
                         <label>Name:</label>
                         <span>{{ model.firstName }}  {{ model.lastName }}</span>
                         <div class="clearfix"></div>

@@ -40,28 +40,28 @@
                             <label for="email">*Email Address:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="email" id="email" class="mz-signup-email" placeholder="{{ labels.emailAddress }}" data-mz-signup-emailaddress />
+                            <input type="email" class="mz-signup-email" placeholder="{{ labels.emailAddress }}" data-mz-signup-emailaddress />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row password-row">
                         <div class="mz-l-formfieldgroup-cell">
-                            <label for="password">*Password:</label>
+                            <label for="email">*Password:</label>
                             <span class="mob-pwd-row">{{ labels.minPasswordReqs}}</span>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input type="password" aria-describedby="password-requirements" id="password" class="mz-signup-password" placeholder="{{ labels.password }}" data-mz-signup-password />
+                            <input type="password" class="mz-signup-password" placeholder="{{ labels.password }}" data-mz-signup-password />
                         </div>
                         <div class="pwd-message">
                             <div class="arrow-left"></div>
-                            <p id="password-requirements">{{ labels.minPasswordReqs}}</p>
+                            <p>{{ labels.minPasswordReqs}}</p>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
-                            <label for="confirm-password">*Confirm Password:</label>
+                            <label for="email">*Confirm Password:</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell zero-cellspace">    
-                            <input id="confirm-password" type="password" class="mz-signup-confirmpassword" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
+                            <input type="password" class="mz-signup-confirmpassword" placeholder="{{ labels.confirmPassword }}" data-mz-signup-confirmpassword />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -82,3 +82,9 @@
     </div>
     
 {% endblock body-content %}
+
+
+
+
+
+

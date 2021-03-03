@@ -1,16 +1,16 @@
 <div class="jb-inner-overlay"></div>
     <div class="mz-messagebar" data-mz-message-bar>
-        <ul id="bypassNotification" tabindex="-1"  class="is-showing mz-errors" style="display: none; color:#000; font-weight:bold;padding: 3px 3px 3px 3px;">
+        <ul id="bypassNotification" tabindex="-1" role="contentinfo" class="is-showing mz-errors" style="display: none; color:#000; font-weight:bold;padding: 3px 3px 3px 3px;">
 			<li>
-				<p style="text-align: center; color:#000; font-weight:bold">{{labels.bypass_headline1}}</p>
+				<p style="text-align: center; color:#000; font-weight:bold">{{themeSettings.bypass_headline1}}</p>
 				<p style="margin-left: 15px; text-align: left; color:#000; font-size:14px;">
-				    1. {{labels.bypass_warn1}}<br>
-					2. {{labels.bypass_warn2}}</p>
+				    1. {{themeSettings.bypass_warn1}}<br>
+					2. {{themeSettings.bypass_warn2}}</p>
 			</li>
 		</ul>
     </div>
     
-    <h2 class="mz-formstep-header">
+    <h3 class="mz-formstep-header">
         <span class="step-no"><label>01</label></span>
         <span class="checkout-icons"></span>
         <label>{{ labels.shippingInformation }}</label> 
@@ -20,7 +20,7 @@
             {{ labels.edit }}
         </button>
         {% endif %}
-    </h2>
+    </h3>
     <div class="mz-formstep-body">
     
       {% if not model.address.candidateValidatedAddresses %}
@@ -33,7 +33,7 @@
             </div>
             {% if model.requiresFulfillmentInfo %}
                   <div class="mz-formstep-fields mz-l-formfieldgroup">
-                    <p class="address-info" tabindex="0" >
+                    <p class="address-info" tabindex="0" role="contentinfo">
                       Please enter your Shipping information. Each shipping address requires its own order.
                       <br />
 
@@ -123,3 +123,21 @@
       {% endif %}
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

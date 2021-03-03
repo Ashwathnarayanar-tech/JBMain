@@ -1,26 +1,24 @@
 <div class="mz-wrapper">  
-    <div class="mz-cms-row">    
+    <div class="mz-cms-row sub-email-section">    
       <div class="mz-cms-col-6-12" id="footer-signup">
         <div class="footer-info-text" tabindex="0">Enter your information to receive<br /> exclusive discounts, news and offers: </div>     
           <div class="footer-email-box">
 						<label for="footer-email-signup">Email signup</label>
 			<input placeholder="Enter email address" id="footer-email-signup" name="footer-email-signup" type="text" tabindex="0">
 			<div class="submit-footer-container">  
+	          <button class="signup-button sign-up-btn-footer-disable" tabindex="0" disabled="true">Submit</button>
 			  <span id="signup-message-top" style="display:none;color:#fff;font-size:12px;" tabindex="0"></span>
 		  	</div>
 			<div class="checkbox-container-footer">
-				<label for="confirm" class="checkbox-outer-label checkbox-footer-label">
-				  <input id="confirm" name="IsOver13" role="checkbox" type="checkbox" style="margin-right:5px;"/>
-				  <div class="confirmtext"><b>By checking this box and submitting my email, I confirm that I am 13 years or older. By providing my email address to Jelly Belly and checking this box, I also confirm that I expressly consent to Jelly Belly contacting me via email with marketing and advertising email messages.</b> I understand and acknowledge that I am not required, directly or indirectly, to provide this express written consent as a condition of purchasing any of Jelly Belly’s products. I also agree to Jelly Belly’s<a href="/terms-of-use" target="_blank"> Terms of Use </a> 
+				<label tabindex="0" for="confirm" class="checkbox-outer-label checkbox-footer-label">
+				  <input tabindex="-1" id="confirm" name="IsOver13" role="checkbox" type="checkbox" style="margin-right:5px;"/>
+				  <div class="confirmtext">By checking this box and submitting my email, I confirm that I am 13 years or older. By providing my email address to Jelly Belly and checking this box, I also confirm that I expressly consent to Jelly Belly contacting me via email with marketing and advertising email messages. I understand and acknowledge that I am not required, directly or indirectly, to provide this express written consent as a condition of purchasing any of Jelly Belly’s products. I also agree to Jelly Belly’s<a href="/terms-of-use" target="_blank"> Terms of Use </a> 
 				  and <a href="/privacy-policy" target="_blank"> Privacy Policy. </a></div>
 				  <span class="checkmark-style footer-checkbox-signup"></span>
 				</label> 
 			</div> 
-      <div class="submit-footer-button-container">
-      <button class="signup-button sign-up-btn-footer-disable" tabindex="0" disabled="true">Submit</button>
-      </div>
 			<span id="signup-message-bottom" style="display:none;color:#fff;font-size:12px;" tabindex="0"></span>
-        </div>  
-      </div>
+          </div>  
+          </div>
     </div>
 </div>

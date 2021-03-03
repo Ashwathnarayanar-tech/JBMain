@@ -1461,6 +1461,7 @@ define([
                 initRecProd();
                 //labelShow();
                 // initilizeBrandSec(); 
+				window.isAddedToWishlist();
                 window.updatecatfilter();    
             }else{ 
                 setTimeout(function(){
@@ -1490,6 +1491,7 @@ define([
                 initRecProd();
                 //labelShow(); 
                 //initilizeBrandSec();
+				window.isAddedToWishlist();
                 window.updatecatfilter(); 
             } 
             
@@ -1622,8 +1624,7 @@ define([
             }
 
             // event to trigger browser resize.
-            setTimeout(function(){ 
-                $(document).find('.a-spot-cointainer').addClass('opacity');
+            setTimeout(function(){
                 if($(window).width() > 767){
                     if($(window).width() > 1440){ 
                         $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
@@ -1656,7 +1657,7 @@ define([
                             }else{
                                 $(document).find('.a-spotText').css('font-size',"1.2vw");
                                 $(document).find('.a-spotContentHeading').css('font-size',"2.3vw");   
-                            }  
+                            }
                             var newHeigth = 500-((1440 - $(window).width())/3);
                             $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
                             $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
@@ -2012,6 +2013,10 @@ define([
     } 
    
     $(document).ready(function(){
+        // custom function.
+        console.log("Custom");
+        console.log(custom.customObject);
+        console.log("Custom");
         setTimeout(function(){
             $('#preloader').fadeOut();  
             $('#preloaderoverlay').delay(350).fadeOut('slow'); 
@@ -2141,8 +2146,7 @@ define([
             } 
         });
         var $facetPanelMobile = $('[data-mz-facets-mobile]');
-        if ($facetPanelMobile.length >= 0) {
-            //console.log($facetPanelMobile);
+        if ($facetPanelMobile.length > 0) {
             // Mobile Refine 
             $('.tz-Facets').each(function() { 
                 $('<div id="tz-refinePopup" class="mz-mobile"><div tabindex="0" id="tz-mobilePopmenu"><span tabindex="0" role="button" aria-label="click to close overlay" class="tzPopup-exit"></span></span><div class="tzPopup-body"><div class="tzPopup-content"></div></div></div><div id="tzMoboverlay"></div></div>')
@@ -2425,6 +2429,32 @@ define([
     //     }
     // });
 
+	//adding added to wishlist text to all those products are which are added to wishlist
+	var isAddedToWishlist = window.isAddedToWishlist = function() {
+		$('.add-to-wishlist-c>button').text('Wishlist').addClass('add-to-wishlist').removeClass('added-to-wishlist');
+		$('button.add-to-wishlist').css('cursor','pointer');
+		if(require.mozuData("user").isAuthenticated) {
+			var products = $('.add-to-wishlist');
+			api.get('wishlist').then(function(response) {
+				var wishlistCount = response.data.items.length;
+				for (var i = 0; i < wishlistCount; i++) {
+					var wistlistItemCount = response.data.items[i].items.length;
+					for (var j = 0; j < wistlistItemCount; j++) {
+						for(var k = 0;k<products.length;k++){ 
+							var productCode = response.data.items[i].items[j].product.productCode;
+							if(productCode === $(products[k]).attr('data-mz-prdcode')){
+								$(products[k]).text(Hypr.getLabel('addedToWishlist')).removeClass('add-to-wishlist').addClass('added-to-wishlist');
+								$(products[k]).css('cursor','not-allowed');
+								$(products[k]).removeClass('add-to-wishlist-qv');
+								$(products[k]).addClass('added-to-wishlist-qv'); 
+							}
+						}
+					}
+				}
+			});
+		} 
+	};
+	window.isAddedToWishlist();
     var quickViewFun = {
         showquickview: function(e){
             var id = $(e.currentTarget).parents('.gridder-list').attr('data-griddercontent');
@@ -2601,6 +2631,27 @@ define([
                 $(document).find('.facets-type-list').find('.facete-type-li').removeClass('active');
                 $(document).find('.facet-name-list').find('.mz-l-sidebaritem').removeClass('active');
                 $(document).find('.mz-l-paginatedlist').css('min-height','');
+                var facetesSelected = decodeURIComponent(window.location.href).split("?")[1].split('&').filter(
+					function(v,i){ return v.indexOf('facetValueFilter') >= 0 ? true : false; })[0];
+                var facetesApplyed = [];
+                if(facetesSelected){
+                    facetesApplyed = facetesSelected.split('=')[1].split(',');   
+                }
+                $(document).find('.filter-list-selected').find('.selected-facet-value').filter(function(v,i){
+                    if(facetesApplyed.length && facetesApplyed.indexOf($(this).attr('url-component')) == -1){
+                        $(this).remove();
+                    }else if(facetesApplyed.length === 0){
+                        $(this).remove(); 
+                        $(document).find('.clear-all-outer-btn').removeClass('active');
+                    }   
+                });
+                $(document).find('.filter-list').find('.item-name').filter(function(v,i){
+                    if(facetesApplyed.length && facetesApplyed.indexOf($(this).attr('url-component')) == -1){
+                        $(this).removeClass('mz-facetform-selected');
+                    }else if(facetesApplyed.length === 0){
+                        $(this).removeClass('mz-facetform-selected');  
+                    }     
+                });  
             }else{  
                 ele.addClass('active'); 
                 ele.attr('aria-expanded',true);
@@ -2647,7 +2698,7 @@ define([
                 }else{
                     valuetodisplay =  ele.find('[value-to-display]').attr('value-to-display');    
                 }
-                var str = '<li  aria-label="'+ele.attr("aria-label")+'" tabindex="0" class="item-name '+ele.attr("attr-name-type")+' selected-facet-value  mz-facetform-selected " url-component="'+ele.attr("url-component")+'"><label class="mz-facetingform-valuelabel mz1-facetingform-value" data-mz-facet-value="'+ele.attr("url-component")+'" >'+valuetodisplay+'</label><span tabindex="0" role="button" aria-label="remove-facet '+ele.attr("aria-label")+'" class="cross-btn-facets">X</span></li>';
+                var str = '<li role="contentinfo" aria-label="'+ele.attr("aria-label")+'" tabindex="0" class="item-name '+ele.attr("attr-name-type")+' selected-facet-value  mz-facetform-selected " url-component="'+ele.attr("url-component")+'"><label class="mz-facetingform-valuelabel mz1-facetingform-value" data-mz-facet-value="'+ele.attr("url-component")+'" >'+valuetodisplay+'</label><span tabindex="0" role="button" aria-label="remove-facet '+ele.attr("aria-label")+'" class="cross-btn-facets">X</span></li>';
                 $(document).find('.mz-facetingform-selected').find('ul.mz-facetingform-facet').append(str); 
                 ele.addClass('mz-facetform-selected');
                 if($(document).find('.selected-facet-value').length >= 1){
@@ -2740,17 +2791,17 @@ define([
                 var stringtoappend = ''; 
                 if(facetname){
                     if(facetname.indexOf("Price") == -1 && facetname.indexOf("tenant~ratingforfacet") == -1){  
-                        stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+facetname+':'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                        stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+facetname+':'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         //$(document).find('.selected-facet-mobile .'+valuetoappend).length;
                     }else{  
                         if(facetname.indexOf("tenant~ratingforfacet") > -1){ 
-                            stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+ratingValue+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+ratingValue+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         //$(document).find('.selected-facet-mobile .'+valuetoappend).length;
                         }else if(facetname.indexOf("Price") > -1){
-                            stringtoappend = '<span  aria-label="'+valuetoshow+' $" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+' $" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         }
                         else{
-                            stringtoappend = '<span  aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
+                            stringtoappend = '<span role="contentinfo" aria-label="'+valuetoshow+'" tabindex="0" class="selected-facet-mobile">'+valuetoshow+'<a role="button" aria-label="remove-facet '+valuetoshow+'" tabindex="0" href="javascript:void(0);" attr-filter="'+valuetoappend+'" attr-require="'+valuetoappend+'" class="remove-filter-one" id="'+faceteid+'">X</a></span>';
                         }
                     }
                     ele.parents('li').addClass('mz-facetform-selected'); 
@@ -2910,7 +2961,30 @@ define([
         $(document).find('.facets-type-list').find('.facete-type-li').removeClass('active');
         $(document).find('.facet-name-list').find('.mz-l-sidebaritem').removeClass('active');
         $(document).find('.mz-l-paginatedlist').css('min-height','');   
-    });
+        var facetesSelected;
+        if(decodeURIComponent(window.location.href).split("?").length>1){
+            facetesSelected = decodeURIComponent(window.location.href).split("?")[1].split('&').filter(function(v,i){ return v.indexOf('facetValueFilter') >= 0 ? true : false; })[0];
+        } 
+        var facetesApplyed = [];
+        if(facetesSelected){
+            facetesApplyed = facetesSelected.split('=')[1].split(',');   
+        }
+        $(document).find('.filter-list-selected').find('.selected-facet-value').filter(function(v,i){
+            if(facetesApplyed.length && facetesApplyed.indexOf($(this).attr('url-component')) == -1){
+                $(this).remove();
+            }else if(facetesApplyed.length === 0){
+                $(this).remove();
+                $(document).find('.clear-all-outer-btn').removeClass('active');
+            }   
+        });
+        $(document).find('.filter-list').find('.item-name').filter(function(v,i){
+            if(facetesApplyed.length && facetesApplyed.indexOf($(this).attr('url-component')) == -1){
+                $(this).removeClass('mz-facetform-selected');
+            }else if(facetesApplyed.length === 0){
+                $(this).removeClass('mz-facetform-selected');   
+            }     
+        }); 
+    });  
 
     $(document).on('keydown','.cross-icon',function(e){
         if(e.which == 13 || e.which == 32){
@@ -3015,3 +3089,6 @@ define([
     
 
 });
+
+
+

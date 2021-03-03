@@ -11,7 +11,7 @@
         <div> 
             <div class="order-status-section">
                 <h1 class="mz-pagetitle" tabindex="0">{{ labels.orderStatus }}</h1>
-                <p class="order-placed-text" tabindex="0" >Orders placed as a guest or single order lookup</p>
+                <p class="order-placed-text" tabindex="0" role="contentinfo">Orders placed as a guest or single order lookup</p>
                 <form method="post" class="mz-order-status-page" name="mz-anonymousorder">
                     <input type="hidden" name="order-returnUrl" value="{{ model.returnUrl }}"/>
                     <div class="mz-l-formfieldgroup">
@@ -46,8 +46,8 @@
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
-                                <label class="checkbox-outer-label"> 
-                                <input id="orderstatus-cpp-checkbox" type="checkbox" aria-label="By clicking Submit, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Submit, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                <label tabindex="0" class="checkbox-outer-label"> 
+                                <input tabindex="-1" id="orderstatus-cpp-checkbox" type="checkbox" aria-label="By clicking Submit, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Submit, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
                                 <span class="checkmark-style"></span></label> 
                             </div>  
                         <div class="mz-l-formfieldgroup-row">
@@ -65,3 +65,11 @@
         </div> 
     </div>        
 {% endblock body-content %}
+
+
+
+
+
+
+
+

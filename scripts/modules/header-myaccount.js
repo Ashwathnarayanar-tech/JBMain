@@ -204,6 +204,15 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
         });
         /** Reset password functionality **/
         var user = require.mozuData('user');
+        $(document).on('keypress',function (e) {
+            var key = e.which;
+            var self=this;
+            if(key == 13 && $("#signup-cpp-checkbox").prop('checked') === true)  // the enter key code
+            {    
+                $('#signup-submit').click();
+                return false; 
+            }
+        }); 
         if(user.isAnonymous){
             var signupForm = new SignupForm($('#jb-signup'));   
         }else{
@@ -213,5 +222,6 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
         }
     });
 });
+
 
 

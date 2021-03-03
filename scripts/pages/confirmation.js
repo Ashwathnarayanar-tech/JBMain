@@ -36,9 +36,5 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 			console.log(e);
 		});
 		
-		setTimeout(function(){
-			$("#brdialog-win .brdialog-close:first").text("Close").focus();
-		}, 1000);
-	
 	});
 });

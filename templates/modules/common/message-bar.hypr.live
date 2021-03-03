@@ -33,7 +33,7 @@
                             {% if msg.message == "Card number is in an unrecognized format." %}
                                     <li>{{ themeSettings.cardFormat }}</li>
                             {% else %}
-                                <li aria-describedby="error-inventory" tabindex="0" style="text-align: left !important;"><p id="error-inventory" tabindex="0">{{ msg.message|safe }}</p></li>
+                                <li aria-describedby="error-inventory" role="contentinfo" tabindex="0" style="text-align: left !important;"><p id="error-inventory" role="contentinfo" tabindex="0">{{ msg.message|safe }}</p></li>
                                     {% endif %}    
                                     {% endif %}    
                                         {% endif %}    
@@ -48,3 +48,4 @@
     </ul>
     {% endif %}
 </div>
+

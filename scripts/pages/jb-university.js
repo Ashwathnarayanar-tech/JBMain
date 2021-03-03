@@ -4,12 +4,11 @@ require([
     $(document).ready(function() {
         // ADA for JB tour and JB university pages   
         try {
-            $(document).on('click', '#accordian h2', function() {
+            $(document).on('click', '#accordian li h2', function() {
                 accordianFunction($(this));
             });
 
-            $(document).on('keydown', '#accordian h2', function(e) {
-                e.preventDefault();
+            $(document).on('keydown', '#accordian li h2', function(e) {
                 if (e.which == 13 || e.which == 32) {
                     accordianFunction($(this));
                 }
@@ -17,9 +16,9 @@ require([
 
             //accordian fucntionality
             var accordianFunction = function($ele) {
-                for(var i=0;i<$('#accordian h2').length ;i++){
-                    $($('#accordian h2')[i]).removeClass("static-accord-close");
-                    $($('#accordian h2')[i]).addClass("static-accord-open");
+                for(var i=0;i<$('#accordian li h2').length ;i++){
+                    $($('#accordian li h2')[i]).removeClass("static-accord-close");
+                    $($('#accordian li h2')[i]).addClass("static-accord-open");
                 }
                 if (!$ele.parent().hasClass("active")) {
                     $ele.parent().find('.new-icon-plus').hide();

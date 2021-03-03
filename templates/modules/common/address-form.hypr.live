@@ -5,7 +5,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="companyname" id="{% if addresscontext == "billingContact." %}bcompanyname{% else %}companyname{% endif %}" data-mz-value="{{ addresscontext }}companyOrOrganization" value="{{ model.companyOrOrganization }}" autofocus><!-- ADA OK -->
-            <span class="mz-validationmessage" tabindex="-1"  data-mz-validationmessage-for="{{ addresscontext }}companyName"></span>
+            <span class="mz-validationmessage" tabindex="-1" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}companyName"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-firstname">
@@ -23,7 +23,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="lastname" id="{% if addresscontext == "billingContact." %}blastname{% else %}lastname{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_2{% else %}err_lastname2{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}lastNameOrSurname" value="{{ model.lastNameOrSurname }}"><!-- ADA OK -->
-            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_err_lastname2{% endif %}" tabindex="-1"  data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
+            <span class="mz-validationmessage" id="{% if addresscontext == "billingContact." %}berr_2{% else %}err_err_lastname2{% endif %}" tabindex="-1" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}lastNameOrSurname"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address1">
@@ -32,7 +32,7 @@
         </div>
         <div class="mz-l-formfieldgroup-cell">
             <input type="text" name="address-line-1" id="{% if addresscontext == "billingContact." %}baddress-line-1{% else %}address-line-1{% endif %}" aria-describedBy="{% if addresscontext == "billingContact." %}berr_3{% else %}err_address3{% endif %}" aria-invalid="false" data-mz-value="{{ addresscontext }}address.address1" value="{{ model.address.address1 }}"><!-- ADA OK -->
-            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_err_address3{% endif %}"  data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
+            <span class="mz-validationmessage" tabindex="-1" id ="{% if addresscontext == "billingContact." %}berr_3{% else %}err_err_address3{% endif %}" role="contentinfo" data-mz-validationmessage-for="{{ addresscontext }}address.address1"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row mz-addressform-address2">
@@ -62,7 +62,7 @@
                 {% endfor %}
                 {% endif %}
             </select>
-            <span class="mz-validationmessage" tabindex="-1"  id="sel_err1" data-mz-validationmessage-for="{{ addresscontext }}address.countryCode"></span>
+            <span class="mz-validationmessage" tabindex="-1" role="contentinfo" id="sel_err1" data-mz-validationmessage-for="{{ addresscontext }}address.countryCode"></span>
         </div>
     </div>
     {% endcomment %}
@@ -159,3 +159,16 @@
     </div>
     {% endif %}
 {% endblock address-form %}
+
+
+
+
+
+
+
+
+
+
+
+
+

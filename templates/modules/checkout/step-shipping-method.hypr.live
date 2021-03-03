@@ -1,4 +1,4 @@
-    <h2 class="mz-formstep-header">
+    <h3 class="mz-formstep-header">
         <span class="step-no"><label>02</label></span>
         <span class="checkout-icons"></span>
         <label>{{ labels.shippingMethod }}</label>
@@ -6,7 +6,7 @@
          {% if model.requiresFulfillmentInfo %}
         <button id="shippingmethod-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping method" data-mz-action="edit">{{ labels.edit }}</button>
         {% endif %}
-    </h2>
+    </h3>
     <div class="mz-formstep-body">
         <div class="mz-formstep-summary mz-date-val">
             {% if model.requiresFulfillmentInfo %} 
@@ -19,18 +19,15 @@
         <div class="mz-formstep-fields mz-l-formfieldgroup">
         <div id="new-heat-sensitive-statement"></div>
         
-        <p id="hide-from-heat-sensitive" tabindex="0" style="font-weight: bold; display: block;">
+        <p id="hide-from-heat-sensitive" tabindex="0" role="contentinfo" style="font-weight: bold; display: block;">
             Orders over ${{themeSettings.freeshippingBoundingValue}} may qualify for <a style="text-decoration:none;" href="/shipping-information">FREE Ground Shipping</a> (SurePost or Ground)!
         </p>
         <div id="no-free-shipping-statement"></div>
-        <p class="shippingAKHI" tabindex="0" style="font-weight: bold; display: none;">
+        <p class="shippingAKHI" tabindex="0" role="contentinfo" style="font-weight: bold; display: none;">
             {{ labels.shippingAKHI }}
         </p>
         {% if model.availableShippingMethods.length > 0 %}
-				    <fieldset>
-              <legend style="margin: 5px;">
-                <p class="address-info">Choose Shipping Method</p>
-              </legend>
+				<p class="address-info" tabindex="0" role="contentinfo">Choose Shipping Method</p> 
                 {% for method in model.availableShippingMethods %} 
                     <div>
                         <label>
@@ -57,55 +54,18 @@
                         </label>
                     </div>
                 {% endfor %}
-               </fieldset>
+               
                 
             {% else %}
-                <p tabindex="0" >{{ labels.noShippingMethods }}</p>
+                <p tabindex="0" role="contentinfo">{{ labels.noShippingMethods }}</p>
             {% endif %}
         </div>
       
         <div class="mz-formstep-next">
          <!-- <div class="mz_date_value mz_date_pos"></div> -->
-         
-<style>
-.mz_date_value2      dl {
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-.mz_date_value2 dt {
-  text-align: right;
-  float: left;
-  width: 20%;
-  padding: 0;
-  margin: 0;
-}
-.mz_date_value2 dd {
-  text-align: left;
-  float: left;
-  width: 70%;
-  padding: 0px 0px 0px 5px;
-  margin: 0;
-}
-
-.mz_date_value2 dd > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.mz_date_value2 dt > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-</style>
-       
 			<div class="shipping-text" style="display: inline-block;">
-				<div class="mz_date_value2" style="font-weight: bold; padding: 10px; text-align: center; display: none;" tabindex="0" ></div>
-				<div class="mz-validationmessage" data-mz-validationmessage-for="shippingMethodCode" style="text-align: center; padding: 10px;" tabindex="-1"  aria-label="Please select a shipping method"></div> 
+				<div class="mz_date_value2" style="font-weight: bold; padding: 10px; text-align: center; display: none;" tabindex="0" role="contentinfo"></div>
+				<div class="mz-validationmessage" data-mz-validationmessage-for="shippingMethodCode" style="text-align: center; padding: 10px;" tabindex="-1" role="contentinfo" aria-label="Please select a shipping method"></div> 
 				<button type="button" class="brontocart-ship-method gtm-to-billing mz-button mz-shipmethod checkout-btn" data-mz-action="next">Continue to Payment Information</button>
 			</div>
         </div>
@@ -114,3 +74,17 @@
 
 
 <div style="display:none" id="dumpshipping" > {% dump model %} </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

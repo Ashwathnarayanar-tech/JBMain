@@ -99,7 +99,7 @@
 
                         </div>
                         <h3 tabindex="0">Please tell us more about yourself.</h3>
-                        <p tabindex="0" >All fields are optional. Any information you provide will only be used to assure that we send information on topics that interest you. 
+                        <p tabindex="0" role="contentinfo">All fields are optional. Any information you provide will only be used to assure that we send information on topics that interest you. 
                         <strong>IMPORTANT:</strong> Please note that for privacy and security we will only display your email address, first name and last name the next time you visit this page. 
                         However, any preferences you submit will be stored in our secure database so that we can send you the most relevant messages possible.</p>
 
@@ -262,10 +262,10 @@
                     <h2>Change your email frequency</h2>
 
                     <div id="frequency-form-area">
-                        <span tabindex="0"  style="font-size:18px; font-weight:bold; color:#B01111">NOTE: Please be sure your email address appears in the box at the top of this page.</span>
+                        <span tabindex="0" role="contentinfo" style="font-size:18px; font-weight:bold; color:#B01111">NOTE: Please be sure your email address appears in the box at the top of this page.</span>
                         <h3 tabindex="0">How often should we email you?</h3>
 
-                        <p tabindex="0" >
+                        <p tabindex="0" role="contentinfo">
                             Jelly Belly makes it easy for you to opt in or out of our email newsletters. Just use the form below to set your 
                             preferences. You may also review our <a href="//jellybelly.com/Info/aboutjellybelly/privacy_policy">privacy policy.</a>
                         </p>
@@ -371,3 +371,5 @@ function ValidatorOnSubmit() {
         </div>
     </section>
 {% endblock body-content %}
+
+

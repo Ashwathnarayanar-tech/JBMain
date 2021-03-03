@@ -19,8 +19,8 @@
     		</div>
     {% else %}
         <div class="mz-l-column login-signup-section">
-            <h1 class="mz-pagetitle">{{ labels.logIn2 }}</h1>
-            <ul>
+            <h1 class="mz-pagetitle" tabindex="0">{{ labels.logIn2 }}</h1>
+            <ul tabindex="0">
                 <li >Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
                 <li >View your Order History</li>
                 <li >Save Addresses and Credit Cards</li> 
@@ -34,7 +34,7 @@
                             <label for="email">{{ labels.email }}</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input name="email" value="{{model.email|default:user.email}}" type="email" data-mz-login-email />
+                            <input id="email" name="email" value="{{model.email|default:user.email}}" type="email" data-mz-login-email />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -42,14 +42,14 @@
                             <label for="password">{{ labels.password }}</label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input name="password"  type="password" data-mz-login-password/>
+                            <input id="password" name="password"  type="password" data-mz-login-password/>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
-                        <label class="checkbox-outer-label">
-                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                        <label tabindex="0" class="checkbox-outer-label">
+                        <input tabindex="-1" id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
                         <span class="checkmark-style"></span></label>
-                    </div>
+                    </div> 
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell"></div>
                         <div class="mz-l-formfieldgroup-cell">
@@ -87,3 +87,12 @@
       {% dropzone "login-bottom" scope="template" %}
 </div>     
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+

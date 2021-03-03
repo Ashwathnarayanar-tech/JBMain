@@ -1,4 +1,4 @@
- <span class="mz-price" tabindex="0">
+ <span class="mz-price" tabindex="0" role="contentinfo">
 	{% if model.onSale %}
 		<span style="color: #e7131a !important;" aria-label="on sale">Sale:</span> {{model.salePrice|currency}}
 	{% else %}
@@ -6,6 +6,6 @@
 	{% endif %}  
 	  
 	 {% if model.priceType == "MAP" %}
-		<div tabindex="0">add to cart to see final price</div>
+		<div tabindex="0" role="contentinfo">add to cart to see final price</div>
      {% endif %}   
  </span>        
