@@ -52,6 +52,11 @@
               "name":"isshippingCalculationEnabled",
               "fieldLabel":"Enable Shipping Calculator"
           },
+          {
+            "xtype":"checkbox",
+            "name":"isGlobalOverlayEnabled",
+            "fieldLabel":"Enable Global overlay"
+        },
 		{
               "xtype": "textfield",
               "name": "heatSensitiveCategoryId",

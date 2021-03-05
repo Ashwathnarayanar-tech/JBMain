@@ -82,6 +82,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             });
         },
         increseQty : function(e){
+            window.showGlobalOverlay();
             var newQuantity = parseInt($(e.target).parents('.qty-input-box').find('input').val(),10)+1,
             id = $(e.target).parents('.qty-input-box').find('input').attr('data-mz-cart-item'),
             item = this.model.get("items").get(id);
@@ -99,8 +100,12 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 // }, 5000);
                 // $(e.target).parent().find('input').val(newQuantity);
             }
+            else{
+                window.hideGlobalOverlay();
+            }
         },
         decQty: function(e){
+            window.showGlobalOverlay();
             var newQuantity = parseInt($(e.target).parents('.qty-input-box').find('input').val(),10)-1,
             id = $(e.target).parents('.qty-input-box').find('input').attr('data-mz-cart-item'),
             item = this.model.get("items").get(id);
@@ -119,6 +124,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 //     $('.minus-prod-qty-cart').focus();
                 // }, 800);
                 // $(e.target).parent().find('input').val(newQuantity);
+            }
+            else{
+                window.hideGlobalOverlay();
             }
         },
         updateQuantity: _.debounce(function (e) {
@@ -263,6 +271,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             var $removeButton = $(e.currentTarget),
                 id = $removeButton.data('mz-cart-item');
             this.model.removeItem(id);
+            window.showGlobalOverlay();
             Minicart.MiniCart.updateMiniCart();
 			//brontoObj.build(Api);
             return false;
@@ -280,6 +289,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //commenting  for ssl for now...
             //this.model.toOrder();
             // return false;
+            window.showGlobalOverlay();
             this.model.isLoading(true);
             // the rest is done through a regular HTTP POST
         },
@@ -296,10 +306,12 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 				}
 			var self = this;
 			if(this.model.get('couponCodes').length< 1){
+                window.showGlobalOverlay();
 				var addedCoupon = self.model.get('couponCode');
 				this.model.addCoupon().ensure(function () {
 					self.model.unset('couponCode');
-					self.render();
+                    self.render();
+                    window.hideGlobalOverlay();
 				});
 				$.cookie("coupon", addedCoupon , { path: '/', expires: 7 });
                 //$('#cart-checkout').focus();

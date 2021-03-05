@@ -101,6 +101,8 @@ require([
     'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator'
 ], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
+   // window.showGlobalOverlay();
+
     $(document).ready(function () {
         // load on scroll
         $(window).scroll(function() {
@@ -395,6 +397,7 @@ require([
             $(document).find('.RTI-overlay').addClass('active');
             PRODUCT.addToCart(1);
             PRODUCT.on('addedtocart', function(attr) {
+                window.hideGlobalOverlay();
                 $('[data-mz-productlist],[data-mz-facets]').removeClass('is-loading');
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -411,6 +414,7 @@ require([
                 PRODUCT = '';
             });
             api.on('error', function (badPromise, xhr, requestConf) {
+                window.hideGlobalOverlay();
                 showErrorMessage(badPromise.message);
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -559,6 +563,7 @@ require([
                 // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
                 var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
                 var count = parseInt($quantity,10);
+                window.showGlobalOverlay();
                 api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
                     var flag=false;
                      if(cartitem.items.length>0){
@@ -576,6 +581,7 @@ require([
                             $('.maximumProduct').show(); 
                             $('.maximum-inner-content').focus();
                            // $('.maximum-message').focus();
+                           window.hideGlobalOverlay();
                             loopInMax();
                              return false;
                          }else{
@@ -702,6 +708,7 @@ require([
                             addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                         },2000);
                     }else{
+                        window.hideGlobalOverlay();
                         showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                         $(document).find('.RTI-overlay').removeClass('active');
                     }
@@ -1308,4 +1315,5 @@ require([
             } 
         }); 
     });
+
 });

@@ -63,13 +63,16 @@
                 this.$el.find('.edit-user-settings').find('input').attr('aria-invalid',false);
                 this.$el.find('.edit-user-settings').find('.mz-validationmessage').html('');
                 if(this.$el.find('input')[0].value.length>0 && this.$el.find('input')[1].value.length>0 && this.$el.find('input')[2].value.length>0){
+                    window.showGlobalOverlay();
                     this.doModelAction('apiUpdate').then(function() {
                     self.editing = false;
                     self.$el.find('[data-mz-action="startEditName"]').focus();
                     }).otherwise(function() {
                         self.editing = true;
+                        window.hideGlobalOverlay();
                     }).ensure(function() {
                         self.afterEdit();
+                        window.hideGlobalOverlay();
                     });
                     
                 }else{
@@ -135,11 +138,14 @@
             function restoreFocus() {
                 $('[data-mz-action="startEditPassword"]').focus();
             }
+            window.showGlobalOverlay();
             this.doModelAction('changePassword').then(function() {
                 _.delay(function() {
+                    window.hideGlobalOverlay();
                     self.$('[data-mz-validationmessage-for="passwordChanged"]').show().text(Hypr.getLabel('passwordChanged')).fadeOut(3000);
                 }, 250);
             }, function() {
+                window.hideGlobalOverlay();
                 self.editing.password = true;
             });
             this.editing.password = false;
@@ -182,6 +188,7 @@
                 // });
                 
                 var count = Item[0].quantity;
+                window.showGlobalOverlay();
                 Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;  
@@ -200,6 +207,7 @@
                         }else{
                             self.showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                             $(document).find('.RTI-overlay').removeClass('active');
+                            window.hideGlobalOverlay();
                         }
                     }else{
                         var pro = PRODUCT, qntcheck = 0, ProItems = MiniCart.MiniCart.getRenderContext().model.items;
@@ -218,6 +226,7 @@
                             if(sdkProduct.data.purchasableState.isPurchasable){
                                 self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             }else{
+                                window.hideGlobalOverlay();
                                 self.notifyMeShowpopUp(sdkProduct.data.productCode,id);   
                             }
                         }else if(qntcheck){
@@ -228,6 +237,7 @@
                             if(sdkProduct.data.purchasableState.isPurchasable){
                                 self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             }else{
+                                window.hideGlobalOverlay();
                                 self.notifyMeShowpopUp(sdkProduct.data.productCode,sdkProduct.data.inventoryInfo.onlineLocationCode,id);   
                             }
                         }
@@ -379,6 +389,7 @@
                         $('.maximumProduct').show();
                         $('.maximum-inner-content').focus();
                         loopInMax();
+                        window.hideGlobalOverlay();
                          return false;
                      }else{
                         PRODUCT.addToCart(1);
@@ -397,9 +408,11 @@
                 CartMonitor.update();
                 MiniCart.MiniCart.showMiniCart();
                 PRODUCT = '';  
+                window.hideGlobalOverlay();
             });  
             Api.on('error', function (badPromise, xhr, requestConf) {
                 self.showErrorMessage(badPromise.message);
+                window.hideGlobalOverlay();
                 $(document).find('.RTI-overlay').removeClass('active');
             });
         },
@@ -445,10 +458,15 @@
                 // });
                 //var Url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items";
                 var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items/"+removeWishId;
+                window.showGlobalOverlay();
                 Api.request('DELETE',url).then(function(resp) {
                     var tempItems = self.model.get('items').filter(function(ele){return ele.id == removeWishId?false:true;});
                     self.model.set('items', tempItems); 
-                    self.render();       
+                    self.render(); 
+                    window.hideGlobalOverlay();      
+                }).catch(function(err){
+                   console.log(" error while delete wish list ",err);
+                   window.hideGlobalOverlay(); 
                 });    
             }
         },
@@ -738,7 +756,7 @@
             else if(totalItems.length === 0){
                 totalItems = products;
             }
-
+            window.showGlobalOverlay();
             // Comparing total items from order history and cart to the inventory
             Api.request('POST','api/commerce/catalog/storefront/products/locationinventory?pageSize=500',{productCodes:productCodes,locationCodes:locationCodes.filter(function(R,i){return locationCodes.indexOf(R) == i;})}).then(function(res){
                 totalItems.forEach(function(val, key){
@@ -792,16 +810,22 @@
                         }
 
                     }, 4000);
-  
+                    window.hideGlobalOverlay();
                 } else if(addToCartProducts.length > 0){
                     // finally, adding the items to the cart
                     self.bulkAddToCart(addToCartProducts, removedProducts);
+                }
+                else{
+                    window.hideGlobalOverlay();
                 }
 
                 // console.log("removedProducts",removedProducts);
                 // console.log("addToCartProducts",addToCartProducts);
 
                 
+            }).catch(function(err){
+                console.log(" add to cart error myaccount ",err);
+                window.hideGlobalOverlay();
             });
         },
         bulkAddToCart: function(addToCartProducts, removedProducts){
@@ -809,15 +833,20 @@
                 console.log(res);
                 CartMonitor.update();
                 MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
+                window.hideGlobalOverlay();
+            }).catch(function(err){
+                console.log(" add to cart error myaccount ",err);
+                window.hideGlobalOverlay();
             });
         },
           makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
             var errorArray = [], self = this, productAdded = 0,time = 1500;
             $('.order-history-overlay').show();
-
+            window.showGlobalOverlay();
             $(products).each(function(key,pid){
                 setTimeout(function(){
                 var count = key;
+               
                 Api.get('product', pid.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;
@@ -1338,13 +1367,16 @@
             var self = this;
             var id = this.$('[data-mz-entering-credit]').val();
             if (id) {
+                window.showGlobalOverlay();
                 var temp = this.model.addStoreCredit(id);
                 if(temp) {
                     return temp.then(function (data) {
+                        window.hideGlobalOverlay();
                         return self.model.getStoreCredits();
                     }, function(err) {
                         if(err) {
                             $('#account-messages').find('.mz-errors').focus();
+                            window.hideGlobalOverlay();
                             setTimeout(function(){
                               self.$el.find('#accountStoreCreditInput') .focus();
                             }, 8000);

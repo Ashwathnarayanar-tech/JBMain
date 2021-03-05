@@ -1405,7 +1405,7 @@ define([
         var defaultpagesize = window.defaultpagesize = 20;        
         function updateUi(response) {
             $('.open-sortoverlay').remove();
-            $("body").removeClass('openoverlay'); 
+            window.hideGlobalOverlay();
             $(".closefacetpopup span").html("SHOW "+$(".jb-result-details").attr("data-total-results")+" RESULTS");
             var url = response.canonicalUrl;
             var $oattr;
@@ -2713,7 +2713,7 @@ define([
             this.categoryaccordian($('.item-name.active'));
         },
         mobileaddfilters:function(ele){
-            $("body").addClass('openoverlay'); 
+            window.showGlobalOverlay();
             if(!ele.hasClass('remove-filter-one') && !ele.parents('li').hasClass('mz-facetform-selected') && ele.html() !== ''){
                 var valuetoshow = ele.prev().attr('data-mz-facet-titel-mobile');
                 var valuetoappend = ele.prev().attr('data-mz-facet-value-mobile');

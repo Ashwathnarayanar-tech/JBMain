@@ -452,6 +452,7 @@
     "heatSensitiveYearRoundId": 503,
     "showHeatSensitiveText": false,
     "isshippingCalculationEnabled":true,
+    "isGlobalOverlayEnabled":false,
     "heatSensitiveStatesPDP": "Cold packs will be included, and shipping rates will be affected for, shipments of this product to the following states:",
     "heatSensitiveStatesCart": "Cold packs will be included, and shipping rates will be affected for, shipments of this product to the following states:",
     "heatSensitiveStatesCheckout": "Cold packs will be included, and shipping rates will be affected for, shipments of this product to the following states:",

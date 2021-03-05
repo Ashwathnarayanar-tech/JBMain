@@ -245,6 +245,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         addToCart: function (e) {
             var productCode=this.model.get('productCode'),self=this;
             var count=this.model.get('quantity');
+            window.showGlobalOverlay();
             Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
                 var flag=false;
                  if(cartitem.items.length>0){
@@ -269,7 +270,6 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         return false;
                      }
                  }else{
-                    
                     self.model.addToCart();
                      return false;
                      

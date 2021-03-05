@@ -14,7 +14,8 @@ require([
             var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
             $(document).find('[data-mz-message-bar]').hide(); 
             var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-            var count = parseInt($quantity);   
+            var count = parseInt($quantity);  
+            window.showGlobalOverlay(); 
             Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
                var flag=false;
                 if(cartitem.items.length>0){
@@ -33,6 +34,7 @@ require([
                         $('.maximum-message').focus();
                         $($target).addClass('maximum-close');
                         loopInMax();
+                        window.hideGlobalOverlay();
                         return false;
                     }else{
                         $(document).find('[data-mz-productlist]').addClass('is-loading');
@@ -49,6 +51,9 @@ require([
                     return false;
                     
                 }
+            }).catch(function(err){
+                console.log("error occurred during add to cart ",err);
+                window.hideGlobalOverlay();
             });         
             
             setTimeout(function(){ 
@@ -128,12 +133,16 @@ require([
                                 addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                         },2000);
                     }else{
+                        window.hideGlobalOverlay();
                         showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                         $target.removeClass('is-loading');
                     }
                 }else{
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
+            }).catch(function(err){
+                console.log(" add to cart plp error ",err);
+                window.hideGlobalOverlay();
             });
         }
         function showErrorMessage(msg){
@@ -171,11 +180,13 @@ require([
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty); 
                 // MiniCart.MiniCart.showMiniCart($target);
                 PRODUCT = '';
-				brontoObj.build(Api);
+                brontoObj.build(Api);
+                window.hideGlobalOverlay();
             });
             Api.on('error', function (badPromise, xhr, requestConf) {
                 showErrorMessage(badPromise.message);
                 $target.removeClass('is-loading');
+                window.hideGlobalOverlay();
                 $(document).find('.Add-to-cart-popup').removeClass("active");
                 $(document).find('body').removeClass("noScroll");
             });

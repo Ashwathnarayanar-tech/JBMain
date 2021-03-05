@@ -146,6 +146,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         },
         next: function () {
             // wait for blur validation to complete
+            window.showGlobalOverlay();
             var me = this;
             me.editing.savedCard = false;
             _.defer(function () {

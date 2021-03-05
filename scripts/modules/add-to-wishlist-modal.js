@@ -26,6 +26,7 @@ require([
     //console.log(productCode);
     window.productCode = productCode;
     var me = $(this);
+    window.showGlobalOverlay();
     addToWishList.addWishlistOnAuth(productCode, me);
   });
 
@@ -40,6 +41,7 @@ require([
 
     },
     loginCheckout: function(e) {
+      window.showGlobalOverlay();
       e.preventDefault();
       var self = this;
       var valid = this.validData();
@@ -47,10 +49,12 @@ require([
         api.action('customer', 'loginStorefront', {
           email: $('.user-email').val(),
           password: $('.user-password').val()
-        }).then(self.loginProcess, self.LoginErrorMessage);
+        }).then(self.loginProcess, self.LoginErrorMessage)
+        .catch(function(err){console.log(" failed to login ",err);  window.hideGlobalOverlay();});
       }
     },
     LoginErrorMessage: function() {
+      window.hideGlobalOverlay();
       $('.loginError').text(Hypr.getLabel('loginFailedMessage', $("#email").val()));
       $('.loginError').prev('input').focus();
     },
@@ -116,7 +120,7 @@ require([
 
       var user = require.mozuData('user');
       if (!user.isAnonymous) {
-         $('.jb-inner-overlay').show();
+         //$('.jb-inner-overlay').show();
          if(me.closest(".mz-productlist-item").find("select").length) {
            var getGiftcardPrice = me.closest(".mz-productlist-item").find("select").val();
            if(getGiftcardPrice !== "Select Gift Card Amount" && getGiftcardPrice !== '') {
@@ -143,6 +147,7 @@ require([
               model.addToWishlist();
               model.on('addedtowishlist', function(cartitem) {
                $('.jb-inner-overlay').hide();
+               window.hideGlobalOverlay();
                 me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
                 me.removeClass('add-to-wishlist');
                 me.addClass('added-to-wishlist');
@@ -154,11 +159,13 @@ require([
               
               model.on("error", function(err) { 
                  $('.jb-inner-overlay').hide(); 
+                 window.hideGlobalOverlay();
                 //console.error(err);
               });
             });
            } else {
               $('.jb-inner-overlay').hide(); 
+              window.hideGlobalOverlay();
               $('[data-mz-message-bar]').empty();
               var emsg = '<div class="mz-messagebar" data-mz-message-bar="">'+
                           '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>Please choose the Gift Card amount before adding it to your wishlist. <br> Thanks for choosing to give a Jelly Belly Gift Card!</li>'+
@@ -181,6 +188,7 @@ require([
               model.addToWishlist();
               model.on('addedtowishlist', function(cartitem) {
                $('.jb-inner-overlay').hide();
+               window.hideGlobalOverlay();
                 me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
                 me.removeClass('add-to-wishlist');
                 me.addClass('added-to-wishlist');
@@ -192,12 +200,17 @@ require([
               
               model.on("error", function(err) { 
                  $('.jb-inner-overlay').hide(); 
+                 window.hideGlobalOverlay();
                 //console.error(err);
               });
+            }).catch(function(err){
+              console.log("Error on add to wish list ",err);
+              window.hideGlobalOverlay();
             });
          }
         
       } else {
+        window.hideGlobalOverlay();
         document.cookie = 'wl_prod=' + productCode + ';path=/;expires=3';
         $('.atw-modal').show();
         $('#email-dialog').focus();
@@ -228,6 +241,7 @@ require([
     loginProcess: function() {
       /* wishlistRender();
        $('.atw-modal').hide();*/
+       window.hideGlobalOverlay();
       window.location.href = window.location.pathname + "?wl=pop";
     }
   };

@@ -211,7 +211,7 @@
 
     {% block open-body-tag %}
     
-    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %} {% if pagecontext.cmsContext.page.path == "store-locator" %}storeLocatorpage{% endif %}">
+    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %} {% if pagecontext.cmsContext.page.path == "store-locator" %}storeLocatorpage{% endif %}" >
     {% endblock open-body-tag %}
 
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" %}
@@ -316,7 +316,9 @@
                       {% dropzone "rti-blank-page" scope="template" %}
                     {% endif %}
 				{% endblock body-content %}
-        <div class="globalOverlay"></div>
+        <div class="globalOverlay">
+          <img src="/../resources/images/jelly-red.jpeg" class="rotate" alt="spinner">
+         </div>
             </div>
             
       </div>
@@ -336,7 +338,39 @@
 	
 	 {% require_script "modules/common" %}
         <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.respond.js"></script>
-		
+	
+  {% if themeSettings.isGlobalOverlayEnabled === true %}
+  <script >
+  window.showGlobalOverlay = function showGlobalOverlay(){
+          document.body.classList.add("openoverlay");
+    };
+
+    window.hideGlobalOverlay = function hideGlobalOverlay(){
+            document.body.classList.remove("openoverlay");
+    };
+   // window.showGlobalOverlay();
+  var interval = setInterval(function() {
+    if(document.readyState === 'loading') {
+      console.log(" show overlay");
+       // window.showGlobalOverlay();
+    } 
+    if(document.readyState === 'complete') {
+      console.log(" hide overlay");
+      //window.hideGlobalOverlay();
+        clearInterval(interval);
+        //done();
+    }    
+}, 100);
+  </script>
+  {% else %}
+<script>
+window.showGlobalOverlay = function showGlobalOverlay(){
+}
+ window.hideGlobalOverlay = function hideGlobalOverlay(){
+ }
+</script>
+ {% endif %}
+
 	 {% block trailing-scripts %}		
         {% include "modules/trailing-scripts" %}	
         <div class="softCartId" style="display:none;"></div>
@@ -390,7 +424,6 @@
 		</div>
 
   {% dropzone zoneId="rti-observer-tag" scope="site" %}
-  
   <!-- This code loads the lazy-load modules and checks the Kibo device detection -->
   {% if pageContext.isDesktop %}
     <script>
