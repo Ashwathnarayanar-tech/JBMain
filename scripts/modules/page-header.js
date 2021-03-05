@@ -55,7 +55,7 @@ require([
             },500);
         },1000);
     }
-    generateheader();
+    //generateheader();
    
 });
 
