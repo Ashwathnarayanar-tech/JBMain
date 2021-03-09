@@ -639,12 +639,14 @@ require([
                             productCode:button.attr('data-mz-product-code'),
                             locationCode:location
                         };
+                        window.showGlobalOverlay();
                         api.create('instockrequest',obj ).then(function () {
                             modal.find('.notify-me-section').fadeOut(500,function(){
                                 modal.find('.success-msg').fadeIn(500,function(){focusNotify();});
                             });
-                                
+                                window.hideGlobalOverlay();
                             }, function (xhr) {
+                                window.hideGlobalOverlay();
                                 $('[data-mz-message-bar]').hide();
                                 if(xhr.errorCode == "VALIDATION_CONFLICT"){
                                     $('[data-mz-message-bar]').hide(); 

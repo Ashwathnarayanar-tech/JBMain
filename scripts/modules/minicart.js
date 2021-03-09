@@ -415,7 +415,7 @@ define([
             updateMiniCart: function(){
               if(require.mozuData("pagecontext").pageType != "checkout") {
                 this.model.apiGet();
-                //window.hideGlobalOverlay();
+                window.hideGlobalOverlay();
               }
             },
             showCartval: function() {
