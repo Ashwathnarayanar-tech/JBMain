@@ -1235,68 +1235,109 @@ a.skipto {
     height:1px;
     overflow:hidden;
   }
+/* AB testing starts Here */
 
-
+.card-slot-parent{
+  display: none;
+}
   .Ab-card-slot-parent{
-    width: 95%;
+  width: 95%;
   margin: 0 auto;
-  padding-bottom: 40px;
   margin-top: 30px;
   }
-
+.AB-cards-parent{
+  position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    float: left;
+    max-width: 100%;
+}
   .Ab-card-slot{
-  width: 23%;
-  float: left;
-  margin: 1% 0.75%;
+    float: left;
+    margin: 1% 0%;
+    padding: 0px 0.75%;
+    box-sizing: border-box;
+    position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    max-width: 25%;
+    flex: 0 0 25%;
   }
+.AB-slot-container{
+  border-radius: 9px;
+  margin-top: 90px;
+  padding-bottom: 70px;
+  width: 100%;
+}
 
   .Ab-image-container{
     text-align: center;
-    max-width: 90%;
-    margin: 20px auto 25px;
+    width: 100%;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   vertical-align: middle;
+   margin-top: -90px;
   }
   .Ab-card-image {
-    width: 96%;
+    max-width: 280px;
+    object-fit: contain;
+    height: auto;
+    width: 90%;
   }
   .Ab-card-contents{
-    font-size: 22px;
+    font-size: 24px;
   color: black;
   overflow: hidden;
   margin: 16px auto;
   width: 100%;
   padding: 0px;
   text-align: center;
-  background-color:#fbf0f0;
-  margin-top:-40%;
-  border-radius:9px
+  border-radius:9px;
+  font-weight: normal;
   }
 
   .Ab-card-title{
     margin: 0px;
-    padding: 40%  22% 6% 22%;
     font-size: 24px;
+    height: 60px;
+    overflow: hidden;
+    line-height: normal;
   }
- .Ab-card1Title{
-  padding: 40%  30% 6% 25%;
- }
- .Ab-card5Title{
- padding: 40%  30% 6% 25%;
- }
+ 
  .Ab-card-title-marginBottom{
-   margin-bottom:11%;
+   margin-bottom:0%;
  }
   .Ab-card-text{
     font-size: 16px;
     text-align: center;
     color: #111111;
-    padding: 0px 20% 7% 20%;
+    padding: 20px 30px 10px 30px;
     margin: 0;
-    height: 80px;
   }
 
   .Ab-brand-button-container{
-    width: 100%;
+    width: 90%;
     height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
   }
 
   .Ab-brand-button-container a{
@@ -1314,93 +1355,29 @@ a.skipto {
   -webkit-border-radius: 4px;
   }
 
-  @media only screen and (min-width: 1px) and (max-width: 767px)  and (orientation: portrait) {
+  
+  .AB-click{
+    text-decoration: none;
+    margin: auto;
+  }
+  @media only screen and (max-width: 767px) {
     .Ab-card-slot{
-      width: 96%;
-      float: left;
-      margin: 2%;
-      }
-      .Ab-card-title-marginBottom{
-        margin-bottom:0%;
-      }
-      .Ab-card-text{
-        height: 70px;
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 3%;
       }
   }
-  @media only screen and (min-width: 1px) and (max-width: 767px)  and (orientation: landscape) {
+  
+  @media only screen and (min-width: 1px) and (max-width: 500px) {
     .Ab-card-slot{
-      width: 96%;
-      float: left;
-      margin: 2%;
+      max-width: 100%;
+      flex: 0 0 100%;
+      margin-bottom: 3%;
       }
-      .Ab-card-title-marginBottom{
-        margin-bottom:0%;
-      }
-      .Ab-card-text{
-        height: 50px;
-      }
-
   }
-
-  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-    .Ab-card-text{
-      height: 115px;
-    }
-    .Ab-card-title{
-      padding: 40%  13% 6% 13%;
-    }
-    .Ab-card1Title{
-      padding: 40%  16% 6% 16%;
-     }
-     .Ab-card5Title{
-     padding: 40%  30% 6% 25%;
-     }
-    .Ab-card-title-marginBottom{
-      margin-bottom:15%;
-    }
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait){
-    .Ab-card-text{
-      height: 135px;
-      padding:0px 10% 7% 10%;
-    }
-    .Ab-card1Title{
-      padding: 40%  10% 6% 15%;
-     }
-     .Ab-card5Title{
-     padding: 40%  15% 6% 15%;
-     }
-     .Ab-card-title{
-      padding: 40%  1% 6% 1%;
-    }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .Ab-brand-button-container a{
-      width: 80%;
-    }
-    .Ab-card-title-marginBottom{
-      margin-bottom:20%;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait){
-    .Ab-card-text{
-      height: 135px;
-      padding:0px 10% 7% 10%;
-    }
-    .Ab-card1Title{
-      padding: 40%  20% 6% 20% !important;
-     }
-     .Ab-card5Title{
-     padding: 40%  15% 6% 15% !important;
-     }
-     .Ab-card-title{
-      padding: 40% 10% 6% 10%;
-    }
-    .Ab-brand-button-container a{
-      width: 80%;
-    }
-    .Ab-card-title-marginBottom{
-      margin-bottom:14%;
+      font-size: 15px;
     }
   }
 
@@ -1469,6 +1446,7 @@ a.skipto {
     }
   }
 
+/* AB testing ends here */
 
 .globalOverlay {
     display:none;
