@@ -21,8 +21,9 @@
 {% with model.properties|findwhere('attributeFQN','tenant~gift-picture') as data %}
   {% set_var licensedStatus=data %} 
 {% endwith %}
+
 {% with model.properties|findwhere('attributeFQN','tenant~product-state') as prodState %}
-<div class="mz-productlisting {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}{% if licensedStatus === 'LICENSED_REDUCED' %}withsale-new-label{% else %}withsale-new-label{% endif %}{% else %}{% if prodState %}{% for state in prodState.values %}{% if state.value == 'COMINGSOON' or state.value == 'NEW' %}withsale-new-label{% endif %}{% endfor %}{% endif %}{% endif %}" data-mz-product="{{ model.productCode }}">    
+<div class="mz-productlisting {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}{% if licensedStatus === 'LICENSED_REDUCED' %}withsale-new-label{% else %}withsale-new-label{% endif %}{% else %}{% if prodState %}{% for state in prodState.values %}{% if state.value == 'COMINGSOON' or state.value == 'NEW' %}withsale-new-label{% endif %}{% endfor %}{% endif %}{% endif %} {% if model.options and model.options.length > 0 %}{% for option in model.options %}{% if option.attributeDetail.inputType == 'List' %}giftcard{% endif %}{% endfor %}{% endif %}" data-mz-product="{{ model.productCode }}">    
   <!-- Sets the variable to determine whether or not a product is licensed -->
   {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
     {% if licensedStatus === "LICENSED_REDUCED" %}
@@ -245,16 +246,20 @@
             {% endif %}  
           {% endfor %}
         {% else %}
-        {% if model.price.price%}
-          
-          <span tabindex="0" role="contentinfo" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</span>
-        {%endif%}
           {% if model.price.salePrice and model.price.price > model.price.salePrice %}
             {% if licensedStatus === "LICENSED_REDUCED" %}
               <span tabindex="0" role="contentinfo" class="jb-quickcsale">{{model.price.salePrice|currency}}</span>
             {% else %}
               <span tabindex="0" class="jb-quickcsale"> {{model.price.salePrice|currency}}</span>
-              <span tabindex="0" class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+            {% endif %}
+          {% endif %}
+          {% if model.price.price%}
+            <span tabindex="0" role="contentinfo" class="jb-quickprice {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %} strikeprice {% endif %}">{{model.price.price|currency}}</span>
+          {%endif%}
+          {% if model.price.salePrice and model.price.price > model.price.salePrice %}
+            {% if licensedStatus === "LICENSED_REDUCED" %}
+            {% else %}
+              <span tabindex="0" class="sale-percentage">{% with model.price.price|floatformat(2) as actP %}{% with model.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}Save {{sale}}% {% endwith %}{% endwith %}{% endwith %}</span>
             {% endif %}
           {% endif %}
         {% endif %}
@@ -263,9 +268,9 @@
         
       <div class="jb-buy-product quickview-jb">
         <div class="qty">
-        <input type="text" class="quantity" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
-        <span tabindex="0" aria-label="Increase quantity of {{model.content.productName|safe}} by one" class="increment spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
-        <span tabindex="0" aria-label="Decrease quantity of {{model.content.productName|safe}} by one" class="dicrement spinner" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
+        <input type="text" class="quantity plpquantityinput" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1" min="1" name="quantity" value="1"/>
+        <span tabindex="0" aria-label="Increase quantity of {{model.content.productName|safe}} by one" class="increment spinner plpquantityincrement" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)+1 : 25"></span>
+        <span tabindex="0" aria-label="Decrease quantity of {{model.content.productName|safe}} by one" class="dicrement spinner plpquantitydicrement" onclick="parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity')[0].value)-1 : 1"></span>
         <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
       </div>
         {% if  model.purchasableState.isPurchasable %}

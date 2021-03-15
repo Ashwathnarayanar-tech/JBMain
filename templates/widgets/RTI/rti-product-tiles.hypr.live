@@ -39,14 +39,14 @@
     </div>
     <div class="related-prod-owl-carousel">
         {% for prod in model.items %} 
-            <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ prod.productCode }}">
+            <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %} {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %} withsale-new-label {% endif %}{% if model.options and model.options.length > 0 %}{% for option in model.options %}{% if option.attributeDetail.inputType == 'List' %}giftcard{% endif %}{% endfor %}{% endif %}" data-mz-product="{{ prod.productCode }}">
                 {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %}
-                    <span class="sale-tag-icon">Sale</span>
+                    <span class="sale-tag-icon product-sale-new-label">Sale</span>
                 {% endif %}
                 <div class="prod-content mz-productlisting-image-right">
                     {% block product-image %}
                         <div class="row product-listing-row-content">
-                            <div class="mz-subcategory-image-div">
+                            <div class="mz-subcategory-image-div mz-productlisting-image">
                                 <a aria-label="{{prod.content.productName}} product image" href="{{prod.url}}" data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}">
                                     {% if prod.mainImage.imageUrl %}
                                         <img src="{{ prod.mainImage.imageUrl }}?max=200" style="max-height: 200px" alt="{{prod.content.productName}} product image"/>
@@ -58,6 +58,7 @@
                                     </span>
                                 </a>
                             </div>
+                            <div class="jb-product-min-details">  
                             <div class="mz-productlisting-info">
                                 <div class="productTitle"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}"><h2 class="prod-title-heading">{{prod.content.productName|truncatewords(10)|safe}}</h2></a></div>
                                 <div class="priceSection"> 
@@ -79,13 +80,22 @@
                                                     <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none; width:13px;" >
                                                 {% endif %}  
                                             {% endfor %}
-                                        {% else %} 
-                                            {%if prod.price.price%}<span tabindex="0" role="contentinfo" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
-                                            strikeprice {% endif %}">{{prod.price.price|currency}}</span>{%endif%}
+                                        {% else %}
                                             {% if prod.price.price !=  prod.price.salePrice %} 
-                                            {%if prod.price.salePrice%}<span tabindex="0" class="jb-quickcsale"> {{prod.price.salePrice|currency}}</span>
-                                                <span tabindex="0" class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
-                                            {%endif%}   
+                                                {%if prod.price.salePrice%}
+                                                    <span tabindex="0" class="jb-quickcsale"> {{prod.price.salePrice|currency}}</span>
+                                                {%endif%}   
+                                            {% endif %} 
+                                            {%if prod.price.price%}
+                                                <span tabindex="0" role="contentinfo" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
+                                            strikeprice {% endif %}">
+                                                {{prod.price.price|currency}}
+                                                </span>
+                                            {%endif%}
+                                            {% if prod.price.price !=  prod.price.salePrice %} 
+                                                {%if prod.price.salePrice%}
+                                                    <span tabindex="0" class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}Save {{sale}}% {% endwith %}{% endwith %}{% endwith %}</span>
+                                                {%endif%}   
                                             {% endif %} 
                                         {% endif %}    
                                     </div> 
@@ -101,31 +111,34 @@
                                             {% endfor %}
                                         {% endif %}
                                     {% endfor %} 
-                                </div>   
-                                <div class="mz-productdetail-conversion-controls">
-                                        <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                                            <input type="text" class="quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1"/> 
-                                            <span class="increment spinner" aria-label="Increases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
-                                            <span class="dicrement spinner" aria-label="Decreases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
-                                        </div>  
-                                  <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
                                 </div>
-                                <div class="jb-buy-product quickview-jb">
-                                    {% if  prod.purchasableState.isPurchasable %}
-                                        <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
-                                    {% else %}   
-                                        {% if prod.options and prod.options.length > 0 %}
-                                            <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
-                                                {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
-                                                data-jb-pid="{{ prod.productCode }}" 
-                                                class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >
-                                                Shop Gift Card
-                                            </button>
-                                        {% else %}
-                                            <button class="jb-out-of-stock-cur notify-me-plp-rti" data-mz-product-code="{{ prod.productCode }}" data-mz-location-code="{{ prod.inventoryInfo.onlineLocationCode }}" style="cursor: pointer;"> Notify Me </button>
-                                        {% endif %} 
-                                    {% endif %}
+                                <div class="cardMobCTAcontainer">   
+                                    <div class="jb-buy-product quickview-jb">
+                                        <div class="mz-productdetail-conversion-controls">
+                                            <div class="qty-input-box qty" tabindex="0" aria-label="Quantity - 1">
+                                                <input type="text" class="quantity plpquantityinput quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1"/> 
+                                                <span class="increment spinner plpquantityincrement" aria-label="Increases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
+                                                <span class="dicrement spinner plpquantitydicrement" aria-label="Decreases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
+                                            </div>  
+                                            <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+                                        </div>
+                                        {% if  prod.purchasableState.isPurchasable %}
+                                            <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
+                                        {% else %}   
+                                            {% if prod.options and prod.options.length > 0 %}
+                                                <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
+                                                    {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
+                                                    data-jb-pid="{{ prod.productCode }}" 
+                                                    class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >
+                                                    Shop Gift Card
+                                                </button>
+                                            {% else %}
+                                                <button class="jb-out-of-stock-cur notify-me-plp-rti" data-mz-product-code="{{ prod.productCode }}" data-mz-location-code="{{ prod.inventoryInfo.onlineLocationCode }}" style="cursor: pointer;"> Notify Me </button>
+                                            {% endif %} 
+                                        {% endif %}
+                                    </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     {% endblock product-image %} 
