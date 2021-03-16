@@ -1294,10 +1294,10 @@ a.skipto {
    margin-top: -90px;
   }
   .Ab-card-image {
-    max-width: 280px;
+    max-width: 320px;
     object-fit: contain;
     height: auto;
-    width: 90%;
+    width: 94%;
   }
   .Ab-card-contents{
     font-size: 24px;
@@ -1326,18 +1326,18 @@ a.skipto {
     font-size: 16px;
     text-align: center;
     color: #111111;
-    padding: 20px 30px 10px 30px;
+    padding: 8% 12% 0% 12%;
     margin: 0;
   }
 
   .Ab-brand-button-container{
-    width: 90%;
-    height: 60px;
+    width: 84%;
     position: absolute;
     bottom: 0;
     left: 0;
     margin: auto;
     right: 0;
+    padding: 5%;
   }
 
   .Ab-brand-button-container a{
@@ -1345,9 +1345,8 @@ a.skipto {
   text-decoration: none;
   background: #004e99;
   color: white;
-  padding: 2% 0;
+  padding: 3% 0;
   border: 1px solid #004e99;
-  width: 90%;
   display: block;
   margin: 0 auto;
   border-radius: 4px;
@@ -1366,21 +1365,80 @@ a.skipto {
       flex: 0 0 50%;
       margin-bottom: 3%;
       }
+      .Ab-card-image {
+        max-width: 350px;
+      }
+      .Ab-image-container{
+       height: 180px;
+      }
+      .Ab-brand-button-container{
+        width: 86%;
+      }
   }
   
   @media only screen and (min-width: 1px) and (max-width: 500px) {
     .Ab-card-slot{
       max-width: 100%;
       flex: 0 0 100%;
-      margin-bottom: 3%;
+      margin: 0% 3% 3% 3%;
       }
   }
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .Ab-brand-button-container a{
       font-size: 15px;
     }
+    .Ab-card-slot{
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 3%;
+      }
+      .Ab-card-image{
+        max-width:94%;
+      }
+      .Ab-image-container{
+        height: 300px;
+      }
+      .Ab-brand-button-container{
+        width: 88%;
+      }
+  }
+  @media only screen and (min-width: 1400px) and (max-width: 1999px){
+    .Ab-image-container{
+      height: 250px;
+    }
+    .Ab-card-image{
+      max-width: 94%;
+    }
+    .AB-slot-container{
+      margin-top: 120px;
+    }
+    .Ab-image-container{
+      margin-top: -120px;
+    }
+    
   }
 
+  @media only screen and (min-width: 2000px) {
+    .Ab-image-container{
+      height: 350px;
+    }
+    .AB-click{
+      width: 98%;
+      margin: 2%;
+    }
+    .Ab-card-image{
+      max-width: 98%;
+    }
+   .Ab-card-contents{
+     padding-bottom: 5%;
+   }
+   .AB-slot-container{
+    margin-top: 120px;
+    }
+    .Ab-image-container{
+    margin-top: -120px;
+    }
+  }
   
   .isDesktop{
     display: block;
@@ -1470,9 +1528,9 @@ a.skipto {
         opacity: 0.6;
         align-items: center;
         .rotate {
-          margin-left:45%;
-          width : 5%;
-          height: 16%;
+          margin-left:25%;
+          width : 50%;
+         // height: 16%;
           animation: rotation 2s infinite linear;
         }
         
@@ -1492,8 +1550,8 @@ a.skipto {
   .openoverlay {
     .globalOverlay {
         .rotate {
-          width : 15%;
-          height: 15%;
+         // width : 15%;
+         // height: 15%;
         }
     }
   }
@@ -1503,8 +1561,8 @@ a.skipto {
   .openoverlay {
     .globalOverlay {
         .rotate {
-          width : 12%;
-          height: 15%;
+         // width : 12%;
+         // height: 15%;
         }
     }
   }
