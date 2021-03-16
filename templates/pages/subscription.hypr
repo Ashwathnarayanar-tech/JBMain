@@ -4,7 +4,8 @@
 {% block body-content %}
 
 {% require_script "modules/subscription" %} 
- 
+
+
 <div class="subscription-body" id="subscription-body">	  
 </div>
 {% endblock body-content %}  

@@ -30,17 +30,17 @@ define([
             "change .how-long-val" :"setHowLongVal",
             "change .how-often-val" :"setHowOffenVal",
             "change .quantity-sub" :"changeQuantity",
-            "keydown .list-item.third span" : "hello",
-            "keydown .popup-content h2" : "helloworld"
+            "keydown .list-item.third span" : "ADAforLast",
+            "keydown .popup-content h2" : "ADAforFirst"
         },
-        hello : function(e) {
+        ADAforLast : function(e) {
             if ((e.which === 9 && !e.shiftKey)) {
                 e.preventDefault();
                 $(document).find('.popup-content h2').focus();
            }
 
         },
-        helloworld : function(e) {
+        ADAforFirst : function(e) {
             if ((e.which === 9 && e.shiftKey)) {
                 e.preventDefault();
                 $(document).find('.popup-content .list-item.third').focus();
@@ -609,6 +609,7 @@ define([
         },
         selectthecatrgory : function(e){
             var catCode = $(e.target).attr('data-mz-catCode');
+
             var addedproductIds = [];
             var itemsinsublist = this.model.get('SubScriptionItemsList');
             itemsinsublist.filter(function(v,i){
@@ -752,6 +753,7 @@ define([
                     return true;
                 });  
                 this.model.set('categoryList', catList); 
+                this.model.set("activeCategoryList",categoryCode);
                 this.render(); 
             }
         },
@@ -1250,6 +1252,7 @@ define([
            // console.log(" window.lastInput --- ",window.lastInput);
         },
         render : function(){
+            var me = this;
             Backbone.MozuView.prototype.render.apply(this);
             var currentUser = require.mozuData("user");
             if(currentUser.isAnonymous){
@@ -1260,9 +1263,14 @@ define([
             if(this.model.get('isFirstPopup')){
                 $(document).find('.popup-content').focus();
             }
+            api.request("GET","/api/commerce/catalog/storefront/categories/tree").then(function (resp) {
+                me.model.set('subscriptionCategories', resp);
+            },function(error){
+                console.log(error);
+            });
+
         } 
     });
-
     $(document).ready(function() {
         var QOModel = Backbone.MozuModel.extend({}); 
         var showpopup = $.cookie("ClosefirstPopup");
@@ -1338,7 +1346,8 @@ define([
             'subscriptionData' : dataVal,
             'popupData' : popupData,
             'remaingAmount' : 0,
-            'shippingThrashold' : shippingThrashold
+            'shippingThrashold' : shippingThrashold,
+            'activeCategoryList' : 0
         };
          modelRapidOrder = window.modelRapidOrder = new reapidOrder({
             el: $('#subscription-body'),
