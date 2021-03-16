@@ -201,6 +201,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }
         },  
         displayApiMessage: function (xhr) {
+            window.hideGlobalOverlay();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var patt = new RegExp(re);
             if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND" ){
@@ -320,6 +321,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         login: function () {
             this.setLoading(true);
             this.validData();
+            window.showGlobalOverlay(); 
             api.action('customer', 'loginStorefront', {
                 email: this.$parent.find('[data-mz-login-email]').val(),
                 password: this.$parent.find('[data-mz-login-password]').val()
@@ -442,6 +444,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 window.location = '/';
             }
+            window.hideGlobalOverlay();
         },
         displayResetPasswordMessage: function () {
             this.displayMessage(Hypr.getThemeSetting('resetEmailSent'));

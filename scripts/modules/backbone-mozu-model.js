@@ -395,9 +395,19 @@
              * @param {boolean} flag Set this to true to trigger a `loadingchange` event.
              */
             isLoading: function (yes, opts) {
+                console.log(" aruments ",yes,opts);
                 if (arguments.length === 0) return !!this._isLoading;
                 this._isLoading = yes;
                 if (!opts || !opts.silent) this.trigger('loadingchange', yes);
+
+                if(window.location.href.indexOf("checkout") != -1 && window.location.href.indexOf("confirmation") === -1){
+                    if(yes){
+                        window.showGlobalOverlay();
+                    }
+                    else if(yes === false){
+                        window.hideGlobalOverlay();
+                    }
+                }    
             },
             getHelpers: function () {
                 return this.helpers;
