@@ -235,20 +235,27 @@ require(['modules/jquery-mozu', 'underscore', 'hyprlive', 'modules/api'],
 			if(passregex.test(password)){
 				if(password == cpassword){
 					var email = $.cookie('guest');
+					window.showGlobalOverlay();
 					api.request('post','/svc/customersignup', 
 						{"EmailAddress" : email,
 						"Password" : password }).then(function(res){
 						console.log(res); 
 						if(res.Error){
+							window.hideGlobalOverlay();
 							$(document).find('.passwordError').html(res.Message);	
 						}else{
                             api.action('customer', 'loginStorefront', {
                                 email: email,
                                 password: password
                             }).then(function(res){
-                                window.location = window.location.href;
-                            });
+								window.location = window.location.href;
+								window.hideGlobalOverlay();
+                            }).catch(function(){
+								window.hideGlobalOverlay();
+							});
 						}
+					}).catch(function(){
+						window.hideGlobalOverlay();
 					});
 				}else{
 					$(document).find('.cpasswordError').html("Password must match with confirmation password.");	

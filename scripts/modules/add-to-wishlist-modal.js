@@ -41,11 +41,11 @@ require([
 
     },
     loginCheckout: function(e) {
-      window.showGlobalOverlay();
       e.preventDefault();
       var self = this;
       var valid = this.validData();
       if (valid) {
+        window.showGlobalOverlay();
         api.action('customer', 'loginStorefront', {
           email: $('.user-email').val(),
           password: $('.user-password').val()

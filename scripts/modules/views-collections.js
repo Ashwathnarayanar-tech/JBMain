@@ -1523,8 +1523,8 @@ define([
 
             $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
             if (url) _dispatcher.replace(url);
-               
-            _$body.removeClass('mz-loading'); 
+            window.hideGlobalOverlay(); 
+            //_$body.removeClass('mz-loading'); 
             
         }
         function initRecProd(){
@@ -1642,7 +1642,8 @@ define([
 
         navigationIntents.on('data', function(url, e) {
             if (url && _dispatcher.send(url)) {
-                _$body.addClass('mz-loading');
+                window.showGlobalOverlay();
+               // _$body.addClass('mz-loading');
                 e.preventDefault();
             }
         });
@@ -1686,7 +1687,8 @@ define([
             //  setFacetValueMobile(e);
             if(url){
                 if (url && _dispatcher.send(url)) { 
-                    _$body.addClass('mz-loading'); 
+                    window.showGlobalOverlay();
+                    //_$body.addClass('mz-loading'); 
                     e.preventDefault(); 
                 }    
             }          
@@ -1727,7 +1729,8 @@ define([
             //  setFacetValueMobile(e);
             if(url){
                 if (url && _dispatcher.send(url)) { 
-                    _$body.addClass('mz-loading'); 
+                    window.showGlobalOverlay();
+                    //_$body.addClass('mz-loading'); 
                     e.preventDefault(); 
                 }    
             }     
@@ -1738,7 +1741,8 @@ define([
                 var url=intentToUrl(e);
                 if(url){
                     if (url && _dispatcher.send(url)) {
-                        _$body.addClass('mz-loading'); 
+                        window.showGlobalOverlay();
+                        //_$body.addClass('mz-loading'); 
                         e.preventDefault(); 
                     }    
                 }      
@@ -1777,7 +1781,8 @@ define([
                 //  setFacetValueMobile(e);
                 if(url){
                     if (url && _dispatcher.send(url)) { 
-                        _$body.addClass('mz-loading'); 
+                        window.showGlobalOverlay();
+                        //_$body.addClass('mz-loading'); 
                         e.preventDefault(); 
                     }    
                 } 
@@ -1803,7 +1808,8 @@ define([
                 var url=intentToUrl(e);
                 if(url){
                     if (url && _dispatcher.send(url)) { 
-                        _$body.addClass('mz-loading'); 
+                        window.showGlobalOverlay();
+                        //_$body.addClass('mz-loading'); 
                         e.preventDefault(); 
                     }    
                 }
@@ -1816,7 +1822,8 @@ define([
             //  setFacetValueMobile(e);
             if(url){
                 if (url && _dispatcher.send(url)) { 
-                    _$body.addClass('mz-loading'); 
+                    window.showGlobalOverlay();
+                    //_$body.addClass('mz-loading'); 
                     e.preventDefault(); 
                 }    
             }

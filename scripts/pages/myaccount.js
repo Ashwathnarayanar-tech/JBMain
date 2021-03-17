@@ -139,15 +139,19 @@
                 $('[data-mz-action="startEditPassword"]').focus();
             }
             window.showGlobalOverlay();
-            this.doModelAction('changePassword').then(function() {
-                _.delay(function() {
+            try{
+                this.doModelAction('changePassword').then(function() {
+                    _.delay(function() {
+                        window.hideGlobalOverlay();
+                        self.$('[data-mz-validationmessage-for="passwordChanged"]').show().text(Hypr.getLabel('passwordChanged')).fadeOut(3000);
+                    }, 250);
+                }).catch(function() {
                     window.hideGlobalOverlay();
-                    self.$('[data-mz-validationmessage-for="passwordChanged"]').show().text(Hypr.getLabel('passwordChanged')).fadeOut(3000);
-                }, 250);
-            }, function() {
+                    self.editing.password = true;
+                });
+            }catch(err){
                 window.hideGlobalOverlay();
-                self.editing.password = true;
-            });
+            }   
             this.editing.password = false;
         },
         cancelEditPassword: function() {

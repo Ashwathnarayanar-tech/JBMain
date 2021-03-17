@@ -420,6 +420,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.clearError();
             var email = this.$('[data-mz-role="email"]').val();
             if(this.validateEmail(email)) {
+                window.showGlobalOverlay();
                 Api.create('instockrequest', {
                     email: email,
                     customerId: user.accountId,
@@ -428,8 +429,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 }).then(function () {
                     window.sucess = true;
                     saveNotification(self.model.get('productCode') || self.model.get('variationProductCode'));
+                    window.hideGlobalOverlay();
                     self.render();
                 }, function (xhr) {
+                    window.hideGlobalOverlay();
                     if(xhr.errorCode == "VALIDATION_CONFLICT"){
                         self.setError(Hypr.getLabel('notifyWidgetError'));
                     }else if(xhr.errorCode != "ITEM_ALREADY_EXISTS"){   
