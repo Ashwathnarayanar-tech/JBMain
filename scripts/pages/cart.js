@@ -1039,6 +1039,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
             var count = parseInt($quantity,10);
+            window.showGlobalOverlay();
             Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
                 var flag=false;
                  if(cartitem.items.length>0){
@@ -1055,6 +1056,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                         // alert('Maximum quantity that can be purchased is 25');
                         $('.maximumProduct').show().focus();
                         $('.maximum-inner-content').focus();
+                        window.hideGlobalOverlay();
                         loopInMax();
                          return false;
                      }else{
@@ -1074,6 +1076,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                      return false;
                      
                  }
+             }).catch(function(err){
+                 console.log("exception err while getting items ",err);
+                 window.hideGlobalOverlay();
              });   
             
           });
@@ -1094,11 +1099,14 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                         },2000);
                     }else{
+                        window.hideGlobalOverlay();
                         $('#mybuyspagezone3').removeClass('is-loading');
                     }
                 }else{
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
+            }).catch(function(err){
+                window.hideGlobalOverlay();
             });
           }
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
@@ -1117,6 +1125,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 var salePrice = myMata.get('price').get('salePrice');
                 var img = attr.data.product.imageUrl+"?max=150";
                 var Qty = myMata.get('quantity');
+                window.hideGlobalOverlay();
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty);
 				setTimeout(function() {
                     cartView.model.apiGet();
@@ -1133,6 +1142,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 $(document).find('.RTI-overlay').removeClass('active');
                 $(document).find('.Add-to-cart-popup').removeClass("active");
                 $(document).find('body').removeClass("noScroll");
+                window.hideGlobalOverlay();
                 if(badPromise.message && badPromise.message.indexOf('The following items have limited quantity or are out of stock') > -1){
                     $('[data-mz-message-bar]').empty();
                     var emsg = '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>'+badPromise.message+'</li></ul>';

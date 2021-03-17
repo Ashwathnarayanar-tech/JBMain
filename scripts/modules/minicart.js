@@ -414,8 +414,11 @@ define([
             },
             updateMiniCart: function(){
               if(require.mozuData("pagecontext").pageType != "checkout") {
-                this.model.apiGet();
-                window.hideGlobalOverlay();
+                this.model.apiGet().then(function(){
+                    window.hideGlobalOverlay();
+                }).catch(function(err){
+                    console.log(" update minicart api get error ",err);
+                });
               }
             },
             showCartval: function() {

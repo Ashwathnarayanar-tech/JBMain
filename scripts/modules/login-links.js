@@ -320,7 +320,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         },
         login: function () {
             this.setLoading(true);
-            this.validData();
+            this.validData(); 
             window.showGlobalOverlay(); 
             api.action('customer', 'loginStorefront', {
                 email: this.$parent.find('[data-mz-login-email]').val(),
@@ -501,9 +501,13 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if (this.validData() && this.validate(payload)) {
                 //var user = api.createSync('user', payload);
                 this.setLoading(true);
+                window.showGlobalOverlay();
                 return api.action('customer', 'createStorefront', payload).then(function () {
                     window.location = '/myaccount';
-                }, self.displayApiMessage);
+                }, self.displayApiMessage)
+                .catch(function(err){
+                    window.hideGlobalOverlay();
+                });
             }
         },
         validData: function(){

@@ -115,6 +115,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     password: this.$el.find('.mz-signup-password')[0].value
                 };
                 if (this.validate(data)) {
+                    window.showGlobalOverlay();
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {
                         window.location.href = window.location.pathname+"?cl=returningUser";
@@ -194,6 +195,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                 }else{
                     err = "Error: "+Hypr.getLabel('unexpectedError'); 
                 }
+                window.hideGlobalOverlay();
                 this.displayMessage(err);
                 this.$el.find("[data-mz-signup-emailaddress]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
             },
