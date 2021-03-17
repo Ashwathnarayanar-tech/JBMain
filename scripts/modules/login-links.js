@@ -373,6 +373,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                 updatedbillingPhoneNumber = billingPhoneNumber.replace(/[^0-9]/g, "");
             }
             var orderNumber = this.$parent.find('[data-mz-order-number]').val(),self = this;
+            window.showGlobalOverlay();
             api.action('customer', 'orderStatusLogin', {
                 ordernumber: orderNumber,
                 email: email,
@@ -390,9 +391,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                    }).then(function () { 
                         window.location.href = "/my-anonymous-account";
                    },function(err){
+                       window.hideGlobalOverlay();
                     _.bind(self.retrieveErrorLabel,self)(err);
                    });
                 }else{
+                    window.hideGlobalOverlay();
                     _.bind(self.retrieveErrorLabel,self)(err);
                 }
             });
