@@ -1,4 +1,4 @@
-﻿<div class="mz-pricestack{% if model.priceRange %} mz-pricestack-range{% endif %}">
+﻿<div class="mz-pricestack mz-pricestack-range">
     {% if model.hasPriceRange %}
     <span class="mz-pricestack-price-lower">
         {% include "modules/common/price" with model=model.priceRange.lower %}
