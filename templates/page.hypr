@@ -317,10 +317,10 @@
                     {% endif %}
 				{% endblock body-content %}
         <div class="globalOverlay">
-          <img src="/../resources/images/jelly-red.jpeg" class="rotate" alt="spinner">
+          <img src="/../resources/images/JB-Loader2-01.png" class="rotate" alt="spinner">
          </div>
             </div>
-            
+             
       </div>
         </div>
         

@@ -308,8 +308,9 @@
                         productCode: e.target.getAttribute('data-mz-product-code'), 
                             locationCode: e.target.getAttribute('data-mz-location-code')
                         };                       
-
+                        window.showGlobalOverlay();
                         Api.create('instockrequest',obj ).then(function (xhr) {
+                            window.hideGlobalOverlay();
                             $('#notify-me-button').next('.errormsgpopup').remove();
                             $("#notify-me-dialog").fadeOut(500, function () { 
                                 $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>"); 
@@ -318,6 +319,7 @@
                             });
                             setTimeout(function(){self.notifymedilog(); $("#notify-me-dialog").find('.success-msg').focus(); }, 1200);
                         }, function (xhr) {
+                            window.hideGlobalOverlay();
                             $('[data-mz-message-bar]').hide();
                             if(xhr.errorCode == "VALIDATION_CONFLICT"){
                                 $('[data-mz-message-bar]').hide(); 

@@ -448,6 +448,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             //"shippingServiceTypes": ["ups_UPS_GROUND","ups_UPS_SUREPOST_LESS_THAN_1LB","ups_UPS_SUREPOST_1LB_OR_GREATER","ups_UPS_THREE_DAY_SELECT","ups_UPS_SECOND_DAY_AIR","ups_UPS_NEXT_DAY_AIR_SAVER"] //shippingMethods
                         };
                         var amount = false;
+                        window.showGlobalOverlay();
                         Api.request('POST', {
                             url: '/api/commerce/catalog/storefront/shipping/request-rates',
                             iframeTransportUrl: 'https://' + document.location.host + '/receiver?receiverVersion=2'
@@ -466,6 +467,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             if (!amount) {
                                 $('#ziperror').show();
                             }
+                            window.hideGlobalOverlay();
                             $.each(resp.rates, function(index, val) {
                                 var shippingAmount = [];
                                 for (var i = 0; i < val.shippingRates.length; i++) {
@@ -543,6 +545,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                    }).catch(function(error) {
                     console.log("error ---",error);
                     $('#shippingzipcode').val("");
+                    window.hideGlobalOverlay();
                     $("#estimateShippingCost-success").show();
                     $("#estimateShippingCost-success").html(error && error.message);
                     $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");

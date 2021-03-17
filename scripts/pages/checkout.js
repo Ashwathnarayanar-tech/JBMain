@@ -146,7 +146,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         },
         next: function () {
             // wait for blur validation to complete
-            window.showGlobalOverlay();
+            //window.showGlobalOverlay();
             var me = this;
             me.editing.savedCard = false;
             _.defer(function () {
@@ -3029,6 +3029,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 var valid = this.validData();
                 var currentUser = require.mozuData("user");
                 if(valid && currentUser.isAnonymous){
+                    window.showGlobalOverlay();
                     api.action('customer', 'loginStorefront', {
                         email: $('.user-email:visible').val(),
                         password: $('.user-password:visible').val()
@@ -3077,6 +3078,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                setTimeout(function(){ window.scrollTo(0, -5000);},300); 
             },
             LoginErrorMessage: function(){
+                window.hideGlobalOverlay();
                 $('.loginError').text(Hypr.getLabel('loginFailedMessage',$("#email").val()));
                 $('.loginError').prev('input').focus(); 
                 if($(window).width()>1100){ 
@@ -3085,6 +3087,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }
             },
             loginProcess: function(e){
+                window.hideGlobalOverlay();
               if(!window.guestLoginWithExistingAccount) {
                 window.location.href = window.location.pathname+"?cl=ml";
               }

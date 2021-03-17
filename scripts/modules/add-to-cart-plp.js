@@ -70,6 +70,30 @@ require([
         
         
         //Gift card option change functionality - set variation product code whle changing the option for product, and set it as main product.
+        $('[data-mz-productlist,#mz-drop-zone-rti-category]').on('change','.plpquantityinput',function(e){
+            if(parseInt($(this).val()) > 1) {
+                $(this).parent(".qty").addClass("qtydecrementenable");
+            }  else {
+                $(this).parent(".qty").removeClass("qtydecrementenable");
+            }          
+        });
+        $('[data-mz-productlist],#mz-drop-zone-rti-category').on('click','.plpquantitydicrement',function(e){
+            var findQtyValue = $(this).parent(".qty").find("input");
+           if(parseInt($(findQtyValue).val()) > 1) {
+                $(this).parent(".qty").addClass("qtydecrementenable");
+            }  else {
+                $(this).parent(".qty").removeClass("qtydecrementenable");
+            }          
+        });
+        
+        $('[data-mz-productlist],#mz-drop-zone-rti-category').on('click','.plpquantityincrement',function(e){
+            var findQtyValue = $(this).parent(".qty").find("input");
+            if(parseInt($(findQtyValue).val()) > 1) {
+                $(this).parent(".qty").addClass("qtydecrementenable");
+            }  else {
+                $(this).parent(".qty").removeClass("qtydecrementenable");
+            }          
+        });
         $('[data-mz-productlist]').on('change','[plp-giftcart-prize-change-action]',function(e){
             var $optionEl = $(e.currentTarget);
             var newValue = $optionEl.val();

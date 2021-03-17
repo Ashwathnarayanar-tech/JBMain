@@ -412,15 +412,18 @@
                 display: block;
                 border: 1px solid #e4e4e4;
                 border-radius: 8px;
-                padding: 10px;
+                padding: 10px 10px 5px;
                 box-sizing: border-box;
+                float: left;
                 .mz-productlisting{ 
                     display: inline-block;
-                    padding-top: 45px;
+                    padding-top: 35px;
                     box-sizing: border-box;
                     width: 100%;
+                    float: left;
                     &.withsale-new-label {
-                        padding-top: 45px;
+                        float: left;
+                        padding-top: 35px;
                         .mz-productlisting-image{ 
                             top:45px;
                         }
@@ -429,11 +432,14 @@
                         width: 110px;
                         padding: 0px 15px;
                         left: 0px;
-                        margin-top: 10px;
+                        margin-top: 5px;
+                        font-size: 14px;
                         &:before{
                            right: -14px;
                            transform: ~"rotate(180deg)";
                            left: auto;
+                           border-top-width: 13px;
+                           border-bottom-width: 13px;
                         }
                         &:after{
                             left: -4px;
@@ -452,8 +458,39 @@
                         a img {
                             width: 100px;
                             height: 100px;
+                            padding: 0px 5px;
+                            box-sizing: border-box;
                         }
 
+                    }
+                    &.giftcard  {
+                        .mz-productlisting-image{
+                            a img {
+                                width: 90px;
+                                height: 50px;
+                                padding: 0px 5px;
+                                box-sizing: border-box;
+                            }
+                        }
+                       .jb-product-min-details {
+                            .mz-productlisting-info{
+                                height: 34px;
+
+                            }
+                            .jb-quickviewdetails{ 
+                                .jb-sli_reviews{ 
+                                    margin-bottom: 10px;
+                                }
+                                .jb-product-prize {
+                                    width: 100%;
+                                    height: auto;
+                                    select {
+                                        width: 100%;
+                                        margin-bottom: 0px;
+                                    }
+                                }
+                            }
+                       } 
                     }
                     .jb-product-min-details{ 
                         text-align: left;
@@ -461,17 +498,18 @@
                         float: left;
                         width: 100%;
                         .mz-productlisting-info{ 
-                            height: 54px;
+                            height: 50px;
                             text-align: left;
                             overflow: hidden;
                             float: right;
                             width: ~"calc(100% - 100px)";
                             clear: both;
-                            line-height: 1.13;
+                            line-height: 16px;
                             margin-top: 0px;
                             .mz-productlisting-title{
-                                font-size: 16px;
+                                font-size: 14px;
                                 .prod-title-heading {
+                                    font-size: 14px;
                                     margin: 0px;
                                 }
                             }
@@ -484,23 +522,35 @@
                                 width: ~"calc(100% - 100px)";
                                 clear: both;
                                 .jb-stars-rating{
+                                    width: 65px;
+                                    img[src*='star-'] {
+                                        width: 11px;
+                                        height: 11px;
+                                    }
+                                }
+                                span p {
+                                    font-size: 12px;
                                 }
                             }
                             .jb-product-prize {
                                 float: right;
                                 width: ~"calc(100% - 100px)";
                                 clear: both;
+                                height: 30px;
                                 .jb-quickprice.strikeprice {
                                     font-size: 16px;
                                     font-weight: normal;
                                     margin-right: 5px;
+                                    display: inline;
                                 }
                                 .jb-quickcsale,.jb-quickprice  {
-                                    font-size: 20px;
+                                    display: inline;
+                                    font-size: 18px;
                                     margin: 0px;
                                 }
                                 .sale-percentage {
-                                    font-size: 20px;
+                                    display: inline;
+                                    font-size: 14px;
                                 }
                             }
                             .qty{ 
@@ -508,6 +558,9 @@
                                     border-radius: 0px;
                                     text-align: center;
                                     padding-right: 10px;
+                                    font-size: 18px;
+                                    color: #111111;
+                                    font-weight: bold;
                                 }
                                 .spinner{ 
                                     &.increment{
@@ -518,6 +571,7 @@
                                         border-bottom-right-radius: 4px;                                        
                                         height: 36px;
                                         top: 0;
+                                        background-image : url("../../resources/images/quantityplus.png") !important;
                                     } 
                                     &.dicrement{
                                         right: 75.5%;
@@ -529,6 +583,12 @@
                                         border-bottom-right-radius: 0;
                                         height: 36px;
                                         top: 0;
+                                        background-image : url("../../resources/images/quantityminusdisabled.png") !important;
+                                    }
+                                }
+                                &.qtydecrementenable {
+                                    .spinner.dicrement {
+                                        background-image : url("../../resources/images/quantityminus.png") !important;
                                     }
                                 }
                             }
@@ -542,7 +602,7 @@
                                 display: inline-block;
                                 clear: both;
                                 width: 100%;
-                                padding: 10px 0px 0px;
+                                padding: 6px 0px 0px;
                                 box-sizing: border-box;
                                 
                                 .qty {
@@ -590,9 +650,11 @@
                                     width: ~"calc(100% - 140px)";
                                     display: inline-block;
                                     margin-top: 5px;
+                                    font-weight:bold;
                                 }
 
                                 .jb-buy-product .jb-out-of-stock {
+                                    font-weight:bold;
                                     float: right;
                                     width: ~"calc(100% - 140px)";
                                     display: inline-block;
@@ -690,7 +752,7 @@
                     .jb-sli_reviews{
                         width: ~"calc(100% - 100px)";
                         .jb-stars-rating {
-                            width: 80px;       
+                            width: 65px;       
                         }
                     }
                     .jb-product-prize {
