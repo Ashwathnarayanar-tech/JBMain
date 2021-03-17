@@ -180,6 +180,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         },
         render: function () {
             var self = this; 
+            var cancelledOrder=window.checkoutViews.parentView.model.toJSON();
+            if(cancelledOrder){
+                if(cancelledOrder.status=="Cancelled"){
+                    $(document).find('.submitButton.proceed-to-checkout-btn').trigger('click');
+                }
+            }
             var shippingMethodStatus = window.checkoutViews.steps.shippingInfo.model._stepStatus;
             var shippingAddressStatus = window.checkoutViews.steps.shippingAddress.model._stepStatus;
             

@@ -1453,7 +1453,25 @@
             },
             onCheckoutSuccess: function() {
                 this.isLoading(true);
-                this.trigger('complete');
+                var me=this,
+                vcurrentPayment = this.apiModel.getCurrentPayment();
+                if(vcurrentPayment.paymentType=="CreditCard"){
+                    _.each(vcurrentPayment.interactions,function(inte){
+                        console.log(inte.status);
+                        if(inte.status=="Authorized"){
+                            if(inte.gatewayCVV2Codes==="M"){
+                                me.trigger('complete');
+                            }else{
+                                me.isLoading(false);
+                                this.trigger('error', "The CVV provided does not match the information on file with the cardholder's bank");
+                                return false;
+                            }
+                        }
+                    });
+                }else{
+                    this.trigger('complete');
+                }
+               
             },
             onCheckoutError: function(error) {
                 var order = this,
@@ -1742,7 +1760,7 @@
                 requiresFulfillmentInfo = this.get('requiresFulfillmentInfo'),
                 requiresBillingInfo = nonStoreCreditTotal > 0,
                 currentPayment = this.apiModel.getCurrentPayment(),
-                process = [function() {
+                 process = [function() {
                     return order.update({
                         ipAddress: order.get('ipAddress'),
                         shopperNotes: order.get('shopperNotes').toJSON()

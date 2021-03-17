@@ -32,6 +32,9 @@
         <section>
             {% dropzone "checkout-notification-dropzone" scope="template" %}
         </section>
+        <form method="post" action="{{ pageContext.secureHost }}/checkout" id="minicartform">
+                <input type="submit" class="submitButton proceed-to-checkout-btn" value="Proceed to Checkout" role="button" hidden />
+            </form> 
         <div class="checkout-header" tabindex="0">
             <div class="header-wraper desktop isDesktop">
                     <h1 class="mz-pagetitle">
