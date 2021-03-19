@@ -1,0 +1,10 @@
+{% if model.items %}
+	{% for item in model.items %}
+		{{ item.content.name }}
+		</br>
+		{% for childCat in item.childrenCategories %}
+			{{ childCat.content.name }}
+			</br>
+		{% endfor %}
+	{% endfor %}
+{% endif %}

@@ -699,7 +699,7 @@
 				<span class="head-item heat-sensitive">HEAT-SENSITIVE</span>
 				<span class="head-item price">PRICE</span>
 			</div>
-			<div class="listitemlist">
+			<div class="listitemlist {% if model.SubScriptionItemsList.length > 0 %}{% else %}noitemsinlist{% endif %}">
 				{% if model.SubScriptionItemsList.length > 0 %}
 					<div class="item-list-data">
 						{% for item in model.SubScriptionItemsList %}

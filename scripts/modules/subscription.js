@@ -783,28 +783,29 @@ define([
                     var mySearch = [];
                     console.log("result", result);
                     if(result){
-                        result.filter(function(v,i){
+                        var getItems = result.items;
+                        getItems.filter(function(v,i){
                         var heatObj = {};
-                        if(v.suggestion && v.suggestion.properties){
-                             v.suggestion.properties.filter(function(a,b){
+                        if(v && v.properties){
+                             v.properties.filter(function(a,b){
                                 if(a.attributeFQN == "tenant~IsHeatSensitive"){
                                     heatObj = a;
                                 }
                             });
                         }
-                       if(v.suggestion.price){
+                       if(v.price){
                             var temp = {
-                                "name" : v.suggestion.content.productName,
-                                "productCode" : v.suggestion.productCode,
-                                "image" : v.suggestion.content.productImages[0],
-                                "price" : v.suggestion.price,
-                                "purchasableState" : v.suggestion.purchasableState,
-                                "inventoryInfo" : v.suggestion.inventoryInfo,
+                                "name" : v.content.productName,
+                                "productCode" : v.productCode,
+                                "image" : v.content.productImages[0],
+                                "price" : v.price,
+                                "purchasableState" : v.purchasableState,
+                                "inventoryInfo" : v.inventoryInfo,
                                 "IsHeatSensitive" : heatObj,
-                                "isSelected" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? true : false,
-                                "total" : (addedproductIds.indexOf(v.suggestion.productCode) > -1) ? v.suggestion.price && v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.salePrice : qtyArray[addedproductIds.indexOf(v.suggestion.productCode)]*v.suggestion.price.price : v.suggestion.price.salePrice && v.suggestion.price.salePrice <  v.suggestion.price.price ? 1*v.suggestion.price.salePrice : 1*v.suggestion.price.price,
+                                "isSelected" : addedproductIds.indexOf(v.productCode) > -1 ? true : false,
+                                "total" : (addedproductIds.indexOf(v.productCode) > -1) ? v.price && v.price.salePrice && v.price.salePrice <  v.price.price ? qtyArray[addedproductIds.indexOf(v.productCode)]*v.price.salePrice : qtyArray[addedproductIds.indexOf(v.productCode)]*v.price.price : v.price.salePrice && v.price.salePrice <  v.price.price ? 1*v.price.salePrice : 1*v.price.price,
                                 "selectedData" : {
-                                    "Qty" : addedproductIds.indexOf(v.suggestion.productCode) > -1 ? qtyArray[addedproductIds.indexOf(v.suggestion.productCode)] : 1
+                                    "Qty" : addedproductIds.indexOf(v.productCode) > -1 ? qtyArray[addedproductIds.indexOf(v.productCode)] : 1
                                 }
                             };
                             mySearch.push(temp);
