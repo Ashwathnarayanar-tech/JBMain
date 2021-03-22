@@ -289,7 +289,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //commenting  for ssl for now...
             //this.model.toOrder();
             // return false;
-            window.showGlobalOverlay();
+            //window.showGlobalOverlay();
             this.model.isLoading(true);
             // the rest is done through a regular HTTP POST
         },
@@ -662,6 +662,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         }, 
         additemstoCart:function(productCode,$target,count,e){
             var self=this;
+            window.showGlobalOverlay();
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 if(PRODUCT.get('purchasableState').isPurchasable){
@@ -679,12 +680,14 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                 self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             },2000);
                         }else{
+                            window.hideGlobalOverlay();
                            $('.mz-l-pagewrapper').removeClass('is-loading');
                         }
                     }else{
                         self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                     }
                 }else{
+                    window.hideGlobalOverlay();
                     self.outOfStock(e,productCode,PRODUCT);
                 }
             });
@@ -695,6 +698,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             var myMata = PRODUCT,self = this;
             PRODUCT.on('addedtocart', function(attr) {
                 $('.mz-l-pagewrapper').removeClass('is-loading');
+                window.hideGlobalOverlay();
                 CartMonitor.update();
                 PRODUCT = '';
                 var prodName = attr.data.product.name;
@@ -728,6 +732,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                         $('[data-mz-message-bar]').hide();
                     },6000); 
                 } 
+                window.hideGlobalOverlay();
             });  
             setTimeout(function(){window.cartModel.checkBOGA(); },2000);    
         },

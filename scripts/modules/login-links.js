@@ -428,6 +428,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 this.$parent.find('[data-mz-forgotpassword-email]').css({'border':'1px solid #c2c2c2'});
             }
+            window.showGlobalOverlay();
             api.action('customer', 'resetPasswordStorefront', {
                 EmailAddress: this.$parent.find('[data-mz-forgotpassword-email]').val()
             }).then(_.bind(this.displayResetPasswordMessage,this), this.displayApiMessage);
@@ -450,6 +451,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             window.hideGlobalOverlay();
         },
         displayResetPasswordMessage: function () {
+            window.hideGlobalOverlay();
             this.displayMessage(Hypr.getThemeSetting('resetEmailSent'));
             $('.mz-validationmessage').css({'color':'#6CCB51'});
         }
@@ -580,6 +582,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(flag){
                 $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li>'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
             }else{
+                window.showGlobalOverlay();
                 $(document).find('form.reset-password-form').find('.mz-button-large').click();   
             }
         });
