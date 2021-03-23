@@ -867,7 +867,7 @@
                                     }
                                     .mz-formstep-next{
                                         margin-bottom: 20px;
-                                        margin-top: 60px;
+                                        margin-top: 10px;
                                         #continuetoshipping{
                                             height: 40px;
                                             border-radius: 4px;
@@ -1093,7 +1093,7 @@
                                             font-weight: bold;  
                                             text-align: center;
                                             color: #ffffff;
-                                            margin:50px 0 19px;  
+                                            margin:10px 0 19px;  
                                             &:hover{
                                                 background-color: #003a72;
                                                 border: 1px solid #003a72;
@@ -1951,16 +1951,19 @@
                                                         }
                                                         &.checkout-card-expmonth{
                                                             select{
-                                                                width: 48%;
+                                                                width: 38%;
                                                                 display: inline-block;
                                                                 margin: 0 0 5px 0;
                                                                 &:first-child{
                                                                     margin-right: 1%;
                                                                 }
+                                                                &#mz-payment-expiration-month{
+                                                                    width: 60%;
+                                                                }
                                                             }
                                                             .down-caret-ma-month,.up-caret-ma-month{
                                                                 top: 34px;
-                                                                right: 57%;
+                                                                right: 44%;
                                                                 left: unset;
                                                             }
                                                             .down-caret-ma-year,.up-caret-ma-year{
@@ -3808,9 +3811,12 @@
 							    								select, input{
 							    									width: 100%;
 							    								}
-							    								.mz-l-formfieldgroup-halfsize{
-                                                                    width: 48.9% !important;
+							    								.checkout-card-expmonth select{
+                                                                    width:38% !important;
                                                                     margin-bottom: 10px;
+                                                                    &#mz-payment-expiration-month{
+                                                                        width: 60% !important;
+                                                                    }
 							    								}
                                                                 .cvv-info{
                                                                     right: 4%;
