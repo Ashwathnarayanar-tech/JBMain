@@ -344,9 +344,11 @@
 						{% with model.subscriptionCategories.items as items %}
 							{% for item in items %}
 								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}</span>
+								<div class="subcategoryMainDiv">
 								{% for itemchildcat in item.childrenCategories %}
-									<span tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" class="list-item side-bar-item {% if model.activeCategoryList == itemchildcat.categoryId %}active{% endif %}">{{itemchildcat.content.name|safe}}</span>
-								{% endfor %}	
+									<span tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" class=" a list-item side-bar-item {% if model.activeCategoryList == itemchildcat.categoryId %}active{% endif %}">{{itemchildcat.content.name|safe}}</span>
+								{% endfor %}
+								</div>	
 							{% endfor %}	
 						{% endwith %}
 					{% endwith %}
