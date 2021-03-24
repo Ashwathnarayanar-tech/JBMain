@@ -185,7 +185,7 @@
                                             {% if name == "paypalexpress2" %} 
                                                 {% if user.isAnonymous %}
                                                     <div class="mz-l-stack-section">
-                                                        <h4 class="mz-l-stack-sectiontitle">{{ labels.billingContact }}</h4>
+                                                        {% comment %}JEL-1110 <h4 class="mz-l-stack-sectiontitle">{{ labels.billingContact }}</h4> {% endcomment %}
                                                         <div class="mz-l-formfieldgroup">
                                                             <div class="mz-l-formfieldgroup-row billing-email">
                                                                 <div class="mz-l-formfieldgroup-cell"> 
