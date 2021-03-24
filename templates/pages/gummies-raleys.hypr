@@ -1,0 +1,30 @@
+{% extends "holiday-gift-guide-page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %} -
+{% parent %}{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<style>
+  .zinrelo-tab {
+    bottom: 50px !important;
+  }
+</style>
+
+{% block hero %}
+{% include "modules/gummies-raleys/gummies-hero" %}
+{% endblock hero%}
+
+{% block brand-products %}
+{% include "modules/gummies-raleys/gummies-products" %}
+{% endblock brand-products %}
+
+{% block brand-candy %}
+{% include "modules/gummies-raleys/gummies-candy" %}
+{% endblock brand-candy %}
+
+{% block brand-footer %}
+{% include "modules/gummies-raleys/gummies-footer" %}
+{% endblock brand-footer %}
+
+{% endblock body-content %}

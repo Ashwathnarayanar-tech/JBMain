@@ -642,10 +642,10 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 			}
 		}
 		if (type == 'unitPrice') {
-			products.push((prodModel.price.salePrice === undefined) ? "" : prodModel.price.price);
+			products.push((prodModel.price === undefined) ? "" : prodModel.price.price);
 		}
 		if (type == 'salePrice') {
-			products.push((prodModel.price.salePrice === undefined) ? "" : "" + prodModel.price.salePrice);
+			products.push((prodModel.price === undefined) ? "" : (prodModel.price.salePrice === undefined) ? "" : "" + prodModel.price.salePrice);
 		}
 		if (type == 'image') {
 			for (var j = 0; j < prodModel.content.productImages.length; j++) {

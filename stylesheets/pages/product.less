@@ -261,27 +261,6 @@
                                 .mz-productdetail-price {
                                     margin: 0;
                                     padding: 0 0 4%;
-                                    .mz-productoptions{
-                                        .mz-productoptions-valuecontainer{
-                                            position:relative;
-                                            width: 25%;
-                                            .mz-productoptions-option{
-                                                width:100%;
-                                                border:1px solid #cfcfcf;
-                                                height: 36px;
-                                                border-radius: 4px;
-                                                -moz-border-radius: 4px;
-                                                -webkit-border-radius: 4px;
-                                                color: black;
-                                                font-size: 16px;
-                                                box-sizing: border-box;
-                                                -moz-box-sizing: border-box;
-                                                -webkit-box-sizing: border-box;
-                                                line-height: 27px;
-                                                background: #f3f3f3;
-                                            }
-                                        }
-                                    }
                                     .mz-pricestack-range{
                                         display: inline-block;
                                         font-weight: bold;
@@ -293,7 +272,33 @@
                                                 display:inline-block !important;
                                                 color: #1c2e36 !important;
                                             }
+                                            strike{
+                                                color: #004e99;
+                                                text-decoration-color: #e7131a;
+                                                font-size: 13px;
+                                            }
                                         }
+                                    }
+                                    .mz-productoptions {
+                                        position: relative;
+                                        max-width: 220px;
+                                    }
+                                    select{
+                                        width: 100%;
+                                        border-radius: 4px;
+                                        padding: 11px 8px 11px 8px;
+                                        background-size: 16px;
+                                        text-align: center;
+                                        display: inline-block;
+                                        background-color: transparent;
+                                        border: solid 0.6px #cfcfcf;
+                                        height: auto;
+                                        font-size: 16px;
+                                    }
+                                    .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add {
+                                        top: 15px;
+                                        left: auto;
+                                        right: 10px;
                                     }    
                                     .reward-points{
                                         vertical-align: initial;
@@ -339,8 +344,8 @@
                                 }
                             }
                             .buttons-container{
-                                padding: 5% 0; 
-                                .add-to-cart-btn-pdp, .shop-gift-btn{
+                                padding: 5% 0;
+                                .add-to-cart-btn-pdp,.gift-prize-select{
                                     width: 35%;
                                     background-color: #e7131a;
                                     color: white;
@@ -770,14 +775,15 @@
                                 float:right;
                                 width: 52%;
                                 text-align: right;
-                                padding: 1.15% 0;
+                                padding: 2% 0 1.15% 0;
                                 margin: 0;
                                 .price-qty-container{
                                     display: inline-block;
                                     width: 76%;
+                                    float: left;
                                     .mz-productdetail-price{
                                         display: inline-block;
-                                        width: 56%;
+                                        width: ~"calc(100% - 250px)";
                                         vertical-align: middle;
                                         .price{
                                             color: #1c2e36;
@@ -795,30 +801,45 @@
                                             text-transform: capitalize;
                                             .p-price{
                                               color: #0065a1;
+                                              strike {
+                                                font-size: 13px;
+                                                font-weight: normal;
+                                                color: #004e99;
+                                                text-decoration-color: #e7131a;
+                                              }
                                             }
                                         }
                                         .sale-offer{
                                             color: #e7131a;
-                                            font-size: 13px;
+                                            font-size: 20px;
+                                            strike {
+                                                font-weight: normal;
+                                                font-size: 13px;
+                                                color: #004e99;
+                                                text-decoration-color: #e7131a;
+                                              }
                                         }
                                     }
                                     .mz-productdetail-conversion{
                                         display: inline-block;
-                                        width: 36%;
+                                        max-width: 220px;
                                         text-align: center;
-                                        padding: 0 0 0 4%;
+                                        padding: 0 15px 0 15px;
+                                        float: right;
+                                        width: auto;
                                         .mz-productdetail-conversion-controls{
                                             display: inline-block;
-                                            width: 41%;
-                                            margin: 0 8% 0 0;
+                                            width: 100px;
+                                            margin: 0 10px 10px 0;
+                                            float: left;
                                             .qty-input-box{
                                                 position: relative;
-                                                margin: 0 auto;
+                                                margin: 0;
                                                 display: inline-block;
                                                 vertical-align: middle;
                                                 .quantity{
                                                     border: solid 1px #cfcfcf;
-                                                    width: 55px;
+                                                    width: 58px;
                                                     margin: 0; 
                                                     border-radius: 4px;
                                                     -moz-border-radius: 4px;
@@ -913,6 +934,47 @@
                                 clear: both;
                                 display: table;
                             }
+                            .mz-productoptions-valuecontainer {
+                                position: relative;
+                                width: 220px;
+                                float: right;
+                                .mz-productoptions-option.myacc-add-form-sel {
+                                    width: 100%;
+                                    border-radius: 4px;
+                                    padding: 9px 10px 9px 10px;
+                                    background-size: 16px;
+                                    text-align: center;
+                                    display: inline-block;
+                                    background-color: transparent;
+                                    border: solid 0.6px #cfcfcf;
+                                    height: auto;
+                                    font-size: 16px;
+                                }
+                                .down-caret-quantity-myacc-add,.up-caret-quantity-myacc-add {
+                                    top: 0;
+                                    left: auto;
+                                    bottom: 9px;
+                                    margin: auto;
+                                    right: 10px;
+                                }
+                            }
+                            .action-section {
+                                .buttons-container {
+                                    .gift-prize-select {
+                                        width: 100%;
+                                        background-color: #e7131a;
+                                        color: white;
+                                        display: inline-block;
+                                        font-size: 18px;
+                                        border-radius: 4px;
+                                        -moz-border-radius: 4px;
+                                        -webkit-border-radius: 4px;
+                                        border: 0.5px solid #e7131a;
+                                        text-transform: none;
+                                        padding: 7.5px 0;
+                                    }
+                                }
+                            }
                         }
                         .product-info-scroll{
                             clear:both;
@@ -933,6 +995,11 @@
                                 &:last-child{
                                     border: none;
                                 }
+                            }
+                        }
+                        &.removeactiveCls {
+                            .product-info-scroll .header-item.active {
+                                font-weight: normal;
                             }
                         }
                     }
@@ -1115,7 +1182,7 @@
                                 }
                                 .buttons-container{
                                     padding: 5% 0;
-                                    .add-to-cart-btn-pdp, .shop-gift-btn{
+                                    .add-to-cart-btn-pdp{
                                         width: 43%;
                                     }
                                     .add-to-wishlist{
@@ -1368,18 +1435,18 @@
                                         .mz-productdetail-price{
                                             width: 38%;
                                             .price{
-                                                font-size: 18px;
+                                                font-size: 14px;
                                             }
                                             .sale-price{
-                                                font-size: 18px;
+                                                font-size: 14px;
                                             }
                                             .sale-offer{
                                                 font-size: 14px;
                                             }
                                         }
                                         .mz-productdetail-conversion{
-                                            width: 58%;
-                                            padding: 0;
+                                            /* width: 58%;
+                                            padding: 0; */
                                             .mz-productdetail-conversion-controls{
                                                 margin: 0 ;
                                                 width: 52%;
@@ -1661,6 +1728,7 @@
                                     .price-qty-container{
                                         display: inline-block;
                                         width: 76%;
+                                        float: left;
                                         .mz-productdetail-price{
                                             display: inline-block;
                                             width: 42%;
@@ -1688,7 +1756,7 @@
                                             }
                                         }
                                         .mz-productdetail-conversion{
-                                            width: 52%;
+                                            width: auto;
                                             .mz-productdetail-conversion-controls{
                                                 .qty-input-box{
                                                     .spinner{
@@ -1867,6 +1935,9 @@
                                             .mz-price {
                                                 font-size: 26px;
                                             }
+                                        }
+                                        .mz-productoptions {
+                                            max-width: 100%;
                                         }    
                                         .reward-points{
                                             width: 100%;
@@ -1890,13 +1961,17 @@
                                     }
                                 }
                                 .buttons-container{
-                                    .add-to-cart-btn-pdp, .shop-gift-btn{
+                                    .add-to-cart-btn-pdp{
                                         width: 100%;
                                         margin: 0 0 2% 0;
                                     }
                                     .product-out-ofstock-pdp{
                                         width: 100%;
                                         margin: 0 0 2% 0;
+                                    }
+                                    .shop-gift-btn {
+                                        width: 100%;
+                                        margin-bottom: 10px;   
                                     }
                                     .add-to-wishlist{
                                         background-position: 120px 7px;
@@ -2096,12 +2171,17 @@
                                 .product-details-section{
                                     .product-name{
                                         h5{
-                                            font-size: 16px;
-                                            margin: 0 0 2%;
+                                            font-size: 14px;
+                                            margin: 0px;
                                         }
                                     }
                                 }
+                                h5{
+                                    font-size: 14px;
+                                    margin: 0px;
+                                }
                                 .action-section{
+                                    margin: 2% 0px 0px 0px;
                                     .price-qty-container{
                                         width: 100%;
                                         .mz-productdetail-price{
@@ -2124,6 +2204,29 @@
                                                 color:#e7131a;
                                                 .p-price{
                                                     color:#0065a1;
+                                                }
+                                            }
+                                            .mz-productoptions-valuecontainer {
+                                                height: 48px;
+                                                position: relative;
+                                                select {
+                                                    width: 98%;
+                                                    border-radius: 4px;
+                                                    padding: 11px 8px 11px 8px;
+                                                    background-size: 16px;
+                                                    text-align: center;
+                                                    display: inline-block;
+                                                    background-color: transparent;
+                                                    border: solid 0.6px #cfcfcf;
+                                                    height: auto;
+                                                    font-size: 14px;
+                                                }
+                                                .down-caret-quantity-myacc-add,.up-caret-quantity-myacc-add {
+                                                    pointer-events: none;
+                                                    position: absolute;
+                                                    top: 15px;
+                                                    left: auto;
+                                                    right: 20px;
                                                 }
                                             } 
                                             .outofstock.in{

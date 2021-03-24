@@ -14,7 +14,7 @@ define([
             ThresholdMessageView = Backbone.MozuView.extend({
           templateName: 'modules/cart/cart-discount-threshold-messages'
         });
-        var MiniCartView = Backbone.MozuView.extend({
+        var MiniCartView = window.MiniCartView = Backbone.MozuView.extend({
             templateName: "modules/page-header/softcart",
             initialize: function () { 
                 var me = this;
@@ -413,10 +413,18 @@ define([
             },
             updateMiniCart: function(){
               if(require.mozuData("pagecontext").pageType != "checkout") {
-                this.model.apiGet();
+                this.model.apiGet().then(function(){
+                    window.hideGlobalOverlay();
+                }).catch(function(err){
+                    console.log(" update minicart api get error ",err);
+                });
               }
             },
             showCartval: function() {
+            },
+             render:function() {
+                 console.log(" this--- render minicart",this);
+                Backbone.MozuView.prototype.render.apply(this);
             }
         });
         var cartModel = window.cartModel = new CartModels.Cart(),

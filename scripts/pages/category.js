@@ -150,7 +150,7 @@ define(['modules/jquery-mozu',
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
+                //$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
                 $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
             }
             $(window).resize(function(){ 
@@ -164,7 +164,7 @@ define(['modules/jquery-mozu',
                     $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
                     $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
                     $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                    $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
+                   // $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
                     $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
                 }
             });

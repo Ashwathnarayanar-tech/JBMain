@@ -285,12 +285,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-1">
 		<a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-mobile-optimized.jpg" alt="Jelly Belly jelly beans product listings">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg?max=350" alt="Jelly Belly jelly beans product listings">
-			{% endif %}		
+			</div>	
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans" style="color: #000;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
@@ -314,12 +314,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-2">
 		<a href="/confections-by-jelly-belly/c/339" aria-label="Jelly Belly Confections" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized-mobile.jpg" alt="Jelly Belly Confections product listings">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized.jpg?max=350" alt="Jelly Belly Confections product listings">
-			{% endif %}	
+			<div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/confections-by-jelly-belly/c/339" aria-label="Jelly Belly Confections" style="color: #000;text-decoration: none"><strong>Jelly Belly Confections</strong></a></h2>
@@ -343,12 +343,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-3">
 		<a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category page" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled-banner-version-2-mobile-optimized.jpg" alt="BeanBoozled Jelly Belly product listings">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled-banner-version-2-optimized.jpg?max=350" alt="BeanBoozled Jelly Belly product listings">
-			{% endif %}	
+			<div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category page" style="color: #000;text-decoration: none"><strong>BeanBoozled Jelly Beans</strong></a></h2>
@@ -372,12 +372,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-4-mobile">
 		<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class ="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-mobile-optimized.jpg" alt="Krispy Kreme jelly beans product listings">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
-			{% endif %}	
+			</div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #000;text-decoration: none"><strong>Krispy Kreme® Jelly Beans</strong></a></h2>
@@ -408,12 +408,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-4-desktop">
 		<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-mobile-optimized.jpg" alt="Krispy Kreme jelly beans product listings">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
-			{% endif %}
+			</div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme Jelly Beans" style="color: #000;text-decoration: none"><strong>Krispy Kreme® Jelly Beans</strong></a></h2>
@@ -438,12 +438,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-5">
 		<a href="/mixed-emotions/c/711" aria-label="Jelly Belly Mixed Emotions product listing page" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-mobile-optimized.jpg" alt="Mixed Emotions product listings page">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/mixed-emotions-brand-banner-3-optimized.jpg?max=350" alt="Mixed Emotions product listings page">
-			{% endif %}
+			</div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/mixed-emotions/c/711" aria-label="Mixed Emotions" style="color: #000;text-decoration: none"><strong>Mixed Emotions</strong></a></h2>
@@ -468,12 +468,12 @@
 <div class="card-slot">
 	<div class="card-container" id="card-6">
 		<a href="/new-products/c/730" aria-label="new Jelly Belly products" tabindex="-1">
-			{% if pageContext.isMobile %}
+			<div class="isMobile">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-mobile-optimized.jpg" alt="new Jelly Belly products listing page">
-			{% endif %}
-			{% if pageContext.isDesktop %}
+			</div>
+ 			<div class="isDesktop">
 				<img class="card-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-optimized.jpg?max=350" alt="new Jelly Belly products listing page">
-			{% endif %}
+			</div>
 		</a>
 		<div class="card-contents">
 			<h2 class="card-title"><a href="/new-products/c/730" aria-label="new Jelly Belly products" style="color: #000;text-decoration: none"><strong>New Products</strong></a></h2>

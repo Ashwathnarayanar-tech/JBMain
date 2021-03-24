@@ -1,0 +1,25 @@
+<section class="bp-wrapper">
+  <div class="bp-prod-wrap">
+    <img class="bp-prod-imgs desktop" tabindex="0" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2be39c65-9134-467b-8a6d-597d38ce4998" alt="Jelly Belly Vegan Gummies and Vegan Sour Gummies Packages" width="1122" height="569">
+  </div>
+  <div class="bp-text-wrapper">
+    <h2 tabindex="0" class="bp-heading">So Good!</H2>
+    <ul>
+      <li tabindex="0" class="bp-text">
+        Vegan
+      </li>
+      <li tabindex="0" class="bp-text">
+        Non-GMO
+      </li>
+      <li tabindex="0" class="bp-text">
+        Made with Colors from Natural Sources
+      </li>
+      <li tabindex="0" class="bp-text">
+        Contain No Animal Gelatin
+      </li>
+    </ul>
+    <div class="bp-prod-wrap">
+      <img class="bp-prod-imgs mobile" tabindex="0" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1eddb1b3-343f-4588-ac75-cf9e67eeac15" alt="Jelly Belly Vegan Gummies and Vegan Sour Gummies Packages" width="518" height="429">
+    </div>
+  </div>
+</section>

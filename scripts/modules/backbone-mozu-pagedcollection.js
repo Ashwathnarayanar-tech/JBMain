@@ -148,7 +148,12 @@ define([
                         if(newSize>this.get('totalCount')){
                             newSize = this.get('totalCount');
                         }
-                        return this.apiGet($.extend(this.lastRequest, { pageSize: newSize }));   
+                        window.showGlobalOverlay();
+                        return this.apiGet($.extend(this.lastRequest, { pageSize: newSize })).then(function(){
+                            window.hideGlobalOverlay();
+                        }).catch(function(err){
+                             window.hideGlobalOverlay();
+                        });   
                     }
                 }else{
                     return this.apiGet($.extend(this.lastRequest, { pageSize: this.get('pageSize') }));

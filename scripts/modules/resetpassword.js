@@ -29,6 +29,7 @@ require([
                 var self = this;
                 var email = this.$el.find('[data-mz-forgotpassword-email]')[0];
                 if(email.value.length>0){
+                    window.showGlobalOverlay();
                     Api.action('customer', 'resetPasswordStorefront', {
                     EmailAddress: email.value
                 }).then(
@@ -40,6 +41,7 @@ require([
                 }
             },
             displayMessage: function(msg) {
+                window.hideGlobalOverlay();
                 if(msg=== "The system does not permit the attempted operation.  User account is locked, Please contact System Administrator "){
                     msg = Hypr.getThemeSetting('lockedaccount');
                 }else{
@@ -51,6 +53,7 @@ require([
                 }));
             },
             displayApiMessage: function (xhr) {
+                window.hideGlobalOverlay();
                 if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND"){
                     xhr.message =   Hypr.getThemeSetting('resetPasswordMessage');//Hypr.getLabel('resetPasswordMessage');  
                 }

@@ -36,9 +36,9 @@
 
 <div class="mz-footer-row"> 
  <div class="mz-footer-row2">
-	{% if pageContext.cmsContext.page.path != 'subscribe' %}
-		{% include "modules/email-sms-signup" %}
-	{% endif %}
+  {% if pageContext.cmsContext.page.path != 'subscribe' %}
+    {% include "modules/email-sms-signup" %}
+  {% endif %}
   </div>
 </div>
     <div class="mz-footer-row"> 
@@ -80,7 +80,7 @@
                       </ul>
                     </div>
                     <!-- FOOTER 2ND COL -->
-    				<div class="mz-column mz-column-2">
+            <div class="mz-column mz-column-2">
               <div class="mz-desktop">
                 <h2 class="mz-footer-title">
                   <a href="/aboutjellybelly">
@@ -99,23 +99,23 @@
                 {% dropzone "dropzone_area_footer_1" scope="site" %}
               </ul>
             </div>
-				    <!-- FOOTER 3RD COL --> 
-    				<div class="mz-column mz-column-3">
-    					<div class="mz-desktop">
-    						<h2 class="mz-footer-title">
-    						    <a href="/newsandevents">News &amp; Events</a>
-    						</h2>
-    					</div>
-    					<div class="mz-mobile">
-    						<h2 class="mz-footer-title footer-title-click" aria-expanded="false">
-    					        <a href="/newsandevents">News &amp; Events</a>
+            <!-- FOOTER 3RD COL --> 
+            <div class="mz-column mz-column-3">
+              <div class="mz-desktop">
+                <h2 class="mz-footer-title">
+                    <a href="/newsandevents">News &amp; Events</a>
+                </h2>
+              </div>
+              <div class="mz-mobile">
+                <h2 class="mz-footer-title footer-title-click" aria-expanded="false">
+                      <a href="/newsandevents">News &amp; Events</a>
                       <img class="footer-plus" src="/resources/images/icons/plus_footer.png" alt="footer-plus" />
                       <img class="footer-minus" src="/resources/images/icons/minus_footer.png" alt="footer-minus" />
-    					    </h2> 
-    					</div>
-    					<ul class="mz-footer-links mz-desktop">
-    					{% dropzone "dropzone_area_footer_3" scope="site" %}
-    					</ul>
+                  </h2> 
+              </div>
+              <ul class="mz-footer-links mz-desktop">
+              {% dropzone "dropzone_area_footer_3" scope="site" %}
+              </ul>
               <div class="mz-desktop">
                 <h2 class="mz-footer-title" style="margin: 38px 0 0px 0">Quick Links</span>
               </div>  
@@ -128,10 +128,10 @@
               <ul class="mz-footer-links mz-desktop">
               {% dropzone "dropzone_area_footer_4" scope="site" %}
               </ul>
-    				</div>
-    				<!-- FOOTER 4TH COL -->
-    				<div class="mz-column mz-column-4">
-    					<div class="jb-follow-us">
+            </div>
+            <!-- FOOTER 4TH COL -->
+            <div class="mz-column mz-column-4">
+              <div class="jb-follow-us">
                 <h2 class="mz-footer-title">Social Media</h2>
                 <ul>
                     <li><a href="https://www.pinterest.com/jellybelly" target="_blank" title="Jelly Belly on Pinterest">
@@ -180,39 +180,24 @@
                     <img class="tour-icon-footer-white" width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAyCAYAAAAA9rgCAAAAAXNSR0IArs4c6QAABLhJREFUaAXlmd+LVVUUx71T4+SEGQgzEBFJMjP6EFJIhk9O+mL14IsPGpGa8+BkiDRq/QGpJD5MUWCmBIn5KIOIUU/9mHwSFUqlCBVHHctM0jHTmT7fw92HPafbveecvc71dl3wZa+9z15rr+/Z++xfpzTFWCYmJkq4bDF0O14qlSas/JkEJpLgDXCawO6CO4a4i98z4E2gl3nvhUAGQD1kcyjb4DcGyy6COA4eCg0mhf1f1JnHED+Vom7FKkFDGrKy3wPqQVYE2tReuV3lM0sQYVpbDxZmbjXM4HnMN+R1kXtI85afotEToD1v4wF2Y9g+zdD+KauPXD0MWb2o3eBekBXHaeCTchzKp5aKPYyjVjx0VPGynGc7qzyv16O3aOjzKo2NMgr+/s/nEO0Fw+AWaAYRj+/BC/8iTaEW9nHQjCJe0UQXDWkynbyBs0DTfrPKbYj1uElrHplmJqtOnAoWOcKPq+Q+kC5HuNl71/VluyPsCuqV6rj3BzA79qUNvF6ELxPQx+Al8ARoY318VGk5/yLpLnAJFC/M0usKWouu4FfLnSaMmkK9VrAejIIiZLDIHh6C4Wx6chBoSagp2hWB96k4GxysaZCjwoM5bNKYvEelLQQ/7irTXRq+vWApmAVmgt/AL+Aw+Ir6Ou9OIb1O/WWoW0HwoV8+JwnOLYe0DhWx4LsFrAUXQDUZ4WEfmDTqyO+qZpTx2WAUGEZWhL/DV/y9ok8HQyCLHKLyI+6Noeu7/iaLgyp1Tb9hLTH9DMfoe6VRDeEjQDNzFtGQP1K21/DWaacfxJ9HFmfJupOGT/Jhxvx+gjvm2Wj46HYijyzA6ANniF/dme1z+ZDUkvCHLhB6R3vztS6fM12Dn2c82488PbdqRXiUCIa9KDahV7xc8OrUUmUvP06OomgDEyRWhLWkRN8YvaJJSzsnC1la9qdvWf6/DHVqRficF0gPejzLeuV51OkYzfUM/Xa84vSqFeGLXpOPebqF6vsbCXVoRdhfMqx8Om6+v+DTle/MNZAnNe2FRAB+r/rtJKqly1oR9m9M9N/nRrrma9a6SY0fvVp+O15xetWKsK53o2WI2fQWzWuHZSFf4G/Mc9Tr6blUK8IaavO9CHZ4eoga++GFPoujhulhkYp3VvSKNiH7VRggB/DzrWff5+m5VaseVgCr6IU5XiR6AfrZlkdOYvS6M8RvN/pqlw9JLQk/QCCDBBf5pHc0cS0GX2cMUL26GPs/ZVf2p1sQk8sKS8KKTwR12xEJQV9BUdnbQLeU1UTP3wG92Glv7mQbyhKXCU1N3loiiI30iv7abVc56W2SbZTptPMy0Hm30hXPEHWv8SwWbAbICLaCY6sbD1zF8ilaW55IZQf2AmsxvfFIcnuVglNEvBKkOiqqHliBnTYbrwFzsf6GkwE+ScFnQMS3ggWg3a+kPHgOvKt6YB/QkC9EiviGKwXaReGWMjTzaoLSFa2uameAukm9CCcJiWRdiboAih7Srp2GSR3haJFvmKiKC+SqI3y+uDYayvPpaLlgEnmYsH4GnQ0Vnm0w2r11Rz3MDkf73pXgqm0bDePtdyJ5RTu5SRsCelrLhBb+uaAD/N9FvfoD0F+RX0XmH3leZBMW8OT9AAAAAElFTkSuQmCC" alt="" />
                 </a>-->
               </div>
-    				</div>
-					{% if pageContext.isTablet %}
-						<div style="width: 100%; margin-left: auto; margin-right: auto;clear:both"> 
-              <span class="sweet-rewards-label" role="button">Sweet Rewards</span>
-							<a style="display: block;text-align: center;" href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
-								<img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/b4c9d78e-047f-49fb-874b-e6bfe0e76985" style="max-width:100%" alt="Jelly Belly International Sites"></img>
-							</a>
-						</div>
-					{% endif %}					
-					
-					{% if pageContext.isMobile %}
-						<div style="width: 100%; margin-left: auto; margin-right: auto; clear:both;"> 
-              <span class="sweet-rewards-label"  role="button">Sweet Rewards</span>
-							<center>
-							<a href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
-								<img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
-								data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-mobile-5.png" with max=341 %}" style="max-width:100%" alt="Jelly Belly International Sites"></img>
-							</a>
-							</center>
-						</div>
-					{% endif %}
-
-					
-					{% if pageContext.isDesktop %}
-						<div style="clear:both;"> 
-              <span class="sweet-rewards-label"  role="button" style="z-index: 2;">Sweet Rewards</span>
-							<a href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
-								<img class="new-lazy-load footer-bottom-flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-desktop-4.png" style="max-width:100%" alt="Jelly Belly International Sites"></img>
-							</a>
-							<br>
-						</div>
-					{% endif %} 
-					
+            </div>
+             <div class="pageFooterSweetRewards isMobile">
+                <span class="sweet-rewards-label"  role="button">Sweet Rewards</span>
+                <center>
+                <a href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
+                  <img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                  data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-mobile-5.png" with max=341 %}" style="max-width:100%" alt="Jelly Belly International Sites"></img>
+                </a>
+                </center>
+            </div>
+           <div class="pageFooterSweetRewards isDesktop"> 
+               <span class="sweet-rewards-label"  role="button">Sweet Rewards</span>
+              <a class="sweetRewardsanchor" href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
+                <img class="new-lazy-load footer-bottom-flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-desktop-4.png" style="max-width:100%" alt="Jelly Belly International Sites"></img>
+              </a>
+              <br>
+            </div>
+          
  
                    <div class="clearfix"></div>
                     <!-- FOOTER 2ND COL -->

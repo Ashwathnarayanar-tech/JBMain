@@ -17,7 +17,8 @@ require([
             $(document).find('[data-mz-message-bar]').hide();             
             $target.addClass('is-loading');            
             var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-            var count = parseInt($quantity);            
+            var count = parseInt($quantity); 
+            window.showGlobalOverlay();           
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;                    
@@ -39,11 +40,15 @@ require([
                     }else{
                         showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                         $target.removeClass('is-loading');
+                         window.hideGlobalOverlay();
                     }
                 }else{
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
-            });
+            }).catch(function(err){
+                console.log("error occurred during add to cart ",err);
+                window.hideGlobalOverlay();
+            }); 
             setTimeout(function(){ 
                  $target.focus(); 
             },6200); 
@@ -98,6 +103,7 @@ require([
             PRODUCT.on('addedtocart', function(attr) {
                 $('[data-mz-productlist],[data-mz-facets]').removeClass('is-loading');
                 $target.removeClass('is-loading');
+                 window.hideGlobalOverlay();
                 CartMonitor.update();
                 MiniCart.MiniCart.updateMiniCart();
                 var prodName = attr.data.product.name;
@@ -111,6 +117,7 @@ require([
 				brontoObj.build(Api);
             });
             Api.on('error', function (badPromise, xhr, requestConf) {
+                 window.hideGlobalOverlay();
                 showErrorMessage(badPromise.message);
                 $target.removeClass('is-loading');
                 $(document).find('.Add-to-cart-popup').removeClass("active");
@@ -161,7 +168,7 @@ require([
             $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);
             $(document).find('.Add-to-cart-popup').addClass("active");
             $(document).find('body').addClass("noScroll");
-            if(require.mozuData('pagecontext').url.indexOf('search-results')<0){
+           
                 var owl = $(document).find('.rec-prod-list-popup');    
                 owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
                 owl.find('.owl-stage-outer').children().unwrap();
@@ -206,11 +213,7 @@ require([
                     } 
                 });
                 $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
-                loopInAddTocart(); 
-            }else{
-                $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
-                $(document).find('#addtocart-popup-rec-prod-sec .head-rec-prod-list').hide();
-            }
+                loopInAddTocart();
         } 
 
         $(document).on('click', '.cross-close-popup',function(){

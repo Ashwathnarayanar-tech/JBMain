@@ -1107,6 +1107,32 @@
                 <div style="clear: both;"></div>
             </div>
 			
+			<div class="art-gallery-details" AGD="88" style="display:none;">
+                <img alt="Lisa Brasher" class="banner" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Large View - Size/LisaBrasher.jpg"/>
+                <div  class="banner-detail" >
+                    <h3>Lisa Brasher</h3>
+                    <p  class="banner-dimension">
+                        Artist: Kristen Cumings <br>
+                        Dimensions: 4' x 5'
+                    </p>
+                    <p class="banner-detail-desc">This portrait of Lisa Brasher, President and Chief Executive Officer of Jelly Belly Candy Company, took approximately 75 hours to complete. This image was made with some popular flavors like licorice, wildblack berry and plum and some unique ones like chili mango and maple syrup. Grape soda was used in her suit, her hair includes pink grapefruit, maple syrup, lemon, toasted marshmallow and root beer. Her skin tone was bubble gum, jewel bubble gum, pink grapefruit, strawberry cheesecake, and one of her favorite flavors chili mango. Fun fact: Besides chili mango, Lisa also enjoys flavors Red Apple and Juicy Pear.</p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+			
+			<div class="art-gallery-details" AGD="89" style="display:none;">
+                <img alt="Lisa Brasher" class="banner" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Large View Size/LisaBrasher.jpg"/>
+                <div  class="banner-detail" >
+                    <h3>Lisa Brasher</h3>
+                    <p  class="banner-dimension">
+                        Artist: Kristen Cumings <br>
+                        Dimensions: 4' x 5'
+                    </p>
+                    <p class="banner-detail-desc">This portrait of Lisa Brasher, President and Chief Executive Officer of Jelly Belly Candy Company, took approximately 75 hours to complete. This image was made with some popular flavors like licorice, wildblack berry and plum and some unique ones like chili mango and maple syrup. Grape soda was used in her suit, her hair includes pink grapefruit, maple syrup, lemon, toasted marshmallow and root beer. Her skin tone was bubble gum, jewel bubble gum, pink grapefruit, strawberry cheesecake, and one of her favorite flavors chili mango. Fun fact: Besides chili mango, Lisa also enjoys flavors Red Apple and Juicy Pear.</p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+			
         </div>
         <div class="art-gallery-item-thumb">
             <div class="art-gallery-item-thumbs endangered_species"  style="display:none;">
@@ -1120,6 +1146,7 @@
                 <img class="thump" AGD="6" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Endangered Species/Thumb Nails - Size/thumb_turtle.png" alt="turtle-thumbnail"/>
             </div>
             <div class="art-gallery-item-thumbs new_art" style="display:block;">
+			    <img class="thump" AGD="89" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/LisaBrasher.jpg" alt="Lisa thumbnail"/>
 			    <img class="thump" AGD="86" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/Hagrid.jpg" alt="hagrid thumbnail"/>
 			    <img class="thump" AGD="85" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/Frozen_2_Elsa_Anna.jpg" alt="Elsa and Anna Frozen 2"/>
 				<img class="thump" AGD="81" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/water-lillies.jpg" alt="water lillies thumbnail"/>
@@ -1142,7 +1169,8 @@
                 <img class="thump" AGD="13" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - New Art/Thumb Nail - Size/RosieTheRiveter.png" alt="Rosie The Riveter-thumbnail"/>-->
             </div>
             <div class="art-gallery-item-thumbs famous_people"  style="display:none;">
-                <img class="thump" AGD="19" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/amelia.png" alt="amelia-thumbnail"/>
+                <img class="thump" AGD="88" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/LisaBrasher.jpg" alt="lisa-thumbnail"/>
+				<img class="thump" AGD="19" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/amelia.png" alt="amelia-thumbnail"/>
                 <img class="thump" AGD="20" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/beatles.png" alt="beatles-thumbnail"/>
                 <img class="thump" AGD="21" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/Diana.png" alt="Diana-thumbnail"/>
                 <img class="thump" AGD="22" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/elvis.png" alt="Elvis-thumbnail"/>

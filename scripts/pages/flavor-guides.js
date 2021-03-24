@@ -1394,7 +1394,7 @@ require([
 		//var category = JSON.parse(flavour_Guides1);
 		var category = flavour_Guides1;
 		$(category).each(function (index, data) {
-			$('#jb-childcategory-container').append(Hypr.getTemplate('pages/flavor-guides-item').render({
+			$('#jb-childcategory-container').html(Hypr.getTemplate('pages/flavor-guides-item').render({
 				model : data,
 				index: index
 			}));
@@ -1402,7 +1402,7 @@ require([
 		var catCode = require.mozuData('pagecontext').categoryCode;
 		$(category).each(function (index, data) {
 			if(data.category == catCode){
-				$(document).find('#flavor-List').append(Hypr.getTemplate('pages/flavor-guides-item').render({
+				$(document).find('#flavor-List').html(Hypr.getTemplate('pages/flavor-guides-item').render({
 					model : data,
 					index: index
 				}));

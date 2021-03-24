@@ -102,110 +102,110 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
            // PowerReviews.displayReviewSnippet($("#ReviewHeader"));
            // PowerReviews.displayReviews($("#ReviewsContainer"));
             //nutrition look up
-            Api.request('GET', '/svc/nutrition_info?sku='+ require.mozuData("product").productCode).then(function(res) {
-                $('#nutrition-image').append('<img src="//'+res.image+'?max=500" alt="'+res.productInfo+'" />');
-                //$('#nutrition-text').html(res.text); 
-                //$('#nutrition-text').attr('aria-label',res.text);
-                $('.mz-productimages-thumbs').append('<a class="mz-productimages-thumb" data-mz-productimage-thumb="NUTRITION" href="javascript:void(0)"><img class="mz-productimages-thumbimage"  src="//'+res.image+'?max=50" alt="'+res.productInfo+'" /></a>');
-                window.productImagesView.addToImageCache("//"+res.image, "NUTRITION");
-                // Nutrition Panel Information for Accessible Users
-                /*$('#nut_panel_title').append('<h2 style="text-align:center;" class="skipto mz-desktop" tabindex="0"> Nutrition Panel Information for Accessible Users<span style=font-size:14px;color:#000;" id="nut_panel"> </span></h2>');
-                $('#nut_panel').append('<div>Servings Per Container: '+ res.panel.valueServingPerContainer +' lots and lots and lots and lots of text</div>');
-                $('#nut_panel').append('<div>Serving Size: '+ res.panel.valueServingPerPieces +' pieces</div>');	
-                $('#nut_panel').append('<div>Serving Weight Grams: ' + res.panel.valueServingWeightGrams +' grams </div>');
-                $('#nut_panel').append('<div>Calories: '+ res.panel.valueCalories +'</div>');
-                $('#nut_panel').append('<div>Sodium: '+ res.panel.valueSodium +' milligram</div>');
-                $('#nut_panel').append('<div>Total Carbohydrate: '+ res.panel.valueTotalCarb +' grams </div>');
-                $('#nut_panel').append('<div>Sugars: '+ res.panel.valueSugars +' grams</div>');	
-                $('#nut_panel').append('<div>Includes Added Sugars: '+ res.panel.valueIncludedAddedSugars +' grams</div>');   */
-            }, function(error){
-                console.log('handling the error');
-            });
-			
-			//nutrition panel code
-			Api.request('GET', '/svc/nutPanel2?sku=' + require.mozuData("product").productCode).then(function(res) {
+                Api.request('GET', '/svc/nutrition_info?sku='+ require.mozuData("product").productCode).then(function(res) {
+                    $('#nutrition-image').append('<img src="//'+res.image+'?max=500" alt="'+res.productInfo+'" />');
+                    //$('#nutrition-text').html(res.text); 
+                    //$('#nutrition-text').attr('aria-label',res.text);
+                    $('.mz-productimages-thumbs').append('<a class="mz-productimages-thumb" data-mz-productimage-thumb="NUTRITION" href="javascript:void(0)"><img class="mz-productimages-thumbimage"  src="//'+res.image+'?max=50" alt="'+res.productInfo+'" /></a>');
+                    window.productImagesView.addToImageCache("//"+res.image, "NUTRITION");
+                    // Nutrition Panel Information for Accessible Users
+                    /*$('#nut_panel_title').append('<h2 style="text-align:center;" class="skipto mz-desktop" tabindex="0"> Nutrition Panel Information for Accessible Users<span style=font-size:14px;color:#000;" id="nut_panel"> </span></h2>');
+                    $('#nut_panel').append('<div>Servings Per Container: '+ res.panel.valueServingPerContainer +' lots and lots and lots and lots of text</div>');
+                    $('#nut_panel').append('<div>Serving Size: '+ res.panel.valueServingPerPieces +' pieces</div>');	
+                    $('#nut_panel').append('<div>Serving Weight Grams: ' + res.panel.valueServingWeightGrams +' grams </div>');
+                    $('#nut_panel').append('<div>Calories: '+ res.panel.valueCalories +'</div>');
+                    $('#nut_panel').append('<div>Sodium: '+ res.panel.valueSodium +' milligram</div>');
+                    $('#nut_panel').append('<div>Total Carbohydrate: '+ res.panel.valueTotalCarb +' grams </div>');
+                    $('#nut_panel').append('<div>Sugars: '+ res.panel.valueSugars +' grams</div>');	
+                    $('#nut_panel').append('<div>Includes Added Sugars: '+ res.panel.valueIncludedAddedSugars +' grams</div>');   */
+                }).catch(function(error){
+                    console.error("Custom route request failed: ", error);
+                });
+
+            //nutrition panel code
+            Api.request('GET', '/svc/nutPanel2?sku=' + require.mozuData("product").productCode).then(function(res) {
                 $('#nut_panel_title').append('<div class="skipto mz-desktop" tabindex="0" style=font-size:16px;color:#444;white-space:normal !important; text-transform: uppercase !important;" id="nut_panel"><h2 style="text-align:center;">Nutrition Panel Information for Accessible Users</h2> </div>');
-				
+
                 $('#nutrition-text').html("INGREDIENTS: " + res.ingredients); 
                 //$('#nutrition-text').attr('aria-label',"product ingredients");
-				
-				
-				//build the hidden Accessible Nut Panel				
-				$('#nut_panel').append("<div>NUTRITION FACTS: </div>");
-				if (res.value10lbServingPackage > -1) {
-					$('#nut_panel').append('Servings per container:' + res.value10lbServingPackage);
-				}
-				if (res.value16ozServingPackage > -1) {
-					$('#nut_panel').append('Servings per container:' + res.value16ozServingPackage);
-				}
-				if (res.valueServingWeightGrams != -1) {
-					$('#nut_panel').append('Serving size: ' + res.valueServingWeightGrams + ' grams');
-				}
-				if (res.valueCalories != -1) {
-					$('#nut_panel').append(', Calories per serving: ' + res.valueCalories );
-				}
-				if (res.valueTotalFat != -1) {
-					$('#nut_panel').append(', Total Fat ' + res.valueTotalFat + ' grams');
-					if (res.valueTotalFatPct != -1) {
-						$('#nut_panel').append(': ' + res.valueTotalFatPct + '% Daily Value');
-					}
-				}
-				if (res.valueSaturatedFat != -1) {
-					$('#nut_panel').append(', Saturated Fat ' + res.valueSaturatedFat + ' grams');
-					if (res.valueSaturatedFatPct != -1) {
-						$('#nut_panel').append(': ' + res.valueSaturatedFatPct + '% Daily Value');
-					}
-				}
-				if (res.valueTotalCarb != -1) {
-					$('#nut_panel').append(', Total Carbohydrates ' + res.valueTotalCarb + ' grams');
-					if (res.valueTotalCarbPct != -1) {
-						$('#nut_panel').append(': ' + res.valueTotalCarbPct + '% Daily Value');
-					}
-				}
-				if (res.valueDietaryFiber != -1) {
-					$('#nut_panel').append(', Total Dietary Fiber ' + res.valueDietaryFiber + ' grams');
-					if (res.valueDietaryFiberPct != -1) {
-						$('#nut_panel').append(': ' + res.valueDietaryFiberPct + '% Daily Value');
-					}
-				}
-				if (res.valueSugars != -1) {
-					$('#nut_panel').append(', Total Sugars ' + res.valueSugars + ' grams');
-					if (res.valueSugarsPct != -1) {
-						$('#nut_panel').append(': ' + res.valueSugarsPct + '% Daily Value');
-					}
-				}
-				if (res.valueIncludedAddedSugars != -1) {
-					$('#nut_panel').append(', Includes ' + res.valueIncludedAddedSugars + ' grams of Added Sugars');
-					if (res.valueIncludedAddedSugarsPct != -1) {
-						$('#nut_panel').append(': ' + res.valueIncludedAddedSugarsPct + '% Daily Value');
-					}
-				}
-				if (res.valueProteins != -1) {
-					$('#nut_panel').append(', Protein ' + res.valueProteins + ' grams');
-					if (res.valueProteinsPct != -1) {
-						$('#nut_panel').append(': ' + res.valueProteinsPct + '% Daily Value');
-					}
-				}
-				if (res.valuePotassium != -1) {
-					$('#nut_panel').append(', Potassium ' + res.valuePotassium + ' milligrams');
-					if (res.valuePotassiumPct != -1) {
-						$('#nut_panel').append(': ' + res.valuePotassiumPct + '% Daily Value');
-					}
-				}
-				if (res.valueSodium != -1) {
-					$('#nut_panel').append(', Sodium ' + res.valueSodium + ' milligrams');
-					if (res.valueSodiumPct != -1) {
-						$('#nut_panel').append(': ' + res.valueSodiumPct + '% Daily Value');
-					}
-				}
-				$('#nut_panel').append('<br><br>The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.<br><br>');
-				//end hidden nut panel
-                
-		
-			}, function(error){
-					console.log('handling the error');
-			});		
-            
+
+
+                //build the hidden Accessible Nut Panel
+                $('#nut_panel').append("<div>NUTRITION FACTS: </div>");
+                if (res.value10lbServingPackage > -1) {
+                    $('#nut_panel').append('Servings per container:' + res.value10lbServingPackage);
+                }
+                if (res.value16ozServingPackage > -1) {
+                    $('#nut_panel').append('Servings per container:' + res.value16ozServingPackage);
+                }
+                if (res.valueServingWeightGrams != -1) {
+                    $('#nut_panel').append('Serving size: ' + res.valueServingWeightGrams + ' grams');
+                }
+                if (res.valueCalories != -1) {
+                    $('#nut_panel').append(', Calories per serving: ' + res.valueCalories );
+                }
+                if (res.valueTotalFat != -1) {
+                    $('#nut_panel').append(', Total Fat ' + res.valueTotalFat + ' grams');
+                    if (res.valueTotalFatPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueTotalFatPct + '% Daily Value');
+                    }
+                }
+                if (res.valueSaturatedFat != -1) {
+                    $('#nut_panel').append(', Saturated Fat ' + res.valueSaturatedFat + ' grams');
+                    if (res.valueSaturatedFatPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueSaturatedFatPct + '% Daily Value');
+                    }
+                }
+                if (res.valueTotalCarb != -1) {
+                    $('#nut_panel').append(', Total Carbohydrates ' + res.valueTotalCarb + ' grams');
+                    if (res.valueTotalCarbPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueTotalCarbPct + '% Daily Value');
+                    }
+                }
+                if (res.valueDietaryFiber != -1) {
+                    $('#nut_panel').append(', Total Dietary Fiber ' + res.valueDietaryFiber + ' grams');
+                    if (res.valueDietaryFiberPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueDietaryFiberPct + '% Daily Value');
+                    }
+                }
+                if (res.valueSugars != -1) {
+                    $('#nut_panel').append(', Total Sugars ' + res.valueSugars + ' grams');
+                    if (res.valueSugarsPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueSugarsPct + '% Daily Value');
+                    }
+                }
+                if (res.valueIncludedAddedSugars != -1) {
+                    $('#nut_panel').append(', Includes ' + res.valueIncludedAddedSugars + ' grams of Added Sugars');
+                    if (res.valueIncludedAddedSugarsPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueIncludedAddedSugarsPct + '% Daily Value');
+                    }
+                }
+                if (res.valueProteins != -1) {
+                    $('#nut_panel').append(', Protein ' + res.valueProteins + ' grams');
+                    if (res.valueProteinsPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueProteinsPct + '% Daily Value');
+                    }
+                }
+                if (res.valuePotassium != -1) {
+                    $('#nut_panel').append(', Potassium ' + res.valuePotassium + ' milligrams');
+                    if (res.valuePotassiumPct != -1) {
+                        $('#nut_panel').append(': ' + res.valuePotassiumPct + '% Daily Value');
+                    }
+                }
+                if (res.valueSodium != -1) {
+                    $('#nut_panel').append(', Sodium ' + res.valueSodium + ' milligrams');
+                    if (res.valueSodiumPct != -1) {
+                        $('#nut_panel').append(': ' + res.valueSodiumPct + '% Daily Value');
+                    }
+                }
+                $('#nut_panel').append('<br><br>The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.<br><br>');
+                //end hidden nut panel
+
+
+            }).catch(function(error){
+                console.error("Custom route request failed: ", error);
+            });
+
         },
         onOptionChange: function (e) {
             return this.configure($(e.currentTarget));
@@ -229,6 +229,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         addToCart: function () {
+            window.showGlobalOverlay();
             this.model.addToCart();
         },
         /*addToWishlist: function () {
@@ -373,6 +374,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.clearError();
             var email = this.$('[data-mz-role="email"]').val();
             if(this.validateEmail(email)) {
+                  window.showGlobalOverlay();
                 Api.create('instockrequest', {
                     email: email,
                     customerId: user.accountId,
@@ -382,7 +384,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     window.sucess = true;
                     saveNotification(self.model.get('productCode') || self.model.get('variationProductCode'));
                     self.render();
+                     window.hideGlobalOverlay();
                 }, function (xhr) {
+                     window.hideGlobalOverlay();
                     if(xhr.errorCode == "VALIDATION_CONFLICT"){
                         self.setError(Hypr.getLabel('notifyWidgetError'));
                     }else if(xhr.errorCode != "ITEM_ALREADY_EXISTS"){   
@@ -430,6 +434,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             Backbone.MozuView.prototype.render.apply(this);
         }
     });
+
     function getExistingNotifications() {
         return ($.cookie('mozustocknotify') || '').split(',');
     }
@@ -619,6 +624,18 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
+            var ax = $(document).find('#add-to-cart-scroll');
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+                ax.removeClass('gift-prize-select');
+                ax.removeAttr("disabled");
+                ax.removeClass("is-disabled");
+                ax.attr("data-mz-action","addToCart");
+                ax.attr("data-jb-price",newValue);
+            }else{ 
+                ax.addClass('gift-prize-select');
+                ax.text("Shop Gift Card");
+            }
         }
     
         var product = ProductModels.Product.fromCurrent();
@@ -631,7 +648,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"",
+                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"/cms/files/missing.gif?max=150",
                     qty = product.get('quantity');
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);
             } else {
@@ -689,31 +706,78 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             el: $('.related-section'),
             model: product
         });
- 
+
         window.productView = productView;
         window.productImagesView = productImagesView;
-        Api.request('GET', '/svc/related_products_UX?sku='+ require.mozuData("product").productCode).then(function(res) { 
-            product.set('relatedProducts', res);
-            console.log(res.totalCount);
-            if(res.totalCount>4)product.set('loadMore', true);
-            productView.render();  
-            productImagesView.render();
-            releatedProducts.render();
-            thumbnailCarousel();
-            if($(window).width()>767){
-                relatedProductsCarousel();
-            }
-        }, function(error) {  
-            product.set('relatedProducts', '');   
-            productView.render();
-            productImagesView.render();
-            releatedProducts.render();
-            console.log('handling the error');
-            thumbnailCarousel();
-            if($(window).width()>767){
-                relatedProductsCarousel();
-            }
+        Api.get('entity', {
+            "listName": "related-products-3",
+            "entityListFullName": "related-products-3@jbelly",
+            "startIndex": 0,
+            "pageSize": 1,
+            "filter": "sku eq " + require.mozuData('product').productCode
+        }).then(function(response) {
+            var related = response.data.items[0].body.related;
+            Api.get('products', {
+                "filter": related.map(function(sku){ return "ProductCode eq " + sku;}).join(" or ")
+            }).then(function(result) {
+                var relatedItems = result.data.items.map(function(product){
+                    return {
+                        "id": product.productCode,
+                        "productName": product.content.productName,
+                        "price": product.price.price,
+                        "salePrice": product.price.salePrice,
+                        "image": product.content.productImages[0].imageUrl
+                    };
+                });
+
+                product.set('relatedProducts', relatedItems);
+                if(result.data.totalCount>4)product.set('loadMore', true);
+                productView.render();
+                productImagesView.render();
+                releatedProducts.render();
+                thumbnailCarousel();
+                if($(window).width()>767){
+                    relatedProductsCarousel();
+                }
+            }, function(error) {
+                product.set('relatedProducts', '');
+                productView.render();
+                productImagesView.render();
+                releatedProducts.render();
+                console.error("GetProducts Error: ", error);
+                thumbnailCarousel();
+                if($(window).width()>767){
+                    relatedProductsCarousel();
+                }
+            });
+        }, function(error) {
+            console.error("GET ENTITY ERROR: ", error);
         });
+
+
+        // OLD RELATED PRODUCTS - PRE 2021
+        // Api.request('GET', '/svc/related_products_UX?sku='+ require.mozuData("product").productCode).then(function(res) {
+        //     product.set('relatedProducts', res);
+        //     console.log(res.totalCount);
+        //     if(res.totalCount>4)product.set('loadMore', true);
+        //     productView.render();  
+        //     productImagesView.render();
+        //     releatedProducts.render();
+        //     thumbnailCarousel();
+        //     if($(window).width()>767){
+        //         relatedProductsCarousel();
+        //     }
+        // }, function(error) {  
+        //     product.set('relatedProducts', '');   
+        //     productView.render();
+        //     productImagesView.render();
+        //     releatedProducts.render();
+        //     console.log('handling the error');
+        //     thumbnailCarousel();
+        //     if($(window).width()>767){
+        //         relatedProductsCarousel();
+        //     }
+        // });
         
         //AB testing modifications starts.         
 
@@ -1007,7 +1071,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     $('#cboxLoadedContent').css({
                         background : "#ffffff"
                     });
-                    $('#cboxClose').focus();
+                    $('#cboxClose').insertBefore("div[class*='free-shipping']").focus();
                     focusColorBox(); 
                 },
                 onClosed: function() {
@@ -1087,24 +1151,33 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }
     
         //scroll 
-        var deviceWidth = $(window).width(); 
+        var deviceWidth = $(window).width();
         if(deviceWidth>767){
             $(window).scroll(function(){
                 if ($(window).scrollTop() > $(".tab-header-sec").offset().top) {
                     $(document).find('.scroll-section').show();
                     $(document).find('.progress-bar').addClass('add-progress-bar');
+                    if ($(window).scrollTop() > $(".accordian-prod").position().top + $(".accordian-prod").innerHeight()) {
+                        $(document).find('.scroll-section').addClass("removeactiveCls"); 
+                    } else {
+                      $(document).find('.scroll-section').removeClass("removeactiveCls");   
+                    }
+
                 }
                 else {
                     $(document).find('.scroll-section').hide();
                     $(document).find('.progress-bar').removeClass('add-progress-bar');
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                 }
             });
         }else if(deviceWidth<768){
             $(window).scroll(function(){
                 if ($(window).scrollTop() > $(".accordian-list").offset().top) {
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                     $(document).find('.mobile-scroll-section').show();
                 }
                 else {
+                    $(document).find('.scroll-section').removeClass("removeactiveCls");  
                     $(document).find('.mobile-scroll-section').hide();
                 }
             });

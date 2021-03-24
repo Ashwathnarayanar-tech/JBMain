@@ -39,7 +39,7 @@
                 {% if model.price.onSale and model.savePrice %}  
                 {% endcomment %}
                     <div class="sales-rewards" tabindex="0" aria-label="Reward Points"> 
-                        <span>Purchase to earn  
+                        <span>Buy to earn  
                             <span id="zrl-conversion">
                                 {% if model.price.onSale %}
                                   {{ themeSettings.zinreloPointMultiplier|multiply(model.price.salePrice)|floatformat(0) }}

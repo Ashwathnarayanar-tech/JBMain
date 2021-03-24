@@ -130,7 +130,7 @@
             {% if option.attributeDetail.inputType == "List" %}
               <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices" {% if option.isMultiValue %}multiple{% endif %} class="" data-mz-product-option="{{ option.attributeFQN }}">
                 {% if not option.isMultiValue %}
-                  <option>Select gift amount</option>
+                  <option>Select Gift Card Amount</option>
                 {% endif %}
                 {% for value in option.values %}
                   <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %} value="{{value.value}}">
@@ -138,6 +138,8 @@
                   </option>
                 {% endfor %}
               </select>
+              <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;" width="13">
+              <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none;" width="13">
             {% endif %}  
           {% endfor %}
         {% else %}
@@ -170,8 +172,15 @@
         <style>
           img[src*='star-'] { width: 15px; height: 15px; display: inline-block; vertical-align: top; margin-right: 1px; }
         </style>
-        <div class="jb-stars-rating" tabindex="0">         
+        <div class="jb-stars-rating" tabindex="0" aria-label="star rating" >         
           {% with model.properties|findwhere('attributeFQN','tenant~rating') as rate %}
+            {% if not rate %}
+              <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt=""
+              ><img src="/resources/images/icons/star-empty.png" alt="">
+            {% endif %}
             {% for rating in rate.values %}
             {% if rating.value == 0 %} 
               <img src="/resources/images/icons/star-empty.png" alt="Average product rating of zero stars out of five possible stars"

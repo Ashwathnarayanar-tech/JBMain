@@ -1,0 +1,23 @@
+<nav id="header-gummies-nav">
+  <ul>
+    <li class="gummies-nav-item">
+      <a href="/">
+        <div class="jb-logo">
+          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1de6e67e-4768-45de-8bce-8f95dbd7a031?max=113" width="113" height="71" alt="Jelly Belly Homepage">
+        </div>
+      </a>
+    </li>
+    <li class="gummies-nav-item">
+      <a href="https://www.raleys.com/store-locator/" rel="noreferrer noopener" target="_blank" >Find a Store</a>
+    </li>
+  </ul>
+</nav>
+
+<section id="hero-wrapper">
+  <h1 class="gummies-hero-img desktop" tabindex="0">
+    <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/c6eab0de-df6a-479f-9be4-b93275f3731e" width="1920" height="960" alt="Jelly Belly Vegan Gummies">
+  </h1>
+  <h1 class="gummies-hero-img mobile" tabindex="0">
+    <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/33c15a48-172c-4a29-a5b5-046d16c68c8b" width="768" height="1246" alt="Jelly Belly Vegan Gummies">
+  </h1>
+</section>

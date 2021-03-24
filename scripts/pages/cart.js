@@ -81,6 +81,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
+                window.showGlobalOverlay();
                 Minicart.MiniCart.updateMiniCart();
                 window.qtyButtonToFocus = '.plus-prod-qty-cart';
                 // setTimeout(function() {
@@ -102,6 +103,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
+                window.showGlobalOverlay();
                 Minicart.MiniCart.updateMiniCart();
                 window.qtyButtonToFocus = '.minus-prod-qty-cart';
                 // setTimeout(function() {
@@ -126,6 +128,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
+                 window.showGlobalOverlay();
                 Minicart.MiniCart.updateMiniCart();
 
             }, 400),
@@ -137,19 +140,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             "touchstart .minus-prod-qty-cart": "decQty",
             "touchstart .plus-prod-qty-cart": "increseQty", 
             "click .coupon-text":"couponSlide",
-            'click .p-button-mobile':'paypal'
+            'click .p-button-mobile':'paypal',
+            "click .estimateShippingCost":"showShipplingCalculator",
+            "keyup #shippingzipcode":"onEntershippingzipcode"
         },
         removeCoupon: function(e) {
             var self = this,
                 removedCoupon,
                 couponCodes = self.model.get('couponCodes');
-
+            window.showGlobalOverlay();
             $.each(couponCodes, function(i, o) {
                 self.model.apiRemoveCoupon(o).then(function(res) {
                     $.cookie('coupon', '', {
                         path: '/',
                         expires: 7
                     });
+                    window.hideGlobalOverlay();
+                }).catch(function(err){
+                    window.hideGlobalOverlay();
                 });
             });
             $('#cart-checkout').focus();
@@ -194,9 +202,27 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
             }
         },*/ 
+        showShipplingCalculator:function(e){
+            $(".estimateShippingCost").addClass("estimateShippingCost-onshow");
+            $('#estimateShippingCost-entry').removeClass('inactive');
+            $('#estimateShippingCost-entry').addClass('active');
+            $(document.getElementById("shippingzipcode")).focus();
+            $("#estimateShippingCost-success").hide();
+            $('#estimateShippingCost-failure').hide();
+            $('#shippingzipcode-btn').prop('disabled', true);
+            this.shippingcodeEntered = false;
+        },
         render:function(){
 
-            //this.model.checkBOGA();  
+            //this.model.checkBOGA(); 
+            console.log(" Hypr.getThemeSetting('isshippingCalculationEnabled') ===",Hypr.getThemeSetting('isshippingCalculationEnabled'));
+           var isshippingCalculationEnabled = Hypr.getThemeSetting('isshippingCalculationEnabled');
+           if(!window.isshippingCalculationEnabled){
+                window.isshippingCalculationEnabled = isshippingCalculationEnabled;
+           }
+            if(window.isshippingCalculationEnabled){
+                this.model.set('isshippingCalculationEnabled', window.isshippingCalculationEnabled); 
+            }  
             Minicart.MiniCart.updateMiniCart();
             preserveElement(this, ['.p-button'], function() {
                 Backbone.MozuView.prototype.render.call(this);
@@ -223,6 +249,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         removeItem: function(e) {
             var $removeButton = $(e.currentTarget),
                 id = $removeButton.data('mz-cart-item');
+            window.showGlobalOverlay();
             this.model.removeItem(id);
             Minicart.MiniCart.updateMiniCart();
 			//brontoObj.build(Api);
@@ -255,9 +282,11 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 			var self = this;
 			if(this.model.get('couponCodes').length< 1){
 				var addedCoupon = self.model.get('couponCode');
+                 window.showGlobalOverlay();
 				this.model.addCoupon().ensure(function () {
 					self.model.unset('couponCode');
 					self.render();
+                     window.hideGlobalOverlay();
 				});
 				$.cookie("coupon", addedCoupon , { path: '/', expires: 7 });
 				$('#cart-checkout').focus();
@@ -292,6 +321,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 this.$el.find('#cart-coupon-code').removeClass("active-button");
             }
         },
+        onEntershippingzipcode:function(e){
+            var code = $("#shippingzipcode").val();
+            if (code && !this.shippingcodeEntered) {
+                this.shippingcodeEntered = true;
+                this.$el.find('#shippingzipcode-btn').prop('disabled', false);
+               // this.$el.find('#shippingzipcode-btn').addClass("active-button");
+            }
+            if (!code && this.shippingcodeEntered) {
+                this.shippingcodeEntered = false;
+                this.$el.find('#shippingzipcode-btn').prop('disabled', true);
+               // this.$el.find('#cshippingzipcode-btn').removeClass("active-button");
+            }
+            $('#estimateShippingCost-failure').hide();
+            console.log(" e-----",e.which);
+            if (e.which === 13 && this.shippingcodeEntered) {
+                $("#shippingzipcode-btn").click();
+            }
+        },
         autoUpdate: [
             'couponCode'
         ],
@@ -299,20 +346,21 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             this.addCoupon();
         },
 
-        /*estimateShip: function(e) {
+        estimateShip: function(e) {
                 var self = this;
                 //var stringmethods = Hypr.getThemeSetting('shippingMethods');
                 //var shippingMethods = stringmethods.split(',');
                 e.preventDefault();
                 var zipPat = /^\d{5}(?:[-\s]\d{4})?$/;
-
+                var zip = $('#shippingzipcode').val();
                 $(e.currentTarget).addClass('is-loading');
-                if (zipPat.test($('#shipping-zip').val())) {
+                if (zipPat.test($('#shippingzipcode').val())) {
 
                     $('#ziperror').hide();
+                    self.$el.find('#shippingzipcode-btn').prop('disabled', true);
                     var cartData = this.model.apiModel.data;
 
-                    $.cookie('zip', $('#shipping-zip').val());
+                    $.cookie('zip', $('#shippingzipcode').val());
 
                     if (cartData.isEmpty !== true) {
                         var itemArr = [];
@@ -322,24 +370,26 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             var item = {};
                             item.quantity = obj.quantity;
                             item.shipsByItself = false;
-                            item.unitMeasurements = {
-                                "height": {
-                                    "unit": obj.product.measurements.height.unit,
-                                    "value": obj.product.measurements.height.value
-                                },
-                                "length": {
-                                    "unit": obj.product.measurements.length.unit,
-                                    "value": obj.product.measurements.length.value
-                                },
-                                "weight": {
-                                    "unit": obj.product.measurements.weight.unit,
-                                    "value": obj.product.measurements.weight.value
-                                },
-                                "width": {
-                                    "unit": obj.product.measurements.width.unit,
-                                    "value": obj.product.measurements.width.value
-                                }
-                            };
+                            if(obj.product && obj.product.measurements){
+                                item.unitMeasurements = {
+                                    "height": {
+                                        "unit": obj.product.measurements.height ? obj.product.measurements.height.unit:"",
+                                        "value": obj.product.measurements.height ? obj.product.measurements.height.value :""
+                                    },
+                                    "length": {
+                                        "unit": obj.product.measurements.length ? obj.product.measurements.length.unit:"",
+                                        "value": obj.product.measurements.length ? obj.product.measurements.length.value:""
+                                    },
+                                    "weight": {
+                                        "unit": obj.product.measurements.weight ? obj.product.measurements.weight.unit :"",
+                                        "value": obj.product.measurements.weight ? obj.product.measurements.weight.value:""
+                                    },
+                                    "width": {
+                                        "unit": obj.product.measurements.width ? obj.product.measurements.width.unit :"",
+                                        "value": obj.product.measurements.width ? obj.product.measurements.width.value:""
+                                    }
+                                };
+                            }
                             itemArr.push(item);
                         });
                         var now = new Date();
@@ -356,7 +406,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             "carrierIds": ['ups'],
                             "destinationAddress": {
                                 "countryCode": "US",
-                                "postalOrZipCode": $('#shipping-zip').val()
+                                "postalOrZipCode": $('#shippingzipcode').val()
                             },
 
                             "isDestinationAddressCommercial": true,
@@ -372,14 +422,16 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             //"shippingServiceTypes": ["ups_UPS_GROUND","ups_UPS_SUREPOST_LESS_THAN_1LB","ups_UPS_SUREPOST_1LB_OR_GREATER","ups_UPS_THREE_DAY_SELECT","ups_UPS_SECOND_DAY_AIR","ups_UPS_NEXT_DAY_AIR_SAVER"] //shippingMethods
                         };
                         var amount = false;
+                         window.showGlobalOverlay();
                         Api.request('POST', {
                             url: '/api/commerce/catalog/storefront/shipping/request-rates',
                             iframeTransportUrl: 'https://' + document.location.host + '/receiver?receiverVersion=2'
                         }, responsefiled1).then(function(resp) {
-                            $('#shipping-zip').val("");
+                            $('#shippingzipcode').val("");
                             $('#estimateShip').removeClass('is-loading');
                             $('#estimateShip').attr('disabled', 'disabled');
                             $('#estimateradio').html('');
+                            self.$el.find('#shippingzipcode-btn').prop('disabled', false);
                             for (var i = 0; i < resp.rates[0].shippingRates.length; i++) {
                                 if (resp.rates[0].shippingRates[i].amount !== undefined) {
                                     amount = true;
@@ -389,6 +441,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             if (!amount) {
                                 $('#ziperror').show();
                             }
+                             window.hideGlobalOverlay();
                             $.each(resp.rates, function(index, val) {
                                 var shippingAmount = [];
                                 for (var i = 0; i < val.shippingRates.length; i++) {
@@ -401,7 +454,26 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                         return a.amount - b.amount;
                                     }
                                 });
-                                sortedRates = _.map(sortedRates, function(method) {
+                                var shippingGroundAmount = 0;
+                                for(var l=0;l<sortedRates.length;l++){
+                                    if(sortedRates[l].code === "ups_UPS_SUREPOST_LESS_THAN_1LB" && sortedRates[l].amount!==undefined){
+                                        shippingGroundAmount = sortedRates[l].amount;
+                                    }
+                                    else if(sortedRates[l].code === "ups_UPS_SUREPOST_1LB_OR_GREATER" && sortedRates[l].amount!==undefined){
+                                        shippingGroundAmount = sortedRates[l].amount;
+                                    }
+                                }
+                                if(shippingGroundAmount > 0){
+                                    var str = " SurePost Shipping to <b>"+zip +"</b>(estimate): <b> $"+shippingGroundAmount+"</b>";
+                                    $("#estimateShippingCost-success").show();
+                                    $("#estimateShippingCost-success").html(str);
+                                    $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
+                                    $('#estimateShippingCost-entry').addClass('inactive');
+                                    $('#estimateShippingCost-entry').removeClass('active');
+                                    $('#estimateShippingCost-failure').hide();
+                                    $("#estimateShippingCost-success").focus();
+                                }
+                               /* sortedRates = _.map(sortedRates, function(method) {
                                     if (method.code.indexOf("SUREPOST") > -1)
                                         method.content.name = "UPS SurePost®";
                                     return method;
@@ -416,9 +488,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                             $('#estimateradio').append("<div class='mleft18 '><input type='radio' name='shippingmethod' data-mz-value = 'shippingMethodCode' aria-label= "+ o.code +" data-mz-price = " + o.amount + " value =" + o.code + "/><span style='margin-left:10px;'>" + o.content.name + " - " + "$" + o.amount.toFixed(2) + "</span></div>");
                                         }
                                     }
-                                });
+                                });*/
                             });
-                            $('input[type=radio]').change(function(e) {
+                            /*$('input[type=radio]').change(function(e) {
 
                                 var price = $(this).data('mz-price');
                                 var estimatedPriceWithShipping = 0;
@@ -438,20 +510,36 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                 $('.estimateprice').append("<span class='mleft18 order-total'><span class='estimate-total'>Total With Shipping:</span><span id='mz-carttable-total' class='mz-carttable-total jb-carttotalwithshipping'> $" + estimatedPriceWithShipping + "</span></span>");
                                 
                                 $('[data-mz-value="shippingMethodCode"]').attr('aria-label','Total With Shipping: $'+estimatedPriceWithShipping);
-                            });
+                            });*/
                             /*if($('input[type=radio]').length > 0)
                                 $('input[type=radio]')[0].focus();*/
+
                                 
-           /*         });
+                                
+                   }).catch(function(error) {
+                    console.log("error ---",error);
+                     window.hideGlobalOverlay();
+                    $('#shippingzipcode').val("");
+                    $("#estimateShippingCost-success").show();
+                    $("#estimateShippingCost-success").html(error && error.message);
+                    $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
+                    $('#estimateShippingCost-entry').addClass('inactive');
+                    $('#estimateShippingCost-entry').removeClass('active');
+                    $('#estimateShippingCost-failure').hide();
+                    $("#estimateShippingCost-success").focus();
+
+                   });
+
                     }
                 } else {
-                    $('#ziperror').show();
-                    $('#estimateradio').html('');
+                    $('#estimateShippingCost-failure').show();
+                    $('#estimateShippingCost-failure').html('Entered Zip code is wrong ');
                     $('#estimateShip').removeClass('is-loading');
+                    $("#estimateShippingCost-failure").focus();
 
-                    return;
+                    return false;
                 }
-        },*/
+        },
         checkInventory: function() {
             var error = 0,
             items = this.model.apiModel.data.items,
@@ -498,7 +586,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         addToCart:function(e){
             var productCode = $(e.currentTarget).attr('data-mz-prcode'),self = this,//addProduct = true,
             $target = $(e.currentTarget);
-            $('.mz-l-pagewrapper').addClass('is-loading');
+          //  $('.mz-l-pagewrapper').addClass('is-loading');
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-wish').val();
             var count = parseInt($quantity,10);
             var items = window.cartView.model.get('items').models;
@@ -511,6 +599,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //     }
             // }
            // if(addProduct){
+            window.showGlobalOverlay();
                 Api.get('product', productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     if(PRODUCT.get('purchasableState').isPurchasable){
@@ -528,12 +617,14 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                                     self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                                 },2000);
                             }else{
+                                window.hideGlobalOverlay();
                                $('.mz-l-pagewrapper').removeClass('is-loading');
                             }
                         }else{
                             self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                         }
                     }else{
+                        window.hideGlobalOverlay();
                         self.outOfStock(e,productCode,PRODUCT);
                     }
                 });
@@ -546,6 +637,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             PRODUCT.addToCart(1); 
             var myMata = PRODUCT,self = this;
             PRODUCT.on('addedtocart', function(attr) {
+                window.hideGlobalOverlay();
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 CartMonitor.update();
                 PRODUCT = '';
@@ -563,6 +655,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 brontoObj.build(Api);
             });
             Api.on('error', function (badPromise, xhr, requestConf) {
+                window.hideGlobalOverlay();
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.Add-to-cart-popup').removeClass("active");
                 $(document).find('body').removeClass("noScroll");
@@ -680,9 +773,13 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
            if(e.keyCode == 13) {
 			location.href='/online-candy-store';  
 			}
-		});
-        var cartModel = window.cartModel = CartModels.Cart.fromCurrent(),
-        cartView = new CartView({
+		}); 
+     var cartModel = window.cartModel = CartModels.Cart.fromCurrent();
+     var pageModel = window.getDeviceMode();
+     window.currentMode = window.getcurrentMode(pageModel);
+     cartModel.attributes.pageContext = pageModel;
+     console.log("cart model ---",cartModel);
+     var cartView = new CartView({
             el: $('#cart'),
             model: cartModel,
             messagesEl: $('[data-mz-message-bar]')
@@ -844,6 +941,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
             
             var count = parseInt($quantity,10);
+             window.showGlobalOverlay();
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;
@@ -861,11 +959,15 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                         },2000);
                     }else{
                         $('#mybuyspagezone3').removeClass('is-loading');
+                         window.hideGlobalOverlay();
                     }
                 }else{
                     addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                 }
-            });
+             }).catch(function(err){
+                 console.log("exception err while getting items ",err);
+                 window.hideGlobalOverlay();
+             });
           });
 	
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
@@ -875,6 +977,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             $(document).find('.RTI-overlay').addClass('active');
             PRODUCT.addToCart(1);
             PRODUCT.on('addedtocart', function(attr) {
+                window.hideGlobalOverlay();
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
 				CartMonitor.update();
@@ -894,6 +997,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 brontoObj.build(Api);
             });
             Api.on('error', function (badPromise, xhr, requestConf) { 
+                window.hideGlobalOverlay();
                 $('#mybuyspagezone3').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
                 $('.mz-l-pagewrapper').removeClass('is-loading');
@@ -1168,6 +1272,13 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 $('#notify-me-button').trigger('click');
                 return false;
             } 
+        });
+        $(window).on('resize orientationchange', function(){
+             console.log(" event resize cart page ");
+            // getScreenOrientation();
+            var pageModel = window.getDeviceMode();
+            window.cartView.model.set('pageContext',pageModel);
+            window.cartView.render();
         });
     });
 });

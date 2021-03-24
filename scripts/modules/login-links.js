@@ -201,6 +201,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }
         },  
         displayApiMessage: function (xhr) {
+             window.hideGlobalOverlay();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var patt = new RegExp(re);
             if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND" ){
@@ -318,6 +319,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         login: function () {
             this.setLoading(true);
             this.validData();
+            window.showGlobalOverlay(); 
             api.action('customer', 'loginStorefront', {
                 email: this.$parent.find('[data-mz-login-email]').val(),
                 password: this.$parent.find('[data-mz-login-password]').val()
@@ -362,36 +364,51 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                      break;
            }
 
-          this.setLoading(true);
+          //this.setLoading(true);
             // the new handle message needs to take the redirect.
 			var updatedbillingPhoneNumber = null;
             if(billingPhoneNumber!==null){
                 updatedbillingPhoneNumber = billingPhoneNumber.replace(/[^0-9]/g, "");
             }
             var orderNumber = this.$parent.find('[data-mz-order-number]').val(),self = this;
-            api.action('customer', 'orderStatusLogin', {
-                ordernumber: orderNumber,
-                email: email,
-                billingZipCode: billingZipCode,
-                billingPhoneNumber: updatedbillingPhoneNumber
-            }).then(function () { 
-                window.location.href = "/my-anonymous-account"; 
-            }, function(err){
-                if(billingPhoneNumber!==null){
-                    api.action('customer', 'orderStatusLogin', {
-                        ordernumber: orderNumber,
-                        email: email,
-                        billingZipCode: billingZipCode,
-                        billingPhoneNumber: billingPhoneNumber
-                   }).then(function () { 
-                        window.location.href = "/my-anonymous-account";
-                   },function(err){
-                    _.bind(self.retrieveErrorLabel,self)(err);
-                   });
-                }else{
-                    _.bind(self.retrieveErrorLabel,self)(err);
-                }
-            });
+            if((billingPhoneNumber === null && email !==null ) || (billingPhoneNumber !== null && email === null) )
+            {
+                window.showGlobalOverlay();
+                api.action('customer', 'orderStatusLogin', {
+                    ordernumber: orderNumber,
+                    email: email,
+                    billingZipCode: billingZipCode,
+                    billingPhoneNumber: updatedbillingPhoneNumber
+                }).then(function () { 
+                    //window.hideGlobalOverlay();
+                    window.location.href = "/my-anonymous-account"; 
+                }, function(err){
+                    if(billingPhoneNumber!==null){
+                        api.action('customer', 'orderStatusLogin', {
+                            ordernumber: orderNumber,
+                            email: email,
+                            billingZipCode: billingZipCode,
+                            billingPhoneNumber: billingPhoneNumber
+                    }).then(function () { 
+                            window.location.href = "/my-anonymous-account";
+                    },function(err){
+                        window.hideGlobalOverlay();
+                        var response = err;
+                        if(typeof(err) === "string"){
+                            response = {message:err};
+                        }
+                        _.bind(self.retrieveErrorLabel,self)(response);
+                        });
+                    }else{
+                        window.hideGlobalOverlay();
+                        var response = err;
+                        if(typeof(err) === "string"){
+                            response = {message:err};
+                        }
+                        _.bind(self.retrieveErrorLabel,self)(response);
+                    }
+                });
+            }    
         },
         validData: function(){
             var validity = true;
@@ -421,6 +438,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 this.$parent.find('[data-mz-forgotpassword-email]').css({'border':'1px solid #c2c2c2'});
             }
+            window.showGlobalOverlay();
             api.action('customer', 'resetPasswordStorefront', {
                 EmailAddress: this.$parent.find('[data-mz-forgotpassword-email]').val()
             }).then(_.bind(this.displayResetPasswordMessage,this), this.displayApiMessage);
@@ -440,8 +458,10 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 window.location = '/';
             }
+             window.hideGlobalOverlay();
         },
         displayResetPasswordMessage: function () {
+            window.hideGlobalOverlay();
             this.displayMessage(Hypr.getThemeSetting('resetEmailSent'));
             $('.mz-validationmessage').css({'color':'#6CCB51'});
         }
@@ -496,9 +516,13 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if (this.validData() && this.validate(payload)) {
                 //var user = api.createSync('user', payload);
                 this.setLoading(true);
+                 window.showGlobalOverlay();
                 return api.action('customer', 'createStorefront', payload).then(function () {
                     window.location = '/myaccount';
-                }, self.displayApiMessage);
+                }, self.displayApiMessage)
+                 .catch(function(err){
+                    window.hideGlobalOverlay();
+                });
             }
         },
         validData: function(){
@@ -568,6 +592,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(flag){
                 $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li>'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
             }else{
+                 window.showGlobalOverlay();
                 $(document).find('form.reset-password-form').find('.mz-button-large').click();   
             }
         });

@@ -622,7 +622,7 @@
                                     </div>
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" original-al="Jelly Belly assorted gift bags">
-                                            <div><span class="name-span">Gift Baskets (Assorted)</span></div>
+                                            <div><span class="name-span">Gift Baskets & Bundles (Assorted)</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
@@ -891,7 +891,7 @@
                                     </div>-->
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" original-al="Gift Baskets">
-                                            <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
+                                            <div class="namespan-container"><span class="name-span">Gift Baskets & Bundles</span></div>
                                         </a>
                                     </div>
                                     <!--<div class="subitem">
@@ -1034,12 +1034,12 @@
                             <li class="sunmenu-container active" data-attr="Flavor-Guides">
                                 <div class="submenu-list Flavor-Guides">
                                     <div class="subitem">
-                                        <a href="/c/335#flavor-List" original-al="Jelly Belly Official Flavors">
+                                        <a href="/jelly-belly-jelly-beans/c/335#flavor-List" original-al="Jelly Belly Official Flavors">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/341#flavor-List" original-al="BeanBoozled&reg; 5th Edition">
+                                        <a href="/beanboozled-jelly-beans/c/341#flavor-List" original-al="BeanBoozled&reg; 5th Edition">
                                             <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
                                         </a>
                                     </div>
@@ -1061,81 +1061,81 @@
                                     </div>
                                     {% endcomment %}
                                     <div class="subitem">
-                                        <a href="/c/721#flavor-List" original-al="Krispy Kreme Doughn&reg;">
+                                        <a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721#flavor-List" original-al="Krispy Kreme Doughn&reg;">
                                             <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts<sup>&reg;</sup></span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/560#flavor-List" original-al="Organic Jelly Beans">
+                                        <a href="/organic-jelly-beans/c/560#flavor-List" original-al="Organic Jelly Beans">
                                             <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/46#flavor-List" original-al="Jewel Jelly Beans">
+                                        <a href="/jewel-jelly-beans/c/46#flavor-List" original-al="Jewel Jelly Beans">
                                             <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/234#flavor-List" original-al="Jelly Belly Kids Mix">
+                                        <a href="/kids-mix-jelly-beans/c/234#flavor-List" original-al="Jelly Belly Kids Mix">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/879#flavor-List" original-al="Sunkist&reg; Citrus Flavors">
+                                        <a href="/sunkist-citris-mix-jelly-beans/c/879#flavor-List" original-al="Sunkist&reg; Citrus Flavors">
                                             <div class="namespan-container"><span class="name-span">Sunkist<sup>&reg;</sup> Citrus Flavors</span></div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="submenu-list Flavor-Guides">
                                     <div class="subitem">
-                                        <a href="/c/884#flavor-List" original-al="Soda Pop Shoppe&reg; Flavors">
+                                        <a href="/soda-pop-shoppe/c/884#flavor-List" original-al="Soda Pop Shoppe&reg; Flavors">
                                             <div class="namespan-container"><span class="name-span">Soda Pop Shoppe<sup>&reg;</sup> Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/223#flavor-List" original-al="Snapple&trade; Flavors">
+                                        <a href="/snapple-jelly-beans/c/223#flavor-List" original-al="Snapple&trade; Flavors">
                                             <div class="namespan-container"><span class="name-span">Snapple<sup>&trade;</sup> Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/157#flavor-List" original-al="Cold St&reg;">
+                                        <a href="/cold-stone-jelly-beans/c/157#flavor-List" original-al="Cold St&reg;">
                                             <div class="namespan-container"><span class="name-span">Cold Stone<sup>&reg;</sup></span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/471#flavor-List" original-al="Superfruit">
+                                        <a href="/superfruit-jelly-beans/c/471#flavor-List" original-al="Superfruit">
                                             <div class="namespan-container"><span class="name-span">Superfruit</span></div>
                                         </a>
                                     </div>                              
                                     <div class="subitem">
-                                        <a href="/c/336#flavor-List" original-al="Sport Beans&reg; Flavors">
+                                        <a href="/sport-beans-jelly-beans/c/336#flavor-List" original-al="Sport Beans&reg; Flavors">
                                             <div class="namespan-container"><span class="name-span">Sport Beans<sup>&reg;</sup> Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/228#flavor-List" original-al="Cocktail Classi&reg;">
+                                        <a href="/cocktail-classics-jelly-beans/c/228#flavor-List" original-al="Cocktail Classi&reg;">
                                             <div class="namespan-container"><span class="name-span">Cocktail Classics<sup>&reg;</sup></span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/472#flavor-List" original-al="Sour Flavors">
+                                        <a href="/sours-jelly-beans/c/472#flavor-List" original-al="Sour Flavors">
                                             <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="submenu-list Flavor-Guides">
                                     <div class="subitem">
-                                        <a href="/c/338#flavor-List" original-al="Jelly Belly Sugar-Free Flavors">
+                                        <a href="/sugar-free-candy/c/338#flavor-List" original-al="Jelly Belly Sugar-Free Flavors">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/633#flavor-List" original-al="Harry Potter&trade; Bertie Bott's">
+                                        <a href="/harry-potter-bertie-bott-s-every-flavour-beans/c/633#flavor-List" original-al="Harry Potter&trade; Bertie Bott's">
                                             <div class="namespan-container"><span class="name-span">Harry Potter<sup>&trade;</sup> Bertie Bott's</span></div>
                                         </a>
                                     </div> 
                                     <div class="subitem">
-                                        <a href="/c/297#flavor-List" original-al="Tropical Mix">
+                                        <a href="/tropical-flavored-candy-and-jelly-beans/c/297#flavor-List" original-al="Tropical Mix">
                                             <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
                                         </a>
                                     </div>
@@ -1465,11 +1465,11 @@
                                             <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
                                         </a>
                                     </div>
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <a href="/wisconsin-candy-store" original-al="Wisconsin Visitors Center Store">
                                             <div class="namespan-container"><span class="name-span">Wisconsin Visitors Center Store</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                 </div> 
                                 <div class="submenu-list dropzone-sec">
                                     {% dropzone "widgete-Company-Retail-Stores" scope="site" %}
@@ -2152,7 +2152,7 @@
                                     </div>
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" original-al="Jelly Belly assorted gift bags">
-                                            <div><span class="name-span">Gift Baskets (Assorted)</span></div>
+                                            <div><span class="name-span">Gift Baskets & Bundles (Assorted)</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
@@ -2364,7 +2364,7 @@
                                     </div>-->
                                     <div class="subitem">
                                         <a href="/gift-basket/c/302" original-al="Gift Baskets">
-                                            <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
+                                            <div class="namespan-container"><span class="name-span">Gift Baskets & Bundles</span></div>
                                         </a>
                                     </div>
                                     <!--<div class="subitem">
@@ -2531,12 +2531,12 @@
                             <li class="sunmenu-container" data-attr="Flavor-Guides">
                                 <div class="submenu-list Flavor-Guides">
                                     <div class="subitem">
-                                        <a href="/c/335#flavor-List" original-al="Jelly Belly Official Flavors">
+                                        <a href="/jelly-belly-jelly-beans/c/335#flavor-List" original-al="Jelly Belly Official Flavors">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/341#flavor-List" original-al="BeanBoozled&reg; 5th Edition">
+                                        <a href="/beanboozled-jelly-beans/c/341#flavor-List" original-al="BeanBoozled&reg; 5th Edition">
                                             <div class="namespan-container"><span class="name-span">BeanBoozled&reg; 5th Edition </span></div>
                                         </a>
                                     </div>
@@ -2558,77 +2558,77 @@
                                     </div>
                                     {% endcomment %}
                                     <div class="subitem">
-                                        <a href="/c/721#flavor-List" original-al="Krispy Kreme Doughnuts&reg;">
+                                        <a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721#flavor-List" original-al="Krispy Kreme Doughnuts&reg;">
                                             <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts&reg;</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/560#flavor-List" original-al="Organic Jelly Beans">
+                                        <a href="/organic-jelly-beans/c/560#flavor-List" original-al="Organic Jelly Beans">
                                             <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/46#flavor-List" original-al="Jewel Jelly Beans">
+                                        <a href="/jewel-jelly-beans/c/46#flavor-List" original-al="Jewel Jelly Beans">
                                             <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/234#flavor-List" original-al="Jelly Belly Kids Mix">
+                                        <a href="/kids-mix-jelly-beans/c/234#flavor-List" original-al="Jelly Belly Kids Mix">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/879#flavor-List" original-al="Sunkist&reg; Citrus Flavors">
+                                        <a href="/sunkist-citris-mix-jelly-beans/c/879#flavor-List" original-al="Sunkist&reg; Citrus Flavors">
                                             <div class="namespan-container"><span class="name-span">Sunkist&reg; Citrus Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/884#flavor-List" original-al="Soda Pop Shoppe&reg; Flavors">
+                                        <a href="/soda-pop-shoppe/c/884#flavor-List" original-al="Soda Pop Shoppe&reg; Flavors">
                                             <div class="namespan-container"><span class="name-span">Soda Pop Shoppe&reg; Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/223#flavor-List" original-al="Snapple&trade; Flavors">
+                                        <a href="/snapple-jelly-beans/c/223#flavor-List" original-al="Snapple&trade; Flavors">
                                             <div class="namespan-container"><span class="name-span">Snapple&trade; Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/157#flavor-List" original-al="Cold Stone&reg;">
+                                        <a href="/cold-stone-jelly-beans/c/157#flavor-List" original-al="Cold Stone&reg;">
                                             <div class="namespan-container"><span class="name-span">Cold Stone&reg;</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/471#flavor-List" original-al="Superfruit">
+                                        <a href="/superfruit-jelly-beans/c/471#flavor-List" original-al="Superfruit">
                                             <div class="namespan-container"><span class="name-span">Superfruit</span></div>
                                         </a>
                                     </div>                              
                                     <div class="subitem">
-                                        <a href="/c/336#flavor-List" original-al="Sport Beans&reg; Flavors">
+                                        <a href="/sport-beans-jelly-beans/c/336#flavor-List" original-al="Sport Beans&reg; Flavors">
                                             <div class="namespan-container"><span class="name-span">Sport Beans&reg; Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/228#flavor-List" original-al="Cocktail Classics&reg;">
+                                        <a href="/cocktail-classics-jelly-beans/c/228#flavor-List" original-al="Cocktail Classics&reg;">
                                             <div class="namespan-container"><span class="name-span">Cocktail Classics&reg;</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/472#flavor-List" original-al="Sour Flavors">
+                                        <a href="/sours-jelly-beans/c/472#flavor-List" original-al="Sour Flavors">
                                             <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/338#flavorList" original-al="Jelly Belly Sugar-Free Flavors">
+                                        <a href="/sugar-free-candy/c/338#flavorList" original-al="Jelly Belly Sugar-Free Flavors">
                                             <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
                                         </a>
                                     </div>
                                     <div class="subitem">
-                                        <a href="/c/633#flavor-List" original-al="Harry Potter&trade; Bertie Bott's">
+                                        <a href="/harry-potter-bertie-bott-s-every-flavour-beans/c/633#flavor-List" original-al="Harry Potter&trade; Bertie Bott's">
                                             <div class="namespan-container"><span class="name-span">Harry Potter&trade; Bertie Bott's</span></div>
                                         </a>
                                     </div> 
                                     <div class="subitem">
-                                        <a href="/c/297#flavor-List" original-al="Tropical Mix">
+                                        <a href="/tropical-flavored-candy-and-jelly-beans/c/297#flavor-List" original-al="Tropical Mix">
                                             <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
                                         </a>
                                     </div>
@@ -3005,11 +3005,11 @@
                                             <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
                                         </a>
                                     </div>
-                                    <div class="subitem">
+                                    <!--<div class="subitem">
                                         <a href="/wisconsin-candy-store" original-al="Wisconsin Visitors Center Store">
                                             <div class="namespan-container"><span class="name-span">Wisconsin Visitors Center Store</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <div class="subitem back-to-menu">
                                         <span class="close-menu-icon" tabindex="0" role="button" original-al="close menu"> 
                                             <img src="/../resources/images/close_menu_icon.png" alt="close-icon">

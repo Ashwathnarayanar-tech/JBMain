@@ -30,8 +30,8 @@
     <div class="related-section">
         {% include "modules/product/details-acc-sec" %}
     </div>
-    <div class="description-section">  
-        {% include "modules/product/details-tab-sec" %}
+    <div class="description-section"> 
+     {% include "modules/product/details-tab-sec" %}
     </div>
      
   </div>

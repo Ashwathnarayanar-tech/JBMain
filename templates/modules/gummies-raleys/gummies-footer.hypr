@@ -1,0 +1,14 @@
+<footer class="footer-wrapper">
+  <div class="available-at">
+    <span>Available at:</span>
+    <div class="img-container">
+      <a href="https://www.raleys.com/store-locator/" rel="noreferrer noopener" target="_blank" >
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d5b7a921-bbd6-4f02-9e9c-aae62537cc35" width="561" height="87" alt="Raley's. Bel Air. Nob Hill Foods">
+      </a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <p>&#169;2021 Jelly Belly Candy Company. All Rights Reserved</p>
+  </div>
+</footer>

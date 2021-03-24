@@ -1,13 +1,13 @@
 
-{% if model.content.productImages %} 
-<figure class="mz-productimages-main" id="jb-images">  
+{% if model.content.productImages.length > 0 %} 
+<div class="mz-productimages-main" id="jb-images">  
     <img tabindex="0" role="button" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ model.mainImage.imageUrl }}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
     <div class="mz-desktop image-enlarge">
       <img class="mz-zoom-icon" src="/resources/images/zoom_icon.png" alt="Enlarge image icon" width="22" />   
       <figcaption role="button" tabindex="0">Click on image to enlarge</figcaption> 
     </div>    
-</figure>       
-<figure class="mz-productimages-thumbs">   
+</div>       
+<div class="mz-productimages-thumbs">   
     {% for image in model.content.productImages %} 
         <a role="button" class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
             <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail {{ forloop.index }}"/>
@@ -24,9 +24,14 @@
             {% endfor %}
         {% endif %}  
     {% endfor %}
-</figure>
+</div>
 {% else %}
-<span class="mz-productimages-noimage">[{{ labels.noImages}}]</span>
+<div class="mz-productimages-main" id="jb-images">  
+    <img tabindex="0" role="button" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
+</div>  
+{% comment %}
+    <span class="mz-productimages-noimage">[{{ labels.noImages}}]</span>
+{% endcomment %}
 {% endif %}
 
 

@@ -105,7 +105,7 @@
             background-color: #fff;
             padding: 0;
             margin-top: 3px;
-            .mz-l-container{
+            .mz-l-container,.categorytops{
                 .mz-pagetitle{
                     width: 402px;
                     font-size: 28px;
@@ -259,13 +259,13 @@
                                                                 padding: 0;
                                                                 margin: 0 auto;
                                                                 margin-top: 40px;
-                                                                text-align: center;
+                                                                text-align: left;
                                                                 a{
                                                                     display: inline-block;
                                                                     width: 14%;
                                                                     text-decoration: none;
                                                                     vertical-align: top;
-                                                                    height: 60px;
+                                                                    height: auto;
                                                                     .jb-childChildrenCategory{
                                                                         width: 100%;
                                                                         height: auto;
@@ -514,6 +514,390 @@
                         }
                     }
                     .a-spot-cointainer{
+                            width: 100%;
+                            position: relative;
+                            height: 500px;
+                            overflow: hidden;
+                            img{
+                                width: 100%;
+                                position: absolute;
+                                width: auto;
+                            }
+                            .A-spotContent{
+                                position: absolute;
+                                padding: 30px;
+                                color: white;
+                                left: 0;
+                                width: 600px;
+                                .a-spotContentHeading{
+                                    font-size: 2.3vw;
+                                    font-weight: 700;
+                                    line-height: 3vw;
+                                    text-transform: uppercase;
+                                    color: #fff;
+                                    text-overflow: ellipsis;
+                                    margin: 30px 25px 0 0;
+                                }
+                                .a-spotText{
+                                    font-size: 1.2vw;
+                                    /*height: 100px;*/
+                                    overflow: hidden;
+                                    margin: 20px 0;
+                                    font-weight: 300;
+                                }
+                                .a-spotButtons{
+                                    text-align: left;
+                                    margin: 30px 0;
+                                    display: block;
+                                    .button-light{
+                                        font-size: 18px;
+                                        background-color: #FFF;
+                                        color: #000;
+                                        text-decoration: none;
+                                        padding: 9.5px 35px;
+                                        text-transform: uppercase;
+                                        font-weight: 700;
+                                        border-radius: 4px;
+                                    }
+                                }
+                            }
+                        } 
+                    .brand-dicreption{
+                        margin-bottom: 50px;
+                        
+                        .flavor-sec{
+                            width: 100%;
+                            margin: 0;
+                            .flavor-List{
+                                width: 100%;
+                                margin: 0;
+                                padding: 0;
+                                .jb-childcategory{
+                                    margin: 0;
+                                    border: none;
+                                    text-align: center;
+                                    border-radius: 0;
+                                    border: solid 1px #cfcfcf;
+                                    box-shadow: 1px 1px 0px 0 rgba(0,0,0,0.32);
+                                    .jb-colapsing-title{
+                                        background-color: #f5f5f5;
+                                        /*box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.32);
+                                        border-radius: 0;
+                                        border: solid 1px #cfcfcf;*/
+                                        p{
+                                            display: none;
+                                        }
+                                        .jb-category-title{
+                                            width: auto;
+                                            text-align: center;
+                                            color: #004e99;
+                                            font-weight: 700;
+                                            font-size: 22px;
+                                            position: relative;
+                                            margin: 0;
+                                            width: auto;
+                                            display: inline-block;
+                                            &[aria-expanded="false"]{
+                                                &:before{
+                                                    content: "";
+                                                    position: absolute;
+                                                    background-size: 100%;
+                                                    right: -27px;
+                                                    top: 10px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    transform: rotate(-135deg);
+                                                    border-left: solid 2px #004e99;
+                                                    border-bottom: solid 2px #004e99;
+                                                    float: right;
+                                                    margin-top: 0px;
+                                                    margin-right: 7px;
+                                                }
+                                            }  
+                                            &[aria-expanded="true"]{
+                                                &:before{
+                                                    content: "";
+                                                    position: absolute;
+                                                    background-size: 100%;
+                                                    right: -27px;
+                                                    top: 10px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    transform: rotate(-45deg);
+                                                    border-left: solid 2px #004e99;
+                                                    border-bottom: solid 2px #004e99;
+                                                    float: right;
+                                                    margin-top: 0px;
+                                                    margin-right: 7px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .jb_contentfolder{
+                                        .jb-childcategory-description{
+                                            background-color: #f5f5f5;
+                                            margin: 0;
+                                            padding: 10px 3.5% 40px 3.5%;
+                                            width: 93%;
+                                            color: #004e99;
+                                            font-size: 20px;
+                                            text-align: left;
+                                        }
+                                        .jb-childChildrenCategories-container{
+                                            width: 93%;
+                                            padding: 0;
+                                            margin: 0 auto;
+                                            margin-top: 40px;
+                                            text-align: left;
+                                            a{
+                                                display: inline-block;
+                                                width: 14%;
+                                                text-decoration: none;
+                                                vertical-align: top;
+                                                height: auto;
+                                                .jb-childChildrenCategory{
+                                                    width: 100%;
+                                                    height: auto;
+                                                    padding: 0;
+                                                    clear: both;
+                                                    margin: 0;
+                                                    &:hover{
+                                                        p{
+                                                            font-weight: 700;
+                                                        }
+                                                    }
+                                                    img{
+                                                        width: 60px;
+                                                        display: inline-block;
+                                                    }
+                                                    p{
+                                                        display: inline-block;
+                                                        width: 59%;
+                                                        text-align: left;
+                                                        text-decoration: none;
+                                                        vertical-align: top;
+                                                        color: #000;
+                                                        margin-left: 4px;
+                                                        font-size: 14px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .jb-child-category-button{
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .brand-buttons{
+                            text-align: center;
+                            margin: 50px 0 50px 0;
+                            padding: 5px 0;
+                            .button-dark{
+                                background: #004e99;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                color: white;
+                                padding: 7.5px 45px;
+                                font-size: 18px;
+                                border: 1px solid #004e99;
+                                text-decoration: none;
+                                margin-right: 16px;
+                                font-weight: 700;
+                                &:hover{
+                                    background: #003a72;
+                                    border-color: #003a72;
+                                }
+                            }
+                            .button-light{
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                padding: 7px 45px;
+                                font-size: 18px;
+                                background: white;
+                                border: 1px solid #003a72;
+                                color: #003a72;
+                                text-decoration: none;
+                                font-weight: 700;
+                                &:hover{
+                                    background: #003a72;
+                                    border-color: #003a72;
+                                    color: white;
+                                }
+                            }
+                        } 
+                        &.Harry-Potter{
+                            .brand-buttons{
+                                .button-dark{
+                                    background: #bc842e;
+                                    border: 1px solid #bc842e;
+                                    &:hover{
+                                        background: #b1761b;
+                                        border-color: #b1761b;
+                                    }
+                                }
+                                .button-light{
+                                    border: 1px solid #bc842e;
+                                    color: #bc842e;
+                                    &:hover{
+                                        background: #b1761b;
+                                        border-color: #b1761b;
+                                        color: white;
+                                    }
+                                }
+                            }    
+                        }
+                        .brand-description{
+                            width: 82%;
+                            margin: 0 auto;
+                            .dec-head{
+                                h2{
+                                    font-size: 40px;
+                                    font-weight: 300;
+                                    color: #222222;
+                                    margin: 15px 0;
+                                }
+                            }
+                            .brand-details{
+                                p{
+                                    color: #222222;
+                                    font-size: 18px;
+                                }
+                            }
+                            .block-element{
+                                width: 100%;
+                                img{
+                                    max-width: 100%;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+                                .inline-element{
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    .block-element{
+                                        img{
+                                            display: block;
+                                            margin: 0 auto;
+                                            max-width: 100%;
+                                        }
+                                    }
+                                    .per-75{
+                                        width: 74.7%;
+                                    }
+                                    .per-25{
+                                        width: 24.7%;
+                                    }
+                                    .per-50{
+                                        width: 49.7%;
+                                    }
+                                }
+                            }
+                        }
+                        .sub-cat-list{
+                            text-align: center;
+                            width: 93%;
+                            margin: 0 auto;
+                            margin-top: 30px;
+                            padding: 10px 0;
+                            .item-cointainer{
+                                border-radius: 8px;
+                                border: solid 1px #cfcfcf;
+                                background-color: #ffffff;
+                                display: inline-block;
+                                margin-right: 1%;
+                                width: 23%;
+                                margin-bottom: 40px;
+                                padding: 1% 0;
+                                &:last-child{
+                                    margin: 0;
+                                }
+                                .img-cointainer{
+                                    img{
+                                        width: 163px;
+                                        margin: 0 auto;
+                                        height: auto;
+                                    }
+                                }
+                                .dec-sec{
+                                    .head-sec{
+                                        font-size: 18px;
+                                        font-weight: 700;
+                                        line-height: 1.33;
+                                        color: #1c2e36;
+                                        text-align: center;
+                                        width: 69%;
+                                        margin: 0 auto;
+                                        height: 48px;
+                                        padding-top: 20px;
+                                        text-decoration: none;
+                                    }
+                                    .dec-sec{
+                                        width: 80%;
+                                        font-size: 18px;
+                                        text-align: center;
+                                        color: #222222;
+                                        margin: 0 auto;
+                                        height: 154px;
+                                        overflow: hidden;
+                                        p{
+                                            margin: 0;
+                                            text-decoration: none;
+                                        }
+                                    }
+                                } 
+                                .btn-sec{ 
+                                    text-align: center;
+                                    margin: 18px 0;
+                                    .sub-cat-btn{
+                                        border-radius: 4px;
+                                        -moz-border-radius: 4px;
+                                        -webkit-border-radius: 4px;
+                                        padding: 7px 25px;
+                                        font-size: 18px;
+                                        background: white;
+                                        border: 1px solid #004e99;
+                                        color: #004e99;
+                                        text-transform: capitalize;
+                                        text-decoration: none;
+                                        font-weight: 700;
+                                        &:hover{
+                                            background: #003a72;
+                                            border-color: #003a72;
+                                            color: white;
+                                        }
+                                    }
+                                }
+                            }
+                            .owl-stage-outer{
+                                .owl-stage{
+                                    .owl-item{
+                                        .item-cointainer{
+                                            width: 98%;
+                                            margin: 0 auto;
+                                            padding: 20px 0 18px 0;
+                                            &:hover{
+                                                box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.32);
+                                            }
+                                            a{
+                                                text-decoration: none;
+                                                .dec-sec{
+                                                    .head-sec{
+                                                        &:hover{
+                                                            color: #003a72;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .a-spot-cointainer{
                         width: 100%;
                         position: relative;
                         height: 500px;
@@ -651,7 +1035,7 @@
                                             width: 14%;
                                             text-decoration: none;
                                             vertical-align: top;
-                                            height: 60px;
+                                            height: auto;
                                             .jb-childChildrenCategory{
                                                 width: 100%;
                                                 height: auto;
@@ -1272,6 +1656,8 @@
                     .load-more-prod{
                         text-align: center;
                         padding: 25px 0 50px 0;
+                        float:left;
+                        width: 100%;
                         .mz-pagenumbers-next{
                             background: #004e99;
                             border-radius: 4px;
@@ -1406,6 +1792,98 @@
         }
     }
 }
+@media only screen and (min-width: 1025px) and (max-width: 1300px){
+    .jb-pagecontrols{ 
+        .mz-pagingcontrols{
+            width: 45% !important; 
+        }
+    }
+    .mz-category,.mz-searchresults{ 
+        .mz-l-pagewrapper{ 
+            .mz-l-pagecontent{ 
+                .mz-l-container,.categorytops{ 
+                    .brand-dicreption-top{ 
+                        .mz-drop-zone{ 
+                            .mz-cms-row{ 
+                                .mz-cms-col-12-12{ 
+                                    .mz-cms-block{ 
+                                        .mz-cms-content{ 
+                                            .brand-dicreption{ 
+                                                .flavor-sec{ 
+                                                    .flavor-List{ 
+                                                        .jb-childcategory{ 
+                                                            .jb_contentfolder{ 
+                                                                .jb-childChildrenCategories-container{ 
+                                                                    a{
+                                                                        width: 16%;
+                                                                        .jb-childChildrenCategory{ 
+                                                                            p{
+                                                                                width: 54%;
+                                                                            }
+                                                                        }
+                                                                    }       
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .brand-dicreption{ 
+                            .flavor-sec{ 
+                                .flavor-List{ 
+                                    .jb-childcategory{ 
+                                        .jb_contentfolder{ 
+                                            .jb-childChildrenCategories-container{ 
+                                                a{
+                                                    width: 16%;
+                                                    .jb-childChildrenCategory{ 
+                                                        p{
+                                                            width: 54%;
+                                                        }
+                                                    }
+                                                }       
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .mz-l-paginatedlist{ 
+                        .jb-pagecontrols{ 
+                            .facet-filtercointainer{
+                                width: 54%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1250px){
+    .mz-productlist{ 
+        .mz-productlist-grid{ 
+            .mz-productlist-item{ 
+                .mz-productlisting{ 
+                    .mz-productlisting-image{ 
+                        a{ 
+                            img{
+                                height: 160px;
+                                width: 155px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .page-header.mz-pageheader-desktop.desktop.topZero{
         display: block !important;
@@ -1418,7 +1896,7 @@
     .mz-category,.mz-searchresults{ 
         .mz-l-pagewrapper{ 
             .mz-l-pagecontent{ 
-                .mz-l-container{  
+                .mz-l-container,.categorytops{  
                     .brand-dicreption-top{ 
                         .mz-drop-zone{ 
                             .mz-cms-row{ 
@@ -1479,6 +1957,55 @@
                                 }
                             }
                         }
+                        .brand-dicreption{ 
+                                                .flavor-sec{ 
+                                                    .flavor-List{ 
+                                                        .jb-childcategory{ 
+                                                            .jb_contentfolder{ 
+                                                                .jb-childChildrenCategories-container{ 
+                                                                    a{
+                                                                        width: 24%;
+                                                                        .jb-childChildrenCategory{ 
+                                                                            p{
+                                                                                width: 59%;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .brand-description{ 
+                                                    .dec-head{ 
+                                                        h2{
+                                                            font-size: 25px;
+                                                        }
+                                                    }
+                                                    .brand-details{
+                                                        p{
+                                                            display: block !important;
+                                                        }
+                                                    }
+                                                }
+                                                .sub-cat-list{ 
+                                                    .owl-stage-outer{
+                                                        .owl-stage{
+                                                            .owl-item{
+                                                                .item-cointainer{
+                                                                    a{
+                                                                        .btn-sec{
+                                                                            .sub-cat-btn{
+                                                                                font-size: 13px;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                     }
                     .brand-dicreption-bottom{ 
                         .mz-drop-zone{ 
@@ -1597,244 +2124,14 @@
                         }
                     }
                 } 
-                .mz-l-container{ 
+                .mz-l-container,.categorytops{ 
                     .brand-dicreption-top{
                         .mz-drop-zone{
                             .mz-cms-row{
                                 .mz-cms-col-12-12{
                                     .mz-cms-block{
                                         .mz-cms-content{
-                                            .brand-dicreption{
-                                                .a-spot-cointainer{
-                                                    height: auto;  
-                                                    img{
-                                                        width: 100%;
-                                                        position: inherit;
-                                                        /*height: 500px;*/
-                                                    }
-                                                }
-                                                .flavor-sec{ 
-                                                    .flavor-List{ 
-                                                        .jb-childcategory{
-                                                            .jb-colapsing-title{
-                                                                padding-left: 0;
-                                                                padding-right: 0;
-                                                                width: 100%;
-                                                                /*text-align: left;*/
-                                                                .jb-category-title{
-                                                                    position: relative;
-                                                                    max-width: 89%;
-                                                                    text-align: center;
-                                                                    padding-right: 30px;
-                                                                    padding-left: 10px; 
-                                                                    &[aria-expanded="false"]{
-                                                                        &:before{
-                                                                            right: 5px;
-                                                                            width: 10px;
-                                                                            height: 10px;
-                                                                            top: 8px;
-                                                                        }
-                                                                    }
-                                                                    &[aria-expanded="true"]{
-                                                                        &:before{
-                                                                            right: 5px;
-                                                                            width: 10px;
-                                                                            height: 10px;
-                                                                            top : 8px;
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                            .jb_contentfolder{ 
-                                                                .jb-childcategory-description{
-                                                                    text-align: left;
-                                                                    padding: 3% 5%;
-                                                                    width: 90%;
-                                                                }
-                                                                .jb-childChildrenCategories-container{ 
-                                                                    a{
-                                                                        width: 49%;
-                                                                        .jb-childChildrenCategory{ 
-                                                                            p{
-                                                                                width: 60%;
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                .brand-buttons{
-                                                    .button-dark{
-                                                        display: block;
-                                                        width: 65%;
-                                                        margin: 0 auto;
-                                                    }
-                                                    .button-light{
-                                                        display: block;
-                                                        width: 65%;
-                                                        margin: 0 auto;
-                                                        margin-top: 10px;
-                                                    }
-                                                } 
-                                                .brand-description{
-                                                    width: 95%;
-                                                    .dec-head{
-                                                        h2{
-                                                            font-size: 24px;
-                                                            font-weight: 300;
-                                                            color: #222222;
-                                                            margin-bottom: 0px;
-                                                            margin: 35px 0;
-                                                        }
-                                                    }
-                                                    .shot-dec{                                                        
-                                                        max-height: 210px;
-                                                        overflow: hidden;
-                                                        position: relative;
-                                                        display: none;
-                                                        &.active{
-                                                            display: block;
-                                                        }
-                                                        .readmore-text{
-                                                            font-size: 18px;
-                                                            font-weight: 700;
-                                                            text-align: center;
-                                                            color: #004e99;
-                                                            cursor: pointer;
-                                                            bottom: 17px;
-                                                            position: relative;
-                                                            padding: 10px 0;
-                                                            margin-top: 9px;
-                                                            display: inline-block;
-                                                            &:before{
-                                                                position: absolute;
-                                                                content: '';
-                                                                width: 14px;
-                                                                height: 14px;
-                                                                top: 15px;
-                                                                right: -24px;
-                                                                border-radius: 4px;
-                                                                cursor: pointer;
-                                                                background-image: url(../../resources/images/icons/arrow_blue.png);
-                                                                background-size: 100%;
-                                                                background-repeat: no-repeat;
-                                                                transform: rotate(-90deg); 
-                                                            } 
-                                                        }
-                                                        p{
-                                                            font-size: 18px;
-                                                            color: #222222;
-                                                            display: block !important;
-                                                            max-height: 155px;
-                                                            overflow: hidden;
-                                                        }
-                                                    }
-                                                    .brand-details{
-                                                        display: none;
-                                                        &.active{
-                                                            display: block;
-                                                        }                                                        
-                                                        p{
-                                                            font-size: 18px !important;
-                                                            color: #222222;
-                                                            display: block !important;
-                                                        }
-                                                        .readless-text{
-                                                            font-size: 18px;
-                                                            font-weight: 700;
-                                                            text-align: center;
-                                                            color: #004e99;
-                                                            cursor: pointer;
-                                                            bottom: 17px;
-                                                            position: relative;
-                                                            padding: 10px 0;
-                                                            margin-top: 9px;
-                                                            display: inline-block;
-                                                            &:before{
-                                                                position: absolute;
-                                                                content: '';
-                                                                width: 14px;
-                                                                height: 15px;
-                                                                top: 15px;
-                                                                // transform: rotate(180deg);
-                                                                right: -24px; 
-                                                                border-radius: 4px;
-                                                                cursor: pointer;
-                                                                background-image: url(../../resources/images/icons/arrow_blue.png);
-                                                                background-size: 100%;
-                                                                background-repeat: no-repeat;
-                                                            } 
-                                                        }
-                                                    }
-                                                    .block-element{
-                                                        width: 100%;
-                                                        img{
-                                                        }
-                                                        .inline-element{
-                                                            .block-element{
-                                                                img{
-                                                                }
-                                                            }
-                                                            &.per-85{
-                                                                width: 67%;
-                                                                .block-element{
-                                                                    .per-50{
-                                                                        width: 49%;
-                                                                    }
-                                                                }
-                                                            }
-                                                            &.per-25{
-                                                            }
-                                                            &.per-50{
-                                                            }
-                                                            &.per-15{
-                                                                width: 31%;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                .sub-cat-list{
-                                                    margin-bottom: 25px;
-                                                    width: 100%;
-                                                    .item-cointainer{
-                                                        width: 60%;
-                                                        display: inline-block;
-                                                        overflow: hidden;
-                                                        &:last-child{
-                                                        }
-                                                        .img-cointainer{
-                                                            img{
-                                                            }
-                                                        }
-                                                        .dec-sec{
-                                                            .head-sec{
-                                                                font-size: 22px;
-                                                            }
-                                                            .dec-sec{
-                                                                p{
-                                                                }
-                                                            }
-                                                        } 
-                                                        .btn-sec{ 
-                                                            .sub-cat-btn{
-                                                                &:hover{
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    .owl-stage-outer{
-                                                        .owl-stage{
-                                                            .owl-item{
-                                                                .item-cointainer{
-                                                                    width: 100%;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
+
                                         }
                                     }
                                 }
@@ -1889,10 +2186,10 @@
                                             }
                                             .jb-childChildrenCategories-container{ 
                                                 a{
-                                                    width: 49%;
+                                                    width: 49% !important;
                                                     .jb-childChildrenCategory{ 
                                                         p{
-                                                            width: 58%;
+                                                            width: 60%;
                                                         }
                                                     }
                                                 }
@@ -1902,10 +2199,11 @@
                                 }
                             }
                             .brand-buttons{
+                                margin: 0;
                                 .button-dark{
                                     display: block;
                                     width: 65%;
-                                    margin: 0 auto;
+                                    margin: 0 auto !important;
                                 }
                                 .button-light{
                                     display: block;
@@ -1926,7 +2224,8 @@
                                     }
                                 }
                                 .shot-dec{                                                        
-                                    max-height: 210px;
+                                    //max-height: 210px;//Commented by shruthi as css is not proper in mobile device
+                                    max-height: 100%;
                                     overflow: hidden;
                                     position: relative;
                                     display: none;
@@ -2070,25 +2369,6 @@
                                     }
                                 }
                             }
-                            .content{
-                                img.mobile{
-                                    width: 92% !important;
-                                }
-                                .wrap{
-                                    .section.group{
-                                        .col.span_2_of_2{
-                                            .video_sec{
-                                                h3{
-                                                    width: 300px !important;
-                                                }
-                                                .videoholder{
-                                                    width: 310px !important;
-                                                }
-                                            }
-                                        }
-                                    } 
-                                }
-                            }
                         }
                     }
                     .brand-dicreption-bottom{
@@ -2203,12 +2483,12 @@
                         }
                         .load-more-prod{ 
                             .mz-pagenumbers-next{
-                                width: 80%;
+                                width: 50%;
                                 margin: 0 auto;
                                 margin-bottom: 10px;
                             }
                             .load-all{
-                                width: 80%;
+                                width: 50%;
                             }
                         }
                     }
@@ -2487,75 +2767,4 @@
         }
     }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1250px){
-    .mz-productlist{ 
-        .mz-productlist-grid{ 
-            .mz-productlist-item{ 
-                .mz-productlisting{ 
-                    .mz-productlisting-image{ 
-                        a{ 
-                            img{
-                                height: 160px;
-                                width: 155px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media only screen and (min-width: 1025px) and (max-width: 1300px){
-    .jb-pagecontrols{ 
-        .mz-pagingcontrols{
-            width: 45% !important; 
-        }
-    }
-    .mz-category,.mz-searchresults{ 
-        .mz-l-pagewrapper{ 
-            .mz-l-pagecontent{ 
-                .mz-l-container{ 
-                    .brand-dicreption-top{ 
-                        .mz-drop-zone{ 
-                            .mz-cms-row{ 
-                                .mz-cms-col-12-12{ 
-                                    .mz-cms-block{ 
-                                        .mz-cms-content{ 
-                                            .brand-dicreption{ 
-                                                .flavor-sec{ 
-                                                    .flavor-List{ 
-                                                        .jb-childcategory{ 
-                                                            .jb_contentfolder{ 
-                                                                .jb-childChildrenCategories-container{ 
-                                                                    a{
-                                                                        width: 16%;
-                                                                        .jb-childChildrenCategory{ 
-                                                                            p{
-                                                                                width: 54%;
-                                                                            }
-                                                                        }
-                                                                    }       
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .mz-l-paginatedlist{ 
-                        .jb-pagecontrols{ 
-                            .facet-filtercointainer{
-                                width: 54%;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+

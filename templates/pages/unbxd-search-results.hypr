@@ -31,6 +31,7 @@
     </ul>
 </div>
 <div class="unbxd-main-container mz-l-paginatedlist mz-l-container" id="shop-all">
-</div>
-
+</div>    
+<div class="recommended-prod-head">Jelly Belly Also Recommends</div>  
+{% dropzone "searchresult-below-mbz" scope="template" %} 
 {% endblock body-content %}

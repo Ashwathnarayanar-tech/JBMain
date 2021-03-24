@@ -13,10 +13,12 @@ define('modules/new-lazy-load', ["modules/jquery-mozu", "underscore"], function(
   }
 
   var megaMenu = document.getElementById("megaMenu");
-  megaMenu.addEventListener("mouseover", loadImages);
-  megaMenu.addEventListener("touchstart", loadImages);
-  megaMenu.addEventListener("keyup", loadImages);
-  window.addEventListener("scroll", loadImages);
+  if(megaMenu){
+    megaMenu.addEventListener("mouseover", loadImages);
+    megaMenu.addEventListener("touchstart", loadImages);
+    megaMenu.addEventListener("keyup", loadImages);
+    window.addEventListener("scroll", loadImages);
+  }
 
   function lazyLoad(llClassName) {
     for (var i = 0; i < llClassName.length; i++) {

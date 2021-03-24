@@ -1,21 +1,22 @@
 define(["modules/jquery-mozu", "modules/api", "hyprlive", 'hyprlivecontext'], function($, api, Hypr, HyprLiveContext) {
   $(document).ready(function() {
-//    console.log("geodetect2");
+    // country codes that can browse the US site uninterrupted
+    var temp = ['US', 'MX', 'AI', 'AR', 'AW', 'BS', 'BB', 'BZ', 'BM', 'BO', 'BR', 'VG', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM', 'DO', 'EC', 'SV', 'FK', 'GP', 'GT', 'GY', 'HT', 'HN', 'JM', 'MS', 'NI', 'PA', 'PY', 'PE', 'PR', 'BL', 'KN', 'LC', 'MF', 'PM', 'VC', 'SR', 'TT', 'UY', 'VE'];
     if (HyprLiveContext.locals.pageContext.title === "Set International Cookie") {
-//      console.log("Not performing geolocation - on Set International Cookie");
+      //      console.log("Not performing geolocation - on Set International Cookie");
     } else if ($.cookie('browse_us_site') == 'true') {
-//      console.log("don't bother user - they have elected to browse the US site");
-    } else if ($.cookie('detected_country') == 'US') {
-//      console.log('dont bother user - they have previously been detected as being in the US ');
+      //      console.log("don't bother user - they have elected to browse the US site");
+    } else if (temp.indexOf($.cookie('detected_country')) > -1) {
+      //      console.log('dont bother user - they have previously been detected as being in the US or Latin America and can browse the US site uninterrupted');
     } else {
-//      console.log("do the lookup");
+      //      console.log("do the lookup");
       api.request('GET', 'https://websvc.jellybelly.com/geoip/check').then(function(res) {
         var detected_country = res.country_code;
         $.cookie('detected_country', detected_country, {
           expires: 365,
           path: '/'
         });
-        if (detected_country != 'US') {
+        if (temp.indexOf(detected_country) == -1) {
           var destination = getCountryDestination(detected_country);
           location.href = destination.url;
         }
@@ -26,7 +27,6 @@ define(["modules/jquery-mozu", "modules/api", "hyprlive", 'hyprlivecontext'], fu
 
 function getCountryDestination(cc) {
   var dest = [
-
     /* NORTH AMERICA */
     {
       countryCode: 'US',
@@ -42,139 +42,139 @@ function getCountryDestination(cc) {
     },
     {
       countryCode: 'MX',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     },
     {
       countryCode: 'AI',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'AR',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'AW',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BS',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BB',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BZ',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BM',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BO',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BR',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'VG',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'KY',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'CL',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'CO',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'CR',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'CU',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'CW',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'DM',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'DO',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'EC',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'SV',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'FK',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'GP',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'GT',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'GY',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'HT',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'HN',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'JM',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     },
     {
       countryCode: 'MS',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'NI',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'PA',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'PY',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'PE',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'PR',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'BL',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'KN',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'LC',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'MF',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'PM',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'VC',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'SR',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'TT',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     },
     {
       countryCode: 'UY',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     }, {
       countryCode: 'VE',
-      url: 'http://www.jellybellyespanol.com'
+      url: 'http://www.jellybelly.com'
     },
 
     /* AFRICA */

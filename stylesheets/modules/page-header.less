@@ -554,8 +554,8 @@ body{
         -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         .jb-serach-box-with-label{
-            width: 42%;
-            display: inline-block;
+            width: 36%;
+            float:left;
             vertical-align: top;
             text-align: right;
             .mz-searchbox{
@@ -691,7 +691,7 @@ body{
             }
             .mini-cart-header{
                 width: 170px;
-                display: inline-block;
+                float:right;
                 vertical-align: top;
                 line-height: 1.7;
                 .mz-utilitynav-link-cart,.mz-Mob-utilitynav-link-cart{
@@ -1219,21 +1219,21 @@ body{
                                         cursor: pointer;
                                         width: 94%;
                                         background-color: white;
-                                        color: black;
+                                        color: #cc0108;
                                         display: inline-block;
                                         text-decoration: none;
                                         font-size: 18px;
                                         border-radius: 4px;
                                         -moz-border-radius: 4px;
                                         -webkit-border-radius: 4px;
-                                        border: 1px solid black;
+                                        border: 1px solid #cc0108;
                                         margin: 0 auto;
                                         text-transform: capitalize;
                                         text-align: center;
                                         cursor: pointer;
                                         padding: 5.5px 0;
                                         &:hover{
-                                            background-color: black;
+                                            background-color: #cc0108;
                                             color: white;
                                         }
                                     }
@@ -1516,7 +1516,7 @@ body{
                 #page-content{
                     margin-top: 75px;
                     &.zerotag-mobile{
-                        margin-top: 115px;
+                        margin-top: 0px;
                     }
                 }
             }
@@ -1548,7 +1548,8 @@ body{
                 }
             }
             .page-header.desktop{
-                display: none;
+                display: block;
+                 margin-top:50px;
             }
             .mz-l-pagecontent{
                 margin-top: 75px;
@@ -1731,12 +1732,12 @@ body{
                 }
             }
             .nav-cointainer{
-                position: fixed;
                 bottom: 0;
                 z-index: 999;
                 background-color: #fff;
                 width: 100%;
                 padding-bottom: 8px;
+                margin-top:70px;
                 .zinrelo-container{
                     background-color: #004e99;
                     color: #fff;
@@ -1904,17 +1905,17 @@ body{
             }
         }
     }
-}	
+}   
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
     .mz-l-pagewrapper{ 
         .page-header.desktop{
             .jb-serach-box-with-label{
-                width: 38%;
+                width: 34%;
                 .mz-searchbox{ 
                     .mz-searchbox-field{
                         width: 86%;
                         height: 35px;
-                        padding: 5px 10px 5px 10px;
+                        padding: 5px 10px 5px 0px;
                         font-size: 16px;
                         &:-ms-input-placeholder {
                             color: #007aaf !important;
@@ -1943,7 +1944,7 @@ body{
                         .mz-searchbox-field{
                             font-size: 16px;
                             width: 95%;
-                            padding: 5px 10px 5px 10px;
+                            padding: 5px 10px 5px 0px;
                             height: 35px;
                             &:-ms-input-placeholder {
                                 color: #007aaf !important;
@@ -1966,7 +1967,7 @@ body{
                 }
             }
             .mz-utilitynav{
-                width: 54%;
+                width: 66%;
             }
         }
     }
@@ -2009,7 +2010,7 @@ body{
             -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
             -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
             padding: 7px 12px;
-            width: 93.5%;
+            width: 100%;
             display: block;
             clear: both;
             margin: 0 auto;
@@ -2019,6 +2020,7 @@ body{
             background: #fff;
             z-index: 999;
             padding-bottom: 0px;
+            box-sizing: border-box;
             &.zerotag-mobile{
                 top: 40px;
             }
@@ -2185,6 +2187,7 @@ body{
             background-color: #fff;
             width: 100%;
             padding-bottom: 8px;
+            margin-top:70px;
             .zinrelo-container{
                 background-color: #004e99;
                 color: #fff;
@@ -2293,6 +2296,11 @@ body{
                                 height: 30px;
                                 padding: 6px 0;
 
+                            }
+                            &.active {
+                                .mz-sitenav-link{
+                                    color: #004e99;
+                                }
                             }
                         }
 

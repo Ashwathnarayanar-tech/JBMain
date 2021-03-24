@@ -115,6 +115,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     password: this.$el.find('.mz-signup-password')[0].value
                 };
                 if (this.validate(data)) {
+                      window.showGlobalOverlay();
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {
                         window.location.reload();
@@ -170,6 +171,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
             },
             displayApiMessage: function (xhr) { 
                 var err, trimMsg = '';
+                 window.hideGlobalOverlay();
                 if(xhr.errorCode=="MISSING_OR_INVALID_PARAMETER"){
                     var errorMessage = xhr.message;
                     var msgArray = errorMessage.split("Error: Missing or invalid parameter:");  // filter out only the message

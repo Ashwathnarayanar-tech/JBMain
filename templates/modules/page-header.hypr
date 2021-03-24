@@ -30,7 +30,7 @@
                                   <span><a attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" href="#" aria-expanded="false" role="button">Visit Us</a>  </span>
                               </li>  
                               <li class="head-list-item-li" data-attr="store-locator">
-                                  <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator" href="/store-locator" aria-expanded="false" role="button">Store Locator</a>  </span>
+                                  <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator  {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" role="button">Store Locator</a>  </span>
                               </li> 
                               {% endpartial_cache %}     
                           </ul> 
@@ -94,7 +94,7 @@
                             </a>
                         </li>  
                         <li class="head-list-item store-locator" attr-menuname="store-locator" data-attr="store-locator">
-                            <a href="/store-locator" > 
+                            <a href="/store-locator" class='{% if pagecontext.cmsContext.page.path == "store-locator" %}active{% endif %}' > 
                                 <img src="/../resources/images/store-icon.png" alt="" class="user-icon store-locator">   
                                 <span class="mz-sitenav-link" >Store Locator</span>  
                             </a>

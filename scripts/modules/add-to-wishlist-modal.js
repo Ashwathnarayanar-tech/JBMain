@@ -26,6 +26,7 @@ require([
     //console.log(productCode);
     window.productCode = productCode;
     var me = $(this);
+    window.showGlobalOverlay();
     addToWishList.addWishlistOnAuth(productCode, me);
   });
 
@@ -44,13 +45,16 @@ require([
       var self = this;
       var valid = this.validData();
       if (valid) {
+        window.showGlobalOverlay();
         api.action('customer', 'loginStorefront', {
           email: $('.user-email').val(),
           password: $('.user-password').val()
-        }).then(self.loginProcess, self.LoginErrorMessage);
+        }).then(self.loginProcess, self.LoginErrorMessage)
+        .catch(function(err){console.log(" failed to login ",err);  window.hideGlobalOverlay();});
       }
     },
     LoginErrorMessage: function() {
+      window.hideGlobalOverlay();
       $('.loginError').text(Hypr.getLabel('loginFailedMessage', $("#email").val()));
       $('.loginError').prev('input').focus();
     },
@@ -82,11 +86,14 @@ require([
         $('.user-password').css({
           'border': '1px solid #e9000f'
         });
+        $('.loginError').text(Hypr.getThemeSetting('passwordMissing'));
+        $('.loginError').prev('input').focus();
         validity = false;
       } else {
         $('.user-password').css({
           'border': '1px solid #c2c2c2'
         });
+        $('.loginError').text('');
       }
       return validity;
     },
@@ -114,12 +121,13 @@ require([
     addWishlistOnAuth: function(productCode, me) { 
       var user = require.mozuData('user');
       if (!user.isAnonymous) {
-         $('.jb-inner-overlay').show(); 
+        // $('.jb-inner-overlay').show(); 
         api.request('get', '/api/commerce/catalog/storefront/products/' + productCode).then(function(res) {
           var model = new ProductModels.Product(res);
           model.addToWishlist();
           model.on('addedtowishlist', function(cartitem) {
            $('.jb-inner-overlay').hide();
+           window.hideGlobalOverlay();
             me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             me.removeClass('add-to-wishlist');
             me.addClass('added-to-wishlist');
@@ -136,13 +144,18 @@ require([
           
           model.on("error", function(err) { 
              $('.jb-inner-overlay').hide(); 
+             window.hideGlobalOverlay();
             //console.error(err);
           });
+        }).catch(function(err){
+           console.log("Error on add to wish list ",err);
+           window.hideGlobalOverlay();
         });
       } else {
         document.cookie = 'wl_prod=' + productCode + ';path=/;expires=3';
         $('.atw-modal').show();
         $('#email-dialog').focus();
+        window.hideGlobalOverlay();
         this.activateloopinginmodal();
       }
     },
@@ -170,6 +183,7 @@ require([
     loginProcess: function() {
       /* wishlistRender();
        $('.atw-modal').hide();*/
+       window.hideGlobalOverlay();
       window.location.href = window.location.pathname + "?wl=pop";
     }
   };

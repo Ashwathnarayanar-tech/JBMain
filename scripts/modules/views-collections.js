@@ -1403,8 +1403,8 @@ define([
         var ROUTE_NOT_FOUND = 'ROUTE_NOT_FOUND'; 
         var promodel ,flag,lastpage,loadMore = false, loadAll = window.loadAll = false;
         var defaultpagesize = window.defaultpagesize = 20;        
-        
         function updateUi(response) {
+             window.hideGlobalOverlay();
             var url = response.canonicalUrl;
             var $oattr;
             var info_url;
@@ -1448,7 +1448,7 @@ define([
                     window.loadAll = false;  
                 }   
                 //var remainingCount = (data.totalCount-lastpage)>500?500:(data.totalCount-parseInt(lastpage,10));
-                $(document).find('#load-all').html('Show All ('+data.totalCount+')');
+                $(document).find('#load-all').html('Show All ('+data.totalCount+')'); 
                 $(document).find('div[data-mz-productlist]').removeClass('is-loading'); 
                 setTimeout(function(){  
                     //$(document).find('.gridder-list[data-griddercontent="#'+(itemtofocus-(window.defaultpagesize-1))+'"]').find('a').first().focus();
@@ -1468,12 +1468,13 @@ define([
                     $('#preloaderoverlay').delay(350).fadeOut('slow'); 
                     custom.customObject.os();
                     custom.customObject.autoload();
-                    initilizeBrandSec(); 
+                    //initilizeBrandSec(); 
                     if($(document).find('.selected-facet-value').length >= 1){
                         $(document).find('.clear-all-outer-btn').addClass('active');
                     }else{
                         $(document).find('.clear-all-outer-btn').removeClass('active');    
                     }
+
                 },1000);
                 _$body.html($(response.body).find(".mz-l-container").children());  
                 var data1= require.mozuData('facetedproducts') ;  
@@ -1508,17 +1509,349 @@ define([
             
             if (url) _dispatcher.replace(url);
                 
-            _$body.removeClass('mz-loading'); 
+            //_$body.removeClass('mz-loading'); 
+             window.hideGlobalOverlay(); 
             
         }
+        function initRecProd(){
+            $(document).find('.recommended-product').show();
+        } 
         
+        function getUrlParms(url) {
+            var vars = [], hash;
+            var hashes = url.slice(url.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars; 
+        }
+        
+        function showError(error) {
+            _$body.find('[data-mz-messages]').text(error.message);
+        }
+
+        function intentToUrl(e) {
+            loadMore=false; 
+            //$(document).find('div[data-mz-productlist]').addClass('is-loading'); 
+              window.showGlobalOverlay();
+            var oldurl = window.location.pathname+window.location.search; 
+            if($(e.currentTarget).hasClass('mz-facetingform-clearall')){
+                $(document).find('.selected-facet-value').remove();  
+                $('.clear-all-outer-btn').removeClass('active');   
+                $(document).find('.item-name').removeClass('mz-facetform-selected');
+            } 
+            e.preventDefault(); 
+            var elm = e.target;
+            var url;
+            if (elm.tagName.toLowerCase() === "select") { 
+                elm = elm.options[elm.selectedIndex];
+            }
+            
+            if(elm.getAttribute('data-mz-url')){
+                url = elm.getAttribute('data-mz-url') || elm.getAttribute('href') || '';
+            }
+            else if($(elm).siblings().attr('data-mz-url')){
+                url=$(elm).siblings().attr('data-mz-url');
+            }
+            else{
+                url = elm.parentElement.getAttribute('data-mz-url') || elm.parentElement.getAttribute('href') || elm.getAttribute('href') || '';
+            }
+            if (url && url[0] != "/") {
+                var parser = document.createElement('a');
+                parser.href = url;
+                url = parser.pathname + parser.search;
+                url = window.location.pathname + parser.search;
+                if(elm.getAttribute('rel')=="next"){
+                    loadMore=true;
+                }else if(elm.getAttribute('rel')=="all"){
+                    loadMore=true;
+                    window.loadAll = true;
+                }else{
+                    loadMore=false;
+                }
+            }
+            var strurl = '',hashes = [],i = 0,hash = [];
+            var params = getUrlParms(url);
+            if(params.pageSize && params.pageSize > window.defaultpagesize){
+                hashes = url.slice(url.indexOf('?') + 1).split('&');
+                strurl = url.split('?')[0]+"?";
+                for(i = 0; i < hashes.length; i++){  
+                    hash = hashes[i].split('='); 
+                    if(hash[0] == "startIndex" && parseInt(hash[1]) != parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&";
+                    if(hash[0] == "startIndex" && params.pageSize == 500 && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&";
+                    if(hash[0] == "startIndex" && params.pageSize != 500 && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+hashes[i]+"&"; 
+                    if(hash[0] != "pageSize" && hash[0] != "startIndex") strurl = strurl+hashes[i]+"&"; 
+                    if(elm.getAttribute('rel')=="next-old" && hash[0] == "pageSize") strurl = strurl+hashes[i]+"&";
+                } 
+                if(strurl.substr(strurl.length - 1) == '&') strurl = strurl.substring(0,strurl.length - 1);   
+                if(elm.getAttribute('rel') != "next-old" && elm.getAttribute('rel') != "all") strurl = strurl +"&pageSize="+window.defaultpagesize; 
+                if(elm.getAttribute('rel') == "all") strurl = strurl +"&pageSize=500"; 
+                if(strurl.indexOf('startIndex') == -1) strurl = strurl +"&startIndex="+elm.getAttribute('lastInedx');   
+            }else if(elm.getAttribute('rel') == "all"){
+                hashes = url.slice(url.indexOf('?') + 1).split('&');
+                strurl = url.split('?')[0]+"?";
+                for(i = 0; i < hashes.length; i++){          
+                    hash = hashes[i].split('='); 
+                    if(hash[0] == "startIndex" && parseInt(hash[1]) != parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&"; 
+                    if(hash[0] == "startIndex" && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+hashes[i]+"&"; 
+                    if(hash[0] != "pageSize" && hash[0] != "startIndex") strurl = strurl+hashes[i]+"&"; 
+                    if(elm.getAttribute('rel')=="next-old" && hash[0] == "pageSize") strurl = strurl+hashes[i]+"&";
+                } 
+                if(strurl.substr(strurl.length - 1) == '&') strurl = strurl.substring(0,strurl.length - 1);   
+                if(elm.getAttribute('rel') != "next-old" && elm.getAttribute('rel') != "all") strurl = strurl +"&pageSize="+window.defaultpagesize; 
+                if(elm.getAttribute('rel') == "all") strurl = strurl +"&pageSize=500"; 
+            }  
+            if(url == oldurl) $(document).find('.jb-inner-overlay').hide();
+            if(strurl && strurl !== ''){ return strurl; }else{ return url;}  
+        }
+
+        var navigationIntents = IntentEmitter(  
+            _$body,
+            [   
+                'click [data-mz-pagingcontrols] a',
+                'click [data-mz-pagenumbers] a',
+                //'click a[data-mz-facet-value]',
+                'click [data-mz-action="clearFacets"]',
+                //'click [data-mz-facet-value]',
+                'change [data-mz-value="pageSize"]',
+                'change [data-mz-value="sortBy"]',
+                'click  [data-mz-value="sortMob"]',
+                'click #color1',
+                'click #load-more',
+                'click #load-all',
+                'click .mz-reset-filter' 
+            ], 
+            intentToUrl
+        );
+
+        navigationIntents.on('data', function(url, e) {
+            if (url && _dispatcher.send(url)) {
+                _$body.addClass('mz-loading');
+                window.showGlobalOverlay();
+                e.preventDefault();
+            }
+        });
+
+        _dispatcher.onChange(function(url) {
+            getPartialView(url, conf.template).then(updateUi, showError);   
+        });
+        
+        function formcustomurl(){
+            var required_url = window.location.href;
+            var data_url = '';
+            var url_main = '?';
+            if(decodeURIComponent(required_url).split('?').length > 1){
+                if( decodeURIComponent(required_url).split('?')[1] != "#maincontent"){ 
+                    required_url = decodeURIComponent(required_url).split('?')[1].split('&');
+                    for(var i =0; i< required_url.length;i++ ){
+                        if(required_url[i].indexOf("facetValueFilter") == -1 && required_url[i].indexOf("startIndex")){ 
+                            url_main = url_main+required_url[i];    
+                        }    
+                    }
+                }
+            }
+            if(url_main.length > 1){
+                data_url = data_url+'&facetValueFilter=';   
+            }else{
+                data_url = data_url+'facetValueFilter=';     
+            }   
+            var selecterfilterobj = $(document).find('.facet-name-list').find('.selected-facet-value').filter(':visible');
+            selecterfilterobj.each(function(){
+                var filter = $(this).attr('url-component'); 
+                data_url = data_url+filter+',';
+            }); 
+            var needed_url = url_main+data_url;  
+            return needed_url; 
+        }
+        
+        $(document).on('click','.apply-filter-button',function(e){
+            var needed_url = formcustomurl();
+            $(e.currentTarget).attr('data-mz-url',needed_url);  
+            var url=intentToUrl(e);
+            //  setFacetValueMobile(e);
+            if(url){
+                if (url && _dispatcher.send(url)) { 
+                   // _$body.addClass('mz-loading'); 
+                    window.showGlobalOverlay();
+                    e.preventDefault(); 
+                }    
+            }          
+        });
+        
+        $(document).on('keydown','.apply-filter-button',function(e){
+            if(e.which == 13 || e.which == 32){
+                e.preventDefault();
+                $(document.activeElement).click();   
+            }    
+        });
+        
+        $(document).on('keydown','.mz-facetingform-clearall',function(e){
+            if(e.which == 13 || e.which == 32){
+                e.preventDefault();
+                $(document.activeElement).click();   
+            }    
+        });
+        
+        $(document).on('click','.cross-btn-facets',function(e){
+            $(e.currentTarget).parents('.item-name').remove();
+            var needed_url = formcustomurl();
+            $('.hidden-element-to-apply').attr('data-mz-url',needed_url);
+            $('.hidden-element-to-apply').click();
+        });
+        
+        $(document).on('keydown','.cross-btn-facets',function(e){
+            if(e.which == 13 || e.which == 32){ 
+                $(document.activeElement).remove(); 
+                var needed_url = formcustomurl(); 
+                $('.hidden-element-to-apply').attr('data-mz-url',needed_url);
+                $('.hidden-element-to-apply').click();
+            }
+        });
+        
+        $(document).on('click','.hidden-element-to-apply',function(e){
+            var url=intentToUrl(e);
+            //  setFacetValueMobile(e);
+            if(url){
+                if (url && _dispatcher.send(url)) { 
+                    //_$body.addClass('mz-loading'); 
+                     window.showGlobalOverlay();
+                    e.preventDefault(); 
+                }    
+            }     
+        });
+        
+        $(document).on('keydown','#load-more',function(e){
+            if(e.which == 32){
+                var url=intentToUrl(e);
+                if(url){
+                    if (url && _dispatcher.send(url)) {
+                        //_$body.addClass('mz-loading'); 
+                         window.showGlobalOverlay();
+                        e.preventDefault(); 
+                    }    
+                }      
+            }
+        });
+         
+        $(document).on('click','.tzPopup-Done',function(e){
+           
+            var required_url = window.location.href;
+            var data_url = '';
+            var url_main = '?';
+            var filter_url = "";
+            if(decodeURIComponent(required_url).split('?').length > 1){
+                required_url = decodeURIComponent(required_url).split('?')[1].split('&');
+                for(var i =0; i< required_url.length;i++ ){
+                    if(required_url[i].indexOf("facetValueFilter") == -1 && required_url[i].indexOf("startIndex")){ 
+                        url_main = url_main+required_url[i];    
+                    } else if(required_url[i].indexOf("facetValueFilter")){
+                        filter_url = required_url[i].split('=')[1] ;   
+                    }  
+                }
+            } 
+            if($(document).find('.tzPopup-content .selected-facet-mobile').length > 0 || ($(document).find('.tzPopup-content .selected-facet-mobile').length < 1 && filter_url.length > 0)){
+                if(url_main.length > 1){
+                    data_url = data_url+'&facetValueFilter=';   
+                }else{
+                    data_url = data_url+'facetValueFilter=';     
+                }   
+                $(document).find('.tzPopup-content .selected-facet-mobile').each(function(){
+                    var filter = $(this).children('a').attr('attr-require'); 
+                    data_url = data_url+filter+',';
+                }); 
+                var needed_url = url_main+data_url;  
+                $(e.currentTarget).attr('data-mz-url',needed_url);  
+                var url=intentToUrl(e);
+                //  setFacetValueMobile(e);
+                if(url){
+                    if (url && _dispatcher.send(url)) { 
+                        //_$body.addClass('mz-loading'); 
+                         window.showGlobalOverlay();
+                        e.preventDefault(); 
+                    }    
+                } 
+            }
+        });
+ 
+        $(document).on('click','.remove-filter-one',function(e){ 
+            var valreq = $(e.currentTarget).attr('attr-filter'); 
+            $(this).parents('.selected-facet-mobile').remove();
+            $(document).find('.mz1-facetingform-value').each(function(){
+                if($(this).attr('data-mz-facet-value-mobile')==valreq){
+                    $(this).parents('li').removeClass('mz-facetform-selected');
+                    $(this).find('.mz1-selectcolr').hide(); 
+                }
+            }); 
+            if($(document).find('.selected-facet-mobile').filter(':visible').length >= 1){
+                $(document).find('.tz-mobileSelected-filter').addClass('active');  
+                $(document).find('.mz-refine-search').addClass('active');
+            }else{
+                $(document).find('.tz-mobileSelected-filter').removeClass('active');
+                $(document).find('.mz-refine-search').removeClass('active'); 
+            }
+        }); 
+         
+        $(document).on('click','.mz-reset-filter',function(e){
+            var url=intentToUrl(e);
+                //  setFacetValueMobile(e);
+                if(url){
+                    if (url && _dispatcher.send(url)) { 
+                        //_$body.addClass('mz-loading'); 
+                         window.showGlobalOverlay();
+                        e.preventDefault(); 
+                    }    
+                }    
+                $(document).find('.selected-facet-mobile').remove(); 
+                $(document).find('.mz-facetform-selected').removeClass('mz-facetform-selected');
+                $(document).find('.tz-mobileSelected-filter').removeClass('active');
+                $(document).find('.mz-refine-search').removeClass('active');
+         });
+        
+        $(document).on('click','.item-name',function(e){    
+             if($( window  ).width() <= 767){
+                // var url=intentToUrl(e);
+                // //  setFacetValueMobile(e);
+                // if(url){
+                //     if (url && _dispatcher.send(url)) {
+                //         _$body.addClass('mz-loading'); 
+                //         e.preventDefault(); 
+                //     }    
+                // }  
+            //}else{  
+                // mobile filter altreation for endless plp
+                var ele;    
+                if($(e.currentTarget).hasClass('item-name')){
+                    ele = $(e.currentTarget).find('span.mz1-facetingform-value');
+                }else{
+                    ele = $(e.currentTarget);
+                } 
+                filterfun.mobileaddfilters(ele); 
+            }
+          
+        });
+        
+
+    } 
+   
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('#preloader').fadeOut();  
+            $('#preloaderoverlay').delay(350).fadeOut('slow'); 
+            custom.customObject.os();
+            custom.customObject.autoload();
+        },1000);
         function initilizeBrandSec(){
             // flavor guide issue.
             var category = flavour_Guides1;
             var catCode = require.mozuData('pagecontext').categoryCode;
+            var data= require.mozuData('facetedproducts') ;
             $(category).each(function (index, data) {
                 if(data.category == catCode){
-                    $(document).find('#flavor-List').append(Hypr.getTemplate('pages/flavor-guides-item').render({
+                    
+                    $(document).find('#flavor-List').html(Hypr.getTemplate('pages/flavor-guides-item').render({
                         model : data,
                         index: index
                     }));
@@ -1620,406 +1953,13 @@ define([
                     } 
                 });   
             }
-
-            // event to trigger browser resize.
-            setTimeout(function(){ 
-                $(document).find('.a-spot-cointainer').addClass('opacity');
-                if($(window).width() > 767){
-                    if($(window).width() > 1440){ 
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',($(window).width()-1440)/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','600px'); 
-                    }else{
-                        if($(window).width() < 1175){
-                            $(document).find('.a-spotText').css('font-size',"14px");
-                            $(document).find('.a-spotContentHeading').css('font-size',"26px");
-                        }else{
-                            $(document).find('.a-spotText').css('font-size',"1.2vw");
-                            $(document).find('.a-spotContentHeading').css('font-size',"2.3vw");   
-                        }
-                        var newHeigth = 500-((1440 - $(window).width())/3);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                        $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
-                    }
-                    $(window).resize(function(){ 
-                        if($(window).width() > 1440){
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',($(window).width()-1440)/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','600px'); 
-                        }else{
-                            if($(window).width() < 1175){
-                                $(document).find('.a-spotText').css('font-size',"14px");
-                                $(document).find('.a-spotContentHeading').css('font-size',"26px");
-                            }else{
-                                $(document).find('.a-spotText').css('font-size',"1.2vw");
-                                $(document).find('.a-spotContentHeading').css('font-size',"2.3vw");   
-                            }  
-                            var newHeigth = 500-((1440 - $(window).width())/3);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('height', newHeigth);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').css('height', newHeigth);   
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('left',0); 
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').css('left',($(window).width()-$(document).find('.brand-dicreption').find('.a-spot-cointainer').find('img').width())/2);
-                            $(document).find('.brand-dicreption').find('.a-spot-cointainer').find('.A-spotContent').css('width','45%');  
-                        }
-                    });
-                }
-            },1000);
         }
+        initilizeBrandSec();
+        var data2= require.mozuData('facetedproducts') ; 
+        var getFacetsvalues = data2 && data2.facets ? _.flatten(_.pluck(data2.facets, 'values')) : [];
+        var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
 
-        // function labelShow(){
-        //     var one_day=1000*60*60*24;     
-        //     var comingSoonData = Hypr.getThemeSetting('comingSoonThresholds').split(',');
-        //     var comingSoon = [];
-        //     _.each(comingSoonData, function(pair) { var tmpArray = pair.split('='); 
-        //         comingSoon[tmpArray[0]] = parseInt(tmpArray[1],10);
-        //     });
-        //     $('.mz-productlist-item').each(function(){
-        //         var productDate =$(this).attr('createDate').substring(0,10).replace(/\//g,'-').trim(); 
-        //         var currentDate = $('#currentDate').text();
-        //         var x = productDate.split('-'); 
-        //         var y = currentDate.split('-');   
-        //         var date1 = new Date(x[2],x[0]-1,x[1]);     
-        //         var date2 = new Date(y[2],y[1]-1,y[0]);
-        //         var days = Math.ceil((date2.getTime()-date1.getTime())/(one_day)); 
-    
-        //         if($(this).attr('productType') !== "Gift Certificate"){
-        //             if ( days >= 0 && $(this).attr('onlineStockAvailable') === 0) {
-        //                 $('div[data-mz-product='+$(this).attr('data-mz-product')+']').find('.product-sale-new-label').show().css({ "background-color" : "#000099", "line-height" : "8px"}).html("<span style='font-size: 10px;'>COMING</span><br><span style='font-size: 9px;'>SOON</span>");
-        //             }else if(days <= Hypr.getThemeSetting('newLabelThreshold') && days >= 0 && $(this).attr('price') == $(this).attr('salePrice')){
-        //                 $('div[data-mz-product='+$(this).attr('data-mz-product')+']').find('.product-sale-new-label').show();
-        //             }
-        //         }
-        //     });    
-        // }
-         
-        function initRecProd(){
-            $(document).find('.recommended-product').show();
-        } 
-        
-        function getUrlParms(url) {
-            var vars = [], hash;
-            var hashes = url.slice(url.indexOf('?') + 1).split('&');
-            for(var i = 0; i < hashes.length; i++)
-            {
-                hash = hashes[i].split('=');
-                vars.push(hash[0]);
-                vars[hash[0]] = hash[1];
-            }
-            return vars; 
-        }
-        
-        function showError(error) {
-            _$body.find('[data-mz-messages]').text(error.message);
-        }
-
-        function intentToUrl(e) {
-            loadMore=false; 
-            $(document).find('div[data-mz-productlist]').addClass('is-loading'); 
-            var oldurl = window.location.pathname+window.location.search; 
-            if($(e.currentTarget).hasClass('mz-facetingform-clearall')){
-                $(document).find('.selected-facet-value').remove();  
-                $('.clear-all-outer-btn').removeClass('active');   
-                $(document).find('.item-name').removeClass('mz-facetform-selected');
-            } 
-            e.preventDefault(); 
-            var elm = e.target;
-            var url;
-            if (elm.tagName.toLowerCase() === "select") { 
-                elm = elm.options[elm.selectedIndex];
-            }
-            
-            if(elm.getAttribute('data-mz-url')){
-                url = elm.getAttribute('data-mz-url') || elm.getAttribute('href') || '';
-            }
-            else if($(elm).siblings().attr('data-mz-url')){
-                url=$(elm).siblings().attr('data-mz-url');
-            }
-            else{
-                url = elm.parentElement.getAttribute('data-mz-url') || elm.parentElement.getAttribute('href') || elm.getAttribute('href') || '';
-            }
-            if (url && url[0] != "/") {
-                var parser = document.createElement('a');
-                parser.href = url;
-                url = parser.pathname + parser.search;
-                url = window.location.pathname + parser.search;
-                if(elm.getAttribute('rel')=="next"){
-                    loadMore=true;
-                }else if(elm.getAttribute('rel')=="all"){
-                    loadMore=true;
-                    window.loadAll = true;
-                }else{
-                    loadMore=false;
-                }
-            }
-            var strurl = '',hashes = [],i = 0,hash = [];
-            var params = getUrlParms(url);
-            if(params.pageSize && params.pageSize > window.defaultpagesize){
-                hashes = url.slice(url.indexOf('?') + 1).split('&');
-                strurl = url.split('?')[0]+"?";
-                for(i = 0; i < hashes.length; i++){  
-                    hash = hashes[i].split('='); 
-                    if(hash[0] == "startIndex" && parseInt(hash[1]) != parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&";
-                    if(hash[0] == "startIndex" && params.pageSize == 500 && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&";
-                    if(hash[0] == "startIndex" && params.pageSize != 500 && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+hashes[i]+"&"; 
-                    if(hash[0] != "pageSize" && hash[0] != "startIndex") strurl = strurl+hashes[i]+"&"; 
-                    if(elm.getAttribute('rel')=="next-old" && hash[0] == "pageSize") strurl = strurl+hashes[i]+"&";
-                } 
-                if(strurl.substr(strurl.length - 1) == '&') strurl = strurl.substring(0,strurl.length - 1);   
-                if(elm.getAttribute('rel') != "next-old" && elm.getAttribute('rel') != "all") strurl = strurl +"&pageSize="+window.defaultpagesize; 
-                if(elm.getAttribute('rel') == "all") strurl = strurl +"&pageSize=500"; 
-                if(strurl.indexOf('startIndex') == -1) strurl = strurl +"&startIndex="+elm.getAttribute('lastInedx');   
-            }else if(elm.getAttribute('rel') == "all"){
-                hashes = url.slice(url.indexOf('?') + 1).split('&');
-                strurl = url.split('?')[0]+"?";
-                for(i = 0; i < hashes.length; i++){          
-                    hash = hashes[i].split('='); 
-                    if(hash[0] == "startIndex" && parseInt(hash[1]) != parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+"startIndex="+elm.getAttribute('lastInedx')+"&"; 
-                    if(hash[0] == "startIndex" && parseInt(hash[1]) == parseInt(elm.getAttribute('lastInedx'))) strurl = strurl+hashes[i]+"&"; 
-                    if(hash[0] != "pageSize" && hash[0] != "startIndex") strurl = strurl+hashes[i]+"&"; 
-                    if(elm.getAttribute('rel')=="next-old" && hash[0] == "pageSize") strurl = strurl+hashes[i]+"&";
-                } 
-                if(strurl.substr(strurl.length - 1) == '&') strurl = strurl.substring(0,strurl.length - 1);   
-                if(elm.getAttribute('rel') != "next-old" && elm.getAttribute('rel') != "all") strurl = strurl +"&pageSize="+window.defaultpagesize; 
-                if(elm.getAttribute('rel') == "all") strurl = strurl +"&pageSize=500"; 
-            }  
-            if(url == oldurl) $(document).find('.jb-inner-overlay').hide();
-            if(strurl && strurl !== ''){ return strurl; }else{ return url;}  
-        }
-
-        var navigationIntents = IntentEmitter(  
-            _$body,
-            [   
-                'click [data-mz-pagingcontrols] a',
-                'click [data-mz-pagenumbers] a',
-                //'click a[data-mz-facet-value]',
-                'click [data-mz-action="clearFacets"]',
-                //'click [data-mz-facet-value]',
-                'change [data-mz-value="pageSize"]',
-                'change [data-mz-value="sortBy"]',
-                'click  [data-mz-value="sortMob"]',
-                'click #color1',
-                'click #load-more',
-                'click #load-all',
-                'click .mz-reset-filter' 
-            ], 
-            intentToUrl
-        );
-
-        navigationIntents.on('data', function(url, e) {
-            if (url && _dispatcher.send(url)) {
-                _$body.addClass('mz-loading');
-                e.preventDefault();
-            }
-        });
-
-        _dispatcher.onChange(function(url) {
-            getPartialView(url, conf.template).then(updateUi, showError);   
-        });
-        
-        function formcustomurl(){
-            var required_url = window.location.href;
-            var data_url = '';
-            var url_main = '?';
-            if(decodeURIComponent(required_url).split('?').length > 1){
-                if( decodeURIComponent(required_url).split('?')[1] != "#maincontent"){ 
-                    required_url = decodeURIComponent(required_url).split('?')[1].split('&');
-                    for(var i =0; i< required_url.length;i++ ){
-                        if(required_url[i].indexOf("facetValueFilter") == -1 && required_url[i].indexOf("startIndex")){ 
-                            url_main = url_main+required_url[i];    
-                        }    
-                    }
-                }
-            }
-            if(url_main.length > 1){
-                data_url = data_url+'&facetValueFilter=';   
-            }else{
-                data_url = data_url+'facetValueFilter=';     
-            }   
-            var selecterfilterobj = $(document).find('.facet-name-list').find('.selected-facet-value').filter(':visible');
-            selecterfilterobj.each(function(){
-                var filter = $(this).attr('url-component'); 
-                data_url = data_url+filter+',';
-            }); 
-            var needed_url = url_main+data_url;  
-            return needed_url; 
-        }
-        
-        $(document).on('click','.apply-filter-button',function(e){
-            var needed_url = formcustomurl();
-            $(e.currentTarget).attr('data-mz-url',needed_url);  
-            var url=intentToUrl(e);
-            //  setFacetValueMobile(e);
-            if(url){
-                if (url && _dispatcher.send(url)) { 
-                    _$body.addClass('mz-loading'); 
-                    e.preventDefault(); 
-                }    
-            }          
-        });
-        
-        $(document).on('keydown','.apply-filter-button',function(e){
-            if(e.which == 13 || e.which == 32){
-                e.preventDefault();
-                $(document.activeElement).click();   
-            }    
-        });
-        
-        $(document).on('keydown','.mz-facetingform-clearall',function(e){
-            if(e.which == 13 || e.which == 32){
-                e.preventDefault();
-                $(document.activeElement).click();   
-            }    
-        });
-        
-        $(document).on('click','.cross-btn-facets',function(e){
-            $(e.currentTarget).parents('.item-name').remove();
-            var needed_url = formcustomurl();
-            $('.hidden-element-to-apply').attr('data-mz-url',needed_url);
-            $('.hidden-element-to-apply').click();
-        });
-        
-        $(document).on('keydown','.cross-btn-facets',function(e){
-            if(e.which == 13 || e.which == 32){ 
-                $(document.activeElement).remove(); 
-                var needed_url = formcustomurl(); 
-                $('.hidden-element-to-apply').attr('data-mz-url',needed_url);
-                $('.hidden-element-to-apply').click();
-            }
-        });
-        
-        $(document).on('click','.hidden-element-to-apply',function(e){
-            var url=intentToUrl(e);
-            //  setFacetValueMobile(e);
-            if(url){
-                if (url && _dispatcher.send(url)) { 
-                    _$body.addClass('mz-loading'); 
-                    e.preventDefault(); 
-                }    
-            }     
-        });
-        
-        $(document).on('keydown','#load-more',function(e){
-            if(e.which == 32){
-                var url=intentToUrl(e);
-                if(url){
-                    if (url && _dispatcher.send(url)) {
-                        _$body.addClass('mz-loading'); 
-                        e.preventDefault(); 
-                    }    
-                }      
-            }
-        });
-         
-        $(document).on('click','.tzPopup-Done',function(e){
-           
-            var required_url = window.location.href;
-            var data_url = '';
-            var url_main = '?';
-            var filter_url = "";
-            if(decodeURIComponent(required_url).split('?').length > 1){
-                required_url = decodeURIComponent(required_url).split('?')[1].split('&');
-                for(var i =0; i< required_url.length;i++ ){
-                    if(required_url[i].indexOf("facetValueFilter") == -1 && required_url[i].indexOf("startIndex")){ 
-                        url_main = url_main+required_url[i];    
-                    } else if(required_url[i].indexOf("facetValueFilter")){
-                        filter_url = required_url[i].split('=')[1] ;   
-                    }  
-                }
-            } 
-            if($(document).find('.tzPopup-content .selected-facet-mobile').length > 0 || ($(document).find('.tzPopup-content .selected-facet-mobile').length < 1 && filter_url.length > 0)){
-                if(url_main.length > 1){
-                    data_url = data_url+'&facetValueFilter=';   
-                }else{
-                    data_url = data_url+'facetValueFilter=';     
-                }   
-                $(document).find('.tzPopup-content .selected-facet-mobile').each(function(){
-                    var filter = $(this).children('a').attr('attr-require'); 
-                    data_url = data_url+filter+',';
-                }); 
-                var needed_url = url_main+data_url;  
-                $(e.currentTarget).attr('data-mz-url',needed_url);  
-                var url=intentToUrl(e);
-                //  setFacetValueMobile(e);
-                if(url){
-                    if (url && _dispatcher.send(url)) { 
-                        _$body.addClass('mz-loading'); 
-                        e.preventDefault(); 
-                    }    
-                } 
-            }
-        });
- 
-        $(document).on('click','.remove-filter-one',function(e){ 
-            var valreq = $(e.currentTarget).attr('attr-filter'); 
-            $(this).parents('.selected-facet-mobile').remove();
-            $(document).find('.mz1-facetingform-value').each(function(){
-                if($(this).attr('data-mz-facet-value-mobile')==valreq){
-                    $(this).parents('li').removeClass('mz-facetform-selected');
-                    $(this).find('.mz1-selectcolr').hide(); 
-                }
-            }); 
-            if($(document).find('.selected-facet-mobile').filter(':visible').length >= 1){
-                $(document).find('.tz-mobileSelected-filter').addClass('active');  
-                $(document).find('.mz-refine-search').addClass('active');
-            }else{
-                $(document).find('.tz-mobileSelected-filter').removeClass('active');
-                $(document).find('.mz-refine-search').removeClass('active'); 
-            }
-        }); 
-         
-        $(document).on('click','.mz-reset-filter',function(e){
-            var url=intentToUrl(e);
-                //  setFacetValueMobile(e);
-                if(url){
-                    if (url && _dispatcher.send(url)) { 
-                        _$body.addClass('mz-loading'); 
-                        e.preventDefault(); 
-                    }    
-                }    
-                $(document).find('.selected-facet-mobile').remove(); 
-                $(document).find('.mz-facetform-selected').removeClass('mz-facetform-selected');
-                $(document).find('.tz-mobileSelected-filter').removeClass('active');
-                $(document).find('.mz-refine-search').removeClass('active');
-         });
-        
-        $(document).on('click','.item-name',function(e){    
-             if($( window  ).width() <= 767){
-                // var url=intentToUrl(e);
-                // //  setFacetValueMobile(e);
-                // if(url){
-                //     if (url && _dispatcher.send(url)) {
-                //         _$body.addClass('mz-loading'); 
-                //         e.preventDefault(); 
-                //     }    
-                // }  
-            //}else{  
-                // mobile filter altreation for endless plp
-                var ele;    
-                if($(e.currentTarget).hasClass('item-name')){
-                    ele = $(e.currentTarget).find('span.mz1-facetingform-value');
-                }else{
-                    ele = $(e.currentTarget);
-                } 
-                filterfun.mobileaddfilters(ele); 
-            }
-          
-        });
-        
-
-    } 
-   
-    $(document).ready(function(){
-        setTimeout(function(){
-            $('#preloader').fadeOut();  
-            $('#preloaderoverlay').delay(350).fadeOut('slow'); 
-            custom.customObject.os();
-            custom.customObject.autoload();
-        },1000);
-        
-        
+        $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
         //pagination mobile
         var pageValue = window.pageValue = 0;
         var pageFlag = window.pageFlag = true;
@@ -2724,6 +2664,7 @@ define([
             this.categoryaccordian($('.item-name.active'));
         },
         mobileaddfilters:function(ele){
+            window.showGlobalOverlay();
             if(!ele.hasClass('remove-filter-one') && !ele.parents('li').hasClass('mz-facetform-selected') && ele.html() !== ''){
                 var valuetoshow = ele.prev().attr('data-mz-facet-titel-mobile');
                 var valuetoappend = ele.prev().attr('data-mz-facet-value-mobile');

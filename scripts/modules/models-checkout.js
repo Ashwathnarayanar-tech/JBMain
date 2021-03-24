@@ -1436,7 +1436,10 @@ define([
                         }
                     });
                 }
-
+		//JEL-1740
+                if(error.message && error.message.indexOf("Validation Error: Auth and Capture was declined")>=0){
+                    error.message = '<p style="display: inline-block;font-weight: bold;margin: 0px;">Payment Authorization Declined: Please correct your card number, expiration date and/or CVV (security code)</p>';
+                }
 
                 order.isLoading(false);
                 if (!error || !error.items || error.items.length === 0) {

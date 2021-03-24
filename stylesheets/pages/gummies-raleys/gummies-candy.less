@@ -1,0 +1,113 @@
+.bc-wrapper {
+  position: relative;
+  background-color: #1f2c36;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 128px 120px 125px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+
+
+  .bc-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+    align-items: flex-start;
+    min-width: 542px;
+
+    .bc-heading {
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 55px;
+      text-transform: uppercase;
+      color: white;
+      width: 100%;
+      margin: 0;
+    }
+
+    .bc-text {
+      font-size: 30px;
+      font-weight: 400;
+      color: white;
+      margin: 28px 0 0 0;
+      letter-spacing: -1px;
+      line-height: 28px;
+      max-width: 379px;
+    }
+  }
+
+  .bc-big-candy-wrapper {
+    margin: 0 64px;
+
+    .big-candy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: opacity 150ms ease-in-out;
+      max-width: 553px;
+      width: 100%;
+      height: auto;
+
+      .bc-big-candy-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+
+    .bc-big-candy-text {
+      margin: 74px 0 0 0;
+      font-weight: 900;
+      font-size: 28px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .bc-assortment {
+    display: flex;
+
+    .bc-assort-list {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      .bc-assort-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 20px 0 20px 0;
+
+        &:first-child {
+          margin: 0 0 20px 0;
+        }
+
+        &:last-child {
+          margin: 20px 0 0 0;
+        }
+
+        img {
+          max-width: 112px;
+          height: auto;
+
+          &:first-child {
+            margin: 0 21px 0 0;
+          }
+
+          &:last-child {
+            margin: 0 0 0 21px;
+          }
+        }
+      }
+    }
+  }
+}

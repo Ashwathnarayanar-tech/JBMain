@@ -108,7 +108,12 @@
         {% comment %}
         <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/storefront.less" %}" title="default" />
         {% endcomment %}
+        {% if pageContext.cmsContext.template.path == "pages-holiday-gift-guide" %}
         <link rel="stylesheet" href="/stylesheets/compiled/pages/holiday-gift-guide.less">
+        {% endif %}
+        {% if pageContext.cmsContext.template.path == "pages-gummies-raleys" %}
+        <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/compiled/pages/gummies-raleys.less" %}" >
+        {% endif %}
         {% endblock stylesheets %}
 
         {% block head-tag-scripts %}
@@ -163,6 +168,10 @@
 
                     .mz-l-pagecontent {
                         padding: 0;
+                    }
+
+                    img[data-mztp=""] {
+                        display: none;
                     }
                 </style>
 

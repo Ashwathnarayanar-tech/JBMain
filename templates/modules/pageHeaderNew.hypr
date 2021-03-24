@@ -1,0 +1,170 @@
+{% require_script "modules/contextify" %} 
+{% if pagecontext.pageType != "checkout" %}
+ <div class="isDesktop">
+        <div class="page-header mz-pageheader-desktop desktop"> 
+            {% block search-box %}
+                <div class="jb-serach-box-with-label">
+                    {% include "modules/page-header/search-box" %}
+                </div>
+            {% endblock search-box %}
+            {% block utility-nav %}
+                {% include "modules/page-header/utility-nav" %}
+            {% endblock utility-nav %}
+            {% block site-nav %}  
+                <div class="nav-cointainer" id="megaMenu">
+                    <div class="nav-header">
+                        <ul class="nav-list-head-cointainer">
+                            {% partial_cache %}
+                            <li class="head-list-item-li" data-attr="view-products">
+                                <span><a attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" href="#" aria-expanded="false">View Products</a>  </span>
+                            </li>
+                            <li class="head-list-item-li" data-attr="flavorsandmore">
+                                <span><a attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" href="#" aria-expanded="false">Flavors & More</a> </span> 
+                            </li>
+                            <li class="head-list-item-li store-branding" attr-menuname="store-branding" data-attr="store-branding">
+                                {% block store-branding %} 
+                                    {% include "modules/page-header/store-branding" %} 
+                                {% endblock store-branding %} 
+                            </li>
+                            <li class="head-list-item-li" data-attr="visitus">
+                                <span><a attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" href="#" aria-expanded="false">Visit Us</a>  </span>
+                            </li>  
+                            <li class="head-list-item-li" data-attr="store-locator">
+                                <span> <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false">Store Locator</a>  </span>
+                            </li> 
+                            {% endpartial_cache %}     
+                        </ul> 
+                    </div>
+                    {% include "modules/site-navDesk" %}
+                </div>
+            {% endblock site-nav %}  
+        </div>
+    </div>      
+   <div class="isMobile">
+        <div class="page-header mz-pageheader-mobile mobile">
+            {% block search-box %}
+                <div class="jb-serach-box-with-label">
+                    {% include "modules/page-header/search-box" %}
+                </div>
+            {% endblock search-box %}
+            {% block store-branding %} 
+                {% include "modules/page-header/store-branding" %} 
+            {% endblock store-branding %} 
+            {% block utility-nav %}
+                {% include "modules/page-header/utility-nav" %}
+            {% endblock utility-nav %} 
+            <div class="contact-num"><p class="mz-tollfree-content">Questions?<a href="tel:+18005223267" class="number" title="Toll Free Number"> 1-800-522-3267 </a></p></div>
+        </div> 
+        {% block site-nav %}
+            <div class="nav-cointainer" id="megaMenuMob">
+                {% if not user.isAnonymous %} 
+                    <section class="zinrelo-container" tabindex="0">
+                        <p class="zrl-available-text">Sweet Rewards Balance:</p> 
+                        <p id="zrl-points"></p>
+                        <p class="fantext">FAN</p>
+                        <p class="dwon-arrow"></p>
+                    </section>  
+                {% else %}
+                    <section class="zinrelo-container" tabindex="0">
+                        <p class="zrl-available-text">Sweet Rewards</p> 
+                        <p class="dwon-arrow"></p>
+                    </section> 
+                {% endif %}
+                <div class="nav-header">
+                    <ul class="nav-list-head-cointainer">
+                        {% partial_cache %}
+                        <li class="head-list-item view-products" attr-menuname="megamenu_1" data-attr="view-products">
+                            <a href="#" aria-expanded="false">
+                                <img src="/../resources/images/rectangle_menu.png" alt="user icon" class="user-icon view-products">   
+                                <span class="mz-sitenav-link" >Products</span>  
+                            </a>
+                        </li>
+                        <li class="head-list-item flavorsandmore" attr-menuname="megamenu_2" data-attr="flavorsandmore">
+                            <a  href="#" aria-expanded="false">
+                                <img src="/../resources/images/fandmicon.png" alt="user icon" class="user-icon flavorsandmore">   
+                                <span class="mz-sitenav-link">Flavors & More</span>
+                            </a>  
+                        </li>
+                        <li class="head-list-item visitus" attr-menuname="megamenu_3" data-attr="visitus">
+                            <a href="#" aria-expanded="false">
+                                <img src="/../resources/images/location-icon.png" alt="user icon" class="user-icon visitus">   
+                                <span class="mz-sitenav-link" >Visit Us</span>  
+                            </a>
+                        </li>  
+                        <li class="head-list-item store-locator" attr-menuname="store-locator" data-attr="store-locator">
+                            <a href="/store-locator" class="{% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" aria-expanded="false"> 
+                                <img src="/../resources/images/store-icon.png" alt="user icon" class="user-icon store-locator">   
+                                <span class="mz-sitenav-link" >Store Locator</span>  
+                            </a>
+                        </li>  
+                        <li class="head-list-item myAccount" attr-menuname="myAccount" data-attr="myAccount">
+                            <a href="/myaccount" aria-expanded="false"> 
+                                <img src="/../resources/images/Newusericon.png" alt="user icon" class="user-icon user">   
+                                <span class="mz-sitenav-link">Account</span>  
+                            </a>
+                        </li> 
+                        {% endpartial_cache %}     
+                    </ul> 
+                </div> 
+                 {% include "modules/site-navMob" %} 
+            </div>
+        {% endblock site-nav %}
+        <center>
+            <div class="jb-mobile-minicart-popup" style="background: #ffffff; margin-top: 140px; height: 200px; width: 200px; z-index: 501; display: none; position: relative;"> 
+                <div style="background: #ff0000; padding: 5px; width: 190px; height: 20px;">
+                    <span style="color: #ffffff; font-size: 16px; font-weight: bold; float: left;">ITEM ADDED!</span>
+                    <span class="close-mobile-minicart-popup" style="float: right; color: #efefef;">X</span>
+                </div>
+                <div style="width: 200px; height: 170px; text-align: center; padding-top: 15px;">
+                    <img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                    data-src="{% make_url "image" "/resources/images/mr_jelly_belly_flag2.png" alt="mr jellybelly" />
+                </div>
+            </div>
+        </center> 
+  </div>
+    <div class="Add-to-cart-popup">
+        <div class="popup-container" role="dialog" aria-modal="true">
+            <div class="popup-head">
+                <h1 tabindex="0">Item Added to Cart! </h1>
+                <span class="cross-close-popup" tabindex="0" role="button" aria-label="click to close the popup"></span>
+            </div>
+            <div class="data-container">
+                <div class="product-data">
+                    <img class="product-image" src="" alt="" />
+                    <div class="prodcut-tital-price">
+                        <span class="product-name" tabindex="0">Buttered Popcorn Jelly Beans - 16 oz Re-Sealable Bag</span>
+                        <span class="price">
+                            <span class="listprice" tabindex="0">$79.00</span>
+                            <span class="saleprice" tabindex="0">$65.00</span>
+                        </span>
+                        <span class="qty-popup">
+                            <span class="qty-label-popup">Quantity:</span>
+                            <span class="qty-count-popup">5</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="call-to-action-buttons">
+                    <a class="continue-shoping" href="javascript:void(0)" title="continue shoping" role="button">Continue Shopping</a>
+                    <a class="view-cart" href="/cart" title="view cart" role="button">View Cart</a>
+                </div>
+                <div class="rec-prod-sec" id="addtocart-popup-rec-prod-sec">
+                    <div class="head-rec-prod-list">
+                        <h2 tabindex="0">Jelly Belly Also Recommends</h2>
+                    </div>
+                    <div class="rec-prod-list-popup" id="rec-prod-list-popup">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% else %}
+   
+   
+    <div class="jb-mobile-logo isMobile">
+        <a href="/">
+            <img src="../../resources/images/new-logo-images/jb_logo_web_header_mobile.png" alt="Jelly Belly logo" width="50%">
+        </a>
+    </div> 
+      
+{% endif %}

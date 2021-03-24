@@ -149,6 +149,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             // wait for blur validation to complete
             var me = this;
             me.editing.savedCard = false;
+           //  window.showGlobalOverlay();
             _.defer(function () {
                 me.model.next();
             });
@@ -191,39 +192,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 this.$el.removeClass('is-new is-incomplete is-complete is-invalid').addClass('is-' + this.model.stepStatus());     
             }
-
-            EditableView.prototype.render.apply(this, arguments);
-            if($('.error-msg').html() !== ''){
-                if(self.model){
-                     $('.digitalcrediterror-msg').hide();
-                      $('.digitalcrediterror-msg').css('display','none');   
-                    self.model.set('digitalCreditCode','');
-                    self.model.set('errormessage','');
-                    window.couponCode.model.set('errormessagecoupon','');
-                } 
-                setTimeout(function(){   
-                    $('.error-msg').html(''); 
-                    
-										$('#coupon-code').focus();
-                    //$('.digitalcrediterror-msg').html('');
-                },10000); 
-            }
-            
-            if($('.digitalcrediterror-msg').html() !== ''){   
-                setTimeout(function(){    
-                    //$('.error-msg').html('');   
-                    $('.digitalcrediterror-msg').html('');
-                    if(self.model){
-                         $('.error-msg').html('');   
-                        self.model.set('errormessage','');  
-                        self.model.set('errorsetdigitlcredit',''); 
-                         $('.digitalcrediterror-msg').hide();
-                          $('.digitalcrediterror-msg').css('display','none'); 
-                    }  
-                },10000); 
-            }
-            
-            this.resize();
             //Hide validation message section
             window.checkoutViews.messageView.el.style.display = "none";
             
@@ -411,6 +379,38 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }, 'fast'); 
             }
             
+            EditableView.prototype.render.apply(this, arguments);
+            if($('.error-msg').html() !== ''){
+                if(self.model){
+                     $('.digitalcrediterror-msg').hide();
+                      $('.digitalcrediterror-msg').css('display','none');   
+                    self.model.set('digitalCreditCode','');
+                    self.model.set('errormessage','');
+                    window.couponCode.model.set('errormessagecoupon','');
+                } 
+                setTimeout(function(){   
+                    $('.error-msg').html(''); 
+                    
+                                        $('#coupon-code').focus();
+                    //$('.digitalcrediterror-msg').html('');
+                },10000); 
+            }
+            
+            if($('.digitalcrediterror-msg').html() !== ''){   
+                setTimeout(function(){    
+                    //$('.error-msg').html('');   
+                    $('.digitalcrediterror-msg').html('');
+                    if(self.model){
+                         $('.error-msg').html('');   
+                        self.model.set('errormessage','');  
+                        self.model.set('errorsetdigitlcredit',''); 
+                         $('.digitalcrediterror-msg').hide();
+                          $('.digitalcrediterror-msg').css('display','none'); 
+                    }  
+                },10000); 
+            }
+            
+            this.resize();
             /*if(window.nextFocusFlag) {
                 $('#step-payment-info').find('#btn_validatepaypal').focus();
                 window.nextFocusFlag = false;
@@ -838,7 +838,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }
 			}
 			if (this.hasItemsWithYearRoundHeatSensitivity() || this.hasItemsCurrentlySeasonallyHeatSensitive()) {
-				$('#new-heat-sensitive-statement').html("<p><strong>Your order has one or more Heat-Sensitive Items. We strongly recommend choosing Express shipping (UPS Second Day Air or UPS Next Day Air Saver) to ensure that your candy arrives in the best possible condition. For more information, see the FAQ section, below.</strong></p><p><strong>These items will ship from our Pleasant Prairie, Wisconsin location.</strong></p>");
+				$('#new-heat-sensitive-statement').html("<p><strong>Your order has one or more Heat-Sensitive Items. We strongly recommend choosing Express shipping (UPS Second Day Air or UPS Next Day Air Saver) to ensure that your candy arrives in the best possible condition. For more information, see the FAQ section, below.</strong></p><p><strong>These items will ship from our Memphis, Tennessee location.</strong></p>");
             }
             if (this.hasNoFreeShipping()) {
                 $('#hide-from-heat-sensitive').css('display', 'none');
@@ -1028,6 +1028,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             var flag = false;
             if(!(window.paymentinfo.model.validate(attr))){
+                 //CVV Validation
+                 var regcvv=/^[0-9]{3,4}$/;
+                 if(card.cvv && !regcvv.test(card.cvv)){
+                     $('[data-mz-validationmessage-for="card.cvv"]').text("Error: Please enter your card’s complete CVV (Security Code)");
+                      $('[data-mz-value="card.cvv"]').focus();
+                  return false;
+                 }else if(card.cvv===undefined || card.cvv === ""){
+                    $('[data-mz-validationmessage-for="card.cvv"]').text("Error: Please enter your card's CVV (Security Code)");
+                    $('[data-mz-value="card.cvv"]').focus();
+                    return false;
+                 }
                 $('#completePaymment').click();
                 if($('.is-showing.mz-errors').length > 0){
                     $('.is-showing.mz-errors').first().focus();
@@ -1268,7 +1279,15 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 					else{
 						$('#credit-card-amount-with-rewards').hide();
 					}
-					
+
+					$(".mz-paymenttype-label-creditcard, .mz-paymenttype-label-check").removeAttr("tabindex");
+					setTimeout(function(){ 
+					if(window.paymentTypeChosen === "creditcard")
+						$(".mz-paymenttype-label-creditcard").prop("tabindex", 0);
+					else if(window.paymentTypeChosen === "paypal")
+						$(".mz-paymenttype-label-check").prop("tabindex", 0);
+					}, 1000);
+
         },
 
         updateAcceptsMarketing: function(e) {
@@ -1512,7 +1531,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 // $('#sweet-rewards-points').empty().html(window.pwrDisplayPoints - totalRedeemed);
                     
 				for (var i = 0; i < window.pwrRewards.length; i++)	
-                    $('#pwr-rewards-list').append("<div tabindex='0' style='font-weight: normal; margin: 12.5px'>" + (i+1) + ". " + window.pwrRewards[i].points + " - $" + window.pwrRewards[i].discount + "</div>");
+                    $('#pwr-rewards-list').append("<li style='font-weight: normal; margin: 12.5px'>" + (i+1) + ". " + window.pwrRewards[i].points + " - $" + window.pwrRewards[i].discount + "</li>");
 			},
 			rewardList: JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML).headers["x-vol-tenant"] == '9046' ? [{
 					id: 'reward_3206a',
@@ -1979,7 +1998,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         }) ;
     }
     $(document).ready(function () {
-			window.lastShippingMethod = '';
+            window.lastShippingMethod = '';
+            window.guestlogincppcheckboxChecked = false;
+			window.paymentTypeChosen = "";
 			$(document).on("click", "input[name*='shippingMethod']", function(e){ 
 					window.lastShippingMethod = e.target;
 			});
@@ -1998,7 +2019,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 			$(document).on('change','#guestlogin-cpp-checkbox',function(){
                 if (this.checked) {
                     $('.cpp-loginpopup').prop('disabled',false);
+                    window.guestlogincppcheckboxChecked = true;
                 }else{
+                    window.guestlogincppcheckboxChecked = false;
                     $('.cpp-loginpopup').prop('disabled',true); 
                 }    
 			});
@@ -2543,6 +2566,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 var valid = this.validData();
                 var currentUser = require.mozuData("user");
                 if(valid && currentUser.isAnonymous){
+                     window.showGlobalOverlay();
                     api.action('customer', 'loginStorefront', {
                         email: $('.user-email').val(),
                         password: $('.user-password').val()
@@ -2592,10 +2616,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                setTimeout(function(){ window.scrollTo(0, -5000);},300); 
             },
             LoginErrorMessage: function(){
+                 window.hideGlobalOverlay();
                 $('.loginError').text(Hypr.getLabel('loginFailedMessage',$("#email").val()));
                 $('.loginError').prev('input').focus(); 
             },
             loginProcess: function(e){
+              window.hideGlobalOverlay();
               if(!window.guestLoginWithExistingAccount) {
                 window.location.href = window.location.pathname+"?cl=ml";
               }
@@ -2622,25 +2648,33 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 var validity = true;
                 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 var patt = new RegExp(re);
-                if( $('.user-email').val().length === 0){
-                     $('.user-email').css({'border':'1px solid #e9000f'});
-                     $('.error-user').text(Hypr.getThemeSetting('validEmialSignUp'));
-                     $('.error-user').prev('input').focus();
+                var parentEle = "";
+                if($("#guestcheckoutmodal").is(":visible")) 
+                {
+                    parentEle = "#guestcheckoutmodal ";
+                }
+                else {
+                    parentEle = "#checkoutmodal ";
+                }
+                if( $(parentEle+'.user-email').val().length === 0){
+                     $(parentEle+'.user-email').css({'border':'1px solid #e9000f'});
+                     $(parentEle+'.error-user').text(Hypr.getThemeSetting('validEmialSignUp'));
+                     $(parentEle+'.error-user').prev('input').focus();
                     validity = false;
-                }else if(patt.test($('.user-email').val())){
-                     $('.user-email').css({'border':'1px solid #c2c2c2'});
-                     $('.error-user').text('');
+                }else if(patt.test($(parentEle+'.user-email').val())){
+                     $(parentEle+'.user-email').css({'border':'1px solid #c2c2c2'});
+                     $(parentEle+'.error-user').text('');
                 }else{
-                     $('.user-email').css({'border':'1px solid #e9000f'});
-                     $('.error-user').text(Hypr.getThemeSetting('validEmialSignUp'));
-                     $('.error-user').prev('input').focus();
+                     $(parentEle+'.user-email').css({'border':'1px solid #e9000f'});
+                     $(parentEle+'.error-user').text(Hypr.getThemeSetting('validEmialSignUp'));
+                     $(parentEle+'.error-user').prev('input').focus();
                     validity = false;
                 }
-                if( $('.user-password').val().length === 0){
-                    $('.user-password').css({'border':'1px solid #e9000f'});     
+                if( $(parentEle+'.user-password').val().length === 0){
+                    $(parentEle+'.user-password').css({'border':'1px solid #e9000f'});     
                     validity = false;
                 }else{ 
-                    $('.user-password').css({'border':'1px solid #c2c2c2'});    
+                    $(parentEle+'.user-password').css({'border':'1px solid #c2c2c2'});    
                 }
                 return validity; 
             },
@@ -2729,10 +2763,25 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             ChekoutEmailView.guestCheckout(e);
         }); 
         
-        $('.login_submit,.login_submit,.login_submit-l').on('submit',function(e){
-            ChekoutEmailView.loginCheckout(e);
-        });
+       /* $('.login_submit,.login_submit,.login_submit-l').on('submit',function(e){
+            if($("#guestlogin-cpp-checkbox").is(":checked")){
+                ChekoutEmailView.loginCheckout(e);
+            }
+            else{
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });*/
         
+        $('.cpp-loginpopup').on('click',function(e){ 
+            if(window.guestlogincppcheckboxChecked){
+                ChekoutEmailView.loginCheckout(e);
+            }
+            else{
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
         $(document).on('focus','#toolTipStock', function(e) { 
             $(this).next().addClass('cc-tooltip');
         });
@@ -2752,6 +2801,15 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         var inputs = window.inputs ;
         var firstInput = window.firstInput ;
         var lastInput = window.lastInput ;
-        ChekoutEmailView.activateloopinginmodal();  
+        ChekoutEmailView.activateloopinginmodal();
+			
+				$(document).on('click', 'span.mz-paymenttype-label',
+					function(e){
+						window.paymentTypeChosen = '';
+						if ($(this).hasClass('mz-paymenttype-label-creditcard'))
+							window.paymentTypeChosen = "creditcard";
+						else if ($(this).hasClass('mz-paymenttype-label-check'))
+							window.paymentTypeChosen = "paypal";
+				});
     });
 });

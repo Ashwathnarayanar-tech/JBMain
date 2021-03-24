@@ -397,6 +397,7 @@ require([
             $(document).find('.RTI-overlay').addClass('active');
             PRODUCT.addToCart(1);
             PRODUCT.on('addedtocart', function(attr) {
+                window.hideGlobalOverlay();
                 $('[data-mz-productlist],[data-mz-facets]').removeClass('is-loading');
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -413,6 +414,7 @@ require([
                 PRODUCT = '';
             });
             api.on('error', function (badPromise, xhr, requestConf) {
+                window.hideGlobalOverlay();
                 showErrorMessage(badPromise.message);
                 $('.mz-l-pagewrapper').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -563,6 +565,7 @@ require([
                 // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
                 var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
                 var count = parseInt($quantity,10);
+                window.showGlobalOverlay();
                 api.get('product', productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;
@@ -581,6 +584,7 @@ require([
                         }else{
                             showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
                             $(document).find('.RTI-overlay').removeClass('active');
+                            window.hideGlobalOverlay();
                         }
                     }else{
                         var pro = PRODUCT;
@@ -615,6 +619,9 @@ require([
                             addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                         }
                     }
+                }).catch(function(err){
+                  console.log("Error on getting Product ",err);
+                  window.hideGlobalOverlay();
                 });
             });
             // notify me function
@@ -654,12 +661,14 @@ require([
                             productCode:button.attr('data-mz-product-code'),
                             locationCode:location
                         };
+                         window.showGlobalOverlay();
                         api.create('instockrequest',obj ).then(function () {
                             modal.find('.notify-me-section').fadeOut(500,function(){
                                 modal.find('.success-msg').fadeIn(500,function(){focusNotify();});
                             });
-                                
+                             window.hideGlobalOverlay();  
                             }, function (xhr) {
+                                 window.hideGlobalOverlay();
                                 $('[data-mz-message-bar]').hide();
                                 if(xhr.errorCode == "VALIDATION_CONFLICT"){
                                     $('[data-mz-message-bar]').hide(); 
@@ -1224,6 +1233,6 @@ require([
 
 		require(['modules/browser-info']);
     require(['modules/add-to-cart-modal']);
-		//require(['modules/regional-scheme/geodetect2']);
+		require(['modules/regional-scheme/geodetect2']);
     });
 });

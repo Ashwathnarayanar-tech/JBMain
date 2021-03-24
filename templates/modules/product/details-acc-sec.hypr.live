@@ -3,44 +3,42 @@
       <div id="related-products">  
         <h2 tabindex="0">Related Products</h2>
         <div class="product-row" role="region" aria-label="Related Products"> 
-            {% for listItem in model.relatedProducts  %}
-                {% for item in listItem.items %}
-                    {% if model.isMobile %}
-                        {% if forloop.index < 5 %}
-                            <div class="single-product">
-                                <div class="p-image">
-                                    <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
-                                </div>
-                                <div class='p-details'> 
-                                    <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
-                                    <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
-                                </div> 
-                            </div>  
-                        {% else %}
-                            <div class="single-product" {% if model.loadMore %}style="display:none"{% endif %}>
-                                <div class="p-image">
-                                    <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
-                                </div>
-                                <div class='p-details'> 
-                                    <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
-                                    <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
-                                </div> 
-                            </div>      
-                        {% endif %}
-                    {% else %}
+            {% for item in model.relatedProducts  %}
+                {% if model.isMobile %}
+                    {% if forloop.index < 5 %}
                         <div class="single-product">
-                                <div class="p-image">
-                                    <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
-                                </div>
-                                <div class='p-details'> 
-                                    <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
-                                    <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
-                                </div> 
-                            </div>  
-                    {% endif %}    
-                {% endfor %}  
+                            <div class="p-image">
+                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                            </div>
+                            <div class='p-details'> 
+                                <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
+                                <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
+                            </div> 
+                        </div>  
+                    {% else %}
+                        <div class="single-product" {% if model.loadMore %}style="display:none"{% endif %}>
+                            <div class="p-image">
+                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                            </div>
+                            <div class='p-details'> 
+                                <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
+                                <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
+                            </div> 
+                        </div>      
+                    {% endif %}
+                {% else %}
+                    <div class="single-product">
+                            <div class="p-image">
+                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                            </div>
+                            <div class='p-details'> 
+                                <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
+                                <span class="p-price" tabindex="0" >{{ item.salePrice | currency }}</span>
+                            </div> 
+                        </div>  
+                {% endif %}    
             {% endfor %}
-            {% if model.relatedProducts.items.length>4  and model.isMobile and model.loadMore %}
+            {% if model.relatedProducts.length>4  and model.isMobile and model.loadMore %}
                 <span tabidex="0" role="button" class="load-more" data-mz-action="loadMore">Load More</span>
             {% endif %}
         </div> 

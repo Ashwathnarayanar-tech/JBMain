@@ -6,13 +6,13 @@
         <div class="oos-error"></div>
         <div id="heat-warning"></div>
         <div id="no-free-shipping-warning"></div>
-    	{% if pageContext.isDesktop or pageContext.isTablet %}
-	    <div class="cart-header-top">
-	        <h1 class="mz-cartpagetitle" tabindex="0">{{ labels.cart }}<span class="count">{% if model.count>1 %} ({{ model.count }} items){% else %} ({{ model.count }} item) {% endif %}</span></h1>
-	        <div class="continue-shopping"><a href="/" ><i class="arrow"></i>continue shopping</a></div> 
-	    </div>
-	{% endif %}
-        {% if pageContext.isMobile %}
+        {% if model.pageContext.isDesktop or model.pageContext.isTablet %}
+        <div class="cart-header-top">
+            <h1 class="mz-cartpagetitle" tabindex="0">{{ labels.cart }}<span class="count">{% if model.count>1 %} ({{ model.count }} items){% else %} ({{ model.count }} item) {% endif %}</span></h1>
+            <div class="continue-shopping"><a href="/" ><i class="arrow"></i>continue shopping</a></div> 
+        </div>
+    {% endif %}
+        {% if model.pageContext.isMobile %}
             <div class="mobile-cart-header">
                 <div class="total-count-section">   
                     <div class="title-section"  tabindex="0"><h1 class="mz-cartpagetitle">{{ labels.cart }}<span class="count">{% if model.count>1 %} ({{ model.count }} items) {% else %} ({{ model.count }} item){% endif%}</span></h1></div>
@@ -39,7 +39,7 @@
         {% endif %}
         <div class="clearfix"></div>  
     </div> 
-    {% if pageContext.isDesktop or pageContext.isTablet %}
+    {% if model.pageContext.isDesktop or model.pageContext.isTablet %}
         <table class="item-table desktop-cart-table">
             <thead>
               <tr>
@@ -128,7 +128,7 @@
                     </td>
                     <td class="mz-carttable-item-remove">
                       <!-- <a href="javascript:;" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mz-icon mz-icon-close" style="color: #111;" >{{ labels.remove }}</a> -->
-            		  <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img alt="" src="../../resources/images/removecart.png"/></span></a>
+                      <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img alt="" src="../../resources/images/removecart.png"/></span></a>
                     </td>
                   </tr>
                 {% endfor %}
@@ -142,7 +142,7 @@
             </tbody>
         </table>
     {% endif %}  
-    {% if  pageContext.isMobile %}
+    {% if  model.pageContext.isMobile %}
     <div class="mobile-cart-table">
         {% if not model.isEmpty %}
             {% for item in model.items %}  
@@ -226,7 +226,7 @@
         {% endif %}    
     </div>
     {% endif %}    
-    {% if pageContext.isDesktop or pageContext.isTablet %}
+    {% if model.pageContext.isDesktop or model.pageContext.isTablet %}
     <div class="table-bottom">
         <div class="continue-shopping"><a href="/"><i class="arrow"></i>continue shopping</a></div> 
         <div class="title-section" tabindex="0">Estimated Total: {{ model.discountedTotal|currency }}</div>
@@ -235,6 +235,160 @@
 </div>   
 <div class="right-section">
     <div class="right-inner-section">
+    {% if  model.isshippingCalculationEnabled %}
+        <h2 class="order-summary-text shippingEnabled-orderSummary" tabindex="0">Order Summary</h2>
+        <table class="price-table" role="presentation">
+            <tbody>
+                <tr class="mz-carttable-checkout-row">  
+                    <td colspan="4">
+                        <div class="mz-carttable-checkout-couponcode shippingEnabled-couponcode" id="coupon-code-field">
+                          {% include "modules/common/coupon-code-field" %}
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr class="checkout-col">
+                    <td>
+                        <span tabindex="0">
+                            {% comment %}
+                            silpa
+                            <span class="mleft18">Itemtotal  <span class="count">{% if model.count>1 %} {{ model.count }} items {% else %} {{ model.count }} item{% endif %}</span></span>
+                            {% endcomment %}
+                            <span class="mleft18">Item Total</span>
+                            <span id="mz-carttable-total" class="mz-carttable-total">
+                                {% comment %}silpa {{ model.subtotal|currency }} {{ model.discountedSubtotal|currency }}{% endcomment %}
+
+                                {{ model.discountedSubtotal|currency }}
+                            </span>
+                        </span>
+                    </td>   
+                </tr> 
+                {% for discount in model.orderDiscounts %}
+                    {% if not discount.excluded %}
+                        <tr class="checkout-col checkout-mobile discountCol">
+                            <td>
+                                <span tabindex="0">
+                                    <span class="mleft18 mleft19">{{ discount.discount.name }}</span>
+                                    <span id="mz-carttable-total" class="mz-carttable-total discount-total mleft19">
+                                        - {{ discount.impact|currency }}
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                    {% endif %}
+                  {% endfor %}
+                <tr class="checkout-col checkout-mobile">
+                    <td>
+                        <span tabindex="0">
+                            <span class="mleft18 mleft19">Tax*</span>
+                            <span id="mz-carttable-total" class="mz-carttable-total mleft19">
+                                TBD
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="checkout-col">
+                    <td>
+                        <span tabindex="0">
+                            <span class="mleft18 mleft19">Shipping*</span>
+                            <span id="mz-carttable-shipping-total" class="mz-carttable-total mleft19">
+                              (see below) TBD
+                            </span>
+                        </span>      
+                    </td>
+                </tr> 
+                <tr class="mz-carttable-total-row checkout-col">
+                    <td class="mz-carttable-total-wrap" colspan="4">
+                        <span class="mleft18 order-total ordertotalWithoutshipping" tabindex="0">
+                            <span class="estimate-total">Sub Total</span>
+                            <span id="mz-carttable-estimated-total" class="mz-carttable-total"> 
+                              <strong>{{ model.discountedTotal|currency }}</strong>
+                            </span>
+                        </span>
+                    </td>
+                    <td></td> 
+                </tr>
+                 {% if model.remainingfreeshippinng > 0  %}
+                <tr class="mz-carttable-total-row checkout-col">
+                    <td class="mz-carttable-total-wrap" colspan="4">
+                        <span class="mleft18 order-total estimateShippingCost" tabindex="0">
+                           Estimate Shipping Cost
+                        </span>
+                        <div class="mz-l-formfieldgroup-cell inactive" id="estimateShippingCost-entry">
+                            <input type="number" id="shippingzipcode" tabindex="0" name="shippingzipcode"  aria-label="Enter shipping zip code"  placeholder="Enter your zip code " value="{{ model.shippingzipcode }}"/>
+                            <button type="button" id="shippingzipcode-btn" class="mz-button" data-mz-action="estimateShip" role="button" aria-label="Calculate" {% if not model.shippingzipcode %}  {% endif %} disabled="disabled"> Calculate </button>   
+                        </div>
+                        <div id="estimateShippingCost-success" tabindex="0">
+
+                        </div>
+                         <div id="estimateShippingCost-failure" tabindex="0">
+
+                        </div>
+                    </td>
+                    <td></td> 
+                </tr> 
+                 {% endif %}
+                {% if model.discountedTotal != 0  %} 
+                    <tr class="mz-carttable-freeshipping-row" >
+                        <td class="mz-carttable-total-wrap" colspan="4">
+                            <span id="mz-carttable-freeshipping" class="mleft18 mz-carttable-freeshipping hide-when-heat-sensitive" tabindex="0" role="note">
+                            {% if model.remainingfreeshippinng > 0  %}
+                                {% if model.isNoShipping %}
+                                    You are only ${{model.remainingfreeshippinng}} away from 
+                                    <a href="/shipping-information" style="text-decoration: none;" aria-label="FREE Ground Shipping">
+                                    Discounted Shipping</a>!
+                                {% else %}
+                                    You are only ${{model.remainingfreeshippinng}} away from 
+                                    <a href="/shipping-information" style="text-decoration: none;" aria-label="FREE Ground Shipping">
+                                    FREE Ground Shipping</a>!
+                                {% endif %}
+                            {% endif %}
+                            {% if model.remainingfreeshippinng == 0  %}
+                                You may qualify for <a href="/shipping-information" aria-label="FREE Ground Shipping">FREE </a>or Discounted Ground Shipping! <span class="exclusion">(Exclusions apply, click for details.)</span>
+                            {% endif %}
+                            </span>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+                <tr class="mz-carttable-checkout-row">  
+                    <td colspan="4">
+                        <button id="cart-checkout" class="mz-button mz-button-large proceed-btn" role="button" aria-label="{{ labels.proceedToCheckout }}"
+                            {% if model.isEmpty %} disabled="disabled" {% endif %} data-mz-action="proceedToCheckout">
+                            {{ labels.proceedToCheckout }}
+                        </button>
+                        {% for externalPayment in siteContext.checkoutSettings.externalPaymentWorkflowSettings %}
+                            {% if externalPayment.isEnabled %}
+                                <div class="mz-carttable-thirdpartypayment" >
+                                    {% if externalPayment.name == "PayPalExpress2" %}
+                                        <button id="btn_xpressPaypal" class="p-button" aria-label="checkout with paypal"> 
+                                            <img  alt="Check out with PayPal" src="../../resources/images/paypallogo.png"/>
+                                        </button>
+                                    {%endif%}
+                                </div> 
+                            {%endif%}  
+                        {%endfor%}     
+                        <div class="accept-cards" tabindex="0" aria-label="Accepted payment methods: American Express, Mastercard, VISA, and Discover credit cards, and Paypal"> 
+                            <img aria-hidden="true" src="../../../resources/images/Artbo222ard.png" alt="amex" />
+                            <img aria-hidden="true" src="../../../resources/images/Bitmap Copy 4.png" alt="mastercard" />
+                            <img aria-hidden="true" src="../../../resources/images/Group 16.png" alt="visa" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard.png" alt="discover" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard Copy 4.png" alt="paypal" />
+                        </div>
+
+                        <div class="accept-cards mobile" tabindex="0" role="img" aria-label="Accepted payment methods: American Express, Mastercard, VISA, and Discover credit cards, and Paypal"> 
+                            <img aria-hidden="true" src="../../../resources/images/Artbo222ard.png" alt="amex" />
+                            <img aria-hidden="true" src="../../../resources/images/Bitmap Copy 4.png" alt="mastercard" />
+                            <img aria-hidden="true" src="../../../resources/images/Group 16.png" alt="visa" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard.png" alt="discover" />
+                            <img aria-hidden="true" src="../../../resources/images/Artboard Copy 4.png" alt="paypal" />
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table> 
+        {% else %}
         <h2 class="order-summary-text" tabindex="0">Order Summary</h2>
         <table class="price-table" role="presentation">
             <tbody>
@@ -359,6 +513,7 @@
                 </tr>
             </tbody>
         </table> 
+        {%endif%} 
     </div>  
     <div class="cart-tax" tabindex="0"> 
         {{themeSettings.cartTax }}
