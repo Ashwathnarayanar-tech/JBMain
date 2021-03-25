@@ -568,6 +568,41 @@
                                     }
                                 }
                             }
+                            .mz-checkoutform-shippingaddress input,.mz-checkoutform-shippingmethod input,.mz-checkoutform-paymentinfo input{
+                                &::placeholder {
+                                    opacity: 1;
+                                    transition: inherit;
+                                    color: #4a4a4a !important;
+                                    font-size: 16px !important;
+                                  }
+                                &::-webkit-input-placeholder {
+                                    opacity: 1;
+                                    transition: inherit;
+                                    color: #4a4a4a !important;
+                                    font-size: 16px !important;
+                                 }
+                                 &:-moz-placeholder { 
+                                    opacity: 1;
+                                    transition: inherit;
+                                    color: #4a4a4a !important;
+                                    font-size: 16px !important;
+                                 }
+                                 
+                                 &::-moz-placeholder { 
+                                    opacity: 1;
+                                    transition: inherit;
+                                    color: #4a4a4a !important;
+                                    font-size: 16px !important;
+                                 }
+                                  
+                                 &:-ms-input-placeholder {  
+                                    opacity: 1;
+                                    transition: inherit;
+                                    color: #4a4a4a !important;
+                                    font-size: 16px !important;
+                                 }
+                                
+                            }
                             .mz-formstep.mz-checkoutform-shippingaddress{
                                 margin-bottom: 0;
                                 position: relative;
@@ -962,6 +997,7 @@
                                             text-align: right;
                                             color: #4a4a4a;
                                             margin:0 0 10px;
+                                            display:none;
                                             .bold-text{
                                                 font-weight: 500;   
                                             }
@@ -1067,7 +1103,7 @@
                                                         font-weight: bold;
                                                         color: #008000;
                                                         display: inline-block;
-                                                        width: 33%;
+                                                        width: 32%;
                                                         padding-left: 30px;
                                                         vertical-align: text-top;
                                                     }
@@ -1075,7 +1111,7 @@
                                                         font-size: 14px;
                                                         color: #4a4a4a;
                                                         display: inline-block;
-                                                        width: 61%;
+                                                        width: 62%;
                                                         text-align: right;
                                                         vertical-align: text-top;
                                                     }
@@ -1802,6 +1838,7 @@
                                                         }
                                                     }
                                                 }
+                                               
                                                 .mz-l-formfieldgroup-row.billing-email{
                                                     .mz-l-formfieldgroup-cell{
                                                         display: block;
@@ -2059,6 +2096,9 @@
                                                 color: #4a4a4a;
                                                 border-bottom: 0; 
                                                 margin: 10px 0 0px 0;
+                                                &.billing-address{
+                                                    font-size:21px;
+                                                }
                                                 @media only screen and (min-width : 1px) and (max-width : 767px){
                                                     margin-bottom: 15px;
                                                 }
@@ -2151,6 +2191,10 @@
                                                             padding: 8px 0;
                                                             height: 42px;
                                                             padding: 8px 10px;
+                                                            & ::placeholder {
+                                                                color: #000 !important;
+                                                                font-size: 16px !important;
+                                                              }
                                                         }
                                                         .up-caret-quantity-myacc-add{
                                                             top: 34px;
@@ -3837,37 +3881,6 @@
 							    						.mz-l-formfieldgroup-cell{ 
 							    							input,select{
 							    								width: 100%;
-                                                                ::-webkit-input-placeholder {
-                                                                    opacity: 1;
-                                                                    transition: inherit;
-                                                                    color: #4A4A4A !important;
-                                                                    font-size: 16px !important;
-                                                                 }
-                                                                 :-moz-placeholder { 
-                                                                    opacity: 1;
-                                                                    transition: inherit;
-                                                                    color: #4A4A4A !important;
-                                                                    font-size: 16px !important;
-                                                                 }
-                                                                 
-                                                                 ::-moz-placeholder { 
-                                                                    opacity: 1;
-                                                                    transition: inherit;
-                                                                    color: #4A4A4A !important;
-                                                                    font-size: 16px !important;
-                                                                 }
-                                                                  
-                                                                 :-ms-input-placeholder {  
-                                                                    opacity: 1;
-                                                                    transition: inherit;
-                                                                    color: #4A4A4A !important;
-                                                                    font-size: 16px !important;
-                                                                 }
-                                                                input:focus::-webkit-input-placeholder {
-                                                                    opacity: 1;
-                                                                    font-size: 16px !important;
-                                                                    color: #4A4A4A !important;
-                                                                } 
 							    							}
 							    						}
 							    					}

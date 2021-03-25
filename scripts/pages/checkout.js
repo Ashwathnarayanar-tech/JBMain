@@ -143,6 +143,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $('#step-payment-info').removeClass('is-complete');
                 $('#step-payment-info').find('.mz-formstep-body').css('display','none');
             }
+            if(this.el.id == 'step-shipping-address'){
+                // if(this.model.validate()){}
+                // else{
+                    $('#continuetoshipping').removeAttr('disabled');
+                //}
+            }
         },
         next: function () {
             // wait for blur validation to complete
@@ -685,7 +691,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             "keyup input[name='shippingphone']": "phoneNumberFormating2",
             "change [data-mz-value='address.addressType']": "addressTypeChanged",
             "click [data-mz-value='contactId']": "addressSelection",
-            "click #continuetoshipping" : "resetbypassbtn"
+            "click #continuetoshipping" : "resetbypassbtn",
             //"keyup input[name='postal-code']": "zipcodeFormating"
         },
         initialize: function(){
@@ -759,6 +765,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     e.preventDefault();
                 }
             }
+            if(this.model.validate()){}
+            else{
+                $('#continuetoshipping').removeAttr('disabled');
+            }
+                
         },
         // zipcodeFormating:function(e){
         //     if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
