@@ -147,6 +147,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 // if(this.model.validate()){}
                 // else{
                     $('#continuetoshipping').removeAttr('disabled');
+                    $('.dummi-procudeto-shipping-method').removeAttr('disabled');
                 //}
             }
         },
@@ -489,10 +490,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('#remove-coupon-payment').css('display','inline-block');
                 $(document).find('#coupon-codepayment-btn').hide();
                 $('#coupon-codepayment').val($('#coupon-code').val());
+                $(document).find("#coupon-codepayment").attr("readonly", true);
                 
             }else{
                 $(document).find('#remove-coupon-payment').hide();
                 $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+                $(document).find("#coupon-codepayment").attr("readonly", false);
             }     
 		},
 		updateFreeShippingData: function(method){
@@ -719,6 +722,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 $.cookie('isExistingAddress',false);
             }
+            $('#continuetoshipping').removeAttr('disabled');
         },
         addressTypeChanged: function(e){
             if(e.target.value === "POBox"){
@@ -768,6 +772,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(this.model.validate()){}
             else{
                 $('#continuetoshipping').removeAttr('disabled');
+                $('.dummi-procudeto-shipping-method').removeAttr('disabled');
             }
                 
         },
@@ -2169,10 +2174,12 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     if(this.model.get('couponCodes').length>0){
                         $(document).find('#remove-coupon-payment').show();
                         $(document).find('#coupon-codepayment-btn').hide();
+                        $(document).find("#coupon-codepayment").attr("readonly", true);
                         
                     }else{
                         $(document).find('#remove-coupon-payment').hide();
                         $(document).find('#coupon-codepayment-btn').css('display','inline-block');
+                        $(document).find("#coupon-codepayment").attr("readonly", false);
                     }
                 }   
             Backbone.MozuView.prototype.render.apply(this);
@@ -2412,6 +2419,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
     
         // coupon code field functionality ADA
     $(document).on('keypress', '.accordion-pay', function(e){
+       if(e.target.textContent!=="Apply")
         if(e.keyCode == 13 || e.keyCode == 32) {
             $(e.currentTarget).toggleClass('active');
         }

@@ -15,9 +15,9 @@
         {% endcomment %}
         <div class="mz-l-formfieldgroup-cell">
             {% if model.errormessage %}
-                <input placeholder="  Enter {{ labels.digitalCredits }}" aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+                <input placeholder="Enter {{ labels.digitalCredits }}" aria-describedby="storecredit-messages-2" aria-invalid="true" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
             {% else %}
-                <input placeholder="  Enter {{ labels.digitalCredits }}" aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
+                <input placeholder="Enter {{ labels.digitalCredits }}" aria-describedby="storecredit-messages" aria-invalid="false" type="text" id="digital-credit-code" name="digital-credit-code" class="mz-checkout-digitalcredit-enter-code" value="{{ model.digitalCreditCode }}" data-mz-value="digitalCreditCode" autocomplete="false" /><!-- ADA OK -->
             {% endif %}
             <button class="mz-button applyDigitalCredit" data-mz-action="getDigitalCredit" {% if not model.digitalCreditCode %} disabled="disabled" {% endif %}>{{ labels.apply }}</button>
             {% if model.errorsetdigitlcredit === "creditcode" %}
