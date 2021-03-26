@@ -343,18 +343,22 @@
 					{% with model.categoryList|findwhere("isActive", true) as ActiveCategoryListProducts %}
 						{% with model.subscriptionCategories.items as items %}
 							{% for item in items %}
-								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}</span>
-								<div class="subcategoryMainDiv">
+								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}
+								<span class="icon close" data-mz-attr="{{item.categoryId}}" ></span>
+								<br> <a class="shopall"> Shop All </a>
+								</span>
+								<div class="subcategoryMainDiv" data-mz-categoryCode-code="{{item.categoryId}}">
 								{% for itemchildcat in item.childrenCategories %}
-									<span tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" class=" a list-item side-bar-item {% if model.activeCategoryList == itemchildcat.categoryId %}active{% endif %}">{{itemchildcat.content.name|safe}}</span>
+									<span tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" data-mz-parentCat = "{{item.categoryId}}"  class=" a list-item side-bar-item-subCategory ">{{itemchildcat.content.name|safe}}</span>
 								{% endfor %}
 								</div>	
 							{% endfor %}	
 						{% endwith %}
 					{% endwith %}
+					<span class="mainCategory list-item side-bar-item"> </span>
 				</div>
 			</div>
-			<div class="product-list" tabindex="0">
+			<div class="product-list" tabindex="0"> 
 				{% with model.categoryList|findwhere("isActive", true) as ActiveCategoryListProducts %}
 					{% if ActiveCategoryListProducts %}
 						<div class="product-head">
@@ -492,18 +496,32 @@
 					{% endif %}
 				{% endfor %}
 				{% endcomment %}
+			  {% if (model.totalReceivedOrders < model.totalCount) %}
+				<div class="buttonContainer">
+				  <button class="loadMore"> Load More </button>
+				  <button class="loadAll"> Load All ({{ model.totalCount }}) </button>
+				</div> 
+			  {% endif %}	 
 			</div>
 		{% else %}
 			{% if model.isMobile %}
 				<div class="product-list" tabindex="0">
-					{% for catItem in model.categoryList %}
-						<div class="accordian-headitem" data-mz-attr="{{catItem.Category.categoryCode}}">
-							<span tabindex="0" aria-expanded="{% if catItem.isActive  %} true {% else %} false {% endif %}" data-mz-attr="{{catItem.Category.categoryCode}}" class="list-item side-bar-item {% if catItem.isActive %}active{% endif %}">{{catItem.Category.content.name|safe}}</span>
-							<span class="accordian-icon {% if catItem.isActive %}minus{% else %}plues{% endif %}" data-mz-attr="{{catItem.Category.categoryCode}}"></span>
-						</div>	 
-						{% if catItem.isActive %}
-							{% for item in catItem.Items %}		
-								<div class="product-item-list">
+				{% with model.subscriptionCategories.items as items %}
+					{% for catItem in items %} 
+						<div class="accordian-headitem" data-mz-attr="{{catItem.categoryId}}">
+							<span tabindex="0"  data-mz-attr="{{catItem.categoryId}}" class="list-item side-bar-item ">{{catItem.content.name|safe}}</span>
+							<span class="icon close" data-mz-attr="{{catItem.categoryId}}" ></span>
+						</div>
+							<div class="subcategoryMainDivMobile" data-mz-categoryCode-code="{{item.categoryId}}">
+							{% for itemchildcat in catItem.childrenCategories %}
+								<div tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" data-mz-parentCat = "{{item.categoryId}}"  class=" a list-item side-bar-item-subCategoryMobile ">{{itemchildcat.content.name|safe}}</div>
+							{% endfor %}
+						</div>
+					{% with model.categoryList as CategoryListProducts %} 
+					{% for categoryList in CategoryListProducts %} 
+					{% if categoryList.isActive  && categoryList.Category.categoryId === catItem.categoryId %}  {{ categoryList.Category.categoryId}} {{ catItem.categoryId}}
+						{% for item in categoryList.Items %}
+							<div class="product-item-list">
 									<div class="product-item">
 										<span class="item-li description-image">
 											<span class="image-cointainer">
@@ -548,9 +566,12 @@
 										</span>					
 									</div>
 								</div>
-							{% endfor %}
+								{% endfor %}
 						{% endif %}
 					{% endfor %}
+					{% endwith %}		
+					{% endfor %}	
+				{% endwith %}
 				</div>
 			{% else %}
 				{% if model.isTablet and model.isPotreate %}
