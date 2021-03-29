@@ -921,7 +921,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
             owl.owlCarousel({  
                 loop: true, 
-                margin: 14,
+                margin: 15,
                 dots: false,
                 autoPlay: false,  
                 pagination: false,   
@@ -929,7 +929,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 slideBy: 1,
                 items: 1,
                 center: false,
-                stagePadding : 50,
+                stagePadding : 25,
                 responsive: {    
                     0: {
                         items: 1
@@ -954,7 +954,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
         function loopInAddTocart(){
@@ -1431,7 +1431,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
            
         },3000);
-
+        $(document).on('click', '.cross-close-popup',function(){
+            $(document).find('.Add-to-cart-popup').hide();
+            $(document).find('.Add-to-cart-popup').removeClass("active");
+            $(document).find('body').removeClass("noScroll");
+            //trigger.focus();
+        });
         //ada for social sharing
         $('.addthis_sharing_toolbox:visible').find('.at-share-btn').attr('tabindex','0');
 

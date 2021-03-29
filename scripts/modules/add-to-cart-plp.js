@@ -269,7 +269,7 @@ require([
                 });
                 owl.owlCarousel({  
                     loop: true, 
-                    margin: 14,
+                    margin: 15,
                     dots: false,
                     autoPlay: false,  
                     pagination: false,   
@@ -278,7 +278,7 @@ require([
                     slideBy: 1,
                     items: 1,
                     center: false,
-                    stagePadding : 50,
+                    stagePadding : 25,
                     responsive: {    
                         0: {
                             items: 1
@@ -303,7 +303,7 @@ require([
                         }
                     } 
                 });
-                $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+                $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
                 loopInAddTocart(); 
             }else{
                 $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
@@ -312,6 +312,7 @@ require([
         } 
         
         $(document).on('click', '.cross-close-popup',function(){
+            $(document).find('.Add-to-cart-popup').hide();
             $(document).find('.Add-to-cart-popup').removeClass("active");
             $(document).find('body').removeClass("noScroll");
             //trigger.focus();
@@ -348,6 +349,7 @@ require([
 
             }
         });
+
         $(document).on('click', '.maximumProduct .close-icon',function(){
            $('.maximumProduct').hide();
            $(document).find('.maximum-close').focus();

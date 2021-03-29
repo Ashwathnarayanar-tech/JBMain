@@ -132,8 +132,8 @@
                     <div class="prodcut-tital-price">
                         <span class="product-name" tabindex="0">Buttered Popcorn Jelly Beans - 16 oz Re-Sealable Bag</span>
                         <span class="price">
-                            <span class="listprice" tabindex="0">$79.00</span>
                             <span class="saleprice" tabindex="0">$65.00</span>
+                            <span class="listprice" tabindex="0">$79.00</span>
                         </span>
                         <span class="qty-popup">
                             <span class="qty-label-popup">Quantity:</span>

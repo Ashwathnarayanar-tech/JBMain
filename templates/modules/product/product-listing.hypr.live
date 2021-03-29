@@ -27,19 +27,20 @@
   <!-- Sets the variable to determine whether or not a product is licensed -->
   {% if model.price.price > model.price.salePrice and model.price.salePrice !== null and model.price.salePrice !== 0 %}
     {% if licensedStatus === "LICENSED_REDUCED" %}
-      <p class="product-sale-new-label mz-reduced">Reduced</p>
+      <p class="product-sale-new-label mz-reduced"><em></em> <span>Reduced</span> <em></em></p>
     {% else %}
-      <p class="product-sale-new-label" attr-value="">Sale</p>
+      <p class="product-sale-new-label" attr-value=""><em></em> <span>Sale</span><em></em></p>
     {% endif %} 
   {% else %} 
     {% if prodState %}
       {% for state in prodState.values %}
         {% if state.value == "COMINGSOON" or state.value == "NEW" %}
-          <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<span>Coming Soon</span>{% else %} {% if state.value == "NEW"%}<span>New</span> {% endif %} {% endif %}</p>
+          <p class="product-sale-new-label mz-{{state.value}}" attr-value="" >{% if state.value == "COMINGSOON" %}<em></em> <span>Coming Soon</span><em></em>{% else %} {% if state.value == "NEW"%} <em></em><span>New</span><em></em> {% endif %} {% endif %}</p>
         {% endif %}
       {% endfor %}
     {% endif %}
-  {% endif %}    
+  {% endif %} 
+     
   <div class="mz-productlisting-image">
     <!-- The code below lazy-loads images that do not appear above the fold for each device type   -->
     {% if model.mainImage.imageUrl %}

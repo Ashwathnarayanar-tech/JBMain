@@ -375,8 +375,14 @@
   .mz-l-pagewrapper{
     .mz-l-pagecontent{
       .recommended-prod-head{
-        font-size: 28px;
         margin-top: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #111111;
       }
       #mz-drop-zone-searchresult-below-mbz,#mz-drop-zone-rti-product,#mz-drop-zone-rti-category,#mz-drop-zone-rti-cart,#mz-drop-zone-no-searchresult-below-mbz{ 
         .mz-cms-row{ 
@@ -388,138 +394,183 @@
                     width: 100%;
                     .rti-prod-list{ 
                       .grid-display{ 
-                        .related-prod-owl-carousel{ 
+                        .related-prod-owl-carousel{
                           .mz-productlisting{
-                            &:nth-child(5n+5){
-                              margin-right: auto;
-                            }
-                            width: 98% !important;
-                            margin: 0 auto;
-                            display: block;
-                            position: relative;
-                            margin: 0 auto 10px auto;
-                            border: 1px solid #e4e4e4;
-                            border-radius: 8px;
-                            padding: 35px 10px 5px;
-
-                            box-sizing: border-box;
-                            float: left;
-                            &.withsale-new-label {
-                                float: left;
-                                padding-top: 35px;
-                                .mz-subcategory-image-div.mz-productlisting-image{ 
-                                    top:35px;
-                                }
-                            }
-
-                            .product-sale-new-label{ 
-                              width: 110px;
-                              padding: 0px 15px;
-                              left: 0px;
-                              margin-top: 5px;
-                              font-size: 14px;
-                              &:before{
-                                 right: -14px;
-                                 transform: ~"rotate(180deg)";
-                                 left: auto;
-                                 border-top-width: 13px;
-                                 border-bottom-width: 13px;
-                              }
-                              &:after{
-                                  left: -4px;
-                                  right: auto;
-                              }
-                          }
-                          
-                            .prod-content{ 
-                              .product-listing-row-content{ 
-                                padding-top: 1px;
-                                .mz-subcategory-image-div.mz-productlisting-image{
-                                  width: 100px;
-                                  margin-top: 0;
-                                  padding: 0;
-                                  display: inline-block;
+                              width: 98% !important;
+                              display: block;
+                              position: relative;
+                              margin: 0 auto 0px auto;
+                              border: 1px solid #e4e4e4;
+                              border-radius: 8px;
+                              padding: 40px 8px 5px;
+                              box-sizing: border-box;
+                              float: left;
+                              min-height: 210px;
+                              &.withsale-new-label {
                                   float: left;
-                                  position: absolute;
-                                  left: 0;
-                                  top: 35px;
-                                  a img {
-                                      width: 100px;
-                                      height: 100px;
-                                      padding: 0px 5px;
-                                      box-sizing: border-box;
+                                  padding-top: 5px;
+                                  .jb-product-min-details {
+                                      padding-top: 10px;
                                   }
-
+                                  .mz-productlisting-image{ 
+                                      top:42px;
+                                  }
                               }
-                                .jb-product-min-details{
+                              .product-sale-new-label.sale-tag-icon{ 
+                                width: auto;
+                                padding: 0px;
+                                left: -16px;
+                                margin-top: 0px;
+                                font-size: 14px;
+                                position: relative;
+                                z-index: 1;
+                                background: transparent;
+                                height: 26px;
+                                max-width: 150px;
+                                display: inline-block;
+                                float: left;
+                                margin-bottom: 0px;
+                                &:before,&:after{
+                                   display: none;
+                                }
+                                span {
+                                    display: inline-block;
+                                    width: auto;
+                                    background-color: #01a3df;
+                                    position: relative;
+                                    z-index: 1;
+                                    min-width: 80px;
+                                    padding-left: 15px;
+                                }
+                                em {
+                                  position: absolute;
+                                }
+
+                                em:first-child {
+                                    position: absolute;
+                                    left: -8px;
+                                    bottom: -8px;
+                                    z-index: -1;
+                                    border: 8px solid transparent;
+                                    border-right-color: #027ca9;
+                                }
+
+                                em:last-child {
+                                    width: 10px;
+                                    border: 13.2px solid #01a3df;
+                                    border-right-color: transparent;
+                                    position: relative;
+                                    display: inline-block;
+                                    float: right;
+                                    box-sizing: border-box;
+                                }
+                              }
+
+                              .prod-content{ 
+                                display: inline-block;
+                                box-sizing: border-box;
+                                width: 100%;
+                                float: left;
+                                .product-listing-row-content{ 
+                                  padding-top: 1px;
+                                  .mz-subcategory-image-div.mz-productlisting-image{
+                                    width: 80px;
+                                    margin-top: 0;
+                                    padding: 0;
+                                    display: inline-block;
+                                    float: left;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 45px;
+                                    height: 80px;
+                                    a {
+                                      img {
+                                        width: 80px;
+                                        height: 80px;
+                                        padding: 0px 5px;
+                                        box-sizing: border-box;
+                                      }
+                                    }
+                                  }
+                                  .jb-product-min-details{
                                     text-align: left;
                                     display: inline-block;
                                     float: left;
                                     width: 100%;
                                     .mz-productlisting-info{ 
-                                        width: 100%;
-                                        margin: 0px;
-                                        .productTitle{
-                                            height: 50px;
-                                            text-align: left;
-                                            overflow: hidden;
-                                            float: right;
-                                            width: ~"calc(100% - 100px)";
-                                            clear: both;
-                                            line-height: 16px;
-                                            margin-top: 0px;
-                                            font-size: 14px;
-                                            .mz-productlisting-title {
-                                              text-decoration: none;
-                                              
-                                            }
-                                            .prod-title-heading {
-                                                font-size: 14px;
-                                                margin: 0px;
-                                            }
-                                        }
-                                        .priceSection {
-                                            width: 100%;
-                                            display: inline-block;
-                                            float: left;
-                                        }
-                                        .jb-product-prize {
-                                            float: right;
-                                            width: ~"calc(100% - 100px)";
-                                            clear: both;
-                                            height: 30px;
-                                            text-align: left;
-                                            .jb-quickprice.strikeprice {
-                                                font-size: 16px;
-                                                font-weight: normal;
-                                                margin-right: 5px;
-                                                display: inline;
-                                            }
-                                            .jb-quickcsale,.jb-quickprice  {
-                                                display: inline;
-                                                font-size: 18px;
-                                                margin: 0px;
-                                            }
-                                            .sale-percentage {
-                                                display: inline;
-                                                font-size: 14px;
-                                            }
-                                        }
+                                      width: 100%;
+                                      margin: 0px;
+                                      .productTitle{
+                                          height: 50px;
+                                          text-align: left;
+                                          overflow: hidden;
+                                          float: right;
+                                          width: ~"calc(100% - 80px)";
+                                          clear: both;
+                                          line-height: 16px;
+                                          margin-top: 0px;
+                                          font-size: 14px;
+                                          .mz-productlisting-title {
+                                            text-decoration: none !important;
+                                            
+                                          }
+                                          .prod-title-heading {
+                                              font-size: 14px;
+                                              margin: 0px;
+                                          }
+                                      }
+                                      .priceSection {
+                                          width: 100%;
+                                          display: inline-block;
+                                          float: left;
+                                          select {
+                                            margin-bottom: 0px;
+                                          }
+                                      }
+                                      .jb-product-prize {
+                                          float: right;
+                                          width: ~"calc(100% - 80px)";
+                                          clear: both;
+                                          height: 30px;
+                                          text-align: left;
+                                          .jb-quickprice.strikeprice {
+                                              font-size: 16px;
+                                              font-weight: normal;
+                                              margin-right: 5px;
+                                              display: inline;
+                                          }
+                                          .jb-quickcsale,.jb-quickprice  {
+                                              display: inline;
+                                              font-size: 18px;
+                                              margin: 0px;
+                                          }
+                                          .sale-percentage {
+                                              display: inline;
+                                              font-size: 14px;
+                                          }
+                                      }
                                       .cardMobCTAcontainer {
                                             display: inline-block;
                                             clear: both;
                                             width: 100%;
-                                            padding: 6px 0px 0px;
+                                            padding: 0px 0px 0px;
+                                            margin-top: 15px;
                                             box-sizing: border-box;
                                             .jb-buy-product .mz-productdetail-conversion-controls {
                                                 display: inline-block;
+                                                float: left;
+                                            }
+                                            .jb-buy-product {
+                                              margin-top: 0px;
                                             }
                                             .jb-buy-product.quickview-jb {
                                                 margin-bottom: 0px;
-                                                .qty-input-box.qty {
+                                                .qty-input-box.qty{ 
                                                     display: inline-block;
                                                     margin-left: 0px;
-                                                    width: 130px;
+                                                    margin-bottom: 0px;
+                                                    width: 100px;
+
                                                     position: relative;
                                                     .quantity{
                                                         border-radius: 0px;
@@ -527,21 +578,27 @@
                                                         padding-right: 10px;
                                                         border-left: none;
                                                         border-right: none;
-                                                        height: 20px;
+                                                        height: 40px;
                                                         width: 36px;
                                                         margin-left: 0px;
+                                                        box-sizing: border-box;
                                                     }
                                                     .spinner{ 
-                                                        width: 35px;
+                                                        width: 32px;
+                                                        background-size: 14px;
                                                         &.increment{
                                                             right: 0px;
                                                             border-left: 0px; 
                                                             border: 0.6px solid #cfcfcf;
                                                             border-top-right-radius: 4px; 
                                                             border-bottom-right-radius: 4px;                                        
-                                                            height: 36px;
+                                                            height: 40px;
                                                             top: 0;
+                                                            position: relative;
+                                                            box-sizing: border-box;
+                                                            float: right;
                                                             background-image : url("../../resources/images/quantityplus.png") !important;
+                                      
                                                         } 
 
                                                         &.dicrement{
@@ -552,9 +609,13 @@
                                                             border-bottom-left-radius: 4px; 
                                                             border-top-right-radius: 0;
                                                             border-bottom-right-radius: 0;
-                                                            height: 36px;
+                                                            height: 40px;
                                                             top: 0;
+                                                            position: relative;
+                                                            box-sizing: border-box;
+                                                            float: left;
                                                             background-image : url("../../resources/images/quantityminusdisabled.png") !important;
+                                      
                                                         }
                                                     }
                                                     &.qtydecrementenable {
@@ -563,29 +624,78 @@
                                                         }
                                                     }
                                                 }
-                                                .add-to-cart-btn-plp {
+                                                .jb-add-to-cart-cur {
                                                     float: right;
-                                                    width: ~"calc(100% - 140px)";
+                                                    width: ~"calc(100% - 115px)";
                                                     display: inline-block;
                                                     margin-top: 5px;
                                                     font-weight:bold;
+                                                    height: 40px;
                                                 }
                                             }
 
                                             .jb-buy-product .jb-out-of-stock {
+                                                height: 40px;
                                                 font-weight:bold;
                                                 float: right;
-                                                width: ~"calc(100% - 140px)";
+                                                width: ~"calc(100% - 115px)";
                                                 display: inline-block;
                                                 margin-top: 6px;
                                                 padding: 8px 0px;
                                             }
-                                        }
+                                      }
                                     }
+                                  }
+                                }
+                              }
+                              &.giftcard {
+                                .prod-content {
+                                  .product-listing-row-content{
+                                    .mz-subcategory-image-div.mz-productlisting-image{
+                                      height: 50px;
+                                      a img {
+                                          width: auto;
+                                          height: 50px;
+                                          max-width: 100%;
+                                      }
+                                    }
+                                    .jb-product-min-details{ 
+                                      .mz-productlisting-info{ 
+                                        .priceSection {
+                                          margin-top: 10px;
+                                          .jb-product-prize {
+                                            width: 100%;
+                                            position: relative;
+                                            height: auto;
+                                            select {
+                                              width: 100%;
+                                            }
+                                            .down-caret-quantity-myacc-add {
+                                                pointer-events: none;
+                                                position: absolute;
+                                                top: 15px;
+                                                left: auto;
+                                                right: 15px;
+                                            }
+                                            .up-caret-quantity-myacc-add {
+                                                pointer-events: none;
+                                                display: none;
+                                                position: absolute;
+                                                top: 15px;
+                                                left: auto;
+                                                right: 15px;
+                                            }
+                                          }
+                                        }
+                                        .cardMobCTAcontainer {
+                                            margin-top: 0px !important;
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
-                          }
                         }
                       }
                     }

@@ -75,7 +75,7 @@
     <div data-mz-productlist>      
         {% include "modules/product/product-list-tiled" %}   
     </div>
-    <div class="load-more-prod text-center">
+    <div class="load-more-prod text-center {% if model.pageCount > 1 and model.hasNextPage %} {% else %} removeloadPadding {% endif %}">
         {% if model.pageCount > 1 and model.hasNextPage %}  
             <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
             <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 

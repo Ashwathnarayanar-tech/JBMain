@@ -938,15 +938,22 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             owl2.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
             owl2.find('.owl-stage-outer').children().unwrap();
             var stagePadding = 0;
+            var margindesktop = 14;
             var loop = false,nav=true;
+            if($(".wishlist-section .row.mz-productlisting").length >= 2) {
+              loop = true; 
+            } else {
+              loop = false; 
+            }
             if($(window).width() <= 767){
-              stagePadding = 30; 
+              stagePadding = 20; 
+              margindesktop = 4;
               nav=false;
-              loop = owl2.children().length>1?true:false;
+              loop = loop;
             }
             owl2.owlCarousel({  
                 loop: loop, 
-                margin: 14,
+                margin: margindesktop,
                 dots: false,
                 autoPlay: false,  
                 pagination: false,   
@@ -963,8 +970,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                   400: {
                     items: 1
                   },
-                  600: {
-                    items: 3
+                  767: {
+                    items: 2
                   },
                   800: {
                     items: 3   
@@ -1419,13 +1426,13 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             } 
         });
 
-        $(window).on('resize orientationchange', function(){
-            console.log(" event resize");
-           // getScreenOrientation();
-           var pageModel = window.getDeviceMode();
-           window.cartView.model.set('pageContext',pageModel);
-           window.cartView.render();
-          });
+        // $(window).on('resize orientationchange', function(){
+        //     console.log(" event resize");
+        //    // getScreenOrientation();
+        //    var pageModel = window.getDeviceMode();
+        //    window.cartView.model.set('pageContext',pageModel);
+        //    window.cartView.render();
+        //   });
     });
 });
 

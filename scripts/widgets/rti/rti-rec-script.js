@@ -75,6 +75,7 @@ $('.recommended-product-container').each(function(){
 }
 });
 
+
 /*Recommended Product Code Starts*/
  var eFlag = 0;
  var ProductModelColor = Backbone.MozuModel.extend({
@@ -162,15 +163,22 @@ $('.recommended-product-container').each(function(){
             // owl2.trigger('destroy.owl.carousel');  
             // owl2.html(owl2.find('.owl-stage-outer').html()).removeClass('owl-loaded');
             var stagePadding = 0;
+            var margindesktop = 14;
             var loop = false,nav=true;
-            if($(window).width() <= 767){
-              stagePadding = 30;
+            if($(".rti-recommended-products .related-prod-owl-carousel .row.mz-productlisting").length >= 2) {
               loop = true; 
+            } else {
+              loop = false; 
+            }
+            if($(window).width() <= 767){
+              stagePadding = 20;
+              margindesktop = 4;
               nav=false;
             }
+
             owl2.owlCarousel({  
               loop: loop, 
-              margin: 14,
+              margin: margindesktop,
               dots: false,
               autoPlay: false,  
               pagination: false,   
@@ -187,8 +195,8 @@ $('.recommended-product-container').each(function(){
                   400: {
                     items: 1
                   },
-                  600: {
-                    items: 3
+                  767: {
+                    items: 2
                   },
                   800: {
                     items: 3   
