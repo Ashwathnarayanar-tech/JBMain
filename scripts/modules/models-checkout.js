@@ -720,7 +720,7 @@
                     if (activeCreditPayments) {
                         //check if payment applied with this code, remove
                         var sameCreditPayment = _.find(activeCreditPayments, function(cred) {
-                            return cred.status !== 'Voided' && cred.billingInfo && cred.billingInfo.storeCreditCode === creditCode;
+                            return cred.status !== 'Voided' && cred.billingInfo && cred.billingInfo.storeCreditCode.toLowerCase() === creditCode.toLowerCase();
                         });
 
                         if (sameCreditPayment) {

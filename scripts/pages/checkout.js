@@ -1220,6 +1220,14 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             "click .remove-coupon-checkout": "removechekout",
             "keypress .remove-coupon-checkout": "removeChekoutOnKeypress"
         },
+        removeChekoutOnKeypress: function(e) {
+            var keyCode = e.keyCode || e.which;
+            if(keyCode == 13 || keyCode == 32) {
+                window.couponCode.removeCouponCheckout();
+                $('.accordion-pay.coupon-code-row').addClass('active');
+                $('#coupon-codepayment').focus();
+            }
+        },
         changebillingInfo:function(e){
             if($("[data-mz-value='isSameBillingShippingAddress']").is(':checked')){
                 this.model.set('isSameBillingShippingAddress', true);
@@ -1556,6 +1564,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         },
         removecodecoupon:function(){
             window.couponCode.removeCouponCheckout();
+            $('.accordion-pay.coupon-code-row').addClass('active');
         },
         onEnterCouponCode: function (model, code) {
             if ($.trim(code)) {
