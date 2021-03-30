@@ -56,7 +56,8 @@
         <button class="mz-button" style="display: none;" data-mz-action="confirmValidationBypass" id="bypassButton">
           Use this Address
         </button>
-        <button id="continuetoshipping" class="brontocart-shipping-info gtm-to-shipping-method mz-button checkout-btn {% if model.contactId == "new" %}hide-class{% endif %} {% if model.requiresDigitalFulfillmentContact %} mz-digital-gift-card-product {% endif %}" data-mz-action="next" invoke-choose   {% if not model.contacts %}disabled="disabled" {% endif %}>
+       
+        <button id="continuetoshipping" class="brontocart-shipping-info gtm-to-shipping-method mz-button checkout-btn {% if model.contactId == "new" %}hide-class{% endif %} {% if model.requiresDigitalFulfillmentContact %} mz-digital-gift-card-product {% endif %}" data-mz-action="next" invoke-choose   {% if user.isAnonymous %}disabled="disabled" {% else %}{% if model.contactId == "new" %}disabled="disabled" {% endif %} {% endif %}>
           {% if model.requiresFulfillmentInfo %}
             {{ labels.contToShipMethod }}
           {% else %}  

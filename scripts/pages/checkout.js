@@ -695,6 +695,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             "change [data-mz-value='address.addressType']": "addressTypeChanged",
             "click [data-mz-value='contactId']": "addressSelection",
             "click #continuetoshipping" : "resetbypassbtn",
+            "keyup input[name='firstname'],input[name='lastname'],input[name='address-line-1'],input[name='city'],input[name='postal-code']": "addValidate",
+            "change [data-mz-value='address.stateOrProvince']": "addValidate"
             //"keyup input[name='postal-code']": "zipcodeFormating"
         },
         initialize: function(){
@@ -715,6 +717,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         beginAddContact: function () {
             this.model.set('contactId', 'new');
         },
+        addValidate:function(e){
+           
+          this.addrValidation($(e.target));
+        },
         addressSelection: function(e){
             if(e.target.value != "new"){
                 $.cookie('isPoBoxSelected',false);
@@ -730,6 +736,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 $.cookie('isPoBoxSelected',false);
             }
+            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+            inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
+          this.addrValidation(inputValues);
         },
         phoneNumberFormating2: function(e){
             var keyChar  = $('input[name="shippingphone"]').val()[$('input[name="shippingphone"]').val().length-1];
@@ -737,6 +746,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(keyChar === "!" || keyChar === "@" || keyChar === "#" || keyChar === "$" || keyChar === "%" || keyChar === "^" || keyChar === "&"  || keyChar === "*" || keyChar === "(" || keyChar === ")" || keyChar === "_" || keyChar === "+" || keyChar === "~"){
                 $('input[name="shippingphone"]').val(value.substr(0,value.length-1));
             }
+            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+            inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
+          this.addrValidation(inputValues);
         },
         phoneNumberFormating : function(e){
             if(e.shiftKey && e.keyCode == 9) {
@@ -768,13 +780,65 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     e.stopPropagation();
                     e.preventDefault();
                 }
+            } 
+            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+            inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
+            this.addrValidation(inputValues); 
+        },
+        addrValidation:function(inputValues){
+            var flag=false;
+            $('.mz-checkoutform-shippingaddress .mz-validationmessage').html('');
+            if(inputValues.length>0){
+            _.each(inputValues,function(eachVal){
+                if(eachVal.value===""|| eachVal.value==='Nan'){
+                    console.log(eachVal);
+                    $(eachVal).parent().attr('valueAdded',false) ;
+                    switch($(eachVal).attr('ID')){
+                        case "firstname": $(document).find('#err_'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("firstNameMissing"));
+                        flag=true;
+                        break;
+                        case "lastname": $(document).find('#err_'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("lastNameMissing"));
+                        flag=true;
+                        break;
+                        case "address-line-1": $(document).find('#err_'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("city"));
+                        flag=true;
+                        break;
+                        case "city": $(document).find('#'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("city"));
+                        flag=true;
+                        break;
+                        case "stateprov": $(document).find('#'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("stateProvMissing"));
+                        flag=true;
+                        break;
+                        case "postal-code": $(document).find('#'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("postalCodeMissing"));
+                        flag=true;
+                        break;
+                        case "addresstype": $(document).find('#'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("addressType"));
+                        flag=true;
+                        break;
+                        case "shippingphone": $(document).find('#'+$(eachVal).attr('aria-describedby')).text(Hypr.getThemeSetting("phoneMissing"));
+                        flag=true;
+                        break;
+                    }
+                }else{
+                    $(eachVal).parent().attr('valueAdded',true) ;
+                }
+            });
+        
+            if(flag){
+                $('#continuetoshipping').attr('disabled','disabled');
+                    $('.dummi-procudeto-shipping-method').attr('disabled','disabled');
+            }else{
+                if($('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell[valueAdded=true]').length===8){
+                    $('#continuetoshipping').removeAttr('disabled');
+                    $('.dummi-procudeto-shipping-method').removeAttr('disabled');
+                    setTimeout(function() {
+                        $(document).find('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell .mz-validationmessage').html('');
+                    },5000);
+                }else{
+                    this.addrValidation($('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell[valueAdded=false]').find('input,select'));
+                }
             }
-            if(this.model.validate()){}
-            else{
-                $('#continuetoshipping').removeAttr('disabled');
-                $('.dummi-procudeto-shipping-method').removeAttr('disabled');
-            }
-                
+        }
         },
         // zipcodeFormating:function(e){
         //     if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
