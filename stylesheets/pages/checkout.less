@@ -840,9 +840,9 @@
                                                 font-weight: bold;
                                                 text-align: center;
                                                 color: white;
-                                                padding: 8px 30px;
+                                                padding: 8px 34px;
                                                 margin: 30px 0;
-                                                width:48%;
+                                                //width:48%;
                                                 &:hover{
                                                     background-color: #003a72;
                                                     border: 1px solid #003a72;
@@ -2897,7 +2897,7 @@
 												.mz-contactselector-contact.mz-contactselector-new{ 
 													.mz-contactselector-summarywrapper{ 
 														.mz-l-formfieldgroup-row{
-															width : 100%;
+															//width : 100%;
 														}
 													}
 												}
@@ -3996,6 +3996,66 @@
 			}
 		}
 	}
+}
+//Ipad landscape 
+@media only screen and (min-width :768px) and (max-width:1024px) and (orientation: landscape){
+    .mz-checkout {
+        .mz-l-pagewrapper {
+            .mz-l-pagecontent {
+                .mz-l-container {
+                    .div-cointainer{
+                        .mz-checkoutform.mz-l-2column-right#checkout-form {
+                            .mz-l-column {
+                                .mz-formstep.mz-checkoutform-shippingaddress{
+                                    .mz-formstep-body {
+                                        .mz-formstep-fields.mz-l-formfieldgroup {
+                                            .mz-contactselector{
+                                                .mz-contactselector-contact.mz-contactselector-new.no-form{
+                                                    top:-110px;
+                                                    right:-2%; 
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+ 
+//Ipad Orientation
+@media only screen and (min-width :768px) and (max-width:1024px) and (orientation: portrait){
+    .mz-checkout {
+        .mz-l-pagewrapper {
+            .mz-l-pagecontent {
+                .mz-l-container {
+                    .div-cointainer{
+                        .mz-checkoutform.mz-l-2column-right#checkout-form {
+                            .mz-l-column {
+                                .mz-formstep.mz-checkoutform-shippingaddress{
+                                    .mz-formstep-body {
+                                        .mz-formstep-fields.mz-l-formfieldgroup {
+                                            .mz-contactselector{
+                                                .mz-contactselector-contact.mz-contactselector-new.no-form{
+                                                    top:-131px;
+                                                    right:-2%; 
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 //larger screen
 @media only screen and (min-width: 1680px){

@@ -738,7 +738,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-          this.addrValidation(inputValues);
+          this.addrValidation($(e.target));
         },
         phoneNumberFormating2: function(e){
             var keyChar  = $('input[name="shippingphone"]').val()[$('input[name="shippingphone"]').val().length-1];
@@ -746,9 +746,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(keyChar === "!" || keyChar === "@" || keyChar === "#" || keyChar === "$" || keyChar === "%" || keyChar === "^" || keyChar === "&"  || keyChar === "*" || keyChar === "(" || keyChar === ")" || keyChar === "_" || keyChar === "+" || keyChar === "~"){
                 $('input[name="shippingphone"]').val(value.substr(0,value.length-1));
             }
-            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
-            inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-          this.addrValidation(inputValues);
+           // var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+            //inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
+          this.addrValidation($(e.target));
         },
         phoneNumberFormating : function(e){
             if(e.shiftKey && e.keyCode == 9) {
@@ -783,7 +783,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             } 
             var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-            this.addrValidation(inputValues); 
+            this.addrValidation($(e.target)); 
         },
         addrValidation:function(inputValues){
             var flag=false;
@@ -1224,8 +1224,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             var keyCode = e.keyCode || e.which;
             if(keyCode == 13 || keyCode == 32) {
                 window.couponCode.removeCouponCheckout();
-                $('.accordion-pay.coupon-code-row').addClass('active');
-                $('#coupon-codepayment').focus();
+                setTimeout(function(){
+                    $('.accordion-pay.coupon-code-row').addClass('active');
+                    $('#coupon-codepayment').focus();         
+                },2000);
+               
             }
         },
         changebillingInfo:function(e){
@@ -1561,7 +1564,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 window.couponCode.addCoupon(e);
             },2000);
           
-        },
+        }, 
         removecodecoupon:function(){
             window.couponCode.removeCouponCheckout();
             $('.accordion-pay.coupon-code-row').addClass('active');
