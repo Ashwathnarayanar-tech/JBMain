@@ -5,6 +5,7 @@ var pwrDisplayPoints = 0;
 var pwrMaxRedemptions = 2;
 var zinreloLoaded = false;
 var paypalFlowComplete=false;
+var remeoveCoupon=false;
 function getMethod(name) {
 	// Helper function. Returns an object containing information about that shipping method
 	//
@@ -746,9 +747,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(keyChar === "!" || keyChar === "@" || keyChar === "#" || keyChar === "$" || keyChar === "%" || keyChar === "^" || keyChar === "&"  || keyChar === "*" || keyChar === "(" || keyChar === ")" || keyChar === "_" || keyChar === "+" || keyChar === "~"){
                 $('input[name="shippingphone"]').val(value.substr(0,value.length-1));
             }
-           // var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
-            //inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-          this.addrValidation($(e.target));
+            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+            inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
+          this.addrValidation(inputValues);
         },
         phoneNumberFormating : function(e){
             if(e.shiftKey && e.keyCode == 9) {
@@ -783,7 +784,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             } 
             var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-            this.addrValidation($(e.target)); 
+            this.addrValidation(inputValues); 
         },
         addrValidation:function(inputValues){
             var flag=false;
@@ -1224,11 +1225,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             var keyCode = e.keyCode || e.which;
             if(keyCode == 13 || keyCode == 32) {
                 window.couponCode.removeCouponCheckout();
-                setTimeout(function(){
-                    $('.accordion-pay.coupon-code-row').addClass('active');
-                    $('#coupon-codepayment').focus();         
-                },2000);
-               
             }
         },
         changebillingInfo:function(e){
@@ -1725,6 +1721,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 					else{
 						$('#credit-card-amount-with-rewards').hide();
 					}
+        if(remeoveCoupon){
+            $('.accordion-pay.coupon-code-row').addClass('active');
+            $('#coupon-codepayment').focus();   
+            remeoveCoupon=false;      
+        }
 					
         },
 
@@ -2176,6 +2177,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     self.render();
                     $('.coupon-error').fadeIn();
                     //$('.coupon-error').focus();
+                    $('.setpaymentcouponerr').fadeIn();
                     $('.setpaymentcouponerr').focus();
                 }else{
                     this.model.addCoupon().ensure(function() {
@@ -2186,7 +2188,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                             //$('.error-msg').focus(); 
                             // $(document).find('#remove-coupon-payment').hide();
                             // $(document).find('#coupon-codepayment-btn').css('display','inline-block'); 
-                            $('.setpaymentcouponerr').focus(); 
+                            $('.setpaymentcouponerr').focus();
+                           setTimeout(function(){
+                            $('.setpaymentcouponerr').fadeIn();
+                           },5000);
+                            
                         }
                             
                         // }else{
@@ -2220,7 +2226,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             });    
         }
         self.model.unset('couponCodes');
-       
+        remeoveCoupon=true;
         },
         removeAllCouponCheckout:function(){
             var self=this,CartData = this.model.apiModel.data;
@@ -2636,8 +2642,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     $('#checkout-form').show();
                     $('#checkout-rightcol').show();
                     $('.checkout-header').show();
-                    $('.jb-socialize').show();
-                    $('.jb-footer-dpzone').show(); 
+                    // $('.jb-socialize').show();
+                    // $('.jb-footer-dpzone').show(); 
                 } 
                 window.checkoutEmail = true;  
             }else{
