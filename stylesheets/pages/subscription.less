@@ -699,6 +699,11 @@
 									font-size: 10px;
 									letter-spacing: 0px;
 									text-decoration: underline;
+									display: none;
+									&.show{
+										display: block;
+										padding-top: 2%;
+									}
 								}
 								.icon{
 									width: 0;
@@ -1195,14 +1200,13 @@
 							    color: #222222;
 							    display: inline-block;
 							    text-align: center;
-							    width: auto;
+							    width: 100%;
 							    height: 154px;
-							    display: flex;
+							    display: inline-grid;
 							    align-items: center;
 							    vertical-align: middle;
 							    text-align: center;
 							    margin: 0;
-							    display: inline-flex;
 							}
 							.item-list-data{
 								.list-item{
@@ -1885,6 +1889,8 @@
 								width: 100%;
 								margin: 0;
 								height: auto;
+								padding:2%;
+								box-sizing: border-box;
 								.accordian-headitem{
 									padding: 12px 15px;
 								    background: #fff;
@@ -1892,7 +1898,10 @@
 								    font-weight: 500;
 								    color: #000000;
 								    position: relative;
-							        margin: 10px 0px;
+									margin: 10px 0px;
+									.side-bar-item{
+										display: inline-block;
+									}
 								    .icon{
 										width: 0;
 										height: 0;
@@ -1902,18 +1911,73 @@
 										&.close{
 											border-top: 7px solid #004e99;
 											border-bottom: 0px;
+											margin-top:8px;
 										}
 										&.open{
 											border-bottom: 7px solid #004e99;
 											border-top: 0px;
+											margin-top:8px;
+										}
+									}
+									.shopall{
+										color: #000000;
+										font-size: 10px;
+										letter-spacing: 0px;
+										text-decoration: underline;
+										display: none;
+										&.showAnchor{
+											display: block;
+										}
+									}
+								}
+								.subcategoryMainDivMobile{
+									background-color: white;
+									border-radius: 4px;
+									white-space: nowrap;
+									overflow-x: auto;
+									.side-bar-item-subCategoryMobile{
+										font-size: 10px;
+										letter-spacing: normal;
+										text-align: center;
+										color: #606060;
+										width: 100%;
+										display: inline-flex;
+										white-space: break-spaces;
+										border-right: solid 1px #d2e7ff;
+										padding: 1%;
+										display: -webkit-flex;
+										display: -webkit-box;
+										display: -moz-box;
+										display: -ms-flexbox;
+										display: flex;
+										-webkit-flex-wrap: wrap;
+										-ms-flex-wrap: wrap;
+										flex-wrap: wrap;
+										width: auto;
+										float: left;
+										max-width: 120px;
+										flex: 0 0 120px;
+										display: inline-flex;
+										vertical-align: middle;
+										align-items: center;
+										margin: 0;
+										height: inherit;
+										text-align: center;
+										&.active{
+											color: #004e99;
+											font-weight: 500;
+  											font-stretch: normal;
+										}
+										span{
+											display: inline-block;
+											margin: auto;
 										}
 									}
 								}
 								.product-item-list{
-									margin: 1.5%;
-									margin-bottom: 8px;
+									margin: 1.5% 1.5% 1.5% 0%;
 									border-radius: 4px;
-									width: 97%;
+									width: 100%;
 									.product-item{
 										margin: 0px;
 									    border-radius: 4px;
@@ -2234,6 +2298,9 @@
 	                    		}
 	                        }
 	                        .listitemlist{
+								width: 100%;
+								padding: 1%;
+								box-sizing: border-box;
 	                        	.item-list-data{
 	                        		.product-item-list{
 										/*margin: 12px 15px;*/
@@ -3090,20 +3157,26 @@
 								width: 100%;
 								margin: 0;
 								height: auto;
+								padding: 2%;
+    							box-sizing: border-box;
 								.accordian-headitem{
-									padding: 12px 15px;
+									padding: 10px;
 								    background: #fff;
 								    font-size: 14px;
 								    font-weight: 500;
 								    color: #000000;
-								    position: relative;
-							        margin: 10px 0px;
+									position: relative;
+									margin-bottom: 1%;
+									.side-bar-item{
+										display: inline-block;
+									}
 								    .icon{
 										width: 0;
 										height: 0;
 										border-left: 5px solid transparent;
 										border-right: 5px solid transparent;
 										float: right;
+										padding-top:3%;
 										&.close{
 											border-top: 7px solid #004e99;
 											border-bottom: 0px;
@@ -3113,28 +3186,74 @@
 											border-top: 0px;
 										}
 									}
+									.shopall{
+										color: #000000;
+										font-size: 10px;
+										letter-spacing: 0px;
+										text-decoration: underline;
+										display: none;
+										&.showAnchor{
+											display: block;
+										}
+									}
 								}
 								.subcategoryMainDivMobile{
-									background-color: #ffffff;
-									padding: 10px 0 10px 12px;
-									border-radius: 4px;
-									margin-left: 10px;
-									overflow: auto;
-									white-space: nowrap;
+									display: flex;
+									flex-wrap: nowrap;
+									float: left;
+									max-width: 100%;
+									flex: 0 0 100%;
+									margin: 0;
+									text-align: center;
+									vertical-align: middle;
+									background-color: white;
+									overflow-x: auto;
+									padding: 5px 0px;
+									margin-top:2%;
 									.side-bar-item-subCategoryMobile{
 										font-size: 10px;
-										line-height: 1.2;
 										letter-spacing: normal;
 										text-align: center;
 										color: #606060;
-										width: 10%;
+										width: 100%;
+										display: inline-flex;
+										white-space: break-spaces;
+										border-right: solid 1px #d2e7ff;
+										padding: 1%;
+										display: -webkit-flex;
+										display: -webkit-box;
+										display: -moz-box;
+										display: -ms-flexbox;
+										display: flex;
+										-webkit-flex-wrap: wrap;
+										-ms-flex-wrap: wrap;
+										flex-wrap: wrap;
+										width: auto;
 										float: left;
+										max-width: 65px;
+										flex: 0 0 70px;
+										display: inline-flex;
+										vertical-align: middle;
+										align-items: center;
+										margin: 0;
+										height: inherit;
+										text-align: center;
+										&.active{
+											color: #004e99;
+											font-weight: 500;
+  											font-stretch: normal;
+										}
+										span{
+											display: inline-block;
+											margin: auto;
+										}
 									}
 								}
 								.product-item-list{
-									margin: 0px 6px;
+									margin: 0px 0px;
 									margin-bottom: 2px;
 									border-radius: 4px;
+									width: 100%;
 									.product-item{
 										margin: 6px 0px;
 									    border-radius: 4px;
@@ -3146,11 +3265,14 @@
 										    	width: 86%;
 										    }
 										    &.sku-input{
-										    	width: 12%;
+										    	width: 40px;
+												float: right;
+												margin-top:6px;
 										    	.input-cointainer{
+													float: right;
 										    		.add-to-list-checkbox{
 									    			    height: 32px;
-														width: 36px;
+														right:0;
 										    		}
 										    		.checkmark-style{
 										    			height: 25px;
@@ -3241,6 +3363,18 @@
 										    }
 										}
 									}
+								}
+								.buttonContainer{
+									padding: 25px 0 20px 0;
+									.loadMore{
+										width: 88%;
+										margin: 0% 3%;
+									}
+									.loadAll{
+										width: 88%;
+										margin: 3%;
+									}
+		
 								}
 							}
 						}
