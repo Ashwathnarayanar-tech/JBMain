@@ -695,9 +695,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             "keyup input[name='shippingphone']": "phoneNumberFormating2",
             "change [data-mz-value='address.addressType']": "addressTypeChanged",
             "click [data-mz-value='contactId']": "addressSelection",
-            "click #continuetoshipping" : "resetbypassbtn",
-            "keyup input[name='firstname'],input[name='lastname'],input[name='address-line-1'],input[name='city'],input[name='postal-code']": "addValidate",
-            "change [data-mz-value='address.stateOrProvince']": "addValidate"
+            "click #continuetoshipping" : "resetbypassbtn"
+           // "keyup input[name='firstname'],input[name='lastname'],input[name='address-line-1'],input[name='city'],input[name='postal-code']": "addValidate",
+            //"change [data-mz-value='address.stateOrProvince']": "addValidate"
             //"keyup input[name='postal-code']": "zipcodeFormating"
         },
         initialize: function(){
@@ -729,7 +729,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 $.cookie('isExistingAddress',false);
             }
-            $('#continuetoshipping').removeAttr('disabled');
+            //$('#continuetoshipping').removeAttr('disabled');
         },
         addressTypeChanged: function(e){
             if(e.target.value === "POBox"){
@@ -737,9 +737,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }else{
                 $.cookie('isPoBoxSelected',false);
             }
-            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+/*            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-          this.addrValidation($(e.target));
+          this.addrValidation($(e.target));*/
         },
         phoneNumberFormating2: function(e){
             var keyChar  = $('input[name="shippingphone"]').val()[$('input[name="shippingphone"]').val().length-1];
@@ -747,9 +747,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(keyChar === "!" || keyChar === "@" || keyChar === "#" || keyChar === "$" || keyChar === "%" || keyChar === "^" || keyChar === "&"  || keyChar === "*" || keyChar === "(" || keyChar === ")" || keyChar === "_" || keyChar === "+" || keyChar === "~"){
                 $('input[name="shippingphone"]').val(value.substr(0,value.length-1));
             }
-            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+          /*  var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-          this.addrValidation(inputValues);
+          this.addrValidation(inputValues);*/
         },
         phoneNumberFormating : function(e){
             if(e.shiftKey && e.keyCode == 9) {
@@ -782,11 +782,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     e.preventDefault();
                 }
             } 
-            var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
+           /* var inputValues=$('.mz-contactselector-summarywrapper').find('.is-required').parents('.mz-l-formfieldgroup-cell').find('input,select');
             inputValues=inputValues.length>0?inputValues:$('.mz-formstep-body').find('.is-required').parents('.mz-checkoutform-shippingaddress .mz-l-formfieldgroup-cell').find('input,select');
-            this.addrValidation(inputValues); 
+            this.addrValidation(inputValues); */
         },
-        addrValidation:function(inputValues){
+      /*  addrValidation:function(inputValues){
             var flag=false;
             $('.mz-checkoutform-shippingaddress .mz-validationmessage').html('');
             if(inputValues.length>0){
@@ -840,7 +840,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 }
             }
         }
-        },
+        },*/
         // zipcodeFormating:function(e){
         //     if((e.which > 47 && e.which < 58 && !e.shiftKey) || (e.which > 95 && e.which < 106 && !e.shiftKey) || (e.which == 189 && !e.shiftKey) || e.which == 46 || e.which == 8 || e.which == 9 || (e.which>36 && e.which <41)){    
         //         $.ajax({
@@ -1726,7 +1726,9 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             $('#coupon-codepayment').focus();   
             remeoveCoupon=false;      
         }
-					
+		if(window.couponCode.model.get('seterror')==="coupon"){
+            $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
+        }			
         },
 
         updateAcceptsMarketing: function(e) {
