@@ -96,7 +96,7 @@ function getArrival2(d, start, days) {
 	// given a shipdate d, a start index (should be 0), and the number of days from the shipdate, returns the first
 	// eligible business day
 	if (start === days)
-		return d;
+    return d;
 	
 	var d2 = new Date(d);
 	var dd = d.getDate();
@@ -144,13 +144,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $('#step-payment-info').removeClass('is-complete');
                 $('#step-payment-info').find('.mz-formstep-body').css('display','none');
             }
-            if(this.el.id == 'step-shipping-address'){
+           /* if(this.el.id == 'step-shipping-address'){
                 // if(this.model.validate()){}
                 // else{
                     $('#continuetoshipping').removeAttr('disabled');
                     $('.dummi-procudeto-shipping-method').removeAttr('disabled');
                 //}
-            }
+            }*/
         },
         next: function () {
             // wait for blur validation to complete
@@ -497,7 +497,11 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $(document).find('#remove-coupon-payment').hide();
                 $(document).find('#coupon-codepayment-btn').css('display','inline-block');
                 $(document).find("#coupon-codepayment").attr("readonly", false);
-            }     
+            }   
+            if(window.couponCode.model.get('seterror')==="coupon"){
+                $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
+                $('.accordion-pay.coupon-code-row').addClass('active');
+            }		  
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
@@ -1728,6 +1732,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
         }
 		if(window.couponCode.model.get('seterror')==="coupon"){
             $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
+            $('.accordion-pay.coupon-code-row').addClass('active');
         }			
         },
 
