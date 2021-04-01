@@ -919,41 +919,54 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
                 $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
             });
-            owl.owlCarousel({  
-                loop: true, 
-                margin: 15,
-                dots: false,
-                autoPlay: false,  
-                pagination: false,   
-                navText:false,
-                slideBy: 1,
-                items: 1,
-                center: false,
-                stagePadding : 25,
-                responsive: {    
-                    0: {
-                        items: 1
-                    },
-                    400: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    800: {
-                        items: 3  
-                    }, 
-                    1025: {
-                        items: 3
-                    },
-                    1200:{
-                        items: 3
-                    },
-                    1440: {
-                        items: 3
-                    }
-                } 
-            });
+            var stagePadding = 25;
+                var margindesktop = 14;
+                var loop = false,nav=true;
+                if($(".rec-prod-list-popup .row.mz-productlisting").length >= 2) {
+                  loop = true; 
+                } else {
+                  loop = false; 
+                }
+                if($(window).width() <= 767){
+                  stagePadding = 20;
+                  margindesktop = 4;
+                }
+                owl.owlCarousel({  
+                    loop: loop, 
+                    margin: margindesktop,
+                    dots: false,
+                    autoPlay: false,  
+                    pagination: false,   
+                    nav: true,     
+                    navText:false,
+                    slideBy: 1,
+                    items: 1,
+                    center: false,
+                    stagePadding : stagePadding,
+                    responsive: {    
+                        0: {
+                            items: 1
+                        },
+                        400: {
+                            items: 1
+                        },
+                        767: {
+                            items: 2
+                        },
+                        800: {
+                            items: 3  
+                        }, 
+                        1025: {
+                            items: 4
+                        },
+                        1200:{
+                            items: 5
+                        },
+                        1440: {
+                            items: 5
+                        }
+                    } 
+                });
             $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 

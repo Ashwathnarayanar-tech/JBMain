@@ -2099,11 +2099,11 @@ body{
                             height: 30px;
                             position: absolute;
                             background-repeat: no-repeat;
-                            right: 7px;
-                            background-size: 54%;
+                            right: 0px;
+                            background-size: 25px;
                             top: 3px;
                             background-position: 7px;
-                            border-radius: 27px;
+                            border-radius: 0px;
                         }
                         .mz-searchbox-field{
                             display: block;
@@ -2144,6 +2144,11 @@ body{
                 }
                 .mz-storebranding,.mz-utilitynav,.contact-num{
                     display: none;
+                }
+                .unbxd-as-wrapper {
+                    box-sizing: border-box;
+                    width: 100% !important;
+                    margin-top: 3px;
                 }
             }
         }
@@ -2287,7 +2292,7 @@ body{
                 .rec-prod-sec{ 
                     .head-rec-prod-list{
                         width: 100%;
-                        padding: 0 15px;
+                        padding: 0;
                     }
                 }
             }
@@ -2351,10 +2356,9 @@ body{
                               margin: 0 auto 0px auto;
                               border: 1px solid #e4e4e4;
                               border-radius: 8px;
-                              padding: 40px 8px 5px;
+                              padding: 40px 5px 5px;
                               box-sizing: border-box;
                               float: left;
-                              min-height: 210px;
                               &.withsale-new-label {
                                   float: left;
                                   padding-top: 5px;
@@ -2368,7 +2372,7 @@ body{
                               .product-sale-new-label.sale-tag-icon{ 
                                 width: auto;
                                 padding: 0px;
-                                left: -16px;
+                                left: -13px;
                                 margin-top: 0px;
                                 font-size: 14px;
                                 position: relative;
@@ -2392,6 +2396,7 @@ body{
                                     min-width: 80px;
                                     padding-left: 15px;
                                     font-weight: bold;
+                                    height: 26.38px;
                                 }
                                 em {
                                   position: absolute;
@@ -2460,14 +2465,17 @@ body{
                                           clear: both;
                                           line-height: 16px;
                                           margin-top: 0px;
-                                          font-size: 14px;
+                                          font-size: 16px;
                                           .mz-productlisting-title {
                                             text-decoration: none !important;
                                             
                                           }
                                           .prod-title-heading {
-                                              font-size: 14px;
+                                              font-size: 16px;
                                               margin: 0px;
+                                              &:hover {
+                                                text-decoration: none !important;
+                                              }
                                           }
                                       }
                                       .priceSection {
@@ -2497,7 +2505,7 @@ body{
                                           }
                                           .sale-percentage {
                                               display: inline;
-                                              font-size: 14px;
+                                              font-size: 16px;
                                           }
                                       }
                                       .cardMobCTAcontainer {
@@ -2507,6 +2515,7 @@ body{
                                             padding: 0px 0px 0px;
                                             margin-top: 15px;
                                             box-sizing: border-box;
+                                            float: left;
                                             .jb-buy-product .mz-productdetail-conversion-controls {
                                                 display: inline-block;
                                                 float: left;
@@ -2577,7 +2586,7 @@ body{
                                                 }
                                                 .jb-add-to-cart-cur {
                                                     float: right;
-                                                    width: ~"calc(100% - 115px)";
+                                                    width: ~"calc(100% - 110px)";
                                                     display: inline-block;
                                                     margin-top: 5px;
                                                     font-weight:bold;
@@ -2589,7 +2598,7 @@ body{
                                                 height: 40px;
                                                 font-weight:bold;
                                                 float: right;
-                                                width: ~"calc(100% - 115px)";
+                                                width: ~"calc(100% - 110px)";
                                                 display: inline-block;
                                                 margin-top: 6px;
                                                 padding: 8px 0px;
@@ -2639,7 +2648,7 @@ body{
                                           }
                                         }
                                         .cardMobCTAcontainer {
-                                            margin-top: 0px !important;
+                                            margin-top: 5px !important;
                                         }
                                       }
                                     }
