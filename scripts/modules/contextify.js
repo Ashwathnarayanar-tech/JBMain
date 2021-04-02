@@ -67,6 +67,9 @@ define(['modules/jquery-mozu',
             $(document).find('.menu').find('.sunmenu-container').on('click',function(e){
                 megamenufunctions.mobileFunc.showSubmenu($(e.currentTarget));   
             });
+            $(document).find('.menu').find('.sunmenu-container.back-to-home').on('click',function(e){
+                megamenufunctions.mobileFunc.closemenu($(e.currentTarget));   
+            });
             $(document).find('.back-to-main-menu').on('click',function(e){ 
                 megamenufunctions.mobileFunc.backToMainMenu($(e.currentTarget));   
             });
