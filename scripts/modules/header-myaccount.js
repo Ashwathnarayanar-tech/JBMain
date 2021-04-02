@@ -204,6 +204,15 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
             },
             messageTemplate: Hypr.getTemplate('modules/common/message-bar')
         });
+        $(document).on('keypress',function (e) {
+            var key = e.which;
+            var self=this;
+            if(key == 13 && $("#signup-cpp-checkbox").prop('checked') === true)  // the enter key code
+            {    
+                $('#signup-submit').click();
+                return false; 
+            }
+        });
         /** Reset password functionality **/
         var user = require.mozuData('user');
         if(user.isAnonymous){
