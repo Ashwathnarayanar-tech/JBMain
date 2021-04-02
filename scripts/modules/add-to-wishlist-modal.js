@@ -29,7 +29,16 @@ require([
     window.showGlobalOverlay();
     addToWishList.addWishlistOnAuth(productCode, me);
   });
-
+  
+ $(document).on("change","#wishlist-cpp-checkbox",function(){
+       if (this.checked) {
+            $('.wishlist-login-btn').prop('disabled',false);
+            $('.wishlist-login-btn').addClass("active-button");
+        }else{
+            $('.wishlist-login-btn').prop('disabled',true);
+            $('.wishlist-login-btn').removeClass("active-button"); 
+        }
+   });
   var wl_re = window.wl_re = true;
   var addToWishList = {
     logKey: function() {
