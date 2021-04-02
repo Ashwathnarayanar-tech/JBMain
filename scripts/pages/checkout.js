@@ -2559,6 +2559,13 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 $('.cpp-guest').prop('disabled',true);
             }   
 		});
+        $(document).on('change','#guestsignup-cpp-checkbox',function(){
+                if (this.checked) {
+                    $('.cpp-signuppopup').prop('disabled',false);
+                }else{
+                    $('.cpp-signuppopup').prop('disabled',true);
+                }   
+            });
 		$(document).on('change','#guestlogin-cpp-checkbox',function(){
             if (this.checked) {
                 $('.cpp-loginpopup').prop('disabled',false);
