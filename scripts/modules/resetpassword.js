@@ -83,7 +83,15 @@ require([
         });
         
         var user = require.mozuData('user');
-        var resetPasswordForm = new ResetPasswordForm($('#jb-resetpassword'));   
+        var resetPasswordForm = new ResetPasswordForm($('#jb-resetpassword'));
+        $(document).on('keypress','input[name ="reset-password"]',function (e) {
+            var key = e.which;
+            if(key == 13)  // the enter key code
+            {   
+                $('#submitforgotpassword').click();
+                return false;  
+            }
+        });   
     });
 });
 
