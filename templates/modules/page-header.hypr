@@ -108,7 +108,7 @@
             </div>
         {% endblock site-nav %}
         <center>
-            <div class="jb-mobile-minicart-popup" style="background: #ffffff; margin-top: 140px; height: 200px; width: 200px; z-index: 501; display: none; position: relative;"> 
+            <div class="jb-mobile-minicart-popups" style="background: #ffffff; margin-top: 140px; height: 200px; width: 200px; z-index: 501; display: none; position: relative;"> 
                 <div style="background: #ff0000; padding: 5px; width: 190px; height: 20px;">
                     <span style="color: #ffffff; font-size: 16px; font-weight: bold; float: left;">ITEM ADDED!</span>
                     <span class="close-mobile-minicart-popup" style="float: right; color: #efefef;">X</span>

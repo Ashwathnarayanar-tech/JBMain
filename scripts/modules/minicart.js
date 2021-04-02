@@ -387,11 +387,11 @@ define([
             showMiniCart: function($target){
                 checkMy = true;
                 this.model.apiGet();
-                if($(window).width() < 668) {
-                    $('.jb-mobile-minicart-popup').fadeToggle('slow', function(){ 
-                        $('.jb-mobile-minicart-popup').attr('tabindex','-1');
-                        $('.jb-mobile-minicart-popup').focus();
-                        $('.jb-mobile-minicart-popup').delay(Hypr.getThemeSetting('mobileAddToCartPopupTimer') * 1000).fadeOut(500, function(){
+                if($(window).width() < 768) {
+                    $('.jb-mobile-minicart-popups').fadeToggle('slow', function(){ 
+                        $('.jb-mobile-minicart-popups').attr('tabindex','-1');
+                        $('.jb-mobile-minicart-popups').focus();
+                        $('.jb-mobile-minicart-popups').delay(Hypr.getThemeSetting('mobileAddToCartPopupTimer') * 1000).fadeOut(500, function(){
                             if($target)
                                 $target.focus();
                         });
@@ -468,7 +468,7 @@ define([
                         }
                     }
                 }
-            }, ".mz-utilitynav-link-cart,.jb-minicart-popup,.jb-mobile-minicart-popup");    
+            }, ".mz-utilitynav-link-cart,.jb-minicart-popup,.jb-mobile-minicart-popups");    
             $(document).click(function(e) {
                 if(! ($('.jb-minicart-popup').is(e.target) || $('.mz-utilitynav-link-cart').is(e.target)) ){
                     if($('.jb-minicart-popup').css('display') == 'block'){
@@ -549,10 +549,10 @@ define([
        
     window.miniCartView = miniCartView;  
               
-        // $('.jb-mobile-minicart-popup').css({ display: "block" });
+        // $('.jb-mobile-minicart-popups').css({ display: "block" });
 
         $('body').delegate('.close-mobile-minicart-popup','click', function(){
-            $(".jb-mobile-minicart-popup").hide();
+            $(".jb-mobile-minicart-popups").hide();
         });
     });
     
