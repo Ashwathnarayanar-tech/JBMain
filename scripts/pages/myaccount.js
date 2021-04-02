@@ -285,7 +285,8 @@
                     $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                     $('#cboxClose').show();
                     $('#cboxLoadedContent').css({
-                       background : "#ffffff" 
+                       background : "#ffffff",
+                       height:"auto"  
                    });
                    $('#notify-me-dialog').focus();
                    self.notifymedilog();
