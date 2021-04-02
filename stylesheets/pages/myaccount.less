@@ -18,6 +18,9 @@ body{
 
 }
     .mz-myaccount {
+    .myaccount-label-editcard{
+        padding-left:0;
+    }
     .mz-pageheader-desktop .jb-serach-box-with-label p {
         font-size: 14px;
     }
@@ -52,7 +55,7 @@ body{
         color: #231f20;
         font-size: 12px;
         float: left;
-        margin: 25px 115px;
+        margin: 25px 0px;
     }
     .mz-l-pagecontent {
         padding: 10px 20px 0px 20px;
@@ -169,6 +172,10 @@ body{
         .notify-me-field {
             width: 60%;
         }
+        label.checkbox-outer-label.myaccount-label-editcard{
+            padding-left: 32px; 
+            text-align: left;
+        }
 	.data-item {
             width: 70%;
         }
@@ -179,7 +186,7 @@ body{
             color: #c64606;
             font-size: 26px;
             font-weight: bold;
-            margin: 20px 0 20px;
+            margin: 0px 0 20px;
             font-family: @fontFamily;
             float: none;
             text-transform: uppercase;
@@ -187,9 +194,6 @@ body{
         }
         .mz-desktop{
             display: none;
-        }
-        .mz-l-container{
-            margin-top: 10px !important;
         }
         
         .selected-menu-mobile{
@@ -222,12 +226,13 @@ body{
               width: 100%;
               height: 100%;
               background: #FFF;
-              top: 81px;
+              top: 62px;
               left: 0;
               z-index: 999;
+              padding: 20px 0 0;
               margin:0;
               &.zerotag-mobile{
-                top: 120px;
+                top: 100px;
               }  
               .myaccount-close{
                 position: relative;
@@ -249,9 +254,6 @@ body{
                   font-size: 14px;
                   font-weight: 600;    
                   margin-top: 5px;
-                  &:first-child{
-                    margin-top: 56px;
-                  }
             }
             .mz-scrollnav-link-mobile.active{
                 background: #ebf6fc;
