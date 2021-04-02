@@ -955,15 +955,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         },
                         800: {
                             items: 3  
-                        }, 
-                        1025: {
-                            items: 4
-                        },
-                        1200:{
-                            items: 5
                         },
                         1440: {
-                            items: 5
+                            items: 3
                         }
                     } 
                 });

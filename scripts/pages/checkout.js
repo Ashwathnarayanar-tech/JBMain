@@ -501,7 +501,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(window.couponCode.model.get('seterror')==="coupon"){
                 $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
                 $('.accordion-pay.coupon-code-row').addClass('active');
-            }		  
+            }	
 		},
 		updateFreeShippingData: function(method){
             var order = this.model.getOrder();
