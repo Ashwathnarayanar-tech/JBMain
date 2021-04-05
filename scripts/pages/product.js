@@ -88,6 +88,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var me = this;  
             this.model.attributes.savePrice = this.model.attributes.price.attributes.price - this.model.attributes.price.attributes.salePrice;
             Backbone.MozuView.prototype.render.apply(this);
+            if($('#add-to-wishlist').text() === Hypr.getLabel('addedToWishlist')){
+                $('#add-to-wishlist').text(Hypr.getLabel('addedToWishlist')).removeClass('add-to-wishlist').addClass('added-to-wishlist');
+            }
             if(window.wishlistFlag){
                 $(document).find('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist')).attr('aria-label',Hypr.getLabel('addedToWishlist'));
                 $(document).find('#add-to-wishlist').css('cursor','not-allowed');
