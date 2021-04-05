@@ -1,7 +1,7 @@
 
 <div class="mz-accountsettings-details">
     <div class="mz-accountsettings-user">
-       <h3 class="mz-l-stack-sectiontitle isDesktop">{{ labels.accountSettings }}</h3>
+       <h3 class="mz-l-stack-sectiontitle isDesktop"  tabindex="0">{{ labels.accountSettings }}</h3>
         <div>
             <ul>
                 <li>

@@ -1,5 +1,5 @@
 
-<h3 class="mz-l-stack-sectiontitle">{{ labels.paymentMethods }} 
+<h3 class="mz-l-stack-sectiontitle"  tabindex="0">{{ labels.paymentMethods }} 
     {% if model.hasSavedCards %}
         <a href="javascript:;" data-mz-card="new" class="add-new" data-mz-action="beginEditCard">{{ labels.addNewCard }}</a>
     {% endif %}
