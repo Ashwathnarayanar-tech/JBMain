@@ -103,7 +103,7 @@
   {% comment %}
 <script type="text/javascript" src="//pr.jellybelly.com/pwr/engine/js/full.js"></script>
   {% endcomment %}
-  <div class="recommended-prod-head">Jelly Belly Also Recommends</div>  
+  <div class="recommended-prod-head" tabindex="0">Jelly Belly Also Recommends</div>  
   {% dropzone zoneId="rti-product" scope="template" %}
 
 {%dropzone zoneId="seo-product" scope="page"%}
