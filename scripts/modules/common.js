@@ -178,7 +178,7 @@ require([
         $(document).on('keyup', '.quantity-field-rti, .quantity-field', function(event){
             if(parseInt($(this).val()) > 25 && require.mozuData('pagecontext').pageType != 'my_account'){
                 $(this).val('');
-                $(this).val(25);
+                $(this).val(1);
             }
         });
 

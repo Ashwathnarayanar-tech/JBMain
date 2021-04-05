@@ -136,8 +136,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 item = this.model.get("items").get(id);
                 $qField.val(isNaN($qField.val())?1:newQuantity);
                 if(newQuantity > 25){
-                    $qField.val('25');
-                    newQuantity = 25;
+                    $qField.val('1');
+                    newQuantity = 1;
                 }
                 
                 if (item && !isNaN(newQuantity)) {
