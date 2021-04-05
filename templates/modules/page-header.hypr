@@ -120,7 +120,7 @@
             </div>
         </center> 
     {% endif %}
-    <div class="Add-to-cart-popup">
+    <div class="Add-to-cart-popup"  role="dialog" aria-modal="true">
         <div class="popup-container" role="dialog" aria-modal="true" aria-label="item added to cart">
             <div class="popup-head">
                 <h1 tabindex="0">Item Added to Cart! </h1>
