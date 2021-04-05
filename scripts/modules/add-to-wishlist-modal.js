@@ -95,11 +95,14 @@ require([
         $('.user-password').css({
           'border': '1px solid #e9000f'
         });
+        $('.loginError').text(Hypr.getThemeSetting('passwordMissing'));
+        $('.loginError').prev('input').focus();
         validity = false;
       } else {
         $('.user-password').css({
           'border': '1px solid #c2c2c2'
         });
+        $('.loginError').text('');
       }
       return validity;
     },
