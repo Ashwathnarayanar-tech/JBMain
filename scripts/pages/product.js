@@ -54,7 +54,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var list = $('.accordian-list'),len = ($(list[0].children).length-1);
                 $(list[0].children).removeClass('active');
                 $(list[0].children).attr("aria-expanded", "false");
-                $(list[0].children).find('ul').hide();
+                $(list[0].children).find('.accordian-content').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-plus').show();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-minus').hide(); 
+                
                 $(list[0].children[0]).addClass('active');
                 $(list[0].children[0]).attr("aria-expanded", "true");
                 if($(list[0].children[0]).hasClass('active')){
@@ -62,13 +65,13 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     $('html, body').animate({ 
                          scrollTop : $(".accordian-prod-mobile").offset().top-150 
                     }, 500);
-                    $(list[0].children[0]).find('ul').slideDown();
+                    $(list[0].children[0]).find('.accordian-content').slideDown();
                     $(list[0].children[0]).find('h2').find('.new-icon-images').find('.new-icon-plus').hide();
                     $(list[0].children[0]).find('h2').find('.new-icon-images').find('.new-icon-minus').show();
                 }
                 else{
                     e.preventDefault();
-                    $(list[0].children[0]).find('ul').slideUp();
+                    $(list[0].children[0]).find('.accordian-content').slideUp();
                 }
             }
         },
@@ -553,11 +556,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }); 
         
         function accordianproductpage(ele){
-            if(ele.parents('ul').hasClass('accordian-list')) {
+            if(ele.parents('.accordian-content').hasClass('accordian-list')) {
                 if(ele.hasClass('active')) {
                     ele.removeClass('active');
                     ele.attr("aria-expanded", "false");
-                    ele.find('ul').slideUp(); 
+                    ele.find('.accordian-content').slideUp(); 
                     ele.find('h2').find('.new-icon-images').find('.new-icon-plus').show();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-minus').hide(); 
                 }
@@ -567,17 +570,17 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         $(this).find('h2').find('.new-icon-images').find('.new-icon-minus').hide();
                         $(this).removeClass('active');
                         $(this).attr("aria-expanded", "false");
-                        $(this).find('ul').slideUp();
+                        $(this).find('.accordian-content').slideUp();
                     });
-                   // $(this).parents('ul').find('li').
+                   // $(this).parents('.accordian-content').find('li').
                     ele.addClass('active');
                     ele.attr("aria-expanded", "true"); 
-                    ele.find('ul').slideDown();
+                    ele.find('.accordian-content').slideDown();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-plus').hide();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-minus').show();
                     setTimeout(function(){
                         $("html, body").animate({
-                            scrollTop : ele.offset().top-100
+                            scrollTop : ele.offset().top-127
                         }, 1000);
                     },500);
                     
@@ -636,12 +639,14 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $(list[0].children).removeClass('active');   
                 $(list[0].children).attr("aria-expanded", "false"); 
                 $(list[0].children).find('ul').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-minus').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-plus').show();
                 $(list[0].children[len]).addClass('active'); 
                 $(list[0].children[len]).attr("aria-expanded", "true"); 
                 if($(list[0].children[len]).hasClass('active')){
                     e.preventDefault(); 
                     $('html, body').animate({
-                        scrollTop: $(document).find('#Reviews').offset().top-100
+                        scrollTop: $(document).find('#Reviews').offset().top-127
                     }, 1000);
                     setTimeout(function(){
                         $(list[0].children[len]).find('ul').show();
