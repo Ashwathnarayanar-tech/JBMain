@@ -501,6 +501,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(window.couponCode.model.get('seterror')==="coupon"){
                 $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
                 $('.accordion-pay.coupon-code-row').addClass('active');
+                $('#coupon-codepayment').focus();
             }	
 		},
 		updateFreeShippingData: function(method){
@@ -1733,6 +1734,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 		if(window.couponCode.model.get('seterror')==="coupon"){
             $(document).find('.setpaymentcouponerr').html($('#coupon-code-field .field-sec .error-msg').text());
             $('.accordion-pay.coupon-code-row').addClass('active');
+            $('#coupon-codepayment').focus();
         }			
         },
 
