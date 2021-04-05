@@ -279,7 +279,7 @@
                 maxHeight : "100%",
                 scrolling : false,
                 fadeOut : 500,  
-                html :"<div id='notify-me-dialog' tabindex='0' style='padding: 30px 15px;' role='dialog' aria-labelledby='Noiify me sign up dialog'><form><span>Enter your email address to be notified when this item is back in stock.</span><br><input class='notify-me-field' aria-describedBy='' aria-invalid='false' tabindex='0' style='margin-top: 10px;' id='notify-me-email' type='text' aria-label='Enter email address text field' value='"+require.mozuData('user').email+"'><a tabindex='0' href='javascript:void(0);' style='background: #39A857;text-decoration: none; color: #ffffff; padding: 3px; margin-left: 5px; cursor: pointer;' role='button' aria-label='notify me' id='notify-me-button' data-mz-location-code = '"+location+"' data-mz-product-code='" +code+ "'>Notify Me</a></form><span class='notify-error' id='notify-error' style='font-size:13px;color:red;display:none;'>Error: Please enter valid mail address.</span></div>", //"/resources/intl/geolocate.html",
+                html :"<div id='notify-me-dialog' tabindex='0' style='padding: 30px 15px;' role='dialog' aria-labelledby='Noiify me sign up dialog'><form><span>Enter your email address to be notified when this item is back in stock.</span><br><input class='notify-me-field' aria-describedBy='notify-error-wish' aria-invalid='true' tabindex='0' style='margin-top: 10px;' id='notify-me-email' type='text' aria-label='Enter email address text field' value='"+require.mozuData('user').email+"'><a tabindex='0' href='javascript:void(0);' style='background: #39A857;text-decoration: none; color: #ffffff; padding: 3px; margin-left: 5px; cursor: pointer;' role='button' aria-label='notify me' id='notify-me-button' data-mz-location-code = '"+location+"' data-mz-product-code='" +code+ "'>Notify Me</a></form><span class='notify-error' id='notify-error-wish' style='font-size:13px;color:red;display:none;'>Error: Please enter valid mail address.</span></div>", //"/resources/intl/geolocate.html",
                 overlayClose : true,
                 onComplete : function () {
                     $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
@@ -302,8 +302,8 @@
             $(document).on('click', '#notify-me-button', function(e){
                 if($('#notify-me-email').val() !== ""){ 
                     $('.notify-error').hide();
-                    $('#notify-me-email').attr('aria-describedBy','');  
-                    $('#notify-me-email').attr('aria-invalid',false); 
+                    $('#notify-me-email').attr('aria-describedBy','notify-error-wish');  
+                    $('#notify-me-email').attr('aria-invalid',true); 
                     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     var patt = new RegExp(re);
                     if(patt.test($('#notify-me-email').val())){
@@ -358,14 +358,14 @@
                                 $('[data-mz-message-bar]').hide();  
                             });
                     }else{
-                        $('#notify-me-email').attr('aria-describedBy','notify-error');
+                        $('#notify-me-email').attr('aria-describedBy','notify-error-wish');
                         $('#notify-me-email').attr('aria-invalid',true);
                         $('.notify-error').show();  
                         $('.errormsgpopup').hide();
                         $('#notify-me-email').focus();
                     }
                 }else{
-                    $('#notify-me-email').attr('aria-describedBy','notify-error');
+                    $('#notify-me-email').attr('aria-describedBy','notify-error-wish');
                     $('#notify-me-email').attr('aria-invalid',true);
                     $('.notify-error').show();  
                     $('.errormsgpopup').hide();  
