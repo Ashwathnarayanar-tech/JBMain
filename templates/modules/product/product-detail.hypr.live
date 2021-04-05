@@ -21,7 +21,7 @@
     <span class="mz-sku" tabindex="0" aria-label="product SKU">SKU-{{ model.productCode|safe }}</span>
     {% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
         <div class="mz-productdetail-shortdesc mz-l-stack-section">
-          <span tabindex="0" role="contentinfo" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info">More Info</a></span>
+          <span tabindex="0" role="contentinfo" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info" aria-label="More Info">More Info</a></span>
         </div> 
     {% endif %} 
     <div class="product-detail-container">
@@ -47,7 +47,7 @@
                                   {{ themeSettings.zinreloPointMultiplier|multiply(model.price.price)|floatformat(0) }}
                                 {% endif %}
                             </span> 
-                            <span class="sweet-rewards-pdp" role="button" tabindex="0">Sweet Rewards</span> Points
+                            <span class="sweet-rewards-pdp"> <a href="javascript:void(0)"  style="color:#004e99;" aria-label="Open Sweet Rewards information modal">Sweet Rewards</a></span> Points
                         </span>     
                     </div> 
                     
