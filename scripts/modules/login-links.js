@@ -570,7 +570,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
 
 
     $(document).ready(function () {
-        
+        $("#login-cpp-checkbox").prop('checked',false);
         // script to validate the empty fields submittion in reset password page.
         $(document).find('form.reset-password-form').find('.submit-similarbutton').click(function(e){
             var flag = false;
