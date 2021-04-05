@@ -246,7 +246,7 @@
                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                     </span>
                 </h2>
-                <ul>
+                <ul class="accordian-content">
                     <li>
                         <div class="product-info" tabindex="0">
                             {{ model.content.productFullDescription|safe }}
@@ -267,7 +267,7 @@
                                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                                     </span>
                                 </h2>
-                                <ul id="flavors" tabindex="0">
+                                <ul id="flavors" class="accordian-content" tabindex="0">
                                     {% for item in model.properties %}
                                         {% if item.attributeFQN == "tenant~flavors"%}
                                             {% for values in item.values%}
@@ -292,7 +292,7 @@
                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                     </span>
                 </h2>
-                <ul>     
+                <ul class="accordian-content">     
                     <li>
                         <span id ="nutrition-image"  aria-hidden="true"></span>
                         <span id="nut_panel_title"></span>
@@ -302,7 +302,7 @@
             </li> <!-- nutrition panel end-->
                 {% if model.mixvar %}
                     <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>
-                    <ul>
+                    <ul class="accordian-content">
                         <li aria-expanded="false">
                             <div class="mix-varieties">
                                 <a href="javascript:void(0)">A&amp;W Cream Soda </a>
@@ -366,7 +366,7 @@
                     <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                   </span>
                 </h2>    
-                <ul class="comment-section " {% if pageContext.isEditMode %} style="display:block;" {% endif %} >
+                <ul class="comment-section  accordian-content" {% if pageContext.isEditMode %} style="display:block;" {% endif %} >
                     <li>
                         {% dropzone "power-reviews-mobile" scope="template" %}
                     </li> 
