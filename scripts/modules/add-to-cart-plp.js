@@ -364,11 +364,11 @@ require([
            },2000);
           
         });
-        // $(document).keyup(function(e) {
-        //     if (e.keyCode === 27 && $('.Add-to-cart-popup').hasClass("active")) {
-        //         $('.cross-close-popup').trigger('click');
-        //     }
-        // });
+        $(document).keyup(function(e) {
+            if ((e.keyCode === 27 ||e.keyCode === 13) && $('.Add-to-cart-popup').hasClass("active") && $(e.target).hasClass('cross-close-popup')) {
+                $('.cross-close-popup').trigger('click');
+            }
+        });
 
         $(document).on('click', '.continue-shoping  ',function(){
             $(document).find('.Add-to-cart-popup').removeClass("active");
