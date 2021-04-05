@@ -135,7 +135,7 @@
                             <span class="saleprice" tabindex="0">$65.00</span>
                             <span class="listprice" tabindex="0">$79.00</span>
                         </span>
-                        <span class="qty-popup">
+                        <span class="qty-popup"  tabindex="0">
                             <span class="qty-label-popup">Quantity:</span>
                             <span class="qty-count-popup">5</span>
                         </span>
