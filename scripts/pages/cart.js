@@ -134,7 +134,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 newQuantity = parseInt($qField.val(),10),
                 id = $qField.data('mz-cart-item'),
                 item = this.model.get("items").get(id);
-
+                $qField.val(isNaN($qField.val())?1:newQuantity);
                 if(newQuantity > 25){
                     $qField.val('25');
                     newQuantity = 25;
