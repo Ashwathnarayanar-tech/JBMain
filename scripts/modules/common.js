@@ -119,7 +119,7 @@ require([
                 }
             });
         }); 
-        $(document).on('click','.sweet-rewards-label', function(){
+        $(document).on('click','.sweet-rewards-label,.sweet-rewards-login', function(){
             // if (window.require.mozuData('user').email === '') {
             //     window.location.pathname = '/user/login';
             // } else {
