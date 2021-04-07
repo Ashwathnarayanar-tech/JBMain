@@ -24,8 +24,9 @@
                 <span class="checkmark-style"></span>
             </label>
             {% if model.isShippingContact %}
-            <label class="mz-contacttype-isprimary" style="display:none;">
-                <input type="checkbox" isPrimaryShippingContact data-mz-value="editingContact.isPrimaryShippingContact" value="true" {% if model.isPrimaryShippingContact %} checked="checked" {% endif %}> {{ labels.primary }}
+            <label class="mz-contacttype-isprimary checkbox-outer-label">
+                <input class="checkbox-styled" type="checkbox" isPrimaryShippingContact data-mz-value="editingContact.isPrimaryShippingContact" value="true" {% if model.isPrimaryShippingContact %} checked="checked" {% endif %}> {{ labels.primary }}
+                <span class="checkmark-style"></span>
             </label>
             {% endif %}
         </div>

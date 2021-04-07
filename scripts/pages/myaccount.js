@@ -1209,7 +1209,7 @@
             'editingContact.phoneNumbers.home',
             'editingContact.isBillingContact',
             'editingContact.isPrimaryBillingContact',
-            //'editingContact.isShippingContact',
+            'editingContact.isShippingContact',
             'editingContact.isPrimaryShippingContact',
         ],
         renderOnChange: [
@@ -1224,14 +1224,18 @@
             "change input[isBillingContact]":"update"
         },
         update: function(e){
+            // if(e.target.getAttribute("data-mz-value") === "editingContact.isBillingContact"){
+            //     setTimeout(function(){ $('input[isPrimaryBillingContact]').trigger('click'); }, 1000);
+            //     // this.model.set("editingContact.isPrimaryBillingContact",e.target.checked);
+            // }
+            // if(e.target.getAttribute("data-mz-value") === "editingContact.isShippingContact"){
+            //     e.preventDefault();
+            //     setTimeout(function(){ $('input[isPrimaryShippingContact]').trigger('click'); }, 1000);
+                // this.model.set("editingContact.isPrimaryShippingContact",e.target.checked);
+            // }
             if(e.target.getAttribute("data-mz-value") === "editingContact.isBillingContact"){
                 setTimeout(function(){ $('input[isPrimaryBillingContact]').trigger('click'); }, 1000);
                 // this.model.set("editingContact.isPrimaryBillingContact",e.target.checked);
-            }
-            if(e.target.getAttribute("data-mz-value") === "editingContact.isShippingContact"){
-                e.preventDefault();
-                setTimeout(function(){ $('input[isPrimaryShippingContact]').trigger('click'); }, 1000);
-                // this.model.set("editingContact.isPrimaryShippingContact",e.target.checked);
             }
         },
         phoneNumberFormating2: function(e){
