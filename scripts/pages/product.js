@@ -1339,7 +1339,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 });
             }   
-            }, 500);
+            }, 1000);
         } 
         function relatedProductsCarousel(){
             var len = $(document).find('#related-products .single-product').length,owlMBRP;
