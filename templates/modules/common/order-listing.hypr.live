@@ -98,8 +98,8 @@
     </div>        
         {% endblock order-details %}
             
-     
-    <ul  orderID="{{model.orderNumber}}" class="item-list-heading"  style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};"> 
+     <ul orderID="{{model.orderNumber}}" {% if pagecontext.pageType == 'my_anonymous_account' %}class="order-status-item-list-heading"{% else %}class="item-list-heading"{% endif %} style="display:{% if model.id == itemReturnOrderID %}block{%else%}none{%endif%};">
+    
         <li class="item-name">Item</li>
         <li class="item-qty">Quantity</li>
         <li class="item-total">Total</li>
