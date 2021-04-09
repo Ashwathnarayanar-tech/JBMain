@@ -294,8 +294,8 @@
                         <div class="mz-l-formfieldgroup-row special-offers">
                             <div class="mz-l-formfieldgroup-cell"></div>
                             <div class="mz-l-formfieldgroup-cell">
-                                {% if not model.acceptsMarketing %} <label class="mz-inline marketing checkbox-outer-label">
-                                    <input type="checkbox" name="special-offers" id="news" {% if model.acceptsMarketing %}checked="checked" {% endif %}data-mz-value="acceptsMarketing" class="mz-checkout-optin" /><span class="checkout-offers-check">{{ labels.optIn|string_format(siteContext.generalSettings.websiteName) }}</span>
+                                {% if not model.acceptsMarketing %} <label class="mz-inline marketing checkbox-outer-label"  tabindex="0" >
+                                    <input  tabindex="-1"  type="checkbox" name="special-offers" id="news" {% if model.acceptsMarketing %}checked="checked" {% endif %}data-mz-value="acceptsMarketing" class="mz-checkout-optin" /><span class="checkout-offers-check">{{ labels.optIn|string_format(siteContext.generalSettings.websiteName) }}</span>
                                     <span class="checkmark-style"></span>
                                 </label>
                                 {% endif %}

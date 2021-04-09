@@ -62,8 +62,8 @@
                     <div class="tablerows applygiftcheckbox">
                         <div class="mz-checkout-digitalcredit-cell-enable" tabindex="0" header="apply">
                             <label enabled-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}" style="display: none;">APPLIED</label>
-                            <label class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
-                                <input type="checkbox" data-mz-digital-credit-enable {% if credit.attributes.isEnabled %} checked="checked" {% else %} {% with credit.attributes.code as code %} {% with code|split("-")|first as mycode %} {% if mycode == "PWR" %} {% comment %} checked="checked" disabled="disabled" {% endcomment %} {% endif %} {% endwith %} {% endwith %} {% endif %} class="data-mz-credit-enabled" data-mz-credit-code-source="{{ credit.attributes.code }}"  data-mz-credit-balance="{{ credit.attributes.currentBalance }}"  id="enable{{ credit.attributes.code }}" />
+                            <label  tabindex="0"  class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
+                                <input  tabindex="-1"  type="checkbox" data-mz-digital-credit-enable {% if credit.attributes.isEnabled %} checked="checked" {% else %} {% with credit.attributes.code as code %} {% with code|split("-")|first as mycode %} {% if mycode == "PWR" %} {% comment %} checked="checked" disabled="disabled" {% endcomment %} {% endif %} {% endwith %} {% endwith %} {% endif %} class="data-mz-credit-enabled" data-mz-credit-code-source="{{ credit.attributes.code }}"  data-mz-credit-balance="{{ credit.attributes.currentBalance }}"  id="enable{{ credit.attributes.code }}" />
                                 <span class="checkmark-style"></span>
                             </label>
                         </div>

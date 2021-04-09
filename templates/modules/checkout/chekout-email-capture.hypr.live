@@ -30,7 +30,7 @@
                             <div class="mz-l-formfieldgroup-cell noposition">
                                 <div class="mz-l-formfieldgroup-row margin-btm">
                                     <label class="checkbox-outer-label" tabindex="0">   
-                                    <input tabindex="0" id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy.Required"> <span class="text">By clicking Login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
+                                    <input tabindex="-1" id="guestlogin-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy.Required"> <span class="text">By clicking Login, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span>&nbsp;(Required)</span></span> 
                                     <span class="checkmark-style" tabindex="0" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"></span></label> 
                                 </div>
                                 <input type="submit" role="button" disabled="disabled" tabindex="0" class="checkout-login-btn mz-button mz-button-large cpp-loginpopup active-button brontocart-login-email {% block addbutton-class %}{% endblock %}" id="addbutton" value="Log In">
