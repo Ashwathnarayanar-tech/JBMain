@@ -344,8 +344,8 @@
 						{% with model.subscriptionCategories.items as items %}
 							{% for item in items %}
 								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}
-								<span class="icon close" data-mz-attr="{{item.categoryId}}" ></span>
-								<br> <a class="shopall" data-mz-attr="{{item.categoryId}}"> Shop All </a>
+								<span class="icon close" tabindex="0" aria-label="arrow icon" data-mz-attr="{{item.categoryId}}" ></span>
+								<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{item.categoryId}}"> Shop All </a>
 								</span>
 								<div class="subcategoryMainDiv" data-mz-categoryCode-code="{{item.categoryId}}">
 								{% for itemchildcat in item.childrenCategories %}
@@ -430,7 +430,7 @@
 						</div>
 						<div class="product-item-list">
 							<div class="product-item">
-								No products Avilable
+								No products Available
 							</div>
 						</div>
 					{% endif %}
@@ -509,8 +509,8 @@
 					{% for catItem in items %} 
 						<div class="accordian-headitem" data-mz-attr="{{catItem.categoryId}}">
 							<span tabindex="0"  data-mz-attr="{{catItem.categoryId}}" class="list-item side-bar-item ">{{catItem.content.name|safe}}
-							<br> <a class="shopall" data-mz-attr="{{catItem.categoryId}}"> Shop All </a> </span>
-							<span class="icon close" data-mz-attr="{{catItem.categoryId}}" ></span>
+							<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{catItem.categoryId}}"> Shop All </a> </span>
+							<span class="icon close" tabindex="0" aria-label="Arrow icon" data-mz-attr="{{catItem.categoryId}}" ></span>
 						</div>
 					{% with model.categoryList as CategoryListProducts %}  
 					{% for categoryList in CategoryListProducts %} 
@@ -540,8 +540,8 @@
 										</span>
 										<span class="item-li sku-input">
 											<span class="input-cointainer checkbox-outer-label">
-												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" />
-			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}"></span>
+												<input {% if not item.purchasableState.isPurchasable %}disabled="disabled"{% endif %} type="checkbox" name="selectitem" class="add-to-list-checkbox" {% if item.isSelected %}checked="checked"{% endif %} data-mz-attribute="{{item.productCode}}" data-mz-action="addtoList" data-mz-parentCat = "{{catItem.categoryId}}" />
+			                        			<span class="checkmark-style {% if not item.purchasableState.isPurchasable %}disabled{% endif %}" data-mz-attribute="{{item.productCode}}" ></span>
 		                        				<span class="checkBoxInfo"> Add </span>
 											</span>
 										</span>
@@ -578,6 +578,9 @@
 						{% endif %}
 						{% endif %}
 					{% endfor %}
+						{%  if CategoryListProducts.length === 0 && model.currentCategoryId === catItem.categoryId %}
+							<div class="noProducts"> No products Available </div>
+						{% endif %}		
 					{% endwith %}	
 					{% endfor %}	
 				{% endwith %}
