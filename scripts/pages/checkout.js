@@ -1384,12 +1384,17 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 				console.log(e);
 				$.cookie('isNewCustomer', true, { path: '/'});
 			});
-
-            if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes.home ){
-                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.attributes.home;
+            if(billincontact.phoneNumbers && billincontact.phoneNumbers.get('home') && billincontact.phoneNumbers.get('home').trim().length===14){
+                attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.get('home');
             }else{
-                attr.billingContact.phoneNumbers.home = null;
+                attr.billingContact.phoneNumbers.home = '';
+                billincontact.phoneNumbers.set('home','');
             }
+            // if(billincontact.phoneNumbers && billincontact.phoneNumbers.attributes.home ){
+            //     attr.billingContact.phoneNumbers.home = billincontact.phoneNumbers.attributes.home;
+            // }else{
+            //     attr.billingContact.phoneNumbers.home = null;
+            // }
           
             var flag = false;
             if(!(window.paymentinfo.model.validate(attr))){

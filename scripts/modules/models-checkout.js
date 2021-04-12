@@ -204,7 +204,9 @@
                     this.set('address.postalOrZipCode', zip);
                     this.set('phoneNumbers.home', phone);
                     this.set('address.addressType', addType === "POBox" ? 'Residential' : addType);
-    
+                if(this.attributes.phoneNumbers.get('home').trim().length<14){
+                        this.attributes.phoneNumbers.set('home','');
+                    }
                 if (this.validate()){ 
                     if(this.bypassValidation){
                         $('#bypassNotification').hide();
