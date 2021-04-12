@@ -88,6 +88,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var me = this;  
             this.model.attributes.savePrice = this.model.attributes.price.attributes.price - this.model.attributes.price.attributes.salePrice;
             Backbone.MozuView.prototype.render.apply(this);
+            me.displayFresshipingSection(); 
             if($('#add-to-wishlist').text() === Hypr.getLabel('addedToWishlist')){
                 $('#add-to-wishlist').text(Hypr.getLabel('addedToWishlist')).removeClass('add-to-wishlist').addClass('added-to-wishlist');
             }
@@ -473,6 +474,17 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             });
+        },
+        displayFresshipingSection:function(){
+            if(this.hasNoFreeShipping()) {
+                $('.free-shipping-text').empty();
+                $('.free-shipping-text').append('<b><span>Sorry, the price of this product does not count toward the Free Shipping threshold.</span></b>');
+            } else {
+                $('.truck-div').html("").append('<img src="/resources/images/truck_icon.png" alt="FREE Shipping on Orders Over $55!">');
+                $('.free-text').html("").append('FREE SHIPPING');
+                $('.orders-over-text').html("").append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
+                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" class="free-shipping-modal" tabindex="0" role="link" aria-label="Click here" title="opens a dialog">here</a> for details.)');
+            }
         }
     });
     var ReleatedProducts = Backbone.MozuView.extend({
