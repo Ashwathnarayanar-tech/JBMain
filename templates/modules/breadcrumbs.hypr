@@ -4,17 +4,17 @@
 		<div class="mz-breadcrumbs-row">
 			<nav role="region" aria-label="breadcrumbs">
 				<ul style="list-style-type: none;">
-				<li style="float: left;">
+				<li  style="display:inline-block;">
 					<a href="/" class="mz-breadcrumb-link is-first" title="Home">Home</a>
 				</li>
 				{% for crumb in navigation.breadcrumbs %}
             {% if not forloop.last %}
-                <li style="float: left;">
+                <li  style="display:inline-block;">
 									<span class="mz-breadcrumb-separator other" aria-hidden="true">/</span>
 									<a href="{{crumb.url}}" class="mz-breadcrumb-link{% if forloop.first %} is-first{% endif %}" title="{{crumb.name|safe}}">{{crumb.name|safe}}</a>
 								</li>
             {% else %}
-              	<li style="float: left;">
+              	<li  style="display:inline-block;">
 									<span class="mz-breadcrumb-separator other" aria-hidden="true">/</span>
 									<span class="mz-breadcrumb-current">{{ crumb.name|safe }}</span>
 								</li>
