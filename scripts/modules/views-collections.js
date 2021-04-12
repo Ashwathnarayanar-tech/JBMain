@@ -1468,6 +1468,7 @@ define([
                 initRecProd();
                 //labelShow();
                 // initilizeBrandSec(); 
+				window.isAddedToWishlist();
                 window.updatecatfilter();    
             }else{ 
                 setTimeout(function(){
@@ -1502,6 +1503,7 @@ define([
                 initRecProd();
                 //labelShow(); 
                 //initilizeBrandSec();
+				window.isAddedToWishlist();
                 window.updatecatfilter(); 
             } 
             
@@ -2423,6 +2425,32 @@ define([
     //     }
     // });
 
+	//adding added to wishlist text to all those products are which are added to wishlist
+	var isAddedToWishlist = window.isAddedToWishlist = function() {
+		$('.add-to-wishlist-c>button').text('Wishlist').addClass('add-to-wishlist').removeClass('added-to-wishlist');
+		$('button.add-to-wishlist').css('cursor','pointer');
+		if(require.mozuData("user").isAuthenticated) {
+			var products = $('.add-to-wishlist');
+			api.get('wishlist').then(function(response) {
+				var wishlistCount = response.data.items.length;
+				for (var i = 0; i < wishlistCount; i++) {
+					var wistlistItemCount = response.data.items[i].items.length;
+					for (var j = 0; j < wistlistItemCount; j++) {
+						for(var k = 0;k<products.length;k++){ 
+							var productCode = response.data.items[i].items[j].product.productCode;
+							if(productCode === $(products[k]).attr('data-mz-prdcode')){
+								$(products[k]).text(Hypr.getLabel('addedToWishlist')).removeClass('add-to-wishlist').addClass('added-to-wishlist');
+								$(products[k]).css('cursor','not-allowed');
+								$(products[k]).removeClass('add-to-wishlist-qv');
+								$(products[k]).addClass('added-to-wishlist-qv'); 
+							}
+						}
+					}
+				}
+			});
+		} 
+	};
+	window.isAddedToWishlist();
     var quickViewFun = {
         showquickview: function(e){
             var id = $(e.currentTarget).parents('.gridder-list').attr('data-griddercontent');

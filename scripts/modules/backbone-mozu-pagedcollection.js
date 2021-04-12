@@ -78,7 +78,7 @@ define([
                 pageSize: Backbone.MozuModel.DataTypes.Int,
                 pageCount: Backbone.MozuModel.DataTypes.Int,
                 startIndex: Backbone.MozuModel.DataTypes.Int,
-                totalCount: Backbone.MozuModel.DataTypes.Int,
+                totalCount: Backbone.MozuModel.DataTypes.Int
             },
             
             defaultSort: defaultSort,

@@ -773,6 +773,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         product.on('addedtowishlist', function (cartitem) {
             $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             $('#add-to-wishlist').css('cursor','not-allowed'); 
+            $('#add-to-wishlist').removeClass('add-to-wishlist');
+            $('#add-to-wishlist').addClass('added-to-wishlist');
             $('.free-shipping-section').focus();
         });
 
@@ -819,6 +821,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             releatedProducts.render();
             productdetailView.render();
             thumbnailCarousel();
+            isAddedToWishlist();
             if($(window).width()>767){
                 relatedProductsCarousel();
             }
@@ -830,6 +833,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             productdetailView.render();
             console.log('handling the error');
             thumbnailCarousel();
+            isAddedToWishlist();
             if($(window).width()>767){
                 relatedProductsCarousel();
             }
@@ -1295,7 +1299,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             setTimeout(function(){
                 var len = $(document).find('.mz-productimages-thumbs .mz-productimages-thumb').length,owlMBRP;
                 if(len>4 && $(window).width()>767){
-                    owlMBRP = $('.mz-productimages-thumbs');
+                    owlMBRP = $('.mz-productimages-thumbs ul');
                     owlMBRP.owlCarousel({
                         center          :false,
                         loop            :true,
