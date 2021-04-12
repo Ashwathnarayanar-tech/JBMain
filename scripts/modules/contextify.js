@@ -85,7 +85,9 @@ define(['modules/jquery-mozu',
         $(window).scroll(function(event){
             if($(window).width()<1025 && ($(window).width() > $(window).height())){    
                 didScroll = true;
-            }
+            }else if($(window).width()<1025 && ($(window).width() < $(window).height())){ 
+                hasScrolledWithoutKeypadOpen();
+            } 
         });
         
         setInterval(function() {
@@ -113,6 +115,27 @@ define(['modules/jquery-mozu',
                     $(".mz-pageheader-mobile").fadeIn(100);
                 }
             }
+        
+            lastScrollTop = st;
+        }
+        function hasScrolledWithoutKeypadOpen(){
+            var st = $(this).scrollTop();
+            
+            // Make sure they scroll more than delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+            
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight){
+                // Scroll Down
+               $(".mz-pageheader-mobile").fadeOut(100); 
+            } else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    $(".mz-pageheader-mobile").fadeIn(100);
+                }
+            } 
     
             lastScrollTop = st;
         }
