@@ -98,7 +98,7 @@ require([
     'modules/cart-monitor',
     "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
-    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator'
+    'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator',"modules/header-myaccount"
 ], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter, Cufon) {
 
    // window.showGlobalOverlay();
