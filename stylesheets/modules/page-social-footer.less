@@ -7,6 +7,12 @@
         clear: both !important;
         width: 100% !important;   
         text-align: center !important;
+         #evergreen-list{
+                display: inline;
+                li{
+                    display: inline;
+                }
+            }
          a {
             display: inline-block !important;
             margin: 5px 4px !important;
@@ -328,6 +334,12 @@
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
     .jb-socialize {
         .jb-footer-evrgreen { 
+            #evergreen-list{
+                display: unset;
+                li{
+                    display: block;
+                }
+            }
              a {
                 width: 82%;
                 height: 74px;
@@ -347,7 +359,7 @@
     .jb-socialize {
         div {
             #mz-drop-zone-evrgreen-footer-buttons {
-               height: 420px;
+               height: 440px;
             }
             .jb-footer-evrgreen { 
                 li{
