@@ -765,23 +765,24 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         /*restrict user from adding same items to wishlist */
         var this_model = require.mozuData("product");
         var wishlistFlag = window.wishlistFlag = false;
-        
-        Api.get('wishlist').then(function(response){
-            var wishlistCount = response.data.items.length;
-            for (var i = 0; i < wishlistCount; i++) {
-                var wistlistItemCount = response.data.items[i].items.length;
-                for (var j = 0; j < wistlistItemCount; j++) {
-                    var productCode = response.data.items[i].items[j].product.productCode;
-                    if(this_model.productCode === productCode) {
-                        window.wishlistFlag = true;
-                        $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
-                        $('#add-to-wishlist').css('cursor','not-allowed');
-                        $('#add-to-wishlist').removeClass('add-to-wishlist');
-                        $('#add-to-wishlist').addClass('added-to-wishlist');
+        function isAddedToWishlist(){
+            Api.get('wishlist').then(function(response){
+                var wishlistCount = response.data.items.length;
+                for (var i = 0; i < wishlistCount; i++) {
+                    var wistlistItemCount = response.data.items[i].items.length;
+                    for (var j = 0; j < wistlistItemCount; j++) {
+                        var productCode = response.data.items[i].items[j].product.productCode;
+                        if(this_model.productCode === productCode) {
+                            window.wishlistFlag = true;
+                            $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
+                            $('#add-to-wishlist').css('cursor','not-allowed');
+                            $('#add-to-wishlist').removeClass('add-to-wishlist');
+                            $('#add-to-wishlist').addClass('added-to-wishlist');
+                        }
                     }
-                }
-            } 
-        });
+                } 
+            });
+        }
         product.on('addedtowishlist', function (cartitem) {
             $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             $('#add-to-wishlist').css('cursor','not-allowed'); 
