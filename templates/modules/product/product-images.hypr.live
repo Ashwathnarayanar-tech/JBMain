@@ -10,11 +10,19 @@
 <figure class="mz-productimages-thumbs">   
     <ul style="list-style-type: none; padding: 0;">
     {% for image in model.content.productImages %}
+        {% if pageContext.isMobile or pageContext.isTablet %}
+        <li style="display: inline-block; margin: 0 4px;">
+            <a class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
+                <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail {{ forloop.index }}"/>
+            </a>
+        </li>
+        {% else %}
         <li style="display: inline-block; margin: 0 16px;">
             <a class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
                 <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail {{ forloop.index }}"/>
             </a>
         </li>
+        {% endif %}
 
 
     {% endfor %} 
