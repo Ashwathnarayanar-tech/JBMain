@@ -692,11 +692,15 @@ define([
                 $(".accordian-headitem .shopall").removeClass("show");    
                 $(".accordian-headitem .shopall[data-mz-attr='"+mainCat+"']").addClass("show");  
                 $(".accordian-headitem .icon").removeClass("open");   
-                $(".accordian-headitem .icon[data-mz-attr='"+mainCat+"']").addClass("open");   
+                $(".accordian-headitem .icon[data-mz-attr='"+mainCat+"']").addClass("open"); 
+                $(".accordian-headitem .icon").attr('aria-label','Icon is collapsed');
+                $(".accordian-headitem .icon[data-mz-attr='"+mainCat+"']").attr('aria-label','Click Arrow to show sub categories');
                 $(".mainCategory .shopall").removeClass("show");    
                 $(".mainCategory .shopall[data-mz-attr='"+mainCat+"']").addClass("show");  
                 $(".mainCategory .icon").removeClass("open");   
                 $(".mainCategory .icon[data-mz-attr='"+mainCat+"']").addClass("open"); 
+                $(".mainCategory .icon").attr('aria-label','Icon is collapsed');
+                $(".mainCategory .icon[data-mz-attr='"+mainCat+"']").attr('aria-label','Click Arrow to show sub categories');
                 $(".subcategoryMainDiv").removeClass("open");
                 $(".subcategoryMainDiv").addClass("close");
                 $(".subcategoryMainDiv[data-mz-categorycode-code='"+mainCat+"']").addClass("open");   
@@ -809,6 +813,7 @@ define([
                 $(".icon").removeClass("open");
                 $(".mainCategory .shopall").removeClass("show");
                 $(".mainCategory ").removeClass("active");
+                $(".icon").attr('aria-label','Icon is collapsed');
             }
         },
         mainCatIconClick:function(e){
@@ -823,6 +828,7 @@ define([
                 $(".mainCategory").removeClass('active');
                 $(".subcategoryMainDiv").removeClass("open");
                 $(".icon").removeClass("open");
+                $(".icon").attr('aria-label','Icon is collapsed');
                 $(".mainCategory .shopall").removeClass("show");
             }
         },
@@ -844,9 +850,13 @@ define([
                     this.model.set('categoryList', catList); 
                     this.model.set("activeCategoryList",categoryCode);
                     $(".icon").removeClass("open");
+                    $(".icon").attr('aria-label','Icon is collapsed');
                     $(".icon").addClass("close");
-                    this.render();  
-                    this.showShopAllLink();  
+                    this.render(); 
+                    $(".noProducts").hide();
+                    $(".product-item-list").hide();
+                    $(".subcategoryMainDivMobile").hide(); 
+                    //this.showShopAllLink();  
             }
         },
         changeSubCatList:function(e){
@@ -1064,12 +1074,13 @@ define([
                 var catLists  = modelRapidOrder.model.get('categoryList');
                 console.log("catLists ---",catLists);
                 catLists.filter(function(v,i){
-                    if(v.Category.categoryCode === catId){
+                    if(parseInt(v.Category.categoryCode) === parseInt(catId)){
                         existingItems =   v.Items;
                     }
                 }); 
             }
            var preSelectedProducts = window.preSelectedProducts;
+           console.log(" preSelectedProducts  ---",preSelectedProducts);
             api.request('post', "svc/subscriptionpage", body).then(function(result){
                     var myResult = [];
                     var dataPCodes = [];
@@ -1086,7 +1097,7 @@ define([
                             "isActive" : (i === 0 && !isLessThanMobileWidth) ? true : false,
                             "isAllSelected" : false
                         };
-                        if(isloadmore && v.category[0].categoryCode === catId){
+                        if(isloadmore && parseInt(v.category[0].categoryCode) === parseInt(catId)){
                             myTemp.Items =  existingItems;
                         }
                         v.items.filter(function(m,n){
@@ -1099,8 +1110,8 @@ define([
                             var preSelcectedProduct =null,preSelectedQty=null;
                             //  console.log("preSelectedProducts --- ",preSelectedProducts);
                                 for(var l=0;l<preSelectedProducts.length;l++){
-                                    if(preSelectedProducts[l].skuCode === m.productCode  && dataPCodes.indexOf(m.productCode) == -1){
-                                        preSelcectedProduct = preSelectedProducts[l].skuCode;
+                                    if(preSelectedProducts[l].productCode === m.productCode  && dataPCodes.indexOf(m.productCode) == -1){
+                                        preSelcectedProduct = preSelectedProducts[l].productCode;
                                         preSelectedQty = preSelectedProducts[l].qty;
                                         break;
                                     }
@@ -1124,9 +1135,20 @@ define([
                                     //  console.log("preSelcectedProduct ----",preSelcectedProduct,m.productCode);
                                     // 
                                         if(preSelcectedProduct && preSelcectedProduct == m.productCode){
-                                            dataPCodes.push(m.productCode);
-                                            preSelecteArray.push(temp);
+                                            var prdExists = false;
+                                            if(preSelecteArray.length > 0 ){
+                                                preSelecteArray.filter(function(v,i){
+                                                    if(v.productCode === temp.productCode){
+                                                        prdExists = true;
+                                                    }
+                                                });
+                                            }    
+                                            if(!prdExists){
+                                                dataPCodes.push(m.productCode);
+                                                preSelecteArray.push(temp);
+                                            }
                                         }
+                                       
                                         myTemp.Items.push(temp);  
                                 }        
                             
@@ -1170,6 +1192,8 @@ define([
                             }
                             $(".accordian-headitem .icon").removeClass("open");   
                             $(".accordian-headitem .icon[data-mz-attr='"+catId+"']").addClass("open");
+                            $(".accordian-headitem .icon").attr('aria-label','Icon is collapsed');
+                            $(".accordian-headitem .icon[data-mz-attr='"+catId+"']").attr('aria-label','Click Arrow to show sub categories');
                             $(".accordian-headitem").removeClass("active");   
                             $(".accordian-headitem[data-mz-attr='"+catId+"']").addClass("active");  
                             $(".accordian-headitem .shopall").removeClass("showAnchor");    
@@ -1200,7 +1224,9 @@ define([
                         $(".mainCategory .shopall").removeClass("show");    
                         $(".mainCategory .shopall[data-mz-attr='"+catId+"']").addClass("show");  
                         $(".mainCategory .icon").removeClass("open");   
-                        $(".mainCategory .icon[data-mz-attr='"+catId+"']").addClass("open");   
+                        $(".mainCategory .icon[data-mz-attr='"+catId+"']").addClass("open");  
+                        $(".mainCategory .icon").attr('aria-label','Icon is collapsed');
+                        $(".mainCategory .icon[data-mz-attr='"+catId+"']").attr('aria-label','Click Arrow to show sub categories'); 
                     window.hideGlobalOverlay();       
                     setTimeout(function(){
                     var subData =  modelRapidOrder.model.get('subscriptionData');

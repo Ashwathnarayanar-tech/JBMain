@@ -344,7 +344,7 @@
 						{% with model.subscriptionCategories.items as items %}
 							{% for item in items %}
 								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}
-								<span class="icon close" tabindex="0" aria-label="arrow icon" data-mz-attr="{{item.categoryId}}" ></span>
+								<span class="icon close" tabindex="0" aria-label="Icon is collapsed" data-mz-attr="{{item.categoryId}}" ></span>
 								<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{item.categoryId}}"> Shop All </a>
 								</span>
 								<div class="subcategoryMainDiv" data-mz-categoryCode-code="{{item.categoryId}}">
@@ -510,7 +510,7 @@
 						<div class="accordian-headitem" data-mz-attr="{{catItem.categoryId}}">
 							<span tabindex="0"  data-mz-attr="{{catItem.categoryId}}" class="list-item side-bar-item ">{{catItem.content.name|safe}}
 							<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{catItem.categoryId}}"> Shop All </a> </span>
-							<span class="icon close" tabindex="0" aria-label="Arrow icon" data-mz-attr="{{catItem.categoryId}}" ></span>
+							<span class="icon close" tabindex="0" aria-label="Icon is collapsed" data-mz-attr="{{catItem.categoryId}}" ></span>
 						</div>
 					{% with model.categoryList as CategoryListProducts %}  
 					{% for categoryList in CategoryListProducts %} 
