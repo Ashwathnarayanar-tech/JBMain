@@ -545,16 +545,25 @@ require([
         });
 
         function showErrorMessage(msg){
-            $('[data-mz-message-bar]').empty();
-            var emsg = '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>'+msg+'</li></ul>';
-            $('[data-mz-message-bar]').append(emsg);
-            $('[data-mz-message-bar]').fadeIn();
-            $('#mz-errors-list').attr({tabindex:0});
-            $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
-            $('#mz-errors-list').find('li').focus();
-            $('html, body').animate({scrollTop:$('[data-mz-message-bar]').filter(':visible').offset().top-200}, 'slow');
+            // $('[data-mz-message-bar]').empty();
+            // var emsg = '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>'+msg+'</li></ul>';
+            // $('[data-mz-message-bar]').append(emsg);
+            // $('[data-mz-message-bar]').fadeIn();
+            // $('#mz-errors-list').attr({tabindex:0});
+            // $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
+            // $('#mz-errors-list').find('li').focus();
+            // $('html, body').animate({scrollTop:$('[data-mz-message-bar]').filter(':visible').offset().top-200}, 'slow');
+            // setTimeout(function(){
+            //     $('[data-mz-message-bar]').hide();
+            // },6000);
+            var span = $(document).find('.rec-message-bar span'); 
+                span.text('');
+                span.text(msg);
+            $(document).find('.rec-message-bar').fadeIn();
+            span.focus();
+            $('html, body').animate({scrollTop:span.offset().top-200}, 'slow');
             setTimeout(function(){
-                $('[data-mz-message-bar]').hide();
+               $(document).find('.rec-message-bar').hide();
             },6000);
             $('.jb-inner-overlay').remove();
             // $("html, body").animate({scrollTop:  $(".mz-l-paginatedlist").offset().top }, 1000);

@@ -3,6 +3,9 @@
 	<p class="rti-recommended-products-title {{ model.config.placeholder }} slider-title"></p>
 	<div tabindex="0" role="contentinfo" class="rti-recommended-products-wrap" >Entering carousel</div>
 	{% endcomment %}
+	<div class="rec-message-bar">
+	    <span tabindex=0 role='contentinfo'></span>
+	</div>
 	<div class="rti-recommended-products {{ model.config.placeholder }} carousel-parent" >
 		<div class="rti-prod-list" data-rti-recommended-products={{model.config.placeholder }} >  
 		</div> 
