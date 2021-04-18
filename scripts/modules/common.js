@@ -104,6 +104,40 @@ require([
    // window.showGlobalOverlay();
 
     $(document).ready(function () {
+         // Shruthi JEL-1433 Qty increase and Decrement
+        $(document).on('keydown','.jb-quickviewdetails .increment',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(!qty){
+                    qty = 0;
+                } 
+                if(qty < 25){
+                    $(this).parents('.qty').find('.quantity').val(qty + 1);
+                }
+            }
+        });
+        $(document).on('keydown','.jb-quickviewdetails .dicrement',function(e){
+            if(e.which === 13 || e.which === 32){
+                e.preventDefault();
+                var cqty= parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                var me = this,qty;
+                if(cqty){
+                    qty = cqty;
+                }else{
+                    qty = parseInt($(this).parents('.qty').find('.quantity').val(),10);
+                }
+                if(qty > 1){
+                    $(this).parents('.qty').find('.quantity').val(qty - 1);
+                }
+            }
+        });
         // load on scroll
         $(window).scroll(function() {
             var lazyImages = $(document).find('.load-on-scroll');
