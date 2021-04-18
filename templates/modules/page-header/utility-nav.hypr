@@ -43,7 +43,7 @@
                     </li>
                     <li class="listItem sweetRewards-guest" aria-label="Sweet Rewards Join Now!">
                        <a href="/jelly-belly-sweet-rewards" title="sweet rewards">
-                           <span class="span-1">Sweet Rewards</span></br>
+                           <span class="span-1">Sweet Rewards</span><br/>
                            <span class="span-2">Join Now!</span> 
                        </a>
                     </li>
