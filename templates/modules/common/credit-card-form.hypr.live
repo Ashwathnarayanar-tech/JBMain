@@ -62,7 +62,7 @@
         <div class="mz-l-formfieldgroup-cell checkout-card-expmonth select-box">
          <label for="mz-payment-expiration-month">{{ labels.expires }}<span class="is-required" aria-label="mandatory field"> *</span></label>
            
-            <select aria-label="Expiring Month" aria-describedBy="err_4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add month" id="mz-payment-expiration-month" name="expiration-month" data-mz-value="{{ cardcontext }}expireMonth" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} disabled {% endif %} >
+            <select aria-label="Expiring Month" aria-describedBy="err_ex4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add month" id="mz-payment-expiration-month" name="expiration-month" data-mz-value="{{ cardcontext }}expireMonth" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %} disabled {% endif %} >
                 <option aria-label="select expiring month" default value="select expiring month" >Month</option>
                 <option {% if model.expireMonth == "01" %}selected="selected"{% endif %} value="01">01 - {{ labels.january }}</option>
                 <option {% if model.expireMonth == "02" %}selected="selected"{% endif %} value="02">02 - {{ labels.february }}</option>
@@ -79,7 +79,7 @@
             </select>
             <img width="13" class="down-caret-ma-month" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-month" src="/resources/images/icons/up_caret.png" />
-            <select aria-label="Expiring Year" aria-describedBy="err_4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add year" name="mz-payment-expiration-year" data-mz-value="{{ cardcontext }}expireYear" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated' %} disabled {% endif %}>
+            <select aria-label="Expiring Year" aria-describedBy="err_ex4" class="mz-l-formfieldgroup-halfsize {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated %}readonlytext{% endif %} my-acc-saved-add year" name="mz-payment-expiration-year" data-mz-value="{{ cardcontext }}expireYear" {% if model.contactId and pageContext.pageType == 'checkout' and user.isAuthenticated' %} disabled {% endif %}>
                 <option aria-label="select expiring year" default value="select expiring year"> Year</option>  
                 {% with now|split("-")[0] as year %}
                     {% for a in [0,1,2,3,4,5,6,7,8,9,10,11,12] %}
@@ -90,7 +90,7 @@
             <img width="13" class="down-caret-ma-year" src="/resources/images/icons/down_caret.png" />
             <img width="13" class="up-caret-ma-year" src="/resources/images/icons/up_caret.png" />
              
-            <span class="mz-validationmessage" id="err_4" data-mz-validationmessage-for="{{ cardcontext }}expireYear"></span>
+            <span class="mz-validationmessage" id="err_ex4" data-mz-validationmessage-for="{{ cardcontext }}expireYear"></span>
         </div>
     </div>
     <div class="mz-l-formfieldgroup-row my-account-cvv">
