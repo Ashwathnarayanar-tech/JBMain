@@ -13,7 +13,7 @@
 
         <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
         <a class="selected-menu-mobile mz-mobile"></a> 
-        <p class="mz-description">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
+        <p class="mz-description" tabindex="0">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
         <div class="clearfix"></div>
 
     <div class="mz-l-sidebar mz-myaccount-nav">
