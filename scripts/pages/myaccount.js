@@ -106,8 +106,10 @@
             return true;
         },
         displayMessage: function(msg) {
-            if($('.msgalertemail').length === 0)
-                $('<span class="msgalertemail" style="color:red">'+msg+'</span><br>').insertAfter('.required-label');
+            // if($('.msgalertemail').length === 0)
+            //     $('<span class="msgalertemail" style="color:red">'+msg+'</span><br>').insertAfter('.required-label');
+             $('[data-mz-validationmessage-for="emailAddress"]').show().text(msg).css('color','#b94a48');
+            $(document).find('.mz-accountsettings-email').attr('aria-invalid',true).focus();    
         },  
         afterEdit: function() {
             var self = this;

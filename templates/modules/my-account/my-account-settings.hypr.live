@@ -26,9 +26,9 @@
                           
                           {% if editing %}
                           <div class="mz-l-formfieldgroup-cell">
-                              <label class="mz-accountsettings-label mz-account-settings-label-email">{{ labels.emailAddress }}<span class="is-required" aria-label="mandatory field">*</span></label>
-                              <input class="mz-accountsettings-email" type="email" placeholder="Email address" data-mz-value="emailAddress" value="{{ model.emailAddress }}" />
-                              <span class="mz-validationmessage" data-mz-validationmessage-for="emailAddress"></span>
+                              <label class="mz-accountsettings-label mz-account-settings-label-email" for="useremail">{{ labels.emailAddress }}<span class="is-required" aria-label="mandatory field">*</span></label>
+                              <input id="useremail" class="mz-accountsettings-email" type="email" placeholder="Email address" data-mz-value="emailAddress" value="{{ model.emailAddress }}" aria-invalid="true" aria-describedby="err_1" />
+                              <span class="mz-validationmessage" id="err_1" data-mz-validationmessage-for="emailAddress"></span>
                          </div>
                           {% else %}
                               <div class="mz-accountsettings-displayemail">{{ model.emailAddress|default(model.userName) }}</div>
