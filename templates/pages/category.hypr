@@ -886,7 +886,7 @@
         {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
     </div>
     {% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
-    <div class="recommended-prod-head">><h2 tabindex="0">Jelly Belly Also Recommends</h2></div>           
+    <div class="recommended-prod-head"><h2 tabindex="0">Jelly Belly Also Recommends</h2></div>           
     {% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                
                      
 {% endpartial_cache %} 
