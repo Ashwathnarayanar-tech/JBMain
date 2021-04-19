@@ -741,6 +741,13 @@ require([
                     clicked.focus();
                 }
             });
+            $(document).find('.close').on('keyup',function(e) {
+                if (e.keyCode === 13&& $(".notify-me-popup").is(":visible")) {
+                    $(document).find('.notify-me-popup').hide();
+                    modalReset();
+                    clicked.focus();
+                }
+            });
         }
         function additemstoCart(productCode,$target,count){
             api.get('product', productCode).then(function(sdkProduct) {
