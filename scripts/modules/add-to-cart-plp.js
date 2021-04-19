@@ -55,11 +55,7 @@ require([
                 console.log("error occurred during add to cart ",err);
                 window.hideGlobalOverlay();
             });         
-            
-            setTimeout(function(){ 
-                // $target.focus(); 
-            },6200); 
-        }); 
+       }); 
         
         $(document).on('keypress', '.jb-add-to-cart', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {

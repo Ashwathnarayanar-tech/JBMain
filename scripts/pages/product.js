@@ -755,9 +755,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             } else {
                 product.trigger("error", { message: Hypr.getLabel('unexpectedError') });
                 $('[data-mz-message-bar]').find('.mz-errors').focus();
-                setTimeout(function(){
-                    $('#add-to-cart').focus();
-                }, 6000);
+                //Commented by Shruthi as Focus needs to be on confirmation popup
+                // setTimeout(function(){
+                //     $('#add-to-cart').focus();
+                // }, 6000);
             }
             brontoObj.build(Api);
         });
