@@ -16,7 +16,7 @@
     </div>
             {% if model.hasSavedContacts %}
                 <div class="mz-l-formfieldgroup-row mz-creditcard-billingaddresses">
-                    <div class="mz-l-formfieldgroup-cell">
+                    <div class="mz-l-formfieldgroup-cell" tabindex="0">
                         <label>{{ labels.selectBillingAddress }} <span class="is-required">*</span></label>
                     </div>
                     <div class="mz-l-formfieldgroup-cell">
