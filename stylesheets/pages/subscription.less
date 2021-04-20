@@ -685,11 +685,12 @@
 							    display: block;
 							    padding: 15px 15px 5px 15px; 
 							    cursor: pointer;
-							    &.active{
+							    .active{
 								    font-size: 12px;
 								    font-weight: 500;
 								    color: #004e99;
 									background-color: #fff;
+									border-top:none;
 								}
 							}
 							.mainCategory{
@@ -704,6 +705,9 @@
 										display: block;
 										padding-top: 2%;
 									}
+								}
+								.borderNone{
+									border-top:none;
 								}
 								.icon{
 									width: 0;
@@ -3232,6 +3236,7 @@
 									overflow-x: auto;
 									padding: 5px 0px;
 									margin-top:2%;
+									width: 100%;
 									.side-bar-item-subCategoryMobile{
 										font-size: 10px;
 										letter-spacing: normal;

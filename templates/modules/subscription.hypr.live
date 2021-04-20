@@ -343,10 +343,12 @@
 					{% with model.categoryList|findwhere("isActive", true) as ActiveCategoryListProducts %}
 						{% with model.subscriptionCategories.items as items %}
 							{% for item in items %}
-								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory list-item side-bar-item {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}">{{item.content.name|safe}}
+								<span class="mainCategory list-item side-bar-item" data-mz-attr="{{item.categoryId}}"> 
+								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory borderNone {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}" aria-label= "{{item.content.name}}">{{item.content.name|safe}} </span>
 								<span class="icon close" tabindex="0" aria-label="Icon is collapsed" data-mz-attr="{{item.categoryId}}" ></span>
 								<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{item.categoryId}}"> Shop All </a>
-								</span>
+								
+								</span> 
 								<div class="subcategoryMainDiv" data-mz-categoryCode-code="{{item.categoryId}}">
 								{% for itemchildcat in item.childrenCategories %}
 									<span tabindex="0" data-mz-attr="{{itemchildcat.categoryId}}" data-mz-parentCat = "{{item.categoryId}}"  class=" a list-item side-bar-item-subCategory ">{{itemchildcat.content.name|safe}}</span>
