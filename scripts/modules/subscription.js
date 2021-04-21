@@ -435,12 +435,18 @@ define([
                 });
                 return true;
             });
+            var remainItems = [];
+            itemsinsublist.filter(function(v,i){
+                 if(v.productCode !==productCode){
+                    remainItems.push(v);
+                 }
+            });
             this.model.set('categoryList', newLisr);
-            this.model.set('SubScriptionItemsList',itemsinsublist);
-            window.preSelectedProducts = itemsinsublist;
-            this.model.set('total', this.calculateTotal(itemsinsublist));
+            this.model.set('SubScriptionItemsList',remainItems);
+            window.preSelectedProducts = remainItems;
+            this.model.set('total', this.calculateTotal(remainItems));
             var shippingThrashold = Hypr.getThemeSetting('freeshippingBoundingValue');
-            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(itemsinsublist))).toFixed(2));
+            this.model.set('remaingAmount', (shippingThrashold-parseFloat(this.calculateTotalWithNoShippingProducts(remainItems))).toFixed(2));
             this.render();
             $(document).find('.headertital').focus();
             this.showShopAllLink();
