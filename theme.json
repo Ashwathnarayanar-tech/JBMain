@@ -2063,6 +2063,14 @@
       "template": "pages/set-international-cookie"
     },
     {
+      "id": "unbxd-search-results",
+      "title": "Unbxd Search results",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "userCreatable": true,
+      "template": "pages/unbxd-search-results"
+    },
+    {
       "entityType": "login",
       "id": "login",
       "template": "login",
