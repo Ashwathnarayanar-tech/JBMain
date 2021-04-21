@@ -693,13 +693,13 @@ define([
                 $(".accordian-headitem .shopall[data-mz-attr='"+mainCat+"']").addClass("show");  
                 $(".accordian-headitem .icon").removeClass("open");   
                 $(".accordian-headitem .icon[data-mz-attr='"+mainCat+"']").addClass("open"); 
-                $(".accordian-headitem .icon").attr('aria-label','Icon is collapsed');
+                $(".accordian-headitem .icon").attr('aria-label','Click Arrow to show sub categories');
                 $(".accordian-headitem .icon[data-mz-attr='"+mainCat+"']").attr('aria-label','Click Arrow to show sub categories');
                 $(".mainCategory .shopall").removeClass("show");    
                 $(".mainCategory .shopall[data-mz-attr='"+mainCat+"']").addClass("show");  
                 $(".mainCategory .icon").removeClass("open");   
                 $(".mainCategory .icon[data-mz-attr='"+mainCat+"']").addClass("open"); 
-                $(".mainCategory .icon").attr('aria-label','Icon is collapsed');
+                $(".mainCategory .icon").attr('aria-label','Click Arrow to show sub categories');
                 $(".mainCategory .icon[data-mz-attr='"+mainCat+"']").attr('aria-label','Click Arrow to show sub categories');
                 $(".subcategoryMainDiv").removeClass("open");
                 $(".subcategoryMainDiv").addClass("close");
@@ -813,7 +813,7 @@ define([
                 $(".icon").removeClass("open");
                 $(".mainCategory .shopall").removeClass("show");
                 $(".mainCategory ").removeClass("active");
-                $(".icon").attr('aria-label','Icon is collapsed');
+                $(".icon").attr('aria-label','Click Arrow to show sub categories');
             }
         },
         mainCatIconClick:function(e){
@@ -828,7 +828,7 @@ define([
                 $(".mainCategory").removeClass('active');
                 $(".subcategoryMainDiv").removeClass("open");
                 $(".icon").removeClass("open");
-                $(".icon").attr('aria-label','Icon is collapsed');
+                $(".icon").attr('aria-label','Click Arrow to show sub categories');
                 $(".mainCategory .shopall").removeClass("show");
             }
         },
@@ -850,7 +850,7 @@ define([
                     this.model.set('categoryList', catList); 
                     this.model.set("activeCategoryList",categoryCode);
                     $(".icon").removeClass("open");
-                    $(".icon").attr('aria-label','Icon is collapsed');
+                    $(".icon").attr('aria-label','Click Arrow to show sub categories');
                     $(".icon").addClass("close");
                     this.render(); 
                     $(".noProducts").hide();
@@ -1192,7 +1192,7 @@ define([
                             }
                             $(".accordian-headitem .icon").removeClass("open");   
                             $(".accordian-headitem .icon[data-mz-attr='"+catId+"']").addClass("open");
-                            $(".accordian-headitem .icon").attr('aria-label','Icon is collapsed');
+                            $(".accordian-headitem .icon").attr('aria-label','Click Arrow to show sub categories');
                             $(".accordian-headitem .icon[data-mz-attr='"+catId+"']").attr('aria-label','Click Arrow to show sub categories');
                             $(".accordian-headitem").removeClass("active");   
                             $(".accordian-headitem[data-mz-attr='"+catId+"']").addClass("active");  
@@ -1225,7 +1225,7 @@ define([
                         $(".mainCategory .shopall[data-mz-attr='"+catId+"']").addClass("show");  
                         $(".mainCategory .icon").removeClass("open");   
                         $(".mainCategory .icon[data-mz-attr='"+catId+"']").addClass("open");  
-                        $(".mainCategory .icon").attr('aria-label','Icon is collapsed');
+                        $(".mainCategory .icon").attr('aria-label','Click Arrow to show sub categories');
                         $(".mainCategory .icon[data-mz-attr='"+catId+"']").attr('aria-label','Click Arrow to show sub categories'); 
                     window.hideGlobalOverlay();       
                     setTimeout(function(){
@@ -1632,7 +1632,7 @@ define([
             ]
         };
         var myModel = {
-            "isFirstPopup" : showpopup && showpopup == 'true' ? false : true,
+            "isFirstPopup" : false,
             "headBar" : true,
             "searchQuery" : "",
             "searchResult" : [],
@@ -1664,6 +1664,7 @@ define([
         var preSelectedQty = urlParams && urlParams.qty ? urlParams.qty :null;
         var subscriptionId = urlParams && urlParams.subscriptionId ? urlParams.subscriptionId :null;
         window.showGlobalOverlay();
+        modelRapidOrder.model.set('isFirstPopup',showpopup && showpopup == 'true' ? false : true);
         setTimeout(function(){
             var products = [];
              if(subscriptionId){
