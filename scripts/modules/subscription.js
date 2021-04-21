@@ -1109,10 +1109,10 @@ define([
                             });
                             var preSelcectedProduct =null,preSelectedQty=null;
                             //  console.log("preSelectedProducts --- ",preSelectedProducts);
-                                for(var l=0;l<preSelectedProducts.length;l++){
-                                    if(preSelectedProducts[l].productCode === m.productCode  && dataPCodes.indexOf(m.productCode) == -1){
+                                for(var l=0;l<preSelectedProducts.length;l++){  
+                                    if(preSelectedProducts[l].productCode === m.productCode  && dataPCodes.indexOf(m.productCode) == -1 ){
                                         preSelcectedProduct = preSelectedProducts[l].productCode;
-                                        preSelectedQty = preSelectedProducts[l].qty;
+                                        preSelectedQty = preSelectedProducts[l].qty ?  preSelectedProducts[l].qty : preSelectedProducts[l].selectedData ?preSelectedProducts[l].selectedData.Qty : 1 ;
                                         break;
                                     }
                                 } 
