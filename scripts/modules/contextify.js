@@ -132,10 +132,12 @@ define(['modules/jquery-mozu',
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
                $(".mz-pageheader-mobile").fadeOut(100); 
+               $(".mz-mobile.mobileuxFilter.active").addClass("nomenuscrolltop"); 
             } else {
                 // Scroll Up
                 if(st + $(window).height() < $(document).height()) {
                     $(".mz-pageheader-mobile").fadeIn(100);
+                    $(".mz-mobile.mobileuxFilter.active").removeClass("nomenuscrolltop");
                 }
             } 
     
