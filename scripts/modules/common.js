@@ -754,7 +754,7 @@ require([
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;
                 if(variantOpt !== undefined && variantOpt.length>0){
-                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
+                    var newValue = $target.closest(".mz-productlisting").find('[plp-giftcart-prize-change-action]')[0].value;
                     var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
                     if(newValue != "Select Gift Card Amount" && newValue !== ''){
                         var option = PRODUCT.get('options').get(ID);

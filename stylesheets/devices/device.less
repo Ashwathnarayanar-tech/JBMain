@@ -2542,10 +2542,22 @@
             right: 0;
             margin: 0;
             z-index: 998;
+            &.nomenuscrolltop {
+                top: 40px;
+                .tz-mobrefine-slot {
+                    margin-top: 0px;
+                }
+            }
         }
         &.noprogressbar {
             &.active {
                 top: 72px;
+                &.nomenuscrolltop {
+                    top: 0px;
+                    .tz-mobrefine-slot {
+                        margin-top: 0px;
+                    }
+                }
             }
         }
     }
