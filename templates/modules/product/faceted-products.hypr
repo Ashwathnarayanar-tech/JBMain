@@ -72,8 +72,8 @@
         </a>
     {% endif %}
     <div data-mz-message-bar class="mz-messagebar"></div>
-    <div data-mz-productlist>      
-        {% include "modules/product/product-list-tiled" %}   
+    <div data-mz-productlist id="unbxd_results_container">
+        {% include "modules/product/product-list-tiled" %}
     </div>
     <div class="load-more-prod text-center {% if model.pageCount > 1 and model.hasNextPage %} {% else %} removeloadPadding {% endif %}">
         {% if model.pageCount > 1 and model.hasNextPage %}  

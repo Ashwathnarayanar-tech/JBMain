@@ -185,20 +185,20 @@
             "url" : "https://www.jellybelly.com"
         }
     </script>
-	
-	{% if pageContext.cmsContext.page.path == 'home' %}
-		<script type="application/ld+json">
-		{
-		"@context": "http://schema.org",
-		"@type": "WebSite",
-		"url": "https://www.jellybelly.com/",
-		"potentialAction": {
-			"@type": "SearchAction",
-			"target": "https://www.jellybelly.com/search?query={search_term_string}&sortBy=",
-			"query-input": "required name=search_term_string"
-			}
-		}
-	</script>
+  
+  {% if pageContext.cmsContext.page.path == 'home' or pageContext.cmsContext.page.path == "home-cat" %}
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{% if apicontext.headers.x-vol-tenant == 9046 %}https://www.jellybelly.com{% else %}http://t10569-s13532.sandbox.mozu.com{% endif %}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{% if apicontext.headers.x-vol-tenant == 9046 %}https://www.jellybelly.com{% else %}http://t10569-s13532.sandbox.mozu.com{% endif %}/search-results?query={search_term_string}",
+      "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
   {% endif %}
 
 {% if pagecontext.pageType != "checkout"%}
