@@ -1412,7 +1412,7 @@ define([
             var info_url;
             if($('body').hasClass("openeachfilter")) {
                 $(".closefacetpopup span").html("SHOW "+$(".jb-result-details").attr("data-total-results")+" RESULTS");
-                $("#tz-refinePopup").css("display","inline-block");
+                $("#tz-refinePopup").css("display","block");
                 $("#tz-mobilePopmenu").addClass("visible");
             } 
             if(loadMore) {
@@ -1523,7 +1523,7 @@ define([
             var getFacetsvalues =  _.flatten(_.pluck(data2.facets, 'values'));
             var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
 
-            $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
+            $(document).find('span.nooffilters').html('('+$("#tz-refinePopup .tz-mobileSelected-filter").find("span").length+')'); 
             if (url) _dispatcher.replace(url);
             window.hideGlobalOverlay(); 
             //_$body.removeClass('mz-loading'); 
@@ -1985,7 +1985,7 @@ define([
         var getFacetsvalues = data2 && data2.facets ? _.flatten(_.pluck(data2.facets, 'values')) : [];
         var numoffiltersapplied = _.filter(getFacetsvalues, function(num){ return num.isApplied === true; });
 
-        $(document).find('span.nooffilters').html('('+numoffiltersapplied.length+')'); 
+        $(document).find('span.nooffilters').html('('+$("#tz-refinePopup .tz-mobileSelected-filter").find("span").length+')'); 
         //pagination mobile
         var pageValue = window.pageValue = 0;
         var pageFlag = window.pageFlag = true;
@@ -2812,7 +2812,7 @@ define([
                 }
                 $(".tzPopup-Done").trigger("click");
                 $("body").addClass("openeachfilter");
-                $("#tz-refinePopup").css("display","inline-block");
+                $("#tz-refinePopup").css("display","block");
                 $("#tz-mobilePopmenu").addClass("visible");
                 
             } else {
@@ -2820,7 +2820,7 @@ define([
                     $(".remove-filter-one[attr-filter='"+ele.attr('data-mz-facet-value-mobile')+"']").trigger("click");
                     $(".tzPopup-Done").trigger("click");
                     $("body").addClass("openeachfilter");
-                    $("#tz-refinePopup").css("display","inline-block");
+                    $("#tz-refinePopup").css("display","block");
                     $("#tz-mobilePopmenu").addClass("visible");
                 }
             }
