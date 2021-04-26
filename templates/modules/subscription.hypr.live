@@ -345,7 +345,7 @@
 							{% for item in items %}
 								<span class="mainCategory list-item side-bar-item" data-mz-attr="{{item.categoryId}}"> 
 								<span tabindex="0" data-mz-attr="{{item.categoryId}}" class="mainCategory borderNone {% if model.activeCategoryList ==  item.categoryId %}active {% else %} {% if ActiveCategoryListProducts.Category.categoryCode == item.categoryId %} active {% endif %}{% endif %}" aria-label= "{{item.content.name}}">{{item.content.name|safe}} </span>
-								<span class="icon close" tabindex="0" aria-label="Icon is collapsed" data-mz-attr="{{item.categoryId}}" ></span>
+								<span class="icon close" tabindex="0" aria-label="Click Arrow to show sub categories" data-mz-attr="{{item.categoryId}}" ></span>
 								<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{item.categoryId}}"> Shop All </a>
 								
 								</span> 
@@ -512,7 +512,7 @@
 						<div class="accordian-headitem" data-mz-attr="{{catItem.categoryId}}">
 							<span tabindex="0"  data-mz-attr="{{catItem.categoryId}}" class="list-item side-bar-item ">{{catItem.content.name|safe}}
 							<br> <a class="shopall" tabindex="0" aria-label="shop all" data-mz-attr="{{catItem.categoryId}}"> Shop All </a> </span>
-							<span class="icon close" tabindex="0" aria-label="Icon is collapsed" data-mz-attr="{{catItem.categoryId}}" ></span>
+							<span class="icon close" tabindex="0" aria-label="Click Arrow to show sub categories" data-mz-attr="{{catItem.categoryId}}" ></span>
 						</div>
 					{% with model.categoryList as CategoryListProducts %}  
 					{% for categoryList in CategoryListProducts %} 
