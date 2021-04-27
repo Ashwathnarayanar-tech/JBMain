@@ -424,7 +424,7 @@
       }
     ],
     "useDebugScripts": false,
-    "useSearchAutocomplete": true,
+    "useSearchAutocomplete": false,
     "allowCustomerInitiatedReturns": true,
     "themeRC": "RC 71",
     "mobileAddToCartPopupTimer": 2,
