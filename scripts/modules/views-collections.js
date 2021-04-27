@@ -2058,7 +2058,9 @@ define([
             
         var width= $(window).width();
         //mobile  
-        var fixedsortBy = $('.mobileuxFilter').offset().top;
+        if($('.mobileuxFilter').length) {
+            var fixedsortBy =  $('.mobileuxFilter').offset().top;
+        }    
         $(window).on("scroll", function () {
             if ($(window).scrollTop() > $(".mz-l-paginatedlist").offset().top - 100) {
                 if($(".progress-bar").is(":visible")) {
