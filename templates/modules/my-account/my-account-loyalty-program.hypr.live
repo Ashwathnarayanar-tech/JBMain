@@ -3,3 +3,31 @@
 <div class="mz-loyalty-program" title="Sweet Rewards Program">
 	<div title="Sweet Rewards Program" id="zrl_embed_div" style="width: 552px; height: 625px;"></div>
 </div>
+<div class="newRewards">
+	<div class="rewardsTab">
+		<div class="rewardactivity">MY ACTIVITY</div>
+		<div class="rewardpoints">EARN POINTS</div>
+		<div class="rewardredeempoints">REDEEM POINTS</div>
+	</div>
+	<div class="rewardmaincontent">
+		<div class="contentactivity">
+			<div class="activityhead">
+				<span>Date</span>
+				<span>Activity </span>
+				<span>Points</span>
+			</div>
+			<div class="contentlist">
+				<ul>
+					<li class="listdate">May 26, 2020</li>
+					<li class="listactivity">Purchase on Website Order Id: 1726652</li>
+					<li class="listpoints">+35</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contentearnpoints"></div>
+		<div class="contentredempoints"></div>
+	</div>
+</div>
+<div id="customdata">
+	hello
+</div>
