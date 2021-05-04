@@ -130,12 +130,14 @@
                                             .a-spot-cointainer{
                                                 width: 100%;
                                                 position: relative;
-                                                height: 500px;
                                                 overflow: hidden;
+                                                display: flex;
+                                                align-items: center;
+                                                vertical-align: middle;
                                                 img{
                                                     width: 100%;
-                                                    position: absolute;
-                                                    width: auto;
+                                                    position: relative;
+                                                    margin: auto;
                                                 }
                                                 .A-spotContent{
                                                     position: absolute;
@@ -174,6 +176,9 @@
                                                             border-radius: 4px;
                                                         }
                                                     }
+                                                }
+                                                &.mobileimage {
+                                                    display: none;
                                                 }
                                             } 
                                             .flavor-sec{
@@ -519,11 +524,9 @@
                     .a-spot-cointainer{
                             width: 100%;
                             position: relative;
-                            height: 500px;
                             overflow: hidden;
                             img{
                                 width: 100%;
-                                position: absolute;
                                 width: auto;
                             }
                             .A-spotContent{
@@ -563,6 +566,9 @@
                                         border-radius: 4px;
                                     }
                                 }
+                            }
+                            &.mobileimage {
+                                display: none;
                             }
                         } 
                     .brand-dicreption{
@@ -903,12 +909,10 @@
                     .a-spot-cointainer{
                         width: 100%;
                         position: relative;
-                        height: 500px;
                         overflow: hidden;
                         img{
                             width: 100%;
-                            position: absolute;
-                            width: auto;
+                            height: auto;
                         }
                         .A-spotContent{
                             position: absolute;
@@ -947,6 +951,9 @@
                                     border-radius: 4px;
                                 }
                             }
+                        }
+                        &.mobileimage {
+                            display: none;
                         }
                     }
                     .flavor-sec{
@@ -1862,6 +1869,14 @@
                                     }
                                 }
                             }
+                            .a-spot-cointainer.desktopimage {
+                                height: auto;
+                                img {
+                                    width: 100%;
+                                    height: auto;
+                                    position: relative;
+                                }
+                            }
                         }
                     }
                     .mz-l-paginatedlist{ 
@@ -2182,6 +2197,12 @@
                                     position: inherit;
                                     /*height: 500px;*/
                                 }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
+                                }
                             }
                             .flavor-sec{ 
                                 .flavor-List{ 
@@ -2236,7 +2257,7 @@
                                 }
                             }
                             .brand-buttons{
-                                margin: 0 !important;
+                                margin:20px 0 0px !important;
                                 .button-dark{
                                     display: block;
                                     width: 65%;
@@ -2420,6 +2441,12 @@
                                     position: inherit;
                                     /*height: 500px;*/
                                 }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
+                                }
                             }
                             .flavor-sec{ 
                                 .flavor-List{ 
@@ -2474,7 +2501,7 @@
                                 }
                             }
                             .brand-buttons{
-                                margin: 0 !important;
+                                margin: 20px 0px 0px !important;
                                 .button-dark{
                                     display: block;
                                     width: 65%;
@@ -3065,3 +3092,8 @@
     }
 }
 
+#preloaderoverlay {
+    #preloader {
+        position: absolute !important; 
+    }
+}

@@ -16,14 +16,13 @@
 		        }
 		    </style>
 		    {% if pageContext.categoryId == 341 %}
-		        <div class="brand-dicreption">
-		            <div class="a-spot-cointainer">
-		                <div class="isMobile">
-		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
-		                </div>
-						<div class="isDesktop">
+
+		        <div class="brand-dicreption BeanBoozledpage">
+		            <div class="a-spot-cointainer desktopimage">
 		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f7ab7961-5d35-409c-9717-572caa70f966" alt="BeanBoozled®"> 
-		                </div>
+		            </div>
+		            <div class="a-spot-cointainer mobileimage">
+		                    <img tabindex="0" class="lower-category-banner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/ee40c393-f45e-47a3-9569-53395e64512c" style="width: 100%" alt="BeanBoozled®">
 		            </div>
 		            <div class="flavor-sec">
 		                <div class="flavor-List" id="flavor-List"></div>
@@ -34,8 +33,8 @@
 		            </div>
 		            <div class="brand-description">
 		                <div class="brand-details" tabindex="0" role="contentinfo">
-		                    <p>Jelly Belly BeanBoozled® jelly beans have been delighting adventurous eaters since 2008. These bamboozling beans are meant to take your taste buds on a roller coaster, with colors that look like all your favorite Jelly Belly jelly beans but have unexpected flavors. Compare some of our tastiest and most popular flavors with our craziest ones, but here's the catch — you won't know which ones are which!</p>
-		                    <p>Take the BeanBoozled Challenge for yourself and see if your flavor will be yuck or yum… we dare you!</p>
+		                    <p>Jelly Belly BeanBoozled jelly beans have been delighting adventurous eaters since 2008. These bamboozling beans are meant to take your taste buds on a roller coaster, with colors that look like all your favorite Jelly Belly jelly beans but have unexpected flavors. Compare some of our tastiest and most popular flavors with our craziest ones, but here's the catch: you won't know which ones are which!</p>
+		                    <p>Take the BeanBoozled Challenge for yourself and see if your flavor will be yuck or yum. We dare you!</p>
 		                </div>
 		            </div>
 		            <style>
@@ -44,13 +43,24 @@
 		                        display: none;
 		                    }
 		                } */
+		                .brand-dicreption-top .video_sec h3 {
+		                	width: 100% !important;
+		                }
 		                /*  GO FULL WIDTH BELOW 480 PIXELS */
 		                @media only screen and (max-width: 899px) {
-		                    .desktop {
-		                        display: none;
-		                    }
+		                    
 		                    .span_2_of_2 {
 		                        margin-right: 200px;
+		                    }
+		                    .brand-dicreption-top .wrap .col.span_2_of_2 {
+		                    	margin-left: 0px !important;
+		                    	float: left;
+		                    }
+		                    .brand-dicreption-top .col.span_1_of_2 img {
+		                    	margin-left: 0px !important;
+		                    }
+		                    .brand-dicreption-top .wrap .span_2_of_2 .video_sec .videoholder {
+		                    	width: 335px !important;
 		                    }
 		                }
 		                /*  GO FULL WIDTH BELOW 480 PIXELS */
@@ -272,7 +282,7 @@
 		                            
 		                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/are_you_brave_enough_white.jpg" style="margin-left: -150px; margin-top: -140px; width: 400px; margin-bottom: 50px;" class="mobile tablet" alt="Are you Brave Enough?"><br> 
 		                            </div>
-		                            <div class="values_sec" style="margin-left: 100px; margin-top: 0px;">
+		                            <div class="values_sec spin" style="margin-left: 100px; margin-top: 0px;">
 		                                <div id="preloaderoverlay">
 		                                    <div id="preloader">
 		                                        <img src="//content.jellybelly.com/beanboozled/images/fbload.gif" alt="Loading" />
@@ -280,10 +290,12 @@
 		                                </div>
 		                                <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/arrow2_1_4.png" style="transform: rotate(60deg);" class="rot" alt=""/>
 		                                <img class="values" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled4thspinner-1.png" alt="Bean Boozled 5th Edition Spinner">
-		                                <input aria-label="Spin the Beanboozled Challenge online spinner" type="button" value="Spin" class="spin" style="background:#F00; box-shadow: 0px 0px 0px 0px !important;" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'BB-Spinner' });" />
+		                                <span class="clicktoplay">[ Click Wheel to Play ]</span>
+		                                <input aria-label="Spin the Beanboozled Challenge online spinner" type="button" value="Spin" class="spin hide" style="background:#F00; box-shadow: 0px 0px 0px 0px !important;" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'click', 'eventLabel': 'BB-Spinner' });" />
 		                            </div>
 		                            <div class="video_sec" style="margin-top: 10px;">
 		                                <p><img src="//content.jellybelly.com/beanboozled/images/title-top.jpg" width="400" height="71" alt="Is it Yuck or Yum? There's Only One Way to Find Out" /></p>
+		                                <p class="defaultpara">Spin the Spinner above to view a reaction video.</p>
 		                                <div class="videoholder" style="width: 400px; height: 255px;">
 		                                    <img style="position:absolute; left:0; top:0;" src="//content.jellybelly.com/beanboozled/images/blankscreen.jpg" width="400" height="255" id="placeholder" alt="" />
 		                                    <div id="video_frame"></div>
@@ -303,7 +315,7 @@
 		                                </h3>
 		                            </div>
 		                        </div>
-		                        <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="mobile" style="width: 400px;" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
+		                        <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/db76e29c-67de-4fe3-89a0-9fef756796ed" class="mobile mobilecaution" style="width: 400px;" alt="Caution! These jelly beans may look alike but they could not taste more different from each other.Think you can tell them apart? We dare you!"><br><br> 
 		                        <div class="jelly_selectors mobile" style="margin-left: 0px;">
 		                            <h2 class="visually-hidden">
 		                              Beanboozled beans and flavors
@@ -365,7 +377,7 @@
 		                        </div>
 		                    </div>  
 		                </div>
-		                <div class="" style="width:400px; text-align: center; margin-left: -60px;">
+		                <div class="mobileappdownbtn" style="width:400px; text-align: center; margin-left: -60px;">
 		                    <img src="//cdn-tp1.mozu.com/9046-m1/cms/files/bbz_app_slider_resize.jpg" usemap="#image-map" class=" mobile" style="width:100%; margin-left: 60px;" alt="Game On! Download the Free BeanBoozled App">
 		                    <map name="image-map">
 		                        <area target="_blank" alt="Beanboozled application on Google Play" title="" href="https://play.google.com/store/apps/details?id=com.jellybelly.beanboozled" coords="220,315,348,353" shape="rect" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'Beanboozled Challenge', 'eventAction': 'app download', 'eventLabel': 'Google-Play' });">
@@ -374,7 +386,7 @@
 		                </div>
 		            </div>
 		        </div>
-		        <div class="jb-footer-dpzone">
+		        <div class="jb-footer-dpzone BeanBoozledpage">
 		            <div class="bottom_links">
 		                <center>
 		                    <ul>
@@ -394,7 +406,7 @@
 		                </center>
 		           </div>
 		        </div>
-		        <div style="margin: 10px">    
+		        <div style="margin: 10px" class="BeanBoozledpage contentul">    
 		            <ul style="font-size: 12px;">
 		                <li>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</li>
 		                <li>Google Play and the Google Play logo are trademarks of Google Inc.</li>
@@ -710,6 +722,7 @@
 		                .download-app-wrapper {
 		                    margin: 16px auto 72px auto;
 		                }
+
 		            }
 		            /* VIEWPORT WIDTH: 650px */
 		            @media screen and (max-width: 650px) {
@@ -868,13 +881,8 @@
 		                <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?max=500" alt="">
 		            </div>
 		        </div>
-		    {% else %}  
-		       	<div class="isDesktop">
-		            {% dropzone zoneId="brand-dicreption-top" scope="page" %}
-		        </div>
-		        <div class="isMobile">
-		            {% dropzone zoneId="brand-dicreption-top-mobile" scope="page" %}
-		        </div>
+		    {% else %}
+		        {% dropzone zoneId="brand-dicreption-top" scope="page" %}
 		    {% endif %}
 		</div>
 	</div>
