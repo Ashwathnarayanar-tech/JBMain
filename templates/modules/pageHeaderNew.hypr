@@ -75,7 +75,7 @@
                 <div class="nav-header">
                     <ul class="nav-list-head-cointainer">
                         {% partial_cache %}
-                        <li class="head-list-item view-products {% if pageContext.pageType=='category%}mobilemenuactive{% endif %}" attr-menuname="megamenu_1" data-attr="view-products">
+                        <li class="head-list-item view-products {% if pageContext.pageType=='category' %}mobilemenuactive{% endif %}" attr-menuname="megamenu_1" data-attr="view-products">
                             <a href="#" aria-expanded="false" aria-label="View Products">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 50 40">
                                     <g fill="none" fill-rule="evenodd">
