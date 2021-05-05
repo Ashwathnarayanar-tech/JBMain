@@ -177,6 +177,23 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
         handleEnterKey: function (e) {
             this.model.next();
         },
+        initialize:function(){
+            console.log("Checkout initialise ----");
+            var items = [],_this=this;
+             //items = ["20027","62030","1745","5365","4015","20026","1540","1715","1271","66120","1252","1245","1025","5337","20025","1078","1415","1295","1405","66155","52820","52989","52923","52895","1015","52825","f001","52973","52942","52956","111000","zero1234","BryanBundle","b0002","b0003","b0004","VCRVRK03-BNDL","VSBDSPLY01-BNDL","Test123","61800","66340","62213","7000442","f0001","VSB01-BNDL","SB_001","SB_002","SB_003"];
+            var apiResult = {dates:[],isSuccess:false,blockoutDates:[]};
+            api.request("post","/svc/shippingdate",{method:"GET"}).then(function(result){
+                console.log( " result ---",result);
+                var formatedDates = window.formatApiData(result);
+                window.blockedShippingDates = formatedDates;
+                window.getDatesItems = result.Items;
+                _this.dateSelector();
+                return (apiResult);
+            },function(er){
+                console.log("error ---",er);
+             return (apiResult);
+            });
+        },
         render: function () {
             var self = this; 
             var shippingMethodStatus = window.checkoutViews.steps.shippingInfo.model._stepStatus;
@@ -454,7 +471,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                  }, 500);
             }  
             window.setSubscriptionData();
-            this.dateSelector();
+           
+            console.log("dateSelector ---");
+            if(window.blockedShippingDates && window.blockedShippingDates.length>0)
+                this.dateSelector();
             window.checkoutViews.orderSummary.setnoFreeshippingProducts();
 		},
 		updateFreeShippingData: function(method){
@@ -674,7 +694,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 
             function heatSensitive(date) {
                 var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-                var blackoutdates = restDates.split(',');
+               // var blackoutdates = restDates.split(',');
+                var blackoutdates = window.blockedShippingDates;
                 var day;
                 var m = date.getMonth();
                 var d = date.getDate();
@@ -689,29 +710,32 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
                 var currentDate = ('0' + (mm + 1)).slice(-2) + "/" + ('0' + ddd).slice(-2) + "/" + yy;
                 var compareDate = ('0' + (m + 1)).slice(-2) + '/' + ('0' + d).slice(-2) + '/' + y;
                 if (heat) {
-                    for (var i = 0; i < blackoutdates.length; i++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
-                            return [false];
-                        }
-                    }
-                    day = date.getDay();
-                    if (day === 3 || day === 4 || day === 5 || day === 6 || day === 0) {
+                    if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                       // console.log("blackoutdates --- ",$.inArray(compareDate, blackoutdates),compareDate);
                         return [false];
-                    } else {
-                        return [true];
                     }
+                    else{
+                        day = date.getDay();
+                        //console.log(" day ---",day);
+                        if (day === 3 || day === 4 || day === 5 || day === 6 || day === 0) {
+                            return [false];
+                        } else {
+                            return [true];
+                        }
+                    }   
                 } else {
-                    for (var j = 0; j < blackoutdates.length; j++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                    if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                        return [false];
+                    }
+                    else{
+                        day = date.getDay();
+                        if (day === 6 || day === 0) {
                             return [false];
+                        } else {
+                            return [true];
                         }
                     }
-                    day = date.getDay();
-                    if (day === 6 || day === 0) {
-                        return [false];
-                    } else {
-                        return [true];
-                    }
+                    
                 }
             }
         },
@@ -719,7 +743,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             var date = new Date();
             var businessdays = 2;
             var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
+            //var blackoutdates = restDates.split(',');
+            var blackoutdates = window.blockedShippingDates;
             var day, month, year, fulldate, currentDate, comparedate;
             while (businessdays) {
                 date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
@@ -747,7 +772,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
             var date = new Date();
             var businessdays = 2;
             var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
+            //var blackoutdates = restDates.split(',');
+            var blackoutdates = window.blockedShippingDates;
             var day, month, year, currentDate, comparedate;
             while (businessdays) {
                 date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
@@ -797,6 +823,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal,CartModels) 
 			this.render();
 		},
         initialize: function () {
+            console.log("order summary initialize");
             this.listenTo(this.model.get('billingInfo'), 'orderPayment', this.onOrderCreditChanged, this);
 			this.model.set("pwrAmount", 0);
         },

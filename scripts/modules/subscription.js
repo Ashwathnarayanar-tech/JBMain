@@ -1247,12 +1247,6 @@ define([
             }).catch(function(e){
                 window.hideGlobalOverlay();
             });
-
-            api.request('POST', "svc/shippingdate" ,{method:"GET"}).then(function(result){
-                console.log( " result ---",result);
-            }).catch(function(err){
-                console.log("e ---",err);
-            });
         },
         getSubscriptionData:function(subscriptionId){
             api.request('POST', 'svc/getSubscription',{method:"GET",subscriptionId:subscriptionId}).then(function(res) {
@@ -1308,6 +1302,7 @@ define([
             var heat;
             var finalDate;
             var me = this;
+            console.log("DateSelector ----");
             if (this.isHeatSensitive()) {
                 finaldate = this.heatSensitvieDatePicker();
                 finalDate = finaldate.replace(/-/g, '/');
@@ -1384,7 +1379,8 @@ define([
 
             function heatSensitive(date) {
                 var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-                var blackoutdates = restDates.split(',');
+                //var blackoutdates = restDates.split(',');
+                var blackoutdates = window.blockedShippingDates;
                 var day;
                 var m = date.getMonth();
                 var d = date.getDate();
@@ -1399,29 +1395,32 @@ define([
                 var currentDate = ('0' + (mm + 1)).slice(-2) + "/" + ('0' + ddd).slice(-2) + "/" + yy;
                 var compareDate = ('0' + (m + 1)).slice(-2) + '/' + ('0' + d).slice(-2) + '/' + y;
                 if (heat) {
-                    for (var i = 0; i < blackoutdates.length; i++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
-                            return [false];
-                        }
-                    }
-                    day = date.getDay();
-                    if (day === 3 || day === 4 || day === 5 || day === 6 || day === 0) {
+                    if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                       // console.log("blackoutdates --- ",$.inArray(compareDate, blackoutdates),compareDate);
                         return [false];
-                    } else {
-                        return [true];
                     }
+                    else{
+                        day = date.getDay();
+                        //console.log(" day ---",day);
+                        if (day === 3 || day === 4 || day === 5 || day === 6 || day === 0) {
+                            return [false];
+                        } else {
+                            return [true];
+                        }
+                    }   
                 } else {
-                    for (var j = 0; j < blackoutdates.length; j++) {
-                        if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                    if ($.inArray(compareDate, blackoutdates) != -1 || new Date() > date || shipdate > date) {
+                        return [false];
+                    }
+                    else{
+                        day = date.getDay();
+                        if (day === 6 || day === 0) {
                             return [false];
+                        } else {
+                            return [true];
                         }
                     }
-                    day = date.getDay();
-                    if (day === 6 || day === 0) {
-                        return [false];
-                    } else {
-                        return [true];
-                    }
+                    
                 }
             }
         },
@@ -1429,7 +1428,8 @@ define([
             var date = new Date();
             var businessdays = 2;
             var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
+            //var blackoutdates = restDates.split(',');
+            var blackoutdates = window.blockedShippingDates;
             var day, month, year, fulldate, currentDate, comparedate;
             while (businessdays) {
                 date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
@@ -1457,7 +1457,8 @@ define([
             var date = new Date();
             var businessdays = 2;
             var restDates = Hypr.getThemeSetting('shipping_date') ? Hypr.getThemeSetting('shipping_date') : "01/01/2019,02/18/2019,05/27/2019,07/04/2019,05/25/2020" ;
-            var blackoutdates = restDates.split(',');
+            //var blackoutdates = restDates.split(',');
+            var blackoutdates = window.blockedShippingDates;
             var day, month, year, currentDate, comparedate;
             while (businessdays) {
                 date.setFullYear(date.getFullYear(), date.getMonth(), (date.getDate() + 1));
@@ -1566,6 +1567,35 @@ define([
             this.getProductsByCategory(catId,parseInt(startIndex+pageSize),totalCnt,true,categoryCode,true);     
 
         },
+        getBlockOutDates :function(){
+            var items = [];
+            var _this = this;
+            $.each($('[data-mz-productcode]'),function(i,v){
+                if(items.length> 0 && items.indexOf($(v).attr('data-mz-productcode'))<0){
+                    items.push($(v).attr('data-mz-productcode'));
+                }else if(items.length<1){
+                    items.push($(v).attr('data-mz-productcode'));
+                }
+            });
+            if(items.length === 0)
+             items = ["20027","62030","1745","5365","4015","20026","1540","1715","1271","66120","1252","1245","1025","5337","20025","1078","1415","1295","1405","66155","52820","52989","52923","52895","1015","52825","f001","52973","52942","52956","111000","zero1234","BryanBundle","b0002","b0003","b0004","VCRVRK03-BNDL","VSBDSPLY01-BNDL","Test123","61800","66340","62213","7000442","f0001","VSB01-BNDL","SB_001","SB_002","SB_003"];
+            var apiResult = {dates:[],isSuccess:false,blockoutDates:[]};
+            api.request("post","svc/shippingdate",{data:items}).then(function(result){
+                console.log( " result ---",result);
+                var formatedDates = window.formatApiData(result);
+                window.blockedShippingDates = formatedDates;
+                window.getDatesItems = result.Items;
+                _this.dateSelector();
+                return (apiResult);
+            },function(er){
+                console.log("error ---",er);
+             return (apiResult);
+            });
+        },
+        initialize: function () {
+            console.log(" alter changes");
+            this.getBlockOutDates();
+         },
         render : function(){
             var me = this;
             Backbone.MozuView.prototype.render.apply(this);
@@ -1574,7 +1604,9 @@ define([
                 console.log("yes user is guest ");
                 window.location.href = "/user/login?returnURL=subscription";
             }
-            this.dateSelector();
+            if(window.blockedShippingDates && window.blockedShippingDates.length>0)
+                this.dateSelector();
+
             if(this.model.get('isFirstPopup')){
                 $(document).find('.popup-content').focus();
             }
