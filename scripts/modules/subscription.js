@@ -800,8 +800,9 @@ define([
             console.log(" e ----",e.target);
             if(!$(e.target).hasClass('active')){
                 this.changeCategory(e);
+                var _this= this;
                 setTimeout(function(){
-                    $(document).find('.product-list').focus();
+                    _this.setProductlistFocus();
                 },100); 
             }
         },
@@ -809,8 +810,9 @@ define([
             var categoryCode = $(e.target).attr('data-mz-attr');
             if(!$(".mainCategory[data-mz-attr='"+categoryCode+"']").hasClass('active')){
                 this.getProductsByCategory(categoryCode,0,pageSize,false,false,false); 
+                var _this = this;
                 setTimeout(function(){
-                    $(document).find('.product-list').focus();
+                    _this.setProductlistFocus();
                 },100); 
             }
             else{
@@ -826,8 +828,9 @@ define([
             var categoryCode = $(e.target).attr('data-mz-attr');
             if(!$(e.target).hasClass('open')){
                 this.getProductsByCategory(categoryCode,0,pageSize,false,false,false); 
+                var _this = this;
                 setTimeout(function(){
-                    $(document).find('.product-list').focus();
+                    _this.setProductlistFocus();
                 },100); 
             }
             else{
@@ -950,8 +953,9 @@ define([
             this.model.set('searchResult', []); 
             this.render();   
             this.showShopAllLink();
+            var _this = this;
             setTimeout(function(){
-                $(document).find('.product-list').focus();
+                _this.setProductlistFocus();
             },100);
             itemClick = "";  
         },
@@ -1076,6 +1080,7 @@ define([
                 "pageSize":pageSize
             };
             var existingItems = [];
+            var _this = this;
             if(isloadmore){
                 var catLists  = modelRapidOrder.model.get('categoryList');
                 console.log("catLists ---",catLists);
@@ -1208,7 +1213,7 @@ define([
 
                         } 
                         else{
-                            $(document).find('.product-list').focus();
+                            _this.setProductlistFocus();
                         }
                         if(!isloadmore){
                             if(parentCatId){
@@ -1591,6 +1596,10 @@ define([
                 console.log("error ---",er);
              return (apiResult);
             });
+        },
+        setProductlistFocus:function(){
+            $(window).scrollTop($(".product-list").offset().top - 500);
+           // $(".product-list").focus();
         },
         initialize: function () {
             console.log(" alter changes");
