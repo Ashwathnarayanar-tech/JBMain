@@ -935,34 +935,6 @@
 									    width: 60%;
 									    font-size: 14px;
 									    color: #222222;
-									    .outofstock{
-									    	display: block;
-										    color: red;
-										    font-size: 11px;
-										    font-weight: 700;
-									    }
-									    .jb-out-of-stock, .notify-me-plp-rti-popup {
-										    width: 80px;
-										    background-color: white;
-										    color: #cc0108;
-										    display: inline-block;
-										    text-decoration: none;
-										    border-radius: 4px;
-										    -moz-border-radius: 4px;
-										    -webkit-border-radius: 4px;
-										    border: 1px solid #cc0108;
-										    margin: 0 auto;
-										    text-align: center;
-										    cursor: pointer;
-										    vertical-align: bottom;
-										    padding: 4.5px 0;
-										    font-size: 14px;
-										    float: left;
-										    &:hover {
-										    	background-color: #cc0108;
-									    		color: #fff;
-										    }
-										}
 									}
 									.price,.salsesprice{
 									    font-size: 14px;
@@ -973,6 +945,30 @@
 									    	text-decoration: line-through;
 									    }
 									}
+									
+									.jb-out-of-stock, .notify-me-plp-rti-popup {
+										width: 80px;
+										background-color: white;
+										color: #cc0108;
+										display: inline-block;
+										text-decoration: none;
+										border-radius: 4px;
+										-moz-border-radius: 4px;
+										-webkit-border-radius: 4px;
+										border: 1px solid #cc0108;
+										margin: 0 auto;
+										text-align: center;
+										cursor: pointer;
+										vertical-align: bottom;
+										padding: 4.5px 0;
+										font-size: 14px;
+										float: left;
+										&:hover {
+											background-color: #cc0108;
+											color: #fff;
+										}
+									}
+									
 									&.sku-input{
 										width: 14%;	
 									}
@@ -1054,7 +1050,13 @@
                                             &.increment.disabled{
                                             	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAKRJREFUWAnt2MEJxDAMRNH11uUWttptwYWlg8kcPiGCn6vEoDwLTLI+0LP3/t1FnXP+dz1N/ds0va3HoZ86EaWVDgKuR8BBS0qjnCFM6YCDlpRGOUOY0gEHLY2UXs0XB8oEhI2Udmjg5KsIpSsmoElpALGKGCm9qlcrmppLyt9iBeSrWkbutEM/tUNKKx0EXI+Ag5aURjlDmNIBBy0pjXKGsJHSF8spCVlrlwEvAAAAAElFTkSuQmCC");	
                                             }
-                                        }	
+                                        }
+										.outofstock{
+									    	display: block;
+										    color: red;
+										    font-size: 11px;
+										    font-weight: 700;
+									    }	
 									}
 								}	
 							}	
