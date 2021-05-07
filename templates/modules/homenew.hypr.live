@@ -75,9 +75,9 @@
 			</a>
 		</div> 
 		<div class="Ab-card-contents">
-			<h2 class="Ab-card-title Ab-card-title-marginBottom"><a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Harry Potter" style="color: #744f01;text-decoration: none"><strong style=""> Harry Potter™ </strong></a></h2>
+			<h2 class="Ab-card-title Ab-card-title-marginBottom paddingTop40"><a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Harry Potter" style="color: #744f01;text-decoration: none"><strong style=""> Harry Potter™ </strong></a></h2>
 		  <a class="AB-click" href="/harry-potter-bertie-bott-s/c/344">
-			<p class="Ab-card-text" tabindex="0">Discover chocolates and confections inspired by Harry Potter!</p>
+			<p class="Ab-card-text paddingTop0" tabindex="0">Discover chocolates and confections inspired by Harry Potter!</p>
 		  </a>	
 			<div class="Ab-brand-button-container">
 				<a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Learn More">Learn More</a>
@@ -123,9 +123,9 @@
 			</a>
 		</div> 
 		<div class="Ab-card-contents">
-			<h2 class="Ab-card-title "><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Krispy Kreme® Jelly Beans" style="color: #027c57;text-decoration: none"><strong>Krispy Kreme® <br> Jelly Beans</strong></a></h2>
+			<h2 class="Ab-card-title paddingTop30"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Krispy Kreme® Jelly Beans" style="color: #027c57;text-decoration: none"><strong>Krispy Kreme® <br> Jelly Beans</strong></a></h2>
 			<a class="AB-click" href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721">
-			<p class="Ab-card-text" tabindex="0"> Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			<p class="Ab-card-text " tabindex="0"> Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
 			</a>
 			<div class="Ab-brand-button-container">
 				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Learn More">Learn More</a>
@@ -141,9 +141,9 @@
 			</a>
 		</div> 
 		<div class="Ab-card-contents">
-			<h2 class="Ab-card-title Ab-card-title-marginBottom" style="color:#3d3079"><a href="/sunkist-candies/c/342" class="AB-click" aria-label="Sunskit" style="color:#3d3079;text-decoration: none"><strong>Sunkist®</strong></a></h2>
+			<h2 class="Ab-card-title paddingTop40 Ab-card-title-marginBottom" style="color:#3d3079"><a href="/sunkist-candies/c/342" class="AB-click" aria-label="Sunskit" style="color:#3d3079;text-decoration: none"><strong>Sunkist®</strong></a></h2>
 			<a class="AB-click" href="/sunkist-candies/c/342">
-			<p class="Ab-card-text card7Padding" tabindex="0"> If you’re all about keeping things fruity and flavorful, then you’re going to absolutely flip over Jelly Belly Sunkist® candy. </p>
+			<p class="Ab-card-text paddingTop0 card7Padding" tabindex="0"> If you’re all about keeping things fruity and flavorful, then you’re going to absolutely flip over Jelly Belly Sunkist® candy. </p>
 			</a>
 			<div class="Ab-brand-button-container">
 				<a href="/sunkist-candies/c/342" class="AB-click" aria-label="Learn More">Learn More</a>
@@ -160,9 +160,9 @@
 				</a>
 			</div> 
 			<div class="Ab-card-contents">
-				<h2 class="Ab-card-title Ab-card-title-marginBottom"><a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Sport Beans" style="color: #000000;text-decoration: none"><strong>Sport Beans® </strong></a></h2>
+				<h2 class="Ab-card-title  paddingTop40 Ab-card-title-marginBottom"><a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Sport Beans" style="color: #000000;text-decoration: none"><strong>Sport Beans® </strong></a></h2>
 				<a class="AB-click" href="/sport-beans-jelly-beans/c/336">
-				<p class="Ab-card-text card8Padding" tabindex="0">Sport Beans® jelly beans are a first-of-its-kind carbohydrate replenishment for sports performance from the makers of Jelly Belly®.</p>
+				<p class="Ab-card-text paddingTop0 card8Padding" tabindex="0">Sport Beans® jelly beans are a first-of-its-kind carbohydrate replenishment for sports performance from the makers of Jelly Belly®.</p>
 				</a>
 				<div class="Ab-brand-button-container">
 					<a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Learn More">Learn More</a>
