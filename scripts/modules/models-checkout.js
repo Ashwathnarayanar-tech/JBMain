@@ -1455,6 +1455,8 @@
             },
             onCheckoutSuccess: function() {
                 this.isLoading(true);
+                this.trigger('complete');
+                /*Added for invalid CVV not working
                 var me=this,
                 vcurrentPayment = this.apiModel.getCurrentPayment();
                 if(vcurrentPayment.paymentType=="CreditCard"){
@@ -1472,7 +1474,7 @@
                     });
                 }else{
                     this.trigger('complete');
-                }
+                }*/
                
             },
             onCheckoutError: function(error) {
