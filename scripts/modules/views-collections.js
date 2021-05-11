@@ -2060,20 +2060,20 @@ define([
         //mobile  
         if($('.mobileuxFilter').length) {
             var fixedsortBy =  $('.mobileuxFilter').offset().top;
-        }    
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() > $(".mz-l-paginatedlist").offset().top - 100) {
-                if($(".progress-bar").is(":visible")) {
-                    $('.mobileuxFilter').removeClass("noprogressbar");
-                    $('.mobileuxFilter').addClass("active");
+            $(window).on("scroll", function () {
+                if ($(window).scrollTop() > $(".mz-l-paginatedlist").offset().top - 100) {
+                    if($(".progress-bar").is(":visible")) {
+                        $('.mobileuxFilter').removeClass("noprogressbar");
+                        $('.mobileuxFilter').addClass("active");
+                    } else {
+                        $('.mobileuxFilter').addClass("active");
+                        $('.mobileuxFilter').addClass("noprogressbar");
+                    }
                 } else {
-                    $('.mobileuxFilter').addClass("active");
-                    $('.mobileuxFilter').addClass("noprogressbar");
+                    $('.mobileuxFilter').removeClass("active");
                 }
-            } else {
-                $('.mobileuxFilter').removeClass("active");
-            }
-        });
+            });
+        }    
         $(document).on('click','[jb-mobSort]',function (e) {
             if($(".showsortpopup").hasClass("showsortpopup")) {
                 $('.open-sortoverlay').remove();
