@@ -2440,6 +2440,7 @@ body{
                             border-top-left-radius: 0px;
                             border-top-right-radius: 0px;
                          }
+
                          a {
                             svg {
                                 path {
@@ -2449,6 +2450,15 @@ body{
                             span {
                                 color: #004e99;
                                 font-weight: bold;
+                            }
+                         }
+                         &.flavorsandmore {
+                            a {
+                                svg {
+                                    path:nth-child(3),path:nth-child(2) {
+                                        fill: #fff;
+                                    }
+                                }
                             }
                          }
                         } 
@@ -2513,6 +2523,13 @@ body{
                         }
                         &.store-locator {
                             width: 25%;
+                            a {
+                                svg {
+                                    mask {
+                                        display: none;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
