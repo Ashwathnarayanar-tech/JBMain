@@ -5,7 +5,8 @@ define('modules/new-lazy-load', ["modules/jquery-mozu", "underscore"], function(
   });
 
   try {
-    if (window.pageYOffset > 2) {
+    console.log(window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+    if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) > 2) {
       loadImages();
     }
   } catch (e) {
@@ -15,10 +16,13 @@ define('modules/new-lazy-load', ["modules/jquery-mozu", "underscore"], function(
   var megaMenu = document.getElementById("megaMenu");
   if(megaMenu){
     megaMenu.addEventListener("mouseover", loadImages);
-  megaMenu.addEventListener("touchstart", loadImages);
-  megaMenu.addEventListener("keyup", loadImages);
-  window.addEventListener("scroll", loadImages);
+    megaMenu.addEventListener("touchstart", loadImages);
+    megaMenu.addEventListener("keyup", loadImages);
+    window.addEventListener("scroll", loadImages);
   }
+  $("#megaMenuMob .head-list-item.view-products").on("click",function(){
+    loadImages();
+  });
   
   function lazyLoad(llClassName) {
     for (var i = 0; i < llClassName.length; i++) {
