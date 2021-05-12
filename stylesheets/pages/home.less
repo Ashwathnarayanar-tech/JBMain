@@ -235,6 +235,11 @@
     .mz-breadcrumbs {
         display: none;
     }
+    &.staticpage {
+        .mz-breadcrumbs {
+            display: block;
+        }
+    }
     .viewport_gallery_slide {
         display: none;
     }
@@ -664,6 +669,19 @@
                     }
                 }
             }
+        }
+        &.staticpage {
+            .mz-breadcrumbs {
+                display: inline-block;
+            }
+            #page-wrapper {
+                #page-content {
+                    margin-top: 85px;
+                    &.zerotag-mobile{
+                        margin-top: 145px;
+                    }
+                }
+            }   
         }
     }
 }
