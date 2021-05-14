@@ -4766,6 +4766,9 @@
                       {% dropzone "rti-blank-page" scope="template" %}
                     {% endif %}
 				{% endblock body-content %}
+        <div class="globalOverlay">
+          <img src="/../resources/images/JB-Loader2-01.png" class="rotate" alt="spinner">
+         </div>
             </div>
             
       </div>
@@ -4786,6 +4789,28 @@
 	 {% require_script "modules/common" %}
         <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.respond.js"></script>
 		
+    <script >
+  window.showGlobalOverlay = function showGlobalOverlay(){
+          document.body.classList.add("openoverlay");
+    };
+
+    window.hideGlobalOverlay = function hideGlobalOverlay(){
+            document.body.classList.remove("openoverlay");
+    };
+  var interval = setInterval(function() {
+    if(document.readyState === 'loading') {
+      console.log(" show overlay");
+       // window.showGlobalOverlay();
+    } 
+    if(document.readyState === 'complete') {
+      console.log(" hide overlay");
+      //window.hideGlobalOverlay();
+        clearInterval(interval);
+        //done();
+    }    
+}, 100);
+  </script>
+  
 	 {% block trailing-scripts %}		
         {% include "modules/trailing-scripts" %}	
         <div class="softCartId" style="display:none;"></div>
