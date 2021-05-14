@@ -547,7 +547,7 @@
     											}
 												.outofstock{
 													display: block;
-													color: red;
+													color: #cc0108;
 													font-size: 11px;
 													font-weight: 700;
 													margin-top: 10px;
@@ -571,7 +571,7 @@
 													margin: 0;
 													font-weight: bold;
 													text-align: center;
-													height: 40px;
+													height: 36px;
 													border-top-left-radius: 4px;
 													border-bottom-left-radius: 4px;
 	                                                &:disabled{
@@ -586,7 +586,8 @@
 													position: absolute;
 													cursor: pointer;
 													width: 30px;
-													height: 20px;
+													height: 18px;
+
 	                                                &.disabled{
 														cursor: not-allowed; 
 													}
@@ -616,6 +617,17 @@
 	                                                &.increment.disabled{
 	                                                	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAKRJREFUWAnt2MEJxDAMRNH11uUWttptwYWlg8kcPiGCn6vEoDwLTLI+0LP3/t1FnXP+dz1N/ds0va3HoZ86EaWVDgKuR8BBS0qjnCFM6YCDlpRGOUOY0gEHLY2UXs0XB8oEhI2Udmjg5KsIpSsmoElpALGKGCm9qlcrmppLyt9iBeSrWkbutEM/tUNKKx0EXI+Ag5aURjlDmNIBBy0pjXKGsJHSF8spCVlrlwEvAAAAAElFTkSuQmCC");	
 	                                                }
+	                                            }
+	                                            &.notpurchasable {
+	                                            	border: none;
+	                                            	text-align: center;
+	                                            	.outofstock {
+	                                            		display: block;
+													    color: #cc0108;
+													    font-size: 11px;
+													    font-weight: 700;
+													    margin-top: 4px;
+	                                            	}
 	                                            }	
 												
     										}
@@ -997,7 +1009,7 @@
 										}
 										.outofstock{
 									    	display: block;
-										    color: red;
+										    color: #cc0108;
 										    font-size: 11px;
 										    font-weight: 700;
 											margin-top: 10px;
@@ -1021,7 +1033,7 @@
                                             margin: 0; 
                                             font-weight: bold;
                                             text-align: center;
-											height: 40px;
+											height: 36px;
 											border-top-left-radius: 4px;
     										border-bottom-left-radius: 4px;
                                             &:disabled{
@@ -1037,7 +1049,7 @@
                                             cursor: pointer;
                                             background-color: whitesmoke;
                                             width: 30px;
-                                            height: 20px;
+                                            height: 18px;
                                             &.disabled{
 												cursor: not-allowed; 
 											}
@@ -1068,6 +1080,22 @@
                                             	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAKRJREFUWAnt2MEJxDAMRNH11uUWttptwYWlg8kcPiGCn6vEoDwLTLI+0LP3/t1FnXP+dz1N/ds0va3HoZ86EaWVDgKuR8BBS0qjnCFM6YCDlpRGOUOY0gEHLY2UXs0XB8oEhI2Udmjg5KsIpSsmoElpALGKGCm9qlcrmppLyt9iBeSrWkbutEM/tUNKKx0EXI+Ag5aURjlDmNIBBy0pjXKGsJHSF8spCVlrlwEvAAAAAElFTkSuQmCC");	
                                             }
                                         }	
+
+                                        &.notpurchasable {
+                                        	border: none;
+                                        	text-align: center;
+                                        	.outofstock {
+                                        		display: block;
+											    color: #cc0108;
+											    font-size: 11px;
+											    font-weight: 700;
+											    margin-top: 4px;
+                                        	}
+                                        	button {
+                                        		margin: auto;
+                                        		float: none;
+                                        	}
+                                        }
 									}
 								}	
 							}	
