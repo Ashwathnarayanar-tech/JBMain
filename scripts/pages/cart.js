@@ -547,7 +547,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     $('#shippingzipcode').val("");
                     window.hideGlobalOverlay();
                     $("#estimateShippingCost-success").show();
-                    $("#estimateShippingCost-success").html(error && error.message);
+                    //$("#estimateShippingCost-success").html(error && error.message);
+                    $("#estimateShippingCost-success").html('Something went wrong please try again');
                     $(".estimateShippingCost").removeClass("estimateShippingCost-onshow");
                     $('#estimateShippingCost-entry').addClass('inactive');
                     $('#estimateShippingCost-entry').removeClass('active');
