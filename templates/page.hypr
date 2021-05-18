@@ -354,7 +354,7 @@
        // window.showGlobalOverlay();
     } 
     if(document.readyState === 'complete') {
-      console.log(" hide overlay");
+      // console.log(" hide overlay");
       //window.hideGlobalOverlay();
         clearInterval(interval);
         //done();
