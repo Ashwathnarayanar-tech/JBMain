@@ -400,7 +400,6 @@
              * @param {boolean} yes Set this to true to trigger a `loadingchange` event.
              */
             isLoading: function (yes, opts) {
-                console.log(" aruments ",yes,opts);
                 if (arguments.length === 0) return !!this._isLoading;
                 this._isLoading = yes;
                                 // firefox bfcache fix
