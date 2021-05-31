@@ -110,7 +110,7 @@
   {% require_script "modules/page-header" %} 
 
   {% block stylesheets %}
-  
+    {{ "/stylesheets/modules/zinrelo-modal.less"|stylesheet_tag:"defualt" }}
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path != "main" %}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
     {% endif %}
@@ -441,15 +441,11 @@ window.showGlobalOverlay = function showGlobalOverlay(){
   {% endif %}
 
   {% if siteContext.tenantId == 10569 %}
-        <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.css">
-    {% if  pagecontext.pageType == "search" %}    
-        <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.css">
-    {% endif %}
+  <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.css">
+  <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.css">
   {% else %}
-      <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_autosuggest.css" type="text/css">
-    {% if  pagecontext.pageType == "search" %}
-      <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_search.css" type="text/css">
-    {% endif %}
+  <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_autosuggest.css" type="text/css">
+  <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_search.css" type="text/css">
   {% endif %}
 
   {% dropzone zoneId="unbxd-config" scope="site" %}

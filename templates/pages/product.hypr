@@ -5,6 +5,7 @@
 {% block stylesheets %}  
 {% parent %}
 <link rel="stylesheet" href="//pr.jellybelly.com/pwr/engine/pr_styles_review.css" type="text/css" id="prBaseStylesheet">
+<link rel="stylesheet" href="/stylesheets/modules/nutrition-label/nutritionLabel.css">
 {% endblock stylesheets %}
 
  

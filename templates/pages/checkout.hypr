@@ -72,8 +72,17 @@
             {% endif %}
             {% endcomment %}
         </h1>
-            <div class="links-sec isDesktop">
-                <div style="float: right; margin: 10px;"><a href="/">Continue shopping</a></div>
+            <div class="links-sec isDesktop" style="text-align: right;">
+                <p>
+                  <a href="/">
+                    Continue shopping
+                  </a>
+                </p>
+                <p>
+                  <a href="/cart">
+                    Back to cart
+                  </a>
+                </p>
             </div>
         <p>* indicates a required field</p>
     </div> 

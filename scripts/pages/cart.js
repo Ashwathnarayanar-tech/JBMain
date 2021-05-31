@@ -217,9 +217,15 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //this.model.checkBOGA(); 
             console.log(" Hypr.getThemeSetting('isshippingCalculationEnabled') ===",Hypr.getThemeSetting('isshippingCalculationEnabled'));
            var isshippingCalculationEnabled = Hypr.getThemeSetting('isshippingCalculationEnabled');
-           if(!window.isshippingCalculationEnabled){
-                window.isshippingCalculationEnabled = isshippingCalculationEnabled;
-           }
+          
+            var deviceMode = window.getDeviceMode();
+            if(isshippingCalculationEnabled && (deviceMode.isDesktop || deviceMode.isTablet)){
+                window.isshippingCalculationEnabled = true;
+            }
+            else{
+                window.isshippingCalculationEnabled = false;
+            }
+          
             if(window.isshippingCalculationEnabled){
                 this.model.set('isshippingCalculationEnabled', window.isshippingCalculationEnabled); 
             }  
@@ -734,7 +740,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             self.loopInAddTocart(); 
         },
         loopInAddTocart:function(){
@@ -1101,7 +1107,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
  

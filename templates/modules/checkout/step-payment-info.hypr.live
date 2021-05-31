@@ -162,7 +162,7 @@
                                                         </div>
                                                     {% endif %}
                                                 {% endcomment %}    
-                                                <div class="paypalmsg" tabindex="0"  aria-label="{{ labels.paypamsg }}">{{ labels.paypamsg }}</div> 
+                                                <div class="paypalmsg" tabindex="0">{{ labels.paypamsg }}</div> 
                                                 {% if name == "paypalexpress2" %}
                                                     {% comment %}
                                                     {% if model.requiresFulfillmentInfo %}  
@@ -170,7 +170,7 @@
                                                         <div class="copy-address">
                                                            <label for="copyshippingbutton">
                                                               <input id="copyshippingbutton" type="checkbox" data-mz-value="isSameBillingShippingAddress" value="true" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
-                                                              <span id="copyshipping" role="button" aria-label="{% if model.isSameBillingShippingAddress %}EDIT BILLING INFO {% else %} COPY FROM SHIPPING{% endif %}" tabindex="0">{% if model.isSameBillingShippingAddress %}EDIT BILLING INFO {% else %} COPY FROM SHIPPING{% endif %}</span>
+                                                              <span id="copyshipping" role="button" tabindex="0">{% if model.isSameBillingShippingAddress %}EDIT BILLING INFO {% else %} COPY FROM SHIPPING{% endif %}</span>
                                                            </label>
                                                         </div>
                                                     {% endif %}
@@ -238,9 +238,9 @@
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
                                 <select name="savedPaymentMethods" class="mz-payment-select-saved-payments" data-mz-value="savedPaymentMethodId">
-                                    <option value="CreditCard" {% if model.usingSavedCard %} selected="selected" {% endif %} aria-label="{{ labels.selectSavedPaymentMethod }}">{{ labels.selectSavedPaymentMethod }}</option>
+                                    <option value="CreditCard" {% if model.usingSavedCard %} selected="selected" {% endif %} >{{ labels.selectSavedPaymentMethod }}</option>
                                     {% for card in model.savedPaymentMethods %}
-                                        <option value="{{ card.id }}" aria-label="{{ card.cardType }} {{ card.cardNumberPartOrMask }}" {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} selected="selected" {% endif %}>{{ card.cardType }} {{ card.cardNumberPartOrMask }}</option>
+                                        <option value="{{ card.id }}" {% if model.usingSavedCard and model.savedPaymentMethodId == card.id %} selected="selected" {% endif %}>{{ card.cardType }} {{ card.cardNumberPartOrMask }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -265,7 +265,7 @@
                 <div class="copy-address">
                    <label>
                       <input type="checkbox" data-mz-value="isSameBillingShippingAddress" value="true" tabindex="-1" {% if model.isSameBillingShippingAddress %}checked="checked"{% endif %}>
-                      <span id="copyshipping" tabindex="0" aria-label="{% if model.isSameBillingShippingAddress %}edit billing info{% else %}copy from shipping{% endif %}" role="button">{% if model.isSameBillingShippingAddress %}Edit Billing Info{% else %}Copy from Shipping{% endif %}</span>
+                      <span id="copyshipping" tabindex="0" role="button">{% if model.isSameBillingShippingAddress %}Edit Billing Info{% else %}Copy from Shipping{% endif %}</span>
                    </label>
                 </div>
             {% endif %}

@@ -1221,7 +1221,7 @@
                                         </a>
                                     </div> 
                                     <div class="subitem">
-                                        <a href="/sportsSponsorships" original-al="Drivers & Pilots">
+                                        <a href="/sponsorships" original-al="Drivers & Pilots">
                                             <div class="namespan-container"><span class="name-span">Drivers & Pilots</span></div>
                                         </a>
                                     </div> 
@@ -1250,12 +1250,12 @@
                                     <span class="rite-arrow"></span>
                                 </div>
                             </li>
-                            <li class="sunmenu-container nav-sub-ele" id="Wisconsin-Visitors-Center">
+                            <!--<li class="sunmenu-container nav-sub-ele" id="Wisconsin-Visitors-Center">
                                 <div class="header-submenu">
                                     <p class="subheade" tabindex="0"  original-al="Wisconsin Visitors Center">Wisconsin Visitors Center</p>
                                     <span class="rite-arrow"></span>
                                 </div>
-                            </li>
+                            </li>-->
                             <li class="sunmenu-container nav-sub-ele" id="Company-Retail-Stores">
                                 <div class="header-submenu">
                                     <p class="subheade" tabindex="0"  original-al="Company Retail Stores">Company Retail Stores</p>
@@ -1389,13 +1389,13 @@
                                     {% dropzone "widgete-California-Visitors-Center" scope="site" %}
                                 </div>
                             </li>
-                            <li class="sunmenu-container" data-attr="Wisconsin-Visitors-Center">
+                            <!--<li class="sunmenu-container" data-attr="Wisconsin-Visitors-Center">
                                 <div class="submenu-list Wisconsin-Visitors-Center">
                                     <div class="subitem">
                                         <a href="/tour-store-update" original-al="Tour and Store Update">
                                             <div class="namespan-container"><span class="name-span">Tour & Store Update</span></div>
                                         </a>
-                                    </div>
+                                    </div>-->
                                     <!--<div class="subitem">
                                         <a href="/wisconsin-warehouse" original-al="Free Warehouse Tours">
                                             <div class="namespan-container"><span class="name-span">Free Warehouse Tours</span></div>
@@ -1436,11 +1436,11 @@
                                             <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
                                         </a>
                                     </div>-->
-                                </div>
+                                <!--</div>
                                 <div class="submenu-list dropzone-sec">
                                     {% dropzone "widgete-Wisconsin-Visitors-Center" scope="site" %}
                                 </div>
-                            </li>
+                            </li>-->
                             <li class="sunmenu-container" data-attr="Company-Retail-Stores">
                                 <div class="submenu-list Company-Retail-Stores">
                                     <div class="subitem">

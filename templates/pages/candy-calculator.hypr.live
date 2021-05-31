@@ -58,7 +58,7 @@
                             Easily see how much candy you need for your event. Just choose your preferred candy and container shape,
                             then enter the container dimensions and the Candy Calculator will give you an approximate amount of candy necessary.
 							<p style="margin:5px;">All measurements are in inches.</p>
-                            <a href="javascript:void(0);" class="candyCalcSlideOne_a" style="display: block;padding: 15px 1px;">
+                            <a href="javascript:void(0);" tabindex="0" class="candyCalcSlideOne_a" style="display: block;padding: 15px 1px;">
                                 <img src="/resources/images/directimages/startButton.png" alt="Get started">
                             </a>
                         </div>   
@@ -279,16 +279,3 @@
                     
         </div>
         
-
-
-
-
-
-
-
-
-
-
-
-
-

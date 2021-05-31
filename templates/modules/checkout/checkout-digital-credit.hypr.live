@@ -29,6 +29,7 @@
   {% if user.isAuthenticated %}
     <div id="sweet-rewards-worksheet" style="background: #f3d5cc; padding: 10px;">
       <h3 style="margin: 0px;">Redeem Sweet Rewards points</h3>
+      <p class="sr-only">Activating this element will cause content on the page to be updated.</p>
       <div><b style="display: none;">You currently have <span id="sweet-rewards-points"></span> points.</b> You may redeem up to two rewards per order.</div>
       
       <div id="pwr-max-statement"></div>
@@ -55,13 +56,13 @@
     <table class="mz-table">
       <thead>
         <tr>
-          <th id="apply">Apply</th>
-          <th class="mz-checkout-digitalcredit-header-code" id="{{ labels.digitalCreditCode }}">{{ labels.digitalCreditCode }}</th>
-          <th class="mz-checkout-digitalcredit-header-balance" id="{{ labels.digitalCreditBalance }}">{{ labels.digitalCreditBalance }}</th>
-          <th class="mz-checkout-digitalcredit-header-amt-to-apply" id="{{ labels.digitalCreditAmtToUse }}">{{ labels.digitalCreditAmtToUse }}</th>
-          <th class="mz-checkout-digitalcredit-header-remainder" id="{{ labels.digitalCreditRemainder }}">{% if pageContext.isDesktop %}{{ labels.digitalCreditRemainder }}{% endif %}</th>
-          <th class="mz-checkout-digitalcredit-header-unlabeled">&nbsp;</th>
-          <th class="mz-checkout-digitalcredit-header-unlabeled">&nbsp;</th>
+          <th id="apply" scope="col">Apply</th>
+          <th class="mz-checkout-digitalcredit-header-code" id="{{ labels.digitalCreditCode }}" scope="col">{{ labels.digitalCreditCode }}</th>
+          <th class="mz-checkout-digitalcredit-header-balance" id="{{ labels.digitalCreditBalance }}" scope="col">{{ labels.digitalCreditBalance }}</th>
+          <th class="mz-checkout-digitalcredit-header-amt-to-apply" id="{{ labels.digitalCreditAmtToUse }}" scope="col">{{ labels.digitalCreditAmtToUse }}</th>
+          <th class="mz-checkout-digitalcredit-header-remainder" id="{{ labels.digitalCreditRemainder }}" scope="col">{% if pageContext.isDesktop %}{{ labels.digitalCreditRemainder }}{% endif %}</th>
+          <th class="mz-checkout-digitalcredit-header-unlabeled" scope="col">&nbsp;</th>
+          <th class="mz-checkout-digitalcredit-header-unlabeled" scope="col">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +72,7 @@
         </style>
         {% for credit in model.availableDigitalCredits.models %}
         <tr class="mz-checkout-digitalcredit-row" data-mz-store-credit-code="{{ credit.attributes.code }}" zinrelo-amount="{{ credit.attributes.currentBalance }}">
-          <td class="mz-checkout-digitalcredit-cell-enable" header="apply">
+          <th class="mz-checkout-digitalcredit-cell-enable" header="apply" scope="row">
             <label enabled-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}" style="display: none;">APPLIED</label>
             <label class="checkbox-outer-label" label-code="{% if credit.attributes.isEnabled %}{{ credit.attributes.code }}{% endif %}">
                 <input type="checkbox" data-mz-digital-credit-enable 
@@ -99,7 +100,7 @@
                         />
                 <span class="checkmark-style"></span>
             </label>
-          </td>
+          </th>
           <td class="mz-checkout-digitalcredit-cell-code" header="{{ labels.digitalCreditCode }}">
             <label class="mz-checkout-digitalcredit-code" for="enable{{ credit.attributes.code }}">
               <span class="mz-checkout-digitalcredit-code" data-mz-value="credit.attributes.code">{{ credit.attributes.code }}</span>

@@ -36,6 +36,7 @@
                     
                             <span id ="nutrition-image"  aria-hidden="true"></span>
                             <span id="nut_panel_title"></span>
+                            <div id="jquery_nut_label"></div>
                             <span id ="nutrition-text" tabindex="0">
                                 Sorry, but the nutrition panel for this product is currently 
                                 unavailable. To get nutrition information for this product, 

@@ -130,12 +130,14 @@
                                             .a-spot-cointainer{
                                                 width: 100%;
                                                 position: relative;
-                                                height: 500px;
                                                 overflow: hidden;
+                                                display: flex;
+                                                align-items: center;
+                                                vertical-align: middle;
                                                 img{
                                                     width: 100%;
-                                                    position: absolute;
-                                                    width: auto;
+                                                    position: relative;
+                                                    margin: auto;
                                                 }
                                                 .A-spotContent{
                                                     position: absolute;
@@ -174,6 +176,9 @@
                                                             border-radius: 4px;
                                                         }
                                                     }
+                                                }
+                                                &.mobileimage {
+                                                    display: none;
                                                 }
                                             } 
                                             .flavor-sec{
@@ -516,11 +521,9 @@
                     .a-spot-cointainer{
                             width: 100%;
                             position: relative;
-                            height: 500px;
                             overflow: hidden;
                             img{
                                 width: 100%;
-                                position: absolute;
                                 width: auto;
                             }
                             .A-spotContent{
@@ -560,6 +563,9 @@
                                         border-radius: 4px;
                                     }
                                 }
+                            }
+                            &.mobileimage {
+                                display: none;
                             }
                         } 
                     .brand-dicreption{
@@ -900,12 +906,10 @@
                     .a-spot-cointainer{
                         width: 100%;
                         position: relative;
-                        height: 500px;
                         overflow: hidden;
                         img{
                             width: 100%;
-                            position: absolute;
-                            width: auto;
+                            height: auto;
                         }
                         .A-spotContent{
                             position: absolute;
@@ -944,6 +948,9 @@
                                     border-radius: 4px;
                                 }
                             }
+                        }
+                        &.mobileimage {
+                            display: none;
                         }
                     }
                     .flavor-sec{
@@ -1852,6 +1859,14 @@
                                     }
                                 }
                             }
+                            .a-spot-cointainer.desktopimage {
+                                height: auto;
+                                img {
+                                    width: 100%;
+                                    height: auto;
+                                    position: relative;
+                                }
+                            }
                         }
                     }
                     .mz-l-paginatedlist{ 
@@ -2125,25 +2140,32 @@
                     }
                 } 
                 .mz-l-container,.categorytops{ 
+                    overflow-x: hidden;
+                    width: 100%;
+                    box-sizing: border-box;
                     .brand-dicreption-top{
                         .mz-drop-zone{
                             .mz-cms-row{
                                 .mz-cms-col-12-12{
                                     .mz-cms-block{
                                         .mz-cms-content{
-
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .brand-dicreption{
+                                            .brand-dicreption{
+                                                display: inline-block;
+                                                box-sizing: border-box;
+                                                width: 100%;
+                                                margin-bottom: 10px;
                             .a-spot-cointainer{
                                 height: auto;  
                                 img{
-                                    width: 100%;
+                                    width: 100% !important;
                                     position: inherit;
                                     /*height: 500px;*/
+                                }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
                                 }
                             }
                             .flavor-sec{ 
@@ -2199,7 +2221,251 @@
                                 }
                             }
                             .brand-buttons{
-                                margin: 0;
+                                margin:20px 0 0px !important;
+                                .button-dark{
+                                    display: block;
+                                    width: 65%;
+                                    margin: 0 auto !important;
+                                }
+                                .button-light{
+                                    display: block;
+                                    width: 65%;
+                                    margin: 0 auto;
+                                    margin-top: 10px;
+                                }
+                            } 
+                            .brand-description{
+                                width: 95%;
+                                .dec-head{
+                                    h2{
+                                        font-size: 24px;
+                                        font-weight: 300;
+                                        color: #222222;
+                                        margin-bottom: 0px;
+                                        margin: 35px 0;
+                                    }
+                                }
+                                .shot-dec{                                                        
+                                    //max-height: 210px;//Commented by shruthi as css is not proper in mobile device
+                                    max-height: 100%;
+                                    overflow: hidden;
+                                    position: relative;
+                                    display: none;
+                                    &.active{
+                                        display: block;
+                                    }
+                                    .readmore-text{
+                                        font-size: 18px;
+                                        font-weight: 700;
+                                        text-align: center;
+                                        color: #004e99;
+                                        cursor: pointer;
+                                        bottom: 17px;
+                                        position: relative;
+                                        padding: 10px 0;
+                                        margin-top: 9px;
+                                        display: inline-block;
+                                        &:before{
+                                            position: absolute;
+                                            content: '';
+                                            width: 14px;
+                                            height: 14px;
+                                            top: 15px;
+                                            right: -24px;
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            background-image: url(../../resources/images/icons/arrow_blue.png);
+                                            background-size: 100%;
+                                            background-repeat: no-repeat;
+                                            transform: rotate(-90deg); 
+                                        } 
+                                    }
+                                    p{
+                                        font-size: 18px;
+                                        color: #222222;
+                                        display: block !important;
+                                        max-height: 155px;
+                                        overflow: hidden;
+                                    }
+                                }
+                                .brand-details{
+                                    display: none;
+                                    &.active{
+                                        display: block;
+                                    }                                                        
+                                    p{
+                                        font-size: 18px !important;
+                                        color: #222222;
+                                        display: block !important;
+                                    }
+                                    .readless-text{
+                                        font-size: 18px;
+                                        font-weight: 700;
+                                        text-align: center;
+                                        color: #004e99;
+                                        cursor: pointer;
+                                        bottom: 17px;
+                                        position: relative;
+                                        padding: 10px 0;
+                                        margin-top: 9px;
+                                        display: inline-block;
+                                        &:before{
+                                            position: absolute;
+                                            content: '';
+                                            width: 14px;
+                                            height: 15px;
+                                            top: 15px;
+                                            // transform: rotate(180deg);
+                                            right: -24px; 
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            background-image: url(../../resources/images/icons/arrow_blue.png);
+                                            background-size: 100%;
+                                            background-repeat: no-repeat;
+                                        } 
+                                    }
+                                }
+                                .block-element{
+                                    width: 100%;
+                                    img{
+                                    }
+                                    .inline-element{
+                                        .block-element{
+                                            img{
+                                            }
+                                        }
+                                        &.per-85{
+                                            width: 67%;
+                                            .block-element{
+                                                .per-50{
+                                                    width: 49%;
+                                                }
+                                            }
+                                        }
+                                        &.per-25{
+                                        }
+                                        &.per-50{
+                                        }
+                                        &.per-15{
+                                            width: 31%;
+                                        }
+                                    }
+                                }
+                            }
+                            .sub-cat-list{
+                                margin-bottom: 15px;
+                                width: 100%;
+                                .item-cointainer{
+                                    width: 60%;
+                                    display: inline-block;
+                                    overflow: hidden;
+                                    &:last-child{
+                                    }
+                                    .img-cointainer{
+                                        img{
+                                        }
+                                    }
+                                    .dec-sec{
+                                        .head-sec{
+                                            font-size: 22px;
+                                        }
+                                        .dec-sec{
+                                            p{
+                                            }
+                                        }
+                                    } 
+                                    .btn-sec{ 
+                                        .sub-cat-btn{
+                                            &:hover{
+                                            }
+                                        }
+                                    }
+                                }
+                                .owl-stage-outer{
+                                    .owl-stage{
+                                        .owl-item{
+                                            .item-cointainer{
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .brand-dicreption{
+                            .a-spot-cointainer{
+                                height: auto;  
+                                img{
+                                    width: 100% !important;
+                                    position: inherit;
+                                    /*height: 500px;*/
+                                }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
+                                }
+                            }
+                            .flavor-sec{ 
+                                .flavor-List{ 
+                                    .jb-childcategory{
+                                        .jb-colapsing-title{
+                                            padding-left: 0;
+                                            padding-right: 0;
+                                            width: 100%;
+                                            /*text-align: left;*/
+                                            .jb-category-title{
+                                                position: relative;
+                                                max-width: 89%;
+                                                text-align: center;
+                                                padding-right: 30px;
+                                                padding-left: 10px; 
+                                                &[aria-expanded="false"]{
+                                                    &:before{
+                                                        right: 5px;
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        top: 8px;
+                                                    }
+                                                }
+                                                &[aria-expanded="true"]{
+                                                    &:before{
+                                                        right: 5px;
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        top : 8px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .jb_contentfolder{ 
+                                            .jb-childcategory-description{
+                                                text-align: left;
+                                                padding: 3% 5%;
+                                                width: 90%;
+                                            }
+                                            .jb-childChildrenCategories-container{ 
+                                                a{
+                                                    width: 49% !important;
+                                                    .jb-childChildrenCategory{ 
+                                                        p{
+                                                            width: 56%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .brand-buttons{
+                                margin: 20px 0px 0px !important;
                                 .button-dark{
                                     display: block;
                                     width: 65%;
@@ -2768,3 +3034,8 @@
     }
 }
 
+#preloaderoverlay {
+    #preloader {
+        position: absolute !important; 
+    }
+}

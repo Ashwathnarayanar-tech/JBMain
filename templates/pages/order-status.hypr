@@ -20,7 +20,7 @@
                                 <label for="ordernum">{{ labels.orderNumber }}</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="ordernum" value="" type="text" data-mz-order-number /> 
+                                <input name="ordernum" value="" type="number" data-mz-order-number /> 
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">

@@ -212,7 +212,7 @@ require([
                         }
                     } 
                 });
-                $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+                $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
                 loopInAddTocart();
         } 
 

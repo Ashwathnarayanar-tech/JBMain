@@ -1,6 +1,6 @@
 {% if item.discountTotal > 0 %}
-<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="discounted total: {{ item.discountedTotal|currency }}">{{ item.discountedTotal|currency }}</span>
-<span class="mz-item-rowtotal is-crossedout" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}>
+<span class="sr-only" tabindex="0">Current price: </span><span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="discounted total: {{ item.discountedTotal|currency }}">{{ item.discountedTotal|currency }}</span>
+<span class="sr-only" tabindex="0">Original price: </span><span class="mz-item-rowtotal is-crossedout" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}>
 	{{ item.subtotal|currency }}</span>
 	    {% comment %}
             {% for productDiscount in item.productDiscounts %}
@@ -17,5 +17,3 @@
 {% else %}
 	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
 {% endif %}
-
-

@@ -96,10 +96,10 @@ if (PageLocation == "storelocator") {
 require([
     "modules/jquery-mozu", "underscore", "modules/api",'modules/minicart',
     'modules/cart-monitor',
-    "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product",
+    "hyprlive", 'hyprlivecontext', "modules/backbone-mozu", "modules/models-product", "modules/zinrelo-modal",
     "shim!vendor/owl.carousel[jquery=jQuery]>jQuery",
     'shim!vendor/jquery-colorbox/jquery.colorbox[jquery=jQuery]', 'modules/candy-calculator', "modules/views-collections"
-], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, NewsLetter) {
+], function($, _, api, MiniCart, CartMonitor, Hypr, HyprLiveContext, Backbone, ProductModels, zinreloModalObj, NewsLetter) {
 
     $(document).ready(function () {
         // load on scroll
@@ -117,13 +117,148 @@ require([
                 }
             });
         }); 
-        $(document).on('click','.sweet-rewards-label', function(){
+        $(document).on('click','.sweet-rewards-label', function() {
             // if (window.require.mozuData('user').email === '') {
             //     window.location.pathname = '/user/login';
             // } else {
             //     window.location.replace('https://' + location.hostname + '/myaccount#account-loyalty-program');
             // }
-            $(document).find('.zinrelo-tab').click();
+                // setTimeout(zinreloModal.openZinreloModal, 500);
+
+
+                var zinreloModal = {
+                    zinreloLoggedInContent: zinreloModalObj.loggedInUser(window.zrl_mi),
+                    zinreloLoggedOutContent: zinreloModalObj.loggedOutUser(),
+                    btnClicked: null,
+                    openZinreloModal: function() {
+                      $(document).bind('cbox_closed', function() {
+                        $('.sweet-rewards-label').focus();
+                      });
+
+                      $.colorbox({
+                        open: true,
+                        maxWidth: "546px",
+                        maxHeight: "596px",
+                        fadeOut: 500,
+                        overlayClose: true,
+                        html: window.zrl_mi.user_data.success ? this.zinreloLoggedInContent : this.zinreloLoggedOutContent,
+                        onComplete : function(){
+                          var $this = zinreloModal;
+                          $('#cboxLoadedContent').css({
+                            background : "#ffffff",
+                            padding: "8px"
+                          });
+
+                          $('#cboxClose').css({
+                            position: 'absolute',
+                            left: '-99999px'
+                          });
+
+                          $('.close-colorbox').click(function(e) {
+                              zinreloModal.btnClicked = null;
+                            $('#cboxClose').trigger('click');
+                          });
+
+                        //   $('.redeem-pts-btn').on('click', $this.redeemPoints);
+
+                          // Lock focus inside modal
+                          $this.lockModalFocus('#cboxLoadedContent');
+                        }
+                      });
+                    },
+                    lockModalFocus: function(modalId) {
+                      var focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+                      var modal = document.querySelector(modalId);
+                      var focusableContent = modal.querySelectorAll(focusableElements);
+                      var firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+                      var lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+                      $(document).keydown(function(e) {
+                        var isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+                        if (!isTabPressed) {
+                          return;
+                        }
+
+                        if (e.shiftKey) {
+                          if (document.activeElement === firstFocusableElement) {
+                            lastFocusableElement.focus();
+                            e.preventDefault();
+                          }
+                        } else {
+                          if (document.activeElement === lastFocusableElement) {
+                            firstFocusableElement.focus();
+                            e.preventDefault();
+                          }
+                        }
+                      });
+
+                      if (zinreloModal.btnClicked === null) {
+                            console.log(zinreloModal.btnClicked);
+                            firstFocusableElement.focus();
+                      } else {
+                            console.log(zinreloModal.btnClicked);
+                            zinreloModal.btnClicked.focus();
+                      }
+                    },
+                    redeemPoints: function (e) {
+                        e.preventDefault();
+                        var val, pts;
+                        if (e.target.className.indexOf('five') > -1) {
+                            val = 5;
+                            pts = 500;
+                            zinreloModal.btnClicked = $('.redeem-pts-btn.five')[0];
+                        } else if (e.target.className.indexOf('ten') > -1) {
+                            val = 10;
+                            pts = 950;
+                            zinreloModal.btnClicked = $('.redeem-pts-btn.ten')[0];
+                        } else if (e.target.className.indexOf('twenty') > -1) {
+                            val = 20;
+                            pts = 1800;
+                            zinreloModal.btnClicked = $('.redeem-pts-btn.twenty')[0];
+                        }
+
+                        setTimeout(function(){
+                            $.colorbox({
+                                open: true,
+                                maxHeight: '340px',
+                                maxWidth: '546px',
+                                overlayClose: true,
+                                html: '<div class="redeem-wrapper"><h1 tabindex="0">$' + val + ' REDEMPTION</h1><p tabindex="0">' + pts + ' points can be redeemed during <a href="/checkout" target="_blank">Checkout</a> to take $' + val + ' off your order.<p></div><button aria-label="Go Back to Sweet Rewards Dialog Box" class="close-colorbox">✕</button>',
+                                onComplete : function(){
+                                    var $this = zinreloModal;
+                                    $('#cboxLoadedContent').css({
+                                      background : "#ffffff",
+                                      padding: "8px"
+                                    });
+
+                                    $('#cboxClose').css({
+                                      position: 'absolute',
+                                      left: '-99999px'
+                                    });
+
+                                    $('.close-colorbox').click(function(e) {
+                                      $('#cboxClose').trigger('click');
+                                    });
+
+                                    // Lock focus inside modal
+                                    // $this.lockModalFocus('.redeem-wrapper');
+                                },
+                                onClosed: function() {
+                                    $('.sweet-rewards-label').click();
+                                    // setTimeout(function() {
+                                    //     console.log(btnClicked);
+                                    //     btnClicked.focus();
+                                    // }, 1000);
+                                }
+                            });
+                        }, 10);
+                    }
+                  };
+
+                  zinreloModal.openZinreloModal();
+
+            // $(document).find('.zinrelo-tab').click();
         });
 
         //Logout the user when 
@@ -502,7 +637,7 @@ require([
                     }
                 } 
             });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
+            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
 

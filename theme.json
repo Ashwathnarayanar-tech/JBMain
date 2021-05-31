@@ -424,7 +424,8 @@
       }
     ],
     "useDebugScripts": false,
-    "useSearchAutocomplete": true,
+
+    "useSearchAutocomplete":  false,
     "allowCustomerInitiatedReturns": true,
     "themeRC": "RC 71",
     "mobileAddToCartPopupTimer": 2,
@@ -450,8 +451,8 @@
     "noFreeShippingSkuList": "7003052,7003051,7003050,7003049,7003048,91704,91705,91707,91706,91703,91702,91701,91700,7003055,7003054,7003053",
     "heatSensitiveCategoryId": 359,
     "heatSensitiveYearRoundId": 503,
-    "showHeatSensitiveText": false,
-    "isshippingCalculationEnabled":false,
+    "showHeatSensitiveText": true,
+    "isshippingCalculationEnabled":true,
     "isGlobalOverlayEnabled":false,
     "heatSensitiveStatesPDP": "Cold packs will be included, and shipping rates will be affected for, shipments of this product to the following states:",
     "heatSensitiveStatesCart": "Cold packs will be included, and shipping rates will be affected for, shipments of this product to the following states:",
@@ -1342,6 +1343,14 @@
       "documentType": "web_page",
       "userCreatable": true,
       "template": "pages/fun-facts"
+    },
+    {
+      "id": "fun-facts-2021",
+      "title": "Jelly Belly Fun Facts",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "userCreatable": true,
+      "template": "pages/fun-facts-2021"
     },
     {
       "id": "funstuff",

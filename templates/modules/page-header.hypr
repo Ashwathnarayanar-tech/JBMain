@@ -13,7 +13,7 @@
                 <nav>
                   <div class="nav-cointainer" id="megaMenu">
                       <div class="nav-header">
-                          <ul class="nav-list-head-cointainer">
+                          <ul class="nav-list-head-cointainer" role="presentation">
                               {% partial_cache %}
                               <li class="head-list-item-li" data-attr="view-products">
                                   <span><a attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" href="#" aria-expanded="false" role="button">View Products</a>  </span>
@@ -73,7 +73,7 @@
                     </section> 
                 {% endif %}
                 <div class="nav-header">
-                    <ul class="nav-list-head-cointainer">
+                    <ul class="nav-list-head-cointainer" role="presentation">
                         {% partial_cache %}
                         <li class="head-list-item view-products" attr-menuname="megamenu_1" data-attr="view-products">
                             <a href="#" >

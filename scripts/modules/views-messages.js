@@ -45,10 +45,6 @@
                                             $(document).find('input[aria-describedby="giftcard-messages"]').attr('aria-invalid','false');
                                         },6000);
                                             
-                                        // if(isAndroid){ 
-                                        //     $('#accountStoreCreditInput').attr('aria-label', 'Error: '+this.model.models[0].get('message'));
-                                        // }
-                                        
                                         setTimeout(function(){
                                             $('#accountStoreCreditInput').focus();
                                         },1000);

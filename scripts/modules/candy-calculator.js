@@ -200,28 +200,6 @@ var JellyBellyCandyCalculator = Backbone.View.extend({
 		});
 		
     // DEV: Pradeep D. ADA changes for Quick view.
-    function loopinthecandymodal(){
-        window.inputs = $(document).find('#candyCalcFields').find('select, input, textarea, button, a ').filter(':visible'); 
-        window.firstInput = window.inputs.first();
-        window.lastInput = window.inputs.last(); 
-        
-        // if current element is last, get focus to first element on tab press.
-        window.lastInput.on('keydown', function (e) {
-           if ((e.which === 9 && !e.shiftKey)) {
-               e.preventDefault();
-               window.firstInput.focus(); 
-           }
-        });
-        
-        // if current element is first, get focus to last element on tab+shift press.
-        window.firstInput.on('keydown', function (e) {
-            if ((e.which === 9 && e.shiftKey)) {
-                e.preventDefault();
-                window.lastInput.focus(); 
-            }
-        });  
-		}
-		
 		$(document).on('keyup', function(e) {
 			if(e.keyCode == 27 && !$("#candyCalcFields").is(":hidden")) {
 				$('.cboxClose').trigger('click');
@@ -239,7 +217,25 @@ var JellyBellyCandyCalculator = Backbone.View.extend({
 		var jbcccView = new JellyBellyCandyCalculator();
 		$('body').append(jbcccView.el);
 		$(document).find('.cboxClose').focus(); 
-		loopinthecandymodal();
+		
+		$("#candyCalcFields #cboxClose, #candyCalcFields a.candyCalcSlideOne_a, .candyCalcButton #submit, #recalculateAll").on('keydown', function(e){ 
+			if($(this).attr('id') === 'cboxClose' && e.shiftKey && e.which == 9) {
+					e.preventDefault();
+					if($('#candyCalcFields a.candyCalcSlideOne_a').is(':visible'))
+						$('#candyCalcFields a.candyCalcSlideOne_a').focus();
+					else if ($('.candyCalcButton #submit').is(':visible'))
+						$('.candyCalcButton #submit').focus();
+					else if ($('#recalculateAll').is(':visible'))
+						$('#recalculateAll').focus();
+					else 
+						console.log("nothing else visible");
+				}
+			else if(($(this).hasClass('candyCalcSlideOne_a') || $(this).attr('id') === 'submit' || $(this).attr('id') === 'recalculateAll') && e.which == 9 && !e.shiftKey) {
+					e.preventDefault();
+					$('#candyCalcFields #cboxClose').focus();
+				}
+		});
+		
+		
 	});
 });
-

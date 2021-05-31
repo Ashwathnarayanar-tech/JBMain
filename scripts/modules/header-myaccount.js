@@ -133,16 +133,16 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     this.$el.find('[data-mz-signup-firstname]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
                     return this.displayMessage('Error: Please provide your First Name.'), false;
                 }else{
-                    this.$el.find('[data-mz-signup-firstname]').attr('aria-describedby','').css({'border':'1px solid #c2c2c2'});
+                    this.$el.find('[data-mz-signup-firstname]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #c2c2c2'});
                 }
                 if(this.$el.find('[data-mz-signup-lastname]').val().length === 0){
                     this.$el.find('[data-mz-signup-lastname]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
                     return this.displayMessage('Error: Please provide your Last Name.'), false;
                 }else{
-                    this.$el.find('[data-mz-signup-lastname]').attr('aria-describedby','').css({'border':'1px solid #c2c2c2'});
+                    this.$el.find('[data-mz-signup-lastname]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #c2c2c2'});
                 }
                 if(strongRegex.test(data.signupemail)) {
-                    this.$el.find('[data-mz-signup-emailaddress]').attr('aria-describedby','').css({'border':'1px solid #c2c2c2'});
+                    this.$el.find('[data-mz-signup-emailaddress]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #c2c2c2'});
                 }else{
                     this.$el.find('[data-mz-signup-emailaddress]').attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
                     return this.displayMessage("Error: Please enter a valid Email Address and Password combination. Make sure you include the '@' and the '.' in the Email Address and that your Password has a minimum of 6 characters with at least 1 number and 1 alphabetic character."), false;
@@ -215,5 +215,3 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
         }
     });
 });
-
-

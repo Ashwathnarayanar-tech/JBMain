@@ -723,12 +723,24 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 			var method = e.target.getAttribute('value') || "unknown";
 			
 			var self = this;
-			var modalText = "<div style='width: 95%; text-align: center; padding: 10px;'><h1 id='heat-sensitive-confirmation' tabindex='-1' style='font-size: 16px; margin: 2px;'>Heat Sensitive item(s)</h1><p>The Heat-Sensitive item(s) on your order may melt if you don’t choose UPS Second Day Air or UPS Next Day Air Saver. Are you willing to take responsibility for that possibility?</p>";
+			var modalText = "<div style='width: 95%; text-align: center; padding: 10px;'><h1 id='heat-sensitive-confirmation' tabindex='0' style='font-size: 16px; margin: 2px;'>Heat Sensitive items alert</h1><p>The Heat-Sensitive item(s) on your order may melt if you don’t choose UPS Second Day Air or UPS Next Day Air Saver. Are you willing to take responsibility for that possibility?</p>";
 			
 			modalText += "<button id='hs-yes' class='mz-button' style='background: #177d23; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>YES, I’ll take my chances</button><br>";
-			modalText += "<button id='hs-no' class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</button>";
-			modalText += "<p><b>Note:</b> Orders with Heat-Sensitive items may not ship immediately.</p>";
+			modalText += "<button id='hs-no' tabindex=0 class='mz-button' style='background: #007aaf; cursor: pointer; width: 250px; margin: 10px; display: inline-block; color: #ffffff;'>No, I want expedited shipping</button>";
+			modalText += "<p><b>Note:</b> Orders with Heat-Sensitive items may not ship immediately. </p>";
 			modalText += "</div>"; 
+
+			// keep tab users in loop until a choice is made
+			$(document).on('keypress keydown','#heat-sensitive-confirmation, #hs-no',function(e){
+				if($(this).attr('id') === 'heat-sensitive-confirmation' && e.shiftKey && e.which == 9) {
+					e.preventDefault();
+					$('#hs-no').focus();
+				}
+				else if($(this).attr('id') === 'hs-no' && e.which == 9 && !e.shiftKey) {
+					e.preventDefault();
+					$('#heat-sensitive-confirmation').focus();
+				}
+			});
 			
 			if (Hypr.getThemeSetting('showHeatSensitiveText') && window.order.hasHeatSensitiveItemsByCategory()) {
 				$.colorbox({
@@ -744,14 +756,10 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 											$('#colorbox').attr("aria-modal",true).attr("aria-labelledby","heat-sensitive-confirmation");
 										},
                     onComplete : function () {
-                        //$('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
-                        //$('#cboxClose').fadeIn();
                         $('#cboxLoadedContent').css({
                             background : "#ffffff"
                         });
-                        // $('#cboxClose').focus();
 												$('#heat-sensitive-confirmation').focus();
-                        focusLoop();
 						$('#hs-yes').click(function(e){ 
 							var timenow = new Date();
 							var approvalid = JSON.parse(document.getElementById('data-mz-preload-checkout').innerHTML).orderNumber+"-"+timenow.getTime();
@@ -1281,11 +1289,16 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
 					}
 
 					$(".mz-paymenttype-label-creditcard, .mz-paymenttype-label-check").removeAttr("tabindex");
+					$(".mz-paymenttype-label-creditcard, .mz-paymenttype-label-check").removeAttr("aria-current");
 					setTimeout(function(){ 
-					if(window.paymentTypeChosen === "creditcard")
+					if(window.paymentTypeChosen === "creditcard") {
 						$(".mz-paymenttype-label-creditcard").prop("tabindex", 0);
-					else if(window.paymentTypeChosen === "paypal")
+						$(".mz-paymenttype-label-creditcard").prop("aria-current", "true");
+					}
+					else if(window.paymentTypeChosen === "paypal") {
 						$(".mz-paymenttype-label-check").prop("tabindex", 0);
+						$(".mz-paymenttype-label-check").prop("aria-current", "true");
+					}
 					}, 1000);
 
         },
@@ -2568,8 +2581,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 if(valid && currentUser.isAnonymous){
                      window.showGlobalOverlay();
                     api.action('customer', 'loginStorefront', {
-                        email: $('.user-email').val(),
-                        password: $('.user-password').val()
+                        email: $('.login_submit-l .user-email').val(),
+                        password: $('.login_submit-l .user-password').val()
                     }).then(this.loginProcess, this.LoginErrorMessage);
                     setTimeout(function(){ window.scrollTo(0, -5000);},300);
                 } 
