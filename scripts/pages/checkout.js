@@ -149,7 +149,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             // wait for blur validation to complete
             var me = this;
             me.editing.savedCard = false;
-           //  window.showGlobalOverlay();
             _.defer(function () {
                 me.model.next();
             });
@@ -2578,11 +2577,19 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 e.preventDefault();
                 var valid = this.validData();
                 var currentUser = require.mozuData("user");
+                var parentEle = "";
+                if($("#guestcheckoutmodal").is(":visible")) 
+                {
+                    parentEle = "#guestcheckoutmodal ";
+                }
+                else {
+                    parentEle = "#checkoutmodal ";
+                }
                 if(valid && currentUser.isAnonymous){
                      window.showGlobalOverlay();
                     api.action('customer', 'loginStorefront', {
-                        email: $('.login_submit-l .user-email').val(),
-                        password: $('.login_submit-l .user-password').val()
+                        email: $(parentEle+'.user-email').val(),
+                        password: $(parentEle+'.user-password').val()
                     }).then(this.loginProcess, this.LoginErrorMessage);
                     setTimeout(function(){ window.scrollTo(0, -5000);},300);
                 } 
@@ -2795,6 +2802,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 e.stopPropagation();
             }
         });
+        
         $(document).on('focus','#toolTipStock', function(e) { 
             $(this).next().addClass('cc-tooltip');
         });

@@ -1,6 +1,7 @@
 require([
-    "modules/jquery-mozu", "underscore", "modules/backbone-mozu","modules/contextify","modules/login-links"
-], function($, _,  Backbone,contextify,loginLinks) {
+    "modules/jquery-mozu", "underscore", "modules/backbone-mozu","modules/contextify" ,"modules/search-autocomplete"
+    ,"modules/login-links"
+], function($, _,  Backbone,contextify,searchAutocomplete,loginLinks) {
     var pageHeadeView = Backbone.MozuView.extend({
         templateName: 'modules/page-header-new',
          render:function() {

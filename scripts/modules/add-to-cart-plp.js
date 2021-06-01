@@ -26,7 +26,7 @@ require([
                     var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
                     var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
                     if(newValue != "Select gift amount" && newValue !== ''){
-                        if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
+                        if("Tenant~gift-card-prices" !== ID && (window.location.host !== "www.jellybelly.com" && window.location.host !=="t29614-s48880.stg1.mozu.com")){
                             ID = "Tenant~gift-card-prices";
                         }
                         var option = PRODUCT.get('options').get(ID);
@@ -168,7 +168,7 @@ require([
             $(document).find('.Add-to-cart-popup').find('.qty-count-popup').html(qty);
             $(document).find('.Add-to-cart-popup').addClass("active");
             $(document).find('body').addClass("noScroll");
-           
+            if(require.mozuData('pagecontext').url.indexOf('search-results')<0){
                 var owl = $(document).find('.rec-prod-list-popup');    
                 owl.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
                 owl.find('.owl-stage-outer').children().unwrap();
@@ -213,7 +213,11 @@ require([
                     } 
                 });
                 $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
-                loopInAddTocart();
+                loopInAddTocart(); 
+            }else{
+                $(document).find('#addtocart-popup-rec-prod-sec').css({"background":'#fff'});
+                $(document).find('#addtocart-popup-rec-prod-sec .head-rec-prod-list').hide();
+            }
         } 
 
         $(document).on('click', '.cross-close-popup',function(){

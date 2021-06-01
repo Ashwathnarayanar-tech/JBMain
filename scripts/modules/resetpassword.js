@@ -54,7 +54,12 @@ require([
             },
             displayApiMessage: function (xhr) {
                 window.hideGlobalOverlay();
-                if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND"){
+                //UCP Changes
+                if(xhr.errors){
+                    if(xhr.errors.applicationName === "MozuStorefront" && xhr.errors.errorCode === "ITEM_NOT_FOUND"){
+                        xhr.message =   Hypr.getThemeSetting('resetPasswordMessage');//Hypr.getLabel('resetPasswordMessage');  
+                    }
+                }else if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND"){
                     xhr.message =   Hypr.getThemeSetting('resetPasswordMessage');//Hypr.getLabel('resetPasswordMessage');  
                 }
                 this.displayMessage(xhr.message);

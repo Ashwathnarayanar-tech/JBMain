@@ -67,19 +67,19 @@
 
         <!-- in edit mode -->
 
-    {% else %}
-        <style>
-            #mz-drop-zone-main-banner { display: none; }
-            #mz-drop-zone-main-banner-override { display: none; }
-        </style>
-    {% endif %}
+	{% else %}
+		<style>
+			#mz-drop-zone-main-banner { display: none; }
+			#mz-drop-zone-main-banner-override { display: none; }
+		</style>
+	{% endif %}
     {% comment %}
-        {% if pageContext.isEditMode %}MAIN BANNER FOR FACETED PAGES{% endif %}
-           {% dropzone zoneId="main-banner" scope="template" %}
-        {% if pageContext.isEditMode %}OVERRIDE BANNER FOR FACETED PAGES{% endif %}
-          {% dropzone zoneId="main-banner-override" scope="page" %}
+		{% if pageContext.isEditMode %}MAIN BANNER FOR FACETED PAGES{% endif %}
+    	   {% dropzone zoneId="main-banner" scope="template" %}
+		{% if pageContext.isEditMode %}OVERRIDE BANNER FOR FACETED PAGES{% endif %}
+		  {% dropzone zoneId="main-banner-override" scope="page" %}
     {% endcomment %}
-    {% if  pageContext.search.query %}
+	{% if  pageContext.search.query %}
         <a href="{{themeSettings.search_result_banner_image_url}}" style="text-align: center;display: block;">
             <img alt="Banner image" id="sli_bimg_tophaha_of_results" border="0" style="margin-bottom: 12px; width: 100%;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.search_result_banner_image}}">
         </a>

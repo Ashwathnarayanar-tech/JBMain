@@ -17,3 +17,5 @@
 {% else %}
 	<span class="mz-item-rowtotal {% if item.unitPrice.saleAmount %}is-saleprice{% endif %}" tabindex="0" aria-label="subtotal: {{ item.subtotal|currency }}">{{ item.subtotal|currency }}</span>
 {% endif %}
+
+

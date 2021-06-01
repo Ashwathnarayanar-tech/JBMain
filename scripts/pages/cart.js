@@ -377,24 +377,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             item.quantity = obj.quantity;
                             item.shipsByItself = false;
                             if(obj.product && obj.product.measurements){
-                                item.unitMeasurements = {
-                                    "height": {
+                            item.unitMeasurements = {
+                                "height": {
                                         "unit": obj.product.measurements.height ? obj.product.measurements.height.unit:"",
                                         "value": obj.product.measurements.height ? obj.product.measurements.height.value :""
-                                    },
-                                    "length": {
+                                },
+                                "length": {
                                         "unit": obj.product.measurements.length ? obj.product.measurements.length.unit:"",
                                         "value": obj.product.measurements.length ? obj.product.measurements.length.value:""
-                                    },
-                                    "weight": {
+                                },
+                                "weight": {
                                         "unit": obj.product.measurements.weight ? obj.product.measurements.weight.unit :"",
                                         "value": obj.product.measurements.weight ? obj.product.measurements.weight.value:""
-                                    },
-                                    "width": {
+                                },
+                                "width": {
                                         "unit": obj.product.measurements.width ? obj.product.measurements.width.unit :"",
                                         "value": obj.product.measurements.width ? obj.product.measurements.width.value:""
-                                    }
-                                };
+                                }
+                            };
                             }
                             itemArr.push(item);
                         });
@@ -519,8 +519,6 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             });*/
                             /*if($('input[type=radio]').length > 0)
                                 $('input[type=radio]')[0].focus();*/
-
-                                
                                 
                    }).catch(function(error) {
                     console.log("error ---",error);
@@ -533,9 +531,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     $('#estimateShippingCost-entry').removeClass('active');
                     $('#estimateShippingCost-failure').hide();
                     $("#estimateShippingCost-success").focus();
-
                    });
-
                     }
                 } else {
                     $('#estimateShippingCost-failure').show();
@@ -558,7 +554,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             "productCodes": productCodes}).then(function(res){
                 for(var i=0;i<items.length;i++){
                     for(var j=0;j<res.items.length;j++){
-                        if (items[i].product.productCode === res.items[j].productCode && items[i].quantity > res.items[j].softStockAvailable){
+                        if (items[i].product.productCode === res.items[j].productCode && items[i].quantity > res.items[j].stockAvailable){
                             $('[data-mz-carttable-item-sku="' + items[i].product.productCode + '"]').next('.error-msg').remove();
                             $('[data-mz-carttable-item-sku="' + items[i].product.productCode + '"]').after("<tr class='mz-carttable-item error-msg'><td colspan=5 class='mz-carttable-item-product' style='margin-top: 20px;'><span role='content-info' tabindex='0' style='font-size: 14px; font-weight: bold;'>ALERT: Sorry, but " + items[i].product.productCode + ":" + items[i].product.name + " no longer has enough inventory to satisfy your order.  There are " + res.items[j].softStockAvailable + " units left in stock. Please adjust your order and try again.</span></td></tr>");
                             if($(window).width()<768){
@@ -779,7 +775,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
            if(e.keyCode == 13) {
 			location.href='/online-candy-store';  
 			}
-		}); 
+		});
      var cartModel = window.cartModel = CartModels.Cart.fromCurrent();
      var pageModel = window.getDeviceMode();
      window.currentMode = window.getcurrentMode(pageModel);
@@ -973,7 +969,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
              }).catch(function(err){
                  console.log("exception err while getting items ",err);
                  window.hideGlobalOverlay();
-             });
+            });
           });
 	
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){

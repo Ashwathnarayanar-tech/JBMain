@@ -1403,8 +1403,11 @@ define([
         var ROUTE_NOT_FOUND = 'ROUTE_NOT_FOUND'; 
         var promodel ,flag,lastpage,loadMore = false, loadAll = window.loadAll = false;
         var defaultpagesize = window.defaultpagesize = 20;        
+        
         function updateUi(response) {
-             window.hideGlobalOverlay();
+            if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                window.hideGlobalOverlay();
+            }
             var url = response.canonicalUrl;
             var $oattr;
             var info_url;
@@ -1448,7 +1451,7 @@ define([
                     window.loadAll = false;  
                 }   
                 //var remainingCount = (data.totalCount-lastpage)>500?500:(data.totalCount-parseInt(lastpage,10));
-                $(document).find('#load-all').html('Show All ('+data.totalCount+')'); 
+                $(document).find('#load-all').html('Show All ('+data.totalCount+')');
                 $(document).find('div[data-mz-productlist]').removeClass('is-loading'); 
                 setTimeout(function(){  
                     //$(document).find('.gridder-list[data-griddercontent="#'+(itemtofocus-(window.defaultpagesize-1))+'"]').find('a').first().focus();
@@ -1474,7 +1477,6 @@ define([
                     }else{
                         $(document).find('.clear-all-outer-btn').removeClass('active');    
                     }
-
                 },1000);
                 _$body.html($(response.body).find(".mz-l-container").children());  
                 var data1= require.mozuData('facetedproducts') ;  
@@ -1510,7 +1512,12 @@ define([
             if (url) _dispatcher.replace(url);
                 
             //_$body.removeClass('mz-loading'); 
-             window.hideGlobalOverlay(); 
+            
+            if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                window.hideGlobalOverlay();
+            }else{
+                _$body.removeClass('mz-loading'); 
+            }
             
         }
         function initRecProd(){
@@ -1535,8 +1542,11 @@ define([
 
         function intentToUrl(e) {
             loadMore=false; 
-            //$(document).find('div[data-mz-productlist]').addClass('is-loading'); 
-              window.showGlobalOverlay();
+            if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                window.showGlobalOverlay();
+            }else{
+                $(document).find('div[data-mz-productlist]').addClass('is-loading'); 
+            }
             var oldurl = window.location.pathname+window.location.search; 
             if($(e.currentTarget).hasClass('mz-facetingform-clearall')){
                 $(document).find('.selected-facet-value').remove();  
@@ -1630,7 +1640,9 @@ define([
         navigationIntents.on('data', function(url, e) {
             if (url && _dispatcher.send(url)) {
                 _$body.addClass('mz-loading');
-                window.showGlobalOverlay();
+                if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                    window.showGlobalOverlay();
+                }
                 e.preventDefault();
             }
         });
@@ -1675,7 +1687,11 @@ define([
             if(url){
                 if (url && _dispatcher.send(url)) { 
                    // _$body.addClass('mz-loading'); 
+                   if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
                     window.showGlobalOverlay();
+                    }else{
+                        _$body.addClass('mz-loading');
+                    } 
                     e.preventDefault(); 
                 }    
             }          
@@ -1717,7 +1733,11 @@ define([
             if(url){
                 if (url && _dispatcher.send(url)) { 
                     //_$body.addClass('mz-loading'); 
-                     window.showGlobalOverlay();
+                    if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                        window.showGlobalOverlay();
+                    }else{
+                            _$body.addClass('mz-loading');
+                    }
                     e.preventDefault(); 
                 }    
             }     
@@ -1729,7 +1749,11 @@ define([
                 if(url){
                     if (url && _dispatcher.send(url)) {
                         //_$body.addClass('mz-loading'); 
-                         window.showGlobalOverlay();
+                        if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                            window.showGlobalOverlay();
+                        }else{
+                                _$body.addClass('mz-loading');
+                        }
                         e.preventDefault(); 
                     }    
                 }      
@@ -1769,7 +1793,11 @@ define([
                 if(url){
                     if (url && _dispatcher.send(url)) { 
                         //_$body.addClass('mz-loading'); 
-                         window.showGlobalOverlay();
+                        if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                            window.showGlobalOverlay();
+                        }else{
+                            _$body.addClass('mz-loading');
+                        }
                         e.preventDefault(); 
                     }    
                 } 
@@ -1800,7 +1828,11 @@ define([
                 if(url){
                     if (url && _dispatcher.send(url)) { 
                         //_$body.addClass('mz-loading'); 
-                         window.showGlobalOverlay();
+                        if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                            window.showGlobalOverlay();
+                        }else{
+                            _$body.addClass('mz-loading');
+                        }
                         e.preventDefault(); 
                     }    
                 }    
@@ -2547,7 +2579,9 @@ define([
             this.categoryaccordian($('.item-name.active'));
         },
         mobileaddfilters:function(ele){
-            window.showGlobalOverlay();
+            if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
+                window.showGlobalOverlay();
+            }
             if(!ele.hasClass('remove-filter-one') && !ele.parents('li').hasClass('mz-facetform-selected') && ele.html() !== ''){
                 var valuetoshow = ele.prev().attr('data-mz-facet-titel-mobile');
                 var valuetoappend = ele.prev().attr('data-mz-facet-value-mobile');

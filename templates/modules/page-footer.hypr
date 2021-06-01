@@ -36,9 +36,9 @@
 
 <div class="mz-footer-row"> 
  <div class="mz-footer-row2">
-  {% if pageContext.cmsContext.page.path != 'subscribe' %}
-    {% include "modules/email-sms-signup" %}
-  {% endif %}
+	{% if pageContext.cmsContext.page.path != 'subscribe' %}
+		{% include "modules/email-sms-signup" %}
+	{% endif %}
   </div>
 </div>
     <div class="mz-footer-row"> 
@@ -80,7 +80,7 @@
                       </ul>
                     </div>
                     <!-- FOOTER 2ND COL -->
-            <div class="mz-column mz-column-2">
+    				<div class="mz-column mz-column-2">
               <div class="mz-desktop">
                 <h2 class="mz-footer-title">
                   <a href="/aboutjellybelly">
@@ -99,23 +99,23 @@
                 {% dropzone "dropzone_area_footer_1" scope="site" %}
               </ul>
             </div>
-            <!-- FOOTER 3RD COL --> 
-            <div class="mz-column mz-column-3">
-              <div class="mz-desktop">
-                <h2 class="mz-footer-title">
-                    <a href="/newsandevents">News &amp; Events</a>
-                </h2>
-              </div>
-              <div class="mz-mobile">
-                <h2 class="mz-footer-title footer-title-click" aria-expanded="false">
-                      <a href="/newsandevents">News &amp; Events</a>
+				    <!-- FOOTER 3RD COL --> 
+    				<div class="mz-column mz-column-3">
+    					<div class="mz-desktop">
+    						<h2 class="mz-footer-title">
+    						    <a href="/newsandevents">News &amp; Events</a>
+    						</h2>
+    					</div>
+    					<div class="mz-mobile">
+    						<h2 class="mz-footer-title footer-title-click" aria-expanded="false">
+    					        <a href="/newsandevents">News &amp; Events</a>
                       <img class="footer-plus" src="/resources/images/icons/plus_footer.png" alt="footer-plus" />
                       <img class="footer-minus" src="/resources/images/icons/minus_footer.png" alt="footer-minus" />
-                  </h2> 
-              </div>
-              <ul class="mz-footer-links mz-desktop">
-              {% dropzone "dropzone_area_footer_3" scope="site" %}
-              </ul>
+    					    </h2> 
+    					</div>
+    					<ul class="mz-footer-links mz-desktop">
+    					{% dropzone "dropzone_area_footer_3" scope="site" %}
+    					</ul>
               <div class="mz-desktop">
                 <h2 class="mz-footer-title" style="margin: 38px 0 0px 0">Quick Links</span>
               </div>  
@@ -128,10 +128,10 @@
               <ul class="mz-footer-links mz-desktop">
               {% dropzone "dropzone_area_footer_4" scope="site" %}
               </ul>
-            </div>
-            <!-- FOOTER 4TH COL -->
-            <div class="mz-column mz-column-4">
-              <div class="jb-follow-us">
+    				</div>
+    				<!-- FOOTER 4TH COL -->
+    				<div class="mz-column mz-column-4">
+    					<div class="jb-follow-us">
                 <h2 class="mz-footer-title">Social Media</h2>
                 <ul>
                     <li><a href="https://www.pinterest.com/jellybelly" target="_blank" title="Jelly Belly on Pinterest">

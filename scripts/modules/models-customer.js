@@ -1,7 +1,7 @@
 ﻿define(['modules/backbone-mozu', 'underscore', 'modules/models-address', 'modules/models-orders', 
         'modules/models-paymentmethods', 'modules/models-product', 'hyprlive',
-        'modules/minicart',"modules/cart-monitor"], 
-        function (Backbone, _, AddressModels, OrderModels, PaymentMethods, ProductModels, Hypr, MiniCart, CartMonitor) {
+        'modules/minicart',"modules/cart-monitor", "modules/models-returns"], 
+        function (Backbone, _, AddressModels, OrderModels, PaymentMethods, ProductModels, Hypr, MiniCart, CartMonitor,ReturnModels) {
 
 
     var pageContext = require.mozuData('pagecontext'),
@@ -79,9 +79,13 @@
     });
     var CustomerContact = Backbone.MozuModel.extend({
         mozuType: 'contact',
+        requiredBehaviors: [1002],
+        defaults: {
+            userId: require.mozuData('user').userId  
+        },
         relations: {
             address: AddressModels.StreetAddress,
-            phoneNumbers: AddressModels.PhoneNumbers,
+            phoneNumbers: AddressModels.PhoneNumbers
         },
         validation: {
             firstName: {
@@ -353,7 +357,7 @@
             editingContact: CustomerContact,
             wishlist: Wishlist,
             orderHistory: OrderModels.OrderCollection,
-            returnHistory: OrderModels.RMACollection
+            returnHistory: ReturnModels.RMACollection
         }, Customer.prototype.relations),
         validation: {
             password: {
@@ -365,7 +369,7 @@
                 fn: function(value) {
                     if (this.validatePassword && value !== this.get('password')) return Hypr.getLabel('passwordsDoNotMatch');
                 }
-            },
+            }
         },
         defaults: function () {
             return {
@@ -373,6 +377,7 @@
             editingContact: {}
             };
         },
+        helpers: ['isNonPurchaser'],
         initialize: function() {
             var self = this,
                 orderHistory = this.get('orderHistory'),
@@ -384,6 +389,23 @@
             returnHistory.lastRequest = {
                 pageSize: 5
             };
+            
+            orderHistory.apiGet(orderHistory.lastRequest).then(function (req) {
+                var orderModels = _.map(req.data.items, function(item){
+                    item.items = _.map(item.items, function(orderItem) {
+                        orderItem.id = orderItem.id + '-' + orderItem.lineId;
+                        return orderItem;
+                    });
+
+                    //Temp until Package Fulfillment is fixed
+
+
+                    return new OrderModels.Order(item);
+                });
+                orderHistory.get('items').reset(orderModels);
+                orderHistory.trigger('ordersLoaded');
+            });
+            
             orderHistory.on('returncreated', function(id) {
                 returnHistory.apiGet(returnHistory.lastRequest).then(function () {
                     returnHistory.trigger('returndisplayed', id);
@@ -392,6 +414,9 @@
             _.defer(function (cust) {
                 cust.getCards();
             }, self);
+        },
+        isNonPurchaser: function() {
+            return (require.mozuData('user').behaviors.length) ? false : true;
         },
         changePassword: function () {
             var self = this;

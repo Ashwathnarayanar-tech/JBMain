@@ -40,7 +40,6 @@
       <ul id="pwr-rewards-list">
       </ul>
       </div>
-      
       <div>
           <button id="reward-500" class="mz-button redeem" reward-id="reward_3206a" aria-label="Redeem 500 points for 5 dollars">$5 (500 points)</button>{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}
           <button id="reward-950" class="mz-button redeem" reward-id="reward_191e0" aria-label="Redeem 950 points for 10 dollars" >$10 (950 points)</button>{% if pageContext.isMobile or pageContext.isTablet %}<br>{% endif %}

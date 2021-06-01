@@ -128,7 +128,7 @@
                     </td>
                     <td class="mz-carttable-item-remove">
                       <!-- <a href="javascript:;" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mz-icon mz-icon-close" style="color: #111;" >{{ labels.remove }}</a> -->
-                      <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img alt="" src="../../resources/images/removecart.png"/></span></a>
+            		  <a href="javascript:;" data-mz-action="removeItem" role="button" aria-label="remove {{ item.product.name|safe }}" data-mz-cart-item="{{ item.id }}"><span><img alt="" src="../../resources/images/removecart.png"/></span></a>
                     </td>
                   </tr>
                 {% endfor %}

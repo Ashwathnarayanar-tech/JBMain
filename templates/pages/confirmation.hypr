@@ -57,8 +57,8 @@
                     <dd>{{ model.fulfillmentInfo.shippingMethodName }}</dd>
                 </dl>
             </div>
-    		<div class="clearfix"></div>
             {% endif %}
+            <div class="clearfix"></div>
             {% for item in model.items %}
             {% if item.fulfillmentMethod == "Pickup" %}
             <div class="mz-l-stack-section">

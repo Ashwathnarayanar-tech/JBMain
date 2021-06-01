@@ -198,7 +198,7 @@
   </script>
   {% endif %}
 
-{% if pagecontext.pageType != "checkout" and pagecontext.pageType != "confirmation" %}
+{% if pagecontext.pageType != "checkout" %}
   {% require_script "modules/new-lazy-load" %}
 {% endif %}
 
@@ -455,3 +455,4 @@ window.showGlobalOverlay = function showGlobalOverlay(){
     
 </html>
 {% endautoescape %}
+
