@@ -91,7 +91,6 @@
                                 <span class="mz-sitenav-link" >Products</span>  
                             </a>
                         </li>
-                        silpa
                         <li class="head-list-item flavorsandmore {% if pageContext.cmsContext.page.path == 'birthday-party-ideas' or pageContext.cmsContext.page.path == 'halloween-recipes-and-party-ideas' or pageContext.cmsContext.page.path == 'christmas-and-holiday-ideas' or pageContext.cmsContext.page.path == 'valentines-day-recipes-and-party-ideas' or pageContext.cmsContext.page.path == 'spring-and-easter-ideas' or pageContext.cmsContext.page.path == 'wedding-center' or pageContext.cmsContext.page.path == 'recipes-and-diy' or pageContext.cmsContext.page.path == 'ArtGallery' or pageContext.cmsContext.page.path == 'coloring-pages' or pageContext.cmsContext.page.path == 'fun-facts' or pageContext.cmsContext.page.path == 'downloads' or pageContext.cmsContext.page.path == 'jelly-belly-bean-recipes' or pageContext.cmsContext.page.path == 'rivercats' or pageContext.cmsContext.page.path == 'sponsorships' or pageContext.cmsContext.page.path == 'jelly-belly-fleet' or pageContext.cmsContext.page.path == 'event-calendar' %} mobilemenuactive {% endif %}" attr-menuname="megamenu_2" data-attr="flavorsandmore">
                             <a  href="#" aria-expanded="false" aria-label="Flavors and More">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="73" height="45" viewBox="0 0 73 45">

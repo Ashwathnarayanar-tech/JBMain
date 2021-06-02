@@ -19,7 +19,8 @@ define(['modules/jquery-mozu',
                             }
                         },1000); 
                     } 
-                });    
+                });   
+
                 $(document).find('.head-list-item').on({
                     mouseenter: function (e) {
                         setTimeout(function(){
@@ -37,12 +38,11 @@ define(['modules/jquery-mozu',
                         }, 200);
                     }
                 });
-    
                 $(document).find('.item-name-list').on({
-                mouseenter: function (e) {
-                   megamenufunctions.togglemicroMenu($(e.currentTarget));
-                }
-            });
+                    mouseenter: function (e) {
+                       megamenufunctions.togglemicroMenu($(e.currentTarget));
+                    }
+                });
             }else{
                 $(document).find('.head-list-item').on('click',function(e){
                     megamenufunctions.mobileFunc.showMenuNav($(e.currentTarget));
@@ -154,7 +154,6 @@ define(['modules/jquery-mozu',
         var megamenufunctions = {
             showMenuNav : function(ele){
                 $(document).find('.mz-sitenav').addClass('active');
-                
                 var menu = ele.attr('attr-menuname');
                 if(menu && menu !== "store-locator" && menu != "store-branding"){  
                     $(document).find('.head-list-item').removeClass('active'); 
@@ -344,15 +343,20 @@ define(['modules/jquery-mozu',
             }
         });
 
-        $(document).on('keydown', '.subheade', function(e){
+        $(document).on('keydown', '.mz-sitenav.mz-desktop .subheade', function(e){
             if(e.which == 13 || e.which == 32){
+                console.log("silpa");
                 e.preventDefault();
                 megamenufunctions.showSubmenu($(e.target).parents('.nav-sub-ele'));
                 $(document).find('.submenu').find('.sunmenu-container[data-attr="'+$(e.target).parents('.nav-sub-ele').attr('id')+'"]').find('select, input, textarea, button, a, [tabindex="0"]').filter(':visible').first().focus();
                 megamenufunctions.loopinMenu($(document).find('.submenu').find('.sunmenu-container[data-attr="'+$(e.target).parents('.nav-sub-ele').attr('id')+'"]')); 
             }
         }); 
-
+        $(document).on('keydown', '.mz-sitenav.mz-desktop .sunmenu-container.nav-sub-ele', function(e){
+            if(e.which == 13 || e.which == 32){
+                console.log("silpa 22 ");
+            }
+        });
         $(document).on('keydown', '.item-name-list', function(e){
             if(e.which == 13 || e.which == 32){
                 e.preventDefault();

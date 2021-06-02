@@ -208,11 +208,11 @@ require([
 
         // Fiery Five function.
         
-         if (require.mozuData('user').email && require.mozuData('pagecontext').pageType !== "my_account") {
-            api.request('GET', '/svc/zinrelo_points?user=' + window.require.mozuData('user').email).then(function(res) {
-               console.log("silpa");
-            });
-        }
+        //  if (require.mozuData('user').email && require.mozuData('pagecontext').pageType !== "my_account") {
+        //     api.request('GET', '/svc/zinrelo_points?user=' + window.require.mozuData('user').email).then(function(res) {
+        //        console.log("silpa");
+        //     });
+        // }
 
         $(document).on('keyup', '.quantity-field-rti, .quantity-field', function(event){
             if(parseInt($(this).val()) > 25 && require.mozuData('pagecontext').pageType != 'my_account'){

@@ -448,10 +448,9 @@ window.showGlobalOverlay = function showGlobalOverlay(){
   {% endif %}
 
   {% if siteContext.tenantId == 10569 %}
-    {% if pagecontext.cmsContext.template.path == "search" "pages-unbxd-search-results" %}
+    {% if pagecontext.cmsContext.template.path == "pages-unbxd-search-results" %}
       <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339.css">
     {% endif %}
-    
     <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.css">
     {% if  pagecontext.pageType == "search" %}    
         <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.css">

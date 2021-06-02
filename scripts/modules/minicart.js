@@ -26,7 +26,7 @@ define([
             getRenderContext: function () {
                 var noShippingProducts = Hypr.getThemeSetting('noFreeShippingSkuList').replace(/ /g, "").split(','); 
                 var noshippingTotal = 0;
-                console.log(noShippingProducts); 
+                // console.log(noShippingProducts); 
                 if(require.mozuData("pagecontext").pageType != "cart") {                    
                     window.cartModel.checkBOGA();
                 }
@@ -424,7 +424,7 @@ define([
             showCartval: function() {
             },
             render:function() {
-                console.log(" this--- render minicart",this);
+            //console.log(" this--- render minicart",this);
                Backbone.MozuView.prototype.render.apply(this);
            }
         });
@@ -508,7 +508,6 @@ define([
             $(document).on('focus','.mz-utilitynav-link-cart', function(e) {
                 //$('.jb-minicart-popup').show();
                 $(this).trigger('mouseover');
-                console.log($(this));
                 $(this).parents('.mz-utilitynav').next().focus();
             });
             
@@ -535,7 +534,6 @@ define([
                         $(".jb-minicart-popup").hide(); 
                         $(document).find('.mz-sitenav-list').find('.mz-sitenav-item').first().find('a').focus();
                         e.preventDefault();
-                        console.log($(document.activeElement)[0] == $(this).find('.submitButton')[0]);
                     } 
                     else if( $(this).find('.no-items-found-message')[0] ) {
                         $(".jb-minicart-popup").hide();

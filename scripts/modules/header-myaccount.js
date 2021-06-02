@@ -22,6 +22,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
         });
 
         //ADA for login popover.
+        
         $(document).on('keydown','.popover-label',function(e){
             if(e.which == 13 || e.which == 32){
                 e.preventDefault(); 
