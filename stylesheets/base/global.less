@@ -1365,3 +1365,272 @@ a.skipto {
 }
  
 /* Global overlay end here */
+
+/* AB testing starts Here */
+
+
+.jb-footer-dpzone{
+  display:initial
+}
+  .Ab-card-slot-parent{
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 0px;
+  }
+.AB-cards-parent{
+  position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    float: left;
+    max-width: 100%;
+}
+  .Ab-card-slot{
+    float: left;
+    margin: 1% 0%;
+    padding: 0px 0.75%;
+    box-sizing: border-box;
+    position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    max-width: 25%;
+    flex: 0 0 25%;
+    margin-bottom: 4%;
+  }
+.AB-slot-container{
+  border-radius: 9px;
+  margin-top: 90px;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+  .Ab-image-container{
+    text-align: center;
+    width: 100%;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   vertical-align: middle;
+   margin-top: -90px;
+  }
+  .Ab-card-image {
+    max-width: 320px;
+    object-fit: contain;
+    height: auto;
+    width: 94%;
+  }
+  .Ab-card-contents{
+    font-size: 24px;
+  color: black;
+  overflow: hidden;
+  margin: 16px auto;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  border-radius:9px;
+  font-weight: normal;
+  }
+
+  .Ab-card-title{
+    margin: 0px;
+    font-size: 24px;
+    height: 60px;
+    overflow: hidden;
+    line-height: normal;
+  }
+ 
+ .Ab-card-title-marginBottom{
+   margin-bottom:0%;
+ }
+  .Ab-card-text{
+    font-size: 16px;
+    text-align: center;
+    color: #111111;
+    padding: 8% 4% 4% 4%;
+    margin: 0;
+  }
+
+  .Ab-brand-button-container{
+    width: 84%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    padding: 5%;
+  }
+
+  .Ab-brand-button-container a{
+    font-size: 18px;
+  text-decoration: none;
+  background: #004e99;
+  color: white;
+  padding: 3% 0;
+  border: 1px solid #004e99;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  font-weight: bold;
+  }
+
+  
+  .AB-click{
+    text-decoration: none;
+    margin: auto;
+  }
+  .catHeader{
+    text-align:center;
+    color:#111111;
+    font-size:32px;
+    font-family:'merel';
+    margin:0px
+  }
+  @media only screen and (max-width: 767px) {
+    .Ab-card-slot{
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 8%;
+      }
+      .Ab-card-image {
+        max-width: 350px;
+      }
+      .Ab-image-container{
+       height: 180px;
+      }
+      .Ab-brand-button-container{
+        width: 86%;
+      }
+      .catHeader{
+        font-size: 28px;
+      }
+      .AB-cards-parent{
+        margin-top: 30px;
+      }
+      .Ab-card-title{
+        padding-top: 15px;
+      }
+      .paddingTop40{
+        padding-top: 40px;
+      }
+      .paddingTop30{
+        padding-top: 30px;
+      }
+      .paddingTop0{
+        padding-top: 0px;
+      }
+      #Ab-card7{
+        display: none;
+      }
+      #Ab-card8{
+        display: none;
+      }
+  }
+  
+  @media only screen and (min-width: 1px) and (max-width: 500px) {
+    .Ab-card-slot{
+      max-width: 100%;
+      flex: 0 0 100%;
+      padding: 0% 3% 3% 3%;
+      }
+    .Ab-card-slot-parent{
+      margin-bottom:40px;
+    }
+    #Ab-card7 .Ab-card-title {
+      margin-top:25px;
+    }
+    #Ab-card8 .Ab-card-title {
+      margin-top:20px;
+    }
+    .Ab-brand-button-container{
+      bottom: 10px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .Ab-card-slot-parent{
+      margin-top: 50px;
+    }
+    .Ab-brand-button-container a{
+      font-size: 15px;
+    }
+    .Ab-card-slot{
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 10%;
+      }
+      .Ab-card-image{
+        max-width:94%;
+      }
+      .Ab-image-container{
+        height: 300px;
+        margin-top: -150px;
+      }
+      .Ab-brand-button-container{
+        width: 82%;
+      }
+      .Ab-card-slot{
+        padding: 0px 2%;
+      }
+      .AB-cards-parent{
+        margin-top: 80px;
+      }
+      #Ab-card7{
+        display: none;
+      }
+      #Ab-card8{
+        display: none;
+      }
+  }
+  @media only screen and (min-width: 1400px) and (max-width: 1999px){
+    .Ab-image-container{
+      height: 250px;
+    }
+    .Ab-card-image{
+      max-width: 94%;
+    }
+    .AB-slot-container{
+      margin-top: 120px;
+    }
+    .Ab-image-container{
+      margin-top: -120px;
+    }
+    
+  }
+
+  @media only screen and (min-width: 2000px) {
+    .Ab-image-container{
+      height: 350px;
+    }
+    .AB-click{
+      width: 98%;
+      margin: 2%;
+    }
+    .Ab-card-image{
+      max-width: 98%;
+    }
+   .Ab-card-contents{
+     padding-bottom: 5%;
+   }
+   .AB-slot-container{
+    margin-top: 120px;
+    }
+    .Ab-image-container{
+    margin-top: -120px;
+    }
+  }
+  
+ /* AB testing ends here */

@@ -1,160 +1,178 @@
    
 <div>
-	<div class="isDesktop">
+  <div class="isDesktop">
         {% dropzone "home-header" scope="page" %}
-    </div>
-    <div class ="isMobile">
+   </div>
+   <div class ="isMobile">
     	{% dropzone "home-header-mob" scope="page" %}
 	</div>
 </div>
  
-<div class="card-slot-parent">
-	
-		<!--<div class="card-container" id="card-1">
-			<a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category" tabindex="0">
-				<img class="card-image tab-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg?max=309" alt="Jelly Belly jelly beans product listings"  width="309" height="247">
+<div class="Ab-card-slot-parent" >
+<div > <h1 class="catHeader"> SHOP TOP CATEGORIES </h1> </div>
+  <div class="AB-cards-parent">	
+	 <div class="Ab-card-slot" id="Ab-card1">
+	  	<div class="AB-slot-container" style="background-color:rgba(241, 70, 36, 0.1);">
+		<div class="Ab-image-container"> 
+			<a href="/jelly-belly-jelly-beans/c/335" class="AB-click" aria-label="Jelly Belly Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/588cbc8d-4e44-4522-a650-8c43be1454f3?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/588cbc8d-4e44-4522-a650-8c43be1454f3?maxwidth=310" alt="Jelly Belly jelly beans product listings">
 			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category" style="color: #000;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
-				<p class="card-text" tabindex="0">Discover the world’s #1 gourmet jelly bean, made in over 50 amazing flavors. </p>
-				<div class="brand-button-container">
-					<a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans brand page">Learn More</a>
-				</div>	
-			</div>
-		</div>
-	</div>
-
-	<div class="card-slot">
-		<div class="card-container" id="card-2">
-			<a href="/harry-potter" aria-label="Harry Potter" tabindex="0">
-				<img class="card-image tab-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg?max=309" alt="Harry Potter" width="309" height="247">
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title Ab-card1Title"><a href="/jelly-belly-jelly-beans/c/335" class="AB-click" aria-label="Jelly Belly Jelly Beans" style="color: #ed1c24;text-decoration: none"><strong>Jelly Belly® <br> Jelly Beans</strong></a></h2>
+			<a href="/jelly-belly-jelly-beans/c/335" class="AB-click">
+			 <p class="Ab-card-text" tabindex="0"> Discover the world’s #1 gourmet jelly bean, made in over 50 amazing flavors.</p>
 			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter category" style="color: #000;text-decoration: none"><strong>Harry Potter<sup>™</sup></strong></a></h2>
-				<p class="card-text" tabindex="0" style="max-height: 175px">Discover chocolates and confections inspired by Harry Potter!</p>
-				<div class="brand-button-container">
-					<a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter">Learn More</a>
-				</div>			
-			</div>
+			<div class="Ab-brand-button-container">
+				<a href="/jelly-belly-jelly-beans/c/335" class="AB-click" aria-label="Jelly Belly Jelly Beans">Learn More</a>
+			</div>	
 		</div>
+      </div>		
 	</div>
+	 <div class="Ab-card-slot" id="Ab-card2">
+	 <div class="AB-slot-container" style="background-color:#ede5f1">
+		<div class="Ab-image-container"> 
+			<a href="/beanboozled-jelly-beans/c/341" class="AB-click" aria-label="Bean Boozled Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/58bc07b8-e82e-4a65-ab2b-6c7b1b74de7d?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/58bc07b8-e82e-4a65-ab2b-6c7b1b74de7d?maxwidth=310" alt="Bean Boozled Jelly Beans">
 
-	<div class="card-slot">
-		<div class="card-container" id="card-3">
-			<a href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled Jelly Beans category" tabindex="0">
-				<img class="card-image tab-image" src="//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg?max=309" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
 			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/beanboozled-/c/341" aria-label="BeanBoozled Jelly Beans category" style="color: #000;text-decoration: none"><strong>BeanBoozled Jelly Beans</strong></a></h2>
-				<p class="card-text" tabindex="0">Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
-				<div class="brand-button-container">
-					<a href="/beanboozled-/c/341" aria-label="Beanboozled Challenge page">Take The Challenge!</a>
-				</div>		
-			</div>
-		</div>
-	</div>-->
-  
-  {% set_var blankimg="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" %}
-  <div class="card-slot">
-	   <div class="card-container" id="card-1">
-			    <a href="/jelly-belly-jelly-beans/c/335" tabindex="0">
-				       <img class="card-image tab-image new-lazy-load " src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 quality=25 %}" data-src="{% make_url "image" '//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-jelly-belly-optimized.jpg' with max=309 %}" alt="Jelly Belly jelly beans category"  width="309" height="247">
-			     </a>
-           <div class="card-contents">
-				<h2 class="card-title"><a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans category" style="color: #000;text-decoration: none"><strong>Jelly Belly Jelly Beans</strong></a></h2>
-				<p class="card-text" tabindex="0">Discover the world’s #1 gourmet jelly bean, made in over 50 amazing flavors. </p>
-				<div class="brand-button-container">
-					<a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans brand page">Learn More</a>
-				</div>	
-			</div>
-		</div>
-	</div>
-
-	<div class="card-slot">
-		<div class="card-container" id="card-2">
-			<a href="/harry-potter-bertie-bott-s/c/344" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/hp_brand_banner_desktop.jpg" with max=309 %}" alt="Harry Potter product category" width="309" height="247">
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title"><a href="/beanboozled-jelly-beans/c/341" class="AB-click" aria-label="BeanBoozled® Jelly Beans" style="color: #4a1c9a;text-decoration: none"><strong style="">BeanBoozled® <br> Jelly Beans</strong></a></h2>
+			<a class="AB-click" href="/beanboozled-jelly-beans/c/341">
+				<p class="Ab-card-text" tabindex="0"> Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
 			</a>
-      <div class="card-contents">
-				<h2 class="card-title"><a href="/harry-potter-bertie-bott-s/c/344" style="color: #000;text-decoration: none"><strong>Harry Potter<sup>™</sup></strong></a></h2>
-				<p class="card-text" tabindex="0" style="max-height: 175px">Discover chocolates and confections inspired by Harry Potter!</p>
-				<div class="brand-button-container">
-					<a href="/harry-potter-bertie-bott-s/c/344">Learn More</a>
-				</div>			
-			</div>
+			<div class="Ab-brand-button-container">
+				<a href="/beanboozled-jelly-beans/c/341" class="AB-click" aria-label="Take The Challenge!">Take The Challenge!</a>
+			</div>	
 		</div>
+	  </div>	
 	</div>
+	 <div class="Ab-card-slot" id="Ab-card3">
+	 <div class="AB-slot-container" style="background-color:rgba(241, 70, 36, 0.1)">
+		<div class="Ab-image-container"> 
+			<a href="/beanboozled-fiery-five/c/890" class="AB-click" aria-label="BeanBoozled Fiery Five" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cd9e9b92-852c-4ddf-a470-f3c1c84f8fdb?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cd9e9b92-852c-4ddf-a470-f3c1c84f8fdb?maxwidth=310" alt="BeanBoozled Jelly Belly product listings">
 
-	<div class="card-slot">
-		<div class="card-container" id="card-3">
-			<a href="/beanboozled-jelly-beans/c/341" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 quality=25 %}" data-src="{% make_url "image" "//cdn-tp1.mozu.com/9046-m1/cms/files/beanboozled_brand_banner_desktop.jpg" with max=309 %}" alt="BeanBoozled Jelly Belly product listings" width="309" height="247">
 			</a>
-      <div class="card-contents">
-				<h2 class="card-title"><a href="/beanboozled-/c/341" style="color: #000;text-decoration: none"><strong>BeanBoozled Jelly Beans</strong></a></h2>
-				<p class="card-text" tabindex="0">Are you ready to compare some of our tastiest flavors with our craziest ones?</p>
-				<div class="brand-button-container">
-					<a href="/beanboozled-/c/341" aria-label="Beanboozled Challenge page">Take The Challenge!</a>
-				</div>		
-			</div>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title"><a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five" style="color: #ee1a25;text-decoration: none"><strong>BeanBoozled® <br> Fiery Five</strong></a></h2>
+			<a class="AB-click" href="/beanboozled-fiery-five/c/890">
+				<p class="Ab-card-text card3Padding" tabindex="0"> Can you handle the heat? That’s the question you’ll finally get to answer when you try these BeanBoozled Fiery Five </p>
+			</a>
+			<div class="Ab-brand-button-container">
+				<a href="/beanboozled-fiery-five/c/890" class="AB-click" aria-label="Take The Challenge!">Take The Challenge!</a>
+			</div>	
+		</div>
 		</div>
 	</div>
-
-	<div style="clear: both"></div>
+	 <div class="Ab-card-slot" id="Ab-card4">
+	 <div class="AB-slot-container" style="background-color:#f5f3ec">
+		<div class="Ab-image-container"> 
+			<a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Harry Potter" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cb841590-7eb9-4908-bb51-56d047645563?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/cb841590-7eb9-4908-bb51-56d047645563?maxwidth=310" alt="Krispy Kreme jelly beans product listings">
+			</a>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title Ab-card-title-marginBottom paddingTop40"><a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Harry Potter" style="color: #744f01;text-decoration: none"><strong style=""> Harry Potter™ </strong></a></h2>
+		  <a class="AB-click" href="/harry-potter-bertie-bott-s/c/344">
+			<p class="Ab-card-text paddingTop0" tabindex="0">Discover chocolates and confections inspired by Harry Potter!</p>
+		  </a>	
+			<div class="Ab-brand-button-container">
+				<a href="/harry-potter-bertie-bott-s/c/344" class="AB-click" aria-label="Learn More">Learn More</a>
+			</div>	
+		</div>
+	  </div>	
 	</div>
+    <div style="clear: both"></div>
 </div>
-
+  <div style="clear: both"></div>
+</div>
 
 <div>
 	{% dropzone "home-promos" scope="page" %}
 </div>
 
-<div class="card-slot-parent">
-	<div class="card-slot">
-		<div class="card-container" id="card-4-desktop">
-			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/krispy-kreme-brand-banner-optimized.jpg?max=350" alt="Krispy Kreme jelly beans product listings">
+<div class="Ab-card-slot-parent">
+  <div class="AB-cards-parent">	
+	<div class="Ab-card-slot" id="Ab-card5">
+	<div class="AB-slot-container" style="background-color:rgba(241, 25, 30, 0.1)">
+		<div class="Ab-image-container"> 
+			<a href="/confections-by-jelly-belly/c/339" class="AB-click" aria-label="Jelly Belly Confections" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f4c9ed0d-a4b5-4e71-b47b-6bd031aeae31?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f4c9ed0d-a4b5-4e71-b47b-6bd031aeae31?maxwidth=310" alt="Jelly Belly Confections product listings">
 			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" style="color: #000;text-decoration: none"><strong>Krispy Kreme<sup>®</sup> Jelly Beans</strong></a></h2>
-				<p class="card-text" tabindex="0">Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
-				<div class="brand-button-container">
-					<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721">Learn More</a>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title b-card5Title"><a href="/confections-by-jelly-belly/c/339" class="AB-click" aria-label="Jelly Belly Confections" style="color:#e91f27;text-decoration: none"><strong>Jelly Belly® <br> Confections</strong></a></h2>
+			<a class="AB-click" href="/confections-by-jelly-belly/c/339">
+			<p class="Ab-card-text" tabindex="0"> Did you know Jelly Belly makes over 50 other candies?</p>
+			</a>
+			<div class="Ab-brand-button-container">
+				<a href="/confections-by-jelly-belly/c/339" class="AB-click" aria-label="Learn More">Learn More</a>
+			</div>	
+		</div>
+      </div>		
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card6">
+	  <div class="AB-slot-container" style="background-color:#e2efea">
+		<div class="Ab-image-container"> 
+			<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Krispy Kreme® Jelly Beans" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b1e395a4-9aec-438d-a092-fe8ad569f3be?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b1e395a4-9aec-438d-a092-fe8ad569f3be?maxwidth=310" alt="new Jelly Belly products listing page">
+
+			</a>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title paddingTop30"><a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Krispy Kreme® Jelly Beans" style="color: #027c57;text-decoration: none"><strong>Krispy Kreme® <br> Jelly Beans</strong></a></h2>
+			<a class="AB-click" href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721">
+			<p class="Ab-card-text " tabindex="0"> Irresistible Krispy Kreme Doughnuts are now available as Jelly Belly jelly beans.</p>
+			</a>
+			<div class="Ab-brand-button-container">
+				<a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" class="AB-click" aria-label="Learn More">Learn More</a>
+			</div>	
+		</div>
+	  </div>	
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card7">
+	  <div class="AB-slot-container" style="background-color:rgba(246, 109, 2, 0.1)">
+		<div class="Ab-image-container"> 
+			<a href="/sunkist-candies/c/342" class="AB-click" aria-label="Sunskit" tabindex="0">
+				<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d8e9fcd1-069e-4a78-a8b2-f1863b20f19d?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d8e9fcd1-069e-4a78-a8b2-f1863b20f19d?maxwidth=310" alt="Krispy Kreme jelly beans product listings">
+			</a>
+		</div> 
+		<div class="Ab-card-contents">
+			<h2 class="Ab-card-title paddingTop40 Ab-card-title-marginBottom" style="color:#3d3079"><a href="/sunkist-candies/c/342" class="AB-click" aria-label="Sunskit" style="color:#3d3079;text-decoration: none"><strong>Sunkist®</strong></a></h2>
+			<a class="AB-click" href="/sunkist-candies/c/342">
+			<p class="Ab-card-text paddingTop0 card7Padding" tabindex="0"> If you’re all about keeping things fruity and flavorful, then you’re going to absolutely flip over Jelly Belly Sunkist® candy. </p>
+			</a>
+			<div class="Ab-brand-button-container">
+				<a href="/sunkist-candies/c/342" class="AB-click" aria-label="Learn More">Learn More</a>
+			</div>	
+		</div>
+		</div>
+	</div>
+	 <div class="Ab-card-slot" id="Ab-card8">
+	 	<div class="AB-slot-container" style="background-color:#e6e2e3">
+			<div class="Ab-image-container"> 
+				<a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Sport Beans" tabindex="0">
+					<img class="Ab-card-image tab-image new-lazy-load" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/37d9f0a2-1f37-4392-b7ea-fea1f6a5376e?maxwidth=310" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/37d9f0a2-1f37-4392-b7ea-fea1f6a5376e?maxwidth=310" alt="Krispy Kreme jelly beans product listings">
+
+				</a>
+			</div> 
+			<div class="Ab-card-contents">
+				<h2 class="Ab-card-title  paddingTop40 Ab-card-title-marginBottom"><a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Sport Beans" style="color: #000000;text-decoration: none"><strong>Sport Beans® </strong></a></h2>
+				<a class="AB-click" href="/sport-beans-jelly-beans/c/336">
+				<p class="Ab-card-text paddingTop0 card8Padding" tabindex="0">Sport Beans® jelly beans are a first-of-its-kind carbohydrate replenishment for sports performance from the makers of Jelly Belly®.</p>
+				</a>
+				<div class="Ab-brand-button-container">
+					<a href="/sport-beans-jelly-beans/c/336" class="AB-click" aria-label="Learn More">Learn More</a>
 				</div>	
 			</div>
 		</div>
 	</div>
-
-	<div class="card-slot">
-		<div class="card-container" id="card-5">
-			<a href="/confections-by-jelly-belly/c/339" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/brand-banner-confections-optimized.jpg?max=350" alt="Jelly Belly Confections product listings">
-			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/confections-by-jelly-belly/c/339" style="color: #000;text-decoration: none"><strong>Jelly Belly Confections</strong></a></h2>
-				<p class="card-text" tabindex="0" style="max-height: 175px">Did you know Jelly Belly makes over 50 other candies?</p>
-				<div class="brand-button-container">
-					<a href="/confections-by-jelly-belly/c/339">Learn More</a>
-				</div>			
-			</div> 
-		</div>
+    <div class="clearfix"></div>
 	</div>
-
-	<div class="card-slot">
-	<div class="card-container" id="card-6">
-			<a href="/new-products/c/730" tabindex="0">
-				<img class="card-image tab-image new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/new-products-brand-banner-3-optimized.jpg?max=350" alt="new Jelly Belly products listing page">
-			</a>
-			<div class="card-contents">
-				<h2 class="card-title"><a href="/new-products/c/730" style="color: #000;text-decoration: none"><strong>New Products</strong></a></h2>
-				<p class="card-text" tabindex="0">Explore the new products Mr. Jelly Belly has been cooking up.</p>
-				<div class="brand-button-container">
-					<a href="/new-products/c/730">Learn More</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
+    <div class="clearfix"></div>
 </div>
   
-
+ 
