@@ -181,23 +181,32 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     if(msgArray[1]) {
                         trimMsg = msgArray[1].trim();
                     }
-                    var errArray =  trimMsg.replace(/^\S+/g, '');  
+                    //var errArray =  trimMsg.replace(/^\S+/g, '');  
+                    var errArray =  trimMsg;  
                     // set the error message
                     if (errArray.includes("Password must be a minimum of 6 characters")) {
                       errArray = Hypr.getLabel("minPasswordReqs");
-                    } else if(errArray.indexOf("EmailAddress already associated with a login")){
+                      this.$el.find("[data-mz-signup-password]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
+                    } else if(errArray.indexOf("EmailAddress already associated with a login")!=-1){
                         errArray = Hypr.getLabel("signuperror");
-                    }    
+                        this.$el.find("[data-mz-signup-emailaddress]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
+                    } 
+                    else if (errArray.includes("lastName contains invalid characters")){
+                        this.$el.find("[data-mz-signup-lastname]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
+                    }  
+                    else if (errArray.includes("firstName contains invalid characters")){
+                        this.$el.find("[data-mz-signup-firstname]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
+                    } 
                     err = errArray; // filter out the 
                 }else if(xhr.errorCode =="VALIDATION_CONFLICT"){
                     this.$el.find('[data-mz-signup-email]').val('');
                     this.$el.find('[data-mz-signup-confirmemail]').val(''); 
-                    err = 'Error: Username already registered';     
+                    err = 'Error: Username already registered'; 
+                    this.$el.find("[data-mz-signup-emailaddress]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();    
                 }else{
                     err = "Error: "+Hypr.getLabel('unexpectedError'); 
                 }
                 this.displayMessage(err);
-                this.$el.find("[data-mz-signup-emailaddress]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
             },
             hideMessage: function() {
                 this.$messageBar.html('');
