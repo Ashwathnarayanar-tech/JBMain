@@ -1,7 +1,7 @@
 ﻿define(['modules/backbone-mozu', 'hyprlive', 'hyprlivecontext', 'modules/jquery-mozu', 'underscore', 'modules/models-customer', 'modules/views-paging', 'modules/editable-view','modules/api','modules/models-product',
 'modules/models-cart',
 'modules/cart-monitor',
-'modules/minicart',"vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart) {
+'modules/minicart',"modules/models-faceting","vendor/jquery.mask"], function(Backbone, Hypr, HyprLiveContext, $, _, CustomerModels, PagingViews, EditableView, Api,ProductModels, CartModels, CartMonitor,MiniCart,FacetModels) {
 
      var AccountSettingsView = EditableView.extend({
         templateName: 'modules/my-account/my-account-settings',
@@ -69,7 +69,7 @@
                     self.$el.find('[data-mz-action="startEditName"]').focus();
                     }).otherwise(function() {
                         self.editing = true;
-                         window.hideGlobalOverlay();
+                        window.hideGlobalOverlay();
                     }).ensure(function() {
                         self.afterEdit();
                         window.hideGlobalOverlay();
@@ -106,8 +106,10 @@
             return true;
         },
         displayMessage: function(msg) {
-            if($('.msgalertemail').length === 0)
-                $('<span class="msgalertemail" style="color:red">'+msg+'</span><br>').insertAfter('.required-label');
+            // if($('.msgalertemail').length === 0)
+            //     $('<span class="msgalertemail" style="color:red">'+msg+'</span><br>').insertAfter('.required-label');
+             $('[data-mz-validationmessage-for="emailAddress"]').show().text(msg).css('color','#b94a48');
+            $(document).find('.mz-accountsettings-email').attr('aria-invalid',true).focus();    
         },  
         afterEdit: function() {
             var self = this;
@@ -138,24 +140,20 @@
             function restoreFocus() {
                 $('[data-mz-action="startEditPassword"]').focus();
             }
-             window.showGlobalOverlay();
-            try
-            {
+            window.showGlobalOverlay();
+            try{
                 this.doModelAction('changePassword').then(function() {
-                     window.hideGlobalOverlay();
                     _.delay(function() {
-                         window.hideGlobalOverlay();
+                        window.hideGlobalOverlay();
                         self.$('[data-mz-validationmessage-for="passwordChanged"]').show().text(Hypr.getLabel('passwordChanged')).fadeOut(3000);
                     }, 250);
-                }, function() {
-                     window.hideGlobalOverlay();
-                    self.editing.password = true;
                 }).catch(function() {
-                     window.hideGlobalOverlay();
+                    window.hideGlobalOverlay();
+                    self.editing.password = true;
                 });
-             }catch(err){
-                 window.hideGlobalOverlay();
-             }   
+            }catch(err){
+                window.hideGlobalOverlay();
+            }   
             this.editing.password = false;
         },
         cancelEditPassword: function() {
@@ -196,14 +194,14 @@
                 // });
                 
                 var count = Item[0].quantity;
-                 window.showGlobalOverlay();
+                window.showGlobalOverlay();
                 Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;  
                     if(variantOpt !== undefined && variantOpt.length>0){
-                        var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                        var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                        if(newValue != "Select gift amount" && newValue !== ''){
+                        var newValue = $target.closest(".mz-productlisting").find('[plp-giftcart-prize-change-action]')[0].value;
+                    var ID =  $target.closest(".mz-productlisting").find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
+                    if(newValue != "Select Gift Card Amount" && newValue !== ''){
                             var option = PRODUCT.get('options').get(ID);
                             var oldValue = option.get('value');
                             if (oldValue !== newValue && !(oldValue === undefined && newValue === '')) {
@@ -234,6 +232,7 @@
                             if(sdkProduct.data.purchasableState.isPurchasable){
                                 self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             }else{
+                                window.hideGlobalOverlay();
                                 self.notifyMeShowpopUp(sdkProduct.data.productCode,id);   
                             }
                         }else if(qntcheck){
@@ -245,6 +244,7 @@
                             if(sdkProduct.data.purchasableState.isPurchasable){
                                 self.addToCartAndUpdateMiniCart(PRODUCT,count,$target);
                             }else{
+                                window.hideGlobalOverlay();
                                 self.notifyMeShowpopUp(sdkProduct.data.productCode,sdkProduct.data.inventoryInfo.onlineLocationCode,id);   
                             }
                         }
@@ -283,13 +283,14 @@
                 maxHeight : "100%",
                 scrolling : false,
                 fadeOut : 500,  
-                html :"<div id='notify-me-dialog' tabindex='0' style='padding: 30px 15px;' role='dialog' aria-labelledby='Noiify me sign up dialog'><form><span>Enter your email address to be notified when this item is back in stock.</span><br><input class='notify-me-field' aria-describedBy='' aria-invalid='false' tabindex='0' style='margin-top: 10px;' id='notify-me-email' type='text' aria-label='Enter email address text field' value='"+require.mozuData('user').email+"'><a tabindex='0' href='javascript:void(0);' style='background: #39A857;text-decoration: none; color: #ffffff; padding: 3px; margin-left: 5px; cursor: pointer;' role='button' aria-label='notify me' id='notify-me-button' data-mz-location-code = '"+location+"' data-mz-product-code='" +code+ "'>Notify Me</a></form><span class='notify-error' id='notify-error' style='font-size:13px;color:red;display:none;'>Error: Please enter valid mail address.</span></div>", //"/resources/intl/geolocate.html",
+                html :"<div id='notify-me-dialog' tabindex='0' style='padding: 30px 15px;' role='dialog' aria-labelledby='Noiify me sign up dialog'><form><span>Enter your email address to be notified when this item is back in stock.</span><br><input class='notify-me-field' aria-describedBy='notify-error-wish' aria-invalid='true' tabindex='0' style='margin-top: 10px;' id='notify-me-email' type='text' aria-label='Enter email address text field' value='"+require.mozuData('user').email+"'><a tabindex='0' href='javascript:void(0);' style='background: #39A857;text-decoration: none; color: #ffffff; padding: 3px; margin-left: 5px; cursor: pointer;' role='button' aria-label='notify me' id='notify-me-button' data-mz-location-code = '"+location+"' data-mz-product-code='" +code+ "'>Notify Me</a></form><span class='notify-error' id='notify-error-wish' style='font-size:13px;color:red;display:none;'>Error: Please enter valid mail address.</span></div>", //"/resources/intl/geolocate.html",
                 overlayClose : true,
                 onComplete : function () {
-                    $('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
+                    $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                     $('#cboxClose').show();
                     $('#cboxLoadedContent').css({
-                       background : "#ffffff" 
+                       background : "#ffffff",
+                       height:"auto"  
                    });
                    $('#notify-me-dialog').focus();
                    self.notifymedilog();
@@ -305,8 +306,8 @@
             $(document).on('click', '#notify-me-button', function(e){
                 if($('#notify-me-email').val() !== ""){ 
                     $('.notify-error').hide();
-                    $('#notify-me-email').attr('aria-describedBy','');  
-                    $('#notify-me-email').attr('aria-invalid',false); 
+                    $('#notify-me-email').attr('aria-describedBy','notify-error-wish');  
+                    $('#notify-me-email').attr('aria-invalid',true); 
                     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     var patt = new RegExp(re);
                     if(patt.test($('#notify-me-email').val())){
@@ -316,13 +317,18 @@
                         productCode: e.target.getAttribute('data-mz-product-code'), 
                             locationCode: e.target.getAttribute('data-mz-location-code')
                         };                       
-                         window.showGlobalOverlay();
+                        window.showGlobalOverlay();
                         Api.create('instockrequest',obj ).then(function (xhr) {
-                             window.hideGlobalOverlay();
-                            $("#notify-me-dialog").fadeOut(500, function () { $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>").fadeIn(500); });
+                            window.hideGlobalOverlay();
+                            $('#notify-me-button').next('.errormsgpopup').remove();
+                            $("#notify-me-dialog").fadeOut(500, function () { 
+                                $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>"); 
+                                 $(document).find('#cboxLoadedContent').css({'height':'80px'});
+                                $("#notify-me-dialog").fadeIn(500);
+                            });
                             setTimeout(function(){self.notifymedilog(); $("#notify-me-dialog").find('.success-msg').focus(); }, 1200);
                         }, function (xhr) {
-                             window.hideGlobalOverlay();
+                            window.hideGlobalOverlay();
                             $('[data-mz-message-bar]').hide();
                             if(xhr.errorCode == "VALIDATION_CONFLICT"){
                                 $('[data-mz-message-bar]').hide(); 
@@ -356,14 +362,14 @@
                                 $('[data-mz-message-bar]').hide();  
                             });
                     }else{
-                        $('#notify-me-email').attr('aria-describedBy','notify-error');
+                        $('#notify-me-email').attr('aria-describedBy','notify-error-wish');
                         $('#notify-me-email').attr('aria-invalid',true);
                         $('.notify-error').show();  
                         $('.errormsgpopup').hide();
                         $('#notify-me-email').focus();
                     }
                 }else{
-                    $('#notify-me-email').attr('aria-describedBy','notify-error');
+                    $('#notify-me-email').attr('aria-describedBy','notify-error-wish');
                     $('#notify-me-email').attr('aria-invalid',true);
                     $('.notify-error').show();  
                     $('.errormsgpopup').hide();  
@@ -375,7 +381,38 @@
             var self = this;
             PRODUCT.set({'quantity':count});
             $(document).find('.RTI-overlay').addClass('active');
-            PRODUCT.addToCart(1);
+            //PRODUCT.addToCart(1);
+            var productCode=PRODUCT.get('productCode');
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                        // alert('Maximum quantity that can be purchased is 25');
+                        $('.maximumProduct').show();
+                        $('.maximum-inner-content').focus();
+                        loopInMax();
+                        window.hideGlobalOverlay();
+                         return false;
+                     }else{
+                        PRODUCT.addToCart(1);
+                        return false;
+                     }
+                 }else{
+                    
+                    PRODUCT.addToCart(1);
+                     return false;
+                     
+                 }
+             });    
             PRODUCT.on('addedtocart', function(attr) {
                 window.hideGlobalOverlay();
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -383,10 +420,12 @@
                 CartMonitor.update();
                 MiniCart.MiniCart.showMiniCart();
                 PRODUCT = '';  
+                window.hideGlobalOverlay();
             });  
             Api.on('error', function (badPromise, xhr, requestConf) {
                 window.hideGlobalOverlay();
                 self.showErrorMessage(badPromise.message);
+                window.hideGlobalOverlay();
                 $(document).find('.RTI-overlay').removeClass('active');
             });
         },
@@ -433,15 +472,16 @@
                 //var Url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items";
                  window.showGlobalOverlay();
                 var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items/"+removeWishId;
+                window.showGlobalOverlay();
                 Api.request('DELETE',url).then(function(resp) {
                     var tempItems = self.model.get('items').filter(function(ele){return ele.id == removeWishId?false:true;});
                     self.model.set('items', tempItems); 
                     self.render(); 
-                    window.hideGlobalOverlay();            
+                    window.hideGlobalOverlay();      
                 }).catch(function(err){
                    console.log(" error while delete wish list ",err);
                    window.hideGlobalOverlay(); 
-                });      
+                });    
             }
         },
         removeAllItems: function(e){
@@ -485,20 +525,51 @@
             var self = this, focusitem = self.model.get('items').length; 
             var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items?startIndex="+this.model.get('items').length+"&pageSize=11&sortBy=createDate desc";
             Api.request('GET',url).then(function(resp) {
-                if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
-                    self.model.set('showWishlistLoadMore',false);
-                }
-                if(resp.items.length > 10)resp.items.pop();
-                if(50 - self.model.get('items').length < 10){
-                    resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
-                }
-                var length = self.model.get('items').length;
-                self.model.set('totalCount',(length + resp.items.length));
-                for(var i = 0; i < resp.items.length; i++){
-                    self.model.get('items').push(resp.items[i]);
-                } 
-                self.render();
-                setTimeout(function(){$($(document).find('.mz-table').find('.item-tr')[focusitem]).find('.itemlisting-title').focus();},1500);    
+                var totalItems = resp.items,
+                productCodeUrl1= "";
+                $.each(resp.items, function (index, value)  
+                {  
+                    // Get value in alert +value.product.productCode+'+or+'
+                    if(resp.items.length == index+1) {
+                        productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                    } else {
+                        if(resp.items.length > 1) {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode+'+or+';
+                        } else {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                        }
+                    }
+                });
+                Api.request('get','/api/commerce/catalog/storefront/products/?filter=('+productCodeUrl1+')&pageSize=1000&responseFields=items(productCode,purchasableState)',{}).then(function (response) {
+                    var getproducts = response.items;
+                    for(var k=0;k<totalItems.length;k++){
+                        for(var l=0;l<getproducts.length;l++){
+                            if (totalItems[k].product.productCode === getproducts[l].productCode && getproducts[l].purchasableState.isPurchasable ){
+                                 _.extend(totalItems[k], {
+                                    wishliststockavailability: true});
+                            }
+                        }
+                        if(k == totalItems.length-1) {
+                            resp.items = totalItems;
+                            if(resp.items.length < 11 || (self.model.get('items').length+resp.items.length-1) >= 50){
+                                self.model.set('showWishlistLoadMore',false);
+                            }
+                            if(resp.items.length > 10)resp.items.pop();
+                            if(50 - self.model.get('items').length < 10){
+                                resp.items = resp.items.slice(0, (50 - self.model.get('items').length+1));    
+                            }
+                            var length = self.model.get('items').length;
+                            self.model.set('totalCount',(length + resp.items.length));
+                            for(var i = 0; i < resp.items.length; i++){
+                                self.model.get('items').push(resp.items[i]);
+                            } 
+                            self.render();
+                        }
+                    }
+                }, function (error) {
+                    console.log(error);
+                });
+                    
             });  
         }
     });
@@ -899,7 +970,7 @@
             else if(totalItems.length === 0){
                 totalItems = products;
             }
-             window.showGlobalOverlay();
+            window.showGlobalOverlay();
             // Comparing total items from order history and cart to the inventory
             Api.request('POST','api/commerce/catalog/storefront/products/locationinventory?pageSize=500',{productCodes:productCodes,locationCodes:locationCodes.filter(function(R,i){return locationCodes.indexOf(R) == i;})}).then(function(res){
                 totalItems.forEach(function(val, key){
@@ -953,10 +1024,13 @@
                         }
 
                     }, 4000);
-  
+                    window.hideGlobalOverlay();
                 } else if(addToCartProducts.length > 0){
                     // finally, adding the items to the cart
                     self.bulkAddToCart(addToCartProducts, removedProducts);
+                }
+                else{
+                    window.hideGlobalOverlay();
                 }
 
                 // console.log("removedProducts",removedProducts);
@@ -974,6 +1048,7 @@
                 CartMonitor.update();
                  window.hideGlobalOverlay();
                 MiniCart.MiniCart.showMiniCart(window.targetFocusEl);
+                window.hideGlobalOverlay();
             }).catch(function(err){
                 console.log(" add to cart error myaccount ",err);
                 window.hideGlobalOverlay();
@@ -981,19 +1056,20 @@
         },
           makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
             var errorArray = [], self = this, productAdded = 0,time = 1500;
-            //$('.order-history-overlay').show();
-             window.showGlobalOverlay();
+            $('.order-history-overlay').show();
+            window.showGlobalOverlay();
             $(products).each(function(key,pid){
                 setTimeout(function(){
                 var count = key;
+               
                 Api.get('product', pid.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;
                     if(variantOpt !== undefined && variantOpt.length>0){  
                         var newValue = $('.mz-orderlisting-items[orderid="'+orderId+'"] .inline[variationcode="'+pid.variantcode+'"][OrderProductId="'+pid.productCode+'"]').attr('productPrice');
                         var ID =  $('.mz-orderlisting-items[orderid="'+orderId+'"] .inline[variationcode="'+pid.variantcode+'"][OrderProductId="'+pid.productCode+'"]').attr('options');
-                        if(newValue != "Select gift amount" && newValue !== ''){
-                            if("Tenant~gift-card-prices" !== ID && (window.location.host !== "www.jellybelly.com" || window.location.host !=="t29614-s48880.stg1.mozu.com")){
+                        if(newValue != "Select Gift Card Amount" && newValue !== ''){
+                            if("Tenant~gift-card-prices" !== ID && window.location.host !== "www.jellybelly.com"){
                                 ID = "Tenant~gift-card-prices";
                             }
                             var option = PRODUCT.get('options').get(ID);
@@ -1006,7 +1082,38 @@
                     }
                      setTimeout(function(){
                         PRODUCT.set({'quantity':pid.qty });
-                        PRODUCT.addToCart();
+                        //PRODUCT.addToCart();
+                        var productCode=PRODUCT.get('productCode');
+                        var prdqty=PRODUCT.get('quantity');
+                        Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                            var flag=false;
+                             if(cartitem.items.length>0){
+                                 for(var j=0;j<cartitem.items.length;j++){
+                                     var cartitemCode=cartitem.items[j].product.productCode;
+                                     var cartitemQty=cartitem.items[j].quantity; 
+                                     var totalQty=prdqty+cartitemQty;
+                                     if(cartitemCode==productCode && totalQty>25){
+                                         flag=true;
+                                         // alert('Maximum quantity that can be purchased is 25');
+                                     }
+                                 }
+                                 if(flag){
+                                     //alert('Maximum quantity that can be purchased is 25');
+                                     $('.maximumProduct').show();
+                                     $('.maximum-inner-content').focus();
+                                     loopInMax();
+                                     return false;
+                                 }else{
+                                    PRODUCT.addToCart();
+                                    return false;
+                                 }
+                             }else{
+                                
+                                PRODUCT.addToCart();
+                                 return false;
+                                 
+                             }
+                         });    
                             PRODUCT.on('addedtocart', function(attr) {
                                 window.hideGlobalOverlay();
                             productAdded++;
@@ -1296,6 +1403,12 @@
         finishEditCard: function () {
             var self = this;  
             var operation = this.doModelAction('saveCard');
+            $( ".mz-accountpaymentmethods-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+                
+            });
             if (operation && !operation.isError) {
                 operation.otherwise(function() {
                     self.editing.card = true;
@@ -1361,8 +1474,8 @@
             'editingContact.phoneNumbers.home',
             'editingContact.isBillingContact',
             'editingContact.isPrimaryBillingContact',
-            //'editingContact.isShippingContact',
-            'editingContact.isPrimaryShippingContact'
+            'editingContact.isShippingContact',
+            'editingContact.isPrimaryShippingContact',
         ],
         renderOnChange: [
             'editingContact.address.countryCode',
@@ -1376,14 +1489,18 @@
             "change input[isBillingContact]":"update"
         },
         update: function(e){
+            // if(e.target.getAttribute("data-mz-value") === "editingContact.isBillingContact"){
+            //     setTimeout(function(){ $('input[isPrimaryBillingContact]').trigger('click'); }, 1000);
+            //     // this.model.set("editingContact.isPrimaryBillingContact",e.target.checked);
+            // }
+            // if(e.target.getAttribute("data-mz-value") === "editingContact.isShippingContact"){
+            //     e.preventDefault();
+            //     setTimeout(function(){ $('input[isPrimaryShippingContact]').trigger('click'); }, 1000);
+                // this.model.set("editingContact.isPrimaryShippingContact",e.target.checked);
+            // }
             if(e.target.getAttribute("data-mz-value") === "editingContact.isBillingContact"){
                 setTimeout(function(){ $('input[isPrimaryBillingContact]').trigger('click'); }, 1000);
                 // this.model.set("editingContact.isPrimaryBillingContact",e.target.checked);
-            }
-            if(e.target.getAttribute("data-mz-value") === "editingContact.isShippingContact"){
-                e.preventDefault();
-                setTimeout(function(){ $('input[isPrimaryShippingContact]').trigger('click'); }, 1000);
-                // this.model.set("editingContact.isPrimaryShippingContact",e.target.checked);
             }
         },
         phoneNumberFormating2: function(e){
@@ -1459,7 +1576,14 @@
         finishEditContact: function () {
             var self = this,
                 isAddressValidationEnabled = HyprLiveContext.locals.siteContext.generalSettings.isAddressValidationEnabled;
+            
             var operation = this.doModelAction('saveContact', { forceIsValid: isAddressValidationEnabled }); // hack in advance of doing real validation in the myaccount page, tells the model to add isValidated: true
+            $( ".mz-accountaddressbook-list .mz-validationmessage").each(function( index ) {
+                if($(this).text() !== "") {
+                    $(this).attr("tabindex","0");
+                }
+
+            });
             if (operation) {
                 operation.otherwise(function() {
                     self.editing.contact = true;
@@ -1523,12 +1647,13 @@
                 var temp = this.model.addStoreCredit(id);
                 if(temp) {
                     return temp.then(function (data) {
-                          window.hideGlobalOverlay();
+                        window.hideGlobalOverlay();
                         return self.model.getStoreCredits();
                     }, function(err) {
                           window.hideGlobalOverlay();
                         if(err) {
                             $('#account-messages').find('.mz-errors').focus();
+                            window.hideGlobalOverlay();
                             setTimeout(function(){
                               self.$el.find('#accountStoreCreditInput') .focus();
                             }, 8000);
@@ -1697,6 +1822,32 @@
     });
     
     */
+   $(document).on('click', '.maximumProduct .close-icon',function(){
+    $('.maximumProduct').hide();
+    $(document).find('.add-to-cart-btn-plp').focus();
+     //trigger.focus();
+ });
+   function loopInMax(){
+    var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+    var firstInput = window.firstInput = window.inputs.first();
+    var lastInput = window.lastInput = window.inputs.last(); 
+    
+    // if current element is last, get focus to first element on tab press.
+    window.lastInput.on('keydown', function (e) {
+       if ((e.which === 9 && !e.shiftKey)) {
+           e.preventDefault();
+           window.firstInput.focus(); 
+       }
+    });
+    
+    // if current element is first, get focus to last element on tab+shift press.
+    window.firstInput.on('keydown', function (e) {
+        if ((e.which === 9 && e.shiftKey)) {
+            e.preventDefault();
+            window.lastInput.focus();  
+        }
+    }); 
+} 
     $(document).ready(function () {
         
         var targetFocusEl = window.targetFocusEl;
@@ -1778,20 +1929,59 @@
         if (Hypr.getThemeSetting('allowWishlist')){
             var url = "api/commerce/wishlists/"+accountModel.get('wishlist').get('id')+"/items?startIndex=0&pageSize=21&sortBy=createDate desc"; 
             Api.request('GET',url).then(function(resp) {
-                resp.showWishlistLoadMore = true;
-                if(resp.items.length < 21){
-                    resp.showWishlistLoadMore = false;
-                }
-                resp.WishlistId = accountModel.get('wishlist').get('id'); 
-                if(resp.items.length > 20)resp.items.pop();
-                resp.totalCount = resp.totalCount-1;
-                var wishlist = Backbone.MozuModel.extend({});
-                if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
-                    el: $wishListEl,
-                    model: new wishlist(resp),
-                    messagesEl: $messagesEl
+
+                
+                var totalItems = resp.items,
+                // productCodes = [];
+                // _.each(totalItems, function(item) {
+                //     productCodes.push(item.product.productCode);
+                // });
+                productCodeUrl1= "";
+                $.each(resp.items, function (index, value)  
+                {  
+                    // Get value in alert +value.product.productCode+'+or+'
+                    if(resp.items.length == index+1) {
+                        productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                    } else {
+                        if(resp.items.length > 1) {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode+'+or+';
+                        } else {
+                            productCodeUrl1 += 'productCode+eq+'+value.product.productCode;
+                        }
+                    }
                 });
-                _.invoke(window.accountViews, 'render');
+                Api.request('get','/api/commerce/catalog/storefront/products/?filter=('+productCodeUrl1+')&pageSize=1000&responseFields=items(productCode,purchasableState)',{}).then(function (response) {
+                    var getproducts = response.items;
+                    for(var i=0;i<totalItems.length;i++){
+                        for(var j=0;j<getproducts.length;j++){
+                            if (totalItems[i].product.productCode === getproducts[j].productCode && getproducts[j].purchasableState.isPurchasable ){
+                                 _.extend(totalItems[i], {
+                                    wishliststockavailability: true});
+                            }
+                        }
+                        if(i == totalItems.length-1) {
+                            resp.showWishlistLoadMore = true;
+                            
+                            resp.WishlistId = accountModel.get('wishlist').get('id');
+                            resp.items = totalItems;
+                            if(resp.items.length < 21){
+                                resp.showWishlistLoadMore = false;
+                            }
+                            if(resp.items.length > 20)resp.items.pop();
+                            resp.totalCount = resp.totalCount-1;
+                            var wishlist = Backbone.MozuModel.extend({});
+                            if (Hypr.getThemeSetting('allowWishlist')) accountViews.wishList = new WishListView({
+                                el: $wishListEl,
+                                model: new wishlist(resp),
+                                messagesEl: $messagesEl
+                            });
+                            _.invoke(window.accountViews, 'render');
+                        }
+                    }
+                }, function (error) {
+                    console.log(error);
+                }); 
+                
             });
         }else{
             _.invoke(window.accountViews, 'render');    
@@ -1861,6 +2051,11 @@
                 e.preventDefault();
             }
         });
+        $(document).on('click', '.maximumProduct .close-icon',function(){
+            $('.maximumProduct').hide();
+            $(document).find('.add-to-cart-btn-plp').focus();
+             //trigger.focus();
+         });
         
         /*var $myAccountNav = $('.mz-scrollnav-list');
         if($myAccountNav.length > 0) {
@@ -1871,7 +2066,7 @@
         
         
         var scrollNavLinksFocus = function() {
-            var trapFocusInputs = $(document).find('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile').filter(':visible');   
+            var trapFocusInputs = $(document).find('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile,.myaccount-close').filter(':visible');   
             var trapFocusFirstinput = trapFocusInputs.first();
             var trapFocusLastinput = trapFocusInputs.last(); 
             
@@ -1896,6 +2091,7 @@
         
        // var myObj = navigator();
         $(document).find('.mz-scrollnav-link.active').trigger('click');
+        $('.myaccount-close').focus();
         $(document).on('click','.mz-scrollnav-link, .mz-scrollnav-link-mobile', function(){
             tabNavigator($(this));
         });
@@ -1923,7 +2119,14 @@
                 }
             }
         });
-        
+        $(document).on('click','.myaccount-close', function() {
+            $('.mobile-popupmenu-myaccount').hide();
+        });
+        $(document).on('keypress','.myaccount-close', function(e) {
+            if(e.keyCode == 13 || e.keyCode == 32) {
+                $('.mobile-popupmenu-myaccount').hide();
+            }
+        });
         $(document).on('click','.selected-menu-mobile.mz-mobile', function() {
             $('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile.active').focus();
             scrollNavLinksFocus();
@@ -1932,6 +2135,12 @@
         $(document).on('keypress','.selected-menu-mobile.mz-mobile', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {
                 $('.mobile-popupmenu-myaccount.mz-mobile').find('.mz-scrollnav-link-mobile.active').focus();
+                scrollNavLinksFocus();
+            }
+        });
+        $(document).on('keydown','.mz-scrollnav-link-mobile[forid="logout"]', function(e) {
+            if(e.which === 9 && e.key=="Tab") {
+                $('.myaccount-close').focus();
                 scrollNavLinksFocus();
             }
         });

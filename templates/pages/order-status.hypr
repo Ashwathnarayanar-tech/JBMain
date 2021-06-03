@@ -11,7 +11,7 @@
         <div> 
             <div class="order-status-section">
                 <h1 class="mz-pagetitle" tabindex="0">{{ labels.orderStatus }}</h1>
-                <p class="order-placed-text" tabindex="0" >Orders placed as a guest or single order lookup</p>
+                <p class="order-placed-text" tabindex="0" role="contentinfo">Orders placed as a guest or single order lookup</p>
                 <form method="post" class="mz-order-status-page" name="mz-anonymousorder">
                     <input type="hidden" name="order-returnUrl" value="{{ model.returnUrl }}"/>
                     <div class="mz-l-formfieldgroup">
@@ -20,14 +20,15 @@
                                 <label for="ordernum">{{ labels.orderNumber }}</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="ordernum" value="" type="number" data-mz-order-number /> 
+                                <input name="ordernum" id="ordernum" placeholder="Order number" value="" type="text" data-mz-order-number /> 
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="verifywith">{{ labels.verifyWith }}</label>
+                               
+                             <label for="verifywith">{{ labels.verifyWith }}</label>
                             </div>
-                            <div class="mz-l-formfieldgroup-cell">
+                            <div class="mz-l-formfieldgroup-cell select-box">
                                 <select data-mz-verify-with data-mz-action="phoneformat">
                                     {% if themeSettings.zipCodeEnabled %}<option value="zipCode">{{ labels.billingPostalCode }}</option>{% endif %}
                                     {% if themeSettings.phoneNumberEnabled %}<option value="phoneNumber">{{ labels.billingPhoneNumber }}</option>{% endif %}
@@ -35,19 +36,21 @@
                                 </select>
                                 <img width="13" class="down-caret-order-status" src="/resources/images/icons/down_caret.png">
                                 <img width="13" class="up-caret-order-status" src="/resources/images/icons/up_caret.png">
+                                
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
                             <div class="mz-l-formfieldgroup-cell">
-                                <label for="verification">{{ labels.verification }}</label>
+                               
+                                 <label for="verification">{{ labels.verification }}</label>
                             </div>
                             <div class="mz-l-formfieldgroup-cell">
-                                <input name="verification" value="" class="onlyverification" type="text" data-mz-verification />
+                                <input placeholder="Verification" id="verification" name="verification" value="" class="onlyverification" type="text" data-mz-verification />
                             </div>
                         </div>
                         <div class="mz-l-formfieldgroup-row">
-                                <label class="checkbox-outer-label"> 
-                                <input id="orderstatus-cpp-checkbox" type="checkbox" aria-label="By clicking Submit, I agree to the policies outlined in the Terms of Use and Privacy Policy."> <span>By clicking Submit, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</span></a> 
+                                <label tabindex="0" class="checkbox-outer-label"> 
+                                <input tabindex="-1" id="orderstatus-cpp-checkbox" type="checkbox" aria-label="By clicking Submit, I agree to the policies outlined in the Terms of Use and Privacy Policy. Required"> <span class="text">By clicking Submit, I agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a><span> (Required)</span></span> 
                                 <span class="checkmark-style"></span></label> 
                             </div>  
                         <div class="mz-l-formfieldgroup-row">
@@ -65,3 +68,11 @@
         </div> 
     </div>        
 {% endblock body-content %}
+
+
+
+
+
+
+
+

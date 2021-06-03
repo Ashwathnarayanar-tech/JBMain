@@ -4,6 +4,7 @@ require(["modules/jquery-mozu", "modules/api"],
     var product = require.mozuData('product');
     // Measure a view of product details. This example assumes the detail view occurs on pageload, 
     // and also tracks a standard pageview of the details page. 
+    
     window.dataLayer.push({
       'ecommerce': {
         'detail': {

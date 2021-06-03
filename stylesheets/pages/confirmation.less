@@ -1,312 +1,946 @@
-body.mz-confirmation {
-    .mz-pageheader-desktop {
-        border: none;
-        .mz-utilitynav, .jb-serach-box-with-label {
-            display: none;
+.mz-confirmation {
+    .mz-l-pagewrapper{
+        .progress-bar{
+            display: none !important;
         }
-    }
-    .mz-sitenav {
-        display: none;
-    }
-    .mz-checkout-paymenttitle {
-		color: #3b3b3e; 
-		font-size: 16px; 
-		margin: 20px 0 0; 
-    font-weight: bold;
-	}
-	.content-container {
-        /*max-width: 940px;*/
-        width: 85%; 
-        margin: 0 auto;
-		padding: 20px 40px;
-		margin-top: 12px;
-		border: 1px solid #ddd;  
-		box-shadow: 5px 0 7px #ccc; 
-        margin-bottom: 50px;
-		.mz-l-stack{ 
-		    .mz-l-stack-section{
-		        .mz-ordersummary{
-		            tbody{
-		                tr.mz-ordersummary-discount{
-		                    td{
-		                        div.remove-discount{
-		                            span.remove-coupon{
-		                                display: none;  
-		                            }
-		                        }
-		                    }
-		                }
-		            }
-		        }
-		    }
-		}
-    }
-    .mz-pagetitle {
-        color: #1381b5;
-        font-size: 22px;
-        font-weight: normal;
-        margin: 20px 0 10px;
-        font-family: @fontFamily;
-        clear: both;
-    }
-    p {
-        font-size: 13px;
-        color: #323232;
-        margin: 3px 0;
-        strong {
-            color: #A30000;
-        }
-    }
-    .mz-checkout-payment p strong { 
-      color: #000; 
-    }
-    .print-receipt {
-        float: right;
-        padding-right: 20px;
-        a {
-            background: url('../resources/images/icons/print-icon.png') no-repeat scroll 0 0;
-            font-size: 12px;
-            color: #767676;
-            padding-left: 25px;
-            display: inline-block;
-            height: 22px;
-            cursor: pointer;
-        }
-    }
-    .billing-section {
-        float: left;
-        width: 48%;
-        position: relative;
-        .mz-l-stack-sectiontitle {
-            color: #3b3b3e;
-            font-size: 18px;
-            padding: 10px 15px;
-            border-bottom: 2px solid #acacac !important;
-            width: 55%; 
-        }
-    }
-    .shipping-section {
-        float: right;
-        width: 48%;
-        position: relative;
-        .mz-l-stack-sectiontitle {
-            color: #3b3b3e;
-            font-size: 18px;
-            padding: 10px 15px;
-            border-bottom: 2px solid #acacac !important;
-            width: 55%; 
-        }
-    }
-    .mz-l-stack {
-		margin: 45px 0 20px 0;
-        .mz-l-stack-section {
-            .mz-l-stack-sectiontitle {
-                color: #3b3b3e;
-                font-size: 18px;
-                padding: 10px 15px;
-                border: none;
-            }
-            .mz-addresssummary {
-                span {
-                    &:first-child {
+        .mz-l-pagecontent{
+            background-color: #f5f5f5;
+            padding: 30px;
+            .mz-l-container{
+                background-color: #fff;
+                padding: 33px 0;
+                .content-container{
+                    .mz-pagetitle{
+                        text-align: center;
+                        font-size: 32px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: #008000;
+                        margin: 0 auto;
+                        position: relative;
+                        .tick-mark:before{
+                            content: "";
+                            background-image: url(../../resources/images/tickmark.png);
+                            display: inline-block;
+                            width: 50px;
+                            height: 50px;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            vertical-align: top;
+                            // position: absolute;
+                            // left: 29%;
+                        }
+                    }
+                    .ordertext{
+                        text-align: center;
+                        p{
+                            display:inline-block;
+                        }
+                    }
+                    p{
+                        font-size: 18px;
+                        text-align: center;
+                        color: #4a4a4a;
+                        margin: 0;
+                        line-height: 1.5;
+                        text-align: center;
+                        strong{
+                            font-weight: 500;
+                            color: #e7131a;
+                        }
+                    }
+                    .button-section{
+                        text-align: center;
+                        margin: 51px 0 0 0;
+                        position: relative;
+                        padding-bottom: 40px;
+                        border-bottom: solid 1px #cfcfcf;
+                        .continue-shopping{
+                            border-radius: 4px;
+                            background-color: #e7131a;
+                            padding: 8px 29px;
+                            font-size: 18px;
+                            font-weight: bold;
+                            text-align: center;
+                            color: #ffffff;
+                            text-decoration: none;
+                            display: inline-block;
+                            &:hover{
+                                background-color: #cc0108;
+                                border-color: #cc0108;
+                                color: white;
+                            }   
+                        }
+                        .Take-Survey{
+                            border-radius: 4px;
+                            border: solid 2px #e7131a;
+                            background: #fff;
+                            font-size: 18px;
+                            font-weight: bold;
+                            text-align: center;
+                            color: #e7131a;
+                            padding: 7px 45px;
+                            margin-left: 12px;
+                            text-decoration: none;
+                            display: inline-block;
+                            &:hover{
+                                background-color: #cc0108;
+                                border-color: #cc0108;
+                                color: white;
+                            }   
+                            &[disabled]{
+                            background-color:#CCCCCC;
+                            border-color: #e0e0e0;
+                            color: #fff;
+                            cursor: not-allowed;
+                            }
+                        }
+                        .print-receipt{
+                            position: absolute;
+                            right: 30px; 
+                            top: 18px;
+                            cursor: pointer;
+                            a{
+                                font-size: 16px;
+                                text-align: right;
+                                color: #004e99;
+                            }
+                            &:after{
+                                content: "";
+                                background-image: url(../../resources/images/printicon.png);
+                                background-size: 100%;
+                                width: 25px;
+                                height: 25px;
+                                background-repeat: no-repeat;
+                                position: absolute;
+                                left: -30px;
+                            }
+                        }
+                    }
+                    .signup-section{
+                        // margin: 40px 0 0 0;
+                        // padding: 0 12% 40px 12%;
+                        width: 70%;
+                        margin: 0 auto;
+                        padding: 40px 0;
+                        //border-bottom: solid 1px #cfcfcf;
+                        .heading{
+                            .heading-text{
+                                text-align: left;
+                                font-size: 21px;
+                                font-weight: bold;
+                                color: #000000;
+                                margin: 20px 0;
+                            }
+                        }
+                        .form-sec{
+                            .form-group{
+                                display: inline-block; 
+                               // vertical-align: top;
+                                width: 33%;
+                                &.passwd{
+                                    position: relative;    
+                                }
+                                
+                                .form-label{
+                                    font-size: 18px;
+                                    color: #000000;
+                                    display: block;
+                                    //margin: 4px 0 ;
+
+                                }
+                                .forminput{
+                                    border-radius: 4px;
+                                    border: solid 1px #ddd;
+                                    background-color: #f3f3f3;
+                                    display: block;
+                                    padding: 10px 10px;
+                                    width: 80%;
+                                    margin: 0;
+                                }
+                                .mob-pwd-row{
+                                    display: none;
+                                    background-color: #fff;
+                                    border:none;
+                                    padding: 7px;
+                                    font-size: 13px;
+                                    margin: 10px 0; 
+                                }
+                                .pwd-message-desktop{
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 0;
+                                    right: -100%;
+                                    display:none;
+                                    .arrow-left{
+                                        width: 0;
+                                        height: 0;
+                                        border-top: 10px solid transparent;
+                                        border-bottom: 10px solid transparent;
+                                        border-right: 10px solid #f1f1f1;
+                                        position: absolute;
+                                        top: 34%;
+                                        left: -10px;
+                                    }
+                                    p{                                    
+                                        font-size: 11px;
+                                        text-align: left;
+                                        width: 80%;
+                                        font-size: 11px;
+                                        padding: 13px;
+                                        background: #f1f1f1;
+                                        color: #6b6b6b;
+                                        line-height: 20px;
+                                    }
+                                }
+                                input[name="password"]:focus{
+                                    &+.pwd-message-desktop{
+                                        display:block;
+                                    }
+                                }
+                                .signup{
+                                    border-radius: 4px;
+                                    background-color: #004e99;
+                                    padding: 8px 0;
+                                    width: 64%;
+                                    border: 1px solid #004e99;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    text-align: center;
+                                    color: #ffffff;
+                                    //margin-top: 32px;
+                                    &:hover{
+                                        background-color: #003a72;
+                                        border: 1px solid #003a72;
+                                        color: #fff;
+                                    } 
+                                }
+                                .passwordError,.cpasswordError{
+                                    display: block;
+                                    font-size: 12px;
+                                    color: red;
+                                    width: 87%;
+                                }
+                            }
+                        }
+                    }
+                    hr{
+                        border-top: solid 1px #cfcfcf;
+                        margin: 0;
+                        height:0; 
+                        &.order-summary-line{
+                            width: 100%;
+                            @media only screen and (min-width: 1680px){
+                                width: 88%; 
+                            } 
+                        }
+                    }
+                    .mz-l-stack{
+                        //padding: 10px 10%;
+                        width: 70%;
+                        margin: 0 auto;
+                        .user-details-sec{
+                           // padding: 0 25px 30px 25px;
+                           padding: 0 0 30px;
+                            //border-bottom: solid 1px #cfcfcf;
+                            .mz-l-stack-section{
+                                width: 33%;
+                                display: inline-block; 
+                                vertical-align: top;
+                                .mz-l-stack-sectiontitle{
+                                    font-size: 21px;
+                                    font-weight: bold;
+                                    color: #000000;
+                                    margin: 15px 0;       
+                                }
+                                .sub-label{
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #9b9b9b; 
+                                    text-align: left;
+                                    margin: 5px 0;
+                                    &.extramargin{
+                                        margin-top:30px;
+                                    }
+                                }
+                                &.billing-section{
+                                    .payment-address-summary{
+                                        span{
+                                            font-size: 18px;
+                                            color: #000000;
+                                            display: block;
+                                            line-height: 1.2;
+                                        }
+                                    }
+                                }
+                                &.shipping-section{
+                                    .sub-label{
+                                        margin-top: 0;
+                                    }
+                                    .shipping-label{
+                                        margin-top: 30px;    
+                                    }
+                                    .shipping-method-name{
+                                        font-size: 16px;
+                                        color: #000000;
+                                        display: block;
+                                        line-height: 1.2;
+                                    }
+                                    .estimation-info{
+                                        font-weight: 500;
+                                        font-size:16px;
+                                    }
+                                    .mz-propertylist{
+                                        .shipping-address-summary{
+                                            span{
+                                                font-size: 18px;
+                                                color: #000000;
+                                                display: block;
+                                                line-height: 1.2;
+                                            }    
+                                        }
+                                    }
+                                }
+                                &.payment-method{
+                                    .payment-info{
+                                        font-size: 18px;
+                                        color: #000000;
+                                        display: block;
+                                        line-height: 1.2;    
+                                    }
+                                    .billingcontact{
+                                        padding-top: 15px;
+                                        div{
+                                            font-size: 16px;
+                                            &.billingcontact-label{
+                                                font-weight:bold;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } 
+
+                        .mz-l-stack-section-summary{
+                            //padding: 0 25px 30px 25px;  
+                            padding: 0 0 30px;
+                            @media only screen and (min-width: 1680px){
+                                width: 88%; 
+                            }
+                               
+                            .mz-l-stack-sectiontitle{
+                                font-size: 21px;
+                                font-weight: bold;
+                                color: #000000;
+                                margin: 15px 0;     
+                            }
+                            .mz-ordersummary{
+                                background-color: #fff;
+                                .summary-table-head{
+                                    .head-text{
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        color: #9b9b9b;
+                                        margin: 10px 0;
+                                        text-align: center;
+                                        &.productDetails{
+                                            width: 60%;
+                                            display: inline-block;
+                                            text-align: left;
+                                        }
+                                        &.productprice, &.producttotal{
+                                            width: 13%;
+                                            display: inline-block;
+                                        }
+                                        &.productqty{
+                                            width: 12%;
+                                            display: inline-block;
+                                        }
+                                        &.producttotal{
+                                            width: 13.4%;
+                                            text-align: right; 
+                                        }
+                                    }
+                                }
+                                .item-list{
+                                    border-bottom: solid 1px #cfcfcf;
+                                    padding-bottom: 12px;
+                                    .summary-item{
+                                        margin: 15px 0;
+                                        .item-name{ 
+                                            width: 60%;
+                                            display: inline-block;
+                                            text-align: left;
+                                            vertical-align: top;
+                                            .item-img{
+                                                width: 14%;
+                                                display: inline-block;
+                                                vertical-align: top;
+                                                img{
+                                                    width: 100%;
+                                                }
+                                            }
+                                            .discount-and-name{
+                                                width: 85%;
+                                                display: inline-block;
+                                                vertical-align: top;
+                                                .name{
+                                                    font-size: 16px;
+                                                    font-weight: 500;
+                                                    color: #000000;
+                                                    display: block;
+                                                    margin-bottom: 10px;
+                                                }
+                                                .discount{
+                                                    font-size: 12px;
+                                                    font-weight: 500;
+                                                    color: #004e99;
+                                                    width: 65%;
+                                                    display: inline-block;
+                                                    .discount-productImpact{
+                                                        color: #4a4a4a;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .item-price{
+                                            width: 13%;
+                                            display: inline-block;
+                                            text-align: center;
+                                            vertical-align: top;
+                                            .saleprice, .price{
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                                color: #000000;
+                                                display: block;
+                                                &.strike{
+                                                    font-size: 14px;
+                                                    font-weight: 500;
+                                                    letter-spacing: normal;
+                                                    color: #4a4a4a;
+                                                    text-decoration: line-through;
+                                                }
+                                            }
+                                        }
+                                        .item-qty{
+                                            width: 12%;
+                                            display: inline-block;
+                                            text-align: center;
+                                            vertical-align: top;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            color: #1c2e36;
+                                        }
+                                        .item-total{
+                                            width: 13%;
+                                            display: inline-block;
+                                            text-align: right;
+                                            vertical-align: top;
+                                            .mz-item-rowtotal{
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                                color: #000000;
+                                                display: block;
+                                                &.is-crossedout{
+                                                    font-size: 14px;
+                                                    font-weight: 500;
+                                                    letter-spacing: normal;
+                                                    color: #4a4a4a;
+                                                    text-decoration: line-through;    
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .summary-data-total{
+                                    width: 98%; 
+                                    margin: 0 auto; 
+                                    .cart-discount,.summary-subtotal,.summary-tax,.summary-shipping,.mz-ordersummary-discount{
+                                        display: block;
+                                        text-align: right;
+                                        //padding: 0 48px;
+                                        margin: 8px 0;
+                                        .label{
+                                            display: inline-block;
+                                            width: 22%;
+                                            text-align: left;
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                            color: #000000;
+                                        }
+                                        .value{
+                                            width: 12%;
+                                            display: inline-block;
+                                            text-align: right;
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                            color: #000000;
+                                            &.free{
+                                                color: #008000;
+                                            }
+                                        }
+                                    }
+                                    .mz-ordersummary-grandtotal{
+                                        display: block;
+                                        text-align: right;
+                                        //padding: 0 48px;
+                                        margin: 20px 0;
+                                        position: relative;
+                                        .line-throug{
+                                            display: block;
+                                            width: 35%;
+                                            border-bottom: solid 1px #cfcfcf;
+                                            position: absolute;
+                                            right: 0px;
+                                            margin-top: -10px;
+                                        }
+                                        .label{
+                                            width:22%;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            color: #000000; 
+                                            text-align: left;
+                                            display: inline-block;
+                                        }
+                                        .value{
+                                            width: 12%;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            color: #000000; 
+                                            text-align: right;
+                                            display: inline-block;
+                                        }
+                                    }
+                                }
+                            }  
+                        }  
+                        .mz-ordercomments,.logconf{
+                            display: none;
+                        }
+                        .giftmessage{
+                            display: block;
+                            h5{
+                                margin: 0;
+                            }
+                            .mz-ordercomments-body{
+                                word-break: break-all;
+                                text-align: left;
+                                margin: 0;
+                            }
+                        }
                     }
                 }
             }
         }
     }
-    .mz-propertylist {
-        padding-left: 15px;
-        dt {
-            min-width: 120px;
-            margin-bottom: @gutter/2;
-            font-size: 14px;
-            color: #2a2a2a;
-            width: 41%;//50%;
-        }
-
-        dd {
-            margin-bottom: @gutter/2;
-            font-size: 13px;
-            color: #323232;
-            width: 53% ;// Added width to avoid collapse 
-        }
-    }
-    .mz-ordersummary {
-        width: 100%;
-        margin: 14px 0 0;
-        background: #fff;
-        th {
-            color: #2c2c2c;
-            font-size: 12px;
-            background: #fff;
-            text-align: left;
-            text-transform: uppercase;
-            border-bottom: 2px solid #c0c5ca;
-            text-transform: capitalize;
-            .confirm-qty , .confirm-total {
-                display: inline-block;
-            }
-            .checkout-qty, .checkout-total {
-                display: none;
-            }
-        }
-        .voucher-code-row {
-          display: none;
-        }
-        .coupon-code-row , .gift-message{
-          display: none;
-        }
-        .mz-ordersummary-header-product {
-            text-align: left;
-        }
-        .mz-ordersummary-item-product {
-            color: #323232;
-            font-size: 13px;
-            border-bottom: 0px;
-            img {
-                display: none;
-            }
-            .no-free-shiping-msg{
-                display: none;
-            }
-        }
-        .mz-ordersummary-item-price {
-            color: #323232;
-            font-size: 14px;
-            text-align: center;
-        }
-        .mz-ordersummary-item-qty {
-            color: #000;
-            font-size: 14px;
-            text-align: center;
-        }
-        .mz-ordersummary-item-total {
-            color: #323232;
-            font-size: 14px;
-            text-align: center;
-        }
-        .mz-ordersummary-lineitems {
-            border-bottom: 0px;
-        }
-        .mz-ordersummary-totalname {
-            color: #323232;
-            display: inline-block;
-            font-size: 14px;
-            width: auto;
-            text-align: right;
-        }
-        .mz-ordersummary-totalvalue {
-            color: #323232;
-            display: inline-block;
-            font-size: 14px;
-			width: 10%;
-            text-align: right;
-            padding-right: 8.5%;
-        }
-        .subtotal-td {
-            padding: 5px;
-        }
-        .mz-ordersummary-line-discount {
-            td {
-                padding-top: 0;
-                text-align: left;
-                span {
-					color: #5e5e5e;
-                    font-size: 11px;
+}
+#bri-overlay,.cnx-mask,.brdialog-win,.cnx-boxes,.boxes{ 
+    display: none !important;
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    .mz-confirmation{ 
+        .mz-l-pagewrapper{ 
+            .mz-l-pagecontent{ 
+                .mz-l-container{ 
+                    .content-container{ 
+                        .button-section{
+                            .print-receipt{
+                                right: 10px;
+                            }
+                        }
+                        .signup-section{ 
+                            padding: 0 6% 40px 6%;
+                            width: 88%;
+                            .form-sec{ 
+                                .form-group{
+                                    width: 32.5%;
+                                    .signup{
+                                        width: 90%;
+                                    }
+                                }
+                            }
+                        }
+                        .mz-l-stack{
+                            padding: 10px 2%;
+                            width: 88%;
+                            .user-details-sec{ 
+                                .mz-l-stack-section{
+                                    width: 32.5%;
+                                }
+                            }
+                            
+                            .mz-l-stack-section-summary{ 
+                                .mz-ordersummary{ 
+                                    .summary-table-head{
+                                        .head-text.productDetails{
+                                            width: 49%;
+                                        }
+                                        .head-text.producttotal{
+                                            width:23.4%; 
+                                        }
+                                    } 
+                                    .item-list{ 
+                                        .summary-item{ 
+                                            .item-name{ 
+                                                width: 49%;
+                                                .discount-and-name{ 
+                                                    .name{
+                                                        margin-bottom: 0;
+                                                    }
+                                                    .discount{
+                                                        width: 85%;
+                                                    }
+                                                }
+                                            }
+                                            .item-total{
+                                                width: 22%; 
+                                            }
+                                        }
+                                    }
+                                }
+                                .mz-ordersummary{ 
+                                    .summary-data-total{ 
+                                        .cart-discount,.summary-subtotal,.mz-ordersummary-discount,.summary-tax,.summary-shipping,.mz-ordersummary-discount{
+                                            padding: 0px 28px;
+                                            .value{
+                                                width: 15%;
+                                            }
+                                            .label{
+                                                width: 30%;
+                                            }
+                                        }
+                                        .mz-ordersummary-grandtotal{
+                                            padding: 0 28px;
+                                            .line-throug{
+                                                width: 46%; 
+                                            }
+                                            .label{
+                                                width: 30%;
+                                            }
+                                            .value{
+                                                width: 15%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            .mz-ordersummary-itemtotal {
-                text-align:center;
+        }
+    }
+}
+@media only screen and (min-width : 1px) and (max-width : 767px){
+    .mz-confirmation{
+    .mz-l-pagewrapper .page-header.mobile.zerotag-mobile{
+        top:0;
+    }
+        .confirmation-header{
+            .confirmation-cointainer{
+                .mz-storebranding{
+                    width: 45%;
+                    display: block;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                .links-sec{
+                    width: 100%;
+                    div:first-child{
+                        margin: 10px;
+                        text-align: right;
+                        width: 100%;
+                    }
+                }
             }
-            .hidden {
+        } 
+        .mz-l-pagewrapper{ 
+            .mz-l-pagecontent{
+                padding: 0;
+                margin: 0;
+                border-top: 1px solid #8a8585;
+                .mz-l-container{
+                    margin: 0;
+                    padding: 96px 0 0;
+                    width: 100%; 
+                    .content-container{
+                        .mz-pagetitle{
+                            font-size: 21px;
+                            font-weight: bold;
+                            text-align: center;  
+                            color: #008000;
+                            .tick-mark{
+                                width: 40px;
+                                height: 40px;
+                                left: 1%;
+                                top: -4px;
+                                &:before{
+                                    width: 29px;
+                                    height: 29px;
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                        .ordertext{
+                            p{
+                                display:block;
+                            }
+                        }
+                        .mz-l-stack .user-details-sec{
+                            .mz-l-stack-section .sub-label{
+                                margin-bottom: 4px;
+                            }
+                        } 
+                        p{
+                            font-size: 14px;
+                            text-align: center;
+                            color: #545454;
+                            //width: 50%;
+                            margin: 0 auto;
+                            &.confirmtext{
+                                width: 100%;
+                            }
+                        }
+                        .button-section{
+                            margin-top: 20px;
+                            padding-bottom: 0px;
+                            .continue-shopping,.Take-Survey{ 
+                                width: 85%;
+                                margin: 5px 0;
+                                padding: 8px 0;
+                            }
+                            .print-receipt{
+                                position: relative;
+                                text-align: center;
+                                display: block;
+                                width: 50%;
+                                margin: 16px auto;
+                                right: 0;
+                                top:0; 
+                                &:after{
+                                    left: 0;
+                                    top:0; 
+                                }
+                            }
+                        }
+                        .signup-section{
+                            padding: 0 0 35px;
+                            width: 92%;
+                            .heading{ 
+                                .heading-text{
+                                    width: 100%;
+                                    font-size: 16px;
+                                }
+                            }
+                            .form-sec{
+                                .form-group{
+                                    width: 100%;
+                                    &.confirmpassword{
+                                        label{
+                                            margin-top:0; 
+                                        }
+                                    }
+                                    .forminput{
+                                        width: 97%;
+                                        padding: 10px 0 10px 10px;
+                                    }
+                                    .mob-pwd-row{
+                                        display:block;
+                                    }
+                                    .pwd-message-desktop{
+                                        display: none;
+                                    }
+                                    .signup{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                        .mz-l-stack{
+                            padding: 0;
+                            width: 92%;
+                            .user-details-sec{
+                                padding: 0px 0;
+                             
+                                .mz-l-stack-section{
+                                    display: block;
+                                    width: 100%;
+                                   margin-bottom: 35px;
+                                    .payment-method .payment-info{
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
+                            .mz-l-stack-section-summary{
+                                padding: 0 0 20px 0;
+                                width: 100%;
+                                .mz-ordersummary{
+                                    .summary-table-head{
+                                        display: none;
+                                    }
+                                    .item-list{
+                                        .summary-item{
+                                            .item-img.first-sec{
+                                                display: inline-block;
+                                                width: 25%;
+                                                vertical-align: top;
+                                                img{
+                                                    width: 100%;
+                                                }
+                                            }
+                                            .second-sec{
+                                                width: 73%;
+                                                display: inline-block;
+                                                vertical-align: top;
+                                                .item-name{
+                                                    width: 100%;
+                                                    display: block;
+                                                    .discount-and-name{
+                                                        .name{
+                                                            font-size: 12px;
+                                                            font-weight: 500;
+                                                            line-height: 1;
+                                                            color: #000000;
+                                                            margin: 0;
+                                                        }
+                                                        .discount{
+                                                            font-size: 9px;
+                                                            font-weight: 500;
+                                                            color: #004e99;
+                                                            width: 100%; 
+                                                        }
+                                                    }
+                                                }
+                                                .item-price{
+                                                    width: 39%;
+                                                    text-align: left;
+                                                    .label{
+                                                        font-size: 10px;
+                                                        color: #4a4a4a;
+                                                    }
+                                                    .value{
+                                                        .saleprice, .price{
+                                                            font-size: 12px;
+                                                            font-weight: 500;
+                                                            color: #000000;
+                                                            &.strike{
+                                                                font-size: 12px;
+                                                                font-weight: 500;
+                                                                color: #4a4a4a;
+                                                                text-decoration: line-through;
+                                                            }
+                                                        }
+                                                    }
+                                                }      
+                                                .item-qty{
+                                                    width: 17%;
+                                                    .label{
+                                                        font-size: 10px;
+                                                        color: #4a4a4a;
+                                                    }
+                                                    .value{
+                                                        font-size: 12px;
+                                                        font-weight: 500;
+                                                        color: #000000;
+                                                        display: block;
+                                                    }
+                                                } 
+                                                .item-total{
+                                                    width: 40%;
+                                                    text-align: right;
+                                                    vertical-align: bottom;
+                                                    .mz-item-rowtotal{
+                                                        font-size: 14px;
+                                                        font-weight: 500;
+                                                        color: #1e58a6;
+                                                       
+                                                        &.is-crossedout{
+                                                            font-size: 10px;
+                                                            font-weight: 500;
+                                                            text-decoration: line-through;
+                                                        }
+                                                    }
+                                                }                                         
+                                            }
+                                        }
+                                    }
+                                    .summary-data-total{
+                                        .cart-discount,.summary-subtotal,.summary-tax,.summary-shipping,.mz-ordersummary-discount{
+                                            padding: 0;
+                                            .label{
+                                                width: 50%;
+                                                text-align: left;
+                                            }
+                                            .value{
+                                                width: 48%;
+                                            }
+                                        }
+                                        .mz-ordersummary-grandtotal{
+                                            border-top: solid 1px #cfcfcf;
+                                            padding: 15px 0;
+                                            .line-throug{
+                                                display: none;
+                                            }
+                                            .label{
+                                                width: 50%;
+                                                text-align: left;
+                                            }
+                                            .value{
+                                                width: 48%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media print{
+    .mz-confirmation{
+        .mz-l-pagewrapper{
+            .confirmation-header{
                 display: none;
             }
-        }
-        .mz-ordersummary-itemtotal {
-			color: #535353;		   
-			font-size: 14px;
-        }
-        .mz-ordersummary-grandtotal {
-            .mz-ordersummary-totalname, 
-			.mz-ordersummary-totalvalue {
-                color: #A30000;
-				font-size:17px;
+            .mz-l-pagecontent{
+                .mz-l-container{
+                    .content-container{
+                        .button-section{
+                            display: none;
+                        }
+                        .signup-section{
+                            display: none;
+                        }
+                        .mz-l-stack{
+                           // padding: 10px 5%;
+                           width:95%;
+                            .user-details-sec{
+                               border-bottom: solid 1px #cfcfcf;
+                               border-top: solid 1px #cfcfcf;
+                               padding: 30px 0;
+                               margin: 10px 0;
+                            }
+                            .mz-l-stack-section-summary{
+                                padding: 0;
+                                .mz-l-stack-sectiontitle{
+                                    margin: 20px 0;
+                                }
+                                .mz-ordersummary-grandtotal{
+                                    .line-throug{
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-        .mz-ordersummary-subtotal {
-            .subtotal-td {
-                padding: 0;
-            }
+        #watermark{
+            display: none;
         }
-        .mz-ordersummary-subtotal,.mz-ordersummary-tax,.mz-ordersummary-shippingtotal,.mz-ordersummary-grandtotal {
-            td {
-                padding: 5px 25px;
-            }
-        }
-        .separator {
-            height: 1px;
-            background: #eee;
-        }
-        /*.shopping-tool-tip {
-			display: inline;
-			position: relative;
-			&:hover {
-				.shopping-tip-details {
-					display: block;
-				}
-			}
-			a{
-				&:hover {
-					color: #00aeef;
-				}
-			}
-			.shopping-tip-details:after{
-				content: '';
-				display: block;
-				position: absolute;
-				left: 19px;
-				bottom: 100%;
-				width: 0;
-				height: 0;
-				border-color: transparent transparent #ffffff transparent ;
-				border-style: solid;
-				border-width: 6px;
-			 }
-			 .shopping-tip-details:before{
-				content: '';
-				display: block;
-				position: absolute;
-				left: 18px;
-				bottom: 100%;
-				width: 0;
-				height: 0;
-				border-color: transparent transparent #cccccc transparent ; 
-				border-style: solid;
-				border-width: 7px; 
-			 }
-			 .shopping-tip-details{
-				.gotham-book();
-				color: #4c4c4c;			
-				display:none;
-				margin-left: 20px;
-				background: #FFFFFF;
-				border: 1px solid #C4c4c4;
-				padding: 10px;
-				position: absolute;
-				top: 25px;
-				left: -37px;
-				width: 168px;
-				font-size: 11px;
-				z-index: 10;
-				-webkit-box-shadow: 0 3px 5px -3px #ccc;
-				-moz-box-shadow: 0 3px 5px -3px #ccc;
-				box-shadow: 0 3px 5px -3px #ccc;
-				p {
-					margin: 0;
-					text-align: left;
-					font-size: 10px;
-				}
-			 }
-		}*/
     }
 }

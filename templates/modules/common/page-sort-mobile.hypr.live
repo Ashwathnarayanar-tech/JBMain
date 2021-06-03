@@ -1,9 +1,7 @@
 <div  class="jb-mobile-sort" tabindex="-1">
-    <span class="Sort-by-text-on-overlay"><span class="background-sort-img"></span>Sort By</span>
     <div  class="jb-mobile-sort-cancel" tabindex="1">
         <p data-mz-action="hideSortPopup" class="jb-mobile-sort-cancel-label" role="button"></p>
     </div> 
-    <hr>
     {% block sort-types %}
         <ul>
             {% for sort in model.sorts %}
@@ -17,9 +15,6 @@
                         {% if sort.text == "Alphabetical: Z-A" %} Name Z-A {% endif %}
                         {% if sort.text == "Date Added: Most Recent First" %} Newest  {% endif %}
                         {% if sort.text == "Date Added: Most Recent Last" %} Oldest {% endif %}
-                        {% if model.currentSort == sort.value %}
-                            <span class="jb-selection-tick"></span>
-                        {% endif %}
                     </li>
                 {% endwith %}
             {% endfor %}

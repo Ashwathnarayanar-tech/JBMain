@@ -1,8 +1,9 @@
+
 <div class="atw-modal" role="dialog" aria-modal="true">
     <div id="email-dialog" class="atw-dialog" tabindex="-1" role="region" aria-label="Please login to add the product to wishlist"> 
         <div class="content">
             <div class="close-icon">
-                <a tabindex="0" href="javascript:void(0)" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="close"></a> 
+                <a tabindex="0" aria-label="close modal" href="javascript:void(0)" role="button" aria-label="Click here to exit from Login Modal"><img class="close-img" src="../../resources/images/closemarkglobal.svg?max=100" alt="close"></a> 
             </div>  
             <div class="atw-login-label">Login</div>
             <div class="main_content">
@@ -11,30 +12,39 @@
                         <div class="mz-l-formfieldgroup" style="margin-top: 2px;">  
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
+                                   
+                                     <label for="email"><span class="is-required" aria-label="mandatory field"> *</span>Email:</label>
                                 </div>  
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <input aria-describedby="useremailerror" name="email" id="email" placeholder="Enter email" type="email" class="user-email"/>
+                                    <input aria-describedby="useremailerror" name="email" id="email" placeholder="Email" type="email" class="user-email"/>
                                     <span class="error-user" id="useremailerror"></span> 
                                 </div> 
                             </div>
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }}:</label>   
-                                </div>
-                                <div class="mz-l-formfieldgroup-cell zero-cellspace">
-                                    <input for="password" name="password" id="password" placeholder="Enter password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                      
+                                     <label for="password"><span class="is-required" aria-label="mandatory field"> *</span>{{ labels.password }}:</label>
                                     <span class="loginError" id="loginerror"></span> 
                                 </div>
+                                <div class="mz-l-formfieldgroup-cell zero-cellspace">
+                                    <input for="password" name="password" id="password" placeholder="Password"  type="password" class="user-password" aria-describedby="loginerror"/>
+                                    <span class="loginError" id="loginerror"></span>
+                                </div>
                             </div>
+                    <div class="mz-l-formfieldgroup-row">
+                        <label class="checkbox-outer-label" tabindex="0">
+                        <input id="wishlist-cpp-checkbox" tabindex="-1" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required"><span class="text"> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> <span>(Required)</span></span>
+                         <span class="checkmark-style" ></span>  
+                        </label>
+                    </div> 
                             <div class="mz-l-formfieldgroup-row">
                                 <div class="mz-l-formfieldgroup-cell"></div> 
                                 <div class="mz-l-formfieldgroup-cell">
                                     <label style="color: #707070" class="required_fields">*Required</label>
-                                    <input type="submit" role="button" tabindex="0" class="mz-button mz-button-large active-button" id="addbutton" value="Login">
-                                </div>   
+                                    <input type="submit" role="button" tabindex="0" aria-label="Login" class="mz-button mz-button-large  wishlist-login-btn" disabled="disabled" id="addbutton" value="Login">
+                                </div>    
                                 <div class="mz-l-formfieldgroup-cell">
-                                    <a href="/user/signup" role="button" tabindex="0" class="mz-button mz-button-large active-button" id="signbutton">Create An Account</a>
+                                    <a href="/user/signup" role="button" tabindex="0" aria-label="create an account" class="mz-button mz-button-large active-button" id="signbutton">Create An Account</a>
                                 </div> 
                                 <div class="mz-l-formfieldgroup-cell">
                                     <a tabindex="0" style="color:#046cc2" href="/user/forgotpassword" title="Forgot password - links to a new page"  class="mz-forgot">{{ labels.forgotPasswordLink }}</a>

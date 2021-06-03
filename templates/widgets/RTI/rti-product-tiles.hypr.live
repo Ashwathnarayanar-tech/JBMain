@@ -33,138 +33,118 @@
     </div>
 </div>
 {% endif %}
+
 {% if model.items %}
     <div class="related-title {% if model.items.length == 0 %}hidden{% endif %}">
         <span id="title" class="pull-left title"></span>
     </div>
     <div class="related-prod-owl-carousel">
-        {% for prod in model.items %} 
-            <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ prod.productCode }}">
-                {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %}
-                    <span class="sale-tag-icon">Sale</span>
-                {% endif %}
-                <div class="prod-content mz-productlisting-image-right">
-                    {% block product-image %}
-                        <div class="row product-listing-row-content">
-                            <div class="mz-subcategory-image-div">
-                                  <a  
-                                    href="{{prod.url}}" 
-                                    data-baynote-slot="{{prod.slot}}" 
-                                    data-baynote-widget="{{prod.widgetId}}" 
-                                    data-baynote-pid="{{prod.productCode}}" 
-                                    data-baynote-href="{{prod.href}}">
-                                    {% if prod.mainImage.imageUrl %}
-                                        <img src="{{ prod.mainImage.imageUrl }}?max=300" style="max-height: 300px" alt="{{prod.content.productName}} product page"/>
-                                    {% else %}
-                                        <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
-                                    {% endif %}
-                                    <span class="mainImageContainer2">
-                                        <span class="spinner icon-spinner-2 imageload"></span>
-                                    </span>
-                                    <div class="productTitle" style="text-align: center;">
-                                      <h3 style="font-size: 16px;">
-                                        {{prod.content.productName|truncatewords(10)|safe}}
-                                      </h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="mz-productlisting-info">
-                                <!-- <div class="productTitle">
-                                  <h3 style="font-size: 16px;">
-                                    <a class="mz-productlisting-title" aria-label="{{prod.content.productName|safe}}">{{prod.content.productName|truncatewords(10)|safe}}</a>
-                                  </h3>
-                                </div> -->
-                                <div class="priceSection"> 
-                                    <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
-                                        {% if prod.options and prod.options.length > 0 %}
-                                            {% for option in prod.options %}
-                                                {% if option.attributeDetail.inputType == "List" %}
-                                                    <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices"
-                                                        {% if option.isMultiValue %}multiple{% endif %} 
-                                                        class="" data-mz-product-option="{{ option.attributeFQN }}"
-                                                        style="         display: inline-block;
-                                                                        zoom: 1;
-                                                                        margin: 0 1px;
-                                                                        padding: 2px 2px;
-                                                                        font-size: 12px;
-                                                                        font-family: Trebuchet MS,Verdana,sans-serif;
-                                                                        width: 135px;
-                                                                        text-align: center;
-                                                                        border: 1px solid #ccc;
-                                                                        border-radius: 3px;
-                                                                        height: auto; 
-                                                                        font-weight: bold;
-                                                                        color: #5E5454;">
-                                                        {% if not option.isMultiValue %}<option>Select gift amount</option>{% endif %}
-                                                        {% for value in option.values %}
-                                                        <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
-                                                            value="{{value.value}}">$
-                                                            {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
-                                                        {% endfor %}
-                                                    </select>
-                                                {% endif %}  
-                                            {% endfor %}
-                                        {% else %}  
-                                            {%if prod.price.price%}
-                                              {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
-                                                <span class="visually-hidden">Original price: </span>
-                                              {% else %}
-                                                <span class="visually-hidden">Current price: </span>
-                                              {% endif %}
-                                              <span class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %} strikeprice {% endif %}">{{prod.price.price|currency}}</span>
-                                            {%endif%}
-                                            {% if prod.price.price !=  prod.price.salePrice %} 
-                                            {%if prod.price.salePrice%}<span class="jb-quickcsale">Sale: {{prod.price.salePrice|currency}}</span>
-                                                <span class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
-                                            {%endif%}   
-                                            {% endif %} 
-                                        {% endif %}    
-                                    </div> 
-                                </div>
-                                <div class="mz-swatch">
-                                    {% for property in prod.options %}
-                                        {% if property.attributeFQN == "Tenant~color" || property.attributeFQN == "tenant~color" %}
-                                            {% for colorOpt in property.values %}
-                                                <span class="swatch-element" for="tenantcolor_{{ colorOpt.value }}">
-                                                    <input type="button" data-toolstip="toolstip" data-placement="top" title="{{ colorOpt.value }}" class="swatch {{ colorOpt.value|lower }}" data-mz-swatch value="{{ colorOpt.value }}">
-                                                    <label for="tenantcolor_{{ colorOpt.value }}"></label>
-                                                </span>
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %} 
-                                </div>   
-                                <div class="mz-productdetail-conversion-controls">
-                                    {% if prod.price.price > 0 %}
-                                        <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                                            <input type="text" class="quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1" 
-                                            aria-label="Quantity of {{ prod.content.productName|safe }} to add to cart"/> 
-                                            <span tabindex="0" role="button" class="increment spinner" aria-label="Increase quantity of {{ prod.content.productName|safe }} by one to add to cart" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
-                                            <span tabindex="0" role="button" class="dicrement spinner" aria-label="Decrease quantity of {{ prod.content.productName|safe }} by one to add to cart" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
-                                        </div>  
-                                    {% endif %}
-                                  <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
-                                </div>
-                                <div class="jb-buy-product quickview-jb">
-                                    {% if  prod.purchasableState.isPurchasable %}
-                                        <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
-                                    {% else %}   
-                                        {% if prod.options and prod.options.length > 0 %}
-                                            <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
-                                                {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
-                                                data-jb-pid="{{ prod.productCode }}" 
-                                                class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >
-                                                shop gift card
-                                            </button>
+        {% for prod in model.items %}
+                <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %} {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %} withsale-new-label {% endif %}{% if prod.options and prod.options.length > 0 %}{% for option in prod.options %}{% if option.attributeDetail.inputType == 'List' %}giftcard{% endif %}{% endfor %}{% endif %}" data-mz-product="{{ prod.productCode }}">
+                    {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %}
+                        <p class="sale-tag-icon product-sale-new-label"><em></em> <span>Sale</span><em></em></p>
+                    {% endif %}
+                    <div class="prod-content mz-productlisting-image-right">
+                        {% block product-image %}
+                            <div class="row product-listing-row-content">
+                                <div class="mz-subcategory-image-div mz-productlisting-image">
+                                    <a aria-label="{{prod.content.productName}} product image" href="{{prod.url}}" data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}">
+                                        {% if prod.mainImage.imageUrl %}
+                                            <img src="{{ prod.mainImage.imageUrl }}?max=100" alt="{{prod.content.productName}} product image"/>
                                         {% else %}
-                                            <button class="jb-out-of-stock-cur notify-me-plp-rti" data-mz-product-code="{{ prod.productCode }}" data-mz-location-code="{{ prod.inventoryInfo.onlineLocationCode }}" style="cursor: pointer;"> Notify Me </button>
-                                        {% endif %} 
-                                    {% endif %}
+                                            <img alt="{{model.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=100" />
+                                        {% endif %}
+                                        <span class="mainImageContainer2">
+                                            <span class="spinner icon-spinner-2 imageload"></span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="jb-product-min-details">  
+                                <div class="mz-productlisting-info">
+                                    <div class="productTitle"><a class="mz-productlisting-title" href="{{prod.url}}"  data-baynote-slot="{{prod.slot}}"  data-baynote-widget="{{prod.widgetId}}" data-baynote-pid="{{prod.productCode}}" data-baynote-href="{{prod.href}}" aria-label="{{prod.content.productName|safe}}"><h2 class="prod-title-heading">{{prod.content.productName|truncatewords(10)|safe}}</h2></a></div>
+                                    <div class="priceSection"> 
+                                        <div class="jb-product-prize" data-mz-product-price="{{model.price.price}}"> 
+                                            {% if prod.options and prod.options.length > 0 %}
+                                                {% for option in prod.options %}
+                                                    {% if option.attributeDetail.inputType == "List" %}
+                                                        <select plp-giftcart-prize-change-action data-jb-pid="{{ model.productCode }}" data-mz-product-option="tenant~gift-card-prices"
+                                                            {% if option.isMultiValue %}multiple{% endif %} 
+                                                            class="" data-mz-product-option="{{ option.attributeFQN }}">
+                                                            {% if not option.isMultiValue %}<option>Select Gift Card Amount</option>{% endif %}
+                                                            {% for value in option.values %}
+                                                            <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
+                                                                value="{{value.value}}">$
+                                                                {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;width:13px;">
+                                                        <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none; width:13px;" >
+                                                    {% endif %}  
+                                                {% endfor %}
+                                            {% else %}
+                                                {% if prod.price.price !=  prod.price.salePrice %} 
+                                                    {%if prod.price.salePrice%}
+                                                        <span tabindex="0" class="jb-quickcsale"> {{prod.price.salePrice|currency}}</span>
+                                                    {%endif%}   
+                                                {% endif %} 
+                                                {%if prod.price.price%}
+                                                    <span tabindex="0" role="contentinfo" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %}
+                                                strikeprice {% endif %}">
+                                                    {{prod.price.price|currency}}
+                                                    </span>
+                                                {%endif%}
+                                                {% if prod.price.price !=  prod.price.salePrice %} 
+                                                    {%if prod.price.salePrice%}
+                                                        <span tabindex="0" class="sale-percentage">{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}Save {{sale}}% {% endwith %}{% endwith %}{% endwith %}</span>
+                                                    {%endif%}   
+                                                {% endif %} 
+                                            {% endif %}    
+                                        </div> 
+                                    </div>
+                                    <div class="mz-swatch">
+                                        {% for property in prod.options %}
+                                            {% if property.attributeFQN == "Tenant~color" || property.attributeFQN == "tenant~color" %}
+                                                {% for colorOpt in property.values %}
+                                                    <span class="swatch-element" for="tenantcolor_{{ colorOpt.value }}">
+                                                        <input type="button" data-toolstip="toolstip" data-placement="top" title="{{ colorOpt.value }}" class="swatch {{ colorOpt.value|lower }}" data-mz-swatch value="{{ colorOpt.value }}">
+                                                        <label for="tenantcolor_{{ colorOpt.value }}"></label>
+                                                    </span>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %} 
+                                    </div>
+                                    <div class="cardMobCTAcontainer">   
+                                        <div class="jb-buy-product quickview-jb">
+                                            <div class="mz-productdetail-conversion-controls">
+                                                <div class="qty-input-box qty" tabindex="0" aria-label="Quantity - 1">
+                                                    <input type="text" class="quantity plpquantityinput quantity-field-rti" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) : 1"/> 
+                                                    <span class="increment spinner plpquantityincrement" aria-label="Increases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)+1 : 25"></span>
+                                                    <span class="dicrement spinner plpquantitydicrement" aria-label="Decreases quantity of this product" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-rti')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-rti')[0].value)-1 : 1"></span>
+                                                </div>  
+                                                <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+                                            </div>
+                                            {% if  prod.purchasableState.isPurchasable %}
+                                                <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-plp" type="submit" > Add to Cart </button>
+                                            {% else %}   
+                                                {% if prod.options and prod.options.length > 0 %}
+                                                    <button attr-slot="{{prod.slot}}" attr-widget="{{prod.widgetId}}" id="add-to-cart-cur" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
+                                                        {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
+                                                        data-jb-pid="{{ prod.productCode }}" 
+                                                        class="jb-add-to-cart-cur jb-tealium-trigger gift-prize-select" type="submit" >
+                                                        Shop Gift Card
+                                                    </button>
+                                                {% else %}
+                                                    <button class="jb-out-of-stock-cur notify-me-plp-rti" data-mz-product-code="{{ prod.productCode }}" data-mz-location-code="{{ prod.inventoryInfo.onlineLocationCode }}" style="cursor: pointer;"> Notify Me </button>
+                                                {% endif %} 
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endblock product-image %} 
+                        {% endblock product-image %} 
+                    </div>
                 </div>
-            </div>
         {% endfor %}
     </div>
 {% else %}

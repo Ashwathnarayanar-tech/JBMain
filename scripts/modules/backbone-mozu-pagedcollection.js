@@ -1,5 +1,6 @@
 define([
-    "jquery", "underscore",
+    "jquery",
+    "underscore",
     "hyprlive",
     "modules/backbone-mozu-model"], function ($, _, Hypr, Backbone) {
 

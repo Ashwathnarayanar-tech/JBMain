@@ -21,7 +21,7 @@
         
                 <div class="jb-childcategory" data-mz-category-url="{{childrenCategories.content.slug}}">
                     <div class="jb-colapsing-title">
-                        <h1 class="jb-category-title">{{childrenCategories.name}}</h1>
+                        <h1 class="jb-category-title">View {{childrenCategories.name}}</h1>
                         <p class="mz-desktop">open/close</p>
                         <p class="mz-mobile">+</p>
                         

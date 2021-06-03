@@ -201,7 +201,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }
         },  
         displayApiMessage: function (xhr) {
-             window.hideGlobalOverlay();
+            window.hideGlobalOverlay();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var patt = new RegExp(re);
             if(xhr.applicationName === "Customer" && xhr.errorCode === "ITEM_NOT_FOUND" ){
@@ -222,12 +222,10 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                             
                         
                     
-                 
-                }else {   
-                     xhr.message = Hypr.getThemeSetting('missingcredentials');  
+                    }else {   
+                        xhr.message = Hypr.getThemeSetting('missingcredentials');  
                     }
                 }
-                  
             }
             if(xhr.message === "Missing or invalid parameter: resetPasswordInfo UserName or EmailAddress must be provided"){
                 this.displayMessage(Hypr.getThemeSetting('validEmialSignUp'));
@@ -243,7 +241,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         displayMessage: function (msg) {
             this.setLoading(false);
             if(msg === "Missing or invalid parameter: password Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character"){
-                msg = "Error: Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character";
+                msg = "Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character";
             }
             if(msg == "Error:Missing or invalid parameter: EmailAddress EmailAddress already associated with a login"){ 
                 this.$parent.find('[data-mz-role="popover-message"]').html('<span tabindex="0" class="mz-validationmessage" aria-label="Error: Thanks for trying to register, but there is already an account with that email address. Please visit the Forgot Password page to update your password or Contact Us for additional assistance." style="display: inline;">Thanks for trying to register, but there is already an account with that email address. Please visit the <a href="/user/forgotpassword" title="forgot password">Forgot Password</a> page to update your password or <a href="/contact-us" title="contact us">Contact Us</a> for additional assistance.</span>');  
@@ -322,7 +320,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         },
         login: function () {
             this.setLoading(true);
-            this.validData();
+            this.validData(); 
             window.showGlobalOverlay(); 
             api.action('customer', 'loginStorefront', {
                 email: this.$parent.find('[data-mz-login-email]').val(),
@@ -377,42 +375,33 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             var orderNumber = this.$parent.find('[data-mz-order-number]').val(),self = this;
             if((billingPhoneNumber === null && email !==null ) || (billingPhoneNumber !== null && email === null) )
             {
-                window.showGlobalOverlay();
-                api.action('customer', 'orderStatusLogin', {
-                    ordernumber: orderNumber,
-                    email: email,
-                    billingZipCode: billingZipCode,
-                    billingPhoneNumber: updatedbillingPhoneNumber
-                }).then(function () { 
-                    //window.hideGlobalOverlay();
-                    window.location.href = "/my-anonymous-account"; 
-                }, function(err){
-                    if(billingPhoneNumber!==null){
-                        api.action('customer', 'orderStatusLogin', {
-                            ordernumber: orderNumber,
-                            email: email,
-                            billingZipCode: billingZipCode,
-                            billingPhoneNumber: billingPhoneNumber
-                    }).then(function () { 
-                            window.location.href = "/my-anonymous-account";
-                    },function(err){
-                        window.hideGlobalOverlay();
-                        var response = err;
-                        if(typeof(err) === "string"){
-                            response = {message:err};
-                        }
-                        _.bind(self.retrieveErrorLabel,self)(response);
-                        });
-                    }else{
-                        window.hideGlobalOverlay();
-                        var response = err;
-                        if(typeof(err) === "string"){
-                            response = {message:err};
-                        }
-                        _.bind(self.retrieveErrorLabel,self)(response);
-                    }
-                });
-            }    
+            window.showGlobalOverlay();
+            api.action('customer', 'orderStatusLogin', {
+                ordernumber: orderNumber,
+                email: email,
+                billingZipCode: billingZipCode,
+                billingPhoneNumber: updatedbillingPhoneNumber
+            }).then(function () { 
+                window.location.href = "/my-anonymous-account"; 
+            }, function(err){
+                if(billingPhoneNumber!==null){
+                    api.action('customer', 'orderStatusLogin', {
+                        ordernumber: orderNumber,
+                        email: email,
+                        billingZipCode: billingZipCode,
+                        billingPhoneNumber: billingPhoneNumber
+                   }).then(function () { 
+                        window.location.href = "/my-anonymous-account";
+                   },function(err){
+                       window.hideGlobalOverlay();
+                    _.bind(self.retrieveErrorLabel,self)(err);
+                   });
+                }else{
+                    window.hideGlobalOverlay();
+                    _.bind(self.retrieveErrorLabel,self)(err);
+                }
+            });
+        }       
         },
         validData: function(){
             var validity = true;
@@ -462,7 +451,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 window.location = '/';
             }
-             window.hideGlobalOverlay();
+            window.hideGlobalOverlay();
         },
         displayResetPasswordMessage: function () {
             window.hideGlobalOverlay();
@@ -520,11 +509,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if (this.validData() && this.validate(payload)) {
                 //var user = api.createSync('user', payload);
                 this.setLoading(true);
-                 window.showGlobalOverlay();
+                window.showGlobalOverlay();
                 return api.action('customer', 'createStorefront', payload).then(function () {
                     window.location = '/myaccount';
                 }, self.displayApiMessage)
-                 .catch(function(err){
+                .catch(function(err){
                     window.hideGlobalOverlay();
                 });
             }
@@ -584,7 +573,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
 
 
     $(document).ready(function () {
-        
+        $("#login-cpp-checkbox").prop('checked',false);
         // script to validate the empty fields submittion in reset password page.
         $(document).find('form.reset-password-form').find('.submit-similarbutton').click(function(e){
             var flag = false;
@@ -596,7 +585,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(flag){
                 $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li>'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
             }else{
-                 window.showGlobalOverlay();
+                window.showGlobalOverlay();
                 $(document).find('form.reset-password-form').find('.mz-button-large').click();   
             }
         });

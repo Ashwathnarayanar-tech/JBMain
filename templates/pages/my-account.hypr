@@ -11,12 +11,34 @@
 
 <div class="mz-l-container">
 
-        <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
-        <a class="selected-menu-mobile mz-mobile"></a> 
-        <p class="mz-description">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
+        
+        <a class="selected-menu-mobile mz-mobile"></a>
         <div class="clearfix"></div>
 
     <div class="mz-l-sidebar mz-myaccount-nav">
+        <div class="sweetrewardscard">
+            <h2><span>Welcome,</span> {{ model.firstName}} {{ model.lastName}}</h2>
+            <div class="sweetcardlayout">
+                <div class="topsec">
+                    <div class="leftsec">
+                        <span>SweetRewards</span>
+                        <span>1,725 Points</span>
+                    </div>
+                    <div class="rightsec">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="sweetprogress">
+                    <div>Rookie</div><div>775 points to MVP</div>
+                    <div><span>dsfsds</span></div>
+                </div>
+            </div>
+            <a class="mz-scrollnav-link" forID="account-loyalty-program"  data-zrl-dashboard='show-redeem-tab' id="sweetrewards-panel" aria-controls="x-account-loyalty-program" aria-selected="false" role="tab" href="#account-loyalty-program" tabindex="0">
+                EXPLORE SWEET REWARDS >   
+            </a>
+        </div>
+        
+        <h1 class="mz-pagetitle">{{ labels.yourAccount }}</h1>
         {% include "modules/my-account/my-account-nav" with navtarget="body" %}
     </div>
     
@@ -31,7 +53,10 @@
         </div>
         
         <div class="mz-l-stack-section mz-accountsettings" id="x-account-settings" role="tabpanel" arialabelledby="account-settings-panel" style="display:none;">
+            <p class="mz-description" tabindex="0">Welcome to your account. You'll use your account to manage orders, access information and more.</p>
+            <div class="clearfix"></div>
             <div class="x-account-settings">
+
                 {% include "modules/my-account/my-account-settings" %}
             </div>
             <div class="mz-accountsettings-password">
@@ -87,6 +112,7 @@
     <div class="clearfix"></div>
     <div class="mobile-popupmenu-myaccount mz-mobile">
     {% comment %}<div  style="height:60px; background-color:#fff"></div> {% endcomment %}
+    <span class="myaccount-close" tabindex="0" role="text" aria-label="close Icon"></span>
     <div class="mobile-menu">
     <a class="mz-scrollnav-link-mobile" forID="account-loyalty-program" href="#account-loyalty-program">
         SWEET REWARDS

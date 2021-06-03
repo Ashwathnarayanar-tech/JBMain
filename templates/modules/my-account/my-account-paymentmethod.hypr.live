@@ -8,7 +8,7 @@
 {% endcomment %}
 
 
-<li class="jb-each-card" tabindex="0" >
+<li class="jb-each-card" tabindex="0" role="contentinfo">
         <span class="cType">Card Type :{{model.cardType}}</span>
         <span class="cName">Name on Card :{{model.nameOnCard}}</span>
         <span class="cNum">Card No :{{model.cardNumberPart}}</span>
@@ -18,3 +18,7 @@
             <a class="mz-paymentmethod-delete" role="button" aria-label="Delete card" title="Delete Card" href="javascript:;" data-mz-action="beginDeleteCard" data-mz-card="{{ model.id }}"></a>
         </div>
 </li>
+
+
+
+

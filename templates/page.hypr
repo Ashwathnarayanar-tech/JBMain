@@ -19,63 +19,58 @@
         {% block meta-tags %}
         <meta charset="utf-8">
         {% include "modules/json-required-for-hyprlive" %}
-    
+		
         {% block meta-candytags %}
-
-       
-     <meta name="description" content="{% firstof PageContext.MetaDescription model.content.productShortDescription  %} {% if model.content.productShortDescription %} {% endif %} {% if PageContext.MetaDescription %} {% endif %}">
-    <meta name="keywords" content="{{ PageContext.MetaKeywords }}">
-     {% endblock meta-candytags %}
-    <meta name="correlationId" content="{{ pageContext.correlationId }}">
+	   <meta name="description" content="{% firstof PageContext.MetaDescription model.content.productShortDescription  %} {% if model.content.productShortDescription %} {% endif %} {% if PageContext.MetaDescription %} {% endif %}">
+		<meta name="keywords" content="{{ PageContext.MetaKeywords }}">
+		 {% endblock meta-candytags %}
+		<meta name="correlationId" content="{{ pageContext.correlationId }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-  <meta name="google" content="notranslate" />
-    {% if pageContext.secureHost == "https://jellybelly-com.t9046.mozu.com" %}
-    <meta name="robots" content="noindex">
-    {% endif %}
+    <meta name="google" content="notranslate" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         {% endblock meta-tags %}
 
         {% if PageContext.Title == 'main' %}
-      
-    <title>
-    {% block title-tag-content %} 
-    Jelly Belly Candy Company - Official Website
-    {% endblock title-tag-content %}
-    </title>
+	    
+		<title>
+    	{% block title-tag-content %} 
+		Jelly Belly Candy Company - Official Website
+		{% endblock title-tag-content %}
+		</title>
 
-    {% else %}
+		{% else %}
 
-    <title>
-    {% block title-tag-content %}
-    {% firstof pageContext.metaTitle model.content.productName PageContext.Title labels.orderConfirmation %} 
-    {% endblock title-tag-content %}
-    </title>
-  
-    {% endif %}
-    
-    {% block shortcut-icon %}
+		<title>
+		{% block title-tag-content %}
+		{% firstof pageContext.metaTitle model.content.productName PageContext.Title %}   
+		{% endblock title-tag-content %}
+		</title>
+	
+		{% endif %}
+		
+		{% block shortcut-icon %}
         <link rel="stylesheet" href="https://use.typekit.net/nxf7krm.css">
-    <link rel="shortcut icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
-    
+		<link rel="shortcut icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
+		<link rel="icon" href="{{siteContext.cdnPrefix}}/resources/images/icons/jb-favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{siteContext.cdnPrefix}}/resources/images/icons/favicon.png" />
+		
         {% include "modules/canonical-tag2" %}
 
-    {% endblock shortcut-icon %}
+		{% endblock shortcut-icon %}
         {% if PageContext.FeedUrl  %}
         <link rel="alternate" type="application/rss+xml" title="{{ PageContext.Title }}" href="{{ PageContext.FeedUrl }}" />
         {% endif %}
 
     {% if themeSettings.antiFlickerEnabled == true %}
-    <style>.async-hide { opacity: 0 !important} </style>
-    <script>
-      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
-      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
-      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
-      })(window,document.documentElement,'async-hide','dataLayer',4000,
-      {'GTM-PMHCW97':true});
+		<style>.async-hide { opacity: 0 !important} </style>
+		<script>
+			(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+			h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+			(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+			})(window,document.documentElement,'async-hide','dataLayer',4000,
+			{'GTM-PMHCW97':true});
     </script>
     {% else %}
     <!-- No anti-flicker -->
@@ -84,7 +79,7 @@
     <!-- Google Tag Manager -->
     <script>
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({'userId': '{{ user.accountId }}'});
+    //window.dataLayer.push({'userId': '{{ user.accountId }}'});
     </script>
     
 <!-- Google Tag Manager -->
@@ -107,10 +102,10 @@
 <!-- End Google Tag Manager -->
   
   {% require_script "pages/jb-tealium-new" %}
-  {% require_script "modules/page-header" %} 
-
+{% require_script "modules/page-header" %} 
+  
   {% block stylesheets %}
-    {{ "/stylesheets/modules/zinrelo-modal.less"|stylesheet_tag:"defualt" }}
+  
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path != "main" %}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
     {% endif %}
@@ -153,6 +148,12 @@
     {% if pagecontext.cmsContext.template.path == "login" or pagecontext.cmsContext.template.path == "forgot-password" or pagecontext.cmsContext.template.path == "signup"  or pagecontext.cmsContext.template.path =="Reset-Password"%}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
     {% endif %}
+    {% if pagecontext.cmsContext.template.path == "pages-subscription" %}
+      {{ "/stylesheets/pages/subscription.less"|stylesheet_tag:"default" }}
+    {% endif %}
+    {% if pagecontext.cmsContext.template.path == "pages-subscription-confirmation" %}
+      {{ "/stylesheets/pages/subscription-confirmation.less"|stylesheet_tag:"default" }}
+    {% endif %}
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main"%}
       {{ "/stylesheets/pages/pageisMobile.less"|stylesheet_tag:"default" }}
     {% endif %}
@@ -164,17 +165,19 @@
   {% block head-tag-scripts %}
   {% include "modules/web-fonts-loader" %}
   {% endblock head-tag-scripts %}
-    
+
+
+		
         <script>
             if(!navigator.cookieEnabled){
                 alert('Please enable your browser cookies.');
             }
         </script>
-    {% cms_resources %}
+		{% cms_resources %}
         
-    {%header_content%}
-     
-     <script type="application/ld+json">
+		{%header_content%}
+	   
+	   <script type="application/ld+json">
         {   "@context" : "http://schema.org",
             "@type" : "WebSite",
             "name" : "{{ siteContext.generalSettings.websiteName }}",
@@ -198,7 +201,7 @@
   </script>
   {% endif %}
 
-{% if pagecontext.pageType != "checkout" %}
+{% if pagecontext.pageType != "checkout"%}
   {% require_script "modules/new-lazy-load" %}
 {% endif %}
 
@@ -208,7 +211,7 @@
 
     {% block open-body-tag %}
     
-    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %} {% if pagecontext.cmsContext.page.path == 'store-locator' %}storeLocatorpage{% endif %}">
+    <body class="{% if not pageContext.isDesktop and not pageContext.isTablet %}Mobile-device{% endif %} {% block body-tag-classes %}{% endblock body-tag-classes %} {% if pagecontext.cmsContext.page.path == "store-locator" %}storeLocatorpage{% endif %}" >
     {% endblock open-body-tag %}
 
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" %}
@@ -231,6 +234,7 @@
     {% endif %}
     {% if pagecontext.pageType == "confirmation" %}
       {% require_script "vendor/google-tag-manager/confirmation" %}
+        {% require_script "modules/new-lazy-load" %}
     {% endif %}
     {% if pagecontext.pageType == "checkout" %}
       {% require_script "vendor/google-tag-manager/checkout" %}
@@ -257,32 +261,31 @@
 
     {% block current-date%}
         <span id="currentDate" style="display: none"> {% now j-n-Y %}</span>
-    <span id="currentTime" style="display: none"> {% now H  %}</span> 
+		<span id="currentTime" style="display: none"> {% now H  %}</span> 
         <span id="currentShipDate" style="display: none"> {% now j-n-Y %}</span>
     {% endblock current-date %}
     
-
         <div id="page-wrapper" class="mz-l-pagewrapper">
       <div class="general-overlay"></div>
-      <p style="text-align:center;" class="skipto mz-desktop" tabindex="0">
-          {% block title-tag-content %}
-              {% firstof pageContext.metaTitle model.content.productName PageContext.Title %} {% if model.content.productName %}|{% endif %} {% if PageContext.Title %}|{% endif %} {% parent %} {{ siteContext.generalSettings.websiteName }} 
-          {% endblock title-tag-content %}
-      </p> 
-      <a href="javascript:;" style="text-align:center;" class="skipto mz-desktop" tabindex="0">Skip to main content</a>
-          <a href="javascript:;" class="skipto mz-mobile"  tabindex="0" role="button">Skip to main content</a>
-          {% block progress-bar %} 
-            <div class="progress-bar">
-                <a href="/shipping-info#FreeGroundShipping" title="shipping information" target="_blank">
-                <div class="meter blue"> 
-                    <p class="text-content" aria-live="polite"></p>
-                    <span style="width: 0%"></span>
-                </div> 
-                </a>
-            </div> 
-        {% endblock progress-bar %} 
+			<p style="text-align:center;" class="skipto mz-desktop" tabindex="0">
+			    {% block title-tag-content %}
+			        {% firstof pageContext.metaTitle model.content.productName PageContext.Title %} {% if model.content.productName %}|{% endif %} {% if PageContext.Title %}|{% endif %} {% parent %} {{ siteContext.generalSettings.websiteName }} 
+			    {% endblock title-tag-content %}
+			</p> 
+			<a href="javascript:;" style="text-align:center;" class="skipto mz-desktop" tabindex="0">Skip to main content</a>
+        	<a href="javascript:;" class="skipto mz-mobile"  tabindex="0" role="button">Skip to main content</a>
+        	{% block progress-bar %} 
+		        <div class="progress-bar">
+		            <a href="/shipping-info#FreeGroundShipping" title="shipping information" target="_blank" role="alert">
+		            <div class="meter blue"> 
+		                <p class="text-content" aria-live="polite"></p>
+		                <span style="width: 0%"></span>
+		            </div> 
+		            </a>
+		        </div> 
+		    {% endblock progress-bar %} 
             {% block page-header %}
-                 {% include "modules/pageHeaderNew" %}
+            {% include "modules/pageHeaderNew" %}
             {% endblock page-header %}
  
             {% block utility-bar %}
@@ -292,7 +295,7 @@
 
             
  
-            <div role="main" role="region" id="page-content" class="mz-l-pagecontent" tabindex="-1">
+            <div role="main" role="region" id="page-content" class="mz-l-pagecontent">
                 <div class="RTI-overlay"></div>   
         <div class="notify-me-popup" style="display:none">
           {% include "modules/common/notify-me" %}
@@ -305,20 +308,19 @@
                 {% endif %}
                 {% endblock breadcrumbs %}
 
+				<p name="maincontent" id="maincontent" class="sr-only" role="contentinfo" tabindex="-1">Beginning of main content</p>
+
                 {% block body-content %}
                     {% dropzone "body" scope="page" %}
                     {% if pageContext.cmsContext.template.path == 'blank-page' %}
                       {% dropzone "rti-blank-page" scope="template" %}
                     {% endif %}
-                    {% if pageContext.cmsContext.page.path == "search-results" %}
-                      {% include "modules/addtowishlist-popup" %}
-                    {% endif %}
-        {% endblock body-content %}
+				{% endblock body-content %}
         <div class="globalOverlay">
-          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxwidth=100" class="rotate" alt="spinner">
+          <img src="/../resources/images/JB-Loader2-01.png" class="rotate" alt="spinner">
          </div>
             </div>
-            
+             
       </div>
         </div>
         
@@ -327,17 +329,17 @@
                 {% include "modules/page-footer" %}
             </div>
         {% endblock page-footer %}
-       
+		   
        {% if pagecontext.isMobile or pagecontext.isTablet %}
             {% block page-popup %}
                 {% include "modules/page-popup" %}
             {% endblock page-popup %}
         {% endif %}
-  
-   {% require_script "modules/common" %}
+	
+	 {% require_script "modules/common" %}
         <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.respond.js"></script>
-   
-{% if themeSettings.isGlobalOverlayEnabled === true %}
+	
+  {% if themeSettings.isGlobalOverlayEnabled === true %}
   <script >
   window.showGlobalOverlay = function showGlobalOverlay(){
           document.body.classList.add("openoverlay");
@@ -346,13 +348,14 @@
     window.hideGlobalOverlay = function hideGlobalOverlay(){
             document.body.classList.remove("openoverlay");
     };
+   // window.showGlobalOverlay();
   var interval = setInterval(function() {
     if(document.readyState === 'loading') {
       console.log(" show overlay");
        // window.showGlobalOverlay();
     } 
     if(document.readyState === 'complete') {
-      console.log(" hide overlay");
+      // console.log(" hide overlay");
       //window.hideGlobalOverlay();
         clearInterval(interval);
         //done();
@@ -368,15 +371,15 @@ window.showGlobalOverlay = function showGlobalOverlay(){
 </script>
  {% endif %}
 
-   {% block trailing-scripts %}   
-        {% include "modules/trailing-scripts" %}  
+	 {% block trailing-scripts %}		
+        {% include "modules/trailing-scripts" %}	
         <div class="softCartId" style="display:none;"></div>
         <div class="softCartQty" style="display:none;"></div>
         <div class="softCartPrice" style="display:none;"></div>
         {% endblock trailing-scripts %}
 
-  <style>
-    #myjellybelly-modal
+	<style>
+		#myjellybelly-modal
         {   
             background: #f9f9f9;
             border: 1px solid black;
@@ -394,29 +397,33 @@ window.showGlobalOverlay = function showGlobalOverlay(){
             padding: 15px;
             line-height: 150%;
         }
-    </style>
-    
-  <div id="myjellybelly-modal">
-      <p><span style="font-size: 26px;">You're headed over to<br>
-      <span style="color: #ff0000; font-size: 30px;">MyJellyBelly.com!</span></span><br></p>
-      <span style="color: #ff0000;">MyJellyBelly.com</span> is a separate site where you can customize boxes, tins and other containers with your own words and images, then fill the containers with a custom mix of Jelly Belly jelly beans.<br>
-      To continue, just wait a bit or <span id="myjellybelly-continue" style="text-decoration: underline; cursor: pointer;">click here.</span><br>
-      To stay on JellyBelly.com, <span id="myjellybelly-cancel" style="text-decoration: underline; cursor: pointer;">click here.</span>
+		</style>
+		
+	<div id="myjellybelly-modal">
+	    <p><span style="font-size: 26px;">You're headed over to<br>
+	    <span style="color: #ff0000; font-size: 30px;">MyJellyBelly.com!</span></span><br></p>
+	    <span style="color: #ff0000;">MyJellyBelly.com</span> is a separate site where you can customize boxes, tins and other containers with your own words and images, then fill the containers with a custom mix of Jelly Belly jelly beans.<br>
+	    To continue, just wait a bit or <span id="myjellybelly-continue" style="text-decoration: underline; cursor: pointer;">click here.</span><br>
+	    To stay on JellyBelly.com, <span id="myjellybelly-cancel" style="text-decoration: underline; cursor: pointer;">click here.</span>
+	</div>
+   <div class="maximumProduct"  role="alert">
+    <div class="maximum-inner-content" tabindex="0">
+    <div class="maximum-message" tabindex="0">Maximum quantity that can be purchased is 25</div>
+    <span class="close-icon" tabindex="0" role="button" aria-label="Close icon"></span>
+    <div>
   </div>
-
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" %}
       {{ "/stylesheets/new/home_mobile.less"|stylesheet_tag:"default" }} 
     {% endif %}
-    {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main" %}
+    {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main"%}
       {{ "/stylesheets/new/home_desktop.less"|stylesheet_tag:"default" }} 
     {% endif %}
 
-    <div class="hide">
-      {% visitor_tracking_pixel %}
-    </div>
+		<div class="hide">
+			{% visitor_tracking_pixel %}
+		</div>
 
   {% dropzone zoneId="rti-observer-tag" scope="site" %}
-  
   <!-- This code loads the lazy-load modules and checks the Kibo device detection -->
   {% if pageContext.isDesktop %}
     <script>
@@ -441,18 +448,24 @@ window.showGlobalOverlay = function showGlobalOverlay(){
   {% endif %}
 
   {% if siteContext.tenantId == 10569 %}
-  <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.css">
-  <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.css">
+    {% if pagecontext.cmsContext.template.path == "pages-unbxd-search-results" %}
+      <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339.css">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_autosuggest.css">
+    {% if  pagecontext.pageType == "search" %}    
+        <link rel="stylesheet" type="text/css" href="https://sandbox.unbxd.io/dev-jellybelly-com809021566503339_search.css">
+    {% endif %}
   {% else %}
-  <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_autosuggest.css" type="text/css">
-  <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_search.css" type="text/css">
+      <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_autosuggest.css" type="text/css">
+    {% if  pagecontext.pageType == "search" %}
+      <link rel="stylesheet" href="https://libraries.unbxdapi.com/prod-jellybelly-com809021566503370_search.css" type="text/css">
+    {% endif %}
   {% endif %}
 
   {% dropzone zoneId="unbxd-config" scope="site" %}
-    
-  </body>
+	  
+	</body>
     {% endblock body-tag %}
     
 </html>
 {% endautoescape %}
-

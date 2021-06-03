@@ -14,24 +14,57 @@
             font-weight: 700;
             margin: 10px 0 10px;
             text-align: left;
-            padding-top: 20px;
+            padding: 0px;
             width: 100%;
         } 
         p { 
             text-align: left;
         }
-        ul{
-            li{
-                text-align:left;
-                a{
-                    text-decoration:none;
-                    color: #004e99;
-                    &:hover{
-                        color: #003a72;
+        .login-innercontent{
+            background-color: rgba(210, 231, 255, 0.5);
+            padding: 10px 20px;
+            margin: 20px 0;
+            h4{
+                color:#9b9b9b;
+                margin: 0px 0 10px;
+            }
+            ul{
+                padding-left:10px;
+                margin: 0;
+                display: flex;
+                flex-wrap:wrap;
+                li{
+                    text-align:left;
+                    display: inline-block;
+                    width: 49%;
+                    font-size: 14px;
+                    vertical-align: top;
+                    color:#004e99;
+                    padding: 0 0 8px;
+                    font-weight: 600;
+                    position: relative;
+                    flex: 0 41%;
+                    margin-right:9%;
+                    &:before{
+                        content: ".";
+                        font-size: 30px;
+                        vertical-align: middle;
+                        line-height: 20px;
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+                    }
+                    a{
+                        text-decoration:underline;
+                        color: #004e99;
+                        &:hover{
+                            color: #003a72;
+                        }
                     }
                 }
             }
         }
+
         .mz-loginform {
             .mz-l-formfieldgroup {
                 float: left;
@@ -50,7 +83,7 @@
                             -moz-border-radius: 4px;
                             -webkit-border-radius: 4px;
                             border: 1px solid #dddddd;
-                            background-color: #f3f3f3;
+                            background-color: transparent;
                             &:focus {
                                 background-color: #fafafa;                 
                             }
@@ -58,11 +91,20 @@
                         .login-sub{
                             margin-top: 13px;
                             &:disabled{
-                                background: #dddddd;
+                                background: #CCCCCC;
                                 border: 1px solid #dddddd;
                                 color: #fff;
                                 cursor: not-allowed;
                             }
+                        }
+                    }
+                    .checkbox-outer-label{
+                        width: 88%;
+                        .checkmark-style{
+                            top: 5px;
+                        }
+                        a{
+                            color:#004e99;
                         }
                     }
                 }
@@ -100,6 +142,7 @@
             }
         }
         .signup-form {
+           
             .password-row {
                 position: relative;
                 .mob-pwd-row {
@@ -144,6 +187,19 @@
             .checkbox-outer-label{
                 text-align: left; 
                 padding-bottom: 15px;
+                span.text{
+                   // max-width:calc(~"100% - 119px");
+                   // max-width: 281px;
+                    overflow-wrap: break-word; 
+                    display:block;
+                    span{
+                        padding-left: 3px;
+                    }
+                }
+
+                a{
+                    color:#004e99;
+                }
             }
         }
         .mz-loginform, .signup-form , .forgot-pwd-form {
@@ -161,6 +217,19 @@
                 .mz-l-formfieldgroup-row {
                     display: block;
                     padding: 5px 0 0 0;
+                    &.padding-top{
+                        padding-top:20px;
+                    }
+                    &.signup-links{
+                        text-align: center;
+                       .signmodel{
+                            padding: 10px;
+                            border: 1px solid #004e99;
+                            color: #004e99;
+                            display: block;
+                            text-decoration: none;
+                       } 
+                    }
                     &.checkbox{
                         padding:15px 0 0;
                     }
@@ -168,9 +237,11 @@
                 .order-status-link{
                     display: none;
                 }
-                .mz-l-formfieldgroup-cell {
+                .mz-l-formfieldgroup-cell { 
                     display: block;
                     padding: 0 0px 5px 0;
+                   
+                   
                     &.zero-cellspace {
                         padding-bottom: 0;
                         input {
@@ -180,9 +251,9 @@
                     input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select {
                         width: 100%;
                         box-sizing: border-box;
-                        height: 35px;
+                        height: 42px;
                         border: 1px solid #c2c2c2;
-                        color: #444 !important;
+                        color: #000 !important;
                     }
                     input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"] {
                         font-size: 16px;
@@ -191,10 +262,10 @@
                         -moz-border-radius: 4px;
                         -webkit-border-radius: 4px;
                         border: 1px solid #dddddd;
-                        background-color: #f3f3f3;
-                        height: 38px;
+                        background-color: #fff;
+                        height: 42px;
                         &:focus {
-                            background-color: #fafafa;            
+                            background-color: #fff;            
                         }
                     }
                     .mz-signup-register, .mz-button {
@@ -219,21 +290,21 @@
                     .mz-signup-register {
                         width: 100%;
                         &:disabled{
-                            background: #dddddd;
+                            background: #CCCCCC;
                             border: 1px solid #dddddd;
                             color: #fff;
                             cursor: not-allowed;
                         }
-                    }
+                    } 
                     .mz-forgot { 
                         display: block;
-                        color: #003a72;
+                        color: #004e99;
                         font-size: 14px;
                         font-weight: 600;
-                        text-decoration: none;
-                        &:hover {
-                            text-decoration: underline;
-                        }
+                        text-decoration: underline;
+                        //text-decoration: none;
+                        text-align: right;
+                       
                     }
                     label {
                         text-align: left;
@@ -397,7 +468,7 @@ input:-ms-input-placeholder {
                                 -webkit-border-radius: 4px;
                                 border: 1px solid #dddddd;
                                 background-color: #f3f3f3;
-                                height: 38px;
+                                height: 42px;
                             }
                             button{
                                 margin-bottom: 1em;
@@ -655,7 +726,7 @@ input:-ms-input-placeholder {
                                     display: block;
                                     padding: 0 0px 5px 0;
                                     position: relative;
-                                    overflow: auto;
+                                   // overflow: auto;
                                     label{
                                         text-align: left;
                                         font-size: 16px;
@@ -670,7 +741,7 @@ input:-ms-input-placeholder {
                                         -webkit-border-radius: 4px;
                                         border: 1px solid #dddddd;
                                         background-color: #f3f3f3;
-                                        height: 38px;
+                                        height: 42px;
                                         box-sizing: border-box;
                                     }
                                     .down-caret-order-status {
@@ -689,7 +760,7 @@ input:-ms-input-placeholder {
                                     }
                                     .orderstatus-btn{
                                         &:disabled{
-                                            background: #dddddd;
+                                            background: #CCCCCC;
                                             border: 1px solid #dddddd;
                                             color: #fff;
                                             cursor: not-allowed;
@@ -720,7 +791,79 @@ input:-ms-input-placeholder {
         }
     }
 } 
-
+//Order status order list page
+.mz-anonymous-account {
+    .mz-l-pagewrapper {
+        /*max-width: 90%;*/
+        .mz-pagetitle {
+            clear: both;
+            margin: 0 auto 2%;
+            width: 100%; 
+        }
+        .mz-l-stack-large .mz-l-stack-section {
+            min-height: auto;
+        }
+        .mz-myaccount-panels{
+            .mz-accountorderhistory{
+                .mz-orderlisting{
+                    .mz-orderlisting-detail{
+                        .mz-orderlisting-heading{
+                            margin: 10px 20px 0;
+                        }
+                        .mz-orderlisting-date{
+                           margin: 10px 20px 0;
+                        }
+                        .add-all-to-cart{
+                            display:none;
+                        }    
+                    }    
+                    .order-status-item-list-heading{ 
+                        margin: 20px;
+                        padding: 0;
+                        border-top: 1px solid #cccccc;
+                        border-bottom: 1px solid #cccccc;
+                        li{
+                            display: inline-block;
+                            list-style-type: none;
+                            color: #c64606;
+                            margin: 10px 0px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            &:nth-child(1){
+                                width:54%;
+                            }
+                            &:nth-child(2){
+                                width: 14%;
+                            }
+                            &:nth-child(3){
+                                width: 10%;
+                            }
+                        }
+                    }
+                }  
+                .mz-orderlisting-items{
+                    .mz-itemlisting{
+                        .inline-add-to-cart{
+                            display:none;
+                        }    
+                        .mz-itemlisting-details{
+                            width: 40%;
+                        }
+                        .quick-order-quantity{
+                            .quantity-field{
+                                margin: 0;
+                            }    
+                        } 
+                    }     
+                }
+                .mz-more-order{
+                    display: none;
+                }    
+            }    
+        } 
+    }
+}
 @media only screen and (min-width: 768px) and (max-width: 979px) {
     .mz-signuppage {
         .signup-form {
@@ -807,6 +950,87 @@ input:-ms-input-placeholder {
                 }
             }   
         }
+    }
+    //Order status order list page
+    .mz-anonymous-account {
+        .mz-l-pagewrapper {
+            .mz-myaccount-panels{
+                .mz-accountorderhistory{
+                    .mz-orderlisting{ 
+                        .mz-orderlisting-detail{
+                            .order-list-address-details{
+                                .order-billing-address{
+                                    float: left;
+                                    width: 50%;
+                                    margin: 0;
+                                }  
+                                .order-shipping-address{
+                                    float: left;
+                                    width: 50%;
+                                }
+                            }     
+                        }     
+                        .order-status-item-list-heading{ 
+                            margin: 20px;
+                            padding: 0;
+                            border-top: 1px solid #cccccc;
+                            border-bottom: 1px solid #cccccc;
+                            li{
+                                display: inline-block;
+                                list-style-type: none;
+                                color: #c64606;
+                                margin: 10px 0px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                text-transform: uppercase;
+                                &:nth-child(1){
+                                    width:54%;
+                                }
+                                &:nth-child(2){
+                                    width: 26%;
+                                }
+                                &:nth-child(3){
+                                    width: 10%;
+                                }
+                            }
+                        }
+                        .mz-orderlisting-items{
+                            border-top:none;
+                            margin: 0;
+                            .mz-itemlisting{
+                                .mz-itemlisting-thumb{
+                                    width: 12%;
+                                    float: left;
+                                }   
+                                .mz-itemlisting-details{
+                                    float: left;
+                                    width: 43%;
+                                }
+                                .quick-order-quantity{
+                                    float: left;
+                                    width: auto;
+                                    .quick-order-history-qty{
+                                        width: auto;
+                                        margin: 0;
+                                        .quantity-field{
+                                            margin:0;
+                                        }
+                                    }
+                                }
+                                .inline{
+                                    width: 22%;
+                                    float: left;
+                                    margin-left: 6%;
+                                    &:after{
+                                        content: '';
+                                    }
+                                }
+                            }     
+                        } 
+                    }     
+                }     
+            } 
+        }
     }  
 }  
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
@@ -836,11 +1060,36 @@ input:-ms-input-placeholder {
             }   
         }
     }  
+     
+    //Order status order list page
+    .mz-anonymous-account {
+        .mz-l-pagewrapper {
+            .mz-myaccount-panels{
+                .mz-accountorderhistory{
+                    .mz-orderlisting{ 
+                        .mz-orderlisting-items{
+                            .mz-itemlisting{
+                                .mz-itemlisting-details{
+                                    float: left;
+                                    width: 41%;
+                                }
+                                
+                                .inline{
+                                    margin-left: 8%;
+                                }
+                            }     
+                        } 
+                    }     
+                }     
+            } 
+        }
+    }    
 }   
 @media only screen and (min-width: 1px) and (max-width: 767px) {
     .mz-loginpage,.mz-signuppage, .mz-password-recovery-page{
         .mz-l-pagecontent {
             padding: 94px 10px 0px 10px;
+            margin-top: 70px;
         }
         .login-signup-section{
             width: 90%;
@@ -873,7 +1122,7 @@ input:-ms-input-placeholder {
                             -webkit-border-radius: 4px;
                             border: 1px solid #dddddd;
                             background-color: #f3f3f3;
-                            height: 38px;
+                            height: 42px;
                             &:focus {
                                 background-color: #fafafa;                 
                             }
@@ -936,9 +1185,16 @@ input:-ms-input-placeholder {
                 display: block;
             }
         }
-        .login-signup-section{  
+        .login-signup-section{
             width: 90%;
             margin: 0 auto;
+            .signup-form{
+                .checkbox-outer-label{
+                    span.text{
+                        max-width: 281px;
+                    }
+                }
+            }
             .mz-loginform, .signup-form, .forgot-pwd-form {
                 max-width: 100%;
                 margin: 15px auto;
@@ -947,6 +1203,9 @@ input:-ms-input-placeholder {
                     padding: 15px 0px;
                     margin: 2px;
                     width: 100%;
+                    &.forgot-pwd-content{
+                        margin-bottom: 15px;
+                    }
                 }
                 .mz-l-formfieldgroup {
                     margin: 0;
@@ -962,23 +1221,33 @@ input:-ms-input-placeholder {
                             margin-left: 0px;
                         }
                         &.forgot-links{
-                            display: inline-block;
-                            width: 48%;
+                            // display: inline-block;
+                            // width: 48%;
                         }
                         &.signup-links{
-                            display: inline-block;
-                            width: 48%;
-                            text-align: right;
+                            text-align: center;
+                            // display: inline-block;
+                            // width: 48%;
+                            // text-align: right;
+                            .signmodel{
+                                padding: 10px;
+                                border: 1px solid #004e99;
+                               color: #004e99;
+                                display: block;
+                                text-decoration: none;
+                            }
                         }
                         &.order-status-link{
                             display:block;
                             text-align: center;
-                                .mz-order-status{
-                                display: block;
-                                color: #003a72;
+                            margin-top: 30px;
+                            .orderstatus{
                                 font-size: 14px;
-                                font-weight: 600;
-                                text-decoration: none;
+                            }
+                            .mz-order-status{
+                                color: #004e99;
+                                font-size: 14px;
+                                
                                 text-transform: capitalize;
                             }
                         }

@@ -14,14 +14,14 @@
         width:auto; height:auto;  
     }   
 </style> 
-  
+
 <div> 
     <div class="ip-container"><div class="jb-inner-overlay"></div></div>
     <h1 class="mz-pagetitle" tabindex="0" itemprop="name">{{ model.content.productName|safe }}</h1>
-    <span class="mz-sku" tabindex="0" aria-label="product SKU">SKU: {{ model.productCode|safe }}</span>
+    <span class="mz-sku" tabindex="0" aria-label="product SKU">SKU-{{ model.productCode|safe }}</span>
     {% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
         <div class="mz-productdetail-shortdesc mz-l-stack-section">
-          <span tabindex="0" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info">More Info</a></span>
+          <span tabindex="0" role="contentinfo" aria-label="Product description" itemscope="description">{{ model.content.productShortDescription|safe }} <a href="javascript:void(0)" class="more-info" aria-label="More Info">More Info</a></span>
         </div> 
     {% endif %} 
     <div class="product-detail-container">
@@ -33,7 +33,7 @@
                     {% include "modules/product/price-stack" %}
                 {% endif %}
                 {% if model.price.onSale and model.savePrice %}  
-        	       <span  class="sale-offer" id="saleDiv" tabindex="0"><strike>{{model.price.price|currency }}</strike><span class="you-save"> You save ${{model.savePrice|floatformat(2)}}</span> <span>({{ model.savePrice|divide(model.price.price)|multiply(100)|floatformat }}%)</span>!</span>
+        	       <span  class="sale-offer" id="saleDiv" tabindex="0"><span class="you-save"> You save ${{model.savePrice|floatformat(2)}}</span> <span>({{ model.savePrice|divide(model.price.price)|multiply(100)|floatformat }}%)</span>!</span>
                 {% endif %} 
                 {% comment %}
                 {% if model.price.onSale and model.savePrice %}  
@@ -47,7 +47,7 @@
                                   {{ themeSettings.zinreloPointMultiplier|multiply(model.price.price)|floatformat(0) }}
                                 {% endif %}
                             </span> 
-                            <span class="sweet-rewards-pdp" role="button" tabindex="0">Sweet Rewards</span> Points
+                            <span class="sweet-rewards-pdp"> <a href="javascript:void(0)"  style="color:#004e99;" aria-label="Open Sweet Rewards information modal">Sweet Rewards</a></span> Points
                         </span>     
                     </div> 
                     
@@ -72,15 +72,15 @@
                     <span class="mz-qty-label">
                         <label for="quantity">{{ labels.qtypdp }}</label>
                     </span>
-                    <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                        <input class="quantity" value="1" tabindex="-1" id="quantity" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
+                    <div class="qty-input-box">
+                        <input class="quantity" value="1" tabindex="0" id="quantity" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
                         <span class="increment spinner" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlus"></span>
                         <span class="decrement spinner" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinus"></span>
                         <div class="clear"></div>
                     </div>
                     <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
                 </div>
-                {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
+                {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" role="contentinfo" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
             </section>
         </div>
         {% if not model.purchasableState.isPurchasable %}
@@ -104,12 +104,12 @@
                 {% else %}
                     {% if model.options and model.options.length > 0 %}
                         <button id="add-to-cart" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                        {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
+                        class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn shop-gift-btn  gift-prize-select" 
+                         data-mz-action="addToCart" >
                             Shop Gift Card
                         </button>
                     {% else %}
-                        <span tabindex="0" style="display:block; color:#fff">Out of Stock</span>
+                        <span role="contentinfo" tabindex="0" style="display:block; color:#fff">Out of Stock</span>
                         <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
                             Out of Stock
                         </button>
@@ -137,7 +137,7 @@
             <!-- Img tag has been moved to product.js file for conditional rendering -->
         </div>
         <div id="free-shipping-tip">
-            <div class="free-shipping-text" tabindex="0" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
+            <div class="free-shipping-text" tabindex="0" role="contentinfo" aria-label="FREE SHIPPING for orders over ${{ themeSettings.freeshippingBoundingValue }}!(Restrictions apply. Not valid for heat-sensitive orders. Click here for details.)"> 
                 <b>
                     <span class="free-text">
                     </span>
@@ -163,13 +163,15 @@
         </div> 
     </div> 
     <div id="testimonial-section" class="product-detail-container"  style="height: 100%; background: #EFEFEF; border: 1px solid #CBCBCB; line-height: 1.3; padding: 7px; border-radius: 7px; display: none; font-size: 16px; text-align: center; margin-top: 10px; margin-bottom: 10px;">
-        <div style="vertical-align: middle;" tabindex="0">
+        <div style="vertical-align: middle;" tabindex="0" role="contentinfo">
             "<em><span id="testimonial-quote"></span></em>"
             <br>
             <span id="testimonial-data"></span>
         </div>
     </div>
-</div>      
+</div>
 <script type="text/javascript"> 
     var bnProductId = "{{ model.productCode }}";
-</script>    
+</script>
+
+

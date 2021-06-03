@@ -18,12 +18,21 @@ body{
 
 }
     .mz-myaccount {
+    .myaccount-label-editcard{
+        padding-left:0;
+    }
     .mz-pageheader-desktop .jb-serach-box-with-label p {
         font-size: 14px;
     }
    /* a[href="/myaccount"] {
         color: #0077a2;
     }*/
+    .mz-validationmessage{
+        margin-bottom: 15px;
+    }
+    .mz-l-formfieldgroup-cell input,.mz-l-formfieldgroup-cell select{
+        margin-bottom:0px;
+    }
     .mz-l-paginatedlist {
         overflow: hidden;
         position: relative;
@@ -46,13 +55,68 @@ body{
         color: #231f20;
         font-size: 12px;
         float: left;
-        margin: 25px 115px;
+        margin: 25px 0px;
     }
     .mz-l-pagecontent {
-        padding: 10px 20px 0px 20px;
+        padding: 0px;
     }
     .mz-myaccount-panels {
         margin-left: 248px;
+    }
+    .sweetrewardscard {
+        display: inline-block;
+        width: 100%;
+        padding: 23px 25px 7px 23px;
+        background-image: linear-gradient(to bottom, #0086c9, #004e99);
+        height: 310px;
+        box-sizing: border-box;
+        h2 {
+            font-family: Merel;
+            font-size: 21px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.9;
+            letter-spacing: normal;
+            color: #ffffff;
+            span {
+                color: #d8d8d8;
+            }
+        }
+        .sweetcardlayout {
+            display: inline-block;
+            float: left;
+            width: 100%;
+            .topsec {
+                display: inline-block;
+                width: 100%;
+                .leftsec {
+                    display: inline-block;
+                    width: 100%;
+                    float: left;
+                }
+                .rightsec {
+                    display: inline-block;
+                    width: 100%;
+                    float: right;
+                }
+            }
+        }
+        a.mz-scrollnav-link {
+            font-family: Merel;
+            font-size: 14px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #ffffff;
+            background-color: transparent;
+            padding: 10px 0px;
+            &.mz-scrollnav-link.active {
+                background-color: transparent;
+            }
+        }
     }
     .order-history-error-popup {
         display: none;
@@ -91,10 +155,10 @@ body{
         }
     }
     .mz-myaccount-nav {
-        width: 224px;
+        width: 335px;
         box-sizing: border-box;
         border-right: 1px solid #e4e4e4;
-        margin: 0px 10px 0 0;
+        margin: 0;
         padding-right: 25px;
         float: left;
         .mz-scrollnav-item {
@@ -129,11 +193,11 @@ body{
     }
 
     .mz-contacttype-isprimary {
-        font-size: @fontSizeSmall;
-        font-style: italic;
+        font-size: @fontFamily;
+        font-style: unset;
         display: block;
-        margin-top: 3px;
-        text-indent: @gutter;
+        margin-top: 15px;
+        text-indent: unset;
     }
     @media (max-width: 600px) {
         .mz-myaccount-panels {
@@ -163,6 +227,10 @@ body{
         .notify-me-field {
             width: 60%;
         }
+        label.checkbox-outer-label.myaccount-label-editcard{
+            padding-left: 32px; 
+            text-align: left;
+        }
 	.data-item {
             width: 70%;
         }
@@ -173,7 +241,7 @@ body{
             color: #c64606;
             font-size: 26px;
             font-weight: bold;
-            margin: 20px 0 20px;
+            margin: 0px 0 20px;
             font-family: @fontFamily;
             float: none;
             text-transform: uppercase;
@@ -181,9 +249,6 @@ body{
         }
         .mz-desktop{
             display: none;
-        }
-        .mz-l-container{
-            margin-top: 10px !important;
         }
         
         .selected-menu-mobile{
@@ -201,7 +266,7 @@ body{
               -webkit-border-radius: 3px;
               font-weight: bold;
               color: #000;
-              background: url('../resources/images/icons/menu-dropdown.png') no-repeat scroll 95% 50%;
+              background: url('../../resources/images/icons/menu-dropdown.png') no-repeat scroll 95% 50%;
         }
         .mz-description{
             padding: 6px 3px;
@@ -216,12 +281,27 @@ body{
               width: 100%;
               height: 100%;
               background: #FFF;
-              top: 81px;
+              top: 62px;
               left: 0;
               z-index: 999;
+              padding: 20px 0 0;
+              margin:0;
               &.zerotag-mobile{
-                top: 120px;
-              }              
+                top: 100px;
+              }  
+              .myaccount-close{
+                position: relative;
+                width: 20px;
+                height: 20px;
+                background: transparent url(../../resources/images/removeCart.png) no-repeat;
+                top: 16px;
+                background-size: contain;
+                right: 10px;
+                cursor: pointer;
+               display: inline-block;
+                float: right;
+                border: none;
+              }            
             .mz-scrollnav-link-mobile{
                   display: block;
                   padding: 5px;
@@ -229,9 +309,6 @@ body{
                   font-size: 14px;
                   font-weight: 600;    
                   margin-top: 5px;
-                  &:first-child{
-                    margin-top: 56px;
-                  }
             }
             .mz-scrollnav-link-mobile.active{
                 background: #ebf6fc;
@@ -286,15 +363,16 @@ body{
 @media only screen and (min-width: 1025px){
     .mz-myaccount {
         .mz-l-container {
-            width: 93%;
-            margin: 0 auto; 
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box; 
         }
         .mz-myaccount-nav {
-            width: 20%;
+            width: 335px;
             float: left;
         }
         .mz-myaccount-panels {
-            width: 78%;
+            width: ~"calc(100% - 335px)";
             float: right;
             margin: 0;
         }

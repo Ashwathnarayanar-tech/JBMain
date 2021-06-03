@@ -1,111 +1,113 @@
-    <h2 class="mz-formstep-header">
-        <span class="step-no"><label>02</label></span>
-        <span class="checkout-icons"></span>
+    <h3 class="mz-formstep-header">
+        <span class="step-no"><label>2.</label></span>
         <label>{{ labels.shippingMethod }}</label>
         <span class="step-completed"></span>
          {% if model.requiresFulfillmentInfo %}
-        <button id="shippingmethod-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping method" data-mz-action="edit">{{ labels.edit }}</button>
+            <button id="shippingmethod-edit" class="mz-button mz-button-small mz-formstep-edit" aria-label="edit shipping method" data-mz-action="edit">{{ labels.edit }}</button>
         {% endif %}
-    </h2>
+    </h3>
     <div class="mz-formstep-body">
-        <div class="mz-formstep-summary mz-date-val">
-            {% if model.requiresFulfillmentInfo %} 
-                <strong>{{ model.shippingMethodName }}</strong> - <span class="mz-ship-date" id="shippingmethod_summary_{{ model.shippingMethodCode }}" data-shipdate="{{ model.shippingMethodCode }}">{% if model.price %}{{ model.price|currency }}{% else %} {% for method in model.availableShippingMethods %} {% if model.shippingMethodCode == method.shippingMethodCode %}{{method.price}}{% endif %}{% endfor %}{% endif %}</span>
-                <div class="mz_date_value"></div>
+        <div class="mz-formstep-summary mz-date-val" tabindex="0">
+            {% if model.requiresFulfillmentInfo %}
+                {% for method in model.availableShippingMethods %} 
+    		        {% if model.shippingMethodCode == method.shippingMethodCode %} 
+    		            <div class="summary-data">
+    		                <span class="tital">{{  method.shippingMethodName  }}</span>
+    		                {% if method.isValueChanged  %}
+                                {% if method.updatedValue == "FREE" %} 
+                                    {% if model.isHasnoFreeshipping %}
+                                        <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.price|currency }}</span>
+                                    {% else %}
+                                        <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.updatedValue }}</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.updatedValue|currency }}</span>
+                                {% endif %}
+                            {% else %}
+                                <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.price|currency }}</span>
+                            {% endif %}
+                            <p class="expected-data">{{method.estimation}}</p>
+    		            </div>
+    		        {% endif %}
+                {% endfor %} 
             {% else %}
-            {{ labels.noFulfillmentInfoRequired }}
+                {{ labels.noFulfillmentInfoRequired }}
             {% endif %}
         </div>
         <div class="mz-formstep-fields mz-l-formfieldgroup">
-        <div id="new-heat-sensitive-statement"></div>
-        
-        <p id="hide-from-heat-sensitive" tabindex="0" style="font-weight: bold; display: block;">
-            Orders over ${{themeSettings.freeshippingBoundingValue}} may qualify for <a style="text-decoration:none;" href="/shipping-information">FREE Ground Shipping</a> (SurePost or Ground)!
-        </p>
-        <div id="no-free-shipping-statement"></div>
-        <p class="shippingAKHI" tabindex="0" style="font-weight: bold; display: none;">
-            {{ labels.shippingAKHI }}
-        </p>
-        {% if model.availableShippingMethods.length > 0 %}
-				    <fieldset>
-              <legend style="margin: 5px;">
-                <p class="address-info">Choose Shipping Method</p>
-              </legend>
+            <div id="new-heat-sensitive-statement"></div>
+            <div class="message-sec">  
+                {% if model.isHasnoFreeshipping %}
+                    <p id="hide-from-heat-sensitive" tabindex="0" role="contentinfo">
+                        Your order has one or more items in which the price does not count towards the Free Shipping threshold.
+                     </p> 
+                {% else %}
+                    <p id="hide-from-heat-sensitive" tabindex="0" role="contentinfo">
+                      Orders over ${{themeSettings.freeshippingBoundingValue}} qualify for <a style="text-decoration:none;" target="_blank" href="/shipping-information">FREE Ground Shipping</a> (SurePost or Ground)!
+                    </p>
+                {% endif %}
+                <p class="shippingAKHI" tabindex="0" role="contentinfo" style="font-weight: bold; display: none;">
+                    {{ labels.shippingAKHI }}
+                </p>
+            </div>
+            {% if model.availableShippingMethods.length > 0 %}
+    			<p class="method-info" tabindex="0" role="contentinfo">Choose Shipping Method</p> 
+             
+    			{% for method in model.availableShippingMethods %} 
+			        {% if model.shippingMethodCode == method.shippingMethodCode %} 
+			            <p class="estimated-date"><span class="bold-text">Shipped by: </span>{{method.estimationDate}}</p> 
+			        {% endif %}
+                {% endfor %}
                 {% for method in model.availableShippingMethods %} 
-                    <div>
-                        <label>
-                            <input type="radio" 
-                              name="shippingMethod" 
-                              value="{{ method.shippingMethodCode }}" 
-                              data-mz-value="shippingMethodCode" 
-                              data-mz-shipping-method 
-                              data-mz-delivery-date 
-                              {% if model.shippingMethodCode == method.shippingMethodCode %} 
-                                checked="checked" 
-                              {% endif %}
-                              
-                              data-mz-price="{{method.price}}"
-                              
-                              {% if method.shippingMethodCode == "ups_UPS_GROUND" || method.shippingMethodCode == "ups_UPS_SUREPOST_1LB_OR_GREATER" || method.shippingMethodCode == "ups_UPS_SUREPOST_LESS_THAN_1LB" %}
-                                data-mz-possible-free-method="true"
-                              {% else %}
-                                data-mz-possible-free-method="false"
-                              {% endif %}
-                              >
-                            {{ method.shippingMethodName }} - <span id="shippingmethod_detail_{{ method.shippingMethodCode }}" data-mz-price="{{method.price}}">{{ method.price|currency }}</span>
-                            <span id="free_or_discounted_{{ method.shippingMethodCode }}"></span> 
+                    <div class="method-item">
+                        <label class="method-label {% if model.shippingMethodCode == method.shippingMethodCode %} active {% endif %}">
+                            <div class="label-first-sec">
+                                <span class="input-Cointainer">
+                                    <input type="radio" name="shippingMethod" value="{{ method.shippingMethodCode }}" data-mz-value="shippingMethodCode" data-mz-shipping-method data-mz-delivery-date {% if model.shippingMethodCode == method.shippingMethodCode %} checked="checked" {% endif %}>
+                                    <span class="customradio"></span>
+                                </span> 
+                                <span class="method-tital">{{ method.shippingMethodName }}</span>
+                                {% comment %}
+                                    <span id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.price|currency }}</span> 
+                                {% endcomment %}
+                                {% if method.isValueChanged  %}
+                                    {% if method.updatedValue == "FREE" %} 
+                                        {% if model.isHasnoFreeshipping %}
+                                            <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.price|currency }}</span>
+                                        {% else %}
+                                            <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.updatedValue }}</span>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.updatedValue|currency }}</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="price-data" id="shippingmethod_detail_{{ method.shippingMethodCode }}">{{ method.price|currency }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="label-second-sec">
+                                <span class="free-text-msg">
+                                    {% if model.isHasnoFreeshipping %}
+                                        {% if method.isValueChanged and method.updatedValue == "FREE"  %}Choose and click CONTINUE below for discounted rate.{% endif %}
+                                    {% else %}
+                                        {% if method.isValueChanged and method.updatedValue == "FREE"  %}FREE for Order above ${{themeSettings.freeshippingBoundingValue}}.{% endif %}
+                                    {% endif %}
+                                </span>
+                                <span class="estimated-arrival">{{method.estimation}}</span>
+                            </div>
                         </label>
                     </div>
                 {% endfor %}
-               </fieldset>
-                
             {% else %}
-                <p tabindex="0" >{{ labels.noShippingMethods }}</p>
+                <p tabindex="0" role="contentinfo">{{ labels.noShippingMethods }}</p>
             {% endif %}
         </div>
-      
         <div class="mz-formstep-next">
          <!-- <div class="mz_date_value mz_date_pos"></div> -->
-         
-<style>
-.mz_date_value2      dl {
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-.mz_date_value2 dt {
-  text-align: right;
-  float: left;
-  width: 20%;
-  padding: 0;
-  margin: 0;
-}
-.mz_date_value2 dd {
-  text-align: left;
-  float: left;
-  width: 70%;
-  padding: 0px 0px 0px 5px;
-  margin: 0;
-}
-
-.mz_date_value2 dd > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.mz_date_value2 dt > span { 
-  padding-right: 20px; 
-  font-size: 14px;
-  font-weight: 600;
-}
-</style>
-       
-			<div class="shipping-text" style="display: inline-block;">
-				<div class="mz_date_value2" style="font-weight: bold; padding: 10px; text-align: center; display: none;" tabindex="0" ></div>
-				<div class="mz-validationmessage" data-mz-validationmessage-for="shippingMethodCode" style="text-align: center; padding: 10px;" tabindex="-1"  aria-label="Please select a shipping method"></div> 
+			<div class="shipping-text">
+			    {% comment %}
+				    <div class="mz_date_value2" style="font-weight: bold; padding: 10px; text-align: center; display: none;" tabindex="0" role="contentinfo"></div>
+				{% endcomment  %}
+				<div class="mz-validationmessage" data-mz-validationmessage-for="shippingMethodCode" tabindex="-1" role="contentinfo" aria-label="Please select a shipping method"></div> 
 				<button type="button" class="brontocart-ship-method gtm-to-billing mz-button mz-shipmethod checkout-btn" data-mz-action="next">Continue to Payment Information</button>
 			</div>
         </div>
@@ -114,3 +116,21 @@
 
 
 <div style="display:none" id="dumpshipping" > {% dump model %} </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

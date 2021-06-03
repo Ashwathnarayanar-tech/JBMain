@@ -1,0 +1,76 @@
+{% extends "page" %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+
+
+{% require_script "pages/slot-machine" %}
+
+<div>
+	{% dropzone "mixed-emotions" scope="page" %}
+</div>
+
+<div>
+	<div id="slot-machine-container" style="width:100%">
+
+		<div id="slot-machine-reels" style="text-align: center; width:100%;">
+			<div style="text-align: center; margin: 0 auto;">
+					
+						<div style="text-align: center; margin: 0 auto;">
+							<img src="/cms/files/try-these-fun-recipes.jpg" alt="Recipes to feel the flavor title" style="max-width:100%; margin: 0 auto;">
+						</div>
+					<div style="text-align:center; margin-top: 0px; margin-bottom: 0 px; margin-left:auto; margin-right:auto; line-height:1">
+						<div id="slot-machine-reel-window" style="margin: 0px; background-color:fff; overflow-y: hidden; position: relative; display: inline-block">
+
+							<div id="slot-roll1" style="width: 120px; height: 10000px; border: 0px; position: absolute; top: 0px; left: 0px;">
+							</div>
+							<div id="slot-roll2" style="width: 120px; height: 10000px; border: 0px; position: absolute; top: -38px; left: 46px;">
+							</div>
+							<div id="slot-roll3" style="width: 120px; height: 10000px; border: 0px; position: absolute; top: -76px; left: 92px;">
+							</div>
+							<div id="slot-roll4" style="width: 120px; height: 10000px; border: 0px; position: absolute; top: -114px; left: 138px;">
+							</div>
+							<div id="slot-roll5" style="width: 120px; height: 10000px; border: 0px; position: absolute; top: -152px; left: 184px;">
+							</div>
+						</div>	
+
+						<div id="slot-machine-spacer" >	
+							=
+										
+						</div>
+		
+						<div id="slot-machine-result" style="display: inline-block; vertical-align: top">
+								<img class="image-responsive" id="image-result" src="/cms/files/jelly_belly_logo_v3.jpg?max=150" alt="Jelly Belly logo" style="max-width:100%; margin: 0 auto;">
+						</div>		
+					</div>
+			</div>
+			<div class="clearfix"></div>
+			
+			
+	
+			
+			
+			
+		</div>
+						<div style="text-align: center; margin: 0 auto">
+							<a><font id="text-result" color="#000" >FEEL THE FLAVOR<sup>&reg;</sup></font></a>
+						</div>
+
+						<div style="padding-top: 0px; margin-top:0px; margin-bottom:0px; text-align: center; padding-left: auto; padding-right: auto">
+							<div style="text-align: center; margin: 0 auto;">
+								<div id="slot-machine-button" style="cursor: pointer;"><img src="/cms/files/ME-slot-machine-button_v6-23.png" alt="activate spin button"></div>
+								<div id="slot-machine-button-disabled" style="display:none"><img src="/cms/files/ME-slot-machine-button_pushed_v6-23.png" alt="spin button disabled"></div>
+							</div>
+						</div>
+
+		
+
+	</div>
+</div>
+
+<div>
+	{% dropzone "mixed-emotions-2" scope="page" %}
+</div>
+
+
+{% endblock body-content %}

@@ -91,9 +91,9 @@ html.js.fontface.wf-active body {
 
 /* Inputs -------------------*/
 
-// Form controls 
+// Form controls
 // -------------------------
- 
+
 // Shared size and type resets
 select,
 textarea,
@@ -227,6 +227,23 @@ select[size] {
 
 /* Start of  loader  */
 
+.tzOverlay-main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0%;
+ opacity: 0.6;
+ filter: alpha(opacity=60); 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    -webkit-transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -ms-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    z-index: 999999;
+}
 #preloader {
     position: fixed !important;
 }
@@ -271,7 +288,11 @@ select::-ms-expand {
 #colorbox{
     #cboxWrapper{
         #cboxClose{
-            background-size: 90% !important;
+            background: url("../../resources/images/closemarkglobal.svg") scroll 5px 4px !important;
+            background-size: 60% !important;
+            background-repeat: no-repeat !important;
+            top: 8px;
+            right: 8px;
         }
     }
 }
@@ -335,7 +356,7 @@ select::-ms-expand {
 .down-caret-ma-cardType{
   pointer-events: none;
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 90%;
 }
 
@@ -343,7 +364,7 @@ select::-ms-expand {
   pointer-events: none;
   display: none;
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 90%;
 }
 
@@ -351,14 +372,14 @@ select::-ms-expand {
   pointer-events: none;
   display: none;
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 40%
 }
 
 .down-caret-ma-month{
   pointer-events: none;
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 40%;
 }
 
@@ -366,15 +387,15 @@ select::-ms-expand {
   pointer-events: none;
   display: none;
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 89%;
 }
 
 .down-caret-ma-year{
   pointer-events: none;
   position: absolute;
-  top: 38px;
-  left: 89%;
+  top: 34px;
+  left: 88%;
 }
 
 .payment-form-section {
@@ -382,7 +403,7 @@ select::-ms-expand {
     .down-caret-ma-cardType, .up-caret-ma-cardType {
       pointer-events: none;
       position: absolute;
-      top: 20px;
+      top: 34px;
       left: 254px;
     }
     .up-caret-ma-cardType {
@@ -392,7 +413,7 @@ select::-ms-expand {
       .down-caret-ma-month, .up-caret-ma-month {
         pointer-events: none;
         position: absolute;
-        top: 20px;
+        top: 34px;
         left: 106px;
       }
       .up-caret-ma-month {
@@ -402,7 +423,7 @@ select::-ms-expand {
       .down-caret-ma-year, .up-caret-ma-year {
         pointer-events: none;
         position: absolute;
-        top: 20px;
+        top: 34px;
         left: 248px;
       }
 
@@ -599,7 +620,7 @@ select::-ms-expand {
   .down-caret-quantity-myacc-add{
     pointer-events: none;
     position: absolute;
-    top: 37px;
+    top: 34px;
     left: 86%;
   }
 
@@ -607,7 +628,7 @@ select::-ms-expand {
     pointer-events: none;
     display: none;
     position: absolute;
-    top: 37px;
+    top: 34px;
     left: 86%;
   }
 }
@@ -616,7 +637,7 @@ select::-ms-expand {
   .down-caret-quantity-myacc-add{
     pointer-events: none;
     position: absolute;
-    top: 22px;
+    top: 34px;
     left: 92%;
   }
 
@@ -624,7 +645,7 @@ select::-ms-expand {
     pointer-events: none;
     display: none;
     position: absolute;
-    top: 22px;
+    top: 34px;
     left: 92%;
   }
 }
@@ -633,19 +654,19 @@ select::-ms-expand {
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
   .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add{
     pointer-events: none;
-    top: 24px;
+    top: 34px;
     left: 364px;
   }
   .mz-accountaddressbook-list {
     .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add {
       pointer-events: none;
-      top: 22px;
+      top: 34px;
       left: 93%;
     }
   }
   .up-caret-ma-month, .down-caret-ma-month, .up-caret-ma-year, .down-caret-ma-year, .down-caret-ma-cardType, .up-caret-ma-cardType {
     pointer-events: none;
-    top: 52px;
+    top: 34px;
   }
   .up-caret-ma-month, .down-caret-ma-month {
     pointer-events: none;
@@ -665,12 +686,12 @@ select::-ms-expand {
       .checkout-card-expmonth {
         .down-caret-ma-month, .up-caret-ma-month { 
           pointer-events: none;
-            top: 22px;
+            top: 34px;
             left: 40%;
         }
         .down-caret-ma-year, .up-caret-ma-year {
           pointer-events: none;
-          top: 22px;
+          top: 34px;
           left: 89%;
         }
       }
@@ -682,25 +703,24 @@ select::-ms-expand {
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape) {
   .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add{
     pointer-events: none;
-    top: 24px;
+    top: 34px;
     left: 685px;
   }
   .up-caret-ma-month, .down-caret-ma-month, .up-caret-ma-year, .down-caret-ma-year, .down-caret-ma-cardType, .up-caret-ma-cardType {
     pointer-events: none;
-    top: 52px;
+    top: 34px;
   }
 }
 
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
   .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add{
     pointer-events: none;
-    top: 24px;
+    top: 34px;
     left: 93%;
   }
   .mz-creditcard-billingaddresses {
     .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add{
       pointer-events: none;
-      top: 52px;
       left: 90%;
     }
   }
@@ -709,7 +729,7 @@ select::-ms-expand {
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape) {
   .down-caret-quantity-myacc-add, .up-caret-quantity-myacc-add{
     pointer-events: none;
-    top: 52px;
+    top: 34px;
     left: 96%;
   }
 
@@ -844,7 +864,7 @@ select::-ms-expand {
       padding-left: 26%;
       text-align: left;
     }
-  } 
+  }
 }
 
 
@@ -874,6 +894,7 @@ select::-ms-expand {
 }
 
 
+
 /* Check Box Style */
 
 .checkbox-outer-label {
@@ -881,12 +902,13 @@ select::-ms-expand {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-  font-size: 22px; 
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-size: 16px;
+  text-align: left;
 }
 
 /* Hide the browser's default checkbox */
@@ -896,17 +918,18 @@ select::-ms-expand {
   cursor: pointer;
   height: 0;
   width: 0;
+  left: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark-style {
-  position: absolute;
+  position: absolute; 
   top: 0;
   left: 0;
   height: 19px;
   width: 19px;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #000; 
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -933,22 +956,22 @@ select::-ms-expand {
 /* Style the checkmark-style/indicator */
 .checkbox-outer-label .checkmark-style:after {
   left: 6px;
-  top: 2px;
+  top: 2px; 
   width: 5px;
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);  
   transform: rotate(45deg);
 }
 
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: portrait) {
-  .mz-checkout {
+/*  .mz-checkout {
     #page-wrapper {
       #page-content {
         .mz-l-container {
-          #checkout-form {
+          #checkout-form { 
             .mz-l-column {
               #step-shipping-address {
                 .mz-formstep-body {
@@ -988,11 +1011,17 @@ select::-ms-expand {
         }
       }
     }
-  }
+  }*/
 }
 
 .mz-checkout-digitalcredit-row {
   .mz-checkout-digitalcredit-cell-enable {
+    .checkbox-outer-label{
+      .checkmark-style{
+          top:0px !important;
+          margin-left: 0;
+      }
+  }
     span {
       margin-top: -9px;
       margin-left: 27%;
@@ -1199,7 +1228,6 @@ select::-ms-expand {
 a.skipto {
   color: #000000;
 }
-
 .sr-only
   {
     position:absolute;
@@ -1209,9 +1237,374 @@ a.skipto {
     height:1px;
     overflow:hidden;
   }
+/* AB testing starts Here */
 
-.sign-up-btn-footer-disable:focus, .sign-up-btn-footer:focus { 
-  border: 2px solid white !important; 
+
+.jb-footer-dpzone{
+  display:initial
+}
+  .Ab-card-slot-parent{
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 0px;
+  }
+.AB-cards-parent{
+  position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    float: left;
+    max-width: 100%;
+}
+  .Ab-card-slot{
+    float: left;
+    margin: 1% 0%;
+    padding: 0px 0.75%;
+    box-sizing: border-box;
+    position: relative;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: auto;
+    max-width: 25%;
+    flex: 0 0 25%;
+    margin-bottom: 4%;
+  }
+.AB-slot-container{
+  border-radius: 9px;
+  margin-top: 90px;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+  .Ab-image-container{
+    text-align: center;
+    width: 100%;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   vertical-align: middle;
+   margin-top: -90px;
+  }
+  .Ab-card-image {
+    max-width: 320px;
+    object-fit: contain;
+    height: auto;
+    width: 94%;
+  }
+  .Ab-card-contents{
+    font-size: 24px;
+  color: black;
+  overflow: hidden;
+  margin: 16px auto;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  border-radius:9px;
+  font-weight: normal;
+  }
+
+  .Ab-card-title{
+    margin: 0px;
+    font-size: 24px;
+    height: 60px;
+    overflow: hidden;
+    line-height: normal;
+  }
+ 
+ .Ab-card-title-marginBottom{
+   margin-bottom:0%;
+ }
+  .Ab-card-text{
+    font-size: 16px;
+    text-align: center;
+    color: #111111;
+    padding: 8% 4% 4% 4%;
+    margin: 0;
+  }
+
+  .Ab-brand-button-container{
+    width: 84%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    padding: 5%;
+  }
+
+  .Ab-brand-button-container a{
+    font-size: 18px;
+  text-decoration: none;
+  background: #004e99;
+  color: white;
+  padding: 3% 0;
+  border: 1px solid #004e99;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  font-weight: bold;
+  }
+
+  
+  .AB-click{
+    text-decoration: none;
+    margin: auto;
+  }
+  .catHeader{
+    text-align:center;
+    color:#111111;
+    font-size:32px;
+    font-family:'merel';
+    margin:0px
+  }
+  @media only screen and (max-width: 767px) {
+    .Ab-card-slot{
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 8%;
+      }
+      .Ab-card-image {
+        max-width: 350px;
+      }
+      .Ab-image-container{
+       height: 180px;
+      }
+      .Ab-brand-button-container{
+        width: 86%;
+      }
+      .catHeader{
+        font-size: 28px;
+      }
+      .AB-cards-parent{
+        margin-top: 30px;
+      }
+      .Ab-card-title{
+        padding-top: 15px;
+      }
+      .paddingTop40{
+        padding-top: 40px;
+      }
+      .paddingTop30{
+        padding-top: 30px;
+      }
+      .paddingTop0{
+        padding-top: 0px;
+      }
+      #Ab-card7{
+        display: none;
+      }
+      #Ab-card8{
+        display: none;
+      }
+  }
+  
+  @media only screen and (min-width: 1px) and (max-width: 500px) {
+    .Ab-card-slot{
+      max-width: 100%;
+      flex: 0 0 100%;
+      padding: 0% 3% 3% 3%;
+      }
+    .Ab-card-slot-parent{
+      margin-bottom:40px;
+    }
+    #Ab-card7 .Ab-card-title {
+      margin-top:25px;
+    }
+    #Ab-card8 .Ab-card-title {
+      margin-top:20px;
+    }
+    .Ab-brand-button-container{
+      bottom: 10px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .Ab-card-slot-parent{
+      margin-top: 50px;
+    }
+    .Ab-brand-button-container a{
+      font-size: 15px;
+    }
+    .Ab-card-slot{
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin-bottom: 10%;
+      }
+      .Ab-card-image{
+        max-width:94%;
+      }
+      .Ab-image-container{
+        height: 300px;
+        margin-top: -150px;
+      }
+      .Ab-brand-button-container{
+        width: 82%;
+      }
+      .Ab-card-slot{
+        padding: 0px 2%;
+      }
+      .AB-cards-parent{
+        margin-top: 80px;
+      }
+      #Ab-card7{
+        display: none;
+      }
+      #Ab-card8{
+        display: none;
+      }
+  }
+  @media only screen and (min-width: 1400px) and (max-width: 1999px){
+    .Ab-image-container{
+      height: 250px;
+    }
+    .Ab-card-image{
+      max-width: 94%;
+    }
+    .AB-slot-container{
+      margin-top: 120px;
+    }
+    .Ab-image-container{
+      margin-top: -120px;
+    }
+    
+  }
+
+  @media only screen and (min-width: 2000px) {
+    .Ab-image-container{
+      height: 350px;
+    }
+    .AB-click{
+      width: 98%;
+      margin: 2%;
+    }
+    .Ab-card-image{
+      max-width: 98%;
+    }
+   .Ab-card-contents{
+     padding-bottom: 5%;
+   }
+   .AB-slot-container{
+    margin-top: 120px;
+    }
+    .Ab-image-container{
+    margin-top: -120px;
+    }
+  }
+  
+ /* AB testing ends here */
+
+  .isDesktop{
+    display: block;
+  }
+  
+  .isMobile{
+    display:none;
+  }
+  .pageFooterSweetRewards{
+    clear:both;
+  }
+
+  @media only screen and (min-width: 1px) and (max-width: 767px) {
+    .isDesktop{
+      display: none;
+    }
+    .isMobile{
+      display:block;
+    }
+    .pageFooterSweetRewards{
+      width: 100%; 
+      margin-left: auto; 
+      margin-right: auto;
+      clear:both
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .isDesktop{
+      display: black;
+    }
+    .isMobile{
+      display:none;
+    }
+    .pageFooterSweetRewards{
+      width: 100%; 
+      margin-left: auto; 
+      margin-right: auto;
+      clear:both
+    }
+    .sweetRewardsanchor{
+      display: block;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .isDesktop{
+      display: block;
+    }
+    .isMobile{
+      display:none;
+    }
+    .pageFooterSweetRewards{
+      width: 100%; 
+      margin-left: auto; 
+      margin-right: auto;
+      clear:both
+    }
+    .sweetRewardsanchor{
+      display: block;
+      text-align: center;
+    }
+  }
+
+.globalOverlay {
+    display:none;
+}
+.openoverlay {
+    .globalOverlay {
+        position: fixed;
+        height: 100vh;
+        z-index: 9999999999;
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        background-color: rgba(33, 31, 31,0.5); /* Black w/opacity */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        align-items: center;
+        .rotate {
+          margin-left:47%;
+          width : 6%;
+          animation: rotation 2s infinite linear;
+        }
+        
+        @keyframes rotation {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(359deg);
+          }
+        }
+    }
+
 }
 
 

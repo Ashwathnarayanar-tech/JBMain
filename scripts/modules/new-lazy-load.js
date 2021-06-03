@@ -20,7 +20,10 @@ define('modules/new-lazy-load', ["modules/jquery-mozu", "underscore"], function(
     megaMenu.addEventListener("keyup", loadImages);
     window.addEventListener("scroll", loadImages);
   }
-
+  $("#megaMenuMob .head-list-item.view-products").on("click",function(){
+    loadImages();
+  });
+  
   function lazyLoad(llClassName) {
     for (var i = 0; i < llClassName.length; i++) {
       if (llClassName[i].getAttribute('data-src')) {

@@ -22,6 +22,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
         });
 
         //ADA for login popover.
+        
         $(document).on('keydown','.popover-label',function(e){
             if(e.which == 13 || e.which == 32){
                 e.preventDefault(); 
@@ -115,10 +116,10 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     password: this.$el.find('.mz-signup-password')[0].value
                 };
                 if (this.validate(data)) {
-                      window.showGlobalOverlay();
+                    window.showGlobalOverlay();
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {
-                        window.location.reload();
+                        window.location.href = window.location.pathname+"?cl=returningUser";
                       }
                       else{
                         window.location = '/myaccount';
@@ -207,12 +208,22 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                 }else{
                     err = "Error: "+Hypr.getLabel('unexpectedError'); 
                 }
+                window.hideGlobalOverlay();
                 this.displayMessage(err);
             },
             hideMessage: function() {
                 this.$messageBar.html('');
             },
             messageTemplate: Hypr.getTemplate('modules/common/message-bar')
+        });
+        $(document).on('keypress',function (e) {
+            var key = e.which;
+            var self=this;
+            if(key == 13 && $("#signup-cpp-checkbox").prop('checked') === true)  // the enter key code
+            {    
+                $('#signup-submit').click();
+                return false; 
+            }
         });
         /** Reset password functionality **/
         var user = require.mozuData('user');

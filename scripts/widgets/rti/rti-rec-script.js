@@ -9,7 +9,6 @@ require([
  'widgets/rti/recommended-products'
 ],
 function($, Hypr, HyprLiveContext, _, api,Backbone, ProductModels, RecommendedProducts) {
-
 // rtiOptions will contain variables used by the
 //whole page. They can be set in every widget editor, but only the first
 //one on the page is the one that we'll listen to for these variables.
@@ -25,6 +24,7 @@ var rtiOptions = {
   includeSiteId: firstConfig.includeSiteId || false,
   includeTenantId: firstConfig.includeTenantId || false
 };
+
 
 var pageContext = require.mozuData('pagecontext');
 var siteContext = require.mozuData('sitecontext');
@@ -75,6 +75,7 @@ $('.recommended-product-container').each(function(){
 }
 });
 
+
 /*Recommended Product Code Starts*/
  var eFlag = 0;
  var ProductModelColor = Backbone.MozuModel.extend({
@@ -108,8 +109,33 @@ $('.recommended-product-container').each(function(){
         "click a.wishlist-button": "addToWishlist",  
         "touchstart a.wishlist-button": "addToWishlist",
         "click .jb-add-to-cart-cur" : "generateclick",   
-        "click .jb-add-to-cart" : "generateclick"
+        "click .jb-add-to-cart" : "generateclick",
+        "change [plp-giftcart-prize-change-action]" : "onselectchange",
+        "click [plp-giftcart-prize-change-action]" : "onselectclick",
+        "touchstart [plp-giftcart-prize-change-action]" : "onselectclick"
       },
+      onselectclick : function(e) {
+            $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').hide();
+            $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').show();
+            $(e.currentTarget).focusout(function(){
+                $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').show();
+                $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').hide();
+            });
+      },
+      onselectchange: function(e){
+            var $optionEl = $(e.currentTarget);
+            var newValue = $optionEl.val();
+            var ax = $(e.currentTarget).closest(".mz-productlisting").find(".jb-add-to-cart-cur");
+            $(e.currentTarget).parent(".jb-product-prize").find('.down-caret-quantity-myacc-add').show();
+            $(e.currentTarget).parent(".jb-product-prize").find('.up-caret-quantity-myacc-add').hide();
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+                ax.removeClass('gift-prize-select');
+            }else{ 
+                ax.text("Shop Gift Card");
+                ax.addClass('gift-prize-select');
+            }
+      },     
       generateclick: function(e){     
         generateClickEvent($(e.target).attr('data-mz-prcode'),$(e.target).attr('attr-widget'),$(e.target).attr('attr-slot'),window.BNData); 
       },   
@@ -137,15 +163,22 @@ $('.recommended-product-container').each(function(){
             // owl2.trigger('destroy.owl.carousel');  
             // owl2.html(owl2.find('.owl-stage-outer').html()).removeClass('owl-loaded');
             var stagePadding = 0;
+            var margindesktop = 14;
             var loop = false,nav=true;
-            if($(window).width() <= 767){
-              stagePadding = 30;
+            if($(".rti-recommended-products .related-prod-owl-carousel .row.mz-productlisting").length >= 2) {
               loop = true; 
+            } else {
+              loop = false; 
+            }
+            if($(window).width() <= 767){
+              stagePadding = 20;
+              margindesktop = 4;
               nav=false;
             }
+
             owl2.owlCarousel({  
               loop: loop, 
-              margin: 14,
+              margin: margindesktop,
               dots: false,
               autoPlay: false,  
               pagination: false,   
@@ -162,8 +195,8 @@ $('.recommended-product-container').each(function(){
                   400: {
                     items: 1
                   },
-                  600: {
-                    items: 3
+                  767: {
+                    items: 2
                   },
                   800: {
                     items: 3   

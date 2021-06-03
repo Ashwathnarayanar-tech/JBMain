@@ -1,75 +1,50 @@
 <nav class="mz-scrollnav mz-desktop"  id="account-nav" data-mz-scrollnav="{{ navtarget }}">
     <ul class="mz-scrollnav-list nav">
-        
-        <li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link mz-nav-head" >
-                {{ labels.accountNavHead }}
-            </a>
-        </li>
-
-		<li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link" forID="account-loyalty-program"  data-zrl-dashboard='show-redeem-tab' id="sweetrewards-panel" aria-controls="x-account-loyalty-program" aria-selected="false" role="tab" href="#account-loyalty-program" tabindex="0">
-                SWEET REWARDS   
-            </a>
-        </li>
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link active" forID="account-settings" id="account-settings-panel" aria-controls="x-account-settings" aria-selected="true" role="tab" href="#account-settings" tabindex="0">
                 {{ labels.accountSettings }}
             </a>
-        </li>
-        
-        {% comment %}
-        {% if themeSettings.allowQuickOrder %}
-        <li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link" forID="quick-order" id="quickorder-panel" aria-controls="x-quick-order" aria-selected="false" role="tab" href="#quick-order" tabindex="0">
-                {{ labels.accountQuickOrder }}
-            </a>
-        </li>
-        {% endif %}
-        {% endcomment %}
-        
+        </li>        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-orderhistory" id="orderhistory-panel" aria-controls="x-account-orderhistory" aria-selected="false" role="tab" href="#account-orderhistory" tabindex="0">
                 {{ labels.orderHistory }}
             </a>
         </li>
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-returnhistory" id="returnhistory-panel" aria-controls="x-account-returnhistory" aria-selected="false" role="tab" href="#account-returnhistory" tabindex="0">
                 {{ labels.returns }}
             </a>
         </li>
-        
         {% if themeSettings.allowWishlist %}
-        <li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link" forID="account-wishlist" id="wishlist-panel" aria-controls="x-account-wishlist" aria-selected="false" role="tab" href="#account-wishlist" tabindex="0">
-                {{ labels.accountMyWishlist }}
-            </a>
-        </li>
+            <li class="mz-scrollnav-item">
+                <a class="mz-scrollnav-link" forID="account-wishlist" id="wishlist-panel" aria-controls="x-account-wishlist" aria-selected="false" role="tab" href="#account-wishlist" tabindex="0">
+                    {{ labels.accountMyWishlist }}
+                </a>
+            </li>
         {% endif %}
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-addressbook" id="addressbook-panel" aria-controls="x-account-addressbook" aria-selected="false" role="tab" href="#account-addressbook" tabindex="0">
                 {{ labels.addressBook }}
             </a>
         </li>
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-paymentmethods" id="paymentmethods-panel" aria-controls="x-account-paymentmethods" aria-selected="false" role="tab" href="#account-paymentmethods" tabindex="0">
                 {{ labels.paymentMethods }}
             </a>
         </li>
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-storecredit" id="storecredit-panel" aria-controls="x-account-storecredit" aria-selected="false" role="tab" href="#account-storecredit" tabindex="0">
                 {{ labels.giftCards }}    
             </a>
         </li>
-        
         <li class="mz-scrollnav-item">
             <a class="mz-scrollnav-link" forID="account-help" id="help-panel" aria-controls="x-account-help" aria-selected="false" role="tab" href="#account-help" tabindex="0">
                 HELP   
+            </a>
+        </li>
+        <li class="mz-scrollnav-item logoutmyaccount">
+            <a class="mz-scrollnav-link" forID="logout" href="/logout">
+                LOGOUT  
             </a>
         </li>
     </ul>

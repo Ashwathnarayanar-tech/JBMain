@@ -1,4 +1,4 @@
-<h3 class="mz-l-stack-sectiontitle">MY WISHLIST</h3>
+<h3 class="mz-l-stack-sectiontitle isDesktop"  tabindex="0">MY WISHLIST</h3>
 
 <div class="mz-accountwishlist-list">
     {% if model.items.length > 0 %}
@@ -33,7 +33,7 @@
 </div>
 <div class="conformation-poup">
     <div class="cointainer-popup" data-role= popup>
-        <div class="content"  tabindex="0">Are you sure, want to remove all items from the wishlist?</div>
+        <div class="content" role="contentinfo" tabindex="0">Are you sure, want to remove all items from the wishlist?</div>
         <div class="buttons">
             <button tabindex="0" class="remove" data-mz-action="removeAllItems">YES</button>  
             <button tabindex="0" class="remove-cancel" data-mz-action="cancelremoving">CANCEL</button>  

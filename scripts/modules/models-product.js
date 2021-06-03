@@ -247,7 +247,7 @@ define(["modules/jquery-mozu",
                         quantity: me.get("quantity")
                         }).then(function (item) {
                         me.trigger('addedtocart', item);
-                         window.hideGlobalOverlay();
+                        window.hideGlobalOverlay();
                     }).catch(function(err){
                         console.log(" product model add to cart error ",err);
                         window.hideGlobalOverlay();
@@ -255,7 +255,7 @@ define(["modules/jquery-mozu",
                 }
             });
         },
-        addToWishlist: function() {
+        addToWishlist: function(e) {
             var me = this;
             this.whenReady(function() {
                 if (!me.validate()) {
@@ -264,6 +264,7 @@ define(["modules/jquery-mozu",
                         quantity: me.get("quantity")
                     }).then(function(item) {
                         me.trigger('addedtowishlist', item);
+
                     });
                 }
             });

@@ -30,7 +30,7 @@
                     <img src="/resources/images/jb-news-and-events/events.png" alt=Event Calendar" width="98" >
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                  Get details on the exciting events that Jelly Belly is involved in, from cycling races to Belly Flop sales! 
                   <a class="jb-feature-brand-moreinfo" href="/event-calendar">More Info ►</a>
                 </p>
@@ -48,7 +48,7 @@
                     <img src="/resources/images/jb-news-and-events/news.png" alt="Globe shaped Jelly Belly jelly bean" width="133" >
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   What’s new with us? Read about all the thrilling, fun and sometimes wacky happenings in the world of Jelly Belly.
                   <a class="jb-feature-brand-moreinfo" href="http://news.jellybelly.com/index.php">More Info ►</a>
                 </p> 
@@ -65,7 +65,7 @@
                     <img src="/resources/images/jb-news-and-events/athletes.jpg" alt="Sponsorship Information" width="133" >
                   </a>
                 </figure>
-                <p tabindex="0" >
+                <p tabindex="0" role="contentinfo">
                   Candy isn't the only thing you'll find with the Jelly Belly name on it. We sponsor many exciting people and programs in areas from golf to drag racing.
                   <a class="jb-feature-brand-moreinfo" href="/sportsSponsorships">More Info ►</a>
                 </p>
@@ -77,3 +77,12 @@
     
     <div class="clearfix"></div>
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+

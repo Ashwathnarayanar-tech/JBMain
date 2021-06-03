@@ -19,9 +19,13 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 	//      pixelimg.src = "//content.jellybelly.com/pixel/pixel.aspx?order_id=ERROR&step=JQUERY_UNDEFINED";
 	//   }
 
-	var apiContext = JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML);
-	var pageContext = JSON.parse(document.getElementById('data-mz-preload-pagecontext').innerHTML);
-	var userContext = JSON.parse(document.getElementById('data-mz-preload-user').innerHTML);
+	// var apiContext = JSON.parse(document.getElementById('data-mz-preload-apicontext').innerHTML);
+	// var pageContext = JSON.parse(document.getElementById('data-mz-preload-pagecontext').innerHTML);
+	// var userContext = JSON.parse(document.getElementById('data-mz-preload-user').innerHTML);
+	
+	var apiContext = require.mozuData("apicontext");
+	var pageContext = require.mozuData("pagecontext");
+	var userContext = require.mozuData("user");
 	
 	if(!userContext.isAnonymous) {
 		utag_data.customer_email = userContext.email;
@@ -795,20 +799,22 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 		if (type == 'billing_lname') {
 			details.push(confirmationModel.billingInfo.billingContact.lastNameOrSurname);
 		}
-		if (type == 'billing_street1') {
-			details.push(confirmationModel.billingInfo.billingContact.address.address1);
-		}
-		if (type == 'billing_street2') {
-			details.push((confirmationModel.billingInfo.billingContact.address.address2 === null) ? "" : confirmationModel.billingInfo.billingContact.address.address2);
-		}
-		if (type == 'billing_city') {
-			details.push(confirmationModel.billingInfo.billingContact.address.cityOrTown);
-		}
-		if (type == 'billing_state') {
-			details.push(confirmationModel.billingInfo.billingContact.address.stateOrProvince);
-		}
-		if (type == 'billing_zip') {
-			details.push(confirmationModel.billingInfo.billingContact.address.postalOrZipCode);
+		if(confirmationModel.billingInfo.billingContact.address !== undefined){
+			if (type == 'billing_street1') {
+				details.push(confirmationModel.billingInfo.billingContact.address.address1);
+			}
+			if (type == 'billing_street2') {
+				details.push((confirmationModel.billingInfo.billingContact.address.address2 === null) ? "" : confirmationModel.billingInfo.billingContact.address.address2);
+			}
+			if (type == 'billing_city') {
+				details.push(confirmationModel.billingInfo.billingContact.address.cityOrTown);
+			}
+			if (type == 'billing_state') {
+				details.push(confirmationModel.billingInfo.billingContact.address.stateOrProvince);
+			}
+			if (type == 'billing_zip') {
+				details.push(confirmationModel.billingInfo.billingContact.address.postalOrZipCode);
+			}
 		}
 		if (type == 'customer_id') {
 			details.push(confirmationModel.customerAccountId);

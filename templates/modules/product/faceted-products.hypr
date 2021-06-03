@@ -1,8 +1,6 @@
- 
 {% comment %}
 {% preload_json Model "facetedproducts" %}
 {% endcomment %}   
-
 <script type="text/json" id="data-mz-preload-facetedproducts"> 
 { 
     "facets": {% json model.facets %}, 
@@ -20,28 +18,25 @@
 } 
 </script>
 
-<div class="mz-mobile">
+<div class="mz-mobile mobileuxFilter">
     <ul class="tz-mobrefine-slot">
-        <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">{{ labels.refine }}</a></li>
+        <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">FILTER <span class="nooffilters">(0)</span></a></li>
         <li jb-mobSort data-jb-current-sort="{{model.currentSort}}">
             <a href="javascript:void(0)" >
-            <label>
-                <span role="button">
-                    {{ labels.sortBy }}  
-                </span>
-            </label>
+                <label>
+                    <span role="button">
+                        {% if not model.currentSort %}SORT BY{% else %} {{model.currentSort}}  {% endif %}
+                    </span>
+                </label>
             </a>
-            {% comment %}
-            <div data-mz-pagesort class="mz-sortby">
-                {% include "modules/common/page-sort" %}
-            </div>  
-            {% endcomment %}
         </li>
     </ul>
-</div> 
-{% comment %}
-    {% dropzone zoneId="category-info" scope="page" %}
-{% endcomment %}
+    <div data-mz-mobile-page-sort class="mz-mobile mz-pagesort-mobile">
+        {% include "modules/common/page-sort-mobile" %}
+    </div>
+</div>
+
+
 <h2 class="sr-only" tabindex="-1" id="shopping-section">Shop Online</h2>
 <div class="mz-l-paginatedlist" id="shop-all">
     <div class="jb-pagecontrols mz-desktop" >
@@ -61,24 +56,16 @@
         <div class="clearfix"></div>
     </div>
     <div class="selected-facets">
-        {% include "modules/product/selected-facets" %}
+        {% include "modules/product/selected-facets" %}    
     </div>
-    {% if pageContext.isEditMode %}
-
-        <!-- in edit mode -->
-
+	{% if pageContext.isEditMode %}
+		<!-- in edit mode -->
 	{% else %}
 		<style>
 			#mz-drop-zone-main-banner { display: none; }
 			#mz-drop-zone-main-banner-override { display: none; }
 		</style>
 	{% endif %}
-    {% comment %}
-		{% if pageContext.isEditMode %}MAIN BANNER FOR FACETED PAGES{% endif %}
-    	   {% dropzone zoneId="main-banner" scope="template" %}
-		{% if pageContext.isEditMode %}OVERRIDE BANNER FOR FACETED PAGES{% endif %}
-		  {% dropzone zoneId="main-banner-override" scope="page" %}
-    {% endcomment %}
 	{% if  pageContext.search.query %}
         <a href="{{themeSettings.search_result_banner_image_url}}" style="text-align: center;display: block;">
             <img alt="Banner image" id="sli_bimg_tophaha_of_results" border="0" style="margin-bottom: 12px; width: 100%;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.search_result_banner_image}}">
@@ -88,34 +75,32 @@
     <div data-mz-productlist id="unbxd_results_container">
         {% include "modules/product/product-list-tiled" %}
     </div>
-    <div class="load-more-prod text-center">
-        {% if model.pageCount > 1 and model.hasNextPage %}
+    <div class="load-more-prod text-center {% if model.pageCount > 1 and model.hasNextPage %} {% else %} removeloadPadding {% endif %}">
+        {% if model.pageCount > 1 and model.hasNextPage %}  
             <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
             <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 
-        {% endif %}    
-        {% comment %}
-        <a role='button' aria-label="load more" class="mz-pagenumbers-next custom-br-button loadmore-active" id="load-more">Load More</a>
-        {% if model.pageCount > 1 and model.hasNextPage %}
-            <button lastInedx="{{model.lastIndex}}" aria-label="load more" class="mz-pagenumbers-next custom-br-button {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-more" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="next"  {% endif %}{% endif %}>Load More</button>
-            <button lastInedx="{{model.lastIndex}}" aria-label="load all" class="mz-pagenumbers-next custom-br-button load-all {% if model.pageCount > 1 %}{% if model.hasNextPage %} loadmore-active {% else %} loadmore-disabled {% endif %}{% else %} loadmore-disabled{% endif %} load-more-btn-plp" id="load-all" {% if model.pageCount > 1 %}{% if model.hasNextPage %} href="{% make_url "paging" model with page="next" %}" rel="all"  {% endif %}{% endif %}>Show All ({{model.totalCount}})</button> 
-        {% endif %}
-        {% endcomment %}
-    </div>
+        {% endif %} 
+    </div>                
 </div>
 <div class="brand-dicreption-bottom">
     <div class ="isDesktop">
         {% dropzone zoneId="brand-dicreption-bottom" scope="page" %}
+<<<<<<< HEAD
    </div>
      <div class="isMobile">
         {% dropzone zoneId="brand-dicreption-bottom-mobile" scope="page" %}
    </div>
+=======
+    </div>
+    <div class="isMobile">
+        {% dropzone zoneId="brand-dicreption-bottom-mobile" scope="page" %}
+    </div>
+>>>>>>> origin/checkoutNewReDesign
 </div>
 <div class="tz-Facets mz-mobile">
     {% if Model.Facets %}
         {% include "modules/product/faceting-formNew" %}
     {% endif %}
 </div> 
-<div data-mz-mobile-page-sort class="mz-mobile mz-pagesort-mobile">
-    {% include "modules/common/page-sort-mobile" %}
-</div>
+
 {% require_script "modules/add-to-cart-plp" %}  

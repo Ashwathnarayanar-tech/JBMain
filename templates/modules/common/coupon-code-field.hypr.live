@@ -27,7 +27,7 @@
         </div>
         <div class="coupon-code-main {% if model.couponCodes.length> 0 %}show-coupon{% endif %}">
             <div class="mz-l-formfieldgroup-cell" id="cart-coupon-entry">
-                <input type="text" id="coupon-code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
+                <input type="text" placeholder="Enter Coupon Code" id="coupon-code" name="coupon-code" {% if model.couponCodes.length> 0 %}value="{{model.couponCodes | first }}"{% else %}value="{{ model.couponCode }}"{% endif %} aria-label="Enter coupon field" data-mz-value="couponCode" placeholder=""/><!-- ADA OK -->
                 {% if model.couponCodes.length> 0 %}
                     <button type="button"  class="mz-button remove-coupon" role="button" aria-label="{{ labels.remove }}">{{ labels.remove }}</button>       
                 {% else %}
@@ -59,3 +59,5 @@
         <div class="coupon-error" tabindex="0">Error: You cannot apply more than one coupon code. </div>  
         <div class="coupon-error-onetime-use" tabindex="0">Error: You have already used this coupon code.</div>  
 {% endif %}
+
+

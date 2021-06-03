@@ -162,9 +162,9 @@ define(['underscore', 'modules/api','modules/backbone-mozu', 'hyprlive', "module
             }
             
             var self = this;
+            console.log(" delete api called ");
             this.get('items').get(id).apiModel.del().then(function(prod) {
-              try
-              {
+              try{
                 var objArray = [];
                 var obj ={};
                 obj.name = prod.data.product.name;

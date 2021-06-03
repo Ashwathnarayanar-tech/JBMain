@@ -19,7 +19,7 @@ require(["modules/jquery-mozu", "modules/api"],
         gtmProduct.id = items[i].product.productCode;
         gtmProduct.price = items[i].product.price.price; //does not take into account salePrice
         gtmProduct.brand = 'Jelly Belly';
-        if(items[i].product.categories.length) { //As getting Error in Checkout page
+        if(items[i].product.categories.length) { 
           gtmProduct.category = gtmProduct.category = items[i].product.categories[0].id; //returns first category code
         } 
         gtmProduct.variant = 'standard';

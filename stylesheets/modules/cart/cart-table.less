@@ -143,7 +143,28 @@
         background: green;
     }
 }
-
+.mz-cart .right-section .right-inner-section .price-table .checkout-col {
+    &.discountCol {
+        * {
+            box-sizing: border-box;
+        }
+        span {
+            span {
+                &.mleft18.mleft19 {
+                    display: inline-block;
+                    float: left;
+                    width: 70%;
+                }
+                &.mz-carttable-total.discount-total.mleft19 {
+                    display: inline-block;
+                    float: right;
+                    width: 30%;
+                    clear: none;
+                }
+            }
+        }
+    }
+}
 .coupon-error, .coupon-error-onetime-use {
     display:none;
     font-size: 13px;

@@ -257,7 +257,7 @@
                                             padding: 3px 0 0;
                                         }
                                     }
-                                }  
+                                }
                                 .mz-productdetail-price {
                                     margin: 0;
                                     padding: 0 0 4%;
@@ -375,6 +375,9 @@
                                     padding: 8px 0;
                                     margin: 0 4% 0 0;
                                     vertical-align: middle;
+                                    &:disabled{
+                                        background-color: #CCCCCC;
+                                    }
                                 }
                                 .add-to-wishlist{
                                     width: 35%;
@@ -386,7 +389,7 @@
                                     font-size: 12px;
                                     text-decoration: none;
                                     text-transform: uppercase;
-                                    background-position: 54px 9px;
+                                    background-position: 20px center;
                                     background-repeat: no-repeat;
                                     padding: 12px 10px 10px 24px;
                                     background-size: 16px;
@@ -461,25 +464,53 @@
                         .at-icon-wrapper{
                             width: 38px !important;
                             height: 38px !important;
-                            border: 1px solid #004e99;
+                            border: 1px solid #5C5C5C;
                             background-color: #fff !important;
-                            border-radius: 6px !important;
+                            border-radius: 0px !important;
                             .at-icon-wrapper{
                                 border : none !important;
                                 svg{
                                     width: 38px !important;
                                     height: 38px !important;
-                                    fill: #004e99;
+                                    fill: #5C5C5C !important;  
                                 }
                             }
+                            
                             &:hover{
-                                background-color: #004e99 !important;  
+
+                                background-color: #fff !important;  
                                 svg{
                                     width: 38px !important;
                                     height: 38px !important;
-                                    fill: #fff;
+                                    fill: #5C5C5C !important;  
                                 }
                             }
+                        }
+                        .at-icon-wrapper.at-svc-compact {
+                            background-color: #5C5C5C !important;
+                            .at-icon-wrapper{
+                                background-color: #5C5C5C !important;
+                                svg {
+                                    fill : #fff !important;
+                                }
+                            }
+                            &:hover{
+                                .at-icon-wrapper{
+                                    background-color: #5C5C5C !important;
+                                    svg {
+                                        fill : #fff !important;
+                                    }
+                                }
+                            }
+                        }
+                        .at_flat_counter {
+                            border: 2px solid #3B8004 !important;
+                            background-color: #fff !important;
+                            color: #3B8004 !important;
+                        }
+                        .at_flat_counter:after {
+                            border-color: transparent #3B8004 transparent transparent;
+                            left: -10px;
                         }
                     }
                 }
@@ -565,7 +596,7 @@
                                             position: absolute;
                                             top: 58px;
                                             left: -20px;
-                                            background-image: url(../../resources/images/slideshow/left-arrow.png);
+                                            background-image: url(../../resources/images/slideshow/left-arrow-new.png);
                                             background-repeat: no-repeat;
                                             background-size: 14px 31px;
                                         }
@@ -576,7 +607,7 @@
                                             position: absolute;
                                             top: 58px;
                                             right: -24px;
-                                            background-image: url(../../resources/images/slideshow/right-arrow.png);
+                                            background-image: url(../../resources/images/slideshow/right-arrow-new.png);
                                             background-repeat: no-repeat;
                                             background-size: 14px 31px;
                                         }
@@ -637,7 +668,7 @@
                                 .item-content {
                                     display : none;
                                     padding : 2% 1%;
-                                    max-height : 520px;
+                                    /*max-height : 520px;*/
                                     overflow-x : hidden;
                                     overflow-y : auto;
                                     font-size: 18px;
@@ -757,7 +788,7 @@
                                     display: inline-block;
                                     width: 86%;
                                     vertical-align: middle;
-                                    padding: 0 0 0 2%;
+                                    padding: 15px 0 0 2%;
                                     h5{
                                         margin: 0;
                                         font-size: 22px;
@@ -820,6 +851,7 @@
                                               }
                                         }
                                     }
+
                                     .mz-productdetail-conversion{
                                         display: inline-block;
                                         max-width: 220px;
@@ -909,7 +941,7 @@
                                         -webkit-border-radius: 4px;
                                         border: 0.5px solid #e7131a;
                                         text-transform: none;
-                                        padding: 7.5px 0;
+                                        padding: 7px 0;
                                         &:hover{
                                             background-color: #cc0108;
                                             border-color: #cc0108;
@@ -923,7 +955,7 @@
                                         border-radius: 4px;
                                         -moz-border-radius: 4px;
                                         -webkit-border-radius: 4px;
-                                        padding: 8px 0;
+                                        padding: 7px 0;
                                         margin: 0 4% 0 0;
                                         vertical-align: middle;
                                     }
@@ -1308,7 +1340,7 @@
                                             position: absolute;
                                             top: 58px;
                                             left: -20px;
-                                            background-image: url(../../resources/images/slideshow/left-arrow.png);
+                                            background-image: url(../../resources/images/slideshow/left-arrow-new.png);
                                             background-repeat: no-repeat;
                                             background-size: 14px 31px;
                                         }
@@ -1319,7 +1351,7 @@
                                             position: absolute;
                                             top: 58px;
                                             right: -12px;
-                                            background-image: url(../../resources/images/slideshow/right-arrow.png);
+                                            background-image: url(../../resources/images/slideshow/right-arrow-new.png);
                                             background-repeat: no-repeat;
                                             background-size: 14px 31px;
                                         }
@@ -1341,7 +1373,7 @@
                                     clear : both;
                                     .header-item {
                                         padding: 28px 8px;
-                                        width: 28%;
+                                        width: auto;
                                         font-size: 20px;
                                     }
                                 }
@@ -1433,7 +1465,7 @@
                                         width: 70%;
                                         padding: 0 0 2%;
                                         .mz-productdetail-price{
-                                            width: 38%;
+                                            width: 40%;
                                             .price{
                                                 font-size: 14px;
                                             }
@@ -1524,9 +1556,9 @@
                                 background-color: #f7f7f7;
                                 padding: 8px 30px;
                                 .header-item{
-                                    font-size: 18px;
+                                    font-size: 16px;
                                     color: #222222;
-                                    padding: 0 5%;
+                                    padding: 0 3%;
                                     display: inline-block;
                                     text-align: center;
                                     border-right: 1px solid #222222;
@@ -1674,9 +1706,13 @@
                             .tabStructe { 
                                 .tab-header-sec {
                                     .header-item {
-                                        width: 25%;
-                                        padding: 28px 8px;
+                                        width: 20%;
+                                        padding: 28px 8px 26px 8px;
+                                        font-size: 18px;
                                     }
+                                }
+                                .tab-content-sec{
+                                    top: -1px;
                                 }
                             }
                         }
@@ -2202,8 +2238,16 @@
                                                 width: 55%;
                                                 text-transform: capitalize;
                                                 color:#e7131a;
+                                                font-weight: bold;
                                                 .p-price{
                                                     color:#0065a1;
+                                                    strike {
+                                                        font-weight: normal;
+                                                        font-size: 13px;
+                                                        font-weight: normal;
+                                                        color: #004e99;
+                                                        text-decoration-color: #e7131a;
+                                                    }
                                                 }
                                             }
                                             .mz-productoptions-valuecontainer {
@@ -2228,7 +2272,7 @@
                                                     left: auto;
                                                     right: 20px;
                                                 }
-                                            } 
+                                            }
                                             .outofstock.in{
                                                 font-size: 15px;
                                                 display: inline-block;
@@ -2256,7 +2300,7 @@
                                                     text-align: center;
                                                     border: solid 1px #cfcfcf;
                                                     width: 80px;
-                                                    padding: 10px 10px;
+                                                    padding: 9.5px 10px;
                                                     margin: 0;
                                                     font-size: 14px;
                                                     border-radius: 4px;
@@ -2281,7 +2325,7 @@
                                                         border-left: 0px;
                                                         border-top-left-radius: 4px;
                                                         border-bottom-left-radius: 4px;
-                                                        height: 38px;
+                                                        height: 36px;
                                                         top: 1px;
                                                         left: 1px;
                                                         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAAXNSR0IArs4c6QAAABRJREFUCB1jtLGx8WUgAJgIyIOlAUiMAQXyTmaGAAAAAElFTkSuQmCC");
@@ -2296,7 +2340,7 @@
                                                         border-right: 0px;
                                                         border-top-right-radius: 4px;
                                                         border-bottom-right-radius: 4px;
-                                                        height: 38px;
+                                                        height: 36px;
                                                         top: 1px;
                                                         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAKRJREFUWAnt2MEJxDAMRNH11uUWttptwYWlg8kcPiGCn6vEoDwLTLI+0LP3/t1FnXP+dz1N/ds0va3HoZ86EaWVDgKuR8BBS0qjnCFM6YCDlpRGOUOY0gEHLY2UXs0XB8oEhI2Udmjg5KsIpSsmoElpALGKGCm9qlcrmppLyt9iBeSrWkbutEM/tUNKKx0EXI+Ag5aURjlDmNIBBy0pjXKGsJHSF8spCVlrlwEvAAAAAElFTkSuQmCC");
                                                         border-top: none;
@@ -2331,7 +2375,7 @@
                                             -webkit-border-radius: 4px;
                                             border: 0.5px solid #e7131a;
                                             text-transform: none;
-                                            padding: 7.5px 0;
+                                            padding: 8.5px 0;
                                             &:hover{
                                                 background-color: #cc0108;
                                                 border-color: #cc0108;
@@ -2341,11 +2385,11 @@
                                         .mz-productdetail-outofstock{
                                             width: 100%;
                                             display: inline-block;
-                                            font-size: 18px;
+                                            font-size: 16px;
                                             border-radius: 4px;
                                             -moz-border-radius: 4px;
                                             -webkit-border-radius: 4px;
-                                            padding: 8px 0;
+                                            padding: 8.5px 0;
                                             margin: 0 4% 0 0;
                                             vertical-align: middle;
                                         }
@@ -2797,8 +2841,9 @@
 //Free-shipping modal
 #cboxLoadedContent div.free-shipping{
     #desc{
+        margin-bottom: 0px;
         li.free-shipping{
-            padding: 0 0 2%;
+            padding: 0 0 15px;
         }
     }
 }

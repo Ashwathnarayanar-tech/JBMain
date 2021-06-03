@@ -11,7 +11,7 @@
 
 {% dropzone "signup-standalone-header" scope="page" %}
 
-<div style="height: 500px;">
+<div style="height: 530px;" class="subs-main">
 {% if pageContext.cmsContext.page.path != 'signup-email-sms' %}
 	{% include "modules/email-sms-signup" %}
 {% endif %}  

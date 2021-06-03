@@ -1,4 +1,3 @@
-
 <div class="jb-custom-overlay overlay-slidedown"> 
     <nav class="mz-sitenav-mobile mz-mobile">
         {% comment %}

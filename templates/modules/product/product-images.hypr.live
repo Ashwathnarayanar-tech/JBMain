@@ -1,33 +1,50 @@
+
 {% if model.content.productImages.length > 0 %} 
-<div class="mz-productimages-main" id="jb-images">  
-    <img tabindex="0" role="button" itemprop="image" alt="{{ model.mainImage.altText|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ model.mainImage.imageUrl }}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
+<figure class="mz-productimages-main" id="jb-images">  
+    <img tabindex="0" role="button" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ model.mainImage.imageUrl }}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
     <div class="mz-desktop image-enlarge">
-      <img class="mz-zoom-icon" src="/resources/images/zoom_icon.png" alt="Enlarge image icon" width="22" />   
-      <figcaption role="button" tabindex="0">Click on image to enlarge</figcaption> 
+      <img tabindex="0" role="button" class="mz-zoom-icon" src="/resources/images/zoom_icon.png" alt="Enlarge image icon" width="22" />   
+      <figcaption >Click on image to enlarge</figcaption> 
     </div>    
-</div>       
-<div class="mz-productimages-thumbs">   
-    {% for image in model.content.productImages %} 
-        <a role="button" class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
-            <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail of {{ image.altText|safe }}"/>
-        </a>
+</figure>       
+<figure class="mz-productimages-thumbs">   
+    <ul style="list-style-type: none; padding: 0;">
+    {% for image in model.content.productImages %}
+        {% if pageContext.isMobile or pageContext.isTablet %}
+        <li style="display: inline-block; margin: 0 4px;">
+            <a class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
+                <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail {{ forloop.index }}"/>
+            </a>
+        </li>
+        {% else %}
+        <li style="display: inline-block; margin: 0 16px;">
+            <a class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="javascript:void(0)">
+                <img class="mz-productimages-thumbimage" src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" alt="Thumbnail {{ forloop.index }}"/>
+            </a>
+        </li>
+        {% endif %}
+
+
     {% endfor %} 
 	<!-- now loop for video -->  
     {% for property in model.properties %}
         {% if property.attributeFQN == "tenant~video-url" || property.attributeFQN == "tenant~video-url-2" || property.attributeFQN == "tenant~video-url-3" %}
-            {% for val in property.values %} 
-				<a role="button" class="mz-productimages-thumb open-video" href="#">
+            {% for val in property.values %}
+            <li style="display: inline-block; margin: 0 16px;">
+				<a class="mz-productimages-thumb open-video" href="#">
 				    <div><img class="mz-productimages-thumbimage" src="/resources/images/play-button.jpg" data-mz-video-id="{{ val.value }}" alt="Product video" /></div>
 					<!-- <img width="50" height="50" class="mz-productimages-thumbimage" style="position: absolute; z-index: 1;" src="http://img.youtube.com/vi/{{ val.value }}/3.jpg" data-mz-video-id="{{ val.value }}"/> -->
 				</a>
+            </li>
             {% endfor %}
         {% endif %}  
     {% endfor %}
-</div>
+    </ul>
+</figure>
 {% else %}
-<div class="mz-productimages-main" id="jb-images">  
-    <img tabindex="0" role="button" itemprop="image" alt="{{ model.mainImage.altText|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
-</div>  
+<figure class="mz-productimages-main" id="jb-images">  
+    <img tabindex="0" role="button" itemprop="image" alt="{{ model.content.productName|safe }}" title="{{  model.content.productName|safe }}" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=650" data-jb-Zoomimg="{{ model.mainImage.imageUrl }}" />
+</figure>  
 {% comment %}
     <span class="mz-productimages-noimage">[{{ labels.noImages}}]</span>
 {% endcomment %}

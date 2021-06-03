@@ -52,7 +52,7 @@ define(["modules/jquery-mozu"], function ($) {
                 height : 300,
                 videoId : '8tPnX7OPo0Q',
                 playerVars : {
-                    'controls' : 1,
+                    'controls' : 0,
                     'showinfo' : 0,
                     //'wmode': 'transparent',
                     'rel' : 0,
@@ -67,7 +67,7 @@ define(["modules/jquery-mozu"], function ($) {
             
             popplayer = new YT.Player('popvideo', {
                 playerVars : {
-                    'controls' : 1,
+                    'controls' : 0,
                     'showinfo' : 0,
                     'rel' : 0
                 },
@@ -1153,3 +1153,7 @@ define(["modules/jquery-mozu"], function ($) {
     // customObject.autoload();
     return {customObject : customObject}; 
 });
+
+
+
+

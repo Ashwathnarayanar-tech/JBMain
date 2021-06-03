@@ -16,9 +16,9 @@ define(["modules/jquery-mozu", "modules/api", "hyprlive", 'hyprlivecontext'], fu
           expires: 365,
           path: '/'
         });
-        if (temp.indexOf(detected_country) == -1) {
-          var destination = getCountryDestination(detected_country);
-          location.href = destination.url;
+        if (detected_country != 'US') {
+          //var destination = getCountryDestination(detected_country);
+          //location.href = destination.url;
         }
       });
     }

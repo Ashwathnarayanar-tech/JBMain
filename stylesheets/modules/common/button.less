@@ -1,11 +1,20 @@
-﻿@keyframes loadingthrob {
+﻿/*@keyframes loadingthrob {
+    from { background-color: #abafb3; }
+     to { background-color: #004e99; }
+}
+
+@-webkit-keyframes loadingthrob {
+    from { background-color: #abafb3; }
+     to { background-color: #004e99; }
+}*/
+@keyframes loadingthrob {
     from { background-color: #eee; }
-     to { background-color: #e3e3e3; }
+     to { background-color: #ccc; }
 }
 
 @-webkit-keyframes loadingthrob {
     from { background-color: #eee; }
-     to { background-color: #e3e3e3; }
+     to { background-color: #ccc; }
 }
 
 
@@ -25,7 +34,7 @@
         .box-shadow(~"inset 0 0 4px rgba(0,0,0,0.3)");
     }
     &[disabled], &[disabled]:active {
-        background-color: #eee;
+        background-color: #CCCCCC;
         border-color: #eee;
         .box-shadow(none);
     }
@@ -45,7 +54,13 @@
 .is-loading .mz-button, .mz-button.is-loading {
     background-position: 50% 50%;
     border-color: #eee;
-    color: transparent;
+    color: #ccc;
     animation: loadingthrob 1s linear 0s alternate infinite;
     -webkit-animation: loadingthrob 1s linear 0s alternate infinite;
+/*    &[data-mz-action="cancelEdit"] {
+        animation: none;
+        -webkit-animation: none;
+    }
+*/
+    
 }

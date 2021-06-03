@@ -1,4 +1,4 @@
-define([
+ define([
     'modules/jquery-mozu',
     'underscore',
     'hyprlive',
@@ -120,6 +120,10 @@ define([
                 }
 
                 if (!this.requiresFulfillmentInfo() && !this.requiresDigitalFulfillmentContact()) return this.stepStatus('complete');
+                if(this.requiresFulfillmentInfo() && this.requiresDigitalFulfillmentContact() ){
+                    this.validation = this.digitalOnlyValidation;
+                    return this.stepStatus('complete');
+                }
                     return CheckoutStep.prototype.calculateStepStatus.apply(this);
                 },
                 getOrder: function() {
@@ -189,7 +193,7 @@ define([
                     var getCurrentState = this.attributes.address.attributes.stateOrProvince;
                     var validateState = getShippingstates.filter(function(item){return item.abbreviation == getCurrentState;});
                     var state = validateState.length > 0 ?this.attributes.address.attributes.stateOrProvince:"",
-                    zip = this.attributes.address.attributes.postalOrZipCode,
+                        zip = this.attributes.address.attributes.postalOrZipCode,
                         addType = $.cookie('isExistingAddress') === "true" ? "Residential" : $('[data-mz-value="address.addressType"]').val() === undefined ? this.attributes.address.attributes.addressType : $('[data-mz-value="address.addressType"]').val();
                     var phone = this.attributes.phoneNumbers ? this.attributes.phoneNumbers.attributes.home : this.attributes.phoneNumbers;
                     if ($.cookie('isExistingAddress') === "true") {
@@ -200,8 +204,10 @@ define([
                     this.set('address.postalOrZipCode', zip);
                     this.set('phoneNumbers.home', phone);
                     this.set('address.addressType', addType === "POBox" ? 'Residential' : addType);
-    
-                if (this.validate()){
+                if(this.attributes.phoneNumbers.get('home').trim().length<14){
+                        this.attributes.phoneNumbers.set('home','');
+                    }
+                if (this.validate()){ 
                     if(this.bypassValidation){
                         $('#bypassNotification').hide();
                         $('#bypassButton').hide(); 
@@ -210,7 +216,7 @@ define([
                     }else{
                         return false;
                     }
-                } 
+                }
 
                 var parent = this.parent,
                     order = this.getOrder(),
@@ -241,15 +247,15 @@ define([
                     });                  
                 };
 
-                    var promptValidatedAddress = function() {
-                        setTimeout(function() {
-                            window.scrollTo(0, $('#step-shipping-address').offset().top);
-                        }, 80);
-                        order.syncApiModel();
-                        me.isLoading(false);
-                        parent.isLoading(false);
-                        me.stepStatus('invalid');
-                    };
+                var promptValidatedAddress = function() {
+                    setTimeout(function() {
+                        window.scrollTo(0, $('#step-shipping-address').offset().top);
+                    }, 80);
+                    order.syncApiModel();
+                    me.isLoading(false);
+                    parent.isLoading(false);
+                    me.stepStatus('invalid');
+                };
 
                 if (!isAddressValidationEnabled || this.bypassValidation) {
                     completeStep();
@@ -258,6 +264,8 @@ define([
                         var methodToUse = allowInvalidAddresses ? 'validateAddressLenient' : 'validateAddress';
                         addr.syncApiModel();
                         addr.apiModel[methodToUse]().then(function (resp) {
+
+                            // silpa
                             if (resp.data && resp.data.addressCandidates && resp.data.addressCandidates.length) {
                                 var getState = resp.data.addressCandidates[0];                                    
                                 var getdeliveryStates = Hypr.getThemeSetting('usStates');
@@ -283,7 +291,7 @@ define([
                                     promptValidatedAddress();
                                     $('#candidateValidatedAddresses').trigger('click');
                                     completeStep();  
-                                } 
+                                }  
                             } else {
                                 completeStep();
                             }
@@ -295,8 +303,15 @@ define([
                             } else {
                                 order.messages.reset({ message: Hypr.getLabel('addressValidationError') });
                                 $('#bypassNotification').show().focus();
-                                $('#bypassButton').show(); 
+                                if($('.dummi-procudeto-useaddress-method').length>0){
+                                    $('.dummi-procudeto-useaddress-method').show().focus();
+                                    $('#bypassButton').hide(); 
+                               }else{
+                                    $('.dummi-procudeto-useaddress-method').hide();
+                                    $('#bypassButton').show().focus(); 
+                               }
                                 $('#continuetoshipping').hide(); 
+                                $('.dummi-procudeto-shipping-method').hide();
                             }
                         });
                     } else {
@@ -310,7 +325,7 @@ define([
             FulfillmentInfo = CheckoutStep.extend({
                 initialize: function() {
                 var me = this;
-                    this.on('change:availableShippingMethods', function(me, value) {
+                this.on('change:availableShippingMethods', function(me, value) {
                     me.updateShippingMethod(me.get('shippingMethodCode'), true);
                     });
                 _.defer(function () {
@@ -320,6 +335,7 @@ define([
                     // because the order data will impact the shipping costs.
                     me.updateShippingMethod(me.get('shippingMethodCode'), true);
                 });
+                
             },
                 relations: {
                     fulfillmentContact: FulfillmentContact
@@ -331,6 +347,17 @@ define([
                     }
                 },
                 refreshShippingMethods: function(methods) {
+                    for (var i = 0; i < methods.length; i++) {
+                        if (methods[i].shippingMethodCode == 'ups_UPS_GROUND' || methods[i].shippingMethodCode == 'ups_UPS_SUREPOST_LESS_THAN_1LB' || methods[i].shippingMethodCode == 'ups_UPS_SUREPOST_1LB_OR_GREATER') {
+                            if (methods[i].price !== 0.00) {
+                                $.cookie("shipmethod_" + methods[i].shippingMethodCode, parseFloat(methods[i].price).toFixed(2), {
+                                    path: '/',
+                                    expires: 365
+                                });
+                            }
+                        }
+                    }
+
                     this.set({
                         availableShippingMethods: methods
                     });
@@ -338,8 +365,8 @@ define([
                     // always make them choose again
                     _.each(['shippingMethodCode', 'shippingMethodName'], this.unset, this);
                 // after unset we need to select the cheapest option
-                //this.updateShippingMethod();
-                },
+                //this.updateShippingMethod(); 
+                }, 
                 calculateStepStatus: function() {
                     if (!this.requiresFulfillmentInfo()) return this.stepStatus("complete");
                     //if (this.provisional) return this.stepStatus("incomplete");
@@ -384,8 +411,9 @@ define([
                             }
                         })
                         .ensure(function() {
-                        me.isLoading(false);
-                        me.calculateStepStatus();
+                                me.isLoading(false);
+                                me.calculateStepStatus();
+                            
                             me.parent.get('billingInfo').calculateStepStatus();
                             if(resetMessage) {
                                 me.parent.messages.reset(me.parent.get('messages'));
@@ -406,11 +434,13 @@ define([
                     if(this.applyShipping()){
                         this.stepStatus('complete');
                         this.parent.get('billingInfo').calculateStepStatus();
+                        
                     }    
                 } else {
                     $(".mz-validationmessage[data-mz-validationmessage-for='shippingMethodCode']").html('The Location provided is not eligible for delivery');
                     $(".brontocart-ship-method.gtm-to-billing.mz-button.mz-shipmethod.checkout-btn[data-mz-action='next']").attr("disabled","disabled");
                 }
+                
             }
         }),
 
@@ -458,7 +488,9 @@ define([
            
             /*helpers: ['acceptsMarketing', 'savedPaymentMethods', 'availableStoreCredits', 'applyingCredit', 'maxCreditAmountToApply',
               'activeStoreCredits', 'nonStoreCreditTotal', 'activePayments', 'hasSavedCardPayment', 'availableDigitalCredits', 'digitalCreditPaymentTotal', 'isAnonymousShopper', 'visaCheckoutFlowComplete'],
-            */    acceptsMarketing: function() {
+            */   
+           
+            acceptsMarketing: function() {
                     return this.getOrder().get('acceptsMarketing');
             },
             isExternalCheckoutFlowComplete: function () {
@@ -690,7 +722,7 @@ define([
                     if (activeCreditPayments) {
                         //check if payment applied with this code, remove
                         var sameCreditPayment = _.find(activeCreditPayments, function(cred) {
-                            return cred.status !== 'Voided' && cred.billingInfo && cred.billingInfo.storeCreditCode === creditCode;
+                            return cred.status !== 'Voided' && cred.billingInfo && cred.billingInfo.storeCreditCode.toLowerCase() === creditCode.toLowerCase();
                         });
 
                         if (sameCreditPayment) {
@@ -1357,7 +1389,7 @@ define([
                     this.refresh();
                 }
             },
-            addCoupon: function() {
+            addCoupon: function () {
                 var me = this;
                 var code = this.get('couponCode');
                 var orderDiscounts = me.get('orderDiscounts');
@@ -1365,7 +1397,7 @@ define([
                     // to maintain promise api
                     var deferred = api.defer();
                     deferred.reject();
-                    deferred.promise.otherwise(function() {
+                    deferred.promise.otherwise(function () {
                         me.trigger('error', {
                             message: Hypr.getLabel('promoCodeAlreadyUsed', code)
                         });
@@ -1373,7 +1405,8 @@ define([
                     return deferred.promise;
                 }
                 this.isLoading(true);
-                return this.apiAddCoupon(this.get('couponCode')).then(function() {
+                return this.apiAddCoupon(this.get('couponCode')).then(function () {
+
                     me.get('billingInfo').trigger('sync');
                     me.set('couponCode', '');
 
@@ -1410,6 +1443,8 @@ define([
                         if(!(me.get('suggestedDiscounts').length && autoAddSuggestedDiscount)){
                             me.set('seterror' , "coupon");
                             me.set('errormessagecoupon' , Hypr.getLabel('promoCodeError', code));
+                            $('.setpaymentcouponerr').html(Hypr.getLabel('promoCodeError', code));
+                            $('.accordion-pay.coupon-code-row').addClass('active');
                         } 
                     }
                     else if (me.get('total') === 0) {
@@ -1421,6 +1456,26 @@ define([
             onCheckoutSuccess: function() {
                 this.isLoading(true);
                 this.trigger('complete');
+                /*Added for invalid CVV not working
+                var me=this,
+                vcurrentPayment = this.apiModel.getCurrentPayment();
+                if(vcurrentPayment.paymentType=="CreditCard"){
+                    _.each(vcurrentPayment.interactions,function(inte){
+                        console.log(inte.status);
+                        if(inte.status=="Authorized"){
+                            if(inte.gatewayCVV2Codes==="M"){
+                                me.trigger('complete');
+                            }else{
+                                me.isLoading(false);
+                                this.trigger('error', "The CVV provided does not match the information on file with the cardholder's bank");
+                                return false;
+                            }
+                        }
+                    });
+                }else{
+                    this.trigger('complete');
+                }*/
+               
             },
             onCheckoutError: function(error) {
                 var order = this,
@@ -1490,7 +1545,7 @@ define([
                 });
                 if (!errorHandled) order.messages.reset(error.items);
                 order.isSubmitting = false;
-                throw error;
+               throw error;
             },
             addNewCustomer: function() {
                 var self = this,
@@ -1696,26 +1751,31 @@ define([
                 return (activePayments && (_.findWhere(activePayments, { paymentType: 'PayPalExpress2' })));
             },
             submit: function() {
-                var order = this,
-                    billingInfo = this.get('billingInfo'),
-                    billingContact = billingInfo.get('billingContact'),
-                    isSameBillingShippingAddress = billingInfo.get('isSameBillingShippingAddress'),
-                    isSavingCreditCard = false,
-                    isSavingNewCustomer = this.isSavingNewCustomer(),
-                    isAuthenticated = require.mozuData('user').isAuthenticated,
-                    nonStoreCreditTotal = billingInfo.nonStoreCreditTotal(),
-                    requiresFulfillmentInfo = this.get('requiresFulfillmentInfo'),
-                    requiresBillingInfo = nonStoreCreditTotal > 0,
-                    currentPayment = this.apiModel.getCurrentPayment(),
-                    process = [function() {
-                        return order.update({
-                            ipAddress: order.get('ipAddress'),
-                            shopperNotes: order.get('shopperNotes').toJSON()
-                        });
-                    }];
-                    if (this.isNonMozuCheckout()) {
-                        billingContact.set("address", null);
-                    }
+             
+                var order = this;
+                if((window.location.href).split('?')[1] == 'cl=returningUser'){
+                    var cust=this.get('customer');
+                    cust.apiModel.data.contacts=[];
+                } 
+                var billingInfo = this.get('billingInfo'),
+                billingContact = billingInfo.get('billingContact'),
+                isSameBillingShippingAddress = billingInfo.get('isSameBillingShippingAddress'),
+                isSavingCreditCard = false,
+                isSavingNewCustomer = this.isSavingNewCustomer(),
+                isAuthenticated = require.mozuData('user').isAuthenticated,
+                nonStoreCreditTotal = billingInfo.nonStoreCreditTotal(),
+                requiresFulfillmentInfo = this.get('requiresFulfillmentInfo'),
+                requiresBillingInfo = nonStoreCreditTotal > 0,
+                currentPayment = this.apiModel.getCurrentPayment(),
+                 process = [function() {
+                    return order.update({
+                        ipAddress: order.get('ipAddress'),
+                        shopperNotes: order.get('shopperNotes').toJSON()
+                    });
+                }];
+                if (this.isNonMozuCheckout()) {
+                    billingContact.set("address", null);
+                }
 
                 if (this.isSubmitting) return;
 
@@ -1760,16 +1820,19 @@ define([
                 }
 
                 //save contacts
-                if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
-                    if (!isSameBillingShippingAddress && !isSavingCreditCard) {
-                        if (requiresFulfillmentInfo) process.push(this.addShippingContact);
-                        if (requiresBillingInfo) process.push(this.addBillingContact);
-                    } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
-                        process.push(this.addShippingAndBillingContact);
-                    } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
-                        process.push(this.addShippingContact);
+                //if((window.location.href).split('?')[1] !== 'cl=returningUser'){
+                    if (!this.isNonMozuCheckout() && (isAuthenticated || isSavingNewCustomer)) {
+                        if (!isSameBillingShippingAddress && !isSavingCreditCard) {
+                            if (requiresFulfillmentInfo) process.push(this.addShippingContact);
+                            if (requiresBillingInfo) process.push(this.addBillingContact);
+                        } else if (isSameBillingShippingAddress && !isSavingCreditCard) {
+                            process.push(this.addShippingAndBillingContact);
+                        } else if (!isSameBillingShippingAddress && isSavingCreditCard && requiresFulfillmentInfo) {
+                            process.push(this.addShippingContact);
+                        }
                     }
-                }
+               // }
+                
 
                 process.push(/*this.finalPaymentReconcile, */this.apiCheckout);
 

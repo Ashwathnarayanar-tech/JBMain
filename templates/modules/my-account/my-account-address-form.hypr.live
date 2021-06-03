@@ -19,13 +19,14 @@
             {% endif %}
         </div>
         <div class="mz-l-formfieldgroup mz-l-formfieldgroup-norows mz-contacttype">
-            <label class="checkbox-outer-label">
-                <input class="checkbox-styled" type="checkbox" isShippingContact data-mz-value="editingContact.isShippingContact" value="true" {% if model.isShippingContact  %} checked="checked" {% endif %}> Make this my Default Shipping Address
+            <label  tabindex="0" class="checkbox-outer-label">
+                <input tabindex="-1" class="checkbox-styled" type="checkbox" isShippingContact data-mz-value="editingContact.isShippingContact" value="true" {% if model.isShippingContact  %} checked="checked" {% endif %}> Make this my Default Shipping Address
                 <span class="checkmark-style"></span>
             </label>
             {% if model.isShippingContact %}
-            <label class="mz-contacttype-isprimary" style="display:none;">
-                <input type="checkbox" isPrimaryShippingContact data-mz-value="editingContact.isPrimaryShippingContact" value="true" {% if model.isPrimaryShippingContact %} checked="checked" {% endif %}> {{ labels.primary }}
+            <label  tabindex="0" class="mz-contacttype-isprimary checkbox-outer-label">
+                <input tabindex="-1" class="checkbox-styled" type="checkbox" isPrimaryShippingContact data-mz-value="editingContact.isPrimaryShippingContact" value="true" {% if model.isPrimaryShippingContact %} checked="checked" {% endif %}> {{ labels.primary }}
+                <span class="checkmark-style"></span>
             </label>
             {% endif %}
         </div>

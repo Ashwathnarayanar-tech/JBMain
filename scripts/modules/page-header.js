@@ -1,7 +1,6 @@
 require([
-    "modules/jquery-mozu", "underscore", "modules/backbone-mozu","modules/contextify" ,"modules/search-autocomplete"
-    ,"modules/login-links"
-], function($, _,  Backbone,contextify,searchAutocomplete,loginLinks) {
+    "modules/jquery-mozu", "underscore", "modules/backbone-mozu","modules/contextify" ,"modules/login-links"
+], function($, _,  Backbone,contextify,loginLinks) {
     var pageHeadeView = Backbone.MozuView.extend({
         templateName: 'modules/page-header-new',
          render:function() {
@@ -19,11 +18,11 @@ require([
         var pageModel = window.getDeviceMode();
         var newMode = window.getcurrentMode(pageModel);
         console.log(" new mode ",newMode,window.currentMode);
-        if(newMode !=window.currentMode){
+        //if(newMode !=window.currentMode){
             window.currentMode = newMode;
            // updateHeader(pageModel);
            updateMenus();
-        }
+        //}
      }
 
 
@@ -55,7 +54,7 @@ require([
             },500);
         },1000);
     }
-   // generateheader();
+    //generateheader();
    
 });
 

@@ -14,40 +14,51 @@
     <div> 
     {% if user.isAuthenticated %}
     		<div class="login-already-signed">
-    			<h1>You're already signed in.</h1> 
+    			<h1 tabindex="0">You're already signed in.</h1> 
     			<h4>You may <a href="/shop">continue shopping</a> or <a href="/myaccount">access your account.</a></h4>
     		</div>
     {% else %}
         <div class="mz-l-column login-signup-section">
-            <h1 class="mz-pagetitle">{{ labels.logIn2 }}</h1>
-            <ul>
-                <li >Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
-                <li >View your Order History</li>
-                <li >Save Addresses and Credit Cards</li> 
-                <li >Add to your Wishlist</li>
-            </ul>
+            <h1 class="mz-pagetitle" tabindex="0">{{ labels.logIn2 }}</h1>
+            <div class="login-innercontent">
+                <h4 tabindex="0">Welcome Back!</h4>
+                <ul>
+                    <li tabindex='0' role="contentinfo">Access your <a href="javascript:void(0)" class="sweet-rewards-login">Sweet Rewards</a> points</li>
+                     <li tabindex='0' role="contentinfo">Save Addresses and Credit Cards</li> 
+                     <li tabindex='0' role="contentinfo">View your Order History</li>
+                    <li tabindex='0' role="contentinfo">Add to your Wishlist</li>
+                </ul>
+            </div>
             <form method="post" class="mz-loginform mz-loginform-page" name="mz-loginform">
                 <input type="hidden" name="returnUrl" value="{{ model.returnUrl }}" />
                 <div class="mz-l-formfieldgroup order-status-anon">
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
-                            <label for="email">{{ labels.email }}</label>
+                           
+                             <label for="emailaddress">{{ labels.email }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input name="email" value="{{model.email|default:user.email}}" type="email" data-mz-login-email />
+                            <input name="email" id="emailaddress" placeholder="Email" value="{{model.email|default:user.email}}" type="email" data-mz-login-email />
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
-                            <label for="password">{{ labels.password }}</label>
+                            
+                            <label for="password">{{ labels.password }}<span class="is-required" aria-label="mandatory field">*</span></label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <input name="password"  type="password" data-mz-login-password/>
+                            <input placeholder="Password" id="password" name="password"  type="password" data-mz-login-password/>
+                        </div>
+                    </div>
+                     <div class="mz-l-formfieldgroup-row forgot-links">
+                        <div class="mz-l-formfieldgroup-cell"></div>
+                        <div class="mz-l-formfieldgroup-cell">
+                            <a href="/user/forgotpassword" class="mz-forgot" data-mz-action="launchforgotpassword">Forgot Password ?</a>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
-                        <label class="checkbox-outer-label">
-                        <input id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Login, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
+                        <label tabindex="0" class="checkbox-outer-label">
+                        <input tabindex="-1"  id="login-cpp-checkbox" type="checkbox" aria-label="By clicking Login, I agree to the policies outlined in the Terms of Use and Privacy Policy Required."><span class="text"> I Agree to the policies outlined in the <a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> <span> (Required)</span></span>
                         <span class="checkmark-style"></span></label>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -59,22 +70,17 @@
                             <section data-mz-role="popover-message" class="mz-popover-message"></section>
                         </div>
                     </div>
-                    <div class="mz-l-formfieldgroup-row forgot-links">
-                        <div class="mz-l-formfieldgroup-cell"></div>
-                        <div class="mz-l-formfieldgroup-cell">
-                            <a href="/user/forgotpassword" class="mz-forgot" data-mz-action="launchforgotpassword">{{ labels.forgotPassword }}</a>
-                        </div>
-                    </div>
+                   
                     <div class="mz-l-formfieldgroup-row signup-links">
-                        <div class="mz-l-formfieldgroup-cell"></div>
+                        <div class="mz-l-formfieldgroup-cell" tabindex="0"><span>Don't Have an Account?</span></div>
                         <div class="mz-l-formfieldgroup-cell">
-                            <a href="/user/signup" class="mz-forgot signmodel"  >{{ labels.signUpLink }}</a> 
+                            <a href="/user/signup" class="signmodel"  >{{ labels.signUpLink }}</a> 
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row  order-status-link">
                         <div class="mz-l-formfieldgroup-cell"></div>
-                        <div class="mz-l-formfieldgroup-cell">
-                            <a href="/order-status" class="mz-order-status">order status</a> 
+                        <div class="mz-l-formfieldgroup-cell orderstatus">
+                        Check your <a href="/order-status" class="mz-order-status">order status</a> 
                         </div>
                     </div>
                 </div>   
@@ -87,3 +93,12 @@
       {% dropzone "login-bottom" scope="template" %}
 </div>     
 {% endblock body-content %}
+
+
+
+
+
+
+
+
+

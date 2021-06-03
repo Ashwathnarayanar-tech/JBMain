@@ -1,33 +1,28 @@
-    <h2 class="mz-formstep-header">
-       <span class="step-no"><label>{% if model.requiresFulfillmentInfo %}04{% else %}03 {% endif %}</label></span>
-        <label>{{ labels.reviewOrder }}</label>
-        <span class="step-completed"></span>
-    </h2>
-    <div class="mz-formstep-body">
-        {% if model.isReady %}
-            <p class="mz-formstep-desc" tabindex="0" >{{ labels.reviewOrderText }}</p>
-
-            {% if themeSettings.requireCheckoutAgreeToTerms %}
-            <div class="mz-l-formfieldgroup mz-l-formfieldgroup-norows">
+<div class="mz-formstep-body mz-checkoutform-review">
+    <p class="mz-formstep-desc" tabindex="0" role="contentinfo">{{ labels.reviewOrderText }}</p>
+    {% if themeSettings.requireCheckoutAgreeToTerms %}
+        <div class="mz-l-formfieldgroup mz-l-formfieldgroup-norows">
             <label class='inline'>
                 <input type="checkbox" name="terms-and-conditions" id="mz-terms-and-conditions" data-mz-value="agreeToTerms" {% if model.agreeToTerms %} checked="checked"{% endif %}> {{ labels.agreeToTerms }}
             </label>
             <span class="mz-validationmessage" data-mz-validationmessage-for="agreeToTerms"></span>
-            </div>
-            {% endif %}
-             <div class="mz-l-formfieldgroup-row">
-                        <label class="checkbox-outer-label">
-                        <input id="submitorder-cpp-checkbox" type="checkbox" aria-label="By clicking place order, I agree to the policies outlined in the Terms of Use and Privacy Policy."> By clicking Place Order, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> 
-                        <span class="checkmark-style"></span></label> 
-            </div>
-            {% if not user or user.isAnonymous %}
-          
+        </div> 
+    {% endif %}
+    <div class="mz-l-formfieldgroup-row">
+        <label class="checkbox-outer-label">
+            <input id="submitorder-cpp-checkbox" type="checkbox" aria-label="By clicking place order, I agree to the policies outlined in the Terms of Use and Privacy Policy.Required" {% if model.agreeToTerms %} checked="checked"{% endif %}><span class="text"> By clicking Place Order, I agree to the policies outlined in the<a href="/terms-of-use" target="_blank"> Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy.</a> <span>(Required)</span></span>
+            <span class="checkmark-style"></span>
+        </label> 
+    </div> 
+    {% comment %}
+        {% if not user or user.isAnonymous %}
             <div class="mz-l-formfieldgroup mz-l-formfieldgroup-norows">
-                <label class='inline'>
+                <label class='inline checkbox-outer-label'>
                     <input type="checkbox" name="create-new-account" data-mz-value="createAccount" {% if model.createAccount %} checked="checked"{% endif %} > {{ labels.createAccount }}
+                    <span class="checkmark-style"></span>
                 </label>
             </div>
-                {% if model.createAccount %}
+            {% if model.createAccount %}
                 <div class="mz-l-formfieldgroup mz-create-account-fields">
                     <div class="mz-l-formfieldgroup-row">
                         <div class="mz-l-formfieldgroup-cell">
@@ -45,21 +40,17 @@
                             <label for="newaccountpassword"> {{ labels.password }}<span class="is-required" aria-label="mandatory field"> *</span> </label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell mz-cellnewaccount">
-                        <div class="mbl-newpassword">
-                            <p>  
-                        Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.
-                        </p>
+                            <div class="mbl-newpassword">
+                                <p>Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.</p>
                             </div>
                             <input type="password" name="new-account-password" id="newaccountpassword" aria-describedby="err_2" data-mz-value="password" value="{{ model.password }}">
                             <div class="mz-l-formfieldgroup-row" style="display: block;">        
                                 <span class="mz-validationmessage" id="err_2" data-mz-validationmessage-for="password"></span>
                             </div>
-                        <div class="pwd-message">
-                        <div class="arrow-right"></div> 
-                        <p>  
-                        Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.
-                        </p>
-                        </div>
+                            <div class="pwd-message">
+                                <div class="arrow-right"></div> 
+                                <p>Password must be a minimum of 6 characters with at least 1 number and 1 alphabetic character.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="mz-l-formfieldgroup-row">
@@ -67,18 +58,18 @@
                             <label for="confirmpassword"> {{ labels.confirmPassword }}<span class="is-required" aria-label="mandatory field"> *</span> </label>
                         </div>
                         <div class="mz-l-formfieldgroup-cell">
-                             <input type="password" name="new-account-confirm" id="confirmpassword" aria-describedby="err_3" data-mz-value="confirmPassword" value="{{ model.confirmPassword }}">
-                             <div class="mz-l-formfieldgroup-row" style="display: block;">                    
+                            <input type="password" name="new-account-confirm" id="confirmpassword" aria-describedby="err_3" data-mz-value="confirmPassword" value="{{ model.confirmPassword }}">
+                            <div class="mz-l-formfieldgroup-row" style="display: block;">                    
                                 <span class="mz-validationmessage" id="err_3" data-mz-validationmessage-for="confirmPassword"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endif %}
             {% endif %}
-
-            <div class="mz-formstep-next">
-                <button type="button" class="brontocart-place-order mz-button mz-button-large" data-mz-action="submit" disabled="disabled">{{ labels.placeOrder }}</button>
-            </div>
         {% endif %}
+    {% endcomment %}
+    <div class="mz-formstep-next">
+        <button type="button" class="place-order-btn" disabled="disabled">{{ labels.placeOrder }}</button>
+        <button type="button" class="brontocart-place-order mz-button mz-button-large" data-mz-action="submit">{{ labels.placeOrder }}</button>
     </div>
+</div>

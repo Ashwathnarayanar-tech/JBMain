@@ -1,0 +1,130 @@
+{% extends "page-flavor-battle-iframe" %}
+ 
+{% block body-tag-classes %}mz-footer-static {% endblock body-tag-classes %} 
+{% block body-content %}
+<!--
+<p>Vote now and help decide which Jelly Belly jelly bean flavour is the Ultimate Flavour Battle Champion! A winner will be crowned on August 3rd, so check back to see how your favourite flavour is scoring in the competition.</p>
+<p>How’s your tournament doing? Tell us on <a href="http://www.facebook.com/JellyBellyUK">Facebook</a>, <a href="http://www.instagram.com/JellyBellyUK">Instagram</a> or <a href="http://www.twitter.com/JellyBellyUK">Twitter</a>.</p>
+<p>This battle is just for fun, but let’s keep it fair. Please only one vote per person per day.</p>
+-->
+{% require_script "pages/voting-booth" %}
+
+<div id="vote" style="text-align: center;">
+<style> 
+    a[href="/jelly-belly-sweet-rewards"] {
+    display: none !important;  
+    }
+	.bean-candidate {
+		display: inline-block;
+		text-align: center;
+		margin: 5px;
+	}
+	.flavorbattle-bean, .flavorbattle-votes {
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	.flavorbattle-votes {
+		display: none;
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+	.vote-button {
+		font-size: 30px;
+		font-weight: bold;
+		color: #ffffff;
+		background: #6E56F5;
+		border: 0px;
+		border-radius: 10px;
+		padding: 10px;
+		margin-top: 20px;
+		margin-left: 5px;
+		margin-right: 5px;
+		display: none;
+	}
+	.float-left {
+		float: left;
+		margin-left: 20px;
+	}
+	.float-right {
+		float: right;
+		margin-right: 20px;
+	}
+
+	.battle-pair {
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding: 10px;.
+		border-bottom: 20px solid #cccccc;
+	}
+	.bean-pair {
+		max-width: 100%;
+	}
+	.already-voted {
+		font-size 20px;
+		font-weight: bold;
+	}
+	.button-container {
+		height: 75px;
+		text-align: center;
+	}
+</style>
+
+<div class="mz-cms-row">
+	<div class="mz-cms-col-12-12" style="width:100%">
+		<div class="mz-cms-block">
+			<div class="mz-cms-content" style="height:auto;">
+				<div class="mz-cms-image">
+					<img class="mz-cms-image-maintain" alt="" style="
+						border-width: 1px; 
+						border-style: None;
+						border-color: rgba(0,0,0,1);
+						box-sizing: border-box;
+						max-width: 690px;" 
+						src="/resources/images/uk_flavour_battle/final/social_winner.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <img class="mz-cms-image-maintain" src="https://cdn-sb.mozu.com/10569-m1/cms/files/f6d72399-a139-40c6-b000-8a081315a18c"> -->
+
+<div id="daydiv" data-mz-day="7" style="display: none;"></div>
+
+<center>
+<a name="voting"><h2></h2></a>
+
+<div class="battle-pair">
+<div class="mz-cms-row">
+	<div class="mz-cms-col-12-12" style="width:100%">
+		<div class="mz-cms-block">
+			<div class="mz-cms-content" style="height:auto;">
+				<div class="mz-cms-image">
+					<img class="mz-cms-image-maintain" alt="" style="
+						border-width: 1px; 
+						border-style: None;
+						border-color: rgba(0,0,0,1);
+						box-sizing: border-box;
+						max-width: 437px;" 
+						src="/resources/images/uk_flavour_battle/round4/watermelon_vs_very_cherry.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="mz-cms-row">
+	<div class="mz-cms-col-12-12" style="width:100%">
+		<span data-mz-match-id="ROUND4-MATCH1-UK" data-mz-bean="WATERMELON" class="flavorbattle-votes" data-mz-votes>0</span>
+		<span data-mz-match-id="ROUND4-MATCH1-UK" data-mz-bean="VERYCHERRY" class="flavorbattle-votes" data-mz-votes>0</span>		
+	</div>
+</div>
+</div>
+
+</center>
+
+</div>
+{% endblock body-content %}
+

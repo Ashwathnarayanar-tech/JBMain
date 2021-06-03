@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 /**
  * jquery-simple-datetimepicker (jquery.simple-dtpicker.js)
  * v1.13.0
@@ -517,20 +518,7 @@
         var hou = date.getHours();
         var min = date.getMinutes();
 
-        date_format = date_format.replace(/YYYY/gi, y)
-        .replace(/YY/g, y - 2000)/* century */
-        .replace(/MM/g, zpadding(m))
-        .replace(/M/g, m)
-        .replace(/DD/g, zpadding(d))
-        .replace(/D/g, d)
-        .replace(/hh/g, zpadding(hou))
-        .replace(/h/g, hou)
-        .replace(/HH/g, (hou > 12? zpadding(hou - 12) : (hou < 1? 12 : zpadding(hou))))
-        .replace(/H/g, (hou > 12? hou - 12 : (hou < 1? 12 : hou)))
-        .replace(/mm/g, zpadding(min))
-        .replace(/m/g, min)
-        .replace(/tt/g, (hou >= 12? 'pm' : 'am'))
-        .replace(/TT/g, (hou >= 12? 'PM' : 'AM'));
+        date_format = date_format.replace(/YYYY/gi, y).replace(/YY/g, y - 2000).replace(/MM/g, zpadding(m)).replace(/M/g, m).replace(/DD/g, zpadding(d)).replace(/D/g, d).replace(/hh/g, zpadding(hou)).replace(/h/g, hou).replace(/HH/g, (hou > 12? zpadding(hou - 12) : (hou < 1? 12 : zpadding(hou)))).replace(/H/g, (hou > 12? hou - 12 : (hou < 1? 12 : hou))).replace(/mm/g, zpadding(min)).replace(/m/g, min).replace(/tt/g, (hou >= 12? 'pm' : 'am')).replace(/TT/g, (hou >= 12? 'PM' : 'AM'));
         return date_format;
     };
 
@@ -563,7 +551,7 @@
     };
 
     var draw_date = function($picker, option, date) {
-        //console.log('draw_date - ' + date.toString());
+        //window.console.log('draw_date - ' + date.toString());
         draw($picker, option, date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes());
     };
     var translate = function(locale, s) {
@@ -586,8 +574,8 @@
         /* Read options */
         var isTodayButton = $picker.data('todayButton');
         var isCloseButton = $picker.data('closeButton');
-        var isScroll = option.isAnim; /* It same with isAnim */
-        if($picker.data('timelistScroll') === false) {// If disabled by user option.
+        var isScroll = option.isAnim;
+        if($picker.data('timelistScroll') === false) {
             isScroll = false;
         }
 
@@ -810,20 +798,20 @@
 
             $tr.append($td);
 
-            if (firstWday > i) {/* Before months day */
+            if (firstWday > i) {
                 $td.text(beforeMonthLastDay + realDay);
                 $td.addClass('day_another_month');
                 $td.data('dateStr', dateBeforeMonth.getFullYear() + '/' + (dateBeforeMonth.getMonth() + 1) + '/' + (beforeMonthLastDay + realDay));
                 realDayObj.setDate(beforeMonthLastDay + realDay);
                 realDayObj.setMonth(dateBeforeMonth.getMonth() );
                 realDayObj.setYear(dateBeforeMonth.getFullYear() );
-            } else if (i < firstWday + lastDay) {/* Now months day */
+            } else if (i < firstWday + lastDay) {
                 $td.text(realDay);
                 $td.data('dateStr', (date.getFullYear()) + '/' + (date.getMonth() + 1) + '/' + realDay);
                 realDayObj.setDate( realDay );
                 realDayObj.setMonth( date.getMonth()  );
                 realDayObj.setYear( date.getFullYear() );
-            } else {/* Next months day */
+            } else {
                 $td.text(realDay - lastDay);
                 $td.addClass('day_another_month');
                 $td.data('dateStr', dateNextMonth.getFullYear() + '/' + (dateNextMonth.getMonth() + 1) + '/' + (realDay - lastDay));
@@ -837,20 +825,20 @@
             if(allowWdays !== null) {
                 if ($.inArray(wday, allowWdays) == -1) {
                     $td.addClass('day_in_unallowed');
-                    continue; // Skip
+                    continue;
                 }
-            } else if (wday === 0) {/* Sunday */
+            } else if (wday === 0) {
                 $td.addClass('wday_sun');
-            } else if (wday == 6) {/* Saturday */
+            } else if (wday == 6) {
                 $td.addClass('wday_sat');
             }
 
             /* Set a special mark class */
-            if (realDay == date.getDate()) { /* selected day */
+            if (realDay == date.getDate()) { 
                 $td.addClass('active');
             }
 
-            if (isCurrentMonth && realDay == todayDate.getDate()) { /* today */
+            if (isCurrentMonth && realDay == todayDate.getDate()) {
                 $td.addClass('today');
             }
 
@@ -864,7 +852,7 @@
                 ((minDate !== null) && (minDate > realDayObjMN.getTime())) || ((maxDate !== null) && (maxDate < realDayObj.getTime())) // compare to 00:00:00
             ) { // Out of range day
                 $td.addClass('out_of_range');
-            } else if (isFutureOnly && isPast) { // Past day
+            } else if (isFutureOnly && isPast) { 
                 $td.addClass('day_in_past');
             } else {
                 /* Set event-handler to day cell */
@@ -992,7 +980,7 @@
                     });
                 }
                 
-                if (hour_ == date.getHours() && min_ == date.getMinutes()) { /* selected time */
+                if (hour_ == date.getHours() && min_ == date.getMinutes()) { 
                     $o.addClass('active');
                     timelist_activeTimeCell_offsetTop = $o.offset().top;
                 }
@@ -1289,7 +1277,7 @@
             /* Checking exist a picker */
             var input = this;
             if(0 < $(PickerObjects[$(input).data('pickerId')]).length) {
-                console.log('dtpicker - Already exist appended picker');
+                window.console.log('dtpicker - Already exist appended picker');
                 return;
 
             }
@@ -1334,10 +1322,10 @@
                 if ($input.val() !== null && (
                     $input.data('beforeVal') === null ||
                     ( $input.data('beforeVal') !== null && $input.data('beforeVal') !== $input.val()) )
-                    ) { /* beforeValue == null || beforeValue != nowValue  */
+                    ) { 
                     var format = getDateFormat($picker.data('dateFormat'), $picker.data('locale'), $picker.data('dateOnly'));
                     var date = parseDate($input.val(), format);
-                    //console.log('dtpicker - inputKeyup - format: ' + format + ', date: ' + $input.val() + ' -> ' + date);
+                    //window.console.log('dtpicker - inputKeyup - format: ' + format + ', date: ' + $input.val() + ' -> ' + date);
                     if (date) {
                         draw_date($picker, {
                             'isAnim':true,
@@ -1384,7 +1372,7 @@
                         // Call a event-hanlder
                         var func = $picker.data('onShow');
                         if (func !== null) {
-                            console.log('dtpicker- Call the onShow handler');
+                            window.console.log('dtpicker- Call the onShow handler');
                             func(handler);
                         }
                     }
@@ -1414,7 +1402,7 @@
             // Call a event-handler
             var func = $picker.data('onInit');
             if (func !== null) {
-                console.log('dtpicker- Call the onInit handler');
+                window.console.log('dtpicker- Call the onInit handler');
                 func(handler);
             }
         });
@@ -1500,7 +1488,7 @@
         $('body').click(function(){
             for(var i=0;i<PickerObjects.length;i++){
                 var $picker = $(PickerObjects[i]);
-                if(ActivePickerId != i){    /* if not-active picker */
+                if(ActivePickerId != i){ 
                     if($picker.data('inputObjectId') !== null && $picker.data('isInline') === false && $picker.css('display') != 'none'){
                         /* if append input-field && float picker */
 
@@ -1512,7 +1500,7 @@
                         // Call a event-hanlder
                         var func = $picker.data('onHide');
                         if (func !== null) {
-                            console.log('dtpicker- Call the onHide handler');
+                            window.console.log('dtpicker- Call the onHide handler');
                             func(handler);
                         }
                     }
@@ -1522,4 +1510,4 @@
     });
 
 })(jQuery);
-
+/* jshint ignore:end */

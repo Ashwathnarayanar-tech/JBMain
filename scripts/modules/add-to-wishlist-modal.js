@@ -29,7 +29,16 @@ require([
     window.showGlobalOverlay();
     addToWishList.addWishlistOnAuth(productCode, me);
   });
-
+  
+ $(document).on("change","#wishlist-cpp-checkbox",function(){
+       if (this.checked) {
+            $('.wishlist-login-btn').prop('disabled',false);
+            $('.wishlist-login-btn').addClass("active-button");
+        }else{
+            $('.wishlist-login-btn').prop('disabled',true);
+            $('.wishlist-login-btn').removeClass("active-button"); 
+        }
+   });
   var wl_re = window.wl_re = true;
   var addToWishList = {
     logKey: function() {
@@ -119,39 +128,101 @@ require([
       });
     },
     addWishlistOnAuth: function(productCode, me) { 
+
+
       var user = require.mozuData('user');
       if (!user.isAnonymous) {
-        // $('.jb-inner-overlay').show(); 
-        api.request('get', '/api/commerce/catalog/storefront/products/' + productCode).then(function(res) {
-          var model = new ProductModels.Product(res);
-          model.addToWishlist();
-          model.on('addedtowishlist', function(cartitem) {
-           $('.jb-inner-overlay').hide();
-           window.hideGlobalOverlay();
-            me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
-            me.removeClass('add-to-wishlist');
-            me.addClass('added-to-wishlist');
-            if (require.mozuData('pagecontext').pageType === 'product')
-              $('#add-to-cart').focus();
-            else if (require.mozuData('pagecontext').pageType === 'category' || location.pathname.indexOf('search-results') > -1) {
-              $("button[data-mz-prcode='"+productCode+"']").focus();
-            }
-          });
+         //$('.jb-inner-overlay').show();
+         if(me.closest(".mz-productlist-item").find("select").length) {
+           var getGiftcardPrice = me.closest(".mz-productlist-item").find("select").val();
+           if(getGiftcardPrice !== "Select Gift Card Amount" && getGiftcardPrice !== '') {
+              getGiftcardPrice = parseInt(getGiftcardPrice);  
+              api.request('get', '/api/commerce/catalog/storefront/products/' + productCode).then(function(res) {
+              var getattributeValueId;
+              var getselectedValuefromresponse = _.map(res.options[0].values, function(num, key){ 
+                  if(num.value == getGiftcardPrice) {
+                    res.options[0].values[key].isSelected = true;
+                    getattributeValueId = num.attributeValueId;
+                  }
+              });
+              var getattributeValuesequence;
+              var getselectedValuesequence = _.map(res.variations, function(num, key){ 
+                  _.map(num.options, function(getid, key){
+                      if(getid.valueSequence == getattributeValueId) {
+                          getattributeValuesequence = num.productCode;
+                      }
+                      
+                  });
+              });
+              res.variationProductCode = getattributeValuesequence; 
+              var model = new ProductModels.Product(res);
+              model.addToWishlist();
+              model.on('addedtowishlist', function(cartitem) {
+               $('.jb-inner-overlay').hide();
+               window.hideGlobalOverlay();
+                me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
+                me.removeClass('add-to-wishlist');
+                me.addClass('added-to-wishlist');
+              });
 
-          me.addClass('added-to-wishlist');
-          me.removeClass('add-to-wishlist');
-          me.css('cursor','not-allowed');
-          
-          model.on("error", function(err) { 
-             $('.jb-inner-overlay').hide(); 
-             window.hideGlobalOverlay();
-            //console.error(err);
-          });
-        }).catch(function(err){
-           console.log("Error on add to wish list ",err);
-           window.hideGlobalOverlay();
-        });
+              me.addClass('added-to-wishlist');
+              me.removeClass('add-to-wishlist');
+              me.css('cursor','not-allowed');
+              
+              model.on("error", function(err) { 
+                 $('.jb-inner-overlay').hide(); 
+                 window.hideGlobalOverlay();
+                //console.error(err);
+              });
+            });
+           } else {
+              $('.jb-inner-overlay').hide(); 
+              window.hideGlobalOverlay();
+              $('[data-mz-message-bar]').empty();
+              var emsg = '<div class="mz-messagebar" data-mz-message-bar="">'+
+                          '<ul class="is-showing mz-errors" tabindex="-1" id="mz-errors-list"><li>Please choose the Gift Card amount before adding it to your wishlist. <br> Thanks for choosing to give a Jelly Belly Gift Card!</li>'+
+                          '</ul></div>';
+              $('[data-mz-message-bar]').append(emsg);
+              $('[data-mz-message-bar]').fadeIn();
+              $('#mz-errors-list').attr({tabindex:0});
+              $('#mz-errors-list').find('li').attr({tabindex:0,role:'contentinfo'});
+              $('#mz-errors-list').find('li').focus();
+              $('.jb-pagecontrols').animate({scrollTop:$('[data-mz-message-bar]').position().top}, 'slow');
+              setTimeout(function(){
+                  $('[data-mz-message-bar]').hide();
+                  $('.jb-inner-overlay').remove();
+              },6000);
+              $('.jb-inner-overlay').remove();
+           }
+         } else {
+            api.request('get', '/api/commerce/catalog/storefront/products/' + productCode).then(function(res) {
+              var model = new ProductModels.Product(res);
+              model.addToWishlist();
+              model.on('addedtowishlist', function(cartitem) {
+               $('.jb-inner-overlay').hide();
+               window.hideGlobalOverlay();
+                me.prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
+                me.removeClass('add-to-wishlist');
+                me.addClass('added-to-wishlist');
+              });
+
+              me.addClass('added-to-wishlist');
+              me.removeClass('add-to-wishlist');
+              me.css('cursor','not-allowed');
+              
+              model.on("error", function(err) { 
+                 $('.jb-inner-overlay').hide(); 
+                 window.hideGlobalOverlay();
+                //console.error(err);
+              });
+            }).catch(function(err){
+              console.log("Error on add to wish list ",err);
+              window.hideGlobalOverlay();
+            });
+         }
+        
       } else {
+        window.hideGlobalOverlay();
         document.cookie = 'wl_prod=' + productCode + ';path=/;expires=3';
         $('.atw-modal').show();
         $('#email-dialog').focus();

@@ -29,10 +29,10 @@
     <div class="headline-beans">
        <h3 tabindex="0">About Sunkist Fruit Gems and Fruit Slices</h3>
        </div>
-        <p class="mar-top0"tabindex="0" >
+        <p class="mar-top0"tabindex="0" role="contentinfo">
        Jelly Belly Candy Company, the maker of Sunkist Fruit Gems and Slices, is a licensee of Sunkist Growers, Inc. With over two centuries of collective history behind them, both Sunkist and Jelly Belly have a devotion to quality that is absolutely uncompromising. Their products are made with meticulous care and an attention to detail that’s evident in every taste.
     </p>
-    <p tabindex="0" >
+    <p tabindex="0" role="contentinfo">
      All Sunkist candies are certified OU Kosher by the Orthodox Union. 
      </p>
     <div class="headline-beans">
@@ -50,7 +50,7 @@
 
 <div class="left-beans" style="float:none;">
 
-<h5 tabindex="0" >Fat-free, preservative-free and bursting with fruit flavor, these famous treats have delighted fans for decades. Each little Gem tastes like it's freshly picked and grown to perfection.</h5>
+<h5 tabindex="0" role="contentinfo">Fat-free, preservative-free and bursting with fruit flavor, these famous treats have delighted fans for decades. Each little Gem tastes like it's freshly picked and grown to perfection.</h5>
 <p class="padd-left0">
 <a class="marbtm50" href="/search?query=fruit+gems" >Shop Fruit Gems ►</a>
 </p>
@@ -67,7 +67,7 @@
 </figure>
 
 <div class="left-beans" style="float:none;">
-<h5 tabindex="0" >The flavors are Sunkist Lime, Sunkist Pink Grapefruit, Sunkist Orange, Sunkist Lemon and Sunkist Tangerine. Packed with citrus flavor, these beans are also an excellent source of Vitamin C.</h5>
+<h5 tabindex="0" role="contentinfo">The flavors are Sunkist Lime, Sunkist Pink Grapefruit, Sunkist Orange, Sunkist Lemon and Sunkist Tangerine. Packed with citrus flavor, these beans are also an excellent source of Vitamin C.</h5>
 <p class="padd-left0">
 <a class=""marbtm50"" href="/search?query=sunkist+citrus" >Shop Sunkist Citrus Mix  ►</a>
 </p>
