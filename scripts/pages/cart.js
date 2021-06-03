@@ -178,30 +178,28 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 }).catch(function(err){
                     window.hideGlobalOverlay();
                 });
-                
-                //$('#cart-checkout').focus();
-                $('.coupon-code-main').find('input').focus();
-
-            },
-            removeAllCoupon: function() {
-                var self = this,
-                    couponCodesLength = self.model.get('couponCodes').length,
-                    couponCodes = self.model.get('couponCodes'),
-                    i = 0,
-                    removeCoupon;
-                if (couponCodesLength > 0 && $.cookie('coupon')) {
-                    for (i; i < couponCodesLength; i++) {
-                        if ($.cookie('coupon') !== couponCodes[i]) {
-                            removeCoupon = couponCodes[i];
-                        }
-                    }
-                    if (removeCoupon) {
-                        self.model.apiRemoveCoupon(removeCoupon).then(function(res) {
-                            console.log("coupon removed");
-                        });
+            });
+            $('#cart-checkout').focus();
+        },
+        removeAllCoupon: function() {
+            var self = this,
+                couponCodesLength = self.model.get('couponCodes').length,
+                couponCodes = self.model.get('couponCodes'),
+                i = 0,
+                removeCoupon;
+            if (couponCodesLength > 0 && $.cookie('coupon')) {
+                for (i; i < couponCodesLength; i++) {
+                    if ($.cookie('coupon') !== couponCodes[i]) {
+                        removeCoupon = couponCodes[i];
                     }
                 }
-            },
+                if (removeCoupon) {
+                    self.model.apiRemoveCoupon(removeCoupon).then(function(res) {
+                        console.log("coupon removed");
+                    });
+                }
+            }
+        },
         couponSlide: function(e){
             var coupon = $(document).find('.coupon-code-main');
             if(coupon.is(':visible')){

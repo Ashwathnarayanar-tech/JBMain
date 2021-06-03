@@ -402,11 +402,7 @@
             isLoading: function(yes, opts) {
                 if (arguments.length === 0) return !!this._isLoading;
                 this._isLoading = yes;
-<<<<<<< HEAD
-                // firefox bfcache fix
-=======
                                 // firefox bfcache fix
->>>>>>> origin/checkoutNewReDesign
                 if (yes) {
                     this._cleanup = this._cleanup || _.bind(this.isLoading, this, false);
                     this._isWatchingUnload = true;
@@ -496,7 +492,6 @@
                     }
                 }
                 return true;
-<<<<<<< HEAD
             }
 
 
@@ -522,33 +517,6 @@
             } else {
                 this.passErrors();
             }
-=======
-            }
-
-
-
-        });
-
-        // we have to attach the constructor to the prototype via direct assignment,
-        // because iterative extend methods don't work on the 'constructor' property
-        // in IE8
-
-        modelProto.constructor = function(conf) {
-            this.helpers = (this.helpers || []).concat(['isLoading', 'isValid']);
-
-            //if (this.requiredBehaviors) {
-                this.helpers = (this.helpers || []).concat(['hasRequiredBehavior']);
-            //}
-
-
-            Backbone.Model.apply(this, arguments);
-            if (this.mozuType) this.initApiModel(conf);
-            if (this.handlesMessages) {
-                this.initMessages();
-            } else {
-                this.passErrors();
-            }
->>>>>>> origin/checkoutNewReDesign
         };
 
 

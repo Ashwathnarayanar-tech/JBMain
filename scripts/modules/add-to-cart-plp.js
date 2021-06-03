@@ -14,19 +14,6 @@ require([
             var $target = $(e.currentTarget), productCode = $target.data("mz-prcode");
             $(document).find('[data-mz-message-bar]').hide(); 
             var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
-<<<<<<< HEAD
-            var count = parseInt($quantity); 
-            window.showGlobalOverlay();           
-            Api.get('product', productCode).then(function(sdkProduct) {
-                var PRODUCT = new ProductModels.Product(sdkProduct.data);
-                var variantOpt = sdkProduct.data.options;                    
-                if(variantOpt !== undefined && variantOpt.length>0){  
-                    var newValue = $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].value;
-                    var ID =  $target.parent().parent().find('[plp-giftcart-prize-change-action]')[0].getAttribute('data-mz-product-option');
-                    if(newValue != "Select gift amount" && newValue !== ''){
-                        if("Tenant~gift-card-prices" !== ID && (window.location.host !== "www.jellybelly.com" && window.location.host !=="t29614-s48880.stg1.mozu.com")){
-                            ID = "Tenant~gift-card-prices";
-=======
             var count = parseInt($quantity);  
             window.showGlobalOverlay(); 
             Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
@@ -39,7 +26,6 @@ require([
                         if(cartitemCode==productCode && totalQty>25){
                             flag=true;
                             // alert('Maximum quantity that can be purchased is 25');
->>>>>>> origin/checkoutNewReDesign
                         }
                     }
                     if(flag){
@@ -51,17 +37,11 @@ require([
                         window.hideGlobalOverlay();
                         return false;
                     }else{
-<<<<<<< HEAD
-                        showErrorMessage("Please choose the Gift Card amount before adding it to your cart. <br> Thanks for choosing to give a Jelly Belly Gift Card!");
-                        $target.removeClass('is-loading');
-                         window.hideGlobalOverlay();
-=======
                         $(document).find('[data-mz-productlist]').addClass('is-loading');
                         $(document).find('[data-mz-facets]').addClass('is-loading');
                         $target.addClass('is-loading'); 
                         additemstoCart(productCode,$target,count);
                         return false;
->>>>>>> origin/checkoutNewReDesign
                     }
                 }else{
                     $(document).find('[data-mz-productlist]').addClass('is-loading');
@@ -74,16 +54,8 @@ require([
             }).catch(function(err){
                 console.log("error occurred during add to cart ",err);
                 window.hideGlobalOverlay();
-<<<<<<< HEAD
-            }); 
-            setTimeout(function(){ 
-                 $target.focus(); 
-            },6200); 
-        }); 
-=======
             });         
        }); 
->>>>>>> origin/checkoutNewReDesign
         
         $(document).on('keypress', '.jb-add-to-cart', function(e) {
             if(e.keyCode == 13 || e.keyCode == 32) {

@@ -3,30 +3,42 @@ define(['modules/jquery-mozu',
         'shim!vendor/jquery.hoverIntent[jquery=jQuery]>jQuery'], function ($,api) {
     $(document).ready(function () {
         // mega new menu functions 
-       window.invokeContextify = function invokeContextify(){
-        var myDomElement = null; 
-        $(document).mousemove(function(e) {
-            myDomElement = $(e.target);
-        });
-        if($(window).width() >= 768){
-            if(!$(document).find('body').hasClass('Mobile-device')){
-                $(document).find('.nav-cointainer,.head-list-item').on({
-                    mouseleave: function (e) { 
-                        //stuff to do on mouse leave 
-                        setTimeout(function(){  
-                            if(!(myDomElement.hasClass('head-list-item-li') || myDomElement.parents().hasClass('head-list-item-li') || myDomElement.parents().hasClass('mz-sitenav') || myDomElement.hasClass('mz-sitenav') || myDomElement.hasClass('nav-list-head-cointainer'))){
-                                megamenufunctions.closemenu(); 
-                            }
-                        },1000); 
-                    } 
-                });   
-
-                $(document).find('.head-list-item').on({
-                    mouseenter: function (e) {
-                       megamenufunctions.togglemicroMenu($(e.currentTarget));
-                    }
-                });
-                $(document).find('.item-name-list').on({
+        window.invokeContextify = function invokeContextify(){
+           console.log(" invokeContextify called");
+            var myDomElement = null; 
+            $(document).mousemove(function(e) {
+                myDomElement = $(e.target);
+            });
+            if($(window).width() >= 768){
+                    $(document).find('.isDesktop .nav-cointainer,.head-list-item').on({
+                        mouseleave: function (e) { 
+                            //stuff to do on mouse leave 
+                            setTimeout(function(){  
+                                if(!(myDomElement.hasClass('.isDesktop head-list-item-li') || myDomElement.parents().hasClass('head-list-item-li') || myDomElement.parents().hasClass('mz-sitenav') || myDomElement.hasClass('mz-sitenav') || myDomElement.hasClass('nav-list-head-cointainer'))){
+                                    megamenufunctions.closemenu(); 
+                                }
+                            },1000); 
+                        } 
+                    });    
+                    $(document).find('.isDesktop .head-list-item').on({
+                        mouseenter: function (e) {
+                            setTimeout(function(){
+                                megamenufunctions.showMenuNav($(e.currentTarget));
+                            }, 400);
+                        }
+                    });
+        
+                    $(document).find('.isDesktop .menu').find('.sunmenu-container').on({
+                        mouseenter: function (e) {                    
+                            setTimeout(function(){
+                                if(myDomElement.hasClass('nav-sub-ele') || myDomElement.parents().hasClass('nav-sub-ele')){   
+                                    megamenufunctions.showSubmenu($(e.currentTarget));
+                                }
+                            }, 200);
+                        }
+                    });
+        
+                    $(document).find('.isDesktop .item-name-list').on({
                     mouseenter: function (e) {
                        megamenufunctions.togglemicroMenu($(e.currentTarget));
                     }
@@ -43,50 +55,21 @@ define(['modules/jquery-mozu',
                 });
                 $(document).find('.isMobile .back-to-main-menu').on('click',function(e){ 
                     megamenufunctions.mobileFunc.backToMainMenu($(e.currentTarget));   
-                });    
-            }
-        }else{
-            $(document).find('.head-list-item').on('click',function(e){
-                megamenufunctions.mobileFunc.showMenuNav($(e.currentTarget));
-            });
-            $(document).find('.close-menu-icon').on('click',function(e){
-                megamenufunctions.mobileFunc.closemenu($(e.currentTarget));    
-            });
-            $(document).find('.menu').find('.sunmenu-container').on('click',function(e){
-                megamenufunctions.mobileFunc.showSubmenu($(e.currentTarget));   
-            });
-            $(document).find('.menu').find('.sunmenu-container.back-to-home').on('click',function(e){
-                megamenufunctions.mobileFunc.closemenu($(e.currentTarget));   
-            });
-            $(document).find('.back-to-main-menu').on('click',function(e){ 
-                megamenufunctions.mobileFunc.backToMainMenu($(e.currentTarget));   
-            });
-        } 
-        
-        //On scroll hide header and footer in mobile ladscape
-        // Hide Header on on scroll down
-        var didScroll;
-        var lastScrollTop = 0;
-        var delta = 5;
-        var navbarHeight = $('header').outerHeight();
-        
-        $(window).scroll(function(event){
-            if($(window).width()<1025 && ($(window).width() > $(window).height())){    
-                didScroll = true;
-            }else if($(window).width()<1025 && ($(window).width() < $(window).height())){ 
-                hasScrolledWithoutKeypadOpen();
+                });
             } 
-        });
-        
-        setInterval(function() {
-            if (didScroll) {
-                hasScrolled();
-                didScroll = false;
-            }
-        }, 250);
-        
-        function hasScrolled() {
-            var st = $(this).scrollTop();
+            
+            //On scroll hide header and footer in mobile ladscape
+            // Hide Header on on scroll down
+            var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('header').outerHeight();
+            
+            $(window).scroll(function(event){
+                if($(window).width()<1025 && ($(window).width() > $(window).height())){    
+                    didScroll = true;
+                }
+            });
             
             setInterval(function() {
                 if (didScroll) {
@@ -95,69 +78,57 @@ define(['modules/jquery-mozu',
                 }
             }, 250);
             
-            // If they scrolled down and are past the navbar, add class .nav-up.
-            // This is necessary so you never see what is "behind" the navbar.
-            if (st > lastScrollTop && st > navbarHeight){
-                // Scroll Down
-               $(".mz-pageheader-mobile").fadeOut(100); 
-               $(".mz-mobile.mobileuxFilter.active").addClass("nomenuscrolltop"); 
-            } else {
-                // Scroll Up
-                if(st + $(window).height() < $(document).height()) {
-                    $(".mz-mobile.mobileuxFilter.active").removeClass("nomenuscrolltop"); 
-                    $(".mz-pageheader-mobile").fadeIn(100);
+            function hasScrolled() {
+                var st = $(this).scrollTop();
+                
+                // Make sure they scroll more than delta
+                if(Math.abs(lastScrollTop - st) <= delta)
+                    return;
+                
+                // If they scrolled down and are past the navbar, add class .nav-up.
+                // This is necessary so you never see what is "behind" the navbar.
+                if (st > lastScrollTop && st > navbarHeight){
+                    // Scroll Down
+                   $(".mz-pageheader-mobile").fadeOut(100); 
+                } else {
+                    // Scroll Up
+                    if(st + $(window).height() < $(document).height()) {
+                        $(".mz-pageheader-mobile").fadeIn(100);
+                    }
                 }
         
                 lastScrollTop = st;
             }
-        
-            lastScrollTop = st;
-        }
-        function hasScrolledWithoutKeypadOpen(){
-            var st = $(this).scrollTop();
-            
-            // Make sure they scroll more than delta
-            if(Math.abs(lastScrollTop - st) <= delta)
-                return;
-            
-            // If they scrolled down and are past the navbar, add class .nav-up.
-            // This is necessary so you never see what is "behind" the navbar.
-            if (st > lastScrollTop && st > navbarHeight){
-                // Scroll Down
-               $(".mz-pageheader-mobile").fadeOut(100); 
-               $(".mz-mobile.mobileuxFilter.active").addClass("nomenuscrolltop"); 
-            } else {
-                // Scroll Up
-                if(st + $(window).height() < $(document).height()) {
+            $( window ).on( "orientationchange", function( event ) {
+                if($(window).width()<1025 && ($(window).width() < $(window).height())){  
                     $(".mz-pageheader-mobile").fadeIn(100);
-                    $(".mz-mobile.mobileuxFilter.active").removeClass("nomenuscrolltop");
                 }
-            } 
-    
-            lastScrollTop = st;
-        }
-        $( window ).on( "orientationchange", function( event ) {
-            if($(window).width()<1025 && ($(window).width() < $(window).height())){  
-                $(".mz-pageheader-mobile").fadeIn(100);
-            }
-        });
-        $(document).on('click', '.item-name-list', function(e){
-            megamenufunctions.togglemicroMenu($(e.currentTarget));
-        });
-        var megamenufunctions = {
-            showMenuNav : function(ele){
-                $(document).find('.mz-sitenav').addClass('active');
-                var menu = ele.attr('attr-menuname');
-                if(menu && menu !== "store-locator" && menu != "store-branding"){  
-                    $(document).find('.head-list-item').removeClass('active'); 
-                    $(document).find('.head-list-item[attr-menuname="'+menu+'"]').addClass('active');
-                    $(document).find('.mz-sitenav').find('.jb-megamenu').removeClass('active');
-                    $(document).find('.mz-sitenav').find('.'+menu).addClass('active');
-                    $(document).find('.mz-sitenav').find('.'+menu).find('.menu').find('.sunmenu-container').removeClass('active');
-                    $(document).find('.mz-sitenav').find('.'+menu).find('.menu').find('.sunmenu-container').first().addClass('active');
-                    $(document).find('.mz-sitenav').find('.'+menu).find('.submenu').find('.sunmenu-container').removeClass('active');
-                    $(document).find('.mz-sitenav').find('.'+menu).find('.submenu').find('.sunmenu-container').first().addClass('active');
-                }else if(menu === "store-locator" || menu === "store-branding"){ 
+            });
+            $(document).on('click', '.item-name-list', function(e){
+                megamenufunctions.togglemicroMenu($(e.currentTarget));
+            });
+            var megamenufunctions = {
+                showMenuNav : function(ele){
+                    $(document).find('.mz-sitenav').addClass('active');
+                    var menu = ele.attr('attr-menuname');
+                    if(menu && menu !== "store-locator" && menu != "store-branding"){  
+                        $(document).find('.head-list-item').removeClass('active'); 
+                        $(document).find('.head-list-item[attr-menuname="'+menu+'"]').addClass('active');
+                        $(document).find('.mz-sitenav').find('.jb-megamenu').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.'+menu).addClass('active');
+                        $(document).find('.mz-sitenav').find('.'+menu).find('.menu').find('.sunmenu-container').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.'+menu).find('.menu').find('.sunmenu-container').first().addClass('active');
+                        $(document).find('.mz-sitenav').find('.'+menu).find('.submenu').find('.sunmenu-container').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.'+menu).find('.submenu').find('.sunmenu-container').first().addClass('active');
+                    }else if(menu === "store-locator" || menu === "store-branding"){ 
+                        $(document).find('.head-list-item').removeClass('active');
+                        $(document).find('.mz-sitenav').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.jb-megamenu').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.jb-megamenu').find('.menu').find('.sunmenu-container').removeClass('active');
+                        $(document).find('.mz-sitenav').find('.jb-megamenu').find('.submenu').find('.sunmenu-container').removeClass('active');
+                    }
+                },
+                closemenu : function(){ 
                     $(document).find('.head-list-item').removeClass('active');
                     $(document).find('.mz-sitenav').removeClass('active');
                     $(document).find('.mz-sitenav').find('.jb-megamenu').removeClass('active');
@@ -240,7 +211,7 @@ define(['modules/jquery-mozu',
             mobileFunc : {  
                 showMenuNav : function(ele){
                     $(document).find('.mz-sitenav.mz-mobile').addClass('active');
-                    $("html").addClass("removeScroll");
+                        $("html").addClass("removeScroll");
                     var menuName = ele.attr('attr-menuname');
                     $(document).find('.jb-megamenu').removeClass('active');
                     $(document).find('.'+menuName).addClass('active').find('.menu').addClass('active');                    
@@ -254,7 +225,7 @@ define(['modules/jquery-mozu',
                         top: "611px"
                     },500); 
                     setTimeout(function(){
-                        $("html").removeClass("removeScroll");
+                             $("html").removeClass("removeScroll");
                         $(document).find('.mz-sitenav.mz-mobile').removeClass('active');
                         $(document).find('.jb-megamenu').removeClass('active');
                         $(document).find('.jb-megamenu').find('.menu').removeClass('active');
@@ -278,14 +249,20 @@ define(['modules/jquery-mozu',
                 }
             }
         };
+
         //header login layover
         $(document).mousemove(function(e) { 
             if($(e.target).hasClass('mz-utilitynav-content') || $(e.target).parents().hasClass('mz-utilitynav-content')){
                 $(document).find('.popover-content').addClass('active');
-                $(document).find('.popover-content').show();
-            }else{
-                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');$(document).find('.popover-content').hide();}},150);
-                
+                }
+                else{
+                setTimeout(function(){if(!(myDomElement.hasClass('mz-utilitynav-content') || myDomElement.parents().hasClass('mz-utilitynav-content'))){$(document).find('.popover-content').removeClass('active');}},150);
+                }
+            });
+            /* $(document).find('.isDesktop .mz-utilitynav-content').on({
+            mouseenter: function (e) {
+                $(document).find('.isDesktop .popover-content').addClass('active');
+                $(document).find('..isDesktop .popover-content').show();
             }
         });
         $(document).find('.isMobile .mz-utilitynav-content').on({
@@ -308,7 +285,10 @@ define(['modules/jquery-mozu',
             }
         });
         $(document).on('touchstart','.close-serch',function(e){
-            setTimeout(function(){$(document).find('.page-header').removeClass('search-active');},200);            
+            setTimeout(function(){
+                $(document).find('.page-header').removeClass('search-active');
+                $(document).find('.mz-searchbox-field').val('');
+            },200);            
         });
 
         // trigger sweet riwards
@@ -334,20 +314,15 @@ define(['modules/jquery-mozu',
             }
         });
 
-        $(document).on('keydown', '.mz-sitenav.mz-desktop .subheade', function(e){
+        $(document).on('keydown', '.subheade', function(e){
             if(e.which == 13 || e.which == 32){
-                console.log("silpa");
                 e.preventDefault();
                 megamenufunctions.showSubmenu($(e.target).parents('.nav-sub-ele'));
                 $(document).find('.submenu').find('.sunmenu-container[data-attr="'+$(e.target).parents('.nav-sub-ele').attr('id')+'"]').find('select, input, textarea, button, a, [tabindex="0"]').filter(':visible').first().focus();
                 megamenufunctions.loopinMenu($(document).find('.submenu').find('.sunmenu-container[data-attr="'+$(e.target).parents('.nav-sub-ele').attr('id')+'"]')); 
             }
         }); 
-        $(document).on('keydown', '.mz-sitenav.mz-desktop .sunmenu-container.nav-sub-ele', function(e){
-            if(e.which == 13 || e.which == 32){
-                console.log("silpa 22 ");
-            }
-        });
+
         $(document).on('keydown', '.item-name-list', function(e){
             if(e.which == 13 || e.which == 32){
                 e.preventDefault();
@@ -369,23 +344,13 @@ define(['modules/jquery-mozu',
                 $(document).find('.zinrelo-tab').click();
             }
         });
+
         $(document).on('keydown', '.sweetrewardstextcontent', function(e){
             if(e.which == 13 || e.which == 32){
                 $(document).find('.zinrelo-tab').click();
             }
         });
-        $(document).on('keydown', '.mz-utilitynav-content', function(e){
-            if(e.which == 13 || e.which == 32){
-                if((require.mozuData("user").isAuthenticated) && !(require.mozuData("user").isAnonymous)){
-                    $(document).find('.popover-content.myaccount').show();
-                    $(document).find('.popover-content.myaccount').focus();
-                } else {
-                    $(document).find('.popover-content.login').show();
-                    $(document).find('.popover-content.login').focus(); 
-                }
 
-            }
-        });
         $(document).on('keydown', '.head-list-item.view-products a', function(e){
             if ((e.which === 9 && e.shiftKey)){
                 e.preventDefault();
@@ -416,13 +381,12 @@ define(['modules/jquery-mozu',
          var filepath="//cdn-sb.mozu.com/"+t+"-"+s+"/cms/"+s+"/files/";
          var imagediv;
         };
-        window.invokeContextify();
+         window.invokeContextify();
     });
     var navigation_link_activated;
     
     
 });
-
 
 
 

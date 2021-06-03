@@ -505,45 +505,6 @@ require([
             $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
                 $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
             });
-<<<<<<< HEAD
-            owl.owlCarousel({  
-                loop: true, 
-                margin: 14,
-                dots: false,
-                autoPlay: false,  
-                pagination: false,   
-                nav: false,     
-                navText:false,
-                slideBy: 1,
-                items: 1,
-                center: false,
-                stagePadding : 50,
-                responsive: {    
-                    0: {
-                        items: 1
-                    },
-                    400: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    800: {
-                        items: 3  
-                    }, 
-                    1025: {
-                        items: 3
-                    },
-                    1200:{
-                        items: 3
-                    },
-                    1440: {
-                        items: 3
-                    }
-                } 
-            });
-            $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
-=======
             var stagePadding = 25;
                 var margindesktop = 14;
                 var loop = false,nav=true;
@@ -587,7 +548,6 @@ require([
                     } 
                 });
             $(document).find('.Add-to-cart-popup').find('.popup-head h3').focus();
->>>>>>> origin/checkoutNewReDesign
             loopInAddTocart(); 
         } 
 
