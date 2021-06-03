@@ -170,10 +170,11 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                 // this.$el.find('.mz-signup-confirmpassword').val(''); 
             },
             displayApiMessage: function (xhr) { 
+                var errorObj = xhr.value && xhr.value.errors ? xhr.value.errors :xhr;
                 var err, trimMsg = '';
                  window.hideGlobalOverlay();
-                if(xhr.errorCode=="MISSING_OR_INVALID_PARAMETER"){
-                    var errorMessage = xhr.message;
+                if(errorObj.errorCode=="MISSING_OR_INVALID_PARAMETER"){
+                    var errorMessage = errorObj.message;
                     var msgArray = errorMessage.split("Error: Missing or invalid parameter:");  // filter out only the message
                     if(!msgArray[1]){
                         msgArray = errorMessage.split("Missing or invalid parameter:");    
@@ -198,7 +199,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                         this.$el.find("[data-mz-signup-firstname]").attr('aria-describedby','mz-errors-list').css({'border':'1px solid #e9000f'}).focus();
                     } 
                     err = errArray; // filter out the 
-                }else if(xhr.errorCode =="VALIDATION_CONFLICT"){
+                }else if(errorObj.errorCode =="VALIDATION_CONFLICT"){
                     this.$el.find('[data-mz-signup-email]').val('');
                     this.$el.find('[data-mz-signup-confirmemail]').val(''); 
                     err = 'Error: Username already registered'; 
