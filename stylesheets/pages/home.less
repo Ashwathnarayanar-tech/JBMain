@@ -75,6 +75,28 @@
                 background-color: #f7f7f7;
             }
         }
+        .newpromocatehome {
+            #mz-drop-zone-home-promos {
+                .mz-cms-row {
+                    box-shadow: none;
+                    background-color: transparent;
+                    .mz-cms-col-6-12 {
+                        .mz-cms-block {
+                            .mz-cms-content {
+                                .homepage-promo {
+                                    .homepage-promo-image {
+                                        border: none;
+                                        border-radius: 0px;
+                                        -moz-border-radius: 0px;
+                                        -webkit-border-radius: 0px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         #header-image-desktop-mid {
             display: inline-block;
             box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
@@ -490,6 +512,62 @@
                     }
                 }
             }
+            .newpromocatehome {
+                width: 93.5%;
+                margin: auto;
+                padding: 10px 10px;
+                background: #f7f7f7;
+                border-radius: 10px;
+                margin-bottom: 40px;
+                box-sizing: border-box;
+
+               #mz-drop-zone-home-promos {
+                .mz-cms-row {
+                    .mz-cms-col-6-12 {
+                        width: 50%;
+                        padding: 10px 15px;
+                        box-sizing: border-box;
+                        &:nth-child(1){
+                            padding-right: 10px;
+                        }
+                        &:nth-child(2) {
+                            padding-left: 10px;
+                        }
+                        .mz-cms-block {
+                            .mz-cms-content {
+                                padding: 0px;
+                                .homepage-promo {
+                                    text-align: center;
+                                    margin: 0px;
+                                    max-width: 650px;
+                                }
+                                .home-page-banner-left {
+                                    width: 100%;
+                                    float: right;
+                                    .homepage-promo-image {
+                                        border-radius: 8px;
+                                        overflow: hidden;
+                                        width:100%;
+                                        cursor: pointer;
+                                    }
+                                }
+
+                                .home-page-banner-right {
+                                    width: 100%;
+                                    float: left;
+                                    .homepage-promo-image {
+                                        border-radius: 8px;
+                                        overflow: hidden;
+                                        width:100%;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+            }
         }
     }
 }
@@ -662,6 +740,33 @@
                             }
                         }
                     }
+                }
+                &.newpromocatehome { 
+                    width: 95.5%;
+                    margin: auto;
+                    padding: 0px 0px;
+                    background: #f7f7f7;
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                    .mz-cms-row {
+                        .mz-cms-col-6-12 {
+                            .homepage-promo { 
+                                padding: 10px;
+                            }
+                            &:nth-child(1){
+                                .homepage-promo {
+                                    padding-bottom: 9px !important;
+                                }
+                            }
+                            &:nth-child(2) {
+                                .homepage-promo {
+                                    padding-top: 9px !important;
+                                }
+                            }
+                        }
+                    }
+                   
+                   
                 }
             }
         }
