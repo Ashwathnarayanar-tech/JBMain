@@ -55,9 +55,9 @@
                   <tr class="mz-carttable-item {% if item.productDiscounts and item.productDiscounts.length>0 %}coupon-hover {% endif %}" data-mz-carttable-item-sku="{{ item.product.productCode }}"> 
                     <th class="mz-carttable-item-product" scope="row">
                         {% if item.product.imageUrl and themeSettings.showCartItemImage %}
-                            <img class="mz-carttable-item-image" src="{{ item.product.imageUrl }}?max=80" alt=""/>
+                            <img class="mz-carttable-item-image" src="{{ item.product.imageUrl }}?maxWidth=80" alt=""/>
                         {% else %}
-                            <img class="mz-carttable-item-image" style="padding: 0px;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=80" alt="No product image"/>
+                            <img class="mz-carttable-item-image" style="padding: 0px;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?maxWidth=80" alt="No product image"/>
                         {% endif %}
                       
                         <div class="mz-carttable-item-info-wrap{% if not item.product.imageUrl %} mz-no-image{% endif %}">
@@ -150,9 +150,9 @@
                     <div class="mobile-image-section">
                         <div class="item-image">
                             {% if item.product.imageUrl and themeSettings.showCartItemImage %}
-                                <img class="mz-mobile-carttable-item-image" src="{{ item.product.imageUrl }}?max=80" alt=""/>
+                                <img class="mz-mobile-carttable-item-image" src="{{ item.product.imageUrl }}?maxWidth=80" alt=""/>
                             {% else %}
-                                <img class="mz-mobile-carttable-item-image" style="padding: 0px;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=80" alt="No product image"/>
+                                <img class="mz-mobile-carttable-item-image" style="padding: 0px;" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?maxWidth=80" alt="No product image"/>
                             {% endif %}
                         </div>
                     </div>

@@ -37,7 +37,7 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
             var imageCache = this.imageCache = {};
             _.each(this.model.get('content').get('productImages'), function (img) {
                 var i = new Image();
-                i.src = img.imageUrl + "?max=" + 650;
+                i.src = img.imageUrl + "?maxWidth=" + 650;
                 i.title = img.imageUrl;
                 imageCache[img.sequence.toString()] = i;
             });            
@@ -93,7 +93,7 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
         
         addToImageCache: function(imageUrl, sequenceId) {
                 var i = new Image();
-                i.src =  imageUrl  + "?max=" + 1200;     
+                i.src =  imageUrl  + "?maxWidth=" + 1200;     
                 i.title = imageUrl;
                 console.log(Object.keys(this.imageCache).length);
                 //this.imageCache[Object.keys(this.imageCache).length + 1] = i;

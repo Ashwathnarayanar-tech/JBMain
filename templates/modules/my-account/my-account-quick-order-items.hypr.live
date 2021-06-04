@@ -30,7 +30,7 @@
                             <div class="product-listing-row" productItemCode={{productItem.product.productCode}}>
                                 {% if productItem.product.imageUrl %}
                                     <div class="mz-itemlisting-thumb">
-                                        <img class="mz-itemlisting-thumb-img" src="{{ productItem.product.imageUrl }}?max=80" /> 
+                                        <img class="mz-itemlisting-thumb-img" src="{{ productItem.product.imageUrl }}?maxWidth=80" /> 
                                     </div>
                                 {% endif %}
                                     <a class="mz-itemlisting-title" href="{{ productItem.product.url }}">

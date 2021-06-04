@@ -2,7 +2,7 @@
 <td> 
     {% if model.product.imageUrl %}
         <div class="itemlisting-thumb">
-            <img class="itemlisting-thumb-img" src="{{ model.product.imageUrl }}?max=80" />
+            <img class="itemlisting-thumb-img" src="{{ model.product.imageUrl }}?maxWidth=80" />
         </div>
     {% endif %}
 </td>

@@ -9,11 +9,11 @@
                 <li>
                     {% if item.product.imageUrl and themeSettings.showCartItemImage %}
                         <div class="item-image">
-                            <img src="{{ item.product.imageUrl }}?max=80" alt="Item thumbnail"/>
+                            <img src="{{ item.product.imageUrl }}?maxWidth=80" alt="Item thumbnail"/>
                         </div>
                     {% else %}    
                         <div class="item-image">
-                            <img src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}} /files/{{themeSettings.no_product_image}}?max=80" alt="No image item thumbnail"/>
+                            <img src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}} /files/{{themeSettings.no_product_image}}?maxWidth=80" alt="No image item thumbnail"/>
                         </div>
                     {% endif %}
                     <div class="item-shop-details">

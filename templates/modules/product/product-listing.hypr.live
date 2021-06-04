@@ -56,7 +56,7 @@
         </a>
     {% else %}
       <a href="{{model.url}}"> 
-        <img alt="{{model.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=200" />
+        <img alt="{{model.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?maxWidth=200" />
       </a>
     {% endif %}
   </div>  

@@ -47,7 +47,7 @@
   "description": "{{ model.content.productShortDescription }}",
   "sku" : "{{ model.productCode }}",
   "brand" : "Jelly Belly",
-  "image" : "{{ model.mainImage.imageUrl }}?max=350",
+  "image" : "{{ model.mainImage.imageUrl }}?maxWidth=350",
   "url" : "https://www.jellybelly.com{{ model.url }}",
   {% if model.productCode == "gift-card-merrychristmas" or model.productCode == "gift-card-birthday" or model.productCode == "gift-card-generic" or model.productCode == "gift-card-thankyou" or model.productCode == "gift-card-congratulations" or model.productCode == "gift-card-happyholidays" %}
   "offers" : {

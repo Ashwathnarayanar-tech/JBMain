@@ -315,7 +315,7 @@
                     {% endif %}
         {% endblock body-content %}
         <div class="globalOverlay">
-          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxwidth=100" class="rotate" alt="spinner">
+          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxWidth=100" class="rotate" alt="spinner">
          </div>
             </div>
             

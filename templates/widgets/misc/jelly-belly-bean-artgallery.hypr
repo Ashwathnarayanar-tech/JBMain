@@ -30,7 +30,7 @@
         {% for obj in model.config.data %}
             <div class="gallery-carousel gallery-carousel-group" maincarousal="{{obj.id}}" {% if forloop.counter != 1%}style="display:none;"{% endif %}>
             {% for detailItem in obj.details%}
-                <img subgallerydetailsid="{{obj.id}}{{detailItem.orderId}}" src="{{detailItem.thumpImg}}?max=100"/>
+                <img subgallerydetailsid="{{obj.id}}{{detailItem.orderId}}" src="{{detailItem.thumpImg}}?maxWidth=100"/>
             {% endfor %}
             </div>
         {% endfor %}

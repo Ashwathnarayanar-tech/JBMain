@@ -646,7 +646,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                 var prodName = attr.data.product.name;
                 var listPrice = myMata.get('price').get('price');
                 var salePrice = myMata.get('price').get('salePrice');
-                var img = attr.data.product.imageUrl+"?max=150";
+                var img = attr.data.product.imageUrl+"?maxWidth=150";
                 var Qty = myMata.get('quantity');
                 self.showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty);
                 setTimeout(function() {
@@ -987,7 +987,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 				var prodName = attr.data.product.name;
                 var listPrice = myMata.get('price').get('price');
                 var salePrice = myMata.get('price').get('salePrice');
-                var img = attr.data.product.imageUrl+"?max=150";
+                var img = attr.data.product.imageUrl+"?maxWidth=150";
                 var Qty = myMata.get('quantity');
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty);
 				setTimeout(function() {

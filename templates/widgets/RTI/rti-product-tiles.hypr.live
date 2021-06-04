@@ -54,7 +54,7 @@
                                     data-baynote-pid="{{prod.productCode}}" 
                                     data-baynote-href="{{prod.href}}">
                                     {% if prod.mainImage.imageUrl %}
-                                        <img src="{{ prod.mainImage.imageUrl }}?max=300" style="max-height: 300px" alt="{{prod.content.productName}} product page"/>
+                                        <img src="{{ prod.mainImage.imageUrl }}?maxWidth=300" style="max-height: 300px" alt="{{prod.content.productName}} product page"/>
                                     {% else %}
                                         <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
                                     {% endif %}

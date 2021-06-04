@@ -14,7 +14,7 @@
       <li style="display: inline;">
       <a href="/c/{{childChildrenCategories.slug}}"> 
         <div class="jb-childChildrenCategory" style="">
-		  <img class="load-on-scroll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src='{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{childChildrenCategories.image}}?max=60' alt=""/>
+		  <img class="load-on-scroll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src='{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{childChildrenCategories.image}}?maxWidth=60' alt=""/>
           <p href="/c/{{childChildrenCategories.slug}}">
             {{childChildrenCategories.name|safe}}
           </p>

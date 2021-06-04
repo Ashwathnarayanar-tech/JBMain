@@ -12,7 +12,7 @@
                     {% with model.content.productImages|first as image %}
                         {% if image.imageUrl %}
                          <a href="/p/{{ model.productCode }}">
-                        <img class="mz-itemlisting-thumb-img" src="{{ image.imageUrl }}?max=40" />
+                        <img class="mz-itemlisting-thumb-img" src="{{ image.imageUrl }}?maxWidth=40" />
                         </a>
                         {% endif %}
                     {% endwith %}

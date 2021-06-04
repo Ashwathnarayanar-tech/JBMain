@@ -7,11 +7,11 @@
                         <div class="configured-plp-img">
                         {% if prod.mainImage.imageUrl %}
                             <a href="{{prod.url}}">
-                                <img class="configured-plp-imgsrc" alt="{{prod.content.productName|safe}}" src="{{prod.mainImage.imageUrl}}?max=105" />
+                                <img class="configured-plp-imgsrc" alt="{{prod.content.productName|safe}}" src="{{prod.mainImage.imageUrl}}?maxWidth=105" />
                             </a>
                         {% else %}
                             <a href="{{prod.url}}">
-                                <img class="configured-plp-imgsrc" alt="{{prod.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=105" />
+                                <img class="configured-plp-imgsrc" alt="{{prod.content.productName|safe}}" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?maxWidth=105" />
                             </a>
                         {% endif %}
                         </div>

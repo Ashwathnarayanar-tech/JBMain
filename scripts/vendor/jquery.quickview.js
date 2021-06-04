@@ -131,7 +131,7 @@
                 htmlcontent += "</div>";
 
                 // added by Jelly Belly
-                htmlcontent = htmlcontent.replace('?max=250','?max=600');
+                htmlcontent = htmlcontent.replace('?maxWidth=250','?maxWidth=600');
 				
                 // IF EXPANDER IS ALREADY EXPANDED 
                 if (!visible) {

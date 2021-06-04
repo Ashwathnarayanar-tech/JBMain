@@ -8,7 +8,7 @@
                     {% if forloop.index < 5 %}
                         <div class="single-product">
                             <div class="p-image">
-                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                                <img src="{{ item.image }}?maxWidth=100" alt="{{item.mainImage}}"/>
                             </div>
                             <div class='p-details'> 
                                 <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
@@ -18,7 +18,7 @@
                     {% else %}
                         <div class="single-product" {% if model.loadMore %}style="display:none"{% endif %}>
                             <div class="p-image">
-                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                                <img src="{{ item.image }}?maxWidth=100" alt="{{item.mainImage}}"/>
                             </div>
                             <div class='p-details'> 
                                 <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>
@@ -29,7 +29,7 @@
                 {% else %}
                     <div class="single-product">
                             <div class="p-image">
-                                <img src="{{ item.image }}?max=100" alt="{{item.mainImage}}"/>
+                                <img src="{{ item.image }}?maxWidth=100" alt="{{item.mainImage}}"/>
                             </div>
                             <div class='p-details'> 
                                 <span class="p-name"><a href="/p/{{item.id}}">{{item.productName | safe}}</a></span>

@@ -109,7 +109,7 @@ require([
                 var prodName = attr.data.product.name;
                 var listPrice = PRODUCT.get('price').get('price');
                 var salePrice = PRODUCT.get('price').get('salePrice');
-                var img = attr.data.product.imageUrl+"?max=150";
+                var img = attr.data.product.imageUrl+"?maxWidth=150";
                 var Qty = PRODUCT.get('quantity');
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,Qty); 
                 // MiniCart.MiniCart.showMiniCart($target);

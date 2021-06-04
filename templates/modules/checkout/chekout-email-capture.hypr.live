@@ -12,12 +12,12 @@ display: block;
     <div class="content">
       {% block back-to-cart %}
         <div class="close-icon">
-            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?max=100" alt="Close modal and return to shopping cart"></a> 
+            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?maxWidth=100" alt="Close modal and return to shopping cart"></a> 
         </div>  
       {% endblock back-to-cart %}
         <div class="header">
             <div class="logo"> 
-                <p><img src="../../resources/images/JB_logo2.png?max=900" alt="Jelly Belly Candy Company" ></p>
+                <p><img src="../../resources/images/JB_logo2.png?maxWidth=900" alt="Jelly Belly Candy Company" ></p>
             </div>
         </div>  
         <div class="main_content">

@@ -12,7 +12,7 @@
                             <div class="mz-subcategory-image-div"> 
                                 <a aria-label="{{prod.product.name}} product image" href="/p/{{prod.product.productCode}}">
                                     {% if prod.product.imageUrl %}
-                                        <img class="new-lazy-load" src="{{ prod.product.imageUrl }}?max=200" style="max-height: 200px" alt="{{prod.product.name}} product image"/>
+                                        <img class="new-lazy-load" src="{{ prod.product.imageUrl }}?maxWidth=200" style="max-height: 200px" alt="{{prod.product.name}} product image"/>
                                     {% else %}
                                         <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
                                     {% endif %}

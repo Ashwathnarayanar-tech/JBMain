@@ -262,11 +262,11 @@ $('.recommended-product-container').each(function(){
                   });
                   if (prodImg) {
                     var prodImage = prodImg.imageUrl;
-                    $currentEvtSource.closest('.mz-productlisting').find('.mz-subcategory-image').attr({"srcset": prodImage+"?max=400", "alt": ImgAltText, "style":""}).addClass('active');
+                    $currentEvtSource.closest('.mz-productlisting').find('.mz-subcategory-image').attr({"srcset": prodImage+"?maxWidth=400", "alt": ImgAltText, "style":""}).addClass('active');
                     $currentEvtSource.closest('.mz-productlisting').find('.mainImageContainer2').removeClass('active');
                     eFlag = 0;
                   } else {
-                    $currentEvtSource.closest('.mz-productlisting').find('.mz-subcategory-image').attr({"srcset": mainImage+"?max=400", "style":""}).addClass('active');
+                    $currentEvtSource.closest('.mz-productlisting').find('.mz-subcategory-image').attr({"srcset": mainImage+"?maxWidth=400", "style":""}).addClass('active');
                     $currentEvtSource.closest('.mz-productlisting').find('.mainImageContainer2').removeClass('active');
                     eFlag = 0;
                   }

@@ -36,9 +36,9 @@ function ($, api) {
             stringData = JSON.stringify(require.mozuData('special-plp-widget'));
             data = require.mozuData('special-plp-widget');
             $.each($('.configured-plp-imgsrc'), function( index, value ) {
-                index = value.src.indexOf('?max=');
+                index = value.src.indexOf('?maxWidth=');
                 value.src = value.src.substring(0,index);
-                value.src += "?max="+data.imgSize;
+                value.src += "?maxWidth="+data.imgSize;
             });
             $('.config-plp-item').css({'width':data.imgSize+'px'});
             if(!data.rating)$('.configured-plp-rating').css({'display':'none'});

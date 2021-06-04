@@ -424,7 +424,7 @@
 		                padding: 16px;
 		            }
 		            .therm-container {
-		                background-image: url("https://cdn-tp1.mozu.com/9046-m1/cms/files/cd55eb8b-2063-49d1-bad9-6444ec8af2eb?max=800");
+		                background-image: url("https://cdn-tp1.mozu.com/9046-m1/cms/files/cd55eb8b-2063-49d1-bad9-6444ec8af2eb?maxWidth=800");
 		                background-position: right 148px center;
 		                background-size: contain;
 		                background-repeat: no-repeat;
@@ -787,7 +787,7 @@
 		            <div class="body-wrap mz-cms-col-4-12">
 		                <!-- LOGO -->
 		                <div class="ff-logo-container">
-		                    <img id="ff-logo" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/80abdd2f-cff4-4d39-9980-c42f372872f4?max=500" alt="Beanboozled Fiery Five Logo">
+		                    <img id="ff-logo" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/80abdd2f-cff4-4d39-9980-c42f372872f4?maxWidth=500" alt="Beanboozled Fiery Five Logo">
 		                </div>
 		                <!-- SPINNER -->
 		                <div class="values_sec">
@@ -796,7 +796,7 @@
 		                            <img src="//content.jellybelly.com/beanboozled/images/fbload.gif" alt="Loading" />
 		                        </div>
 		                    </div>
-		                    <img class="ff-spinner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/71a004ec-5d4d-4de2-a769-52f5ec960661?max=450" alt="" />
+		                    <img class="ff-spinner" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/71a004ec-5d4d-4de2-a769-52f5ec960661?maxWidthWidth=450" alt="" />
 		                    <img class="rot" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/d074768d-eeed-4eba-9fbf-a02fd42fe660" alt="" />
 		                    <input type="button" class="spin" value="SPIN!">
 		                </div>
@@ -848,7 +848,7 @@
 		                </div>
 		                <!-- MOBILE ONLY DIV: WARNING ILLUSTRATION -->
 		                <div class="ff-warning-wrap-mobile">
-		                    <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?max=500" alt="">
+		                    <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?maxWidth=500" alt="">
 		                </div>
 		                <!-- DOWNLOAD APP -->
 		                <div class="download-app-wrapper">
@@ -865,7 +865,7 @@
 		            </div>
 		            <!-- WARNING ILLUSTRATION -->
 		            <div class="ff-warning-wrap mz-cms-col-4-12">
-		                <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?max=500" alt="">
+		                <img class="ff-warning" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/483aff80-04c2-4dff-a322-dd9e71b5907d?maxWidth=500" alt="">
 		            </div>
 		        </div>
 		    {% else %}  

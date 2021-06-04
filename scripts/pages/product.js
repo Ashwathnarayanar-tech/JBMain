@@ -103,10 +103,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
            // PowerReviews.displayReviews($("#ReviewsContainer"));
             //nutrition look up
                 Api.request('GET', '/svc/nutrition_info?sku='+ require.mozuData("product").productCode).then(function(res) {
-                    $('#nutrition-image').append('<img src="//'+res.image+'?max=500" alt="'+res.productInfo+'" />');
+                    $('#nutrition-image').append('<img src="//'+res.image+'?maxWidth=500" alt="'+res.productInfo+'" />');
                     //$('#nutrition-text').html(res.text); 
                     //$('#nutrition-text').attr('aria-label',res.text);
-                    $('.mz-productimages-thumbs').append('<a class="mz-productimages-thumb" data-mz-productimage-thumb="NUTRITION" href="javascript:void(0)"><img class="mz-productimages-thumbimage"  src="//'+res.image+'?max=50" alt="'+res.productInfo+'" /></a>');
+                    $('.mz-productimages-thumbs').append('<a class="mz-productimages-thumb" data-mz-productimage-thumb="NUTRITION" href="javascript:void(0)"><img class="mz-productimages-thumbimage"  src="//'+res.image+'?maxWidth=50" alt="'+res.productInfo+'" /></a>');
                     window.productImagesView.addToImageCache("//"+res.image, "NUTRITION");
                     // Nutrition Panel Information for Accessible Users
                     /*$('#nut_panel_title').append('<h2 style="text-align:center;" class="skipto mz-desktop" tabindex="0"> Nutrition Panel Information for Accessible Users<span style=font-size:14px;color:#000;" id="nut_panel"> </span></h2>');
@@ -647,7 +647,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var prodName = product.get('content.productName'),
                     listPrice = product.get('price').get('price'),
                     salePrice = product.get('price').get('salePrice'),
-                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?max=150':"/cms/files/missing.gif?max=150",
+                    img = product.get('mainImage')!==null?product.get('mainImage').imageUrl + '?maxWidth=150':"/cms/files/missing.gif?maxWidth=150",
                     qty = product.get('quantity');
                 showAddtoCartPopup(prodName,listPrice,salePrice,img,qty);
             } else {

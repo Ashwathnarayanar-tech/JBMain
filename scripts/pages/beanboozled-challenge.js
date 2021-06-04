@@ -808,7 +808,7 @@ define(["modules/jquery-mozu"], function ($) {
                             // {$('.video_sec iframe').attr('src','http://www.youtube.com/embed/-UZxEo8k894?rel=0&enablejsapi=1&html5=1'); videoval="Video7 Value1";}
                             // else if( sessionStorage.getItem('selector')==2)
                             // {$('.video_sec iframe').attr('src','http://www.youtube.com/embed/ZTgN7XdkmnM?rel=0&enablejsapi=1&html5=1'); videoval="Video7 Value2";}
-                            $('h3 img').attr('src', '//cdn-tp1.mozu.com/9046-16492/cms/16492/files/52972_Toasted%20Marshmallow%20Sig-ns_LR.png?max=144');
+                            $('h3 img').attr('src', '//cdn-tp1.mozu.com/9046-16492/cms/16492/files/52972_Toasted%20Marshmallow%20Sig-ns_LR.png?maxWidth=144');
                             $('.jelly_selectors ul li img.highlight,.jelly_selectors ul li img.highlight2').remove();
                             $('.jelly_selectors ul li:nth-child(2)').append('<img class="highlight" src="//content.jellybelly.com/beanboozled/images/shadow.png" alt=""><img class="highlight2" src="//content.jellybelly.com/beanboozled/images/shadow.png" alt="">');
                         } else if (degree >= 105 && degree <= 140) {
