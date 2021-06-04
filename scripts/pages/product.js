@@ -385,8 +385,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     saveNotification(self.model.get('productCode') || self.model.get('variationProductCode'));
                     self.render();
                      window.hideGlobalOverlay();
-                }, function (xhr) {
+                }, function (xhrRespone) {
                      window.hideGlobalOverlay();
+                     var xhr = xhrRespone.value && xhrRespone.value.errors ? xhrRespone.value.errors : xhrRespone;
                     if(xhr.errorCode == "VALIDATION_CONFLICT"){
                         self.setError(Hypr.getLabel('notifyWidgetError'));
                     }else if(xhr.errorCode != "ITEM_ALREADY_EXISTS"){   

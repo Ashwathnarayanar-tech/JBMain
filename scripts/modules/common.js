@@ -667,7 +667,8 @@ require([
                                 modal.find('.success-msg').fadeIn(500,function(){focusNotify();});
                             });
                              window.hideGlobalOverlay();  
-                            }, function (xhr) {
+                            }, function (xhrRespone) {
+                                var xhr = xhrRespone.value && xhrRespone.value.errors ? xhrRespone.value.errors :xhrRespone;
                                  window.hideGlobalOverlay();
                                 $('[data-mz-message-bar]').hide();
                                 if(xhr.errorCode == "VALIDATION_CONFLICT"){

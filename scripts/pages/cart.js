@@ -1229,8 +1229,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             $("#notify-me-dialog").fadeIn(500);
                         });
                         setTimeout(function(){ window.wishlistView.notifymedilog(); $("#notify-me-dialog").find('.success-msg').focus(); }, 1200);
-                    }, function (xhr) {
+                    }, function (xhrRespone) {
                         $('[data-mz-message-bar]').hide();
+                        var xhr = xhrRespone.value && xhrRespone.value.errors ? xhrRespone.value.errors :xhrRespone;
                         if(xhr.errorCode == "VALIDATION_CONFLICT"){
                             $('[data-mz-message-bar]').hide(); 
                             $('#notify-me-button').next('.errormsgpopup').remove();
