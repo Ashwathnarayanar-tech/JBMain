@@ -321,8 +321,9 @@
                              window.hideGlobalOverlay();
                             $("#notify-me-dialog").fadeOut(500, function () { $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>").fadeIn(500); });
                             setTimeout(function(){self.notifymedilog(); $("#notify-me-dialog").find('.success-msg').focus(); }, 1200);
-                        }, function (xhr) {
+                        }, function (xhrRespone) {
                              window.hideGlobalOverlay();
+                             var xhr = xhrRespone.value && xhrRespone.value.errors ? xhrRespone.value.errors :xhrRespone;
                             $('[data-mz-message-bar]').hide();
                             if(xhr.errorCode == "VALIDATION_CONFLICT"){
                                 $('[data-mz-message-bar]').hide(); 
