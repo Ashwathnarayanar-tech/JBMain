@@ -26,7 +26,7 @@ require([
     //console.log(productCode);
     window.productCode = productCode;
     var me = $(this);
-    window.showGlobalOverlay();
+    window.showGlobalOverlay("Item adding to Wishlist","",false);
     addToWishList.addWishlistOnAuth(productCode, me);
   });
 
@@ -45,7 +45,7 @@ require([
       var self = this;
       var valid = this.validData();
       if (valid) {
-        window.showGlobalOverlay();
+        window.showGlobalOverlay("Logging into Site please wait","",false);
         api.action('customer', 'loginStorefront', {
           email: $('.user-email').val(),
           password: $('.user-password').val()

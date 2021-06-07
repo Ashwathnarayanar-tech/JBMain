@@ -81,7 +81,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Increasing Product quanity please wait","",false);
                 Minicart.MiniCart.updateMiniCart();
                 window.qtyButtonToFocus = '.plus-prod-qty-cart';
                 // setTimeout(function() {
@@ -103,7 +103,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Decreasing product quanity please wait","",false);
                 Minicart.MiniCart.updateMiniCart();
                 window.qtyButtonToFocus = '.minus-prod-qty-cart';
                 // setTimeout(function() {
@@ -128,7 +128,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     item.saveQuantity();
 
                 }
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Updating the product quanity","",false);
                 Minicart.MiniCart.updateMiniCart();
 
             }, 400),
@@ -148,7 +148,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             var self = this,
                 removedCoupon,
                 couponCodes = self.model.get('couponCodes');
-            window.showGlobalOverlay();
+            window.showGlobalOverlay("Removing coupon please wait","",false);
             $.each(couponCodes, function(i, o) {
                 self.model.apiRemoveCoupon(o).then(function(res) {
                     $.cookie('coupon', '', {
@@ -255,7 +255,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
         removeItem: function(e) {
             var $removeButton = $(e.currentTarget),
                 id = $removeButton.data('mz-cart-item');
-            window.showGlobalOverlay();
+            window.showGlobalOverlay("Removing Item please wait","",false);
             this.model.removeItem(id);
             Minicart.MiniCart.updateMiniCart();
 			//brontoObj.build(Api);
@@ -288,7 +288,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
 			var self = this;
 			if(this.model.get('couponCodes').length< 1){
 				var addedCoupon = self.model.get('couponCode');
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Adding coupons to cart please wait","",false);
 				this.model.addCoupon().ensure(function () {
 					self.model.unset('couponCode');
 					self.render();
@@ -428,7 +428,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             //"shippingServiceTypes": ["ups_UPS_GROUND","ups_UPS_SUREPOST_LESS_THAN_1LB","ups_UPS_SUREPOST_1LB_OR_GREATER","ups_UPS_THREE_DAY_SELECT","ups_UPS_SECOND_DAY_AIR","ups_UPS_NEXT_DAY_AIR_SAVER"] //shippingMethods
                         };
                         var amount = false;
-                         window.showGlobalOverlay();
+                         window.showGlobalOverlay("Fetching Estimated shipping cost please wait","",false);
                         Api.request('POST', {
                             url: '/api/commerce/catalog/storefront/shipping/request-rates',
                             iframeTransportUrl: 'https://' + document.location.host + '/receiver?receiverVersion=2'
@@ -601,7 +601,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             //     }
             // }
            // if(addProduct){
-            window.showGlobalOverlay();
+            window.showGlobalOverlay("Adding an item to cart","",false);
                 Api.get('product', productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     if(PRODUCT.get('purchasableState').isPurchasable){
@@ -943,7 +943,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
             var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
             
             var count = parseInt($quantity,10);
-             window.showGlobalOverlay();
+             window.showGlobalOverlay("Item adding to cart ","",false);
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;

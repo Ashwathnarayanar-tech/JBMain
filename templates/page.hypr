@@ -315,7 +315,7 @@
                     {% endif %}
         {% endblock body-content %}
         <div class="globalOverlay">
-          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxwidth=100" class="rotate" alt="spinner">
+          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxwidth=100" class="rotate" alt="spinner" role="alert" aria-label="Loading Please wait">
          </div>
             </div>
             
@@ -339,13 +339,35 @@
    
 {% if themeSettings.isGlobalOverlayEnabled === true %}
   <script >
-  window.showGlobalOverlay = function showGlobalOverlay(){
+    window.oldAriaElement = null;
+  window.showGlobalOverlay = function showGlobalOverlay(message,ele,isrequired){
+          if(message){
+            document.querySelector(".globalOverlay .rotate").setAttribute('aria-label', message);
+          }
+          else{
+            document.querySelector(".globalOverlay .rotate").setAttribute('aria-label', 'loading please wait');
+          }
+          if(ele && ele!="" && isrequired){
+            console.log(" element ---",ele);
+            document.querySelector(".meter .text-content").setAttribute('aria-live', 'off');
+            document.querySelector(ele).setAttribute("aria-busy",true); 
+            document.querySelector(ele).setAttribute("aria-live",'polite');
+            if(window.oldAriaElement && window.oldAriaElement!=ele){
+              document.querySelector(window.oldAriaElement).removeAttribute("aria-busy"); 
+              document.querySelector(window.oldAriaElement).removeAttribute("aria-live");
+            }
+            window.oldAriaElement = ele;
+          }
           document.body.classList.add("openoverlay");
     };
 
-    window.hideGlobalOverlay = function hideGlobalOverlay(){
+  window.hideGlobalOverlay = function hideGlobalOverlay(ele,isrequired){
+          if(ele && isrequired){
+            document.querySelector(ele).setAttribute("aria-busy",false); 
+            document.querySelector(ele).setAttribute("aria-live",'polite');
+          }
             document.body.classList.remove("openoverlay");
-    };
+  };
   var interval = setInterval(function() {
     if(document.readyState === 'loading') {
       console.log(" show overlay");

@@ -29,7 +29,7 @@ require([
                 var self = this;
                 var email = this.$el.find('[data-mz-forgotpassword-email]')[0];
                 if(email.value.length>0){
-                    window.showGlobalOverlay();
+                    window.showGlobalOverlay("Resetting password please wait","",false);
                     Api.action('customer', 'resetPasswordStorefront', {
                     EmailAddress: email.value
                 }).then(

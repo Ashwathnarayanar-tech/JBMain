@@ -1406,7 +1406,7 @@ define([
         
         function updateUi(response) {
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.hideGlobalOverlay();
+                window.hideGlobalOverlay("",".mz-productlist",true);
             }
             var url = response.canonicalUrl;
             var $oattr;
@@ -1458,7 +1458,7 @@ define([
                     //alert(parseInt(info_url.startIndex,10)+1);
                     var lastValue = window.pageFlag === 0 ? (parseInt(info_url.startIndex,10)+1):window.pageValue;
                     $(document).find('.gridder-list[data-griddercontent="#'+lastValue+'"]').find('a').first().focus();   
-                }, 1000);    
+                }, 100);    
                 promodel= new FacetingModels.FacetedProductCollection(data);   
                 // promodel.get('items').push(JSON.parse($(response.body)[2].innerHTML).items); 
                 initRecProd();
@@ -1514,7 +1514,7 @@ define([
             //_$body.removeClass('mz-loading'); 
             
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.hideGlobalOverlay();
+                window.hideGlobalOverlay("",".mz-productlist",true);
             }else{
                 _$body.removeClass('mz-loading'); 
             }
@@ -1543,7 +1543,7 @@ define([
         function intentToUrl(e) {
             loadMore=false; 
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Loading products please wait",".mz-productlist",true);
             }else{
                 $(document).find('div[data-mz-productlist]').addClass('is-loading'); 
             }
@@ -1641,7 +1641,7 @@ define([
             if (url && _dispatcher.send(url)) {
                 _$body.addClass('mz-loading');
                 if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                    window.showGlobalOverlay();
+                    window.showGlobalOverlay("Loading products please wait",".mz-productlist",true);
                 }
                 e.preventDefault();
             }
@@ -1688,7 +1688,7 @@ define([
                 if (url && _dispatcher.send(url)) { 
                    // _$body.addClass('mz-loading'); 
                    if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                    window.showGlobalOverlay();
+                    window.showGlobalOverlay("Applying filters please wait","",false);
                     }else{
                         _$body.addClass('mz-loading');
                     } 
@@ -1734,7 +1734,7 @@ define([
                 if (url && _dispatcher.send(url)) { 
                     //_$body.addClass('mz-loading'); 
                     if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                        window.showGlobalOverlay();
+                        window.showGlobalOverlay("Applying filters please wait","",false);
                     }else{
                             _$body.addClass('mz-loading');
                     }
@@ -1750,7 +1750,7 @@ define([
                     if (url && _dispatcher.send(url)) {
                         //_$body.addClass('mz-loading'); 
                         if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                            window.showGlobalOverlay();
+                            window.showGlobalOverlay("Loading more Products please wait","",false);
                         }else{
                                 _$body.addClass('mz-loading');
                         }
@@ -1794,7 +1794,7 @@ define([
                     if (url && _dispatcher.send(url)) { 
                         //_$body.addClass('mz-loading'); 
                         if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                            window.showGlobalOverlay();
+                            window.showGlobalOverlay('Applying Filters please wait','',false);
                         }else{
                             _$body.addClass('mz-loading');
                         }
@@ -1829,7 +1829,7 @@ define([
                     if (url && _dispatcher.send(url)) { 
                         //_$body.addClass('mz-loading'); 
                         if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                            window.showGlobalOverlay();
+                            window.showGlobalOverlay("Reseting filters ","",false);
                         }else{
                             _$body.addClass('mz-loading');
                         }
@@ -2580,7 +2580,7 @@ define([
         },
         mobileaddfilters:function(ele){
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Adding filters please wait","",false);
             }
             if(!ele.hasClass('remove-filter-one') && !ele.parents('li').hasClass('mz-facetform-selected') && ele.html() !== ''){
                 var valuetoshow = ele.prev().attr('data-mz-facet-titel-mobile');

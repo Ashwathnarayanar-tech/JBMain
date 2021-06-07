@@ -118,6 +118,7 @@ define([
                 return c;             
             },       
             progressbar: function(total,hasheatsensitive,isNoFreeShip){
+                document.querySelector(".meter .text-content").setAttribute('aria-live', 'polite');
                 $(document).find(".meter").find("span").each(function() {
                     var currentWidth = $(this).width();
                     var per = total * 100/Hypr.getThemeSetting('freeshippingBoundingValue');

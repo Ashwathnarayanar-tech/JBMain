@@ -229,7 +229,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }
         },
         addToCart: function () {
-            window.showGlobalOverlay();
+            window.showGlobalOverlay("Item is adding to cart","",false);
             this.model.addToCart();
         },
         /*addToWishlist: function () {
@@ -374,7 +374,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             this.clearError();
             var email = this.$('[data-mz-role="email"]').val();
             if(this.validateEmail(email)) {
-                  window.showGlobalOverlay();
+                  window.showGlobalOverlay("Adding to notifcation list please wait","",false);
                 Api.create('instockrequest', {
                     email: email,
                     customerId: user.accountId,

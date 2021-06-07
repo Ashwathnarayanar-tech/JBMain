@@ -115,7 +115,7 @@ require(['modules/backbone-mozu',"modules/jquery-mozu", "hyprlive", 'modules/api
                     password: this.$el.find('.mz-signup-password')[0].value
                 };
                 if (this.validate(data)) {
-                      window.showGlobalOverlay();
+                      window.showGlobalOverlay("We are creating your account please wait","",false);
                     return Api.action('customer', 'createStorefront', payload).then(function () {
                       if(window.location.pathname.indexOf("/checkout") > -1) {
                         window.location.reload();

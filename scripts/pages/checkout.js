@@ -2586,7 +2586,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                     parentEle = "#checkoutmodal ";
                 }
                 if(valid && currentUser.isAnonymous){
-                     window.showGlobalOverlay();
+                     window.showGlobalOverlay("Logging into site","",false);
                     api.action('customer', 'loginStorefront', {
                         email: $(parentEle+'.user-email').val(),
                         password: $(parentEle+'.user-password').val()

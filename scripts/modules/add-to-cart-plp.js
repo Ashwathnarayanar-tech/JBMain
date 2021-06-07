@@ -18,7 +18,7 @@ require([
             $target.addClass('is-loading');            
             var $quantity = $(e.target).parents('.jb-quickviewdetails').find('.quantity').val();
             var count = parseInt($quantity); 
-            window.showGlobalOverlay();           
+            window.showGlobalOverlay("Item adding to cart","",false);           
             Api.get('product', productCode).then(function(sdkProduct) {
                 var PRODUCT = new ProductModels.Product(sdkProduct.data);
                 var variantOpt = sdkProduct.data.options;                    

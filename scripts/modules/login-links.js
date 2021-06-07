@@ -323,7 +323,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         login: function () {
             this.setLoading(true);
             this.validData();
-            window.showGlobalOverlay(); 
+            window.showGlobalOverlay("Logging is in process please wait","",false); 
             api.action('customer', 'loginStorefront', {
                 email: this.$parent.find('[data-mz-login-email]').val(),
                 password: this.$parent.find('[data-mz-login-password]').val()
@@ -377,7 +377,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             var orderNumber = this.$parent.find('[data-mz-order-number]').val(),self = this;
             if((billingPhoneNumber === null && email !==null ) || (billingPhoneNumber !== null && email === null) )
             {
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Fetching order details please wait","",false);
                 api.action('customer', 'orderStatusLogin', {
                     ordernumber: orderNumber,
                     email: email,
@@ -442,7 +442,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }else{
                 this.$parent.find('[data-mz-forgotpassword-email]').css({'border':'1px solid #c2c2c2'});
             }
-            window.showGlobalOverlay();
+            window.showGlobalOverlay("Sending email to Reset password please wait","",false);
             api.action('customer', 'resetPasswordStorefront', {
                 EmailAddress: this.$parent.find('[data-mz-forgotpassword-email]').val()
             }).then(_.bind(this.displayResetPasswordMessage,this), this.displayApiMessage);
@@ -520,7 +520,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if (this.validData() && this.validate(payload)) {
                 //var user = api.createSync('user', payload);
                 this.setLoading(true);
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Creating Account please wait","",false);
                 return api.action('customer', 'createStorefront', payload).then(function () {
                     window.location = '/myaccount';
                 }, self.displayApiMessage)
@@ -596,7 +596,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(flag){
                 $(document).find('form.reset-password-form').find('.mz-messagebar').html('<ul class="is-showing mz-errors"><li>'+Hypr.getThemeSetting('passwordMissing')+'</li></ul>'); 
             }else{
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Resetting password please wait","",false);
                 $(document).find('form.reset-password-form').find('.mz-button-large').click();   
             }
         });

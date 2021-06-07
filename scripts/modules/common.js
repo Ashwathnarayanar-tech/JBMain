@@ -565,7 +565,7 @@ require([
                 // var $quantity = $(e.target.parentNode.parentNode).find('.quantity')[0].options[$(e.target.parentNode.parentNode).find('.quantity')[0].options.selectedIndex];
                 var $quantity = $(e.target.parentNode.parentNode).find('.quantity-field-rti').val();
                 var count = parseInt($quantity,10);
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Item Adding to Cart","",false);
                 api.get('product', productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;
@@ -661,7 +661,7 @@ require([
                             productCode:button.attr('data-mz-product-code'),
                             locationCode:location
                         };
-                         window.showGlobalOverlay();
+                         window.showGlobalOverlay("Adding mail to notification list please wait","",false);
                         api.create('instockrequest',obj ).then(function () {
                             modal.find('.notify-me-section').fadeOut(500,function(){
                                 modal.find('.success-msg').fadeIn(500,function(){focusNotify();});

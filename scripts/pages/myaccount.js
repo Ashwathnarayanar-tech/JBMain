@@ -63,7 +63,7 @@
                 this.$el.find('.edit-user-settings').find('input').attr('aria-invalid',false);
                 this.$el.find('.edit-user-settings').find('.mz-validationmessage').html('');
                 if(this.$el.find('input')[0].value.length>0 && this.$el.find('input')[1].value.length>0 && this.$el.find('input')[2].value.length>0){
-                    window.showGlobalOverlay();
+                    window.showGlobalOverlay("Updating your account","",false);
                     this.doModelAction('apiUpdate').then(function() {
                     self.editing = false;
                     self.$el.find('[data-mz-action="startEditName"]').focus();
@@ -138,7 +138,7 @@
             function restoreFocus() {
                 $('[data-mz-action="startEditPassword"]').focus();
             }
-             window.showGlobalOverlay();
+             window.showGlobalOverlay("Updating Account details","",false);
             try
             {
                 this.doModelAction('changePassword').then(function() {
@@ -196,7 +196,7 @@
                 // });
                 
                 var count = Item[0].quantity;
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Item adding to cart","",false);
                 Api.get('product', Item[0].product.productCode).then(function(sdkProduct) {
                     var PRODUCT = new ProductModels.Product(sdkProduct.data);
                     var variantOpt = sdkProduct.data.options;  
@@ -316,7 +316,7 @@
                         productCode: e.target.getAttribute('data-mz-product-code'), 
                             locationCode: e.target.getAttribute('data-mz-location-code')
                         };                       
-                         window.showGlobalOverlay();
+                         window.showGlobalOverlay("Email is adding for Notification list please wait","",false);
                         Api.create('instockrequest',obj ).then(function (xhr) {
                              window.hideGlobalOverlay();
                             $("#notify-me-dialog").fadeOut(500, function () { $("#notify-me-dialog").empty().html("<div class='success-msg' tabindex='0'>Thank you! We'll let you know when we have more.</div>").fadeIn(500); });
@@ -432,7 +432,7 @@
                 //     }
                 // });
                 //var Url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items";
-                 window.showGlobalOverlay();
+                 window.showGlobalOverlay("Item is removing please wait","",false);
                 var url = "api/commerce/wishlists/"+this.model.get('WishlistId')+"/items/"+removeWishId;
                 Api.request('DELETE',url).then(function(resp) {
                     var tempItems = self.model.get('items').filter(function(ele){return ele.id == removeWishId?false:true;});
@@ -900,7 +900,7 @@
             else if(totalItems.length === 0){
                 totalItems = products;
             }
-             window.showGlobalOverlay();
+             window.showGlobalOverlay("Adding to quick order please wait","",false);
             // Comparing total items from order history and cart to the inventory
             Api.request('POST','api/commerce/catalog/storefront/products/locationinventory?pageSize=500',{productCodes:productCodes,locationCodes:locationCodes.filter(function(R,i){return locationCodes.indexOf(R) == i;})}).then(function(res){
                 totalItems.forEach(function(val, key){
@@ -983,7 +983,7 @@
           makeQuickOrder: function(products,orderId,locationCodes,productCodes,itemNames){ 
             var errorArray = [], self = this, productAdded = 0,time = 1500;
             //$('.order-history-overlay').show();
-             window.showGlobalOverlay();
+            window.showGlobalOverlay("Adding to quick order please wait","",false);
             $(products).each(function(key,pid){
                 setTimeout(function(){
                 var count = key;
@@ -1520,7 +1520,7 @@
             var self = this;
             var id = this.$('[data-mz-entering-credit]').val();
             if (id) {
-                window.showGlobalOverlay();
+                window.showGlobalOverlay("Adding to credit limit","",false);
                 var temp = this.model.addStoreCredit(id);
                 if(temp) {
                     return temp.then(function (data) {
