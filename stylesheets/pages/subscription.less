@@ -703,7 +703,7 @@
 							    line-height: 1.07;
 							    color: rgba(0, 0, 0, 0.5);
 							    display: block;
-							    padding: 15px 15px 5px 15px; 
+							    padding: 15px 5px 8px 8px; 
 							    cursor: pointer;
 							    .active{
 								    font-size: 12px;
@@ -715,6 +715,8 @@
 							}
 							.mainCategory{
 								border-top:solid 0.5px #cfcfcf;
+								float: left;
+								width: 90%;
 								.shopall{
 									color: #000000;
 									font-size: 10px;
@@ -728,6 +730,7 @@
 								}
 								.borderNone{
 									border-top:none;
+									width: 85%;
 								}
 								.icon{
 									width: 0;
@@ -2133,11 +2136,10 @@
 												} 
 										    }
 										    &.quantity{
-								    	        width: 14.2%;
 												float: right;
 									    	    .quantity-sub{
-							    	    	        padding: 6.5% 25%;
-													width:35%;
+							    	    	        padding:0px;
+													width:~"calc(100% - 10px)";
 									    	    }
 									    	    .spinner{
 									    	    	&.increment{
@@ -2146,7 +2148,7 @@
 													    height: 94%;
 									    	    	}
 									    	    	&.decrement{
-								    	    		    right: 14%;
+								    	    		    right: 0%;
 													    border: 0px;
 													    height: 94%;
 													    top: 1px;
@@ -2849,7 +2851,8 @@
 												float: none;
 												width: 13%;
 												.quantity-sub{
-													padding:12% 50% 12% 0%;
+													padding:0;
+													width: ~"calc(100% - 20px)";
 												}
 												.spinner{
 													&.increment, &.decrement{

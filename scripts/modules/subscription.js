@@ -1100,7 +1100,7 @@ define([
                     if(existingList && existingList.length > 0){
                         preSelecteArray =  existingList;  
                     }
-                    var isLessThanMobileWidth = $(window).width() <= 1024 ? true : false;
+                    var isLessThanMobileWidth = $(window).width() <= 664 ? true : false;
                     result.items.filter(function(v,i){
                         var myTemp = {
                             "Category" : v.category[0],
@@ -1598,7 +1598,7 @@ define([
             });
         },
         setProductlistFocus:function(){
-            $(window).scrollTop($(".product-list").offset().top - 500);
+           // $(window).scrollTop($(".product-list").offset().top - 500);
            // $(".product-list").focus();
         },
         initialize: function () {
@@ -1700,6 +1700,7 @@ define([
             'shippingThrashold' : shippingThrashold,
             'activeCategoryList' : 0
         };
+        console.log("myModel ----",myModel);
          modelRapidOrder = window.modelRapidOrder = new reapidOrder({
             el: $('#subscription-body'),
             model: new QOModel(myModel)
@@ -1753,6 +1754,16 @@ define([
             },500);
            
         }
+
+        $(window).on('resize orientationchange', function(e){
+            console.log(" event resize",window);
+            modelRapidOrder.model.set('isMobile',$(window).width() < 768 ? true : false);
+            modelRapidOrder.model.set('isTablet',$(window).width() < 1025 && $(window).width() > 767 ? true : false);
+            modelRapidOrder.model.set('isDesktop',$(window).width() > 1024 ? true : false);
+            modelRapidOrder.model.set('isPotreate',$(window).width() < $(window).height() ? true : false);
+            modelRapidOrder.model.set('isLandscape',$(window).width() > $(window).height() ? true : false);
+            modelRapidOrder.render();
+          });
 
         wireUpEvents();
     });
