@@ -348,10 +348,10 @@
             document.querySelector(".globalOverlay .rotate").setAttribute('aria-label', 'loading please wait');
           }
           if(ele && ele!="" && isrequired){
-            console.log(" element ---",ele);
+            console.log(" element --- show",ele);
             document.querySelector(".meter .text-content").setAttribute('aria-live', 'off');
             document.querySelector(ele).setAttribute("aria-busy",true); 
-            document.querySelector(ele).setAttribute("aria-live",'polite');
+           // document.querySelector(ele).setAttribute("aria-live",'polite');
             if(window.oldAriaElement && window.oldAriaElement!=ele){
               document.querySelector(window.oldAriaElement).removeAttribute("aria-busy"); 
               document.querySelector(window.oldAriaElement).removeAttribute("aria-live");
@@ -362,8 +362,9 @@
     };
 
   window.hideGlobalOverlay = function hideGlobalOverlay(ele,isrequired){
+          console.log(" element --- hide",ele);
           if(ele && isrequired){
-            document.querySelector(ele).setAttribute("aria-busy",false); 
+            document.querySelector(ele).removeAttribute("aria-busy"); 
             document.querySelector(ele).setAttribute("aria-live",'polite');
           }
             document.body.classList.remove("openoverlay");

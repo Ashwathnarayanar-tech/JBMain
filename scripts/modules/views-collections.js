@@ -1406,7 +1406,7 @@ define([
         
         function updateUi(response) {
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.hideGlobalOverlay("",".mz-productlist",true);
+                window.hideGlobalOverlay("#mz-productlist-list",true);
             }
             var url = response.canonicalUrl;
             var $oattr;
@@ -1514,7 +1514,7 @@ define([
             //_$body.removeClass('mz-loading'); 
             
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.hideGlobalOverlay("",".mz-productlist",true);
+                window.hideGlobalOverlay("#mz-productlist-list",true);
             }else{
                 _$body.removeClass('mz-loading'); 
             }
@@ -1543,7 +1543,7 @@ define([
         function intentToUrl(e) {
             loadMore=false; 
             if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                window.showGlobalOverlay("Loading products please wait",".mz-productlist",true);
+                window.showGlobalOverlay("Loading products please wait","#mz-productlist-list",true);
             }else{
                 $(document).find('div[data-mz-productlist]').addClass('is-loading'); 
             }
@@ -1641,7 +1641,7 @@ define([
             if (url && _dispatcher.send(url)) {
                 _$body.addClass('mz-loading');
                 if(Hypr.getThemeSetting('isGlobalOverlayEnabled')){
-                    window.showGlobalOverlay("Loading products please wait",".mz-productlist",true);
+                    window.showGlobalOverlay("Loading products please wait","#mz-productlist-list",true);
                 }
                 e.preventDefault();
             }
