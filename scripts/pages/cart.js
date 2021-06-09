@@ -123,13 +123,16 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     newQuantity = 25;
                 }
                 
-                if (item && !isNaN(newQuantity)) {
-                    item.set('quantity', newQuantity);
-                    item.saveQuantity();
-
+                if(item.get('quantity') != newQuantity){
+                    if (item && !isNaN(newQuantity)) {
+                        item.set('quantity', newQuantity);
+                        item.saveQuantity();
+    
+                    }
+                    window.showGlobalOverlay("Updating the product quanity","",false);
+                    Minicart.MiniCart.updateMiniCart();
                 }
-                 window.showGlobalOverlay("Updating the product quanity","",false);
-                Minicart.MiniCart.updateMiniCart();
+                 
 
             }, 400),
         additionalEvents: {
