@@ -1186,7 +1186,7 @@ define([
                     
                         if(isMobileView){
                             var catList = modelRapidOrder.model.get('categoryList').filter(function(v,i){
-                                if(v.Category.categoryCode == catId && !v.isActive){
+                                if(v.Category.categoryCode == catId){
                                     v.isActive = true;
                                 }else{
                                     v.isActive = false;
