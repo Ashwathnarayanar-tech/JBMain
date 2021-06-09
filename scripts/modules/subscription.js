@@ -1747,14 +1747,16 @@ define([
             },2000);
         });*/
 
-        if(myModel && myModel.isFirstPopup){
+        if(myModel && ! myModel.isFirstPopup){ 
             setTimeout(function(e){
                 $(document).find('.first-popup .popup-content').focus();
                 modelRapidOrder.loopInpopup("first-popup");
-            },500);
-           
+                
+            },500); 
         }
-
+        else {
+            $(document).find('.mz-l-pagewrapper .mz-l-pagecontentt').addClass('addScroll');
+        }
         $(window).on('resize orientationchange', function(e){
             console.log(" event resize",window);
             modelRapidOrder.model.set('isMobile',$(window).width() < 768 ? true : false);
