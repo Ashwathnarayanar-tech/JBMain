@@ -3,7 +3,7 @@
 }
 .nav-cointainer{
     position: relative; 
-    margin-top: 60px;
+    margin-top: 20px;
     .mz-sitenav { 
         &.mz-desktop,&.mz-mobile{
             display: none;
@@ -1425,5 +1425,138 @@
             }
         }
     }   
+}
+.mz-l-pagewrapper .page-header.desktop {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0px;
+}
+.custom-nav-cointainer {
+    display: block;
+    width: 100%;
+    text-align: center;
+    max-width: 1920px;
+    * {
+        box-sizing: border-box;
+    }
+    .nav-header {
+        width: 100%;
+        margin: auto;
+        display: inline-block;
+        .nav-list-head-cointainer {
+            padding: 0px;
+            margin: 0px;
+            position: relative;
+            li.head-list-item-li {
+                display: inline-block;
+                padding: 0px 20px;
+                width: 200px;
+                a.head-list-item {
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 16px;
+                    text-align: center;
+                    font-weight: 500;
+                    color: black; 
+                    cursor: pointer;
+                }
+                &.jelly-belly-logo {
+                    width: 110px;
+                    padding: 0px;
+                }
+                &:nth-child(1),&:nth-child(4) {
+                    border-right: 1px solid #a9a3a3;
+                }
+            }
+        }
+    }
+    .submenuContainer {
+        display: none;
+        text-align: left;
+        padding: 30px 30px 0;
+        box-shadow: ~"0 1px 3px 0 rgb(0 0 0 / 30%)";
+        -webkit-box-shadow: ~"0 1px 3px 0 rgb(0 0 0 / 30%)";
+        -moz-box-shadow: ~"0 1px 3px 0 rgba(0, 0, 0, 0.3)";
+        .col-menu60 {
+            width: 60%;
+            display: inline-block;
+            float: left;
+            .col-inner33_33 {
+                width: 30%;
+                display: inline-block;
+                float: left;
+            }
+        }
+        .col-menu40 {
+            width: 40%;
+            display: inline-block;
+            float: left;
+            .col-inner40 {
+                display: inline-block;
+                float: left;
+                width: 40%;
+            }
+            .col-inner60 { 
+                display: inline-block;
+                float: left;
+                width: 60%;
+            }
+        }
+        ul {
+            padding-left: 10px;
+            li {
+                display: flex;
+                flex-direction: row;
+                .sub-heading-left {
+                    flex: 0 0 60px;
+                    margin: auto;
+                    vertical-align: middle;
+                    align-items: center;
+                }
+                .sub-heading-right {
+                    flex: 0 0 80%;
+                    flex-direction: column;
+                    display: flex;
+                }
+                a,span {
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: black;
+                    padding: 0px 0px;
+                    text-decoration: none;
+                }
+            }
+            &.color {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                li {
+                    display: inline-flex;
+                    flex: 0 0 60%;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    max-width: 60%;
+                    &:nth-child(1) {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+                    &:nth-child(2n) {
+                        flex: 0 0 40%;
+                        max-width: 40%;
+                    }
+                }
+            }
+        }
+    }
+    #viewproducts {
+        display: block;
+        position: absolute;
+        width: 100%;
+        background: #fff;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+        top: 80px;
+    }
 }
 

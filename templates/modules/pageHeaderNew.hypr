@@ -16,10 +16,10 @@
                         <ul class="nav-list-head-cointainer">
                             {% partial_cache %}
                             <li class="head-list-item-li">
-                                <span role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</span>
+                                <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
                             </li>
                             <li class="head-list-item-li">
-                                <span tabindex="0" attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</span>
+                                <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
                             </li>
                             <li class="head-list-item-li store-branding" attr-menuname="store-branding" data-attr="store-branding">
                                 {% block store-branding %} 
@@ -27,7 +27,7 @@
                                 {% endblock store-branding %} 
                             </li>
                             <li class="head-list-item-li">
-                                <span tabindex="0" attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</span>
+                                <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
                             </li>  
 
                             <li class="head-list-item-li">
@@ -38,7 +38,8 @@
                     </div>
                     {% include "modules/site-navDesk" %}
                 </div>
-            {% endblock site-nav %}  
+            {% endblock site-nav %} 
+            {% include "modules/MegaMenu" %}
         </div>
     </div>      
    <div class="isMobile">

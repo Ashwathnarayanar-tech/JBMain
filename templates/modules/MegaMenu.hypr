@@ -1,0 +1,945 @@
+silpa
+<div class="custom-nav-cointainer desktopnav" id="megaMenu">
+    <div class="nav-header">
+        <ul class="nav-list-head-cointainer">
+            {% partial_cache %}
+                <li class="head-list-item-li">
+                    <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
+                    <div class="submenuContainer" id="viewproducts">
+                        <div class="col-menu60">
+                            <div class="col-inner33_33">
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/41354165-b846-46dc-a7c1-134665c882fb" width="62" height="31" alt="Jelly Belly Jelly Beans"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Jelly Belly Jelly Beans</span>
+                                            <a href="/jelly-belly-jelly-beans/c/335" aria-label="Jelly Belly Jelly Beans">Explore ></a>
+                                        </div>
+                                    </li>   
+                                    <li class="micromenu-item">
+                                        <a href="/by-the-pound/c/252" aria-label="1 lb Bags By Flavor/Mix">
+                                            1 lb Bags By Flavor/Mix
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/10-lb-bulk-jelly-beans/c/637" aria-label="10 lb Loose Bulk">
+                                            10 lb Loose Bulk
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/gift-boxes/c/22" aria-label="Gift Boxes">
+                                            Gift Boxes
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/jelly-bean-jars-tins-and-cans/c/348" aria-label="Cans, Jars & Tins">
+                                            Cans, Jars & Tins
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/jelly-bean-gift-bags/c/835" aria-label="Gift Bags">
+                                            Gift Bags
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/jelly-bean-grab-go-bags/c/836" aria-label="Grab & Go Bags">
+                                            Grab & Go Bags
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/small-bags-boxes/c/255" aria-label="Small Bags & Boxes">
+                                            Small Bags & Boxes
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/90bfd33f-a599-4eef-b4c3-83bfc0be57b6" width="62" height="31" alt="BeanBoozled"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">BeanBoozled</span>
+                                            <a  href="/beanboozled-jelly-beans/c/341" aria-label="BeanBoozled">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/beanboozled-boxes-dispensers/c/870" aria-label="Boxes & Dispensers">
+                                            Boxes & Dispensers
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/beanboozled-refills/c/871" aria-label="Refills">
+                                            Refills
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8a7ff24e-e9bf-47fc-ae51-41b011b26915" width="62" height="31" alt="BeanBoozled Fiery Five"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">BeanBoozled Fiery Five</span>
+                                            <a  href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/295a81ba-bc34-4b9b-a938-b73de71153d9" width="62" height="31" alt="Soda Pop Shoppe"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Soda Pop Shoppe</span>
+                                            <a href="/soda-pop-shoppe/c/884" aria-label="Soda Pop Shoppe">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/968be0d9-23af-49ec-ac28-b40b00b86b34" width="62" height="31" alt="Cold Stone"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Cold Stone</span>
+                                            <a href="/cold-stone-jelly-beans/c/157" aria-label="Cold Stone">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="/resources/images/icons/coming_soon.png" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/56a3a9b2-8e6e-4e6a-acbe-f68853bde0ee" width="62" height="31" alt="DC Heroes"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">DC Heroes</span>
+                                            <a href="/dc-comics-super-hero-candy-collection/c/638" aria-label="DC Heroes">Explore ></a>
+                                        </div> 
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-inner33_33">
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/7d16ec7f-b996-44e4-9a13-e4b9df3b7746" width="62" height="31" alt="Gourmet Candy & Confections"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Gourmet Candy & Confections</span>
+                                            <a href="/confections-by-jelly-belly/c/339" aria-label="Gourmet Candy & Confections">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/confections-by-the-pound/c/876" aria-label="1 lb Bags By Flavor/Mix">
+                                            1 lb Bags By Flavor/Mix
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/bulk-gourmet-candy-confections/c/10" aria-label="10 lb Loose Bulk">
+                                            10 lb Loose Bulk
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/candy-corn-and-more/c/875" aria-label="Candy Corn & More">
+                                            Candy Corn & More
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/licorice-candy/c/755" aria-label="Licorice Confections">
+                                            Licorice Confections
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/nutty-candy/c/877" aria-label="Nutty Candy">
+                                            Nutty Candy
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/chocolate-candy/c/557" aria-label="Chocolate Candy">
+                                            Chocolate Candy
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/gummi-candy/c/558" aria-label="Gummi Candy">
+                                            Gummi Candy
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/sour-candy/c/563" aria-label="Sour Candy">
+                                            Sour Candy
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/jells/c/878" aria-label="Jells">
+                                            Jells
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1d191c5e-5369-440d-879c-765598d011f3" width="62" height="31" alt="Sport Beans"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Sport Beans</span>
+                                            <a href="/sport-beans-jelly-beans/c/336" aria-label="Belly Flops">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/sport-beans-energizing-jelly-beans/c/882" aria-label="Energizing Jelly Beans">
+                                            Energizing Jelly Beans
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/sport-beans-caffeinated-jelly-beans/c/883" aria-label="Caffeinated Jelly Beans">
+                                            Caffeinated Jelly Beans
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b8a2dc78-120c-4690-9aa4-e7b6ee053c4b" width="62" height="31" alt="Belly Flops"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Belly Flops</span>
+                                            <a href="/belly-flops-/c/343" aria-label="Belly Flops">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/06188bfc-fd6d-4f29-a026-4f17f2c4de4f" width="62" height="31" alt="Sugar-Free"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Sugar-Free</span>
+                                            <a href="/sugar-free-candy/c/338" aria-label="Belly Flops">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/03c03ca1-ad17-453f-be5a-d5d84e467739" width="62" height="31" alt="Star Wars"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Star Wars</span>
+                                            <a  href="/star-wars-gifts-and-candy/c/47" aria-label="Star Wars">Explore ></a>
+                                        </div>  
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-inner33_33">
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f5ed927b-32eb-40c3-ae85-a60102e0efbc" width="62" height="31" alt="Harry Potter"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Harry Potter</span>
+                                            <a href="/harry-potter-bertie-bott-s/c/344" aria-label="Harry Potter">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/harry-potter-bertie-bott-s-every-flavour-beans/c/633" aria-label="Bertie Bott's Every Flavour Beans">
+                                            Bertie Bott's Every Flavour Beans
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/harry-potter-magical-chocolate/c/873" aria-label="Magical Chocolates">
+                                            Magical Chocolates
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/harry-potter-gummi-creatures/c/874" aria-label="Gummi Creatures">
+                                            Gummi Creatures
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/4518a175-6fb1-47ad-aab7-e1cd95e9b6b8" width="62" height="31" alt="Disney"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Disney</span>
+                                            <a href="/disney-candy-and-gifts/c/337" aria-label="Disney">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/mickey-mouse-and-minnie-mouse/c/707" aria-label="Mickey & Minnie">
+                                            Mickey & Minnie
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/disney-princesses-villains/c/881" aria-label="Princesses & Villains">
+                                            Princesses & Villains
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/disney-frozen-candy-and-gifts/c/48" aria-label="Frozen">
+                                            Frozen
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/92de13bd-3590-4498-8166-04192defb69e" width="62" height="31" alt="Jelly Belly Organic"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Jelly Belly Organic</span>
+                                            <a href="/jelly-belly-organic/c/559" aria-label="Belly Flops">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/organic-jelly-beans/c/560" aria-label="Jelly Beans">
+                                            Jelly Beans
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/jelly-belly-organic-fruit-snacks/c/561" aria-label="Fruit Snacks">
+                                            Fruit Snacks
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li>
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/582b4a06-27f4-4f98-bf95-ecbd22d772d7" width="62" height="31" alt="Sunkist"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Sunkist</span>
+                                            <a href="/sunkist-candies/c/342" aria-label="Belly Flops">Explore ></a>
+                                        </div>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/sunkist-jelly-beans/c/879" aria-label="Jelly Beans">
+                                            Jelly Beans
+                                        </a>
+                                    </li>
+                                    <li class="micromenu-item">
+                                        <a href="/sunkist-fruit-gems/c/880" aria-label="Fruit Gems">
+                                            Fruit Gems
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="micromenu-cointainer">
+                                    <li class="micromenu-item">
+                                        <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/368dc9b2-56ab-40c2-a06b-484cfa875ae2" width="62" height="31" alt="Krispy Kreme"></div>
+                                        <div class="sub-heading-right">
+                                            <span class="name-span">Krispy Kreme</span>
+                                            <a href="/krispy-kreme-doughnuts-jelly-beans-mix/c/721" aria-label="Krispy Kreme">Explore ></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-menu40">
+                            <div class="col-inner40">
+                                <ul>
+                                    <li class="menuHeading">
+                                        Flavor
+                                    </li>
+                                    <li>
+                                        <a href="/weird-wild-and-gross-jelly-beans/c/289" aria-label="Weird Wild & Gross">
+                                            Weird Wild & Gross
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/fruit-flavored-candy-and-jelly-beans/c/347" aria-label="Fruity">
+                                            Fruity
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/ice-cream-flavored-jelly-beans/c/292" aria-label="Ice Cream">
+                                            Ice Cream
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/soda-flavored-candy-and-jelly-beans/c/290" aria-label="Soda Pop">
+                                            Soda Pop
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/sour-candy-and-jelly-beans/c/293" aria-label="Sour">
+                                            Sour
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/hot-and-spicy-candy-and-jelly-beans/c/294" aria-label="Hot & Spicy">
+                                            Hot & Spicy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/licorice-candy-and-jelly-beans/c/291" aria-label="Licorice">
+                                            Licorice
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/tropical-flavored-candy-and-jelly-beans/c/297" aria-label="Tropical">
+                                            Tropical
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/chocolate/c/295" aria-label="Chocolate">
+                                            Chocolate
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/mint-flavored-candy-and-jelly-beans/c/298" aria-label="Minty">
+                                            Minty
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/candy-covered-nuts/c/296" aria-label="Nutty">
+                                            Nutty
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/vanilla-flavored-candy-and-jelly-beans/c/288" aria-label="Vanilla">
+                                            Vanilla
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="menuHeading">
+                                        Merchandise
+                                    </li>
+                                    <li>
+                                        <a href="/bean-machines-and-dispensers/c/318" aria-label="Bean Machines & Dispensers">
+                                            <div class="namespan-container"><span class="name-span">Bean Machines & Dispensers</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-basket/c/302" aria-label="Gift Baskets">
+                                            <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/mr.-jelly-belly-items/c/888" aria-label="Mr. Jelly Belly Items">
+                                            <div class="namespan-container"><span class="name-span">Mr. Jelly Belly Items</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="menuHeading">
+                                        Holiday
+                                    </li>
+                                    <li>
+                                        <a href="/halloween-candy-and-treats/c/314" aria-label="Halloween">
+                                            <div class="namespan-container"><span class="name-span">Halloween</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/christmas-and-holiday-candy/c/24" aria-label="Christmas">
+                                            <div class="namespan-container"><span class="name-span">Christmas</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/valentines-day-candy-and-gifts/c/57" aria-label="Valentine's Day">
+                                            <div class="namespan-container"><span class="name-span">Valentine's Day</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/easter-candy-and-gifts/c/248" aria-label="Easter & Spring">
+                                            <div class="namespan-container"><span class="name-span">Easter & Spring</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/mothers-day-candy-and-gifts/c/211" aria-label="Mother's Day">
+                                            <div class="namespan-container"><span class="name-span">Mother's Day</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gifts-for-dad/c/188" aria-label="Father's Day">
+                                            <div class="namespan-container"><span class="name-span">Father's Day</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/holidays/c/860" aria-label="More Holidays">
+                                            <div class="namespan-container"><span class="name-span">More Holidays</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-inner60">
+                                <ul>
+                                    <li class="menuHeading">
+                                        Weight
+                                    </li>
+                                    <li>
+                                        <a href="/by-the-pound/c/60" aria-label="Jelly Belly one pound resealable bags">
+                                            1 lb. Resealable Bags
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/bulk-a-bunch/c/305" aria-label="Jelly Belly five and ten pound boxes">
+                                            Bulk (5 lb. or 10 lb. Boxes)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-boxes/c/61" aria-label="Jelly Belly assorted gift boxes">
+                                            Gift Boxes (Assorted)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-basket/c/302" aria-label="Jelly Belly assorted gift bags">
+                                            Gift Baskets (Assorted)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/1-oz-bags/c/709" aria-label="Jelly Belly small bags up to one ounce">
+                                            Small Bags (up to 1 oz.)
+                                        </a> 
+                                    </li>
+                                    <li>
+                                        <a href="/bag-little-more-/c/304" aria-label="Jelly Belly small bags over one ounce">
+                                            Small Bags (over 1 oz.)
+                                        </a> 
+                                    </li>
+                                    <li>
+                                        <a href="/box-little-/c/303" aria-label="Jelly Belly small boxes under one pound">
+                                            Small Boxes (under 1 lb.)
+                                        </a> 
+                                    </li>
+                                    <li>
+                                        <a href="/gift-bag/c/300" aria-label="Jelly Belly bags under one pound">
+                                            Gift Bags (under 1 lb.)
+                                        </a> 
+                                    </li>
+                                </ul>  
+                                <ul class="color">
+                                    <li class="menuHeading">
+                                        Color
+                                    </li>
+                                    <li>
+                                        <a href="/blue-candy-and-jelly-beans/c/334" aria-label="Blue">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Blueberry-Signature-menu.png?max=100" width="54" height="38" alt="Blue"></span>
+                                            <span class="name-span">Blue</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/black-candy-and-jelly-beans/c/333" aria-label="Black">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Licorice-Signature-menu.png?max=100" width="54" height="38" alt="Black"></span>
+                                            <span class="name-span">Black</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/pink-candy-and-jelly-beans/c/327" aria-label="Pink">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Cotton-Candy-Signature-menu.png?max=100" width="54" height="38" alt="Pink"></span>
+                                            <span class="name-span">Pink</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/white-candy-and-jelly-beans/c/330" aria-label="White">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-French-Vanilla-Signature-menu.png?max=100" width="54" height="38" alt="White"></span>
+                                            <span class="name-span">White</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/green-candy-and-jelly-beans/c/324" aria-label="Green">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Green-Apple-Signature-menu.png?max=100" width="54" height="38" alt="Green"></span>
+                                            <span class="name-span">Green</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/red-candy-and-jelly-beans/c/329" aria-label="Red">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Red-Apple-Signature-menu.png?max=100" width="54" height="38" alt="Red"></span>
+                                            <span class="name-span">Red</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/orange-jelly-beans-and-candy/c/326" aria-label="Orange">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Orng_Crush_Bean-menu.png?max=100" width="54" height="38" alt="Orange"></span>
+                                            <span class="name-span">Orange</span> 
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="/purple-candy-and-jelly-beans/c/328" aria-label="Purple">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Grape_Crush_Bean-menu.png?max=100" width="54" height="38" alt="Purple"></span>
+                                            <span class="name-span">Purple</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/yellow-candy-and-gifts/c/331" aria-label="Yellow">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Lemon-Signature-menu.png?max=100" width="54" height="38" alt="Yellow"></span>
+                                            <span class="name-span">Yellow</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/multi-colored-candy-and-jelly-beans/c/325" aria-label="Multi Colored/mix">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Tutti-Fruitti-Signature-menu.png?max=100" width="54" height="38" alt="Multi-Colored"></span>
+                                            <span class="name-span">Multi Colored/Mix</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/brown-candy-and-jelly-beans/c/323" aria-label="Brown">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-AW-Root-Beer-Signature-menu.png?max=100" width="54" height="38" alt="Brown"></span>
+                                            <span class="name-span">Brown</span> 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/beige-candy-and-jelly-beans/c/332" aria-label="Beige">
+                                            <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Toasted-Marshmallow-Sign-menu.png?max=100" width="54" height="38" alt="Beige"></span>
+                                            <span class="name-span">Beige</span> 
+                                        </a>
+                                    </li>  
+                                </ul>     
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="head-list-item-li">
+                    <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
+                    <div class="submenuContainer" id="flavorsandmore">
+                        <ul class="submenu">
+                            <li class="sunmenu-container active" data-attr="Flavor-Guides">
+                                <div class="submenu-list Flavor-Guides">
+                                    <div class="subitem">
+                                        <a href="/c/335#flavor-List" aria-label="Jelly Belly Official Flavors">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/341#flavor-List" aria-label="BeanBoozled&reg; 5th Edition">
+                                            <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
+                                            <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
+                                        </a>
+                                    </div>
+                                    {% comment %}
+                                    <div class="subitem">
+                                        <a href="/c/715#flavor-List" aria-label="BeanBoozled&reg; Minion Edition">
+                                            <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> Minion Edition </span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/711#flavor-List" aria-label="Mixed Emotions&trade;">
+                                            <div class="namespan-container"><span class="name-span">Mixed Emotions<sup>&trade;</sup> </span></div>
+                                        </a>
+                                    </div>
+                                    {% endcomment %}
+                                    <div class="subitem">
+                                        <a href="/c/721#flavor-List" aria-label="Krispy Kreme Doughn&reg;">
+                                            <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts<sup>&reg;</sup></span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/560#flavor-List" aria-label="Organic Jelly Beans">
+                                            <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/46#flavor-List" aria-label="Jewel Jelly Beans">
+                                            <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/234#flavor-List" aria-label="Jelly Belly Kids Mix">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/879#flavor-List" aria-label="Sunkist&reg; Citrus Flavors">
+                                            <div class="namespan-container"><span class="name-span">Sunkist<sup>&reg;</sup> Citrus Flavors</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list Flavor-Guides">
+                                    <div class="subitem">
+                                        <a href="/c/884#flavor-List" aria-label="Soda Pop Shoppe&reg; Flavors">
+                                            <div class="namespan-container"><span class="name-span">Soda Pop Shoppe<sup>&reg;</sup> Flavors</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/223#flavor-List" aria-label="Snapple&trade; Flavors">
+                                            <div class="namespan-container"><span class="name-span">Snapple<sup>&trade;</sup> Flavors</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/157#flavor-List" aria-label="Cold St&reg;">
+                                            <div class="namespan-container"><span class="name-span">Cold Stone<sup>&reg;</sup></span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/471#flavor-List" aria-label="Superfruit">
+                                            <div class="namespan-container"><span class="name-span">Superfruit</span></div>
+                                        </a>
+                                    </div>                              
+                                    <div class="subitem">
+                                        <a href="/c/336#flavor-List" aria-label="Sport Beans&reg; Flavors">
+                                            <div class="namespan-container"><span class="name-span">Sport Beans<sup>&reg;</sup> Flavors</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/228#flavor-List" aria-label="Cocktail Classi&reg;">
+                                            <div class="namespan-container"><span class="name-span">Cocktail Classics<sup>&reg;</sup></span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/472#flavor-List" aria-label="Sour Flavors">
+                                            <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list Flavor-Guides">
+                                    <div class="subitem">
+                                        <a href="/c/338#flavor-List" aria-label="Jelly Belly Sugar-Free Flavors">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/c/633#flavor-List" aria-label="Harry Potter&trade; Bertie Bott's">
+                                            <div class="namespan-container"><span class="name-span">Harry Potter<sup>&trade;</sup> Bertie Bott's</span></div>
+                                        </a>
+                                    </div> 
+                                    <div class="subitem">
+                                        <a href="/c/297#flavor-List" aria-label="Tropical Mix">
+                                            <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="sunmenu-container" data-attr="Fun-with-Jelly-Belly">
+                                <div class="submenu-list Fun-with-Jelly-Belly">
+                                    <div class="subitem">
+                                        <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
+                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/birthday-party-ideas" aria-label="Birthday Ideas">
+                                            <div class="namespan-container"><span class="name-span">Birthday Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/halloween-recipes-and-party-ideas" aria-label="Halloween Ideas">
+                                            <div class="namespan-container"><span class="name-span">Halloween Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/christmas-and-holiday-ideas" aria-label="Christmas & Holiday Ideas">
+                                            <div class="namespan-container"><span class="name-span">Christmas & Holiday Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/valentines-day-recipes-and-party-ideas" aria-label="Valentine's Day Ideas">
+                                            <div class="namespan-container"><span class="name-span">Valentine's Day Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/spring-and-easter-ideas" aria-label="Easter & Spring Ideas">
+                                            <div class="namespan-container"><span class="name-span">Easter & Spring Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wedding-center" aria-label="Wedding Center">
+                                            <div class="namespan-container"><span class="name-span">Wedding Center</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/recipes-and-diy" aria-label="Recipes & DIY Ideas">
+                                            <div class="namespan-container"><span class="name-span">Recipes & DIY Ideas</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/ArtGallery" aria-label="Bean Art Gallery">
+                                            <div class="namespan-container"><span class="name-span">Bean Art Gallery</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list Fun-with-Jelly-Belly">                                
+                                    <div class="subitem">
+                                        <a href="/coloring-pages" aria-label="Coloring Pages">
+                                            <div class="namespan-container"><span class="name-span">Coloring Pages</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/fun-facts" aria-label="Jelly Belly Fun Facts">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Fun Facts</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/downloads" aria-label="Apps & Screensavers">
+                                            <div class="namespan-container"><span class="name-span">Apps & Screensavers</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/jelly-belly-bean-recipes" aria-label="Jelly Bean Recipes">
+                                            <div class="namespan-container"><span class="name-span">Jelly Bean Recipes</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list dropzone-sec">
+                                </div>
+                            </li>
+                            <li class="sunmenu-container" data-attr="Sponsorships">
+                                <div class="submenu-list Sponsorships">
+                                    <div class="subitem"> 
+                                        <a href="/rivercats" aria-label="Sacramento River Cats">
+                                            <div class="namespan-container"><span class="name-span">Sacramento River Cats</span></div>
+                                        </a>
+                                    </div> 
+                                    <div class="subitem">
+                                        <a href="/sportsSponsorships" aria-label="Drivers & Pilots">
+                                            <div class="namespan-container"><span class="name-span">Drivers & Pilots</span></div>
+                                        </a>
+                                    </div> 
+                                    <div class="subitem">
+                                        <a href="/event-calendar" aria-label="Event Calendars">
+                                            <div class="namespan-container"><span class="name-span">Event Calendars</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/jelly-belly-fleet" aria-label="Jelly Belly Fleet">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Fleet</span></div>
+                                        </a>
+                                    </div> 
+                                </div>
+                                <div class="submenu-list dropzone-sec">
+                                </div>
+                            </li>
+                        </ul> 
+                    </div>
+                </li>
+                <li class="head-list-item-li store-branding jelly-belly-logo" attr-menuname="store-branding" data-attr="store-branding">
+                    {% block store-branding %} 
+                        {% include "modules/page-header/store-branding" %} 
+                    {% endblock store-branding %} 
+                </li>
+                <li class="head-list-item-li">
+                    <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
+                    <div class="submenuContainer" id="visitus">
+                        <ul class="submenu">
+                            <li class="sunmenu-container active" data-attr="California-Visitors-Center">
+                                <div class="submenu-list California-Visitors-Center">
+                                    <div class="subitem">
+                                        <a href="/california-factory-tours" original-al="Self Guided Factory Tours">
+                                            <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
+                                        </a>
+                                    </div> 
+                                    <div class="subitem">
+                                        <a href="/personal-california-factory-tours" aria-label="Personal-Guided Factory Tours">
+                                            <div class="namespan-container"><span class="name-span">Personal Guided Factory Tours</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/jelly-belly-university" aria-label="Jelly Belly University">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly University</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wine-experience" aria-label="Chocolate & Wine Experience">
+                                            <div class="namespan-container"><span class="name-span">Chocolate & Wine Experience</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/california-factory-store" aria-label="Jelly Belly Candy Store">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/California-Factory-Cafe" aria-label="Jelly Belly Cafe">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Cafe</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/California-Factory-Chocolate-Shoppe" aria-label="Chocolate Shoppe">
+                                            <div class="namespan-container"><span class="name-span">Chocolate Shoppe</span></div>
+                                        </a> 
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/tour-school-youth-camps" aria-label="Tour/School/Youth Camp">
+                                            <div class="namespan-container"><span class="name-span">Tour/School/Youth Camp</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list California-Visitors-Center">
+                                    <div class="subitem">
+                                        <a href="/California-Factory-Conference-Space" aria-label="Conference Space">
+                                            <div class="namespan-container"><span class="name-span">Conference Space</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/California-Factory-Events" aria-label="Event/Operating Calendar">
+                                            <div class="namespan-container"><span class="name-span">Event/Operating Calendar</span></div>
+                                        </a>
+                                    </div>                        
+                                    <div class="subitem">
+                                        <a href="http://goo.gl/maps/I3P2N" target="_blank" aria-label="Directions">
+                                            <div class="namespan-container"><span class="name-span">Directions</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
+                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list dropzone-sec">
+                                </div>
+                            </li>
+                            <li class="sunmenu-container" data-attr="Wisconsin-Visitors-Center">
+                                <div class="submenu-list Wisconsin-Visitors-Center">
+                                    <div class="subitem">
+                                        <a href="/wisconsin-warehouse" aria-label="Free Warehouse Tours">
+                                            <div class="namespan-container"><span class="name-span">Free Warehouse Tours</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-candy-store" aria-label="Jelly Belly Candy Store">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-snack-bar" aria-label="Jelly Belly Snack Bar">
+                                            <div class="namespan-container"><span class="name-span">Jelly Belly Snack Bar</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-pop-up-event" aria-label="Sweet Scene Pop Up Event">
+                                            <div class="namespan-container"><span class="name-span">Sweet Scene Pop Up Event</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-factory-event-calendar" aria-label="Event Calendar">
+                                            <div class="namespan-container"><span class="name-span">Event Calendar</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-tour-school-youth-camps" aria-label="Tour/School/Youth Camps">
+                                            <div class="namespan-container"><span class="name-span">Tour/School/Youth Camps</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-directions" aria-label="Directions">
+                                            <div class="namespan-container"><span class="name-span">Directions</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-warehouse#How it's Made" aria-label="See How Its Made">
+                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="submenu-list dropzone-sec">
+                                </div>
+                            </li>
+                            <li class="sunmenu-container" data-attr="Company-Retail-Stores">
+                                <div class="submenu-list Company-Retail-Stores">
+                                    <div class="subitem">
+                                        <a href="/retail-store#nuttree" aria-label="Nut Tree Market Pavilion (CA)">
+                                            <div class="namespan-container"><span class="name-span">Nut Tree Market Pavilion (CA)</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/retail-store" aria-label="Vacaville Company Store (CA)">
+                                            <div class="namespan-container"><span class="name-span">Vacaville Company Store (CA)</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/retail-store#gilroy" aria-label="Gilroy Company Store (CA)">
+                                            <div class="namespan-container"><span class="name-span">Gilroy Company Store (CA)</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/california-factory-store" aria-label="California Visitors Center Store">
+                                            <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="subitem">
+                                        <a href="/wisconsin-candy-store" aria-label="Wisconsin Visitors Center Store">
+                                            <div class="namespan-container"><span class="name-span">Wisconsin Visitors Center Store</span></div>
+                                        </a>
+                                    </div>
+                                </div> 
+                                <div class="submenu-list dropzone-sec">
+                                </div>
+                            </li>
+                        </ul>  
+                    </div>
+                </li>  
+                <li class="head-list-item-li">
+                    <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>
+                </li> 
+            {% endpartial_cache %}     
+        </ul> 
+    </div>
+</div>
