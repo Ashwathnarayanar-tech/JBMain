@@ -545,7 +545,9 @@
     "missingcredentials": "Sorry, but you need to enter an Email Address and Password.",
     "alreadyassociated": "Error: Sorry, but that Email Address is already associated with an account on our site",
     "lockedaccount": "Error: Sorry, but you've exceeded the allowable number of attempts. Contact us and we'll help.",
-    "zinreloPointMultiplier": 10
+    "zinreloPointMultiplier": 10,
+    "jqueryURL":"",
+    "handlebarsURL":""
   },
   "layoutWidgets": [
     {
