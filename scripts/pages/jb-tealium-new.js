@@ -23,7 +23,7 @@ define("pages/jb-tealium-new", ["modules/jquery-mozu", "modules/api"],
 	var pageContext = JSON.parse(document.getElementById('data-mz-preload-pagecontext').innerHTML);
 	var userContext = JSON.parse(document.getElementById('data-mz-preload-user').innerHTML);
 	
-	if(!userContext.isAnonymous) {
+	if(require.mozuData('user').accountId!==undefined) {
 		utag_data.customer_email = userContext.email;
 		api.get('customer', { id: require.mozuData('user').accountId }).then(function(customer) {
 			try { utag_data.customer_phone = customer.data.contacts[0].phoneNumbers.home.replace(/\D/g,''); } catch(e) { 

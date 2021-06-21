@@ -120,7 +120,7 @@
                 </div>
                 <div style="width: 200px; height: 170px; text-align: center; padding-top: 15px;">
                     <img class="new-lazy-load" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
-                    data-src="{% make_url "image" "/resources/images/mr_jelly_belly_flag2.png" alt="mr jellybelly" />
+                    data-src="{% make_url "cdn" "/resources/images/mr_jelly_belly_flag2.png"%}" alt="mr jellybelly" />
                 </div>
             </div>
         </center> 

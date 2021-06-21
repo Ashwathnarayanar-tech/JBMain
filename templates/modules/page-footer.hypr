@@ -193,7 +193,7 @@
            <div class="pageFooterSweetRewards isDesktop"> 
                <span class="sweet-rewards-label"  role="button">Sweet Rewards</span>
               <a class="sweetRewardsanchor" href="/international" aria-label="Jelly Belly International Sites" title="Jelly Belly International Sites"> 
-                <img class="new-lazy-load footer-bottom-flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-desktop-4.png" style="max-width:100%" alt="Jelly Belly International Sites"></img>
+                <img class="new-lazy-load footer-bottom-flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/international-sites-desktop-4.png?maxHeight=20" style="max-width:100%" alt="Jelly Belly International Sites"></img>
               </a>
               <br>
             </div>
