@@ -3,8 +3,8 @@ silpa
     <div class="nav-header">
         <ul class="nav-list-head-cointainer">
             {% partial_cache %}
-                <li class="head-list-item-li">
-                    <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
+                <li class="head-list-item-li-new">
+                    <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item-new mz-sitenav-link-new view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
                     <div class="submenuContainer" id="viewproducts">
                         <div class="col-menu60">
                             <div class="col-inner33_33">
@@ -561,383 +561,314 @@ silpa
                                 </ul>     
                             </div>
                         </div>
+                        <div class="commonnavWidget">
+                            <div class="left50">
+                                <ul>
+                                    <li>See How It's Made</li>
+                                    <li>Bargain Outlet</li>
+                                    <li>Gift Cards</li>
+                                    <li>Personalised Containers</li>
+                                </ul>
+                            </div>
+                            <div class="right50">
+                                <div class="sweetrewardstextcontent">
+                                    <img src="../../resources/images/footer_one.png" />
+                                    <p class="sweet-head" tabindex="0" role="content-info">jelly belly sweet Rewards</p>
+                                    <p class="sweet-text" tabindex="0" role="content-info">Join our rewards program today and start earning points right away!</p>
+                                    <a href="/jelly-belly-sweet-rewards" class="sweet-anchor">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </li>
-                <li class="head-list-item-li">
-                    <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
+
+                <li class="head-list-item-li-new">
+                    <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item-new mz-sitenav-link-new flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
                     <div class="submenuContainer" id="flavorsandmore">
-                        <ul class="submenu">
-                            <li class="sunmenu-container active" data-attr="Flavor-Guides">
-                                <div class="submenu-list Flavor-Guides">
-                                    <div class="subitem">
-                                        <a href="/c/335#flavor-List" aria-label="Jelly Belly Official Flavors">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
-                                        </a>
+                        <div class="col-inner40">
+                            <ul class="micromenu-cointainer">
+                                <li>
+                                    <div class="sub-heading-right">
+                                        <span class="name-span">Flavor Collection</span>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/c/341#flavor-List" aria-label="BeanBoozled&reg; 5th Edition">
-                                            <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
-                                        </a>
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/c/335#flavor-List" aria-label="Jelly Belly Official Flavors">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/341#flavor-List" aria-label="BeanBoozled&reg; 5th Edition">
+                                        <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
+                                        <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/721#flavor-List" aria-label="Krispy Kreme Doughn&reg;">
+                                        <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts<sup>&reg;</sup></span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/560#flavor-List" aria-label="Organic Jelly Beans">
+                                        <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/46#flavor-List" aria-label="Jewel Jelly Beans">
+                                        <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/234#flavor-List" aria-label="Jelly Belly Kids Mix">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/879#flavor-List" aria-label="Sunkist&reg; Citrus Flavors">
+                                        <div class="namespan-container"><span class="name-span">Sunkist<sup>&reg;</sup> Citrus Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/884#flavor-List" aria-label="Soda Pop Shoppe&reg; Flavors">
+                                        <div class="namespan-container"><span class="name-span">Soda Pop Shoppe<sup>&reg;</sup> Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/223#flavor-List" aria-label="Snapple&trade; Flavors">
+                                        <div class="namespan-container"><span class="name-span">Snapple<sup>&trade;</sup> Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/157#flavor-List" aria-label="Cold St&reg;">
+                                        <div class="namespan-container"><span class="name-span">Cold Stone<sup>&reg;</sup></span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/471#flavor-List" aria-label="Superfruit">
+                                        <div class="namespan-container"><span class="name-span">Superfruit</span></div>
+                                    </a>
+                                </li>                              
+                                <li class="micromenu-item">
+                                    <a href="/c/336#flavor-List" aria-label="Sport Beans&reg; Flavors">
+                                        <div class="namespan-container"><span class="name-span">Sport Beans<sup>&reg;</sup> Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/228#flavor-List" aria-label="Cocktail Classi&reg;">
+                                        <div class="namespan-container"><span class="name-span">Cocktail Classics<sup>&reg;</sup></span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/472#flavor-List" aria-label="Sour Flavors">
+                                        <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/338#flavor-List" aria-label="Jelly Belly Sugar-Free Flavors">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/c/633#flavor-List" aria-label="Harry Potter&trade; Bertie Bott's">
+                                        <div class="namespan-container"><span class="name-span">Harry Potter<sup>&trade;</sup> Bertie Bott's</span></div>
+                                    </a>
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/c/297#flavor-List" aria-label="Tropical Mix">
+                                        <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-inner40">
+                            <ul class="micromenu-cointainer">
+                                <li>
+                                    <div class="sub-heading-right">
+                                        <span class="name-span">Fun with Jelly Belly</span>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
-                                            <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
-                                        </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
+                                        <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/birthday-party-ideas" aria-label="Birthday Ideas">
+                                        <div class="namespan-container"><span class="name-span">Birthday Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/halloween-recipes-and-party-ideas" aria-label="Halloween Ideas">
+                                        <div class="namespan-container"><span class="name-span">Halloween Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/christmas-and-holiday-ideas" aria-label="Christmas & Holiday Ideas">
+                                        <div class="namespan-container"><span class="name-span">Christmas & Holiday Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/valentines-day-recipes-and-party-ideas" aria-label="Valentine's Day Ideas">
+                                        <div class="namespan-container"><span class="name-span">Valentine's Day Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/spring-and-easter-ideas" aria-label="Easter & Spring Ideas">
+                                        <div class="namespan-container"><span class="name-span">Easter & Spring Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/wedding-center" aria-label="Wedding Center">
+                                        <div class="namespan-container"><span class="name-span">Wedding Center</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/recipes-and-diy" aria-label="Recipes & DIY Ideas">
+                                        <div class="namespan-container"><span class="name-span">Recipes & DIY Ideas</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/ArtGallery" aria-label="Bean Art Gallery">
+                                        <div class="namespan-container"><span class="name-span">Bean Art Gallery</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/coloring-pages" aria-label="Coloring Pages">
+                                        <div class="namespan-container"><span class="name-span">Coloring Pages</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/fun-facts" aria-label="Jelly Belly Fun Facts">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Fun Facts</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/downloads" aria-label="Apps & Screensavers">
+                                        <div class="namespan-container"><span class="name-span">Apps & Screensavers</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/jelly-belly-bean-recipes" aria-label="Jelly Bean Recipes">
+                                        <div class="namespan-container"><span class="name-span">Jelly Bean Recipes</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-inner20">
+                            <ul class="micromenu-cointainer">
+                                <li>
+                                    <div class="sub-heading-right">
+                                        <span class="name-span">Sponsorship</span>
                                     </div>
-                                    {% comment %}
-                                    <div class="subitem">
-                                        <a href="/c/715#flavor-List" aria-label="BeanBoozled&reg; Minion Edition">
-                                            <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> Minion Edition </span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/711#flavor-List" aria-label="Mixed Emotions&trade;">
-                                            <div class="namespan-container"><span class="name-span">Mixed Emotions<sup>&trade;</sup> </span></div>
-                                        </a>
-                                    </div>
-                                    {% endcomment %}
-                                    <div class="subitem">
-                                        <a href="/c/721#flavor-List" aria-label="Krispy Kreme Doughn&reg;">
-                                            <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts<sup>&reg;</sup></span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/560#flavor-List" aria-label="Organic Jelly Beans">
-                                            <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/46#flavor-List" aria-label="Jewel Jelly Beans">
-                                            <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/234#flavor-List" aria-label="Jelly Belly Kids Mix">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/879#flavor-List" aria-label="Sunkist&reg; Citrus Flavors">
-                                            <div class="namespan-container"><span class="name-span">Sunkist<sup>&reg;</sup> Citrus Flavors</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list Flavor-Guides">
-                                    <div class="subitem">
-                                        <a href="/c/884#flavor-List" aria-label="Soda Pop Shoppe&reg; Flavors">
-                                            <div class="namespan-container"><span class="name-span">Soda Pop Shoppe<sup>&reg;</sup> Flavors</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/223#flavor-List" aria-label="Snapple&trade; Flavors">
-                                            <div class="namespan-container"><span class="name-span">Snapple<sup>&trade;</sup> Flavors</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/157#flavor-List" aria-label="Cold St&reg;">
-                                            <div class="namespan-container"><span class="name-span">Cold Stone<sup>&reg;</sup></span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/471#flavor-List" aria-label="Superfruit">
-                                            <div class="namespan-container"><span class="name-span">Superfruit</span></div>
-                                        </a>
-                                    </div>                              
-                                    <div class="subitem">
-                                        <a href="/c/336#flavor-List" aria-label="Sport Beans&reg; Flavors">
-                                            <div class="namespan-container"><span class="name-span">Sport Beans<sup>&reg;</sup> Flavors</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/228#flavor-List" aria-label="Cocktail Classi&reg;">
-                                            <div class="namespan-container"><span class="name-span">Cocktail Classics<sup>&reg;</sup></span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/472#flavor-List" aria-label="Sour Flavors">
-                                            <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list Flavor-Guides">
-                                    <div class="subitem">
-                                        <a href="/c/338#flavor-List" aria-label="Jelly Belly Sugar-Free Flavors">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/c/633#flavor-List" aria-label="Harry Potter&trade; Bertie Bott's">
-                                            <div class="namespan-container"><span class="name-span">Harry Potter<sup>&trade;</sup> Bertie Bott's</span></div>
-                                        </a>
-                                    </div> 
-                                    <div class="subitem">
-                                        <a href="/c/297#flavor-List" aria-label="Tropical Mix">
-                                            <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="sunmenu-container" data-attr="Fun-with-Jelly-Belly">
-                                <div class="submenu-list Fun-with-Jelly-Belly">
-                                    <div class="subitem">
-                                        <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
-                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/birthday-party-ideas" aria-label="Birthday Ideas">
-                                            <div class="namespan-container"><span class="name-span">Birthday Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/halloween-recipes-and-party-ideas" aria-label="Halloween Ideas">
-                                            <div class="namespan-container"><span class="name-span">Halloween Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/christmas-and-holiday-ideas" aria-label="Christmas & Holiday Ideas">
-                                            <div class="namespan-container"><span class="name-span">Christmas & Holiday Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/valentines-day-recipes-and-party-ideas" aria-label="Valentine's Day Ideas">
-                                            <div class="namespan-container"><span class="name-span">Valentine's Day Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/spring-and-easter-ideas" aria-label="Easter & Spring Ideas">
-                                            <div class="namespan-container"><span class="name-span">Easter & Spring Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wedding-center" aria-label="Wedding Center">
-                                            <div class="namespan-container"><span class="name-span">Wedding Center</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/recipes-and-diy" aria-label="Recipes & DIY Ideas">
-                                            <div class="namespan-container"><span class="name-span">Recipes & DIY Ideas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/ArtGallery" aria-label="Bean Art Gallery">
-                                            <div class="namespan-container"><span class="name-span">Bean Art Gallery</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list Fun-with-Jelly-Belly">                                
-                                    <div class="subitem">
-                                        <a href="/coloring-pages" aria-label="Coloring Pages">
-                                            <div class="namespan-container"><span class="name-span">Coloring Pages</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/fun-facts" aria-label="Jelly Belly Fun Facts">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Fun Facts</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/downloads" aria-label="Apps & Screensavers">
-                                            <div class="namespan-container"><span class="name-span">Apps & Screensavers</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/jelly-belly-bean-recipes" aria-label="Jelly Bean Recipes">
-                                            <div class="namespan-container"><span class="name-span">Jelly Bean Recipes</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list dropzone-sec">
-                                </div>
-                            </li>
-                            <li class="sunmenu-container" data-attr="Sponsorships">
-                                <div class="submenu-list Sponsorships">
-                                    <div class="subitem"> 
-                                        <a href="/rivercats" aria-label="Sacramento River Cats">
-                                            <div class="namespan-container"><span class="name-span">Sacramento River Cats</span></div>
-                                        </a>
-                                    </div> 
-                                    <div class="subitem">
-                                        <a href="/sportsSponsorships" aria-label="Drivers & Pilots">
-                                            <div class="namespan-container"><span class="name-span">Drivers & Pilots</span></div>
-                                        </a>
-                                    </div> 
-                                    <div class="subitem">
-                                        <a href="/event-calendar" aria-label="Event Calendars">
-                                            <div class="namespan-container"><span class="name-span">Event Calendars</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/jelly-belly-fleet" aria-label="Jelly Belly Fleet">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Fleet</span></div>
-                                        </a>
-                                    </div> 
-                                </div>
-                                <div class="submenu-list dropzone-sec">
-                                </div>
-                            </li>
-                        </ul> 
+                                </li>
+                                <li class="micromenu-item"> 
+                                    <a href="/rivercats" aria-label="Sacramento River Cats">
+                                        <div class="namespan-container"><span class="name-span">Sacramento River Cats</span></div>
+                                    </a>
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/sportsSponsorships" aria-label="Drivers & Pilots">
+                                        <div class="namespan-container"><span class="name-span">Drivers & Pilots</span></div>
+                                    </a>
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/event-calendar" aria-label="Event Calendars">
+                                        <div class="namespan-container"><span class="name-span">Event Calendars</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/jelly-belly-fleet" aria-label="Jelly Belly Fleet">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Fleet</span></div>
+                                    </a>
+                                </li> 
+                            </ul>
+                        </div>
                     </div>
                 </li>
-                <li class="head-list-item-li store-branding jelly-belly-logo" attr-menuname="store-branding" data-attr="store-branding">
+                <li class="head-list-item-li-new store-branding jelly-belly-logo" attr-menuname="store-branding" data-attr="store-branding">
                     {% block store-branding %} 
                         {% include "modules/page-header/store-branding" %} 
                     {% endblock store-branding %} 
                 </li>
-                <li class="head-list-item-li">
-                    <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
+                <li class="head-list-item-li-new">
+                    <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item-new mz-sitenav-link-new visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
                     <div class="submenuContainer" id="visitus">
-                        <ul class="submenu">
-                            <li class="sunmenu-container active" data-attr="California-Visitors-Center">
-                                <div class="submenu-list California-Visitors-Center">
-                                    <div class="subitem">
-                                        <a href="/california-factory-tours" original-al="Self Guided Factory Tours">
-                                            <div class="namespan-container"><span class="name-span">Self-Guided Factory Tours</span></div>
-                                        </a>
-                                    </div> 
-                                    <div class="subitem">
-                                        <a href="/personal-california-factory-tours" aria-label="Personal-Guided Factory Tours">
-                                            <div class="namespan-container"><span class="name-span">Personal Guided Factory Tours</span></div>
-                                        </a>
+                        <div class="col-inner40">
+                            <ul class="micromenu-cointainer">
+                                <li>
+                                    <div class="sub-heading-right">
+                                        <span class="name-span">California Visitors Center</span>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/jelly-belly-university" aria-label="Jelly Belly University">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly University</span></div>
-                                        </a>
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/wine-experience" aria-label="Chocolate & Wine Experience">
+                                        <div class="namespan-container"><span class="name-span">Chocolate & Wine Experience</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/california-factory-store" aria-label="Jelly Belly Candy Store">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/California-Factory-Cafe" aria-label="Jelly Belly Cafe">
+                                        <div class="namespan-container"><span class="name-span">Jelly Belly Cafe</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/California-Factory-Chocolate-Shoppe" original-al="Chocolate Shoppe">
+                                        <div class="namespan-container"><span class="name-span">Chocolate Shoppe</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/California-Factory-Conference-Space" original-al="Conference Space">
+                                        <div class="namespan-container"><span class="name-span">Conference Space</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/California-Factory-Events" original-al="Event/Operating Calendar">
+                                        <div class="namespan-container"><span class="name-span">Event/Operating Calendar</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="http://goo.gl/maps/I3P2N" target="_blank" original-al="Directions">
+                                        <div class="namespan-container"><span class="name-span">Directions</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/california-factory-tours#How it's Made" original-al="See How Its Made">
+                                        <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div> 
+                        <div class="col-inner40">
+                            <ul class="micromenu-cointainer">
+                                <li>
+                                    <div class="sub-heading-right">
+                                        <span class="name-span">Company Retail Stores</span>
                                     </div>
-                                    <div class="subitem">
-                                        <a href="/wine-experience" aria-label="Chocolate & Wine Experience">
-                                            <div class="namespan-container"><span class="name-span">Chocolate & Wine Experience</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/california-factory-store" aria-label="Jelly Belly Candy Store">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/California-Factory-Cafe" aria-label="Jelly Belly Cafe">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Cafe</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/California-Factory-Chocolate-Shoppe" aria-label="Chocolate Shoppe">
-                                            <div class="namespan-container"><span class="name-span">Chocolate Shoppe</span></div>
-                                        </a> 
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/tour-school-youth-camps" aria-label="Tour/School/Youth Camp">
-                                            <div class="namespan-container"><span class="name-span">Tour/School/Youth Camp</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list California-Visitors-Center">
-                                    <div class="subitem">
-                                        <a href="/California-Factory-Conference-Space" aria-label="Conference Space">
-                                            <div class="namespan-container"><span class="name-span">Conference Space</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/California-Factory-Events" aria-label="Event/Operating Calendar">
-                                            <div class="namespan-container"><span class="name-span">Event/Operating Calendar</span></div>
-                                        </a>
-                                    </div>                        
-                                    <div class="subitem">
-                                        <a href="http://goo.gl/maps/I3P2N" target="_blank" aria-label="Directions">
-                                            <div class="namespan-container"><span class="name-span">Directions</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
-                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list dropzone-sec">
-                                </div>
-                            </li>
-                            <li class="sunmenu-container" data-attr="Wisconsin-Visitors-Center">
-                                <div class="submenu-list Wisconsin-Visitors-Center">
-                                    <div class="subitem">
-                                        <a href="/wisconsin-warehouse" aria-label="Free Warehouse Tours">
-                                            <div class="namespan-container"><span class="name-span">Free Warehouse Tours</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-candy-store" aria-label="Jelly Belly Candy Store">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-snack-bar" aria-label="Jelly Belly Snack Bar">
-                                            <div class="namespan-container"><span class="name-span">Jelly Belly Snack Bar</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-pop-up-event" aria-label="Sweet Scene Pop Up Event">
-                                            <div class="namespan-container"><span class="name-span">Sweet Scene Pop Up Event</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-factory-event-calendar" aria-label="Event Calendar">
-                                            <div class="namespan-container"><span class="name-span">Event Calendar</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-tour-school-youth-camps" aria-label="Tour/School/Youth Camps">
-                                            <div class="namespan-container"><span class="name-span">Tour/School/Youth Camps</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-directions" aria-label="Directions">
-                                            <div class="namespan-container"><span class="name-span">Directions</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-warehouse#How it's Made" aria-label="See How Its Made">
-                                            <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="submenu-list dropzone-sec">
-                                </div>
-                            </li>
-                            <li class="sunmenu-container" data-attr="Company-Retail-Stores">
-                                <div class="submenu-list Company-Retail-Stores">
-                                    <div class="subitem">
-                                        <a href="/retail-store#nuttree" aria-label="Nut Tree Market Pavilion (CA)">
-                                            <div class="namespan-container"><span class="name-span">Nut Tree Market Pavilion (CA)</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/retail-store" aria-label="Vacaville Company Store (CA)">
-                                            <div class="namespan-container"><span class="name-span">Vacaville Company Store (CA)</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/retail-store#gilroy" aria-label="Gilroy Company Store (CA)">
-                                            <div class="namespan-container"><span class="name-span">Gilroy Company Store (CA)</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/california-factory-store" aria-label="California Visitors Center Store">
-                                            <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="subitem">
-                                        <a href="/wisconsin-candy-store" aria-label="Wisconsin Visitors Center Store">
-                                            <div class="namespan-container"><span class="name-span">Wisconsin Visitors Center Store</span></div>
-                                        </a>
-                                    </div>
-                                </div> 
-                                <div class="submenu-list dropzone-sec">
-                                </div>
-                            </li>
-                        </ul>  
+                                </li> 
+                                <li class="micromenu-item">
+                                    <a href="/retail-store#nuttree" original-al="Nut Tree Market Pavilion (CA)">
+                                        <div class="namespan-container"><span class="name-span">Nut Tree Market Pavilion (CA)</span></div>
+                                    </a>
+                                </li>
+                                <li class="micromenu-item">
+                                    <a href="/california-factory-store" original-al="California Visitors Center Store">
+                                        <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>                         
                     </div>
                 </li>  
-                <li class="head-list-item-li">
-                    <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>
+                <li class="head-list-item-li-new">
+                    <a attr-menuname="store-locator" class="head-list-item-new mz-sitenav-link-new store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>
                 </li> 
             {% endpartial_cache %}     
         </ul> 
