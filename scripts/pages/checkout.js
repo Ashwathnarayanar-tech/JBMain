@@ -4,7 +4,7 @@ var pwrInitialPoints = 0;
 var pwrDisplayPoints = 0;
 var pwrMaxRedemptions = 2;
 var zinreloLoaded = false;
-
+var paypalFlowComplete=false;
 function getMethod(name) {
 	// Helper function. Returns an object containing information about that shipping method
 	//
@@ -379,6 +379,21 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             
             EditableView.prototype.render.apply(this, arguments);
+             // To make the paypal success to come to checkout page
+             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
+                if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
+                    if(window.paymentinfo.model.get('paymentType')=="CreditCard" && window.paymentinfo.model.get('card').get('cvv')!==undefined){
+                        $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
+                    }
+                }
+                else if(!paypalFlowComplete){
+                    setTimeout(function(){
+                        //$(document).find('.mz-shipmethod') && $(document).find('.mz-shipmethod').click();
+                        $(document).find('.mz-shipmethod').click();
+                        paypalFlowComplete = true;
+                    },2000);
+                } 
+            }
             if($('.error-msg').html() !== ''){
                 if(self.model){
                      $('.digitalcrediterror-msg').hide();

@@ -16,7 +16,7 @@ function($, Api, CartModels, hyprlivecontext, _) {
 
        var merchantAccountId = _.findWhere(externalPayment.credentials, {"apiName" : "merchantAccountId"}),
           environment = _.findWhere(externalPayment.credentials, {"apiName" : "environment"}),
-          id = CartModels.Cart.fromCurrent().id || window.order.id,
+          id = CartModels.Cart.fromCurrent().id || window.order!==undefined?window.order.id:"",
           isCart = window.location.href.indexOf("cart") > 0;
       if(externalPayment.isEnabled) {
         window.paypal.checkout.setup(merchantAccountId.value, {

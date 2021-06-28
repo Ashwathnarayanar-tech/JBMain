@@ -39,8 +39,10 @@ define(['modules/backbone-mozu'], function(Backbone) {
         if (this.alreadyDisabled) {
             allInputElements.not(this.alreadyDisabled).removeProp('disabled');
             this.alreadyDisabled = false;
+            allInputElements.prop('disabled',false);
         } else {
           allInputElements.removeProp('disabled');
+          allInputElements.prop('disabled',false);
         }
       }
     }
