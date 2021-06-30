@@ -750,6 +750,14 @@
       "properties": {},
       "template": "email/order-refund-issued",
       "title": "Refund Issued"
+    },
+    {
+      "id": "shipment.fulfilled",
+      "template": "email/shipment-confirmation",
+      "properties": {
+        "subject": "Your Jelly Belly Order #{model.orderNumber} has Shipped"
+      },
+      "title": "Your Jelly Belly Order has Shipped "
     }
   ],
   "pageTypes": [
