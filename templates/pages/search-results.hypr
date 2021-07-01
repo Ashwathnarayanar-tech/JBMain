@@ -22,7 +22,7 @@
     {% dropzone "search-results" scope="template" %}
 </div> 
 {% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
-<div class="recommended-prod-head">Jelly Belly Also Recommends</div>  
+<h2 class="recommended-prod-head"  tabindex="0">Jelly Belly Also Recommends</h2>  
 {% dropzone "searchresult-below-mbz" scope="template" %}             
 {% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                   
 

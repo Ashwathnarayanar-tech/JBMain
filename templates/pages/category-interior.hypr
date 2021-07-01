@@ -2,7 +2,7 @@
 {% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination pageContext.query.sortBy %}
 {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
 {% dropzone "cateoryplpdropzone-above-mbz" scope="page" %}       
-<div class="recommended-prod-head">Jelly Belly Also Recommends</div>              
+<h2 class="recommended-prod-head" tabindex="0">Jelly Belly Also Recommends</h2>              
 {% dropzone "cateoryplpdropzone-below-mbz" scope="page" %}                
                   
 {% endpartial_cache %} 
