@@ -10,7 +10,7 @@
 
 {% preload_json model "customer" %}
 <div class="mz-l-container">
-    <h1 class="mz-pagetitle">{{ labels.orderStatus }}</h1>
+    <h1 class="mz-pagetitle" tabindex="0">{{ labels.orderStatus }}</h1>
 
     <div id="account-panels" class="mz-myaccount-panels mz-l-stack mz-l-stack-large">
 

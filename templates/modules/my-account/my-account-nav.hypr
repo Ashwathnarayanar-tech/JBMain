@@ -2,7 +2,7 @@
     <ul class="mz-scrollnav-list nav">
         
         <li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link mz-nav-head" >
+            <a class="mz-scrollnav-link mz-nav-head" tabindex="0">
                 {{ labels.accountNavHead }}
             </a>
         </li>
