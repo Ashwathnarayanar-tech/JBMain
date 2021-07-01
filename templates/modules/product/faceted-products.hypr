@@ -85,17 +85,11 @@
 <div class="brand-dicreption-bottom">
     <div class ="isDesktop">
         {% dropzone zoneId="brand-dicreption-bottom" scope="page" %}
-<<<<<<< HEAD
-   </div>
-     <div class="isMobile">
-        {% dropzone zoneId="brand-dicreption-bottom-mobile" scope="page" %}
-   </div>
-=======
+
     </div>
     <div class="isMobile">
         {% dropzone zoneId="brand-dicreption-bottom-mobile" scope="page" %}
     </div>
->>>>>>> origin/checkoutNewReDesign
 </div>
 <div class="tz-Facets mz-mobile">
     {% if Model.Facets %}

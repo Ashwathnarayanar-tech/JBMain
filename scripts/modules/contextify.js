@@ -350,16 +350,102 @@ define(['modules/jquery-mozu',
                 $(document).find('.zinrelo-tab').click();
             }
         });
-
-        $(document).on('keydown', '.head-list-item.view-products a', function(e){
+        $(document).on('keydown', '.head-list-item-new.view-products', function(e){
             if ((e.which === 9 && e.shiftKey)){
                 e.preventDefault();
-                $(document).find('.mz-utilitynav-link-cart').focus(); 
+                $(document).find('.mz-utilitynav-link-cart').focus();
+                if($(e.currentTarget).parent().hasClass("menuactivelinks")) {
+                    $(e.currentTarget).parent().removeClass("menuactivelinks");  
+                }
             }   
         });
-
-
-        $('[data-mz-contextify]').each(function () {
+        $(document).on('keydown', '.head-list-item-new.flavorsandmore', function(e){
+            if ((e.which === 9 && e.shiftKey)){
+                if($(e.currentTarget).parent().hasClass("menuactivelinks")) {
+                    $(e.currentTarget).parent().removeClass("menuactivelinks");  
+                }
+            }   
+        });
+        $(document).on('keydown', '.head-list-item-new.visitus', function(e){
+            if ((e.which === 9 && e.shiftKey)){
+                if($(e.currentTarget).parent().hasClass("menuactivelinks")) {
+                    $(e.currentTarget).parent().removeClass("menuactivelinks");  
+                }
+            }   
+        });
+        $(".head-list-item-li-new").keydown(function(event) {
+            if (event.which == 13) {
+                $(this).addClass("menuactivelinks");
+                $(this).find(".submenuContainer").focus();
+            }
+        });
+        
+        
+        
+            $(".head-list-item-li-new").on("click",function(e){
+                if($(window).width() <= 767){
+                    if($(this).hasClass("menuactivelinks")) {
+                       $(".head-list-item-li-new").removeClass("menuactivelinks"); 
+                    } else {
+                        $(this).addClass("menuactivelinks").siblings().removeClass("menuactivelinks");
+                    }
+                }
+            });
+            $(document).on("click",".fixedmenuclose .close-menu-icon",function(e){
+                if($(window).width() <= 767){
+                    $(".head-list-item-li-new").removeClass("mobilemenuactive");
+                    $(".head-list-item-li-new").removeClass("menuactivelinks"); 
+                    $(".micromenu-cointainer").removeClass("mobilesubmenuactive");
+                }
+            });
+            $(".head-list-item-li-new .micromenu-cointainer li.mobileclicksubmenu").on("click",function(e){
+                if($(window).width() <= 767){
+                    if($(this).closest("ul").hasClass("mobilesubmenuactive")) {
+                        $(".head-list-item-li-new .micromenu-cointainer").removeClass("mobilesubmenuactive");
+                    } else {
+                        $(".head-list-item-li-new .micromenu-cointainer").removeClass("mobilesubmenuactive");
+                        $(this).closest("ul").addClass("mobilesubmenuactive");
+                    }
+                }
+            });
+            $(".head-list-item-li-new .micromenu-cointainer li.mobileclicksubmenu").keyup(function(event) {
+                if($(window).width() <= 767){
+                    if (event.keyCode === 13) {
+                        if($(this).closest("ul").hasClass("mobilesubmenuactive")) {
+                            $(".head-list-item-li-new .micromenu-cointainer").removeClass("mobilesubmenuactive");
+                        } else {
+                            $(".head-list-item-li-new .micromenu-cointainer").removeClass("mobilesubmenuactive");
+                            $(this).closest("ul").addClass("mobilesubmenuactive");
+                        }
+                    }
+                }
+            });
+            $(".fixedmenuclose .close-menu-icon").keyup(function(event) {
+                if($(window).width() <= 767){
+                    if (event.keyCode === 13) {
+                        $(".head-list-item-li-new").removeClass("mobilemenuactive");
+                        $(".head-list-item-li-new").removeClass("menuactivelinks");
+                        $(".micromenu-cointainer").removeClass("mobilesubmenuactive");
+                    }
+                }
+            });
+        
+        
+        var touchstart;
+        if('ontouchstart' in window){
+            touchstart = 'touchstart';
+        } else {
+            touchstart = 'click';
+        }
+        $(document).on(touchstart,function (e)
+        {
+            var mega_menu = $('.head-list-item-li-new');
+            if ((!mega_menu.is(e.target) && mega_menu.has(e.target).length === 0))
+            {
+                    mega_menu.removeClass('menuactivelinks');
+            }
+        });
+        $('[data-mz-contextify]').each(function () {    
             var $this = $(this),
                 config = $this.data();
 

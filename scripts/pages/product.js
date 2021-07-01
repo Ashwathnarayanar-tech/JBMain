@@ -1341,7 +1341,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         var deviceWidth = $(window).width(); 
         if(deviceWidth>767){
             $(window).scroll(function(){
-                if ($(window).scrollTop() > $(".tab-header-sec").offset().top) {
+                if ($(".tab-header-sec").length && $(window).scrollTop() > $(".tab-header-sec").offset().top) {
                     $(document).find('.scroll-section').show();
                     $(document).find('.progress-bar').addClass('add-progress-bar');
                     if ($(window).scrollTop() > $(".accordian-prod").position().top + $(".accordian-prod").innerHeight()) {
@@ -1360,7 +1360,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
         }else if(deviceWidth<768){
             $(window).scroll(function(){
-                if ($(window).scrollTop() > $(".accordian-list").offset().top) {
+                if ($(".accordian-list").length && $(window).scrollTop() > $(".accordian-list").offset().top) {
                     $(document).find('.scroll-section').removeClass("removeactiveCls");  
                     $(document).find('.mobile-scroll-section').show();
                 }

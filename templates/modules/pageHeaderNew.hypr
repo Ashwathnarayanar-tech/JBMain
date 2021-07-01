@@ -1,47 +1,24 @@
 {% require_script "modules/contextify" %} 
 {% if pagecontext.pageType != "checkout" %}
- <div class="isDesktop">
-        <div class="page-header mz-pageheader-desktop desktop"> 
-            {% block search-box %}
-                <div class="jb-serach-box-with-label">
-                    {% include "modules/page-header/search-box" %}
-                </div>
-            {% endblock search-box %}
-            {% block utility-nav %}
-                {% include "modules/page-header/utility-nav" %}
-            {% endblock utility-nav %}
-            {% block site-nav %}  
-                <div class="nav-cointainer desktopnav" id="megaMenu">
-                    <div class="nav-header">
-                        <ul class="nav-list-head-cointainer">
-                            {% partial_cache %}
-                            <li class="head-list-item-li">
-                                <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item mz-sitenav-link view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
-                            </li>
-                            <li class="head-list-item-li">
-                                <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item mz-sitenav-link flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
-                            </li>
-                            <li class="head-list-item-li store-branding" attr-menuname="store-branding" data-attr="store-branding">
-                                {% block store-branding %} 
-                                    {% include "modules/page-header/store-branding" %} 
-                                {% endblock store-branding %} 
-                            </li>
-                            <li class="head-list-item-li">
-                                <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item mz-sitenav-link visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
-                            </li>  
-
-                            <li class="head-list-item-li">
-                                <a attr-menuname="store-locator" class="head-list-item mz-sitenav-link store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>
-                            </li> 
-                            {% endpartial_cache %}     
-                        </ul> 
-                    </div>
-                    {% include "modules/site-navDesk" %}
-                </div>
-            {% endblock site-nav %} 
-            {% include "modules/MegaMenu" %}
-        </div>
-    </div>      
+ <div class="customMega">
+    <header class="page-header topnavigation"> 
+        {% block search-box %}
+            <div class="jb-serach-box-with-label">
+                {% include "modules/page-header/search-box" %}
+            </div>
+        {% endblock search-box %}
+        {% block store-branding %} 
+                {% include "modules/page-header/store-branding" %} 
+        {% endblock store-branding %} 
+        {% block utility-nav %}
+            {% include "modules/page-header/utility-nav" %}
+        {% endblock utility-nav %} 
+    </header>
+    <nav class="mainmegamenu">
+        {% include "modules/MegaMenu" %}
+    </nav>
+</div>
+{% comment %}      
    <div class="isMobile">
         <div class="page-header mz-pageheader-mobile mobile">
             {% block search-box %}
@@ -195,7 +172,8 @@
                 </div>
             </div>
         </center> 
-  </div>
+      </div>
+  {% endcomment %}
     <div class="Add-to-cart-popup">
         <div class="popup-container" role="dialog" aria-modal="true" aria-label="item added to cart">
             <div class="popup-head">

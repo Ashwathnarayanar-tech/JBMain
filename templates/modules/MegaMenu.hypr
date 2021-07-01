@@ -1,15 +1,31 @@
-silpa
 <div class="custom-nav-cointainer desktopnav" id="megaMenu">
     <div class="nav-header">
         <ul class="nav-list-head-cointainer">
             {% partial_cache %}
                 <li class="head-list-item-li-new">
-                    <a role="menu" aria-label="View My Products Popover" tabindex="0" attr-menuname="megamenu_1" class="head-list-item-new mz-sitenav-link-new view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">View Products</a>
+                    <a role="menu" aria-label="Click/Enter to view Products Menu" tabindex="0" attr-menuname="megamenu_1" class="head-list-item-new mz-sitenav-link-new view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 50 40">
+                            <g fill="none" fill-rule="evenodd">
+                                <g fill="#004e99">
+                                    <g>
+                                        <g>
+                                            <g>
+                                                <path d="M3.906 32C1.758 32 0 33.8 0 36s1.758 4 3.906 4h42.188C48.242 40 50 38.2 50 36s-1.758-4-3.906-4H3.906zM3.906 16C1.758 16 0 17.8 0 20s1.758 4 3.906 4h42.188C48.242 24 50 22.2 50 20s-1.758-4-3.906-4H3.906zM46.094 0H3.906C1.758 0 0 1.8 0 4s1.758 4 3.906 4h42.188C48.242 8 50 6.2 50 4s-1.758-4-3.906-4" transform="translate(-136 -473) translate(96 451) translate(22 22) translate(18)"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <span>
+                            View Products
+                        </span>
+                    </a>
                     <div class="submenuContainer" id="viewproducts">
                         <div class="col-menu60">
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Jelly Belly Jelly Beans Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/41354165-b846-46dc-a7c1-134665c882fb" width="62" height="31" alt="Jelly Belly Jelly Beans"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Jelly Belly Jelly Beans</span>
@@ -53,7 +69,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View BeanBoozled Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/90bfd33f-a599-4eef-b4c3-83bfc0be57b6" width="62" height="31" alt="BeanBoozled"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">BeanBoozled</span>
@@ -72,7 +88,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View BeanBoozled Fiery Five Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8a7ff24e-e9bf-47fc-ae51-41b011b26915" width="62" height="31" alt="BeanBoozled Fiery Five"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">BeanBoozled Fiery Five</span>
@@ -81,7 +97,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Soda Pop Shoppe Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/295a81ba-bc34-4b9b-a938-b73de71153d9" width="62" height="31" alt="Soda Pop Shoppe"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Soda Pop Shoppe</span>
@@ -90,7 +106,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Cold Stone Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/968be0d9-23af-49ec-ac28-b40b00b86b34" width="62" height="31" alt="Cold Stone"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Cold Stone</span>
@@ -99,7 +115,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View DC Heroes Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="/resources/images/icons/coming_soon.png" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/56a3a9b2-8e6e-4e6a-acbe-f68853bde0ee" width="62" height="31" alt="DC Heroes"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">DC Heroes</span>
@@ -110,7 +126,7 @@ silpa
                             </div>
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Gourmet Candy & Confections Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/7d16ec7f-b996-44e4-9a13-e4b9df3b7746" width="62" height="31" alt="Gourmet Candy & Confections"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Gourmet Candy & Confections</span>
@@ -164,7 +180,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Sport Beans Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1d191c5e-5369-440d-879c-765598d011f3" width="62" height="31" alt="Sport Beans"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Sport Beans</span>
@@ -183,7 +199,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Belly Flops Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b8a2dc78-120c-4690-9aa4-e7b6ee053c4b" width="62" height="31" alt="Belly Flops"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Belly Flops</span>
@@ -192,7 +208,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Sugar-Free Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/06188bfc-fd6d-4f29-a026-4f17f2c4de4f" width="62" height="31" alt="Sugar-Free"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Sugar-Free</span>
@@ -201,7 +217,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Star Wars Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/03c03ca1-ad17-453f-be5a-d5d84e467739" width="62" height="31" alt="Star Wars"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Star Wars</span>
@@ -212,7 +228,7 @@ silpa
                             </div>
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Harry Potter Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f5ed927b-32eb-40c3-ae85-a60102e0efbc" width="62" height="31" alt="Harry Potter"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Harry Potter</span>
@@ -236,7 +252,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Disney Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/4518a175-6fb1-47ad-aab7-e1cd95e9b6b8" width="62" height="31" alt="Disney"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Disney</span>
@@ -260,7 +276,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Jelly Belly Organic Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/92de13bd-3590-4498-8166-04192defb69e" width="62" height="31" alt="Jelly Belly Organic"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Jelly Belly Organic</span>
@@ -279,7 +295,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li>
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Sunkist Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/582b4a06-27f4-4f98-bf95-ecbd22d772d7" width="62" height="31" alt="Sunkist"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Sunkist</span>
@@ -298,7 +314,7 @@ silpa
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li class="micromenu-item">
+                                    <li  role="menu" class="mobileclicksubmenu" aria-label="View Krispy Kreme Popover" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/368dc9b2-56ab-40c2-a06b-484cfa875ae2" width="62" height="31" alt="Krispy Kreme"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Krispy Kreme</span>
@@ -310,249 +326,249 @@ silpa
                         </div>
                         <div class="col-menu40">
                             <div class="col-inner40">
-                                <ul>
-                                    <li class="menuHeading">
+                                <ul class="micromenu-cointainer">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Flavor Popover" tabindex="0">
                                         Flavor
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/weird-wild-and-gross-jelly-beans/c/289" aria-label="Weird Wild & Gross">
                                             Weird Wild & Gross
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/fruit-flavored-candy-and-jelly-beans/c/347" aria-label="Fruity">
                                             Fruity
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/ice-cream-flavored-jelly-beans/c/292" aria-label="Ice Cream">
                                             Ice Cream
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/soda-flavored-candy-and-jelly-beans/c/290" aria-label="Soda Pop">
                                             Soda Pop
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/sour-candy-and-jelly-beans/c/293" aria-label="Sour">
                                             Sour
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/hot-and-spicy-candy-and-jelly-beans/c/294" aria-label="Hot & Spicy">
                                             Hot & Spicy
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/licorice-candy-and-jelly-beans/c/291" aria-label="Licorice">
                                             Licorice
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/tropical-flavored-candy-and-jelly-beans/c/297" aria-label="Tropical">
                                             Tropical
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/chocolate/c/295" aria-label="Chocolate">
                                             Chocolate
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/mint-flavored-candy-and-jelly-beans/c/298" aria-label="Minty">
                                             Minty
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/candy-covered-nuts/c/296" aria-label="Nutty">
                                             Nutty
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/vanilla-flavored-candy-and-jelly-beans/c/288" aria-label="Vanilla">
                                             Vanilla
                                         </a>
                                     </li>
                                 </ul>
-                                <ul>
-                                    <li class="menuHeading">
+                                <ul class="micromenu-cointainer">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Merchandise Popover" tabindex="0">
                                         Merchandise
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/bean-machines-and-dispensers/c/318" aria-label="Bean Machines & Dispensers">
-                                            <div class="namespan-container"><span class="name-span">Bean Machines & Dispensers</span></div>
+                                            Bean Machines & Dispensers
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/gift-basket/c/302" aria-label="Gift Baskets">
-                                            <div class="namespan-container"><span class="name-span">Gift Baskets</span></div>
+                                            Gift Baskets
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/mr.-jelly-belly-items/c/888" aria-label="Mr. Jelly Belly Items">
-                                            <div class="namespan-container"><span class="name-span">Mr. Jelly Belly Items</span></div>
+                                            Mr. Jelly Belly Items
                                         </a>
                                     </li>
                                 </ul>
-                                <ul>
-                                    <li class="menuHeading">
+                                <ul class="micromenu-cointainer">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Holiday Popover" tabindex="0">
                                         Holiday
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/halloween-candy-and-treats/c/314" aria-label="Halloween">
-                                            <div class="namespan-container"><span class="name-span">Halloween</span></div>
+                                            Halloween
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/christmas-and-holiday-candy/c/24" aria-label="Christmas">
-                                            <div class="namespan-container"><span class="name-span">Christmas</span></div>
+                                            Christmas
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/valentines-day-candy-and-gifts/c/57" aria-label="Valentine's Day">
-                                            <div class="namespan-container"><span class="name-span">Valentine's Day</span></div>
+                                            Valentine's Day
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/easter-candy-and-gifts/c/248" aria-label="Easter & Spring">
-                                            <div class="namespan-container"><span class="name-span">Easter & Spring</span></div>
+                                            Easter & Spring
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/mothers-day-candy-and-gifts/c/211" aria-label="Mother's Day">
-                                            <div class="namespan-container"><span class="name-span">Mother's Day</span></div>
+                                            Mother's Day
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/gifts-for-dad/c/188" aria-label="Father's Day">
-                                            <div class="namespan-container"><span class="name-span">Father's Day</span></div>
+                                            Father's Day
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/holidays/c/860" aria-label="More Holidays">
-                                            <div class="namespan-container"><span class="name-span">More Holidays</span></div>
+                                            More Holidays
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-inner60">
-                                <ul>
-                                    <li class="menuHeading">
+                                <ul class="micromenu-cointainer">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Weight Popover" tabindex="0">
                                         Weight
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/by-the-pound/c/60" aria-label="Jelly Belly one pound resealable bags">
                                             1 lb. Resealable Bags
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/bulk-a-bunch/c/305" aria-label="Jelly Belly five and ten pound boxes">
                                             Bulk (5 lb. or 10 lb. Boxes)
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/gift-boxes/c/61" aria-label="Jelly Belly assorted gift boxes">
                                             Gift Boxes (Assorted)
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/gift-basket/c/302" aria-label="Jelly Belly assorted gift bags">
                                             Gift Baskets (Assorted)
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/1-oz-bags/c/709" aria-label="Jelly Belly small bags up to one ounce">
                                             Small Bags (up to 1 oz.)
                                         </a> 
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/bag-little-more-/c/304" aria-label="Jelly Belly small bags over one ounce">
                                             Small Bags (over 1 oz.)
                                         </a> 
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/box-little-/c/303" aria-label="Jelly Belly small boxes under one pound">
                                             Small Boxes (under 1 lb.)
                                         </a> 
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/gift-bag/c/300" aria-label="Jelly Belly bags under one pound">
                                             Gift Bags (under 1 lb.)
                                         </a> 
                                     </li>
                                 </ul>  
-                                <ul class="color">
-                                    <li class="menuHeading">
+                                <ul class="color micromenu-cointainer">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Color Popover" tabindex="0">
                                         Color
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/blue-candy-and-jelly-beans/c/334" aria-label="Blue">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Blueberry-Signature-menu.png?max=100" width="54" height="38" alt="Blue"></span>
                                             <span class="name-span">Blue</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/black-candy-and-jelly-beans/c/333" aria-label="Black">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Licorice-Signature-menu.png?max=100" width="54" height="38" alt="Black"></span>
                                             <span class="name-span">Black</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/pink-candy-and-jelly-beans/c/327" aria-label="Pink">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Cotton-Candy-Signature-menu.png?max=100" width="54" height="38" alt="Pink"></span>
                                             <span class="name-span">Pink</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/white-candy-and-jelly-beans/c/330" aria-label="White">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-French-Vanilla-Signature-menu.png?max=100" width="54" height="38" alt="White"></span>
                                             <span class="name-span">White</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/green-candy-and-jelly-beans/c/324" aria-label="Green">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Green-Apple-Signature-menu.png?max=100" width="54" height="38" alt="Green"></span>
                                             <span class="name-span">Green</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/red-candy-and-jelly-beans/c/329" aria-label="Red">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Red-Apple-Signature-menu.png?max=100" width="54" height="38" alt="Red"></span>
                                             <span class="name-span">Red</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/orange-jelly-beans-and-candy/c/326" aria-label="Orange">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Orng_Crush_Bean-menu.png?max=100" width="54" height="38" alt="Orange"></span>
                                             <span class="name-span">Orange</span> 
                                         </a>
                                     </li> 
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/purple-candy-and-jelly-beans/c/328" aria-label="Purple">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Grape_Crush_Bean-menu.png?max=100" width="54" height="38" alt="Purple"></span>
                                             <span class="name-span">Purple</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/yellow-candy-and-gifts/c/331" aria-label="Yellow">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Lemon-Signature-menu.png?max=100" width="54" height="38" alt="Yellow"></span>
                                             <span class="name-span">Yellow</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/multi-colored-candy-and-jelly-beans/c/325" aria-label="Multi Colored/mix">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Tutti-Fruitti-Signature-menu.png?max=100" width="54" height="38" alt="Multi-Colored"></span>
                                             <span class="name-span">Multi Colored/Mix</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/brown-candy-and-jelly-beans/c/323" aria-label="Brown">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-AW-Root-Beer-Signature-menu.png?max=100" width="54" height="38" alt="Brown"></span>
                                             <span class="name-span">Brown</span> 
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="micromenu-item">
                                         <a href="/beige-candy-and-jelly-beans/c/332" aria-label="Beige">
                                             <span class="img-container"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="//cdn-tp1.mozu.com/9046-m1/cms/files/resources-HeaderImages-Toasted-Marshmallow-Sign-menu.png?max=100" width="54" height="38" alt="Beige"></span>
                                             <span class="name-span">Beige</span> 
@@ -578,297 +594,442 @@ silpa
                                     <a href="/jelly-belly-sweet-rewards" class="sweet-anchor">Learn More</a>
                                 </div>
                             </div>
+                            <div class="fixedmenuclose">
+                                <span class="close-menu-icon" tabindex="0" role="button" aria-label="close menu">
+                                    <img class="new-lazy-load" src="/../resources/images/close_menu_icon.png" alt="close-icon">
+                                </span>
+                                <span class="menu-icon-here">
+                                    <img class="new-lazy-load" src="/../resources/images/logo.png" alt="Jelly Belly Jelly Beans">
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </li>
 
                 <li class="head-list-item-li-new">
-                    <a tabindex="0" attr-menuname="megamenu_2" class="head-list-item-new mz-sitenav-link-new flavorsandmore" aria-expanded="false" aria-label="Flavors and More">Flavors & More</a>
+                    <a tabindex="0" role="menu" attr-menuname="megamenu_2" class="head-list-item-new mz-sitenav-link-new flavorsandmore" aria-expanded="false" aria-label="Click/Enter to view Flavors and More Menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="73" height="45" viewBox="0 0 73 45">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <g fill-rule="nonzero">
+                                            <g>
+                                                <g>
+                                                    <path fill="#004e99" d="M.013 20.452C.47 4.868 13.733.662 20.302.662c6.335.029 13.023 3.227 14.444 3.314C36.631 2.816 40.17.059 43.624.001c3.453-.058 4.933 2.09 4.933 2.09s2.64-.957 8.094-.987c5.454-.03 15.667 4.412 15.725 17.208 0 12.419-10.575 25.42-34.466 25.42-3.89-.157-5.032-.245-5.032-.245s-2.456 1.116-4.374 1.116c-2.253 0-3.656-1.051-4.329-1.473-1.69-.491-7.662-1.102-13.44-4.037C5.135 36.248-.306 31.242.014 20.453z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#FFF" d="M32.289 9.376s-.91 4.877-.954 5.094c-.043.217 0 .282.173.043.174-.238 1.366-3.36 3.728-3.49 2.081.217 2.146 1.756 2.146 2.19 0 .433-.433 3.598-3.663 3.554-.022.759.802 1.626 1.496 1.496.585 0 1.972-.412 2.774-2.948.347-2.471 1.019-8.453 1.019-8.453l2.514-.152-1.214 10.144s-.194.845.347.845c.542 0 1.084-.715 1.128-1.17.043-.455 1.257-9.927 1.257-9.927l2.47-.13-1.083 9.32s-.217 1.04.347 1.063c.563.021 1.149-.412 1.236-1.214.086-.802.693-5.636.693-5.636l2.19-.282-.65 5.484s0 .802.78.802.889-.975.889-.975l.78-5.593 2.146-.347-1.518 12.768s-1.56.043-2.493.52c-.997.303-2.34 1.474-2.34 1.474s.129-1.279.952-2.124c.825-.846 1.214-1.28 1.908-1.366-.021 0 .325-3.468.325-3.468s-.758.889-1.929.889c-1.17 0-1.257-.824-1.257-.824s-1.15 1.777-2.428 1.777c-.997 0-1.408-.888-1.408-.888s-1.28 1.669-2.601 1.669c-1.323 0-2.081-1.474-2.081-1.474s-1.237 1.994-3.924 1.994c-2.688 0-3.013-1.972-2.84-4.161 0 0-.086.065-.13.216-.043.152-.997 3.49-1.799 3.989-.563.78-1.496 1.018-2.97 1.018-1.473 0-3.944-.715-3.944-4.4.281-2.796 2.384-3.1 3.012-3.1.63-.064 2.298.716 2.298 2.147.022.412-.086.693.022.78.326.087.542-.347.52-.823-.021-.477-.108-1.474-.91-2.125 0 0 .607-2.73.52-3.121 0 0-.304-.043-.91-.043-.607 0-.997-.26-.997-.26l.607-3.165s1.04.39 1.69.39c.65 0 2.558-.174 4.336-1.474 1.56-.867 2.21-1.474 2.904-1.908.694-.433 5.637-3.7 8.064-3.641 2.666.065 5.635.78 6.155 5.766-1.344-2.818-3.597-3.035-4.595-3.035-2.84-.13-6.026 2.32-6.611 2.731-.585.412-2.71 1.886-3.599 2.406-.888.52-2.405 1.128-2.6 1.128l.022.02z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#FFF" d="M40.135 34.439c.755-.139 1.313-.256 2.821-.24-.022 0 .268-2.688.268-2.688s-.715.917-1.886.917c-1.17 0-1.344-.851-1.344-.851s-1.148 1.747-2.427 1.747c-.998 0-1.366-.83-1.366-.83s-1.352 1.626-2.674 1.626c-1.322 0-1.965-1.431-1.965-1.431s-1.235 1.994-3.923 1.994c-2.688 0-3.288-1.713-3.201-3.281 0 0-.073-.167-.109.06-.944 2.516-2.865 3.582-4.21 3.582-1.346 0-1.8-1.555-1.8-1.555s-.437 2.027-3.6 2.027c-3.162 0-3.703-2.742-3.668-3.757-.157-1.12 1.502-3.04 3.005-2.952 1.502.088 1.958 1.118 1.94 1.433-.018.313-.315.75-.124.873.07 0 .578.122.578-1.013 0-1.135-.839-1.573-.839-1.573s.472-4.35.682-4.666c1.31-3.652 4.577-3.616 5.12-3.616.54 0 2.497.297 2.497 2.691 0 2.394-2.097 2.987-2.219 3.04-.121.053-.035.14-.035.14s.122.052.803.035c.682-.018 1.381 1.24 1.679 1.887.298.646.418 1.59.436 2.08.192 0 .34-.723.514-.962.173-.238.829-3.476 3.743-3.55 1.89 0 2.146 1.816 2.146 2.25 0 .433-.534 3.54-3.764 3.497-.022.759.57 1.394 1.596 1.553.585 0 1.944-.499 2.746-3.035.347-2.47.989-8.397.989-8.397l2.514-.137-1.229 10.131s-.193.831.349.831 1.112-.715 1.155-1.17c.044-.455 1.23-9.899 1.23-9.899l2.499-.131-1.158 9.335s-.202.998.362 1.02c.564.021 1.194-.369 1.28-1.17.087-.803.708-5.652.708-5.652l2.189-.282-.665 5.47s.014.788.795.788c.78 0 .932-.932.932-.932l.78-5.593 2.118-.347-1.532 12.696s-1.918.043-3.467.513c-1.952.594-4.685 2.462-5.974 3.445-1.29.984-4.565 2.969-7.4 3.054-3.14-.068-5.314-1.322-7.588-5.464.155.016 2.667 2.902 5.5 2.936 2.954-.034 5.991-2.512 7.146-3.123.764-.492 4.45-3.116 7.047-3.354z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M19.77 32.895c-.559-.017-1.134-.892-1.083-1.485.052-.593.454-3.792.454-3.792s.314-.157.49-.157c.174 0 1.713.157 1.764 2.76-.072 1.678-1.278 2.745-1.625 2.674zm-.49-6.674l.42-3.146s.296-1.29 1.083-1.275c.787.017 1.135 1.047 1.048 1.607-.086.56.034 1.416-.717 1.94-.75.524-1.834.874-1.834.874z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M46.66 24.766l1.04-.141-1.625 13.374s-.66-.217-1.312-.217c-.65 0-3.468.347-5.397 1.496-1.94.975-3.5 2.276-3.902 2.644-.4.369-1.344 1.02-1.42 1.02.011.129 3.057.15 3.469.173.412.021 4.285-.068 5.484-.184 1.198-.117 5.202-.542 7.521-1.258 2.385-.52 21.633-5.462 21.178-24.125.13-12.29-11.252-15.825-15.024-15.825-3.772 0-7.661.892-7.661.892s.78 1.485 1.174 2.948c.393 1.463.723 3.485.723 3.485l2.33-.351-.146 1.462 1.031-.143-1.587 13.357s-1.402-.227-2.268-.165c-1.794.041-3.567 1.134-3.567 1.134l-.041.424z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M50.495 9.128l-.124.02-.103.97-1.052.144.062-.926-2.722.35.269-2.474-1.031.082.123-1.174-3.176.205-.143 1.052-.785.02.105-1.03-1.836.102s3.404-2.536 5.692-2.288c2.288.248 3.67.968 4.72 4.947zm-11.918-1.71l-.576 4.844s-1.26-1.606-2.62-1.545c-1.36.061-1.938.68-1.938.68l.268-1.278s1.092-.352 1.505-.6c.413-.246 3.361-1.977 3.361-2.102zm10.59 11.134l-.187 1.56s-2.227.983-2.79 3.324c.044.028-2.21.347-2.21.347l-.174.968-1.012.146.102-.94-2.819.39.319-2.471-1.07.086.145-1.2-3.194.189-.16 1.054-.823.058.13-1.084-3.165.202-.707 5.68s-1.086-1.617-2.833-1.604c-2.01.014-3.295 2.253-3.295 2.253s-1.417-1.226-1.965-1.226c-.1-.172.13-.19.13-.19s2.067-.592 2.24-2.585c.102-1.43-1.517-2.53-1.517-2.53s1.184.463 2.138.463c.953 0 3.757-.232 4.885-2.298.737 1.416 2.428 1.72 3.988 1.72 1.994.072 2.962-1.619 2.962-1.619s.796.896 2.327.896 2.615-1.14 2.615-1.14.375.39 1.734.39c1.358 0 2.009-1.071 2.009-1.071s.478.433 1.142.433c.664 0 1.054-.201 1.054-.201z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M23.098 42.258s-7.24-1.106-12.594-4.032C5.15 35.3.641 30.88.641 20.474 1.227 4.413 15.316 1.161 20.583 1.291c4.942 0 13.07 3.208 13.461 3.208 0 0-2.97 2.584-5.549 2.45-2.059-.109-2.211-.347-2.211-.347l-.759 3.858s.564.217.802.217c.239 0 1.106.13 1.106.13l-.52 3.013s-.672-.5-1.604-.5-2.796.608-3.273 3.253c-.087 2.86 1.517 3.945 1.517 3.945s-1.019-.607-2.254-.607-4.509.564-5.506 4.552l-.585 4.27s-.585-.238-1.192-.238-3.295.672-3.295 3.1c0 2.427 1.17 3.923 3.468 4.422 3.165.801 4.357-.521 4.357-.521s1.54 2.687 1.778 3.143c.238.455 2.406 3.359 2.774 3.62z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M19.457 35.907c.021.022.52.11.931.11.412 0 2.32-.11 4.509-2.299.585 1.149 2.102 1.69 3.425 1.69 1.322 0 2.427.153 3.49-1.56.39.303.563.802 2.405.889 1.496.086 2.514-1.171 2.514-1.171s.651.564 1.692.477c1.04-.087 2.037-1.04 2.037-1.04s.563.368 1.279.368c.715 0 .953-.238.953-.238l-.086.715s-3.317.022-5.398 1.193c-2.124.65-8.28 5.852-11.401 5.57-2.081-.174-3.49-1.474-4.27-2.08-.715-.565-1.885-1.952-2.08-2.624z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M48.456 28.374c0-.293.117-.573.325-.78.207-.206.488-.322.78-.321.293 0 .573.116.78.322.206.207.322.487.322.779.001.293-.114.574-.32.782-.208.207-.488.324-.781.324-.294 0-.575-.116-.783-.323-.207-.208-.324-.49-.323-.783zm2.073 0c0-.535-.433-.969-.969-.969-.535 0-.968.434-.968.969 0 .535.433.969.968.969.536 0 .97-.434.97-.969zm-.418.618h-.18l-.351-.569h-.278v.569h-.15v-1.233h.537c.105 0 .209.006.3.06.093.052.14.162.14.266 0 .243-.171.332-.39.338l.372.569zm-.577-.688c.172 0 .441.03.441-.222 0-.19-.167-.214-.32-.214h-.353v.436h.232z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#FFF" d="M8.358 23.812L3.2 25.59s-.564-2.255-.564-5.463 1.517-7.89 4.639-11.488c3.12-3.598 8.453-6.199 13.309-5.809v.26s-5.463.997-9.408 5.636c-3.945 4.639-3.858 9.407-3.858 9.884 0 .477.13 2.904 1.04 5.202zm54.429 9.71l-3.295-2.947s2.385-1.149 4.161-4.053c1.778-2.905 2.71-6.135 2.623-9.126-.086-2.992-.281-8.93-6.784-13.114 9.993.498 10.708 11.336 10.75 13.288.131 3.685-.953 8.063-2.123 9.948-1.17 2.97-4.725 5.81-5.332 6.005z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M19.933 31.68l.369-3.49s.91.608.715 2.299c-.281 1.538-.715 1.669-.867 1.647-.217 0-.217-.455-.217-.455zm1.019-6.675s-.13-.694-.065-1.084c.065-.39.238-.78.542-.91.13.346.108.736.022 1.04-.087.303-.217.867-.5.954z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                    <path fill="#004e99" d="M27.347 29.86s1.95 0 2.21-1.647c-.043-.52-.13-.737-.563-.737-.434 0-1.604.52-1.647 2.384zm6.285-14.675s1.951 0 2.212-1.647c-.044-.52-.13-.737-.564-.737-.434 0-1.604.52-1.648 2.384z" transform="translate(-256 -469) translate(96 451) translate(160 18)"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                        <span>Flavors & More</span>
+                    </a>
                     <div class="submenuContainer" id="flavorsandmore">
                         <div class="col-inner40">
                             <ul class="micromenu-cointainer">
-                                <li>
-                                    <div class="sub-heading-right">
-                                        <span class="name-span">Flavor Collection</span>
-                                    </div>
+                                <li class="mobileclicksubmenu menuHeading" role="menu" aria-label="View Flavor Collection Popover" tabindex="0">
+                                    Flavor Collection
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/c/335#flavor-List" aria-label="Jelly Belly Official Flavors">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Official Flavors</span></div>
+                                        Jelly Belly Official Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/341#flavor-List" aria-label="BeanBoozled&reg; 5th Edition">
-                                        <div class="namespan-container"><span class="name-span">BeanBoozled<sup>&reg;</sup> 5th Edition </span></div>
+                                        BeanBoozled<sup>&reg;</sup> 5th Edition
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/beanboozled-fiery-five/c/890" aria-label="BeanBoozled Fiery Five&reg;">
-                                        <div class="namespan-container"><span class="name-span">BeanBoozled Fiery Five<sup>&reg;</sup></span></div>
+                                        BeanBoozled Fiery Five<sup>&reg;</sup>
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/721#flavor-List" aria-label="Krispy Kreme Doughn&reg;">
-                                        <div class="namespan-container"><span class="name-span">Krispy Kreme Doughnuts<sup>&reg;</sup></span></div>
+                                        Krispy Kreme Doughnuts<sup>&reg;</sup>
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/560#flavor-List" aria-label="Organic Jelly Beans">
-                                        <div class="namespan-container"><span class="name-span">Organic Jelly Beans</span></div>
+                                        Organic Jelly Beans
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/46#flavor-List" aria-label="Jewel Jelly Beans">
-                                        <div class="namespan-container"><span class="name-span">Jewel Jelly Beans</span></div>
+                                        Jewel Jelly Beans
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/234#flavor-List" aria-label="Jelly Belly Kids Mix">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Kids Mix</span></div>
+                                        Jelly Belly Kids Mix
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/879#flavor-List" aria-label="Sunkist&reg; Citrus Flavors">
-                                        <div class="namespan-container"><span class="name-span">Sunkist<sup>&reg;</sup> Citrus Flavors</span></div>
+                                        Sunkist<sup>&reg;</sup> Citrus Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/884#flavor-List" aria-label="Soda Pop Shoppe&reg; Flavors">
-                                        <div class="namespan-container"><span class="name-span">Soda Pop Shoppe<sup>&reg;</sup> Flavors</span></div>
+                                        Soda Pop Shoppe<sup>&reg;</sup> Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/223#flavor-List" aria-label="Snapple&trade; Flavors">
-                                        <div class="namespan-container"><span class="name-span">Snapple<sup>&trade;</sup> Flavors</span></div>
+                                        Snapple<sup>&trade;</sup> Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/157#flavor-List" aria-label="Cold St&reg;">
-                                        <div class="namespan-container"><span class="name-span">Cold Stone<sup>&reg;</sup></span></div>
+                                        Cold Stone<sup>&reg;</sup>
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/471#flavor-List" aria-label="Superfruit">
-                                        <div class="namespan-container"><span class="name-span">Superfruit</span></div>
+                                        Superfruit
                                     </a>
                                 </li>                              
                                 <li class="micromenu-item">
                                     <a href="/c/336#flavor-List" aria-label="Sport Beans&reg; Flavors">
-                                        <div class="namespan-container"><span class="name-span">Sport Beans<sup>&reg;</sup> Flavors</span></div>
+                                        Sport Beans<sup>&reg;</sup> Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/228#flavor-List" aria-label="Cocktail Classi&reg;">
-                                        <div class="namespan-container"><span class="name-span">Cocktail Classics<sup>&reg;</sup></span></div>
+                                        Cocktail Classics<sup>&reg;</sup>
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/472#flavor-List" aria-label="Sour Flavors">
-                                        <div class="namespan-container"><span class="name-span">Sour Flavors</span></div>
+                                        Sour Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/338#flavor-List" aria-label="Jelly Belly Sugar-Free Flavors">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Sugar-Free Flavors</span></div>
+                                        Jelly Belly Sugar-Free Flavors
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/c/633#flavor-List" aria-label="Harry Potter&trade; Bertie Bott's">
-                                        <div class="namespan-container"><span class="name-span">Harry Potter<sup>&trade;</sup> Bertie Bott's</span></div>
+                                        Harry Potter<sup>&trade;</sup> Bertie Bott's
                                     </a>
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/c/297#flavor-List" aria-label="Tropical Mix">
-                                        <div class="namespan-container"><span class="name-span">Tropical Mix</span></div>
+                                        Tropical Mix
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-inner40">
                             <ul class="micromenu-cointainer">
-                                <li>
-                                    <div class="sub-heading-right">
-                                        <span class="name-span">Fun with Jelly Belly</span>
-                                    </div>
+                                <li class="mobileclicksubmenu menuHeading" role="menu" aria-label="View Fun with Jelly Belly Popover" tabindex="0">
+                                    Fun with Jelly Belly
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/california-factory-tours#How it's Made" aria-label="See How Its Made">
-                                        <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                        See How It's Made
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/birthday-party-ideas" aria-label="Birthday Ideas">
-                                        <div class="namespan-container"><span class="name-span">Birthday Ideas</span></div>
+                                        Birthday Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/halloween-recipes-and-party-ideas" aria-label="Halloween Ideas">
-                                        <div class="namespan-container"><span class="name-span">Halloween Ideas</span></div>
+                                        Halloween Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/christmas-and-holiday-ideas" aria-label="Christmas & Holiday Ideas">
-                                        <div class="namespan-container"><span class="name-span">Christmas & Holiday Ideas</span></div>
+                                        Christmas & Holiday Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/valentines-day-recipes-and-party-ideas" aria-label="Valentine's Day Ideas">
-                                        <div class="namespan-container"><span class="name-span">Valentine's Day Ideas</span></div>
+                                        Valentine's Day Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/spring-and-easter-ideas" aria-label="Easter & Spring Ideas">
-                                        <div class="namespan-container"><span class="name-span">Easter & Spring Ideas</span></div>
+                                        Easter & Spring Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/wedding-center" aria-label="Wedding Center">
-                                        <div class="namespan-container"><span class="name-span">Wedding Center</span></div>
+                                        Wedding Center
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/recipes-and-diy" aria-label="Recipes & DIY Ideas">
-                                        <div class="namespan-container"><span class="name-span">Recipes & DIY Ideas</span></div>
+                                        Recipes & DIY Ideas
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/ArtGallery" aria-label="Bean Art Gallery">
-                                        <div class="namespan-container"><span class="name-span">Bean Art Gallery</span></div>
+                                        Bean Art Gallery
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/coloring-pages" aria-label="Coloring Pages">
-                                        <div class="namespan-container"><span class="name-span">Coloring Pages</span></div>
+                                        Coloring Pages
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/fun-facts" aria-label="Jelly Belly Fun Facts">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Fun Facts</span></div>
+                                        Jelly Belly Fun Facts
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/downloads" aria-label="Apps & Screensavers">
-                                        <div class="namespan-container"><span class="name-span">Apps & Screensavers</span></div>
+                                        Apps & Screensavers
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/jelly-belly-bean-recipes" aria-label="Jelly Bean Recipes">
-                                        <div class="namespan-container"><span class="name-span">Jelly Bean Recipes</span></div>
+                                        Jelly Bean Recipes
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-inner20">
                             <ul class="micromenu-cointainer">
-                                <li>
-                                    <div class="sub-heading-right">
-                                        <span class="name-span">Sponsorship</span>
-                                    </div>
+                                <li class="mobileclicksubmenu menuHeading" role="menu" aria-label="View Sponsorship Popover" tabindex="0">
+                                    Sponsorship
                                 </li>
                                 <li class="micromenu-item"> 
                                     <a href="/rivercats" aria-label="Sacramento River Cats">
-                                        <div class="namespan-container"><span class="name-span">Sacramento River Cats</span></div>
+                                        Sacramento River Cats
                                     </a>
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/sportsSponsorships" aria-label="Drivers & Pilots">
-                                        <div class="namespan-container"><span class="name-span">Drivers & Pilots</span></div>
+                                        Drivers & Pilots
                                     </a>
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/event-calendar" aria-label="Event Calendars">
-                                        <div class="namespan-container"><span class="name-span">Event Calendars</span></div>
+                                        Event Calendars
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/jelly-belly-fleet" aria-label="Jelly Belly Fleet">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Fleet</span></div>
+                                        Jelly Belly Fleet
                                     </a>
                                 </li> 
                             </ul>
                         </div>
+                        <div class="commonnavWidget">
+                            <div class="left50">
+                                <ul>
+                                    <li>See How It's Made</li>
+                                    <li>Bargain Outlet</li>
+                                    <li>Gift Cards</li>
+                                    <li>Personalised Containers</li>
+                                </ul>
+                            </div>
+                            <div class="right50">
+                                <div class="sweetrewardstextcontent">
+                                    <img src="../../resources/images/footer_one.png" />
+                                    <p class="sweet-head" tabindex="0" role="content-info">jelly belly sweet Rewards</p>
+                                    <p class="sweet-text" tabindex="0" role="content-info">Join our rewards program today and start earning points right away!</p>
+                                    <a href="/jelly-belly-sweet-rewards" class="sweet-anchor">Learn More</a>
+                                </div>
+                            </div>
+                            <div class="fixedmenuclose">
+                                <span class="close-menu-icon" tabindex="0" role="button" aria-label="close menu">
+                                    <img class="new-lazy-load" src="/../resources/images/close_menu_icon.png" alt="close-icon">
+                                </span>
+                                <span class="menu-icon-here">
+                                    <img class="new-lazy-load" src="/../resources/images/logo.png" alt="Jelly Belly Jelly Beans">
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </li>
-                <li class="head-list-item-li-new store-branding jelly-belly-logo" attr-menuname="store-branding" data-attr="store-branding">
-                    {% block store-branding %} 
-                        {% include "modules/page-header/store-branding" %} 
-                    {% endblock store-branding %} 
+                <li class="head-list-item-li-new store-branding jelly-belly-logo" attr-menuname="store-branding" data-attr="store-branding" tabindex="-1">
+                    
                 </li>
                 <li class="head-list-item-li-new">
-                    <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item-new mz-sitenav-link-new visitus" aria-expanded="false" aria-label="Visit Us">Visit Us</a>
+                    <a tabindex="0" attr-menuname="megamenu_3" class="head-list-item-new mz-sitenav-link-new visitus" role="menu" aria-expanded="false" aria-label="Click/Enter to view Visit Us">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="46" viewBox="0 0 36 46">
+                            <defs>
+                                <path id="9z664crwia" d="M0 0L36 0 36 46 0 46z"/>
+                            </defs>
+                            <g fill="none" fill-rule="evenodd">
+                                <g>
+                                    <g>
+                                        <g transform="translate(-404 -469) translate(96 451) translate(308 18)">
+                                            <mask id="z3b5s7ftbb" fill="#fff">
+                                                <use xlink:href="#9z664crwia"/>
+                                            </mask>
+                                            <path fill="#004e99" d="M17.646 28.477c-4.756 0-8.614-5.285-8.614-9.858 0-4.572 3.858-9.857 8.614-9.857 4.758 0 8.613 5.285 8.613 9.857 0 4.573-3.855 9.858-8.613 9.858M17.999 0C8.06 0 0 7.747 0 17.3c0 .403.026.828.066 1.262.075 1.007.243 1.988.49 2.94C2.91 31.56 12.24 46 18 46c5.04 0 14.203-13.337 17.097-23.304.455-1.334.738-2.743.842-4.2.037-.41.062-.812.062-1.196C36 7.747 27.942 0 18 0"/>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <span>Visit Us</span>
+                    </a>
                     <div class="submenuContainer" id="visitus">
-                        <div class="col-inner40">
+                        <div class="col-inner25">
                             <ul class="micromenu-cointainer">
-                                <li>
-                                    <div class="sub-heading-right">
-                                        <span class="name-span">California Visitors Center</span>
-                                    </div>
+                                <li class="mobileclicksubmenu menuHeading" role="menu" aria-label="View California Visitors Center Popover" tabindex="0">
+                                    California Visitors Center
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/wine-experience" aria-label="Chocolate & Wine Experience">
-                                        <div class="namespan-container"><span class="name-span">Chocolate & Wine Experience</span></div>
+                                        Chocolate & Wine Experience
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/california-factory-store" aria-label="Jelly Belly Candy Store">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Candy Store</span></div>
+                                        Jelly Belly Candy Store
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/California-Factory-Cafe" aria-label="Jelly Belly Cafe">
-                                        <div class="namespan-container"><span class="name-span">Jelly Belly Cafe</span></div>
+                                        Jelly Belly Cafe
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/California-Factory-Chocolate-Shoppe" original-al="Chocolate Shoppe">
-                                        <div class="namespan-container"><span class="name-span">Chocolate Shoppe</span></div>
+                                        Chocolate Shoppe
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/California-Factory-Conference-Space" original-al="Conference Space">
-                                        <div class="namespan-container"><span class="name-span">Conference Space</span></div>
+                                        Conference Space
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/California-Factory-Events" original-al="Event/Operating Calendar">
-                                        <div class="namespan-container"><span class="name-span">Event/Operating Calendar</span></div>
+                                        Event/Operating Calendar
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="http://goo.gl/maps/I3P2N" target="_blank" original-al="Directions">
-                                        <div class="namespan-container"><span class="name-span">Directions</span></div>
+                                        Directions
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/california-factory-tours#How it's Made" original-al="See How Its Made">
-                                        <div class="namespan-container"><span class="name-span">See How It's Made</span></div>
+                                        See How It's Made
                                     </a>
                                 </li>
                             </ul>
                         </div> 
-                        <div class="col-inner40">
+                        <div class="col-inner25">
                             <ul class="micromenu-cointainer">
-                                <li>
+                                <li class="mobileclicksubmenu menuHeading" role="menu" aria-label="View Company Retail Stores Popover"  tabindex="0">
                                     <div class="sub-heading-right">
                                         <span class="name-span">Company Retail Stores</span>
                                     </div>
                                 </li> 
                                 <li class="micromenu-item">
                                     <a href="/retail-store#nuttree" original-al="Nut Tree Market Pavilion (CA)">
-                                        <div class="namespan-container"><span class="name-span">Nut Tree Market Pavilion (CA)</span></div>
+                                        Nut Tree Market Pavilion (CA)
                                     </a>
                                 </li>
                                 <li class="micromenu-item">
                                     <a href="/california-factory-store" original-al="California Visitors Center Store">
-                                        <div class="namespan-container"><span class="name-span">California Visitors Center Store</span></div>
+                                        California Visitors Center Store
                                     </a>
                                 </li>
                             </ul>
-                        </div>                         
+                        </div>
+
+                        <div class="col-right-30">
+                            <div class="banner">
+                                <div style="text-align: center;">
+                                    <a href="https://www.jellybelly.com/fairfield-visitors-center">
+                                    <img class="imga" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/FF-tour-archway.jpg" alt="Fairfield Visitors Center"></a>
+                                    <p style="padding: 10px 20px 10px 20px; border:0px !important; border-radius:0px !important; display: block"><a href="https://www.jellybelly.com/fairfield-visitors-center" style="text-decoration: underline"><b>Fairfield Visitor Center and Tour Update</b></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="commonnavWidget">
+                            <div class="left50">
+                                <ul>
+                                    <li>See How It's Made</li>
+                                    <li>Bargain Outlet</li>
+                                    <li>Gift Cards</li>
+                                    <li>Personalised Containers</li>
+                                </ul>
+                            </div>
+                            <div class="right50">
+                                <div class="sweetrewardstextcontent">
+                                    <img src="../../resources/images/footer_one.png" />
+                                    <p class="sweet-head" tabindex="0" role="content-info">jelly belly sweet Rewards</p>
+                                    <p class="sweet-text" tabindex="0" role="content-info">Join our rewards program today and start earning points right away!</p>
+                                    <a href="/jelly-belly-sweet-rewards" class="sweet-anchor">Learn More</a>
+                                </div>
+                            </div>
+                            <div class="fixedmenuclose">
+                                
+                                <span class="close-menu-icon" tabindex="0" role="button" aria-label="close menu">
+                                    <img class="new-lazy-load" src="/../resources/images/close_menu_icon.png" alt="close-icon">
+                                </span>
+                                <span class="menu-icon-here">
+                                    <img class="new-lazy-load" src="/../resources/images/logo.png" alt="Jelly Belly Jelly Beans">
+                                </span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </li>  
-                <li class="head-list-item-li-new">
-                    <a attr-menuname="store-locator" class="head-list-item-new mz-sitenav-link-new store-locator {% if pagecontext.cmsContext.page.path == 'store-locator' %}active{% endif %}" href="/store-locator" aria-expanded="false" aria-label="Store Locator">Store Locator</a>
+                <li class="head-list-item-li-new {% if pagecontext.cmsContext.page.path == 'store-locator' %}activemenuclick{% endif %}">
+                    <a attr-menuname="store-locator" class="head-list-item-new mz-sitenav-link-new store-locator" href="/store-locator" aria-expanded="false" aria-label="Store Locator">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="44" viewBox="0 0 54 44">
+                                    <defs>
+                                        <path id="myg0otz2fa" d="M0 0L54 0 54 44 0 44z"/>
+                                    </defs>
+                                    <g fill="none" fill-rule="evenodd">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <g transform="translate(-519 -471) translate(96 451) translate(385 20) translate(38)">
+                                                        <mask id="hjsbix9wab" fill="#fff">
+                                                            <use xlink:href="#myg0otz2fa"/>
+                                                        </mask>
+                                                        <path fill="#004e99" d="M29.623 36.483h12.223v-8.964H29.623v8.964zm-15.47 0h12.223v-8.964H14.153v8.964zm33.604-.42v-12.54c-.156.009-.305.047-.464.047-2.687 0-5.017-1.432-6.393-3.57h-.361c-1.377 2.138-3.709 3.57-6.393 3.57-2.685 0-5.014-1.432-6.39-3.57h-.394c-1.375 2.138-3.705 3.57-6.39 3.57-2.685 0-5.017-1.432-6.392-3.57h-.362c-1.304 2.025-3.469 3.402-5.975 3.541v12.522H7.87C5.741 36.063 4 37.85 4 40.032 4 42.214 5.742 44 7.871 44h40.258C50.259 44 52 42.214 52 40.032c0-2.183-1.742-3.969-3.871-3.969h-.372z" mask="url(#hjsbix9wab)"/>
+                                                        <path fill="#004e99" d="M53.889 13.044c-.06-.317-.157-.62-.27-.918-.099-.258-.212-.505-.346-.745L45.14 1.414S43.91 0 40.243 0H13.757C10.088 0 8.86 1.414 8.86 1.414L.725 11.38c-.132.24-.247.487-.346.745-.111.297-.21.601-.27.918-.069.332-.109.672-.109 1.024l.048.456c.12 1.435.767 2.73 1.798 3.698C3.01 19.32 4.628 20 6.42 20c1.794 0 3.412-.681 4.578-1.778.573-.535 1.479-1.374 2.359-1.374.954 0 1.799.902 2.38 1.516C16.886 19.37 18.423 20 20.13 20c1.794 0 3.412-.681 4.576-1.778h.023c.576-.547 1.377-1.495 2.27-1.495.891 0 1.694.948 2.269 1.495h.022C30.457 19.32 32.075 20 33.87 20c1.706 0 3.243-.63 4.393-1.636.581-.614 1.426-1.516 2.378-1.516.882 0 1.786.84 2.361 1.374C44.167 19.32 45.783 20 47.577 20c1.794 0 3.412-.681 4.577-1.778 1.029-.967 1.676-2.263 1.798-3.698l.048-.456c0-.352-.042-.692-.111-1.024" mask="url(#hjsbix9wab)"/>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                        <span>Store Locator</span>
+                    </a>
+                </li> 
+                <li class="head-list-item-li-new mobilemyaccount {% if pageContext.pageType == 'my_account' %}activemenuclick{% endif %}" attr-menuname="myAccount" data-attr="myAccount">
+                    <a href="/myaccount" aria-expanded="false" aria-label="myAccount" class="head-list-item-new mz-sitenav-link-new" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="46" viewBox="0 0 43 46">
+                            <g fill="none" fill-rule="evenodd">
+                                <g fill="#5C5C5C">
+                                    <g>
+                                        <g>
+                                            <g>
+                                                <path fill="#004e99" d="M35.703 25.844s-4.45-2.848-8.054-1.614c-3.603 1.235-6.306 1.38-6.306 1.38h-.687s-2.702-.145-6.307-1.38c-3.604-1.234-8.051 1.614-8.051 1.614S-.63 30.377.047 39.501c.64 8.665 41.264 8.665 41.907 0 .675-9.124-6.251-13.657-6.251-13.657M32 11c0 6.074-4.926 11-11 11-6.076 0-11-4.926-11-11 0-6.076 4.924-11 11-11 6.074 0 11 4.924 11 11" transform="translate(-655 -471) translate(96 451) translate(540 20) translate(19.5)"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <span>Account</span>
+                    </a>
                 </li> 
             {% endpartial_cache %}     
         </ul> 
