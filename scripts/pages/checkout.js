@@ -304,23 +304,55 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             
             
-            if(window.flag ){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').addClass('is-new');
+            if(window.flag){
+               // if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
+                    if( window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                        $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').addClass('is-complete');
+                        $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                    }else{
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                        $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                    }
+                // }else{
+                //     $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                //         $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                //         $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
+                //         $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                // }
+               
             } 
             
             if(window.flag && (window.location.href).split('?')[1] == 'cl=ml'){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                    if(window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                        $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                        $('.mz-checkoutform-paymentinfo').addClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                    }
+                    else{
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                        $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                    }
+               
             }
             else if(window.flag && (window.location.href).split('?')[1] == 'cl=returningUser'){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-complete');
-                $('html, body').animate({
-                     scrollTop: $("#step-payment-info").offset().top
-                 }, 500);
+                    if( window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                        $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').addClass('is-complete');
+                        $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                    }else{
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                        $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                        $('html, body').animate({
+                        scrollTop: $("#step-payment-info").offset().top
+                        }, 500);
+                    }
+                
             }
             /*if(window.paymentTypeFlag) {
                 $('.inpit-select').focus();
@@ -379,21 +411,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             }
             
             EditableView.prototype.render.apply(this, arguments);
-             // To make the paypal success to come to checkout page
-             if($(document).find('.mz-formstep.mz-checkoutform-paymentinfo').hasClass('is-complete')){
-                if( window.paymentinfo.model.get('paymentType') !== "PayPalExpress2" && window.paymentinfo.model.get('paymentWorkflow') !== "PayPalExpress2"){
-                    if(window.paymentinfo.model.get('paymentType')=="CreditCard" && window.paymentinfo.model.get('card').get('cvv')!==undefined){
-                        $(document).find('.mz-formstep.mz-checkoutform-review').find('.mz-formstep-next').find('.brontocart-place-order.mz-button').click();
-                    }
-                }
-                else if(!paypalFlowComplete){
-                    setTimeout(function(){
-                        //$(document).find('.mz-shipmethod') && $(document).find('.mz-shipmethod').click();
-                        $(document).find('.mz-shipmethod').click();
-                        paypalFlowComplete = true;
-                    },2000);
-                } 
-            }
             if($('.error-msg').html() !== ''){
                 if(self.model){
                      $('.digitalcrediterror-msg').hide();

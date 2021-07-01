@@ -113,9 +113,11 @@
     {{ "/stylesheets/modules/zinrelo-modal.less"|stylesheet_tag:"defualt" }}
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path != "main" %}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
+      {{ "/stylesheets/new/cart.less"|stylesheet_tag:"default" }} 
     {% endif %}
     {% if pagecontext.pageType == "webpage" and pagecontext.cmsContext.page.path != "main" and pagecontext.cmsContext.page.path != "search-results" %}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
+       {% comment %} {{ "/stylesheets/new/new_webpage.less"|stylesheet_tag:"default" }} {% endcomment %}
     {% endif %}
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "search-results" %}
       {{ "/stylesheets/new/search.less"|stylesheet_tag:"default" }}
@@ -152,6 +154,7 @@
     {% endif %}
     {% if pagecontext.cmsContext.template.path == "login" or pagecontext.cmsContext.template.path == "forgot-password" or pagecontext.cmsContext.template.path == "signup"  or pagecontext.cmsContext.template.path =="Reset-Password"%}
       {{ "/stylesheets/new/web_page.less"|stylesheet_tag:"default" }}
+       {{ "/stylesheets/new/new_webpage.less"|stylesheet_tag:"default" }}
     {% endif %}
     {% if pagecontext.pageType == "web_page" and pagecontext.cmsContext.page.path == "main"%}
       {{ "/stylesheets/pages/pageisMobile.less"|stylesheet_tag:"default" }}
