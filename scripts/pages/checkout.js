@@ -329,8 +329,8 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             if(window.flag && (window.location.href).split('?')[1] == 'cl=ml'){
                     if(window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
                         $('.mz-checkoutform-shippingmethod').addClass('is-complete');
-                        $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
-                        $('.mz-checkoutform-paymentinfo').addClass('is-incomplete');
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                        $('.mz-checkoutform-paymentinfo').addClass('is-complete');
                         $('.mz-checkoutform-paymentinfo').removeClass('is-new');
                     }
                     else{
