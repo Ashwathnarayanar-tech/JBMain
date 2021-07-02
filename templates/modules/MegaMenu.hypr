@@ -3,7 +3,7 @@
         <ul class="nav-list-head-cointainer">
             {% partial_cache %}
                 <li class="head-list-item-li-new">
-                    <a role="menu" aria-label="Click/Enter to view Products Menu" tabindex="0" attr-menuname="megamenu_1" class="head-list-item-new mz-sitenav-link-new view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">
+                    <a role="menu" aria-label="Click/Enter to view Products" tabindex="0" attr-menuname="megamenu_1" class="head-list-item-new mz-sitenav-link-new view-products" aria-expanded="false" aria-label="View Products"  data-attr="view-products">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 50 40">
                             <g fill="none" fill-rule="evenodd">
                                 <g fill="#004e99">
@@ -25,7 +25,7 @@
                         <div class="col-menu60">
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Jelly Belly Jelly Beans Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to view Jelly Belly Jelly Beans" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/41354165-b846-46dc-a7c1-134665c882fb" width="62" height="31" alt="Jelly Belly Jelly Beans"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Jelly Belly Jelly Beans</span>
@@ -69,7 +69,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View BeanBoozled Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to view BeanBoozled" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/90bfd33f-a599-4eef-b4c3-83bfc0be57b6" width="62" height="31" alt="BeanBoozled"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">BeanBoozled</span>
@@ -88,7 +88,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View BeanBoozled Fiery Five Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View BeanBoozled Fiery Five" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8a7ff24e-e9bf-47fc-ae51-41b011b26915" width="62" height="31" alt="BeanBoozled Fiery Five"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">BeanBoozled Fiery Five</span>
@@ -97,7 +97,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Soda Pop Shoppe Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Soda Pop Shoppe" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/295a81ba-bc34-4b9b-a938-b73de71153d9" width="62" height="31" alt="Soda Pop Shoppe"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Soda Pop Shoppe</span>
@@ -106,7 +106,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Cold Stone Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Cold Stone" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/968be0d9-23af-49ec-ac28-b40b00b86b34" width="62" height="31" alt="Cold Stone"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Cold Stone</span>
@@ -115,7 +115,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View DC Heroes Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View DC Heroes" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="/resources/images/icons/coming_soon.png" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/56a3a9b2-8e6e-4e6a-acbe-f68853bde0ee" width="62" height="31" alt="DC Heroes"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">DC Heroes</span>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Gourmet Candy & Confections Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Gourmet Candy & Confections" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/7d16ec7f-b996-44e4-9a13-e4b9df3b7746" width="62" height="31" alt="Gourmet Candy & Confections"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Gourmet Candy & Confections</span>
@@ -180,7 +180,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Sport Beans Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Sport Beans" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/1d191c5e-5369-440d-879c-765598d011f3" width="62" height="31" alt="Sport Beans"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Sport Beans</span>
@@ -199,7 +199,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Belly Flops Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Belly Flops" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/b8a2dc78-120c-4690-9aa4-e7b6ee053c4b" width="62" height="31" alt="Belly Flops"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Belly Flops</span>
@@ -208,7 +208,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Sugar-Free Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Sugar-Free" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/06188bfc-fd6d-4f29-a026-4f17f2c4de4f" width="62" height="31" alt="Sugar-Free"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Sugar-Free</span>
@@ -217,7 +217,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Star Wars Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Star Wars" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/03c03ca1-ad17-453f-be5a-d5d84e467739" width="62" height="31" alt="Star Wars"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Star Wars</span>
@@ -228,7 +228,7 @@
                             </div>
                             <div class="col-inner33_33">
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="mobileclicksubmenu" aria-label="View Harry Potter Popover" tabindex="0">
+                                    <li role="menu" class="mobileclicksubmenu" aria-label="Click/Enter to View Harry Potter" tabindex="0">
                                         <div class="img-container sub-heading-left"><img class="new-lazy-load" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f5ed927b-32eb-40c3-ae85-a60102e0efbc" width="62" height="31" alt="Harry Potter"></div>
                                         <div class="sub-heading-right">
                                             <span class="name-span">Harry Potter</span>
@@ -327,7 +327,7 @@
                         <div class="col-menu40">
                             <div class="col-inner40">
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Flavor Popover" tabindex="0">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="Click/Enter to View Flavor" tabindex="0">
                                         Flavor
                                     </li>
                                     <li class="micromenu-item">
@@ -392,7 +392,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Merchandise Popover" tabindex="0">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="Click/Enter to View Merchandise" tabindex="0">
                                         Merchandise
                                     </li>
                                     <li class="micromenu-item">
@@ -412,7 +412,7 @@
                                     </li>
                                 </ul>
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Holiday Popover" tabindex="0">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="Click/Enter to View Holiday" tabindex="0">
                                         Holiday
                                     </li>
                                     <li class="micromenu-item">
@@ -454,7 +454,7 @@
                             </div>
                             <div class="col-inner60">
                                 <ul class="micromenu-cointainer">
-                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Weight Popover" tabindex="0">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="Click/Enter to View Weight" tabindex="0">
                                         Weight
                                     </li>
                                     <li class="micromenu-item">
@@ -499,7 +499,7 @@
                                     </li>
                                 </ul>  
                                 <ul class="color micromenu-cointainer">
-                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="View Color Popover" tabindex="0">
+                                    <li role="menu" class="menuHeading mobileclicksubmenu" aria-label="Click/Enter to View Color" tabindex="0">
                                         Color
                                     </li>
                                     <li class="micromenu-item">
@@ -580,10 +580,21 @@
                         <div class="commonnavWidget">
                             <div class="left50">
                                 <ul>
-                                    <li>See How It's Made</li>
-                                    <li>Bargain Outlet</li>
-                                    <li>Gift Cards</li>
-                                    <li>Personalised Containers</li>
+                                    <li><a href="/california-factory-tours#How it's Made" original-al="See How Its Made">See How It's Made</a></li>
+                                    <li>
+                                        <a href="/jelly-belly-bargain-outlet/c/5" original-al="Bargain Outlet">
+                                            Bargain Outlet
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-cards/c/352" original-al="Gift Cards">
+                                            Gift Cards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/myjellybelly" original-al="Personalized Containers">Personalized Containers
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="right50">
@@ -607,7 +618,7 @@
                 </li>
 
                 <li class="head-list-item-li-new">
-                    <a tabindex="0" role="menu" attr-menuname="megamenu_2" class="head-list-item-new mz-sitenav-link-new flavorsandmore" aria-expanded="false" aria-label="Click/Enter to view Flavors and More Menu">
+                    <a tabindex="0" role="menu" attr-menuname="megamenu_2" class="head-list-item-new mz-sitenav-link-new flavorsandmore" aria-expanded="false" aria-label="Click/Enter to view Flavors and More">
                         <svg xmlns="http://www.w3.org/2000/svg" width="73" height="45" viewBox="0 0 73 45">
                                     <g fill="none" fill-rule="evenodd">
                                         <g fill-rule="nonzero">
@@ -832,10 +843,21 @@
                         <div class="commonnavWidget">
                             <div class="left50">
                                 <ul>
-                                    <li>See How It's Made</li>
-                                    <li>Bargain Outlet</li>
-                                    <li>Gift Cards</li>
-                                    <li>Personalised Containers</li>
+                                    <li><a href="/california-factory-tours#How it's Made" original-al="See How Its Made">See How It's Made</a></li>
+                                    <li>
+                                        <a href="/jelly-belly-bargain-outlet/c/5" original-al="Bargain Outlet">
+                                            Bargain Outlet
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-cards/c/352" original-al="Gift Cards">
+                                            Gift Cards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/myjellybelly" original-al="Personalized Containers">Personalized Containers
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="right50">
@@ -961,10 +983,21 @@
                         <div class="commonnavWidget">
                             <div class="left50">
                                 <ul>
-                                    <li>See How It's Made</li>
-                                    <li>Bargain Outlet</li>
-                                    <li>Gift Cards</li>
-                                    <li>Personalised Containers</li>
+                                    <li><a href="/california-factory-tours#How it's Made" original-al="See How Its Made">See How It's Made</a></li>
+                                    <li>
+                                        <a href="/jelly-belly-bargain-outlet/c/5" original-al="Bargain Outlet">
+                                            Bargain Outlet
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/gift-cards/c/352" original-al="Gift Cards">
+                                            Gift Cards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/myjellybelly" original-al="Personalized Containers">Personalized Containers
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="right50">

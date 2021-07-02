@@ -384,6 +384,7 @@ define(['modules/jquery-mozu',
         
             $(".head-list-item-li-new").on("click",function(e){
                 if($(window).width() <= 767){
+                    e.stopPropagation();
                     if($(this).hasClass("menuactivelinks")) {
                        $(".head-list-item-li-new").removeClass("menuactivelinks"); 
                     } else {
@@ -399,7 +400,9 @@ define(['modules/jquery-mozu',
                 }
             });
             $(".head-list-item-li-new .micromenu-cointainer li.mobileclicksubmenu").on("click",function(e){
+                
                 if($(window).width() <= 767){
+                    e.stopPropagation();
                     if($(this).closest("ul").hasClass("mobilesubmenuactive")) {
                         $(".head-list-item-li-new .micromenu-cointainer").removeClass("mobilesubmenuactive");
                     } else {
