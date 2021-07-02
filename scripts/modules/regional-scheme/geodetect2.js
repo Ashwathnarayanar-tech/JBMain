@@ -17,8 +17,8 @@ define(["modules/jquery-mozu", "modules/api", "hyprlive", 'hyprlivecontext'], fu
           path: '/'
         });
         if (temp.indexOf(detected_country) == -1) {
-          var destination = getCountryDestination(detected_country);
-          location.href = destination.url;
+         // var destination = getCountryDestination(detected_country);
+         // location.href = destination.url;
         }
       });
     }
