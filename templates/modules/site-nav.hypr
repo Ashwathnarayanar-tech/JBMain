@@ -135,7 +135,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -200,7 +200,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -230,7 +230,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
 									<div class="subitem">
@@ -250,7 +250,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem"> 
@@ -270,7 +270,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +292,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -322,7 +322,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -352,7 +352,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -382,7 +382,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>   
                                     </div>  
                                 </div>
@@ -404,7 +404,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>   
                                     </div>
                                     <div class="subitem">
@@ -424,7 +424,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>
                                     <div class="subitem">
@@ -444,7 +444,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>
                                     <div class="subitem">
@@ -479,7 +479,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>                              
                                 </div>  
@@ -516,7 +516,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>-->
                                    <!-- <div class="subitem">
@@ -536,7 +536,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>     
                                     </div>-->
                                     {% comment %}
@@ -577,7 +577,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>--> 
                                     {% endcomment %}
@@ -598,7 +598,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>-->                             
                                 </div>                           
@@ -1645,7 +1645,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1711,7 +1711,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1742,7 +1742,7 @@
                                                         Shop All
                                                     </a> 
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
 									<div class="subitem">
@@ -1762,7 +1762,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem"> 
@@ -1783,7 +1783,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1804,7 +1804,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1835,7 +1835,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1866,7 +1866,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="subitem">
@@ -1897,7 +1897,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>   
                                     </div>
                                     <div class="subitem">
@@ -1918,7 +1918,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>   
                                     </div>
                                     <div class="subitem">
@@ -1939,7 +1939,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>
                                     <div class="subitem">
@@ -1960,7 +1960,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>
                                     <div class="subitem">
@@ -1996,7 +1996,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>
                                     <!--<div class="subitem">
@@ -2032,7 +2032,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>  
                                     </div>-->
                                     <!--<div class="subitem">
@@ -2053,7 +2053,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>     
                                     </div>-->
                                     {% comment %}
@@ -2095,7 +2095,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>--> 
                                     {% endcomment %}
@@ -2117,7 +2117,7 @@
                                                         Shop All
                                                     </a>
                                                 </li>
-                                            </ui>
+                                            </ul>
                                         </div>      
                                     </div>-->  
                                     <div class="subitem back-to-menu">
