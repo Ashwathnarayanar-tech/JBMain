@@ -1,13 +1,23 @@
 ﻿.mz-breadcrumbs {
     .mz-breadcrumb-link {
-        .permalink(#999);
+    color: #999;
+        text-decoration: none;
+
+        &:visited, &:focus, &:active {
+            color: #999;
+        }
+
+        &:hover, &:focus, &:active {
+            text-decoration: underline;
+        }
     }
     .mz-breadcrumb-current {
         color: #5c5c5c;
     }   
     .mz-breadcrumb-separator {
         display: inline-block;
-        font-size: @fontSizeSmall;
+        font-size: 12px;
+        
         margin: 0 2px;
     }
 }

@@ -255,7 +255,7 @@ define(["modules/jquery-mozu",
                 }
             });
         },
-        addToWishlist: function() {
+        addToWishlist: function(e) {
             var me = this;
             this.whenReady(function() {
                 if (!me.validate()) {

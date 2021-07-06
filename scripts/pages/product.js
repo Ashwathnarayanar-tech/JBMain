@@ -14,7 +14,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             "change [data-mz-product-option]": "onOptionChange",
             "blur [data-mz-product-option]": "onOptionChange",
             "click .more-info":"scrollToProductDetails",
-            "click .sweet-rewards-pdp":"sweetRewards"
+            "click .sweet-rewards-pdp":"sweetRewards",
+            "click .mz-productdetail-addtowishlist" : "addToWishlist"
         },
         qtyPlus: function(e,cqty){
             var me = this,qty;
@@ -54,7 +55,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 var list = $('.accordian-list'),len = ($(list[0].children).length-1);
                 $(list[0].children).removeClass('active');
                 $(list[0].children).attr("aria-expanded", "false");
-                $(list[0].children).find('ul').hide();
+                $(list[0].children).find('.accordian-content').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-plus').show();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-minus').hide(); 
+                
                 $(list[0].children[0]).addClass('active');
                 $(list[0].children[0]).attr("aria-expanded", "true");
                 if($(list[0].children[0]).hasClass('active')){
@@ -62,13 +66,13 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     $('html, body').animate({ 
                          scrollTop : $(".accordian-prod-mobile").offset().top-150 
                     }, 500);
-                    $(list[0].children[0]).find('ul').slideDown();
+                    $(list[0].children[0]).find('.accordian-content').slideDown();
                     $(list[0].children[0]).find('h2').find('.new-icon-images').find('.new-icon-plus').hide();
                     $(list[0].children[0]).find('h2').find('.new-icon-images').find('.new-icon-minus').show();
                 }
                 else{
                     e.preventDefault();
-                    $(list[0].children[0]).find('ul').slideUp();
+                    $(list[0].children[0]).find('.accordian-content').slideUp();
                 }
             }
             $('span[attr-data="ProductInfo"]').focus();
@@ -86,6 +90,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             var me = this;  
             this.model.attributes.savePrice = this.model.attributes.price.attributes.price - this.model.attributes.price.attributes.salePrice;
             Backbone.MozuView.prototype.render.apply(this);
+            me.displayFresshipingSection(); 
+            if($('#add-to-wishlist').text() === Hypr.getLabel('addedToWishlist')){
+                $('#add-to-wishlist').text(Hypr.getLabel('addedToWishlist')).removeClass('add-to-wishlist').addClass('added-to-wishlist');
+            }
             if(window.wishlistFlag){
                 $(document).find('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist')).attr('aria-label',Hypr.getLabel('addedToWishlist'));
                 $(document).find('#add-to-wishlist').css('cursor','not-allowed');
@@ -227,14 +235,60 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             }
+            var ax = $(document).find('#add-to-cart-scroll');
+            if(newValue != "Select Gift Card Amount"){
+                ax.text("Add to Cart");
+                ax.removeClass('gift-prize-select');
+                ax.removeAttr("disabled");
+                ax.removeClass("is-disabled");
+                ax.attr("data-mz-action","addToCart");
+                ax.attr("data-jb-price",newValue);
+                $(".scroll-section .mz-productoptions-option.myacc-add-form-sel").val(newValue);
+            }else{ 
+                ax.addClass('gift-prize-select');
+                ax.text("Shop Gift Card");
+                $(".scroll-section .mz-productoptions-option.myacc-add-form-sel").val(newValue);
+            }
         },
-        addToCart: function () {
+        addToCart: function (e) {
+            var productCode=this.model.get('productCode'),self=this;
+            var count=this.model.get('quantity');
             window.showGlobalOverlay();
-            this.model.addToCart();
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                         //alert('Maximum quantity that can be purchased is 25');
+                         $('.maximumProduct').show();
+                         $('.maximum-inner-content').focus();
+                         $(e.currentTarget).addClass('maximum-close');
+                         loopInMax(e);
+                         return false;
+                     }else{
+                        self.model.addToCart();
+                        return false;
+                     }
+                 }else{
+                    self.model.addToCart();
+                     return false;
+                     
+                 }
+            });         
+            
         },
-        /*addToWishlist: function () {
-            this.model.addToWishlist();
-        },*/
+        addToWishlist: function (e) {
+       
+            this.model.addToWishlist(e);
+        },
         checkLocalStores: function (e) { 
             var me = this;
             e.preventDefault();
@@ -422,6 +476,17 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 }
             });
+        },
+        displayFresshipingSection:function(){
+            if(this.hasNoFreeShipping()) {
+                $('.free-shipping-text').empty();
+                $('.free-shipping-text').append('<b><span>Sorry, the price of this product does not count toward the Free Shipping threshold.</span></b>');
+            } else {
+                $('.truck-div').html("").append('<img src="/resources/images/truck_icon.png" alt="FREE Shipping on Orders Over $55!">');
+                $('.free-text').html("").append('FREE SHIPPING');
+                $('.orders-over-text').html("").append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
+                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" class="free-shipping-modal" tabindex="0" role="link" aria-label="Click here" title="opens a dialog">here</a> for details.)');
+            }
         }
     });
     var ReleatedProducts = Backbone.MozuView.extend({
@@ -435,6 +500,35 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             Backbone.MozuView.prototype.render.apply(this);
         }
     });
+    function loopInMax(e){
+        var inputs = window.inputs = $(document).find('.maximumProduct').find('button,[tabindex="0"],a,input');
+        var firstInput = window.firstInput = window.inputs.first();
+        var lastInput = window.lastInput = window.inputs.last(); 
+        
+        // if current element is last, get focus to first element on tab press.
+        window.lastInput.on('keydown', function (e) {
+           if ((e.which === 9 && !e.shiftKey)) {
+               e.preventDefault();
+               window.firstInput.focus(); 
+           }
+        });
+        
+        // if current element is first, get focus to last element on tab+shift press.
+        window.firstInput.on('keydown', function (e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                window.lastInput.focus();  
+            }
+        }); 
+    }
+    var productDetail = Backbone.MozuView.extend({
+        templateName: 'modules/product/details-tab-sec',
+         render:function() {
+             console.log(" this--- render details-tab-sec",this);
+            Backbone.MozuView.prototype.render.apply(this);
+        }
+    });
+    
     function getExistingNotifications() {
         return ($.cookie('mozustocknotify') || '').split(',');
     }
@@ -479,11 +573,11 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }); 
         
         function accordianproductpage(ele){
-            if(ele.parents('ul').hasClass('accordian-list')) {
+            if(ele.parents('.accordian-content').hasClass('accordian-list')) {
                 if(ele.hasClass('active')) {
                     ele.removeClass('active');
                     ele.attr("aria-expanded", "false");
-                    ele.find('ul').slideUp(); 
+                    ele.find('.accordian-content').slideUp(); 
                     ele.find('h2').find('.new-icon-images').find('.new-icon-plus').show();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-minus').hide(); 
                 }
@@ -493,17 +587,17 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                         $(this).find('h2').find('.new-icon-images').find('.new-icon-minus').hide();
                         $(this).removeClass('active');
                         $(this).attr("aria-expanded", "false");
-                        $(this).find('ul').slideUp();
+                        $(this).find('.accordian-content').slideUp();
                     });
-                   // $(this).parents('ul').find('li').
+                   // $(this).parents('.accordian-content').find('li').
                     ele.addClass('active');
                     ele.attr("aria-expanded", "true"); 
-                    ele.find('ul').slideDown();
+                    ele.find('.accordian-content').slideDown();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-plus').hide();
                     ele.find('h2').find('.new-icon-images').find('.new-icon-minus').show();
                     setTimeout(function(){
                         $("html, body").animate({
-                            scrollTop : ele.offset().top-100
+                            scrollTop : ele.offset().top-127
                         }, 1000);
                     },500);
                     
@@ -515,6 +609,13 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
          * Add click event for PDP page accordian.
          * Functionality: Open clicked accordian, if its closed and close other.
          **/
+        $(document).on('click', '.maximumProduct .close-icon',function(){
+            $('.maximumProduct').hide();
+            $(document).find('.maximum-close').focus();
+            $(document).find('.maximum-close').removeClass('maximum-close');
+            //$(document).find('.add-to-cart-btn-plp').focus();
+             //trigger.focus();
+         });
         $(document).on('click', '#ReviewHeader a[href="#ReviewHeader"]', function (e) {
             $('#accordian li').removeClass('active');
             $('#accordian li').attr("aria-expanded", "false");
@@ -555,12 +656,14 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $(list[0].children).removeClass('active');   
                 $(list[0].children).attr("aria-expanded", "false"); 
                 $(list[0].children).find('ul').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-minus').hide();
+                $(list[0].children).find('h2').find('.new-icon-images').find('.new-icon-plus').show();
                 $(list[0].children[len]).addClass('active'); 
                 $(list[0].children[len]).attr("aria-expanded", "true"); 
                 if($(list[0].children[len]).hasClass('active')){
                     e.preventDefault(); 
                     $('html, body').animate({
-                        scrollTop: $(document).find('#Reviews').offset().top-100
+                        scrollTop: $(document).find('#Reviews').offset().top-127
                     }, 1000);
                     setTimeout(function(){
                         $(list[0].children[len]).find('ul').show();
@@ -654,9 +757,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             } else {
                 product.trigger("error", { message: Hypr.getLabel('unexpectedError') });
                 $('[data-mz-message-bar]').find('.mz-errors').focus();
-                setTimeout(function(){
-                    $('#add-to-cart').focus();
-                }, 6000);
+                //Commented by Shruthi as Focus needs to be on confirmation popup
+                // setTimeout(function(){
+                //     $('#add-to-cart').focus();
+                // }, 6000);
             }
             brontoObj.build(Api);
         });
@@ -664,7 +768,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         /*restrict user from adding same items to wishlist */
         var this_model = require.mozuData("product");
         var wishlistFlag = window.wishlistFlag = false;
-        
+        function isAddedToWishlist(){
         Api.get('wishlist').then(function(response){
             var wishlistCount = response.data.items.length;
             for (var i = 0; i < wishlistCount; i++) {
@@ -681,9 +785,12 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 }
             } 
         });
+        }
         product.on('addedtowishlist', function (cartitem) {
             $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
             $('#add-to-wishlist').css('cursor','not-allowed'); 
+            $('#add-to-wishlist').removeClass('add-to-wishlist');
+            $('#add-to-wishlist').addClass('added-to-wishlist');
             $('.free-shipping-section').focus();
         });
 
@@ -706,7 +813,6 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             el: $('.related-section'),
             model: product
         });
- 
         window.productView = productView;
         window.productImagesView = productImagesView;
         Api.get('entity', {
@@ -736,6 +842,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 productImagesView.render();
                 releatedProducts.render();
                 thumbnailCarousel();
+            isAddedToWishlist();
                 if($(window).width()>767){
                     relatedProductsCarousel();
                 }
@@ -744,8 +851,9 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 productView.render();
                 productImagesView.render();
                 releatedProducts.render();
-                console.error("GetProducts Error: ", error);
+		console.error("GetProducts Error: ", error);
                 thumbnailCarousel();
+            isAddedToWishlist();
                 if($(window).width()>767){
                     relatedProductsCarousel();
                 }
@@ -835,7 +943,38 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         function addToCartAndUpdateMiniCart(PRODUCT,count,$target){
             PRODUCT.set({'quantity':count});
             $('#mybuyspagezone3').addClass('is-loading');
-            PRODUCT.addToCart(1);
+            var productCode=PRODUCT.get('productCode');
+            Api.request('GET','/api/commerce/carts/current/items').then(function(cartitem) {
+                var flag=false;
+                 if(cartitem.items.length>0){
+                     for(var j=0;j<cartitem.items.length;j++){
+                         var cartitemCode=cartitem.items[j].product.productCode;
+                         var cartitemQty=cartitem.items[j].quantity; 
+                         var totalQty=count+cartitemQty;
+                         if(cartitemCode==productCode && totalQty>25){
+                             flag=true;
+                             // alert('Maximum quantity that can be purchased is 25');
+                         }
+                     }
+                     if(flag){
+                         //alert('Maximum quantity that can be purchased is 25');
+                         $('.maximumProduct').show().focus();
+                         $('.maximum-inner-content').focus();
+                         $('$target').addClass('maximum-close');
+                         loopInMax();
+                         return false;
+                     }else{
+                        PRODUCT.addToCart(1);
+                        return false;
+                     }
+                 }else{
+                    
+                    PRODUCT.addToCart(1);
+                     return false;
+                     
+                 }
+             });    
+            
             PRODUCT.on('addedtocart', function(attr) {
                 $('[data-mz-productlist],[data-mz-facets]').removeClass('is-loading');
                 $(document).find('.RTI-overlay').removeClass('active');
@@ -872,41 +1011,48 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             $(document).find('.recommended-product-container').find('.mz-productlisting').each(function(){
                 $(document).find('#rec-prod-list-popup').append($(this)[0].outerHTML);
             });
-            owl.owlCarousel({  
-                loop: true, 
-                margin: 14,
-                dots: false,
-                autoPlay: false,  
-                pagination: false,   
-                navText:false,
-                slideBy: 1,
-                items: 1,
-                center: false,
-                stagePadding : 50,
-                responsive: {    
-                    0: {
-                        items: 1
-                    },
-                    400: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    800: {
-                        items: 3  
-                    }, 
-                    1025: {
-                        items: 3
-                    },
-                    1200:{
-                        items: 3
-                    },
-                    1440: {
-                        items: 3
-                    }
+            var stagePadding = 25;
+                var margindesktop = 14;
+                var loop = false,nav=true;
+                if($(".rec-prod-list-popup .row.mz-productlisting").length >= 2) {
+                  loop = true; 
+                } else {
+                  loop = false; 
                 }
-            });
+                if($(window).width() <= 767){
+                  stagePadding = 20;
+                  margindesktop = 4;
+                }
+                owl.owlCarousel({  
+                    loop: loop, 
+                    margin: margindesktop,
+                    dots: false,
+                    autoPlay: false,  
+                    pagination: false,   
+                    nav: true,     
+                    navText:false,
+                    slideBy: 1,
+                    items: 1,
+                    center: false,
+                    stagePadding : stagePadding,
+                    responsive: {    
+                        0: {
+                            items: 1
+                        },
+                        400: {
+                            items: 1
+                        },
+                        767: {
+                            items: 2
+                        },
+                        800: {
+                            items: 3  
+                        },
+                        1440: {
+                            items: 3
+                        }
+                    } 
+                });
             $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
             loopInAddTocart(); 
         } 
@@ -1022,7 +1168,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
 
         $(document).on('click', ".open-video", function(e) {
             productImagesView.showVideo(e.target.getAttribute('data-mz-video-id'));
-            $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup-black.png")' });
+            $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
         });
         
         $(document).on('keypress', ".mz-productimages-main", function(e) {
@@ -1074,8 +1220,8 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }
 
         var modalText = ""; 
-        modalText += "<div class='free-shipping' tabindex='-1' style='padding: 20px;'>";
-        modalText += "<h1 id='modal-title'>FREE GROUND SHIPPING RESTRICTIONS</h1>";
+        modalText += "<div class='free-shipping' tabindex='-1' role='dialog' aria-labelledby='modal-title' style='padding: 20px;'>";
+        modalText += "<strong><p id='modal-title'>FREE GROUND SHIPPING RESTRICTIONS</p></strong>";
         modalText += "<ul id='desc'><li class='free-shipping' tabindex='-1' >This offer applies ONLY to orders shipping to the Lower 48 Contiguous States.</li>";
         modalText += "<li class='free-shipping' tabindex='-1'>The Free Ground Shipping method offered will be the least expensive ground shipping option based on weight combined with the location to which the package is being shipped.</li>";
         modalText += "<li class='free-shipping' tabindex='-1'>This offer applies ONLY to orders placed with JellyBelly.com and does not apply to orders placed with MyJellyBelly.com or affiliated websites.</li>";
@@ -1103,7 +1249,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     $('#cboxLoadedContent').css({
                         background : "#ffffff"
                     });
-                    $('#cboxClose').insertBefore("div[class*='free-shipping']").focus();
+                    $('#cboxClose').focus();
                     focusColorBox(); 
                 },
                 onClosed: function() {
@@ -1123,7 +1269,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 overlayClose: true,
                 trapFocus: false,
                 onComplete: function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background: "#ffffff"
@@ -1175,10 +1321,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }, 700);
         } else {
             setTimeout(function() {
-                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="">');
-                $('.free-text').append('FREE SHIPPING');
-                $('.orders-over-text').append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
-                $('.click-text').append('(Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" title="opens a dialog">here</a> for details.)');
+                $('.truck-div').html("").append('<img src="/resources/images/truck_icon.png" alt="FREE Shipping on Orders Over $55!">');
+                $('.free-text').html("").append('FREE SHIPPING');
+                $('.orders-over-text').html("").append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
+                $('.click-text').append('(<!-- Restrictions apply. Not valid for <a href="https://www.jellybelly.com/shipping-info#warm-weather" aria-label="heat-sensitive">heat-sensitive</a> orders. -->Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" role="link" aria-label="Open shipping details model" title="opens a dialog">here</a> for details.)');
             }, 700);
         }
     
@@ -1230,7 +1376,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             setTimeout(function(){
                 var len = $(document).find('.mz-productimages-thumbs .mz-productimages-thumb').length,owlMBRP;
                 if(len>4 && $(window).width()>767){
-                    owlMBRP = $('.mz-productimages-thumbs');
+                    owlMBRP = $('.mz-productimages-thumbs ul');
                     owlMBRP.owlCarousel({
                         center          :false,
                         loop            :true,
@@ -1274,7 +1420,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     }
                 });
             }   
-            }, 500);
+            }, 1000);
         } 
         function relatedProductsCarousel(){
             var len = $(document).find('#related-products .single-product').length,owlMBRP;
@@ -1325,6 +1471,15 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $(document).find('#related-products .single-product').css({'margin-right':'15px'});
             }    
         } 
+        $(document).find('.maximumProduct .close-icon').on('click',function(e){
+            $('.maximumProduct').hide();
+        });
+        $(document).on('keypress', '.maximumProduct .close-icon', function(e) {
+            if(e.keyCode == 13 || e.keyCode == 32) {
+                e.preventDefault();
+                $('.maximumProduct').hide();
+            }
+        });
         //scroll quantity update
         setTimeout(function(){
             $(document).find('.scroll-header .increment').on('click',function(e){
@@ -1373,10 +1528,29 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
            
         },3000);
-
+        $(document).on('click', '.cross-close-popup',function(){
+            $(document).find('.Add-to-cart-popup').hide();
+            $(document).find('.Add-to-cart-popup').removeClass("active");
+            $(document).find('body').removeClass("noScroll");
+            //trigger.focus();
+        });
         //ada for social sharing
         $('.addthis_sharing_toolbox:visible').find('.at-share-btn').attr('tabindex','0');
 
+        $(document).on('DOMNodeInserted', function(e) {
+            if ($('.review-snippet-cointainer').find(e.target).find('.pr-accessible-text').length) {
+                //$(document).find('.pr-accessible-text').attr('tabindex','0').attr('role','text').attr('aria-label','audible text');
+                var spanEle = $(document).find('.pr-accessible-text'),textVal;
+                if(spanEle){
+                   textVal =  spanEle[0].innerHTML;
+                }
+                $(document).find('.pr-snippet-stars-container').attr('tabindex','0').attr('role','text').attr('aria-label',textVal);
+                $(document).find('.pr-snippet-reco-to-friend').attr({'tabindex':'0'});
+                $(document).find('.pr-snippet-reco-to-friend-percent').attr('aria-hidden','false');
+                $(document).find('.at_flat_counter').attr({'tabindex':'0'});
+            }
+            
+        });
         setTimeout(function(){
             if($(document).find('.pr-accessible-text').length>0){
                 $(document).find('.pr-accessible-text').attr('tabindex','0');

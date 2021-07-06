@@ -16,7 +16,7 @@
                     {% if item.attributeFQN == "tenant~isamix"%}
                         {% for value in item.values%}
                             {% if value.value == true %}
-                                <span aria-label="Flavors in this Mix" aria-exapanded="false" tabindex="0" class="header-item NutritionIngredients" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
+                                <span aria-label="Flavors in this Mix" aria-exapanded="false" tabindex="0" class="header-item FlavorsinthisMix" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
                             {% endif %}
                         {% endfor %}
                     {% endif %} 
@@ -161,8 +161,7 @@
                                 <span class="sale-price" tabindex="0">sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}}</span></span> 
                             {% else %}
                                 {% if model.price.onSale %}
-                                    <span class="sale-price" tabindex="0">sale: <span class="p-price">{{model.price.salePrice|currency}} <strike>{{model.price.price|currency}}</strike></span></span> 
-                                    <span class="sale-price" tabindex="0">sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}} </span></span> 
+                                    <span class="sale-price" tabindex="0">sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}} </span></span>
                                 {% else %}
                                     <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
                                 {% endif %}
@@ -220,7 +219,7 @@
                 {% if item.attributeFQN == "tenant~isamix"%}
                     {% for value in item.values%}
                         {% if value.value == true %}
-                            <span aria-label="Flavors in this Mix" aria-exapanded="true" tabindex="0" class="header-item NutritionIngredients" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
+                            <span aria-label="Flavors in this Mix" aria-exapanded="true" tabindex="0" class="header-item FlavorsinthisMix" attr-data="FlavorsinthisMix">Flavors in this Mix</span>
                         {% endif %}
                     {% endfor %}
                 {% endif %} 
@@ -375,6 +374,7 @@
             <div class="action-section">
                 <div class="price-qty-container">
                     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+                        
                         {% if model.options and model.options.length > 0 %}
                             {% include "modules/product/product-options" %}
                         {% else %}
@@ -407,7 +407,7 @@
                             </button>
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
-                                <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
+                                <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}"  
                                 class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
                                 {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
                                     SHOP GIFT CARD

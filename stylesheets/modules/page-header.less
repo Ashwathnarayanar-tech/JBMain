@@ -887,7 +887,7 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
     &.active{
-        display: block;
+        display: block !important;
     }
     .popup-container{
         background-color: #fff;
@@ -896,32 +896,33 @@ body{
         margin-top: 4%;
         margin-bottom: 5%;
         .popup-head{
-            padding: 10px;
+            padding: 5px 10px;
             position: relative;
-            border-bottom: solid 1px #cfcfcf;
-            text-align: center;
-            /*box-shadow: 1px 1px 0px 0 rgba(0, 0, 0, 0.32);*/
+            text-align: left;
+            border-bottom: solid 1px #e4e4e4;
             h1{
                 margin: 0;
                 text-align: center;
-                font-size: 25px;
+                font-size: 24px;
                 color: #e7131a;
                 font-weight: 700;
                 position: relative;
                 display: inline-block;
+                padding-left: 40px;
                 &:before{
                     content: "";
                     background-image: url(../../resources/images/icons/atc_tick.png);
                     width: 30px;
                     height: 30px;
                     position: absolute;
-                    left: -35px;
+                    left: -0px;
                     top: 4px;
                     background-size: 100%;
                 }
             }
             .cross-close-popup{
-                background-image: url(../../resources/images/icons/close-search.png);
+                background-image: url(../../resources/images/closemarkglobal.svg);
+                background-repeat: no-repeat;
                 width: 20px;
                 height: 20px;
                 position: absolute;
@@ -933,49 +934,85 @@ body{
         }
         .data-container{
             .product-data{
+                * {
+                    box-sizing: border-box;
+                }
                 width: 65%;
                 margin: 0 auto;
-                margin-top: 30px;
+                margin-top: 10px;
                 display: inline-block;
                 margin-left: 4%;
                 vertical-align: top;
                 img{
-                    width: 120px;
+                    width: 100px;
+                    float: left;
                 }
                 .prodcut-tital-price{
                     display: inline-block;
                     vertical-align: top;
-                    width: 75%;
+                    width: ~"calc(100% - 100px)";
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    float: left;
                     .product-name{
-                        vertical-align: top;
-                        font-size: 18px;
-                        color: #000;
-                        font-weight: 400;
+                        font-family: Merel;
+                        font-size: 16px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.13;
+                        letter-spacing: normal;
+                        color: #111111;
+                        height: 54px;
+                        overflow: hidden;
+                        margin-bottom: 5px;
                         display: block;
                     }
                     .price{
+                        display: block;
                         .listprice,.saleprice{
-                            color: #e7131a;
-                            font-size: 25px;
-                            font-weight: 500;                            
+                            font-family: Merel;
+                            font-size: 20px;
+                            font-weight: 500;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            text-align: center;
+                            color: #000000;                            
                         }
                         .listprice{
                             &.through{                            
-                                margin-right: 15px;
+                                font-family: Merel;
+                                font-size: 16px;
+                                font-weight: normal;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                text-align: center;
+                                color: #020202;
                                 text-decoration: line-through;
                             }
                         }
                     }
                     .qty-popup{
+                        font-family: Merel;
+                        font-size: 16px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: #020202;
                         display: block;
-                        color: #000;
                     }
                 }
             }
             .call-to-action-buttons{
                 display: inline-block;
                 width: 25%;
-                margin-top: 35px;
+                margin-top: 15px;
                 a{
                     display: block;
                     text-decoration: none;
@@ -1018,21 +1055,37 @@ body{
                 }
             }
             .rec-prod-sec{
-                margin-top: 30px;
-                padding: 10px 0;
+                margin-top: 15px;
+                padding: 0px 0px 10px 0;
                 background-color: whitesmoke;
+
                 .head-rec-prod-list{
                     width: 87%;
                     margin: 0 auto;
-                    h3{
+                    padding: 0px 15px;
+                    h2{
+                        font-family: Merel;
+                        font-size: 16px;
+                        font-weight: bold;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: #111111;
+                        text-align: center;
+                        padding: 10px 15px;
                         margin: 0;
-                        font-size: 22px;
-                        font-weight: 300;
-                        color: #000;
-                        margin: 30px 0;
                     }
                 }
                 .rec-prod-list-popup{
+                    &.owl-carousel .owl-controls .owl-nav{
+                        .owl-prev{
+                            left: 0;
+                        }
+                        .owl-next{
+                            right: 0;
+                        }
+                    }
                     .mz-productlisting{
                         width: 31%;
                         display: inline-block; 
@@ -1289,6 +1342,9 @@ body{
             padding: 0px 0;
             line-height: 4;
             vertical-align: top; 
+            .continueShopping{
+                display: none;
+            }
             div{
                 a{
                     color: #004e99;
@@ -2413,12 +2469,14 @@ body{
 @media only screen and (min-width: 1px) and (max-width: 767px) and (orientation: landscape) {
     .mz-l-pagewrapper{ 
         .page-header.mobile{
-            width: 96.5%;
+            width: 100%;
             &.search-active{ 
                 .jb-serach-box-with-label{ 
                     .mz-searchbox{ 
                         .mz-searchbox-field{
-                            width: 92%;
+                            width: 90%;
+                            box-sizing: border-box;
+                            height: 40px;
                         }
                     }
                 }
