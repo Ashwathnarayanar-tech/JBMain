@@ -2,7 +2,7 @@
 {% extends "modules/checkout/chekout-email-capture" %}
 {% block back-to-cart %}
   <div class="close-icon">
-      <a tabindex="0" aria-label="close modal" href="javascript:void(0);" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/cross-myaccount.png?maxWidth=100" alt="close"></a>
+      <a tabindex="0" aria-label="close modal" href="javascript:void(0);" aria-label="Click here to exit to shopping cart page"><img class="close-img" src="../../resources/images/closemarkglobal.svg?maxWidth=100" alt="close"></a>
   </div>
 {% endblock back-to-cart %}
 {% block content-heading %} {% endblock content-heading %}

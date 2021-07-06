@@ -12,7 +12,7 @@ display: block;
     <div class="content">
       {% block back-to-cart %}
         <div class="close-icon">
-            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/cross-myaccount.png?maxWidth=100" alt="Close modal and return to shopping cart"></a> 
+            <a tabindex="0" href="/cart" role="button"><img class="close-img" src="../../resources/images/closemarkglobal.svg?maxWidth=100" alt="Close modal and return to shopping cart"></a> 
         </div>  
       {% endblock back-to-cart %}
         <div class="header">

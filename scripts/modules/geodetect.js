@@ -315,7 +315,7 @@ define([
               overlayClose: true,
               onComplete: function() {
                 $('#cboxClose').addClass("declineRedirect");
-				$('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
+				$('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                 $('#cboxClose').show();
                 $('#cboxLoadedContent').css({
                   'background': '#fff'

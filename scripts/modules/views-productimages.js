@@ -79,7 +79,7 @@ define(['modules/jquery-mozu', 'underscore', "modules/backbone-mozu", 'hyprlive'
                   $('#colorbox').attr("aria-modal",true).attr("aria-label","Product image");
                 },
                 onComplete: function(){
-                    $('#cboxClose').css({'background-image': 'url("../../resources/images/icons/close_popup.png")'});
+                    $('#cboxClose').css({'background-image': 'url("../../resources/images/closemarkglobal.svg")'});
                     $('#cboxClose').fadeIn();
                     $('#cboxClose').focus().addClass('zomm-image');
                     self.zoomFocus();
