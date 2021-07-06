@@ -437,11 +437,10 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 }).then(function () {
                     window.sucess = true;
                     saveNotification(self.model.get('productCode') || self.model.get('variationProductCode'));
+                    window.hideGlobalOverlay();
                     self.render();
-                     window.hideGlobalOverlay();
-                }, function (xhrRespone) {
-                     window.hideGlobalOverlay();
-                     var xhr = xhrRespone.value && xhrRespone.value.errors ? xhrRespone.value.errors : xhrRespone;
+                }, function (xhr) {
+                    window.hideGlobalOverlay();
                     if(xhr.errorCode == "VALIDATION_CONFLICT"){
                         self.setError(Hypr.getLabel('notifyWidgetError'));
                     }else if(xhr.errorCode != "ITEM_ALREADY_EXISTS"){   
@@ -1244,7 +1243,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                   $('#colorbox').attr("aria-modal",true).attr("aria-labelledby","modal-title");
                 },
                 onComplete : function () {
-                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/icons/close-popup.png")' });
+                    $('#cboxClose').css({ 'background-image': 'url("/resources/images/closemarkglobal.svg")' });
                     $('#cboxClose').fadeIn();
                     $('#cboxLoadedContent').css({
                         background : "#ffffff"

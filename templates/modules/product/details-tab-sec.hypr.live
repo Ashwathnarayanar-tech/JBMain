@@ -25,15 +25,18 @@
             </div>
             <div class="tab-content-sec"> 
                 <div class="item-content ProductInfo active">
-                    
+                    <ul>
+                        <li tabindex="0">
                             <div class="product-info" tabindex="0">
                                 {{ model.content.productFullDescription|safe }}
                             </div>
                             <div class="clearfix"></div>
-                    
+                        </li>
+                    </ul>
                 </div>
                 <div class="item-content NutritionIngredients">
-                    
+                    <ul>   
+                        <li tabindex="0">  
                             <span id ="nutrition-image"  aria-hidden="true"></span>
                             <span id="nut_panel_title"></span>
                             <div id="jquery_nut_label"></div>
@@ -45,7 +48,8 @@
                                 (Monday-Friday between the hours of 7 AM - 5 PM, Pacific Time)</span> 
                                 or send us an <a href="https://www.jellybelly.com/contact-us">email.
                                 </a></span> 
-                    
+                        </li>    
+                    </ul> 
                     <!-- nutrition panel end-->
                         {% if model.mixvar %}
                             <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>
@@ -198,8 +202,8 @@
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
                                 <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
-                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
+                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn  gift-prize-select" 
+                                 data-mz-action="addToCart" >
                                     Shop Gift Card
                                 </button>
                             {% else %}
@@ -241,7 +245,7 @@
                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                     </span>
                 </h2>
-                <ul>
+                <ul class="accordian-content">
                     <li>
                         <div class="product-info" tabindex="0">
                             {{ model.content.productFullDescription|safe }}
@@ -262,7 +266,7 @@
                                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                                     </span>
                                 </h2>
-                                <ul id="flavors" tabindex="0">
+                                <ul id="flavors" class="accordian-content" tabindex="0">
                                     {% for item in model.properties %}
                                         {% if item.attributeFQN == "tenant~flavors"%}
                                             {% for values in item.values%}
@@ -287,7 +291,7 @@
                         <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                     </span>
                 </h2>
-                <ul>     
+                <ul class="accordian-content">     
                     <li>
                         <span id ="nutrition-image"  aria-hidden="true"></span>
                         <span id="nut_panel_title"></span>
@@ -297,7 +301,7 @@
             </li> <!-- nutrition panel end-->
                 {% if model.mixvar %}
                     <h3 aria-label="Mix Varieties">Mix Varieties<span class="icon-minus"></span></h3>
-                    <ul>
+                    <ul class="accordian-content">
                         <li aria-expanded="false">
                             <div class="mix-varieties">
                                 <a href="javascript:void(0)">A&amp;W Cream Soda </a>
@@ -361,7 +365,7 @@
                     <img class="new-icon-minus" src="/resources/images/icons/minus.png" style="display: none;" alt="Collapse">
                   </span>
                 </h2>    
-                <ul class="comment-section " {% if pageContext.isEditMode %} style="display:block;" {% endif %} >
+                <ul class="comment-section  accordian-content" {% if pageContext.isEditMode %} style="display:block;" {% endif %} >
                     <li>
                         {% dropzone "power-reviews-mobile" scope="template" %}
                     </li> 
@@ -371,6 +375,7 @@
     </div>
     <div class="mobile-scroll-section scroll-header">
         <div class="top-section">
+            <h5 tabindex="0"><span itemprop="name">{{ model.content.productName|safe }}</span></h5>
             <div class="action-section">
                 <div class="price-qty-container">
                     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
@@ -381,7 +386,11 @@
                             {% if model.price.onSale and model.savePrice %} 
                                 <span tabindex="0" class="sale-price">sale: <span class="p-price">{{model.price.salePrice|currency}}</span></span> 
                             {% else %}
-                                <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                                {% if model.price.onSale %}
+                                    <span class="sale-price" tabindex="0" >sale: <span class="p-price"><strike>{{model.price.price|currency}}</strike> {{model.price.salePrice|currency}} </span></span> 
+                                {% else %}
+                                    <span class="price" tabindex="0">price: <span class="p-price">{{model.price.price|currency}}</span></span> 
+                                {% endif %} 
                             {% endif %} 
                         {% endif %} 
                         {% if model.purchasableState %}{% if not model.purchasableState.isPurchasable %}{% comment %} <span class="outofstock out"> OUT OF STOCK </span> {% endcomment %} {% else %} <span class="outofstock in" tabindex="0"> IN STOCK </span> {% endif %} {% endif %}
@@ -407,10 +416,9 @@
                             </button>
                         {% else %}
                             {% if model.options and model.options.length > 0 %}
-                                <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}"  
-                                class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %} gift-prize-select" 
-                                {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                                    SHOP GIFT CARD
+                                <button id="add-to-cart-scroll" data-jb-price="{% if model.price.onSale %}{{ model.price.salePrice }} {% else %} {{ model.price.price }} {% endif %}" data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn  gift-prize-select" 
+                                 data-mz-action="addToCart" >
+                                    Shop Gift Card
                                 </button>
                             {% else %}
                                 <button class="mz-productdetail-outofstock product-out-ofstock-pdp" disabled="disabled"> 
