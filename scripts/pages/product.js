@@ -135,9 +135,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 $('#nut_panel_title').append('<div class="skipto mz-desktop" tabindex="0" style=font-size:16px;color:#444;white-space:normal !important; text-transform: uppercase !important;" id="nut_panel"><h2 style="text-align:center;">Nutrition Panel Information for Accessible Users</h2> </div>');
 
                 $('#nutrition-text').html("INGREDIENTS: " + res.ingredients); 
-                //$('#nutrition-text').attr('aria-label',"product ingredients");
-
-
+                
                 //build the hidden Accessible Nut Panel
                 $('#nut_panel').append("<div>NUTRITION FACTS: </div>");
                 if (res.value10lbServingPackage > -1) {
@@ -214,6 +212,18 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 console.error("Custom route request failed: ", error);
             });
 
+        },
+        setFreeshippingBanner:function(){
+            // for freeshipping render code
+            if(window.productView.hasNoFreeShipping()) {
+                $('.free-shipping-text').empty();
+                $('.free-shipping-text').append('<b><span>Sorry, the price of this product does not count toward the Free Shipping threshold.</span></b>');
+            } else {
+                $('.truck-div').append('<img src="/resources/images/truck_icon.png" alt="">');
+                $('.free-text').append('FREE SHIPPING');
+                $('.orders-over-text').append('for orders over $'+ Hypr.getThemeSetting("freeshippingBoundingValue").toFixed(2) +'!');
+                $('.click-text').append('(Click <a href="javascript:void(0)" role="button" class="free-shipping-modal" tabindex="0" title="opens a dialog">here</a> for details.)');
+            }
         },
         onOptionChange: function (e) {
             return this.configure($(e.currentTarget));
@@ -840,6 +850,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                 productView.render();
                 productImagesView.render();
                 releatedProducts.render();
+                productView.setFreeshippingBanner();
                 thumbnailCarousel();
             isAddedToWishlist();
                 if($(window).width()>767){
@@ -848,6 +859,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             }, function(error) {
                 product.set('relatedProducts', '');
                 productView.render();
+                productView.setFreeshippingBanner();
                 productImagesView.render();
                 releatedProducts.render();
 		console.error("GetProducts Error: ", error);
@@ -859,6 +871,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
             });
         }, function(error) {
             console.error("GET ENTITY ERROR: ", error);
+              productView.setFreeshippingBanner();
         });
 
 
@@ -867,7 +880,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         //     product.set('relatedProducts', res);
         //     console.log(res.totalCount);
         //     if(res.totalCount>4)product.set('loadMore', true);
-        //     productView.render();  
+        //     productView.render();
         //     productImagesView.render();
         //     releatedProducts.render();
         //     thumbnailCarousel();
@@ -887,38 +900,41 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         // });
         
         //AB testing modifications starts.         
-        Api.request('GET', '/svc/get_nut_label_info?product=' + require.mozuData('product').productCode)
-        .then(function(res) {
-            if (res) $("#nutrition-text").hide();
 
-            var productNutInfo = res.items;
-
-            $('#jquery_nut_label').nutritionLabel({
-                showLegacyVersion : false,
-                allowCustomWidth : false,
-                widthCustom : 'auto',
-
-                showCaffeine : false,
-
-                itemName: productNutInfo.name,
-
-                ingredientList: productNutInfo.definition.ingredients,
-                valueCalories: productNutInfo.definition.nutrition.calories,
-                valueTotalFat: productNutInfo.definition.nutrition.fatContent,
-                valueSodium: productNutInfo.definition.nutrition.sodiumContent,
-                valueTotalCarb: productNutInfo.definition.nutrition.carbohydrateContent,
-                valueSugars: productNutInfo.definition.nutrition.sugarContent,
-                valueAddedSugars: productNutInfo.definition.nutrition.addSugarContent,
-                valueProteins: productNutInfo.definition.nutrition.proteinContent
-            });
-
-            $('#jquery_nut_label').hide();
-
-            $("#nutrition-text").show();
-        })
-        .catch(function(err) {
-            console.log("Error retrieving nutrition info: " + JSON.stringify(err, null, 2));
-        });
+        // Api.request('GET', '/svc/get_nut_label_info?product=' + require.mozuData('product').productCode)
+        // .then(function(res) {
+        //   console.log(res);
+        //     if (res) $("#nutrition-text").hide();
+        // 
+        //     var productNutInfo = res.items;
+        // 
+        //     console.log(productNutInfo);
+        //     $('#jquery_nut_label').nutritionLabel({
+        //         showLegacyVersion : false,
+        //         allowCustomWidth : false,
+        //         widthCustom : 'auto',
+        // 
+        //         showCaffeine : false,
+        // 
+        //         itemName: productNutInfo.name,
+        // 
+        //         ingredientList: productNutInfo.definition.ingredients,
+        //         valueCalories: productNutInfo.definition.nutrition.calories,
+        //         valueTotalFat: productNutInfo.definition.nutrition.fatContent,
+        //         valueSodium: productNutInfo.definition.nutrition.sodiumContent,
+        //         valueTotalCarb: productNutInfo.definition.nutrition.carbohydrateContent,
+        //         valueSugars: productNutInfo.definition.nutrition.sugarContent,
+        //         valueAddedSugars: productNutInfo.definition.nutrition.addSugarContent,
+        //         valueProteins: productNutInfo.definition.nutrition.proteinContent
+        //     });
+        // 
+        //     $('#jquery_nut_label').hide();
+        // 
+        //     $("#nutrition-text").show();
+        // })
+        // .catch(function(err) {
+        //     console.log("Error retrieving nutrition info: " + JSON.stringify(err, null, 2));
+        // });
 
         function setError(txt) {
             $(document).find('.mz-product.variant').find('[data-mz-validationmessage-for="email"]').text(txt);
@@ -1053,6 +1069,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     } 
                 });
             $(document).find('.Add-to-cart-popup').find('.popup-head h1').focus();
+            
             loopInAddTocart(); 
         } 
         function loopInAddTocart(){
@@ -1214,7 +1231,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         
         var width = $(window).width();
         if(width <= 767){
-            //$('.truck-div').css({ "width" : "100%" }); As image was wider than normal shruthi
+           // $('.truck-div').css({ "width" : "100%" });
             $('.norton-holder').css({ "width" : "100%" });
         }
 
@@ -1328,7 +1345,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
         }
     
         //scroll 
-        var deviceWidth = $(window).width(); 
+        var deviceWidth = $(window).width();
         if(deviceWidth>767){
             $(window).scroll(function(){
                 if ($(window).scrollTop() > $(".tab-header-sec").offset().top) {
@@ -1339,6 +1356,7 @@ function ($, Api, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageVie
                     } else {
                       $(document).find('.scroll-section').removeClass("removeactiveCls");   
                     }
+
                 }
                 else {
                     $(document).find('.scroll-section').hide();

@@ -339,36 +339,61 @@
    {% require_script "modules/common" %}
         <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.respond.js"></script>
    
-{% if themeSettings.isGlobalOverlayEnabled === true %}
-  <script >
-  window.showGlobalOverlay = function showGlobalOverlay(){
-          document.body.classList.add("openoverlay");
-    };
-
-    window.hideGlobalOverlay = function hideGlobalOverlay(){
-            document.body.classList.remove("openoverlay");
-    };
-  var interval = setInterval(function() {
-    if(document.readyState === 'loading') {
-      console.log(" show overlay");
-       // window.showGlobalOverlay();
-    } 
-    if(document.readyState === 'complete') {
-      console.log(" hide overlay");
-      //window.hideGlobalOverlay();
-        clearInterval(interval);
-        //done();
-    }    
-}, 100);
-  </script>
-  {% else %}
-<script>
-window.showGlobalOverlay = function showGlobalOverlay(){
-}
- window.hideGlobalOverlay = function hideGlobalOverlay(){
- }
-</script>
- {% endif %}
+        {% if themeSettings.isGlobalOverlayEnabled === true %}
+        <script >
+         window.oldAriaElement = null;
+        window.showGlobalOverlay = function showGlobalOverlay(message,ele,isrequired){
+                  document.querySelector(".globalOverlay ").setAttribute('aria-live', "polite");
+                if(message){
+                  document.querySelector(".globalOverlay ").setAttribute('aria-label', message);
+                }
+                else{
+                  document.querySelector(".globalOverlay ").setAttribute('aria-label', 'loading please wait');
+                }
+                if(ele && ele!="" && isrequired){
+                  document.querySelector(".meter .text-content").setAttribute('aria-live', 'off');
+                  document.querySelector(ele).setAttribute("aria-busy",true); 
+                 // document.querySelector(ele).setAttribute("aria-live",'polite');
+                  if(window.oldAriaElement && window.oldAriaElement!=ele){
+                    document.querySelector(window.oldAriaElement).removeAttribute("aria-busy"); 
+                    document.querySelector(window.oldAriaElement).removeAttribute("aria-live");
+                  }
+                  window.oldAriaElement = ele;
+                }
+                document.body.classList.add("openoverlay");
+          };
+      
+        
+        window.hideGlobalOverlay = function hideGlobalOverlay(ele,isrequired){
+             //   document.querySelector(".globalOverlay").setAttribute('aria-live', "off");
+                if(ele && isrequired){
+                  document.querySelector(ele).removeAttribute("aria-busy"); 
+                  document.querySelector(ele).setAttribute("aria-live",'polite');
+                }
+                  document.body.classList.remove("openoverlay");
+        };
+      
+        var interval = setInterval(function() {
+          if(document.readyState === 'loading') {
+            console.log(" show overlay");
+             // window.showGlobalOverlay();
+          } 
+          if(document.readyState === 'complete') {
+            console.log(" hide overlay");
+            //window.hideGlobalOverlay();
+              clearInterval(interval);
+              //done();
+          }    
+      }, 100);
+        </script>
+        {% else %}
+      <script>
+      window.showGlobalOverlay = function showGlobalOverlay(){
+      }
+       window.hideGlobalOverlay = function hideGlobalOverlay(){
+       }
+      </script>
+       {% endif %}
 
    {% block trailing-scripts %}   
         {% include "modules/trailing-scripts" %}  

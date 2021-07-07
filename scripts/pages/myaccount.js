@@ -994,7 +994,7 @@
                         var newValue = $('.mz-orderlisting-items[orderid="'+orderId+'"] .inline[variationcode="'+pid.variantcode+'"][OrderProductId="'+pid.productCode+'"]').attr('productPrice');
                         var ID =  $('.mz-orderlisting-items[orderid="'+orderId+'"] .inline[variationcode="'+pid.variantcode+'"][OrderProductId="'+pid.productCode+'"]').attr('options');
                         if(newValue != "Select gift amount" && newValue !== ''){
-                            if("Tenant~gift-card-prices" !== ID && (window.location.host !== "www.jellybelly.com" || window.location.host !=="t29614-s48880.stg1.mozu.com")){
+                            if("Tenant~gift-card-prices" !== ID && (window.location.host !== "www.jellybelly.com" || window.location.host.indexOf('stg1')<=-1)){
                                 ID = "Tenant~gift-card-prices";
                             }
                             var option = PRODUCT.get('options').get(ID);

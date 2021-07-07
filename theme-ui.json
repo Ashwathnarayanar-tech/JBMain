@@ -458,7 +458,8 @@
                     "fieldLabel": "Billing Email"
                 }
             ]
-        },
+        }
+        ,
         {
           "xtype": "panel",
          "title": " JavaScript libraries with known security vulnerabilities ",
@@ -472,7 +473,7 @@
              {
                  "xtype": "textfield",
                  "name": "jqueryURL",
-                 "fieldLabel": "jquery URL"
+                 "fieldLabel": "jquery URL" 
              }
          ]
      }

@@ -149,6 +149,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             // wait for blur validation to complete
             var me = this;
             me.editing.savedCard = false;
+           //  window.showGlobalOverlay();
             _.defer(function () {
                 me.model.next();
             });
@@ -2834,7 +2835,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 e.stopPropagation();
             }
         });
-        
         $(document).on('focus','#toolTipStock', function(e) { 
             $(this).next().addClass('cc-tooltip');
         });

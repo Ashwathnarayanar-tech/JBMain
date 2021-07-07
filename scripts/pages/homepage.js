@@ -1,6 +1,6 @@
 require([
     "modules/jquery-mozu"
-    //"shim!vendor/owl.carousel[jquery=jQuery]>jQuery"
+    
     ], function ($) {
 	 
 	$(document).ready(function () {  
@@ -96,12 +96,3 @@ require([
 	});
     
 	});
-
-
-
-
-
-
-
-
-

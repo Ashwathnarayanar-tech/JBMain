@@ -8,7 +8,7 @@
     "version": "2.0.0",
     "baseTheme": "https://github.com/mozu/core-theme.git",
     "baseThemeVersion": {
-      "commit": "bd17177bf1a283a77927ccd40b2bdfe019d5a216",
+      "commit": "c93e710b1bca845f9fcad54bebd7d1be3d4d14d7",
       "version": "9.2.1"
     },
     "baseThemeChannel": "stable",
@@ -424,7 +424,8 @@
       }
     ],
     "useDebugScripts": false,
-    "useSearchAutocomplete": true,
+
+    "useSearchAutocomplete":  false,
     "allowCustomerInitiatedReturns": true,
     "themeRC": "RC 71",
     "mobileAddToCartPopupTimer": 2,
@@ -511,7 +512,7 @@
       24,
       25
     ],
-    "showShippingAddressChoosingRadioButton": "none",
+        "showShippingAddressChoosingRadioButton": "none",
     "emailMissing": "Error: Please enter a valid email address",
     "passwordMissing": "Error: Please provide a valid Password, which must have a minimum of 6 characters with at least 1 number and 1 alphabetic character",
     "passwordsDoNotMatch": "Error: Please provide a valid Password, which must have a minimum of 6 characters with at least 1 number and 1 alphabetic character, a second time.",
@@ -545,9 +546,9 @@
     "missingcredentials": "Sorry, but you need to enter an Email Address and Password.",
     "alreadyassociated": "Error: Sorry, but that Email Address is already associated with an account on our site",
     "lockedaccount": "Error: Sorry, but you've exceeded the allowable number of attempts. Contact us and we'll help.",
-    "zinreloPointMultiplier": 10,
-    "jqueryURL":"",
-    "handlebarsURL":""
+     "zinreloPointMultiplier": 10,
+     "jqueryURL":"vendor/jquery/3.6.0/jquery-3.6.0",
+     "handlebarsURL":"https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min"
   },
   "layoutWidgets": [
     {
@@ -750,7 +751,7 @@
       "properties": {},
       "template": "email/order-refund-issued",
       "title": "Refund Issued"
-    },
+    } ,
     {
       "id": "shipment.fulfilled",
       "template": "email/shipment-confirmation",
@@ -1352,6 +1353,14 @@
       "documentType": "web_page",
       "userCreatable": true,
       "template": "pages/fun-facts"
+    },
+    {
+      "id": "fun-facts-2021",
+      "title": "Jelly Belly Fun Facts",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "userCreatable": true,
+      "template": "pages/fun-facts-2021"
     },
     {
       "id": "funstuff",

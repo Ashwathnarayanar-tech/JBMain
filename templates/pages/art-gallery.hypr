@@ -1132,6 +1132,7 @@
                 </div>
                 <div style="clear: both;"></div>
             </div>
+			
         </div>
         <div class="art-gallery-item-thumb">
             <div class="art-gallery-item-thumbs endangered_species"  style="display:none;">
@@ -1169,7 +1170,7 @@
             </div>
             <div class="art-gallery-item-thumbs famous_people"  style="display:none;">
                 <img class="thump" AGD="88" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/LisaBrasher.jpg" alt="lisa-thumbnail"/>
-                <img class="thump" AGD="19" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/amelia.png" alt="amelia-thumbnail"/>
+				<img class="thump" AGD="19" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/amelia.png" alt="amelia-thumbnail"/>
                 <img class="thump" AGD="20" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/beatles.png" alt="beatles-thumbnail"/>
                 <img class="thump" AGD="21" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/Diana.png" alt="Diana-thumbnail"/>
                 <img class="thump" AGD="22" src="/resources/images/Entertainments/Jelly Belly Bean Art Gallery/Navigation Menu - Famous People/Thumb Nail - Size/elvis.png" alt="Elvis-thumbnail"/>

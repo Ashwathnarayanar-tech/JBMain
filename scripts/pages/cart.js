@@ -123,13 +123,15 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     newQuantity = 25;
                 }
                 
-                if (item && !isNaN(newQuantity)) {
-                    item.set('quantity', newQuantity);
-                    item.saveQuantity();
+                if(item.get('quantity') != newQuantity){
+                     if (item && !isNaN(newQuantity)) {
+                         item.set('quantity', newQuantity);
+                         item.saveQuantity();
 
-                }
-                 window.showGlobalOverlay();
-                Minicart.MiniCart.updateMiniCart();
+                     }
+                     window.showGlobalOverlay("","",false);
+                     Minicart.MiniCart.updateMiniCart();
+                 }
 
             }, 400),
         additionalEvents: {
@@ -377,24 +379,24 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             item.quantity = obj.quantity;
                             item.shipsByItself = false;
                             if(obj.product && obj.product.measurements){
-                            item.unitMeasurements = {
-                                "height": {
+                                item.unitMeasurements = {
+                                    "height": {
                                         "unit": obj.product.measurements.height ? obj.product.measurements.height.unit:"",
                                         "value": obj.product.measurements.height ? obj.product.measurements.height.value :""
-                                },
-                                "length": {
+                                    },
+                                    "length": {
                                         "unit": obj.product.measurements.length ? obj.product.measurements.length.unit:"",
                                         "value": obj.product.measurements.length ? obj.product.measurements.length.value:""
-                                },
-                                "weight": {
+                                    },
+                                    "weight": {
                                         "unit": obj.product.measurements.weight ? obj.product.measurements.weight.unit :"",
                                         "value": obj.product.measurements.weight ? obj.product.measurements.weight.value:""
-                                },
-                                "width": {
+                                    },
+                                    "width": {
                                         "unit": obj.product.measurements.width ? obj.product.measurements.width.unit :"",
                                         "value": obj.product.measurements.width ? obj.product.measurements.width.value:""
-                                }
-                            };
+                                    }
+                                };
                             }
                             itemArr.push(item);
                         });
@@ -519,6 +521,8 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                             });*/
                             /*if($('input[type=radio]').length > 0)
                                 $('input[type=radio]')[0].focus();*/
+
+                                
                                 
                    }).catch(function(error) {
                     console.log("error ---",error);
@@ -531,7 +535,9 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
                     $('#estimateShippingCost-entry').removeClass('active');
                     $('#estimateShippingCost-failure').hide();
                     $("#estimateShippingCost-success").focus();
+
                    });
+
                     }
                 } else {
                     $('#estimateShippingCost-failure').show();
@@ -775,7 +781,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
            if(e.keyCode == 13) {
 			location.href='/online-candy-store';  
 			}
-		});
+		}); 
      var cartModel = window.cartModel = CartModels.Cart.fromCurrent();
      var pageModel = window.getDeviceMode();
      window.currentMode = window.getcurrentMode(pageModel);
@@ -969,7 +975,7 @@ function (Backbone, _, Hypr, $, CartModels, CartMonitor, Minicart,Api, preserveE
              }).catch(function(err){
                  console.log("exception err while getting items ",err);
                  window.hideGlobalOverlay();
-            });
+             });
           });
 	
           function addToCartAndUpdateMiniCart(PRODUCT,count,$target){

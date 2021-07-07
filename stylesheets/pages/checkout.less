@@ -104,7 +104,7 @@ button.redeem[disabled] {
                     }
                 }
                 button[disabled] {
-                    background: #707070;
+                    background: #CCCCCC;
                     &:hover {
                         background: #707070;
                     }
@@ -238,7 +238,7 @@ button.redeem[disabled] {
         }
         .mz-l-column {
             width: 100%;
-			
+            
             .coupon-code-row {
                 border: 2px dashed #cbcbcb;
                 padding: 6px;
@@ -258,7 +258,7 @@ button.redeem[disabled] {
                     }
                 }
                 button[disabled] {
-                    background: #ddd;
+                    background: #CCCCCC;
                     border: 1px solid #ddd;
                     color: #fff;
                     &:hover {
@@ -526,7 +526,7 @@ button.redeem[disabled] {
             }
             .radio-label {
                 display: inline-block;
-    			width: 88%;
+                width: 88%;
                 vertical-align: top;
                 span {
                     color: #333;
@@ -602,7 +602,7 @@ button.redeem[disabled] {
                         }
                     } 
                     button[disabled] { 
-                        background: #ddd;
+                        background: #CCCCCC;
                         border: 1px solid #ddd;
                         color: #fff;
                         cursor: not-allowed;
@@ -1003,7 +1003,7 @@ button.redeem[disabled] {
                     }
                 }
                 .mz-l-stack-section{
-	                /*margin-left: 24px;*/
+                    /*margin-left: 24px;*/
                     .mz-l-formfieldgroup-address {
                         .mz-addressform-state {
                             .mz-l-formfieldgroup-cell {
@@ -1058,7 +1058,7 @@ button.redeem[disabled] {
                 }
                 .brontocart-place-order{
                     &:disabled{
-                        background: #dddddd;
+                        background: #CCCCCC;
                         border: 1px solid #dddddd;
                         color: #fff; 
                         cursor: not-allowed;
@@ -1298,7 +1298,7 @@ button.redeem[disabled] {
                         top:108px;
                     }
                 }
-				.mz-paymenttype-check {
+                .mz-paymenttype-check {
                     display: inline-block;
                 }
                 input[type="text"], input[type="password"],  input[type="tel"],  input[type="email"],  select{
@@ -1325,59 +1325,59 @@ button.redeem[disabled] {
                 &:hover {
                     color: #faa634;
                     .cvv-info-details {
-    					display: block;
-    				}
+                        display: block;
+                    }
                 }
                 .cvv-info-details:after{
-    				content: '';
-    				display: block;
-    				position: absolute;
-    				left: 19px;
-    				bottom: 100%;
-    				width: 0;
-    				height: 0;
-    				border-color: transparent transparent #ffffff transparent ;
-    				border-style: solid;
-    				border-width: 6px;
-    			 }
-    			 .cvv-info-details:before{
-    				content: '';
-    				display: block;
-    				position: absolute;
-    				left: 18px;
-    				bottom: 100%;
-    				width: 0;
-    				height: 0;
-    				border-color: transparent transparent #cccccc transparent ; 
-    				border-style: solid;
-    				border-width: 7px; 
-    			 }
-    			 .cvv-info-details{
-    				display:none;
-    				margin-left: 20px;
-    				background: #FFFFFF;
-    				border: 1px solid #C4c4c4;
-    				padding: 10px;
-    				position: absolute;
-    				top: 25px;
-    				left: -37px;
-    				width: 168px;
-    				font-size: 11px;
-    				z-index: 10;
-    				-webkit-box-shadow: 0 3px 5px -3px #ccc;
-    				-moz-box-shadow: 0 3px 5px -3px #ccc;
-    				box-shadow: 0 3px 5px -3px #ccc;
-    				.card-type {
-    				    color: #6e6e6e;	
-    				    font-size: 11px;
-    				    margin: 5px 0;
-    				}
-    				.card-no {
-    				    color: #6e6e6e;	
-    				    font-size: 11px;
-    				    margin: 5px 0;
-    				}
-    			 }
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 19px;
+                    bottom: 100%;
+                    width: 0;
+                    height: 0;
+                    border-color: transparent transparent #ffffff transparent ;
+                    border-style: solid;
+                    border-width: 6px;
+                 }
+                 .cvv-info-details:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 18px;
+                    bottom: 100%;
+                    width: 0;
+                    height: 0;
+                    border-color: transparent transparent #cccccc transparent ; 
+                    border-style: solid;
+                    border-width: 7px; 
+                 }
+                 .cvv-info-details{
+                    display:none;
+                    margin-left: 20px;
+                    background: #FFFFFF;
+                    border: 1px solid #C4c4c4;
+                    padding: 10px;
+                    position: absolute;
+                    top: 25px;
+                    left: -37px;
+                    width: 168px;
+                    font-size: 11px;
+                    z-index: 10;
+                    -webkit-box-shadow: 0 3px 5px -3px #ccc;
+                    -moz-box-shadow: 0 3px 5px -3px #ccc;
+                    box-shadow: 0 3px 5px -3px #ccc;
+                    .card-type {
+                        color: #6e6e6e; 
+                        font-size: 11px;
+                        margin: 5px 0;
+                    }
+                    .card-no {
+                        color: #6e6e6e; 
+                        font-size: 11px;
+                        margin: 5px 0;
+                    }
+                 }
                 
             }
             .mz-l-formfieldgroup-row {
@@ -1913,6 +1913,33 @@ button.redeem[disabled] {
         }
     }
 } 
+ 
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+    .mz-checkout{
+        .mz-checkoutform{
+            .mz-formstep{
+                .mz-formstep-fields{
+                    .mz-checkout-digitalcredit{
+                        .mz-checkout-digitalcredit-table {
+                            .mz-table{
+                                tbody{
+                                    tr.mz-checkout-digitalcredit-row{
+                                        .checkbox-outer-label {
+                                            .checkmark-style {
+                                                left: -109px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
     #page-wrapper {
         #page-content {
@@ -2429,7 +2456,7 @@ width: 100%;
                         }
                     }
                     .mz-l-stack-section{
-	                    margin: 0;
+                        margin: 0;
                     }
                 }
                 .mz-formstep-fields{

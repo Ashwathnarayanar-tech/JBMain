@@ -2,13 +2,13 @@
 {% block head-tag %}
     {% parent %}
     <head> 
-	    <title>
-    	{% block title-tag-content %}  
-		    Checkout
-		{% endblock title-tag-content %}
-		</title>
-	</head>	
-{% endblock head-tag %}	 
+        <title>
+        {% block title-tag-content %}  
+            Checkout
+        {% endblock title-tag-content %}
+        </title>
+    </head> 
+{% endblock head-tag %}  
 
 {% block body-tag-classes %} mz-checkout {% endblock body-tag-classes %}
 
@@ -62,7 +62,7 @@
 </section>
      <div class="checkout-header">
         <h1 class="mz-pagetitle">
-			<a href="/"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a>
+            <a href="/"><img src="/resources/images/new-logo-images/jb_logo_web_header.png" alt="Jelly Belly homepage"></a>
             {{ labels.checkout }}
             {% comment %}
             {% if not user.isAuthenticated %} 
@@ -131,9 +131,9 @@
             <div class="mz-formstep mz-checkoutform-shippingmethod" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
                 {% include "modules/checkout/step-shipping-method" %}
             </div>
-    			<div class="coupon-code-row mz-l-formfieldgroup-row " id="coupon-code-field" style="display:none;">
+                <div class="coupon-code-row mz-l-formfieldgroup-row " id="coupon-code-field" style="display:none;">
                     {% include "modules/checkout/coupon-code-field" %}
-    			</div> 
+                </div> 
             <div class="mz-formstep mz-checkoutform-paymentinfo" id="step-payment-info">
                 {% include "modules/checkout/step-payment-info" %}
             </div>
@@ -196,7 +196,7 @@
         </div>
     </div>
 
-	<section>
+    <section>
    
        {% dropzone "kount" scope="template" %}
     

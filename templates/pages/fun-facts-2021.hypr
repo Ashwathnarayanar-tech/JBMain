@@ -1,0 +1,251 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-footer-static{% endblock body-tag-classes %}
+{% block body-content %}
+
+<link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/pages/funfacts.less" %}" title="default" />
+
+<!-- Script removes body class for styling purposes -->
+<script>
+  var body = document.querySelector("body");
+  body.className = "";
+</script>
+
+<section>
+  <h1 class="mz-pagetitle sr-only" tabindex="0">
+    Fun Facts About Jelly Belly
+  </h1>
+
+  <div class="card card-popular">
+    <div class="card__head">
+      <h2 class="card__head-heading">Most Popular Flavor</h2>
+    </div>
+    <div class="card__body">
+      <div class="card__body-bean-container">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2482b737-0d20-4e9f-aedf-5e94caee1d28?quality=80"
+          alt="Very Cherry">
+        <span class="card__body-bean-container-text">Very Cherry</span>
+      </div>
+      <div class="card__body-bean-container">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/funfacts_popular_butteredpopcorn.jpg?quality=80"
+          alt="Buttered Popcorn">
+        <span class="card__body-bean-container-text">Buttered Popcorn</span>
+      </div>
+      <p class="card__body-text">Very Cherry remained the most popular flavor of Jelly Belly jelly beans for two decades until
+        Buttered Popcorn took the top spot in 1998. In 2003, Very Cherry retook the title and has remained the most
+        popular ever since.
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-anatomy">
+    <div class="card__head">
+      <h2 class="card__head-heading">Anatomy of a Jelly Bean</h2>
+    </div>
+    <div class="card-anatomy__container">
+      <div class="card-anatomy__bean-whole">
+        <img class="card-anatomy__bean-whole-img" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/funfacts_anatomy_outerbean.jpg" alt="">
+        <div class="card-anatomy__info card-anatomy__info--shape">
+          <div class="card-anatomy__info-circle"></div>
+          <div class="card-anatomy__info-dotted-line"></div>
+          <span class="card-anatomy__info-text">Distinctive Shape</span>
+        </div>
+        <div class="card-anatomy__info card-anatomy__info--logo">
+          <div class="card-anatomy__info-circle"></div>
+          <div class="card-anatomy__info-dotted-line"></div>
+          <span class="card-anatomy__info-text">World Famous Logo</span>
+        </div>
+        <div class="card-anatomy__info card-anatomy__info--shell">
+          <div class="card-anatomy__info-circle"></div>
+          <div class="card-anatomy__info-dotted-line"></div>
+          <span class="card-anatomy__info-text">Flavored Polished Shell</span>
+        </div>
+      </div>
+      <ul class="card-anatomy__list">
+        <li class="card-anatomy__list-item">Every bean is signed with the world famous Jelly Belly logo</li>
+        <li class="card-anatomy__list-item">Each bean has a distinctive shape</li>
+        <li class="card-anatomy__list-item">Flavor is packed into both the chewy center and polished shell</li>
+      </ul>
+    </div>
+    <div class="card-anatomy__bean-cross">
+      <img class="card-anatomy__bean-cross-img" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/funfacts_anatomy_innerbean.jpg" alt="">
+      <div class="card-anatomy__info card-anatomy__info--center">
+        <div class="card-anatomy__info-circle"></div>
+        <div class="card-anatomy__info-dotted-line"></div>
+        <span class="card-anatomy__info-text">Chewy Flavorful Center</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-time">
+    <div class="card__head">
+      <div class="card__head-icon">
+        <img class="card__head-icon-img" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/f12e71f2-acbb-4e49-954a-3bdf0a46dc02" alt="">
+      </div>
+      <h2 class="card__head-heading">Quality Takes Time</h2>
+      <div class="card__head-icon">
+        <img class="card__head-icon-img" src="https://cdn-tp1.mozu.com/9046-m1/cms/files/86d2a2b8-7292-40ea-933e-62d46659e21d" alt="">
+      </div>
+    </div>
+
+    <div class="card__body">
+      <div class="card__body-img">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/a70952d9-f557-4ecc-9b23-7e92b1d56f64" alt="Calendar with 14 days">
+      </div>
+      <p class="card__body-text">It takes 7<span aria-hidden="true">-</span><span class="sr-only">to</span>14 days to make one Jelly Belly jelly
+        bean
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-favorite">
+    <div class="card__head">
+      <h2 class="card__head-heading">America's Favorite Flavors</h2>
+    </div>
+    <ul class="card__body card__list">
+      <li class="card__body-bean-container card__list-item">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/2cd08f68-2b2f-4076-ba41-526ca4498994" alt="">
+        <span class="card__body-bean-container-text">Very Cherry</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/6d2cc5f9-41c8-4330-8418-54bf010c8adb" alt="">
+        <span class="card__body-bean-container-text">Buttered Popcorn</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/eef28ff4-0620-467c-9b43-6b7f3b020652" alt="">
+        <span class="card__body-bean-container-text">Licorice</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/6f7f7f6a-b635-44b7-a8a6-1a5d7bb402e5" alt="">
+        <span class="card__body-bean-container-text">Sizzling Cinnamon</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/dc5d2c28-daec-43f0-9ee3-42db4bf3c139" alt="">
+        <span class="card__body-bean-container-text">Juicy Pear</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card card-kids">
+    <div class="card__head">
+      <h2 class="card__head-heading">The Flavors Kids Love</h2>
+    </div>
+    <ul class="card__body card__list">
+      <li class="card__body-bean-container card__list-item">
+        <img src="#" alt="">
+        <span class="card__body-bean-container-text">Berry Blue</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="#" alt="">
+        <span class="card__body-bean-container-text">Green Apple</span>
+      </li>
+      <li class="card__body-bean-container card__list-item">
+        <img src="#" alt="">
+        <span class="card__body-bean-container-text">Cotton Candy</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card card-controversial">
+    <h2 class="card__header">Most Controversial Flavor</h2>
+    <div>
+      <img src="" alt="">
+      <span>Buttered Popcorn</span>
+      <p>You either love it or you hate it - buttered popcorn is th emost controversial jelly bean flavor (runner up:
+        licorice)</p>
+      <div>
+        <img src="#" alt="">
+        <div>
+          <img src="#" alt="">
+          <span>Licorice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-variety">
+    <h2 class="card__header">What a Variety</h2>
+    <img src="#" alt="Display of 72 flavors of Jelly Belly jelly beans">
+    <p>Jelly Belly produces more than <span>100</span> different flavors of jelly beans</p>
+  </div>
+
+  <div class="card card-counting">
+    <h2 class="card__header"><img src="#" alt="Bean Counting"></h2>
+    <div>
+      <p>
+        <span aria-hidden="true">1,680</span><span class="sr-only">1680</span>
+        <br>
+        Jelly Belly beans are made per second
+      </p>
+      <img src="#" alt="">
+      <img src="#" alt="">
+      <img src="#" alt="">
+      <img src="#" alt="">
+      <p>
+        <span>15</span>
+        <span>Billion</span>
+        beans are eaten each year
+      </p>
+    </div>
+    <div>
+      <p>If you laid all those beans end to end, they would wrap around the <span>Earth</span> approximately 5 times!
+      </p>
+      <img src="#" alt="">
+      <img src="#" alt="">
+      <img src="#" alt="">
+      <p>The amount of Jelly Belly jelly beans made in one day is equal to the weight of 24 elephants</p>
+    </div>
+  </div>
+
+  <div class="card card-traveled">
+    <h2 class="card__header">Well Traveled</h2>
+    <div>
+      <img src="#" alt="Jelly Belly bean art of President Ronald Reagan">
+      <p>
+        Jelly Belly jelly beans have even been to outer space! In 1983, President Reagen surprised Challenger astronauts
+        with Jelly Belly jelly beans.
+      </p>
+    </div>
+    <div>
+      <img src="#" alt="">
+      <img src="#" alt="President Ronald Reagan's signature">
+      <p>Jelly Belly jelly beans became a staple in the White House during President Reagan's term in office.</p>
+      <img src="#" alt="">
+    </div>
+  </div>
+
+  <div class="card card-legacy">
+    <h2 class="card__header">Legacy of Candy Corn</h2>
+    <p>It takes three days to make one kernel</p>
+    <img src="#" alt="Original advertisement of Goelitz Butter Sweet Candy Corn - Something worth crowing for">
+    <p>we have been making candy corn in the U.S. longer than any other manufacturer</p>
+  </div>
+
+  <div class="card card-many">
+    <h2 class="card__header">The First of Many</h2>
+    <div>
+      <img src="#" alt="">
+      <span>Very Cherry</span>
+      <img src="#" alt="">
+      <span>Tangerine</span>
+      <img src="#" alt="">
+      <span>Root Beer</span>
+      <img src="#" alt="">
+      <span>Green Apple</span>
+    </div>
+    <p>
+      The original <span>8</span> <span>flavors</span> <span>introduced in 1976 were</span>
+    </p>
+    <div>
+      <img src="#" alt="">
+      <span>Grape</span>
+      <img src="#" alt="">
+      <span>Cream Soda</span>
+      <img src="#" alt="">
+      <span>Lemon</span>
+      <img src="#" alt="">
+      <span>Licorice</span>
+    </div>
+  </div>
+</section>
+{% endblock body-content %}
