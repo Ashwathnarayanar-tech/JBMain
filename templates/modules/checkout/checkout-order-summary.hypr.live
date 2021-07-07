@@ -2,9 +2,7 @@
     <h2 class="mz-formstep-header">
         {{ labels.orderSummary }}
     </h2>
-
     <div class="mz-formstep-body">
-    
         {% include "modules/common/order-summary" %}
     </div><!-- #order-summary -->
 </div>

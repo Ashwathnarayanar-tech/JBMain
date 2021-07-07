@@ -380,12 +380,5 @@
   "notifyWidgetButton": "Benachrichtigen",
   "notifyWidgetSuccess": "Sie werden benachrichtigt, sobald der Artikel wieder auf Lager ist.",
   "notifyWidgetError": "Es gab einen Fehler oder Forums. Bitte versuchen Sie es erneut.",
-  "dealOfTheDay": "Angebot des Tages",
-  "printWindowCancelButton": "Cancel",
-  "printWindowPrintButton": "Print",
-  "orderItemsNotShipped": "Shipping Soon",
-  "orderItemsPickup": "Pick up in store",
-  "orderDigitalItems": "Fulfilled Digital Products",
-  "returnCreated": "Return Created",
-  "returnPrintLabelButton": "Print"
+  "dealOfTheDay": "Angebot des Tages"
 }

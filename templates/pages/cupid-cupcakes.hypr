@@ -1,10 +1,11 @@
 
 
 {% extends "page" %}
- 
-{% block body-tag-classes %}mz-footer-static mz-w-snackbar mz-warehouse mz-baking mz-visit-us{% endblock body-tag-classes %} 
+
+{% block body-tag-classes %}mz-footer-static mz-w-snackbar mz-warehouse mz-baking mz-visit-us{% endblock body-tag-classes %}
 {% block body-content %}
 <section>
+    <!--this is a comment-->
     <h1 class="mz-pagetitle">Cupid Cupcakes</h1>
     <article class="carnival-details txt-left">
         <h2>Cupid Cupcakes</h2>
@@ -16,7 +17,7 @@
                 <div style="width:340px;"><iframe width="100%" height="300" src="//www.youtube.com/embed/Ux9BqsPSSn0?feature=player_embedded" frameborder="0" allowfullscreen=""></iframe></div>
             </figure>
             <p>
-                Love, Jelly Belly style! If your sweetheart has a sweet tooth, create these beautiful cupcakes with an assortment of jelly beans and Confections and watch the sparks fly! 
+                Love, Jelly Belly style! If your sweetheart has a sweet tooth, create these beautiful cupcakes with an assortment of jelly beans and Confections and watch the sparks fly!
             </p>
             <h2>Ingredients:</h2>
             <ul class="contentList">
@@ -36,11 +37,11 @@
             <h2>Instructions:</h2>
             <ol class="contentList">
                 <li>Divide the frosting evenly between 2 bowls. Tint one bowl light pink with the red food coloring. Cover the bowls with plastic wrap to prevent drying.</li>
-                <li>Working on 1 cupcake at a time, spread some of either frosting on top of a cupcake to make smooth. Add Jelly Belly jelly beans, Mint Cremes, 
+                <li>Working on 1 cupcake at a time, spread some of either frosting on top of a cupcake to make smooth. Add Jelly Belly jelly beans, Mint Cremes,
                     Valentine Mix and Licorice Pastels in desired love message patterns on top of the cupcakes (see photo for ideas).
                 </li>
-                <li>For the butterfly, arrange 2 pink Licorice Pastels, end to end, in the center of the cupcake. Place 2 red hearts (from the Deluxe Valentine Mix) 
-                    on either side of licorice and 2 Cupid Corn pieces (from the Deluxe Valentine Mix) for the wings. Pipe antennae with the chocolate decorating frosting. 
+                <li>For the butterfly, arrange 2 pink Licorice Pastels, end to end, in the center of the cupcake. Place 2 red hearts (from the Deluxe Valentine Mix)
+                    on either side of licorice and 2 Cupid Corn pieces (from the Deluxe Valentine Mix) for the wings. Pipe antennae with the chocolate decorating frosting.
                 </li>
             </ol>
             <h2>MAKES 22 CUPCAKES</h2>
@@ -57,8 +58,3 @@
     </article>
 </section>
 {% endblock body-content %}
-
-
-
-
-

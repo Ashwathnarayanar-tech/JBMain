@@ -91,7 +91,8 @@ define([
                     if (self.baseRequestParams && (p in self.baseRequestParams)) delete lrClone[p];
                 });
                 if (parseInt(lrClone.pageSize, 10) === defaultPageSize) delete lrClone.pageSize;
-
+                
+                if (this.query) lrClone.query = this.query;
                 var startIndex = this.get('startIndex');
                 if (startIndex) lrClone.startIndex = startIndex;
                 return lrClone;
@@ -145,16 +146,7 @@ define([
                     }
                 } catch (e) { }
             },
-            // setPage: function(num) {
-            //     if(this.lastRequest.sortBy === "undefined") {
-            //         // delete conf.sortBy;
-            //         this.lastRequest.sortBy = "";
-            //     }
-            //     num = parseInt(num);
-            //     if (num != this.currentPage() && num <= parseInt(this.get('pageCount'))) return this.apiGet($.extend(this.lastRequest, {
-            //         startIndex: (num - 1) * parseInt(this.get('pageSize'))
-            //     }));
-            // },
+
             setIndex: function (num, config) {
                 try {
                     num = parseInt(num, 10);
@@ -167,6 +159,7 @@ define([
                 num = parseInt(num, 10);
                 if (num != this.currentPage() && num <= parseInt(this.get('pageCount'), 10)) return this.apiModel.setIndex((num - 1) * parseInt(this.get('pageSize'), 10), this.lastRequest);
             },
+
             changePageSize: function(isLoadMore) {
                 if(isLoadMore){
                     //TODO Implement to update the value '5' through theme settings.
@@ -175,7 +168,12 @@ define([
                         if(newSize>this.get('totalCount')){
                             newSize = this.get('totalCount');
                         }
-                        return this.apiGet($.extend(this.lastRequest, { pageSize: newSize }));   
+                        window.showGlobalOverlay();
+                        return this.apiGet($.extend(this.lastRequest, { pageSize: newSize })).then(function(){
+                            window.hideGlobalOverlay();
+                        }).catch(function(err){
+                             window.hideGlobalOverlay();
+                        });   
                     }
                 }else{
                     return this.apiGet($.extend(this.lastRequest, { pageSize: this.get('pageSize') }));

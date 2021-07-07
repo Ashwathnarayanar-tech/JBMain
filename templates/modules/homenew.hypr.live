@@ -1,9 +1,9 @@
    
 <div>
-  <div class="isDesktop">
+	<div class="isDesktop">
         {% dropzone "home-header" scope="page" %}
-   </div>
-   <div class ="isMobile">
+    </div>
+    <div class ="isMobile">
     	{% dropzone "home-header-mob" scope="page" %}
 	</div>
 </div>
@@ -89,7 +89,9 @@
   <div style="clear: both"></div>
 </div>
 
-<div class="newpromocatehome">
+
+
+<div>
 	{% dropzone "home-promos" scope="page" %}
 </div>
 
@@ -175,4 +177,4 @@
     <div class="clearfix"></div>
 </div>
   
- 
+  

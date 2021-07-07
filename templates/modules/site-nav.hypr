@@ -601,7 +601,7 @@
                                             </ui>
                                         </div>      
                                     </div>-->                             
-                                </div>                           
+                                </div>-->                           
                             </li>
                             <li class="sunmenu-container" data-attr="Weight/Size">
                                 <div class="submenu-list weight-styling">
@@ -3030,4 +3030,3 @@
         </div>
     </nav>   
 {% endif %}
-

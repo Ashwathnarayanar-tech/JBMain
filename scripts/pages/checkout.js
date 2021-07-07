@@ -149,6 +149,7 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             // wait for blur validation to complete
             var me = this;
             me.editing.savedCard = false;
+           //  window.showGlobalOverlay();
             _.defer(function () {
                 me.model.next();
             });
@@ -305,22 +306,48 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
             
             
             if(window.flag ){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
-                $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                //JEL-1858
+                if( window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                    $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                    $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').addClass('is-complete');
+                    $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                }else{
+                    $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                    $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').removeClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').addClass('is-new');
+                }
+                
             } 
             
             if(window.flag && (window.location.href).split('?')[1] == 'cl=ml'){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                if(window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                    $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                    $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').addClass('is-complete');
+                    $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                }
+                else{
+                        $('.mz-checkoutform-shippingmethod').removeClass('is-complete');
+                    $('.mz-checkoutform-shippingmethod').addClass('is-incomplete');
+                }
+               
             }
             else if(window.flag && (window.location.href).split('?')[1] == 'cl=returningUser'){
-                $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
-                $('.mz-checkoutform-shippingmethod').addClass('is-complete');
-                $('html, body').animate({
-                     scrollTop: $("#step-payment-info").offset().top
-                 }, 500);
+                if(window.paymentinfo.model.get('paymentWorkflow') == "PayPalExpress2"){
+                    $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                    $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                    $('.mz-checkoutform-paymentinfo').addClass('is-complete');
+                    $('.mz-checkoutform-paymentinfo').removeClass('is-new');
+                }
+                else{
+                    $('.mz-checkoutform-shippingmethod').removeClass('is-incomplete');
+                    $('.mz-checkoutform-shippingmethod').addClass('is-complete');
+                    $('html, body').animate({
+                    scrollTop: $("#step-payment-info").offset().top
+                    }, 500);
+                }
             }
             /*if(window.paymentTypeFlag) {
                 $('.inpit-select').focus();
@@ -2802,7 +2829,6 @@ CartMonitor, HyprLiveContext, EditableView, preserveElements,PayPal) {
                 e.stopPropagation();
             }
         });
-        
         $(document).on('focus','#toolTipStock', function(e) { 
             $(this).next().addClass('cc-tooltip');
         });

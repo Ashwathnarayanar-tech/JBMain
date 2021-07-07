@@ -198,7 +198,7 @@
   </script>
   {% endif %}
 
-{% if pagecontext.pageType != "checkout" %}
+{% if pagecontext.pageType != "checkout" and pagecontext.pageType != "confirmation" %}
   {% require_script "modules/new-lazy-load" %}
 {% endif %}
 
@@ -314,9 +314,9 @@
                       {% include "modules/addtowishlist-popup" %}
                     {% endif %}
         {% endblock body-content %}
-        <div class="globalOverlay">
-          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/8857b502-4d59-4ede-91a9-9c68fe333555?maxwidth=100" class="rotate" alt="spinner">
-         </div>
+        <div class="globalOverlay" role="alert" aria-live="assertive" aria-label="Loading Please wait">
+          <img src="https://cdn-tp1.mozu.com/9046-m1/cms/files/JB_Loader2.png?maxwidth=100" class="rotate"  >
+        </div>
             </div>
             
       </div>
@@ -339,13 +339,38 @@
    
 {% if themeSettings.isGlobalOverlayEnabled === true %}
   <script >
-  window.showGlobalOverlay = function showGlobalOverlay(){
+   window.oldAriaElement = null;
+  window.showGlobalOverlay = function showGlobalOverlay(message,ele,isrequired){
+            document.querySelector(".globalOverlay ").setAttribute('aria-live', "polite");
+          if(message){
+            document.querySelector(".globalOverlay ").setAttribute('aria-label', message);
+          }
+          else{
+            document.querySelector(".globalOverlay ").setAttribute('aria-label', 'loading please wait');
+          }
+          if(ele && ele!="" && isrequired){
+            document.querySelector(".meter .text-content").setAttribute('aria-live', 'off');
+            document.querySelector(ele).setAttribute("aria-busy",true); 
+           // document.querySelector(ele).setAttribute("aria-live",'polite');
+            if(window.oldAriaElement && window.oldAriaElement!=ele){
+              document.querySelector(window.oldAriaElement).removeAttribute("aria-busy"); 
+              document.querySelector(window.oldAriaElement).removeAttribute("aria-live");
+            }
+            window.oldAriaElement = ele;
+          }
           document.body.classList.add("openoverlay");
     };
 
-    window.hideGlobalOverlay = function hideGlobalOverlay(){
+  
+  window.hideGlobalOverlay = function hideGlobalOverlay(ele,isrequired){
+       //   document.querySelector(".globalOverlay").setAttribute('aria-live', "off");
+          if(ele && isrequired){
+            document.querySelector(ele).removeAttribute("aria-busy"); 
+            document.querySelector(ele).setAttribute("aria-live",'polite');
+          }
             document.body.classList.remove("openoverlay");
-    };
+  };
+
   var interval = setInterval(function() {
     if(document.readyState === 'loading') {
       console.log(" show overlay");
@@ -455,4 +480,3 @@ window.showGlobalOverlay = function showGlobalOverlay(){
     
 </html>
 {% endautoescape %}
-
