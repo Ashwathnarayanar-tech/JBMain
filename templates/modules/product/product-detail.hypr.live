@@ -73,7 +73,7 @@
                         <label for="quantity">{{ labels.qtypdp }}</label>
                     </span>
                     <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                        <input class="quantity" value="1" tabindex="-1" id="quantity" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
+                        <input class="quantity"type="number" type='number'  value="1" tabindex="-1" id="quantity" name="quantity"  data-mz-value="quantity" min="1" max="25" onChange="this.parentElement.querySelectorAll('.quantity')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity')[0].value) : 1">
                         <span class="increment spinner" role="button" tabindex="0" aria-label="Increases quantity of this product" data-mz-action="qtyPlus"></span>
                         <span class="decrement spinner" role="button" tabindex="0" aria-label="Decreases quantity of this product" data-mz-action="qtyMinus"></span>
                         <div class="clear"></div>
@@ -99,7 +99,7 @@
                     data-jb-pid="{{ model.variationProductCode|default(model.productCode) }}" 
                     class="mz-productdetail-addtocart jb-tealium-trigger add-to-cart-btn-pdp {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %}" 
                     {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-action="addToCart" >
-                        Add to Cart
+                        Add to Cart 
                     </button>
                 {% else %}
                     {% if model.options and model.options.length > 0 %}

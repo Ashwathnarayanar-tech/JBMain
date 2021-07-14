@@ -105,11 +105,12 @@
                     <td class="mz-carttable-item-price">
                       {% include "modules/common/item-price" %} 
                     </td>
+                   
                     <td class="mz-carttable-item-qty">
                         <div class="qty-input-box" aria-label="Quantity - 1">
                             <diV class="qty-input-inner-box"> 
                               <button type="button" class="plus-prod-qty-cart" aria-label="Increase quantity of {{ item.product.name|safe }} by one"></button>
-                              <input class="quantity-field-cart" value="{{ item.quantity }}"  aria-label="Quantity of {{ item.product.name|safe }}" name="quantity"  data-mz-cart-item="{{ item.id }}"  data-mz-value="quantity" min="1" max="25">
+                              <input class="quantity-field-cart"  type='number'  value="{{ item.quantity }}"  aria-label="Quantity of {{ item.product.name|safe }}" name="quantity"  data-mz-cart-item="{{ item.id }}"  data-mz-value="quantity" min="1" max="25">
                               <button type="button" class="minus-prod-qty-cart" aria-label="Decrease quantity of {{ item.product.name|safe }} by one"></button>
                               <div class="clear"></div>
                             </div>
@@ -210,7 +211,7 @@
                                         <button type="button"  class="minus-prod-qty-cart" aria-label="Decrease quantity of {{ item.product.name|safe }} by one">
                                         <span><img src="../../resources/images/icons/minus_qty_blue.png" alt="quantity decrement"/></span>
                                     </button>
-                                    <input class="quantity-field-cart" value="{{ item.quantity }}"  aria-label="Quantity of {{ item.product.name|safe }}" name="quantity" data-mz-cart-item="{{ item.id }}"  data-mz-value="quantity" min="1" max="25" />
+                                    <input class="quantity-field-cart"  value="{{ item.quantity }}"  aria-label="Quantity of {{ item.product.name|safe }}" name="quantity" data-mz-cart-item="{{ item.id }}"  data-mz-value="quantity" min="1" max="25" />
                                         <button type="button" class="plus-prod-qty-cart"  aria-label="Increase quantity of {{ item.product.name|safe }} by one">
                                         <span><img src="../../resources/images/icons/plus-qty_blue.png" alt="quantity increment"/></span>
                                     </button>
