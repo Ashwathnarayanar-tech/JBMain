@@ -88,7 +88,7 @@
 /* new CSS for UX enhancements for PLP */
 .mz-footer-static.mz-searchresults #page-wrapper.mz-l-pagewrapper #page-content.mz-l-pagecontent {
     width: 100%;
-    margin-top: 3px;
+    padding: 0px !important;
     .mz-breadcrumbs.margin-fix {
         margin-left: auto;
         margin-bottom: 10px;
@@ -130,12 +130,14 @@
                                             .a-spot-cointainer{
                                                 width: 100%;
                                                 position: relative;
-                                                height: 500px;
                                                 overflow: hidden;
+                                                display: flex;
+                                                align-items: center;
+                                                vertical-align: middle;
                                                 img{
                                                     width: 100%;
-                                                    position: absolute;
-                                                    width: auto;
+                                                    position: relative;
+                                                    margin: auto;
                                                 }
                                                 .A-spotContent{
                                                     position: absolute;
@@ -174,6 +176,9 @@
                                                             border-radius: 4px;
                                                         }
                                                     }
+                                                }
+                                                &.mobileimage {
+                                                    display: none;
                                                 }
                                             } 
                                             .flavor-sec{
@@ -223,6 +228,9 @@
                                                                         float: right;
                                                                         margin-top: 0px;
                                                                         margin-right: 7px;
+                                                                        @media only screen and (min-width: 1px) and (max-width: 767px){
+                                                                            right: 5px;
+                                                                        }
                                                                     }
                                                                 }  
                                                                 &[aria-expanded="true"]{
@@ -265,7 +273,7 @@
                                                                     width: 14%;
                                                                     text-decoration: none;
                                                                     vertical-align: top;
-                                                                    height: auto;
+                                                                    height: 60px;
                                                                     .jb-childChildrenCategory{
                                                                         width: 100%;
                                                                         height: auto;
@@ -514,220 +522,222 @@
                         }
                     }
                     .a-spot-cointainer{
-                        width: 100%;
-                        position: relative;
-                        height: 500px;
-                        overflow: hidden;
-                        img{
                             width: 100%;
-                            position: absolute;
-                            width: auto;
-                        }
-                        .A-spotContent{
-                            position: absolute;
-                            padding: 30px;
-                            color: white;
-                            left: 0;
-                            width: 600px;
-                            .a-spotContentHeading{
-                                font-size: 2.3vw;
-                                font-weight: 700;
-                                line-height: 3vw;
-                                text-transform: uppercase;
-                                color: #fff;
-                                text-overflow: ellipsis;
-                                margin: 30px 25px 0 0;
+                            position: relative;
+                            overflow: hidden;
+                            img{
+                                width: 100%;
+                                width: auto;
                             }
-                            .a-spotText{
-                                font-size: 1.2vw;
-                                /*height: 100px;*/
-                                overflow: hidden;
-                                margin: 20px 0;
-                                font-weight: 300;
-                            }
-                            .a-spotButtons{
-                                text-align: left;
-                                margin: 30px 0;
-                                display: block;
-                                .button-light{
-                                    font-size: 18px;
-                                    background-color: #FFF;
-                                    color: #000;
-                                    text-decoration: none;
-                                    padding: 9.5px 35px;
-                                    text-transform: uppercase;
+                            .A-spotContent{
+                                position: absolute;
+                                padding: 30px;
+                                color: white;
+                                left: 0;
+                                width: 600px;
+                                .a-spotContentHeading{
+                                    font-size: 2.3vw;
                                     font-weight: 700;
-                                    border-radius: 4px;
+                                    line-height: 3vw;
+                                    text-transform: uppercase;
+                                    color: #fff;
+                                    text-overflow: ellipsis;
+                                    margin: 30px 25px 0 0;
+                                }
+                                .a-spotText{
+                                    font-size: 1.2vw;
+                                    /*height: 100px;*/
+                                    overflow: hidden;
+                                    margin: 20px 0;
+                                    font-weight: 300;
+                                }
+                                .a-spotButtons{
+                                    text-align: left;
+                                    margin: 30px 0;
+                                    display: block;
+                                    .button-light{
+                                        font-size: 18px;
+                                        background-color: #FFF;
+                                        color: #000;
+                                        text-decoration: none;
+                                        padding: 9.5px 35px;
+                                        text-transform: uppercase;
+                                        font-weight: 700;
+                                        border-radius: 4px;
+                                    }
                                 }
                             }
-                        }
-                    }
+                            &.mobileimage {
+                                display: none;
+                            }
+                        } 
                     .brand-dicreption{
                         margin-bottom: 50px;
-                    .flavor-sec{
-                        width: 100%;
-                        margin: 0;
-                        .flavor-List{
+                        
+                        .flavor-sec{
                             width: 100%;
                             margin: 0;
-                            padding: 0;
-                            .jb-childcategory{
+                            .flavor-List{
+                                width: 100%;
                                 margin: 0;
-                                border: none;
-                                text-align: center;
-                                border-radius: 0;
-                                border: solid 1px #cfcfcf;
-                                box-shadow: 1px 1px 0px 0 rgba(0,0,0,0.32);
-                                .jb-colapsing-title{
-                                    background-color: #f5f5f5;
-                                    /*box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.32);
+                                padding: 0;
+                                .jb-childcategory{
+                                    margin: 0;
+                                    border: none;
+                                    text-align: center;
                                     border-radius: 0;
-                                    border: solid 1px #cfcfcf;*/
-                                    p{
-                                        display: none;
-                                    }
-                                    .jb-category-title{
-                                        width: auto;
-                                        text-align: center;
-                                        color: #004e99;
-                                        font-weight: 700;
-                                        font-size: 22px;
-                                        position: relative;
-                                        margin: 0;
-                                        width: auto;
-                                        display: inline-block;
-                                        &[aria-expanded="false"]{
-                                            &:before{
-                                                content: "";
-                                                position: absolute;
-                                                background-size: 100%;
-                                                right: -27px;
-                                                top: 10px;
-                                                width: 8px;
-                                                height: 8px;
-                                                transform: rotate(-135deg);
-                                                border-left: solid 2px #004e99;
-                                                border-bottom: solid 2px #004e99;
-                                                float: right;
-                                                margin-top: 0px;
-                                                margin-right: 7px;
-                                            }
-                                        }  
-                                        &[aria-expanded="true"]{
-                                            &:before{
-                                                content: "";
-                                                position: absolute;
-                                                background-size: 100%;
-                                                right: -27px;
-                                                top: 10px;
-                                                width: 8px;
-                                                height: 8px;
-                                                transform: rotate(-45deg);
-                                                border-left: solid 2px #004e99;
-                                                border-bottom: solid 2px #004e99;
-                                                float: right;
-                                                margin-top: 0px;
-                                                margin-right: 7px;
+                                    border: solid 1px #cfcfcf;
+                                    box-shadow: 1px 1px 0px 0 rgba(0,0,0,0.32);
+                                    .jb-colapsing-title{
+                                        background-color: #f5f5f5;
+                                        /*box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.32);
+                                        border-radius: 0;
+                                        border: solid 1px #cfcfcf;*/
+                                        p{
+                                            display: none;
+                                        }
+                                        .jb-category-title{
+                                            width: auto;
+                                            text-align: center;
+                                            color: #004e99;
+                                            font-weight: 700;
+                                            font-size: 22px;
+                                            position: relative;
+                                            margin: 0;
+                                            width: auto;
+                                            display: inline-block;
+                                            &[aria-expanded="false"]{
+                                                &:before{
+                                                    content: "";
+                                                    position: absolute;
+                                                    background-size: 100%;
+                                                    right: -27px;
+                                                    top: 10px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    transform: rotate(-135deg);
+                                                    border-left: solid 2px #004e99;
+                                                    border-bottom: solid 2px #004e99;
+                                                    float: right;
+                                                    margin-top: 0px;
+                                                    margin-right: 7px;
+                                                }
+                                            }  
+                                            &[aria-expanded="true"]{
+                                                &:before{
+                                                    content: "";
+                                                    position: absolute;
+                                                    background-size: 100%;
+                                                    right: -27px;
+                                                    top: 10px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    transform: rotate(-45deg);
+                                                    border-left: solid 2px #004e99;
+                                                    border-bottom: solid 2px #004e99;
+                                                    float: right;
+                                                    margin-top: 0px;
+                                                    margin-right: 7px;
+                                                }
                                             }
                                         }
                                     }
-                                }
-                                .jb_contentfolder{
-                                    .jb-childcategory-description{
-                                        background-color: #f5f5f5;
-                                        margin: 0;
-                                        padding: 10px 3.5% 40px 3.5%;
-                                        width: 93%;
-                                        color: #004e99;
-                                        font-size: 20px;
-                                        text-align: left;
-                                    }
-                                    .jb-childChildrenCategories-container{
-                                        width: 93%;
-                                        padding: 0;
-                                        margin: 0 auto;
-                                        margin-top: 40px;
-                                        text-align: left;
-                                        a{
-                                            display: inline-block;
-                                            width: 14%;
-                                            text-decoration: none;
-                                            vertical-align: top;
-                                                height: auto;
-                                            .jb-childChildrenCategory{
-                                                width: 100%;
-                                                height: auto;
-                                                padding: 0;
-                                                clear: both;
-                                                margin: 0;
-                                                &:hover{
+                                    .jb_contentfolder{
+                                        .jb-childcategory-description{
+                                            background-color: #f5f5f5;
+                                            margin: 0;
+                                            padding: 10px 3.5% 40px 3.5%;
+                                            width: 93%;
+                                            color: #004e99;
+                                            font-size: 20px;
+                                            text-align: left;
+                                        }
+                                        .jb-childChildrenCategories-container{
+                                            width: 93%;
+                                            padding: 0;
+                                            margin: 0 auto;
+                                            margin-top: 40px;
+                                            text-align: left;
+                                            a{
+                                                display: inline-block;
+                                                width: 14%;
+                                                text-decoration: none;
+                                                vertical-align: top;
+                                                height: 60px;
+                                                .jb-childChildrenCategory{
+                                                    width: 100%;
+                                                    height: auto;
+                                                    padding: 0;
+                                                    clear: both;
+                                                    margin: 0;
+                                                    &:hover{
+                                                        p{
+                                                            font-weight: 700;
+                                                        }
+                                                    }
+                                                    img{
+                                                        width: 60px;
+                                                        display: inline-block;
+                                                    }
                                                     p{
-                                                        font-weight: 700;
+                                                        display: inline-block;
+                                                        width: 59%;
+                                                        text-align: left;
+                                                        text-decoration: none;
+                                                        vertical-align: top;
+                                                        color: #000;
+                                                        margin-left: 4px;
+                                                        font-size: 14px;
                                                     }
                                                 }
-                                                img{
-                                                    width: 60px;
-                                                    display: inline-block;
-                                                }
-                                                p{
-                                                    display: inline-block;
-                                                    width: 59%;
-                                                    text-align: left;
-                                                    text-decoration: none;
-                                                    vertical-align: top;
-                                                    color: #000;
-                                                    margin-left: 4px;
-                                                    font-size: 14px;
-                                                }
                                             }
                                         }
-                                    }
-                                    .jb-child-category-button{
-                                        display: none;
+                                        .jb-child-category-button{
+                                            display: none;
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    .brand-buttons{
-                        text-align: center;
-                        margin: 50px 0 50px 0;
-                        padding: 5px 0;
-                        .button-dark{
-                            background: #004e99;
-                            border-radius: 4px;
-                            -moz-border-radius: 4px;
-                            -webkit-border-radius: 4px;
-                            color: white;
-                            padding: 7.5px 45px;
-                            font-size: 18px;
-                            border: 1px solid #004e99;
-                            text-decoration: none;
-                            margin-right: 16px;
-                            font-weight: 700;
-                            &:hover{
-                                background: #003a72;
-                                border-color: #003a72;
-                            }
-                        }
-                        .button-light{
-                            border-radius: 4px;
-                            -moz-border-radius: 4px;
-                            -webkit-border-radius: 4px;
-                            padding: 7px 45px;
-                            font-size: 18px;
-                            background: white;
-                            border: 1px solid #003a72;
-                            color: #003a72;
-                            text-decoration: none;
-                            font-weight: 700;
-                            &:hover{
-                                background: #003a72;
-                                border-color: #003a72;
+                        .brand-buttons{
+                            text-align: center;
+                            margin: 50px 0 50px 0;
+                            padding: 5px 0;
+                            .button-dark{
+                                background: #004e99;
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
                                 color: white;
+                                padding: 7.5px 45px;
+                                font-size: 18px;
+                                border: 1px solid #004e99;
+                                text-decoration: none;
+                                margin-right: 16px;
+                                font-weight: 700;
+                                &:hover{
+                                    background: #003a72;
+                                    border-color: #003a72;
+                                }
                             }
-                        }
-                    } 
+                            .button-light{
+                                border-radius: 4px;
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                padding: 7px 45px;
+                                font-size: 18px;
+                                background: white;
+                                border: 1px solid #003a72;
+                                color: #003a72;
+                                text-decoration: none;
+                                font-weight: 700;
+                                &:hover{
+                                    background: #003a72;
+                                    border-color: #003a72;
+                                    color: white;
+                                }
+                            }
+                        } 
                         &.Harry-Potter{
                             .brand-buttons{
                                 .button-dark{
@@ -899,12 +909,10 @@
                     .a-spot-cointainer{
                         width: 100%;
                         position: relative;
-                        height: 500px;
                         overflow: hidden;
                         img{
                             width: 100%;
-                            position: absolute;
-                            width: auto;
+                            height: auto;
                         }
                         .A-spotContent{
                             position: absolute;
@@ -943,6 +951,9 @@
                                     border-radius: 4px;
                                 }
                             }
+                        }
+                        &.mobileimage {
+                            display: none;
                         }
                     }
                     .flavor-sec{
@@ -1034,7 +1045,7 @@
                                             width: 14%;
                                             text-decoration: none;
                                             vertical-align: top;
-                                            height: auto;
+                                            height: 60px;
                                             .jb-childChildrenCategory{
                                                 width: 100%;
                                                 height: auto;
@@ -1201,6 +1212,10 @@
                 }
                 .mz-l-paginatedlist{
                     background-color: #f5f5f5;
+                    padding-top: 15px;
+                    overflow-x: hidden;
+                    width: 100%;
+                    box-sizing: border-box;
                     .jb-pagecontrols{
                         width: 93%;
                         margin: 0 auto;
@@ -1624,7 +1639,7 @@
                                 padding: 30px 0 8px 0;
                                 margin-left: 14px;
                                 position: relative;
-                                label{
+                                p{
                                     margin: 0;
                                     display: inline-block;
                                     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABlmWCKAAAFK0lEQVR4Ae1bXWhcRRT+5uampTUtFtsK0mjJS6stKuKLVdFAUUhKfowpFLGQJtkFazTgvy/ti0IR/0HIJptKRcRIm+xWS42llT6IFbUq/tUqlDai7csWSTXN7t7xm93ssjfZ7N7dzd3MJndIcmfOnDnnfGfOnZ87E4FKS03BFRCxFyHF/RByDSS+B6reRLjrZDFQRDGN5q1NU/AGgv+SoGvtNggJiOcQ7n7FTs9fMvKzaMQhYoGZ4JV9kh1pvYzW4G2FWls5DmgfWkbwD+YAaMKKbctRn7WqchxgXa4jAjMrihRRYmMq6/RZOQ6Iyfy2ClHwmJZfqFNXVijfoneA/Z3a0bcaV8wlWnSmYfyLkY7LbtuSdEBLfy+k9QKuYC0Qc1unM/lSvEfGnc6Yi+cy0RLogWW9XryIym5pcG59vLIhlGa9GgRXlyaislvTAfKzyoZQmvUGlhtPQuDH0sRUbmsTH3RfhK/vDlwU2zgebGJEaDINiu/K4dbkNBjwR6lseOq3HHq10bHoV4KeA7SJxXkyxIuAeXK8NmqnNkOB2zkFPk2r9JkGIQ4j5HvebU+ZaA3ch7g8RkX2rbHbmvPJF/gmH8tc1Buw5D4K0gv8XCBzKIODoLjFIe+CZFPb4R8WJDKHoAweLz3FKJhwyL/g2EyE/KfQtv9WxKK93Aht5iGLHpsh4PdyeDs5+B3sOEtlu8uhUDcd3kpQtx4ptz1eBJTb47rpW/QRkJwF1Nl7LLIdltjMD6TVrvaSFKMIdR+x6ZC84NAy0MY1yV2Qcimn4m9x07r38XbDVRtfMYWm4J28PNHIKb6W2H7lqv9DhHZdSIky0TxYi6uRz0moI1PiJ1XpyrPKGLDJbR9cg+Z+fo+Udyv1ycTM+QvPoqX/EYx0F7cp2nvCxOmzr/GobzflJiNdyRfRPTwNewwjPnX0piqib/FJ8GVIQnyF4S77J/jJGB1C8NOTxAYe2R2nc+6dXpW33HNkKcEfZDT1pMGnGknUkDaQuk5DB/C2VbmSlL/YVLX33Ugjm2w0e2Elw/dTNAdyXY2xt3j0wDU4P/ZxTrmSn/7jMb9qqELjL7sEF0sCf9qkT4qbbeVsBYllJIf5/rZlq7bT5LX4Z2KU4Lfa6VlKInmdhpsh8WqWardI622CRfUZW3m2guoxC3tmq07TJRoJfku6nDMjflPVBgeZIF+DTua5H1D37VxMiZOnDPkjHedYOppBKVc2BlmVGIyT02DYN0jNg1CDx9/j7k2DqyLWDIQmdiGOLzgwrZ9R5xbBMJ7BSOfXSnzBt6pcsemh/nWIW8fohA2uyE8LZYQL2ctPAGrmSyQ9HKBMaT2wFvH/Rpkr+LZnAkm+P4KjCIwuLsL2Z7KqWUCPNLzzEmpq6hmTp+bcIIEoB/sd08ErPfpEQAp1+1ANJiNhvg71KVJpT/W5Tz6MsP+TbHL0iYCUdR9tH8eqJQ3smqwGp9gcPQXGCb5hNvBKhn4OUFa92zGB69HKAB1SxSJThO22EvyJXO31ewUyrd3L+8GnAwN8HToyyXnzApdgmA9guJP/TJE76e0AZXtiqxx4g054IjeUqVohxrjIYc93Olpl6vkKZCIVnLtDfl7kMl7KJGfNC/yBKuMep+CVjKqsgnQknjl8HBub1AHOLBsd8RNPOOtxyDdWiPn6R0AmmpBvHyOhkTPEuTRZLXCEeAcrlm/BIX/BO1v9x4A00oyMGhdaA3UM4OtQvfJnqKnTS54HPA94HvA84HnA84DnAc8DhXngf+6hQs7B6MG+AAAAAElFTkSuQmCC");
@@ -1657,6 +1672,9 @@
                         padding: 25px 0 50px 0;
                         float:left;
                         width: 100%;
+                        &.removeloadPadding {
+                            padding-bottom: 0px;
+                        }
                         .mz-pagenumbers-next{
                             background: #004e99;
                             border-radius: 4px;
@@ -1849,6 +1867,14 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                            .a-spot-cointainer.desktopimage {
+                                height: auto;
+                                img {
+                                    width: 100%;
+                                    height: auto;
+                                    position: relative;
                                 }
                             }
                         }
@@ -2050,35 +2076,52 @@
     .mz-category, .mz-searchresults{ 
         .mz-l-pagewrapper{ 
             .mz-l-pagecontent{ 
-                margin-top: 101px !important;
+                margin-top: 85px !important;
                 &.topZero{
-                    margin-top: 101px !important;  
+                    margin-top: 145px !important;  
+                    top:unset;
                 }
-                 .tz-mobrefine-slot {
+                .tz-mobrefine-slot {
                     background-color: whitesmoke;
                     width: 100%;
-                    margin: 0;
-                    padding: 20px 0;
+                    margin: 10px 0 0px;
+                    padding: 0px;
                     text-align: center;
-                    box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.32);
+                    border-top: 1px solid #cfcfcf;
+                    border-bottom: 1px solid #cfcfcf;
+                    display: flex;
+                    box-sizing: border-box;
+                    flex-direction: row;
+                    vertical-align: middle;
+                    align-items: center;
                     li{
                         color:#0b1e30;
+                        box-sizing: border-box;
                         display: inline-block;
-                        width: 168PX;
+                        width: 50%;
                         text-align: center;
-                        padding: 7px 0;
                         font-size:14px; 
-                        text-align: left;
-                        border-radius: 6px;
-                        border: solid 1px #cfcfcf;
+                        text-align: center;
+                        box-sizing: border-box;
+                        float: left;
+                        margin: auto;
+                        height: 55px;
+                        display: inline-flex;
+                        align-items: center;
+                        vertical-align: middle;
                         &:first-child {
-                            padding: 10px 0;
-                            margin-right: 10px;
+                            padding-right: 5px;
+                            border-right: 1px solid #cfcfcf;
+                        }
+                        &:last-child {
+                            padding-left: 5px
                         }
                         a{
-                            margin-left: 12px;
                             position: relative;
                             color: #000;
+                            padding-right: 25px;
+                            font-weight: 500;
+                            margin: auto;
                             &:after{
                                 content: '';
                                 display: inline-block;
@@ -2092,25 +2135,33 @@
                                 margin-bottom: 3px;
                                 position: absolute;
                                 right: 8px;
-                                top: 3px;
+                                top: 1px;
                             }
                         }
                         a.tz-mobRefine {
-                            padding: 0 0 0 28px;
                             text-decoration:none;
-                            background: url("../../resources/images/icons/refine.png") 0 0px no-repeat;
+                            /*background: url("../../resources/images/icons/refine.png") 0 0px no-repeat;*/
                             display: inline-block;
-                            height: 19px;
-                            width: 72%;
-                            background-size: contain;
+                            width: auto;
+                            background: none;
+                            /*background-size: contain;*/
+                            &:after {
+                                background-image: url(../../resources/images/icons/close-search.png);
+                                background-size: 20px;
+                                background-position: center;
+                                border: none;
+                                background-repeat: no-repeat;
+                                margin-top: 4px;
+                            }
+                            span.nooffilters {
+                                color: #004e99;
+                            }
                         }
                         label {
-                            background: url("../../resources/images/Sort_Icon.png") 0 0px no-repeat;
+                            /*background: url("../../resources/images/Sort_Icon.png") 0 0px no-repeat;*/
                             display: inline-block;
-                            height: 19px;
-                            width: 72%;
-                            background-size: 26px;
-                            padding: 3px 0 3px 31px;
+                            width: auto;
+                            background: none;
                         }
                         span {
                             border:none;
@@ -2120,29 +2171,37 @@
                             appearance:none;
                             -moz-appearance:none; 
                             -webkit-appearance:none;
+                            text-transform: uppercase;
                         }
                     }
                 } 
                 .mz-l-container,.categorytops{ 
+                    overflow-x: hidden;
+                    width: 100%;
+                    box-sizing: border-box;
                     .brand-dicreption-top{
                         .mz-drop-zone{
                             .mz-cms-row{
                                 .mz-cms-col-12-12{
                                     .mz-cms-block{
                                         .mz-cms-content{
-
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .brand-dicreption{
+                                            .brand-dicreption{
+                                                display: inline-block;
+                                                box-sizing: border-box;
+                                                width: 100%;
+                                                margin-bottom: 10px;
                             .a-spot-cointainer{
                                 height: auto;  
                                 img{
-                                    width: 100%;
+                                    width: 100% !important;
                                     position: inherit;
                                     /*height: 500px;*/
+                                }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
                                 }
                             }
                             .flavor-sec{ 
@@ -2188,7 +2247,7 @@
                                                     width: 49% !important;
                                                     .jb-childChildrenCategory{ 
                                                         p{
-                                                            width: 60%;
+                                                            width: 56%;
                                                         }
                                                     }
                                                 }
@@ -2198,7 +2257,251 @@
                                 }
                             }
                             .brand-buttons{
-                                margin: 0;
+                                margin:20px 0 0px !important;
+                                .button-dark{
+                                    display: block;
+                                    width: 65%;
+                                    margin: 0 auto !important;
+                                }
+                                .button-light{
+                                    display: block;
+                                    width: 65%;
+                                    margin: 0 auto;
+                                    margin-top: 10px;
+                                }
+                            } 
+                            .brand-description{
+                                width: 95%;
+                                .dec-head{
+                                    h2{
+                                        font-size: 24px;
+                                        font-weight: 300;
+                                        color: #222222;
+                                        margin-bottom: 0px;
+                                        margin: 35px 0;
+                                    }
+                                }
+                                .shot-dec{                                                        
+                                    //max-height: 210px;//Commented by shruthi as css is not proper in mobile device
+                                    max-height: 100%;
+                                    overflow: hidden;
+                                    position: relative;
+                                    display: none;
+                                    &.active{
+                                        display: block;
+                                    }
+                                    .readmore-text{
+                                        font-size: 18px;
+                                        font-weight: 700;
+                                        text-align: center;
+                                        color: #004e99;
+                                        cursor: pointer;
+                                        bottom: 17px;
+                                        position: relative;
+                                        padding: 10px 0;
+                                        margin-top: 9px;
+                                        display: inline-block;
+                                        &:before{
+                                            position: absolute;
+                                            content: '';
+                                            width: 14px;
+                                            height: 14px;
+                                            top: 15px;
+                                            right: -24px;
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            background-image: url(../../resources/images/icons/arrow_blue.png);
+                                            background-size: 100%;
+                                            background-repeat: no-repeat;
+                                            transform: rotate(-90deg); 
+                                        } 
+                                    }
+                                    p{
+                                        font-size: 18px;
+                                        color: #222222;
+                                        display: block !important;
+                                        max-height: 155px;
+                                        overflow: hidden;
+                                    }
+                                }
+                                .brand-details{
+                                    display: none;
+                                    &.active{
+                                        display: block;
+                                    }                                                        
+                                    p{
+                                        font-size: 18px !important;
+                                        color: #222222;
+                                        display: block !important;
+                                    }
+                                    .readless-text{
+                                        font-size: 18px;
+                                        font-weight: 700;
+                                        text-align: center;
+                                        color: #004e99;
+                                        cursor: pointer;
+                                        bottom: 17px;
+                                        position: relative;
+                                        padding: 10px 0;
+                                        margin-top: 9px;
+                                        display: inline-block;
+                                        &:before{
+                                            position: absolute;
+                                            content: '';
+                                            width: 14px;
+                                            height: 15px;
+                                            top: 15px;
+                                            // transform: rotate(180deg);
+                                            right: -24px; 
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            background-image: url(../../resources/images/icons/arrow_blue.png);
+                                            background-size: 100%;
+                                            background-repeat: no-repeat;
+                                        } 
+                                    }
+                                }
+                                .block-element{
+                                    width: 100%;
+                                    img{
+                                    }
+                                    .inline-element{
+                                        .block-element{
+                                            img{
+                                            }
+                                        }
+                                        &.per-85{
+                                            width: 67%;
+                                            .block-element{
+                                                .per-50{
+                                                    width: 49%;
+                                                }
+                                            }
+                                        }
+                                        &.per-25{
+                                        }
+                                        &.per-50{
+                                        }
+                                        &.per-15{
+                                            width: 31%;
+                                        }
+                                    }
+                                }
+                            }
+                            .sub-cat-list{
+                                margin-bottom: 15px;
+                                width: 100%;
+                                .item-cointainer{
+                                    width: 60%;
+                                    display: inline-block;
+                                    overflow: hidden;
+                                    &:last-child{
+                                    }
+                                    .img-cointainer{
+                                        img{
+                                        }
+                                    }
+                                    .dec-sec{
+                                        .head-sec{
+                                            font-size: 22px;
+                                        }
+                                        .dec-sec{
+                                            p{
+                                            }
+                                        }
+                                    } 
+                                    .btn-sec{ 
+                                        .sub-cat-btn{
+                                            &:hover{
+                                            }
+                                        }
+                                    }
+                                }
+                                .owl-stage-outer{
+                                    .owl-stage{
+                                        .owl-item{
+                                            .item-cointainer{
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .brand-dicreption{
+                            .a-spot-cointainer{
+                                height: auto;  
+                                img{
+                                    width: 100% !important;
+                                    position: inherit;
+                                    /*height: 500px;*/
+                                }
+                                &.mobileimage {
+                                    display: block;
+                                }
+                                &.desktopimage {
+                                    display: none;
+                                }
+                            }
+                            .flavor-sec{ 
+                                .flavor-List{ 
+                                    .jb-childcategory{
+                                        .jb-colapsing-title{
+                                            padding-left: 0;
+                                            padding-right: 0;
+                                            width: 100%;
+                                            /*text-align: left;*/
+                                            .jb-category-title{
+                                                position: relative;
+                                                max-width: 89%;
+                                                text-align: center;
+                                                padding-right: 30px;
+                                                padding-left: 10px; 
+                                                &[aria-expanded="false"]{
+                                                    &:before{
+                                                        right: 5px;
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        top: 8px;
+                                                    }
+                                                }
+                                                &[aria-expanded="true"]{
+                                                    &:before{
+                                                        right: 5px;
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        top : 8px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .jb_contentfolder{ 
+                                            .jb-childcategory-description{
+                                                text-align: left;
+                                                padding: 3% 5%;
+                                                width: 90%;
+                                            }
+                                            .jb-childChildrenCategories-container{ 
+                                                a{
+                                                    width: 49% !important;
+                                                    .jb-childChildrenCategory{ 
+                                                        p{
+                                                            width: 56%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .brand-buttons{
+                                margin: 20px 0px 0px !important;
                                 .button-dark{
                                     display: block;
                                     width: 65%;
@@ -2464,16 +2767,21 @@
                     .mz-l-paginatedlist{ 
                         .jb-pagecontrols.mz-desktop{
                             display: block;
-                            width: 93%;
+                            width: 100%;
                             .mz-pagingcontrols.mz-desktop{
-                                width: 90%;
+                                width: 100%;
+                                padding: 0px 10px 0px;
                                 display: block;
+                            }
+                            .facet-filtercointainer {
+                                float: left;
                             }
                             .mz-l-sidebar.mz-desktop-filters{
                                 display: none;
                             }
                             .jb-result-details{
-                                padding: 0;
+                                padding: 0 0px 10px;
+
                                 .heading-jb-result{
                                     font-size: 16px;
                                     color: #5c5c5c;
@@ -2482,12 +2790,13 @@
                         }
                         .load-more-prod{ 
                             .mz-pagenumbers-next{
-                                width: 50%;
+                                width: 45%;
                                 margin: 0 auto;
                                 margin-bottom: 10px;
+                                padding: 8px 8px;
                             }
                             .load-all{
-                                width: 50%;
+                                width: 45%;
                             }
                         }
                     }
@@ -2500,22 +2809,24 @@
         position: fixed;
         z-index: 999;
         top: 0;
-        width: 94%;
+        width: 100%;
         background-color: white;
-        padding: 3%;
+        padding: 0%;
         overflow-y: auto;
-        height: 100%;
+        /*height: 100%;*/
+        height: 100vh;
         #tz-mobilePopmenu{            
             position: relative;
             height: 620px;
+            min-height: 90vh;
             .tzPopup-exit{
                 float: right;
                 background-image: url(../../resources/images/icons/close-search.png);
                 width: 20px;
                 height: 20px;
                 position: absolute;
-                right: 10px;
-                top: 10px;
+                right: 15px;
+                top: 14px;
                 background-size: 100%;
                 cursor: pointer;
                 background-size: 100%;
@@ -2523,7 +2834,7 @@
             .tzPopup-body{
                 .tzPopup-content{
                     .facets-header{
-                        display: block;
+                        display: inline-block;
                         text-align: left;
                         text-decoration: none;
                         padding: 14px 0;
@@ -2532,7 +2843,7 @@
                             text-align: left;                                        
                             font-size: 18px; 
                             position: relative;
-                            padding-left: 20px;
+                            padding-left: 15px;
                             color: #000;
                             .filter-icon{
                                 background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAAAAXNSR0IArs4c6QAABGpJREFUeAHtmttrE0EUh8/Z2BQRtC2IIN5eCi34oHmoiCIWRVG0N7FeKqUFk0BFUJAiilDBB/FBBaHSFkVBVAza2kRtbRFURFERBMHmLxBfpEhB00vGczaZmrbRZJPd7KaZhWRmzs6emfPxm8tOgtDQ5YEpuAIC1gHAYvoUzoXwDRDaoM/fh1DT9ZUiryic6GdHioIsbRp9LZ99q7DKAkkV5zRA/FxYgSeJVkCEQVxPcquwTCiuumAk+AUqa37QZLmrsKKX0eI96Pe38xwB0Oe7Bpp2Ut4qoDQAnvJmjtc1HfRI8B1U7h0jZeyYts3nDOJ9KC5tgs49UxzmXxBcGgm9hYqa35TbzsV5fN0hCM0QaNQhcJwzQbAlHHwDFbUTAGIbF+fdhXgLPL5W6FwbTYxtLgi+Gw6+pmESpWFSnVg57/OIPdDn9UK1vomaEU5yEFxlJPSKYCDB2DrjiXwtIHYShDbaLvBOcs6FcyyzDbU9F0BEz84251n5Ki2R/10V/60IGWk4+IIm0IVU3CxN+ZXiJYJwKlWfU4NgD+HgMFTsXUS5TakcOuq+hhfgse9MOn1KDwR7CoeGSBlLKLcxHcf218FzBOF8uv1IHwR7DAcHSRlllNuQbgP21NPaod930UjbxkCw53BogGAspVyVkYZyVxdPEITLRttLvWok8yjoHb6u5zoI4U922x4bLYuaOEanTRm9TWcGgiPVYXR30z7jqD2BJ7SKQJs/9JISbiZYDWUzB8HNxGDcIBithlo1szLiFG2SWmizdCcbt7HX8Ew98C5tvY8VcTtTF1k+N0nHbIezhcB9yE4RMooOocGnboZxRJosTxHHAcUBPoE2o63sFCF70IFReq1tIa73pMnaFOmoAOvNgsB9NUcRMur9D1wQGb1Lk0ejNJmeIvyi07Ra6PUOmenbHEXIHvFBh6e8iSavh9JkaoowBhruMhsC99FcEOyxo3oSlolDpDVTxi67jF8/ScA7odf3UhrMTM0dGok983UVwXcYpqV1S6I54/wCrIJHvg8ZP5/iQfMVIRvs9k/QEPkoi9mltExbCIH7Zh0I9h6FCCf5cFkLAlCB0FWgifF8UAP30VpFqKER1wGqoREjIdTQiIFQiogPDaUIOUeofYQkofYRMRJqslSKiBOIJWrVkDiiaouto1CKiCtCKEXESGiaWj51Ei6XAhGTxISaLHUQi9xKETqINS1KEToI/ikQYFLPO/zL2qM6Pfj8OKWyHgTCc4eLQe+e9SDcJQfpp7qQ02FYDyLQOA7FJfvot9AnToZhPQiOnmG4SxucDCM3ICSMVStJGfjUicrIHQiO/truCKxa0UBzxjOnwcgtCAlj9Yp6yg44CUbuQUzDWFnnJBj2gJAwytz1NGcMOkEZ9oHg6G+1/obSojpaTWzfdNkLYhqGu5YmUFP/JWdUZfaDkDDKimpomAwnDYD/TWfx5QwQEoa75F8wuizmYPEfRYz2PtD4CyQMxFFSyHvq4XGynTbqymj9P5jWAf3omHpGAAAAAElFTkSuQmCC");
@@ -2546,6 +2857,15 @@
                                 left: 0;
                             }
                         }
+                    }
+                    .mz-reset-filter {
+                        float: right;
+                        margin-right: 50px;
+                        padding: 14px 10px;
+                        text-transform: uppercase;
+                        color: #004e99;
+                        font-weight: bold;
+                        text-decoration: none;
                     }
                     .tz-mobileSelected-filter{
                         label{
@@ -2565,8 +2885,10 @@
                     }
                     .mz-l-sidebar{
                         .mz-facetingform-new{
-                            height: 425px;
+                            min-height: 425px;
+                            height: 80vh;
                             overflow-y: auto;
+                            padding: 0px 10px;
                             .mz-l-sidebaritem-new{
                                 h4{
                                     font-size: 18px; 
@@ -2579,18 +2901,20 @@
                                     background-size: 24px;
                                     background-repeat: no-repeat;
                                     background-position-y: 50%;
-                                    background-position-x: 96%;
+                                    background-position-x: right;
+                                    text-transform: uppercase;
+                                    font-weight: bold;
                                 }
                                 &.selected{
                                     h4{
                                         background-image: url(../../resources/images/icons/minus_qty.png);
-                                        border-bottom: 1px solid #CFCFCF;
+                                        border-bottom: none;
                                     }
                                 }
                                 .mz-facetingform-facet{
                                     padding: 0;
                                     list-style-type: none;
-                                    display: none;
+                                    margin-top: 0px;
                                     .item-name{
                                         display: inline-block; 
                                         margin: 10px 0 10px 10px;
@@ -2611,22 +2935,22 @@
                                                     position: absolute;
                                                     content: '';
                                                     width: 4px;
-                                                    height: 7px;
+                                                    height: 9px;
                                                     transform: rotate(45deg);
-                                                    border-bottom: 3px solid white;
-                                                    border-right: 3px solid white;
-                                                    top: 1px;
-                                                    left: 4px; 
+                                                    border-bottom: 2px solid white;
+                                                    border-right: 2px solid white;
+                                                    top: 2px;
+                                                    left: 7px; 
                                                 }
                                             }
                                         }
                                         .checkbox-style{
-                                            width: 15px;
+                                            width: 20px;
                                             position: relative;
-                                            height: 15px;
+                                            height: 20px;
                                             border: 1px solid black;
                                             display: inline-block;
-                                            border-radius: 4px;
+                                            border-radius: 0px;
                                             margin-top: 0px;
                                             vertical-align: top;
                                             margin-right: 10px;
@@ -2646,17 +2970,17 @@
                                                 .mz1-facetingform-value{
                                                     padding: 0px;
                                                     border: 3px solid #000;
-                                                    border-radius: 4px;
+                                                    border-radius: 0px;
                                                 }
                                             }
                                         }
                                         &.rating{
                                             .reviewStar{
-                                                width: 90px;
-                                                height: 15px;
+                                                width: 150px;
+                                                height: 20px;
                                                 background-size: contain;
                                                 background-repeat: no-repeat;
-                                                background-position: 0px , 17px, 34px, 51px, 68px, 85px;
+                                                background-position: 0px , 25px, 51px, 78px, 105px, 150px;
                                                 display: inline-block;
                                                 vertical-align: top;
                                                 &.oneStar{
@@ -2713,12 +3037,13 @@
                     .button-data{
                         display: block;
                         margin: 0px 0;
-                        position: absolute;
-                        bottom: 0;
+                        position: fixed;
+                        bottom: 10px;
                         width: 100%;
                         text-align: center;
                         background-color: #fff;
-                        .tzPopup-Done{
+                        height: 41px;
+                        .tzPopup-Done,.closefacetpopup{
                             text-align: center;
                             text-transform: uppercase;
                             padding: 7px 45px;
@@ -2767,3 +3092,8 @@
     }
 }
 
+#preloaderoverlay {
+    #preloader {
+        position: absolute !important; 
+    }
+}

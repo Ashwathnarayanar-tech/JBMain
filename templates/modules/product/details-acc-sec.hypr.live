@@ -1,7 +1,7 @@
 {% if model.relatedProducts.length > 0 %} 
     <div class="related-products-section">
       <div id="related-products">  
-        <h2 tabindex="0">Related Products</h2>
+        <h3 tabindex="0">Related Products</h3>   
         <div class="product-row" role="region" aria-label="Related Products"> 
             {% for item in model.relatedProducts  %}
                 {% if model.isMobile %}

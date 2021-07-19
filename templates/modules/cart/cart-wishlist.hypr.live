@@ -2,106 +2,102 @@
     <h4 tabindex="0">Add More from My Wishlist</h4>
     <div class="wishlist-items"> 
         {% for prod in model.items %} 
-            <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ prod.product.productCode }}">
-                {% if prod.product.price.salePrice > 0 and prod.product.price.price > prod.product.price.salePrice %}
-                    <span class="sale-tag-icon">Sale</span>
+            <div class="row mz-productlisting {% block module-classes %}{% endblock module-classes %} {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %} withsale-new-label {% endif %}{% if prod.options and prod.options.length > 0 %}{% for option in prod.options %}{% if option.attributeDetail.inputType == 'List' %}giftcard{% endif %}{% endfor %}{% endif %}" data-mz-product="{{ prod.productCode }}">
+                {% if prod.price.salePrice > 0 and prod.price.price > prod.price.salePrice %}
+                    <p class="sale-tag-icon  product-sale-new-label"><em></em> <span>Sale</span><em></em></p>
                 {% endif %}
-                <div class="mz-productlisting-image-right"> 
+                <div class="mz-productlisting-image-right prod-content"> 
                     {% block product-image %}
                         <div class="row product-listing-row-content">
-                            <div class="mz-subcategory-image-div"> 
-                                <a aria-label="{{prod.product.name}} product image" href="/p/{{prod.product.productCode}}">
-                                    {% if prod.product.imageUrl %}
-                                        <img class="new-lazy-load" src="{{ prod.product.imageUrl }}?maxWidth=200" style="max-height: 200px" alt="{{prod.product.name}} product image"/>
+                            <div class="mz-subcategory-image-div  mz-productlisting-image"> 
+                                <a aria-label="{{prod.content.productName}} product image" href="/p/{{prod.productCode}}">
+                                    {% if prod.mainImage.imageUrl %}
+                                        <img class="new-lazy-load" src="{{ prod.mainImage.imageUrl }}?max=200" style="max-height: 200px" alt="{{prod.content.productName}} product image"/>
                                     {% else %}
-                                        <span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span> 
+                                        <img class="new-lazy-load" src="{{ siteContext.cdnPrefix }}/cms/{{siteContext.siteId}}/files/{{themeSettings.no_product_image}}?max=200" style="max-height: 200px" alt="{{prod.content.productName}} product image"/>
                                     {% endif %}
                                 </a>
-                            </div> 
-                            <div class="mz-productlisting-info">
-                                <div class="productTitle"><a class="mz-productlisting-title" href="/p/{{prod.product.productCode}}"   aria-label="{{prod.product.name|safe}}">{{prod.product.name|truncatewords(10)|safe}}</a></div>
-                                <div class="priceSection"> 
-                                    <div class="jb-product-prize" data-mz-product-price="{{prod.product.price.price}}"> 
-                                        {% if prod.product.options and prod.product.options.length > 0 %}
-                                            {% for option in prod.product.options %}
-                                                {% if option.attributeDetail.inputType == "List" %}
-                                                    <select plp-giftcart-prize-change-action data-jb-pid="{{ prod.product.productCode }}" data-mz-product-option="tenant~gift-card-prices"
-                                                        {% if option.isMultiValue %}multiple{% endif %} 
-                                                        class="" data-mz-product-option="{{ option.attributeFQN }}"
-                                                            style="display: inline-block;
-                                                                zoom: 1;
-                                                                margin: 0 1px;
-                                                                padding: 2px 2px;
-                                                                font-size: 12px;
-                                                                font-family: Trebuchet MS,Verdana,sans-serif;
-                                                                width: 135px;
-                                                                text-align: center;
-                                                                border: 1px solid #ccc;
-                                                                border-radius: 3px;
-                                                                height: auto; 
-                                                                font-weight: bold;
-                                                                color: #5E5454;">
-                                                        {% if not option.isMultiValue %}<option>Select gift amount</option>{% endif %}
-                                                        {% for value in option.values %}
-                                                        <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
-                                                            value="{{value.value}}">$
-                                                            {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
-                                                        {% endfor %}
-                                                    </select>
+                            </div>
+                            <div class="jb-product-min-details">   
+                                <div class="mz-productlisting-info">
+                                    <div class="productTitle"><a class="mz-productlisting-title" href="/p/{{prod.productCode}}"   aria-label="{{prod.content.productName|safe}}"><h2 class="prod-title-heading">{{prod.content.productName|truncatewords(10)|safe}}</h2></a></div>
+                                    <div class="priceSection"> 
+                                        <div class="jb-product-prize" data-mz-product-price="{{prod.price.price}}"> 
+                                            {% if prod.options and prod.options.length > 0 %}
+                                                {% for option in prod.options %}
+                                                    {% if option.attributeDetail.inputType == "List" %}
+                                                        <select plp-giftcart-prize-change-action data-jb-pid="{{ prod.productCode }}" data-mz-product-option="tenant~gift-card-prices"
+                                                            {% if option.isMultiValue %}multiple{% endif %} 
+                                                            class="" data-mz-product-option="{{ option.attributeFQN }}">
+                                                            {% if not option.isMultiValue %}<option>Select Gift Card Amount</option>{% endif %}
+                                                            {% for value in option.values %}
+                                                            <option {% if not value.isEnabled %} class="is-disabled" {% endif %} {% if value.isSelected %}selected="true"{% endif %}
+                                                                value="{{value.value}}">$
+                                                                {{value.stringValue|default(value.value)}}{% if value.deltaPrice and value.deltaPrice > 0 %} ( {{ value.deltaPrice|currency }} {{ labels.more }} ){% endif %}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <img class="down-caret-quantity-myacc-add" src="/resources/images/icons/down_caret.png" style="display: block;width:13px;">
+                                                        <img class="up-caret-quantity-myacc-add" src="/resources/images/icons/up_caret.png" style="display: none; width:13px;" >
+                                                    {% endif %}  
+                                                {% endfor %}
+                                            {% else %}
+                                                {% if prod.price.price !=  prod.price.salePrice %} 
+                                                    {% if prod.price.salePrice%}
+                                                        <span tabindex="0" class="jb-quickcsale"> {{prod.price.salePrice|currency}}</span>
+                                                    {% endif %}    
                                                 {% endif %}  
-                                            {% endfor %}
-                                        {% else %} 
-                                            {%if prod.product.price.price%}<span  tabindex="0" class="jb-quickprice
-                                             {% if prod.product.price.price > prod.product.price.salePrice and prod.product.price.salePrice !== null
-                                              and prod.product.price.salePrice !== 0 %}
-                                            strikeprice {% endif %}">{{prod.product.price.price|currency}}</span>{%endif%}
-                                            {% if prod.product.price.price !=  prod.product.price.salePrice %} 
-                                            {% if prod.product.price.salePrice%}<span tabindex="0" class="jb-quickcsale">Sale: {{prod.product.price.salePrice|currency}}</span>
-                                                <span class="sale-percentage" tabindex="0" >{% with prod.product.price.price|floatformat(2) as actP %}{% with prod.product.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}You save {{sale}}%! {% endwith %}{% endwith %}{% endwith %}</span>
+                                                {%if prod.price.price%}
+                                                    <span  tabindex="0" class="jb-quickprice {% if prod.price.price > prod.price.salePrice and prod.price.salePrice !== null and prod.price.salePrice !== 0 %} strikeprice {% endif %}">{{prod.price.price|currency}}</span>
+                                                {%endif%}
+                                                {% if prod.price.price !=  prod.price.salePrice %} 
+                                                    {% if prod.price.salePrice%}
+                                                        <span class="sale-percentage" tabindex="0" >{% with prod.price.price|floatformat(2) as actP %}{% with prod.price.salePrice|floatformat(2) as saleP %}{% with actP|subtract(saleP)|floatformat(2)|divide(actP)|floatformat(2)|multiply(100)|floatformat(0) as sale %}Save {{sale}}% {% endwith %}{% endwith %}{% endwith %}</span>
+                                                    {% endif %}    
+                                                {% endif %} 
                                             {% endif %}    
-                                            {% endif %} 
-                                        {% endif %}    
+                                        </div> 
                                     </div> 
+                                    <div class="mz-swatch">
+                                        {% for property in prod.options %}
+                                            {% if property.attributeFQN == "Tenant~color" || property.attributeFQN == "tenant~color" %}
+                                                {% for colorOpt in property.values %}
+                                                    <span class="swatch-element" for="tenantcolor_{{ colorOpt.value }}">
+                                                        <input type="button" data-toolstip="toolstip" data-placement="top" title="{{ colorOpt.value }}" class="swatch {{ colorOpt.value|lower }}" data-mz-swatch value="{{ colorOpt.value }}">
+                                                        <label for="tenantcolor_{{ colorOpt.value }}"></label>
+                                                    </span>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %} 
+                                    </div>
+                                    <div class="cardMobCTAcontainer">    
+                                        
+                                        <div class="jb-buy-product quickview-jb">
+                                            <div class="mz-productdetail-conversion-controls">
+                                                <div class="qty-input-box qty" tabindex="0" aria-label="Quantity - 1">
+                                                    <input type="text" class="quantity quantity-field-wish plpquantityinput" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) : 1"/> 
+                                                    <span role="button" tabindex="0" class="increment spinner plpquantityincrement" aria-label="Increase quantity of {{ prod.content.productName|safe }} by one" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value)+1 : 25"></span>
+                                                    <span role="button" tabindex="0" class="dicrement spinner plpquantitydicrement" aria-label="Decrease quantity of {{ prod.content.productName|safe }} by one" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value)-1 : 1"></span>
+                                                </div>  
+                                              <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+                                            </div>
+                                            {% if  prod.purchasableState.isPurchasable %}
+                                                <button class="add-to-cart-wish jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-wish"  href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" type="submit" > Add to Cart </button>
+                                            {% else %}   
+                                                {% if prod.options and prod.options.length > 0 %}
+                                                    <button class="add-to-cart-wish" href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}" data-jb-price="
+                                                        {% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" 
+                                                        data-jb-pid="{{ prod.productCode }}" 
+                                                        class="jb-add-to-cart-wish gift-prize-select" type="submit" >
+                                                        shop gift card
+                                                    </button>
+                                                {% else %}
+                                                    <button class="add-to-cart-wish jb-out-of-stock-wish"  href="javascript:void(0);" data-mz-prcode="{{ prod.productCode }}"  data-jb-price="{% if prod.price.onSale %}{{ prod.price.salePrice }} {% else %} {{ prod.price.price }} {% endif %}" data-jb-pid="{{ prod.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-wish" type="submit"> Notify Me </button>
+                                                {% endif %}  
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div> 
-                                <div class="mz-swatch">
-                                    {% for property in prod.product.options %}
-                                        {% if property.attributeFQN == "Tenant~color" || property.attributeFQN == "tenant~color" %}
-                                            {% for colorOpt in property.values %}
-                                                <span class="swatch-element" for="tenantcolor_{{ colorOpt.value }}">
-                                                    <input type="button" data-toolstip="toolstip" data-placement="top" title="{{ colorOpt.value }}" class="swatch {{ colorOpt.value|lower }}" data-mz-swatch value="{{ colorOpt.value }}">
-                                                    <label for="tenantcolor_{{ colorOpt.value }}"></label>
-                                                </span>
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %} 
-                                </div>   
-                                <div class="mz-productdetail-conversion-controls">
-                                    {% if prod.product.price.price > 0 %}
-                                        <div class="qty-input-box" tabindex="0" aria-label="Quantity - 1">
-                                            <input type="text" class="quantity-field-wish" name="quantity" value="1" onChange="this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = (parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) >= 1 && parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) <= 25) ? parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) : 1"/> 
-                                            <span role="button" tabindex="0" class="increment spinner" aria-label="Increase quantity of {{ prod.product.name|safe }} by one" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) < 25 ? this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value)+1 : 25"></span>
-                                            <span role="button" tabindex="0" class="dicrement spinner" aria-label="Decrease quantity of {{ prod.product.name|safe }} by one" onclick="parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value) > 1 ? this.parentElement.querySelectorAll('.quantity-field-wish')[0].value = parseInt(this.parentElement.querySelectorAll('.quantity-field-wish')[0].value)-1 : 1"></span>
-                                        </div>  
-                                    {% endif %} 
-                                  <span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
-                                </div>
-                                <div class="jb-buy-product quickview-jb">
-                                    {% if  prod.purchasableStatusType == "purchasable" %}
-                                        <button class="add-to-cart-wish"  href="javascript:void(0);" data-mz-prcode="{{ prod.product.productCode }}"  data-jb-price="{% if prod.product.price.onSale %}{{ prod.product.price.salePrice }} {% else %} {{ prod.product.price.price }} {% endif %}" data-jb-pid="{{ prod.product.productCode }}" class="jb-add-to-cart-cur jb-tealium-trigger add-to-cart-btn-wish" type="submit" > Add to Cart </button>
-                                    {% else %}   
-                                        {% if prod.product.options and prod.product.options.length > 0 %}
-                                            <button class="add-to-cart-wish" href="javascript:void(0);" data-mz-prcode="{{ prod.product.productCode }}" data-jb-price="
-                                                {% if prod.product.price.onSale %}{{ prod.product.price.salePrice }} {% else %} {{ prod.product.price.price }} {% endif %}" 
-                                                data-jb-pid="{{ prod.product.productCode }}" 
-                                                class="jb-add-to-cart-wish gift-prize-select" type="submit" >
-                                                shop gift card
-                                            </button>
-                                        {% else %}
-                                            <button class="jb-out-of-stock-wish" data-mz-product-code="{{ prod.product.productCode }}" style="cursor: pointer;"> Notify Me </button>
-                                        {% endif %}  
-                                    {% endif %}
-                                </div>
-                            </div> 
+                            </div>
                         </div>
                     {% endblock product-image %} 
                 </div>
