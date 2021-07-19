@@ -2082,7 +2082,9 @@ define([
                 $(document).find('[jb-mobsort]').find('a').focus(); 
                 $('.mz-pagesort-mobile').removeClass('showsortpopup');
             } else {
-                $(document.body).animate({scrollTop: $('.mobileuxFilter').offset().top-200}, '500');
+                if($('.mobileuxFilter').length) {
+                    $(document.body).animate({scrollTop: $('.mobileuxFilter').offset().top-200}, '500');
+                }
                 $("body").append("<div class='open-sortoverlay'></div>");
                 $('.mobileuxFilter').addClass("showsortbydropdown");
                 $('.mz-pagesort-mobile').slideDown('slow');
@@ -2090,7 +2092,31 @@ define([
                 $('.jb-mobile-sort').focus();
                 loopmobilesort();
             }
-        });          
+        }); 
+        $(document).on("click",'.closefacetpopup',function(e) {
+            $(".tzPopup-exit").trigger('click');
+        });
+        $(document).on("keypress",'.cancel-btn-container',function(e) {
+            if ( e.which == 13 ) {
+                e.preventDefault();
+                $(this).trigger('click');
+            }
+        });
+        $(document).on('click','.tz-mobRefine', function(e) {
+            e.preventDefault(); 
+            $(".closefacetpopup span").html("SHOW "+$(".jb-result-details").attr("data-total-results")+" RESULTS");
+            $('.open-sortoverlay').remove();
+            $('.mobileuxFilter').removeClass("showsortbydropdown");
+            $('.mz-pagesort-mobile').hide();
+            $(document).find('[jb-mobsort]').find('a').focus(); 
+            $('.mz-pagesort-mobile').removeClass('showsortpopup');
+            $('#tz-refinePopup').slideDown('slow');
+            $('html').addClass('overlay');
+            $('#tz-mobilePopmenu').addClass('visible');
+            $('body').css({'overflow' : 'hidden'});
+            $('#tz-refinePopup').find('#tz-mobilePopmenu').focus(); 
+            filterfun.loopfilterheadmobile();
+        });         
         // loop in mobile sort
         function loopmobilesort(){ 
             window.sortinputs = $(document).find('.jb-mobile-sort').find('.jb-mobile-sort-cancel,[data-mz-value="sortMob"]').filter(':visible');   

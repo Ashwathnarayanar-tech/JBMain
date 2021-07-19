@@ -12,18 +12,14 @@
         box-sizing: border-box;
     }
 </style>
-<div class="mz-mobile">
+<div class="mz-mobile mobileuxFilter">
     <ul class="tz-mobrefine-slot">
-        <li>
-            <a href="javascript:void(0)" class="tz-mobRefine" role="button">
-                Filter By
-            </a>
-        </li>
-        <li jb-mobsort data-jb-current-sort>
-            <a href="javascript:void(0)">
+        <li><a href="javascript:void(0);" class="tz-mobRefine" role="button">FILTER <span class="nooffilters">(0)</span></a></li>
+        <li jb-mobSort data-jb-current-sort="{{model.currentSort}}">
+            <a href="javascript:void(0)" >
                 <label>
                     <span role="button">
-                        Sort By
+                        {% if not model.currentSort %}SORT BY{% else %} {{model.currentSort}}  {% endif %}
                     </span>
                 </label>
             </a>
